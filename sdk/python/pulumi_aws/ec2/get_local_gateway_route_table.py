@@ -114,7 +114,7 @@ class AwaitableGetLocalGatewayRouteTableResult(GetLocalGatewayRouteTableResult):
             tags=self.tags)
 
 
-def get_local_gateway_route_table(filters: Optional[Sequence[Union['GetLocalGatewayRouteTableFilterArgs', 'GetLocalGatewayRouteTableFilterArgsDict']]] = None,
+def get_local_gateway_route_table(filters: Optional[Sequence[Union['GetLocalGatewayRouteTableFilterArgs', 'GetLocalGatewayRouteTableFilterArgsDict', 'outputs.GetLocalGatewayRouteTableFilterResult']]] = None,
                                   local_gateway_id: Optional[_builtins.str] = None,
                                   local_gateway_route_table_id: Optional[_builtins.str] = None,
                                   outpost_arn: Optional[_builtins.str] = None,
@@ -174,7 +174,7 @@ def get_local_gateway_route_table(filters: Optional[Sequence[Union['GetLocalGate
         region=pulumi.get(__ret__, 'region'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_local_gateway_route_table_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetLocalGatewayRouteTableFilterArgs', 'GetLocalGatewayRouteTableFilterArgsDict']]]]] = None,
+def get_local_gateway_route_table_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetLocalGatewayRouteTableFilterArgs', 'GetLocalGatewayRouteTableFilterArgsDict', 'outputs.GetLocalGatewayRouteTableFilterResult']]]]] = None,
                                          local_gateway_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                          local_gateway_route_table_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                          outpost_arn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,

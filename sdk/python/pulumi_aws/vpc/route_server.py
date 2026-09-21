@@ -335,7 +335,7 @@ class RouteServer(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  sns_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['RouteServerTimeoutsArgs', 'RouteServerTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['RouteServerTimeoutsArgs', 'RouteServerTimeoutsArgsDict', 'outputs.RouteServerTimeouts']]] = None,
                  __props__=None):
         """
         Provides a resource for managing a VPC Route Server.
@@ -461,7 +461,7 @@ class RouteServer(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  sns_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['RouteServerTimeoutsArgs', 'RouteServerTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['RouteServerTimeoutsArgs', 'RouteServerTimeoutsArgsDict', 'outputs.RouteServerTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -504,7 +504,7 @@ class RouteServer(pulumi.CustomResource):
             sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['RouteServerTimeoutsArgs', 'RouteServerTimeoutsArgsDict']]] = None) -> 'RouteServer':
+            timeouts: pulumi.Input[Optional[Union['RouteServerTimeoutsArgs', 'RouteServerTimeoutsArgsDict', 'outputs.RouteServerTimeouts']]] = None) -> 'RouteServer':
         """
         Get an existing RouteServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

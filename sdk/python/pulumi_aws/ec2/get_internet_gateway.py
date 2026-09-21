@@ -120,7 +120,7 @@ class AwaitableGetInternetGatewayResult(GetInternetGatewayResult):
             tags=self.tags)
 
 
-def get_internet_gateway(filters: Optional[Sequence[Union['GetInternetGatewayFilterArgs', 'GetInternetGatewayFilterArgsDict']]] = None,
+def get_internet_gateway(filters: Optional[Sequence[Union['GetInternetGatewayFilterArgs', 'GetInternetGatewayFilterArgsDict', 'outputs.GetInternetGatewayFilterResult']]] = None,
                          internet_gateway_id: Optional[_builtins.str] = None,
                          region: Optional[_builtins.str] = None,
                          tags: Optional[Mapping[str, _builtins.str]] = None,
@@ -143,7 +143,7 @@ def get_internet_gateway(filters: Optional[Sequence[Union['GetInternetGatewayFil
     ```
 
 
-    :param Sequence[Union['GetInternetGatewayFilterArgs', 'GetInternetGatewayFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetInternetGatewayFilterArgs', 'GetInternetGatewayFilterArgsDict', 'outputs.GetInternetGatewayFilterResult']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
@@ -169,7 +169,7 @@ def get_internet_gateway(filters: Optional[Sequence[Union['GetInternetGatewayFil
         owner_id=pulumi.get(__ret__, 'owner_id'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_internet_gateway_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetInternetGatewayFilterArgs', 'GetInternetGatewayFilterArgsDict']]]]] = None,
+def get_internet_gateway_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetInternetGatewayFilterArgs', 'GetInternetGatewayFilterArgsDict', 'outputs.GetInternetGatewayFilterResult']]]]] = None,
                                 internet_gateway_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
@@ -192,7 +192,7 @@ def get_internet_gateway_output(filters: pulumi.Input[Optional[Optional[Sequence
     ```
 
 
-    :param Sequence[Union['GetInternetGatewayFilterArgs', 'GetInternetGatewayFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetInternetGatewayFilterArgs', 'GetInternetGatewayFilterArgsDict', 'outputs.GetInternetGatewayFilterResult']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:

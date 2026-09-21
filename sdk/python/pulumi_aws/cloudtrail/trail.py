@@ -657,14 +657,14 @@ class Trail(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 advanced_event_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrailAdvancedEventSelectorArgs', 'TrailAdvancedEventSelectorArgsDict']]]]] = None,
+                 advanced_event_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrailAdvancedEventSelectorArgs', 'TrailAdvancedEventSelectorArgsDict', 'outputs.TrailAdvancedEventSelector']]]]] = None,
                  cloud_watch_logs_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  cloud_watch_logs_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_log_file_validation: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_logging: pulumi.Input[Optional[_builtins.bool]] = None,
-                 event_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrailEventSelectorArgs', 'TrailEventSelectorArgsDict']]]]] = None,
+                 event_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrailEventSelectorArgs', 'TrailEventSelectorArgsDict', 'outputs.TrailEventSelector']]]]] = None,
                  include_global_service_events: pulumi.Input[Optional[_builtins.bool]] = None,
-                 insight_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrailInsightSelectorArgs', 'TrailInsightSelectorArgsDict']]]]] = None,
+                 insight_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrailInsightSelectorArgs', 'TrailInsightSelectorArgsDict', 'outputs.TrailInsightSelector']]]]] = None,
                  is_multi_region_trail: pulumi.Input[Optional[_builtins.bool]] = None,
                  is_organization_trail: pulumi.Input[Optional[_builtins.bool]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -940,14 +940,14 @@ class Trail(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TrailAdvancedEventSelectorArgs', 'TrailAdvancedEventSelectorArgsDict']]]] advanced_event_selectors: Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `event_selector`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TrailAdvancedEventSelectorArgs', 'TrailAdvancedEventSelectorArgsDict', 'outputs.TrailAdvancedEventSelector']]]] advanced_event_selectors: Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `event_selector`.
         :param pulumi.Input[_builtins.str] cloud_watch_logs_group_arn: Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
         :param pulumi.Input[_builtins.str] cloud_watch_logs_role_arn: Role for the CloudWatch Logs endpoint to assume to write to a user’s log group.
         :param pulumi.Input[_builtins.bool] enable_log_file_validation: Whether log file integrity validation is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_logging: Enables logging for the trail. When set to `true`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `false`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TrailEventSelectorArgs', 'TrailEventSelectorArgsDict']]]] event_selectors: Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advanced_event_selector`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TrailEventSelectorArgs', 'TrailEventSelectorArgsDict', 'outputs.TrailEventSelector']]]] event_selectors: Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advanced_event_selector`.
         :param pulumi.Input[_builtins.bool] include_global_service_events: Whether the trail is publishing events from global services such as IAM to the log files. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TrailInsightSelectorArgs', 'TrailInsightSelectorArgsDict']]]] insight_selectors: Configuration block for identifying unusual operational activity. See details below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TrailInsightSelectorArgs', 'TrailInsightSelectorArgsDict', 'outputs.TrailInsightSelector']]]] insight_selectors: Configuration block for identifying unusual operational activity. See details below.
         :param pulumi.Input[_builtins.bool] is_multi_region_trail: Whether the trail is created in the current region or in all regions. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] is_organization_trail: Whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key ARN to use to encrypt the logs delivered by CloudTrail.
@@ -1244,14 +1244,14 @@ class Trail(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 advanced_event_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrailAdvancedEventSelectorArgs', 'TrailAdvancedEventSelectorArgsDict']]]]] = None,
+                 advanced_event_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrailAdvancedEventSelectorArgs', 'TrailAdvancedEventSelectorArgsDict', 'outputs.TrailAdvancedEventSelector']]]]] = None,
                  cloud_watch_logs_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  cloud_watch_logs_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_log_file_validation: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_logging: pulumi.Input[Optional[_builtins.bool]] = None,
-                 event_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrailEventSelectorArgs', 'TrailEventSelectorArgsDict']]]]] = None,
+                 event_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrailEventSelectorArgs', 'TrailEventSelectorArgsDict', 'outputs.TrailEventSelector']]]]] = None,
                  include_global_service_events: pulumi.Input[Optional[_builtins.bool]] = None,
-                 insight_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrailInsightSelectorArgs', 'TrailInsightSelectorArgsDict']]]]] = None,
+                 insight_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrailInsightSelectorArgs', 'TrailInsightSelectorArgsDict', 'outputs.TrailInsightSelector']]]]] = None,
                  is_multi_region_trail: pulumi.Input[Optional[_builtins.bool]] = None,
                  is_organization_trail: pulumi.Input[Optional[_builtins.bool]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1303,16 +1303,16 @@ class Trail(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            advanced_event_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrailAdvancedEventSelectorArgs', 'TrailAdvancedEventSelectorArgsDict']]]]] = None,
+            advanced_event_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrailAdvancedEventSelectorArgs', 'TrailAdvancedEventSelectorArgsDict', 'outputs.TrailAdvancedEventSelector']]]]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             cloud_watch_logs_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
             cloud_watch_logs_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             enable_log_file_validation: pulumi.Input[Optional[_builtins.bool]] = None,
             enable_logging: pulumi.Input[Optional[_builtins.bool]] = None,
-            event_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrailEventSelectorArgs', 'TrailEventSelectorArgsDict']]]]] = None,
+            event_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrailEventSelectorArgs', 'TrailEventSelectorArgsDict', 'outputs.TrailEventSelector']]]]] = None,
             home_region: pulumi.Input[Optional[_builtins.str]] = None,
             include_global_service_events: pulumi.Input[Optional[_builtins.bool]] = None,
-            insight_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrailInsightSelectorArgs', 'TrailInsightSelectorArgsDict']]]]] = None,
+            insight_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrailInsightSelectorArgs', 'TrailInsightSelectorArgsDict', 'outputs.TrailInsightSelector']]]]] = None,
             is_multi_region_trail: pulumi.Input[Optional[_builtins.bool]] = None,
             is_organization_trail: pulumi.Input[Optional[_builtins.bool]] = None,
             kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1331,16 +1331,16 @@ class Trail(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TrailAdvancedEventSelectorArgs', 'TrailAdvancedEventSelectorArgsDict']]]] advanced_event_selectors: Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `event_selector`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TrailAdvancedEventSelectorArgs', 'TrailAdvancedEventSelectorArgsDict', 'outputs.TrailAdvancedEventSelector']]]] advanced_event_selectors: Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `event_selector`.
         :param pulumi.Input[_builtins.str] arn: ARN of the trail.
         :param pulumi.Input[_builtins.str] cloud_watch_logs_group_arn: Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
         :param pulumi.Input[_builtins.str] cloud_watch_logs_role_arn: Role for the CloudWatch Logs endpoint to assume to write to a user’s log group.
         :param pulumi.Input[_builtins.bool] enable_log_file_validation: Whether log file integrity validation is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_logging: Enables logging for the trail. When set to `true`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `false`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TrailEventSelectorArgs', 'TrailEventSelectorArgsDict']]]] event_selectors: Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advanced_event_selector`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TrailEventSelectorArgs', 'TrailEventSelectorArgsDict', 'outputs.TrailEventSelector']]]] event_selectors: Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advanced_event_selector`.
         :param pulumi.Input[_builtins.str] home_region: Region in which the trail was created.
         :param pulumi.Input[_builtins.bool] include_global_service_events: Whether the trail is publishing events from global services such as IAM to the log files. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TrailInsightSelectorArgs', 'TrailInsightSelectorArgsDict']]]] insight_selectors: Configuration block for identifying unusual operational activity. See details below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TrailInsightSelectorArgs', 'TrailInsightSelectorArgsDict', 'outputs.TrailInsightSelector']]]] insight_selectors: Configuration block for identifying unusual operational activity. See details below.
         :param pulumi.Input[_builtins.bool] is_multi_region_trail: Whether the trail is created in the current region or in all regions. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] is_organization_trail: Whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key ARN to use to encrypt the logs delivered by CloudTrail.

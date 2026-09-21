@@ -114,7 +114,7 @@ class AwaitableGetSecurityGroupsResult(GetSecurityGroupsResult):
             vpc_ids=self.vpc_ids)
 
 
-def get_security_groups(filters: Optional[Sequence[Union['GetSecurityGroupsFilterArgs', 'GetSecurityGroupsFilterArgsDict']]] = None,
+def get_security_groups(filters: Optional[Sequence[Union['GetSecurityGroupsFilterArgs', 'GetSecurityGroupsFilterArgsDict', 'outputs.GetSecurityGroupsFilterResult']]] = None,
                         region: Optional[_builtins.str] = None,
                         tags: Optional[Mapping[str, _builtins.str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityGroupsResult:
@@ -150,7 +150,7 @@ def get_security_groups(filters: Optional[Sequence[Union['GetSecurityGroupsFilte
     ```
 
 
-    :param Sequence[Union['GetSecurityGroupsFilterArgs', 'GetSecurityGroupsFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html).
+    :param Sequence[Union['GetSecurityGroupsFilterArgs', 'GetSecurityGroupsFilterArgsDict', 'outputs.GetSecurityGroupsFilterResult']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html).
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match for desired security groups.
     """
@@ -169,7 +169,7 @@ def get_security_groups(filters: Optional[Sequence[Union['GetSecurityGroupsFilte
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_ids=pulumi.get(__ret__, 'vpc_ids'))
-def get_security_groups_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetSecurityGroupsFilterArgs', 'GetSecurityGroupsFilterArgsDict']]]]] = None,
+def get_security_groups_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetSecurityGroupsFilterArgs', 'GetSecurityGroupsFilterArgsDict', 'outputs.GetSecurityGroupsFilterResult']]]]] = None,
                                region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityGroupsResult]:
@@ -205,7 +205,7 @@ def get_security_groups_output(filters: pulumi.Input[Optional[Optional[Sequence[
     ```
 
 
-    :param Sequence[Union['GetSecurityGroupsFilterArgs', 'GetSecurityGroupsFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html).
+    :param Sequence[Union['GetSecurityGroupsFilterArgs', 'GetSecurityGroupsFilterArgsDict', 'outputs.GetSecurityGroupsFilterResult']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html).
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match for desired security groups.
     """

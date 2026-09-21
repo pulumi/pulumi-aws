@@ -305,7 +305,7 @@ class PlaceIndex(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_source: pulumi.Input[Optional[_builtins.str]] = None,
-                 data_source_configuration: pulumi.Input[Optional[Union['PlaceIndexDataSourceConfigurationArgs', 'PlaceIndexDataSourceConfigurationArgsDict']]] = None,
+                 data_source_configuration: pulumi.Input[Optional[Union['PlaceIndexDataSourceConfigurationArgs', 'PlaceIndexDataSourceConfigurationArgsDict', 'outputs.PlaceIndexDataSourceConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  index_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -337,7 +337,7 @@ class PlaceIndex(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_source: Geospatial data provider for the new place index.
-        :param pulumi.Input[Union['PlaceIndexDataSourceConfigurationArgs', 'PlaceIndexDataSourceConfigurationArgsDict']] data_source_configuration: Configuration block with the data storage option chosen for requesting Places. Detailed below.
+        :param pulumi.Input[Union['PlaceIndexDataSourceConfigurationArgs', 'PlaceIndexDataSourceConfigurationArgsDict', 'outputs.PlaceIndexDataSourceConfiguration']] data_source_configuration: Configuration block with the data storage option chosen for requesting Places. Detailed below.
         :param pulumi.Input[_builtins.str] description: Optional description for the place index resource.
         :param pulumi.Input[_builtins.str] index_name: Name of the place index resource.
                
@@ -390,7 +390,7 @@ class PlaceIndex(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_source: pulumi.Input[Optional[_builtins.str]] = None,
-                 data_source_configuration: pulumi.Input[Optional[Union['PlaceIndexDataSourceConfigurationArgs', 'PlaceIndexDataSourceConfigurationArgsDict']]] = None,
+                 data_source_configuration: pulumi.Input[Optional[Union['PlaceIndexDataSourceConfigurationArgs', 'PlaceIndexDataSourceConfigurationArgsDict', 'outputs.PlaceIndexDataSourceConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  index_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -430,7 +430,7 @@ class PlaceIndex(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             create_time: pulumi.Input[Optional[_builtins.str]] = None,
             data_source: pulumi.Input[Optional[_builtins.str]] = None,
-            data_source_configuration: pulumi.Input[Optional[Union['PlaceIndexDataSourceConfigurationArgs', 'PlaceIndexDataSourceConfigurationArgsDict']]] = None,
+            data_source_configuration: pulumi.Input[Optional[Union['PlaceIndexDataSourceConfigurationArgs', 'PlaceIndexDataSourceConfigurationArgsDict', 'outputs.PlaceIndexDataSourceConfiguration']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             index_arn: pulumi.Input[Optional[_builtins.str]] = None,
             index_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -447,7 +447,7 @@ class PlaceIndex(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] create_time: Timestamp for when the place index resource was created in ISO 8601 format.
         :param pulumi.Input[_builtins.str] data_source: Geospatial data provider for the new place index.
-        :param pulumi.Input[Union['PlaceIndexDataSourceConfigurationArgs', 'PlaceIndexDataSourceConfigurationArgsDict']] data_source_configuration: Configuration block with the data storage option chosen for requesting Places. Detailed below.
+        :param pulumi.Input[Union['PlaceIndexDataSourceConfigurationArgs', 'PlaceIndexDataSourceConfigurationArgsDict', 'outputs.PlaceIndexDataSourceConfiguration']] data_source_configuration: Configuration block with the data storage option chosen for requesting Places. Detailed below.
         :param pulumi.Input[_builtins.str] description: Optional description for the place index resource.
         :param pulumi.Input[_builtins.str] index_arn: ARN for the place index resource. Used to specify a resource across AWS.
         :param pulumi.Input[_builtins.str] index_name: Name of the place index resource.

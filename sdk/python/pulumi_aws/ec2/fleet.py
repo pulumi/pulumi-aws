@@ -650,17 +650,17 @@ class Fleet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  context: pulumi.Input[Optional[_builtins.str]] = None,
                  excess_capacity_termination_policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 fleet_instance_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetFleetInstanceSetArgs', 'FleetFleetInstanceSetArgsDict']]]]] = None,
+                 fleet_instance_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetFleetInstanceSetArgs', 'FleetFleetInstanceSetArgsDict', 'outputs.FleetFleetInstanceSet']]]]] = None,
                  fleet_state: pulumi.Input[Optional[_builtins.str]] = None,
                  fulfilled_capacity: pulumi.Input[Optional[_builtins.float]] = None,
                  fulfilled_on_demand_capacity: pulumi.Input[Optional[_builtins.float]] = None,
-                 launch_template_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetLaunchTemplateConfigArgs', 'FleetLaunchTemplateConfigArgsDict']]]]] = None,
-                 on_demand_options: pulumi.Input[Optional[Union['FleetOnDemandOptionsArgs', 'FleetOnDemandOptionsArgsDict']]] = None,
+                 launch_template_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetLaunchTemplateConfigArgs', 'FleetLaunchTemplateConfigArgsDict', 'outputs.FleetLaunchTemplateConfig']]]]] = None,
+                 on_demand_options: pulumi.Input[Optional[Union['FleetOnDemandOptionsArgs', 'FleetOnDemandOptionsArgsDict', 'outputs.FleetOnDemandOptions']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  replace_unhealthy_instances: pulumi.Input[Optional[_builtins.bool]] = None,
-                 spot_options: pulumi.Input[Optional[Union['FleetSpotOptionsArgs', 'FleetSpotOptionsArgsDict']]] = None,
+                 spot_options: pulumi.Input[Optional[Union['FleetSpotOptionsArgs', 'FleetSpotOptionsArgsDict', 'outputs.FleetSpotOptions']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_capacity_specification: pulumi.Input[Optional[Union['FleetTargetCapacitySpecificationArgs', 'FleetTargetCapacitySpecificationArgsDict']]] = None,
+                 target_capacity_specification: pulumi.Input[Optional[Union['FleetTargetCapacitySpecificationArgs', 'FleetTargetCapacitySpecificationArgsDict', 'outputs.FleetTargetCapacitySpecification']]] = None,
                  terminate_instances: pulumi.Input[Optional[_builtins.bool]] = None,
                  terminate_instances_with_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -702,17 +702,17 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] context: Reserved.
         :param pulumi.Input[_builtins.str] excess_capacity_termination_policy: Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetFleetInstanceSetArgs', 'FleetFleetInstanceSetArgsDict']]]] fleet_instance_sets: Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetFleetInstanceSetArgs', 'FleetFleetInstanceSetArgsDict', 'outputs.FleetFleetInstanceSet']]]] fleet_instance_sets: Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
         :param pulumi.Input[_builtins.str] fleet_state: The state of the EC2 Fleet.
         :param pulumi.Input[_builtins.float] fulfilled_capacity: The number of units fulfilled by this request compared to the set target capacity.
         :param pulumi.Input[_builtins.float] fulfilled_on_demand_capacity: The number of units fulfilled by this request compared to the set target On-Demand capacity.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetLaunchTemplateConfigArgs', 'FleetLaunchTemplateConfigArgsDict']]]] launch_template_configs: Nested argument containing EC2 Launch Template configurations. Defined below.
-        :param pulumi.Input[Union['FleetOnDemandOptionsArgs', 'FleetOnDemandOptionsArgsDict']] on_demand_options: Nested argument containing On-Demand configurations. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetLaunchTemplateConfigArgs', 'FleetLaunchTemplateConfigArgsDict', 'outputs.FleetLaunchTemplateConfig']]]] launch_template_configs: Nested argument containing EC2 Launch Template configurations. Defined below.
+        :param pulumi.Input[Union['FleetOnDemandOptionsArgs', 'FleetOnDemandOptionsArgsDict', 'outputs.FleetOnDemandOptions']] on_demand_options: Nested argument containing On-Demand configurations. Defined below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] replace_unhealthy_instances: Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
-        :param pulumi.Input[Union['FleetSpotOptionsArgs', 'FleetSpotOptionsArgsDict']] spot_options: Nested argument containing Spot configurations. Defined below.
+        :param pulumi.Input[Union['FleetSpotOptionsArgs', 'FleetSpotOptionsArgsDict', 'outputs.FleetSpotOptions']] spot_options: Nested argument containing Spot configurations. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['FleetTargetCapacitySpecificationArgs', 'FleetTargetCapacitySpecificationArgsDict']] target_capacity_specification: Nested argument containing target capacity configurations. Defined below.
+        :param pulumi.Input[Union['FleetTargetCapacitySpecificationArgs', 'FleetTargetCapacitySpecificationArgsDict', 'outputs.FleetTargetCapacitySpecification']] target_capacity_specification: Nested argument containing target capacity configurations. Defined below.
         :param pulumi.Input[_builtins.bool] terminate_instances: Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] terminate_instances_with_expiration: Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
         :param pulumi.Input[_builtins.str] type: The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
@@ -773,17 +773,17 @@ class Fleet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  context: pulumi.Input[Optional[_builtins.str]] = None,
                  excess_capacity_termination_policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 fleet_instance_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetFleetInstanceSetArgs', 'FleetFleetInstanceSetArgsDict']]]]] = None,
+                 fleet_instance_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetFleetInstanceSetArgs', 'FleetFleetInstanceSetArgsDict', 'outputs.FleetFleetInstanceSet']]]]] = None,
                  fleet_state: pulumi.Input[Optional[_builtins.str]] = None,
                  fulfilled_capacity: pulumi.Input[Optional[_builtins.float]] = None,
                  fulfilled_on_demand_capacity: pulumi.Input[Optional[_builtins.float]] = None,
-                 launch_template_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetLaunchTemplateConfigArgs', 'FleetLaunchTemplateConfigArgsDict']]]]] = None,
-                 on_demand_options: pulumi.Input[Optional[Union['FleetOnDemandOptionsArgs', 'FleetOnDemandOptionsArgsDict']]] = None,
+                 launch_template_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetLaunchTemplateConfigArgs', 'FleetLaunchTemplateConfigArgsDict', 'outputs.FleetLaunchTemplateConfig']]]]] = None,
+                 on_demand_options: pulumi.Input[Optional[Union['FleetOnDemandOptionsArgs', 'FleetOnDemandOptionsArgsDict', 'outputs.FleetOnDemandOptions']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  replace_unhealthy_instances: pulumi.Input[Optional[_builtins.bool]] = None,
-                 spot_options: pulumi.Input[Optional[Union['FleetSpotOptionsArgs', 'FleetSpotOptionsArgsDict']]] = None,
+                 spot_options: pulumi.Input[Optional[Union['FleetSpotOptionsArgs', 'FleetSpotOptionsArgsDict', 'outputs.FleetSpotOptions']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_capacity_specification: pulumi.Input[Optional[Union['FleetTargetCapacitySpecificationArgs', 'FleetTargetCapacitySpecificationArgsDict']]] = None,
+                 target_capacity_specification: pulumi.Input[Optional[Union['FleetTargetCapacitySpecificationArgs', 'FleetTargetCapacitySpecificationArgsDict', 'outputs.FleetTargetCapacitySpecification']]] = None,
                  terminate_instances: pulumi.Input[Optional[_builtins.bool]] = None,
                  terminate_instances_with_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -835,18 +835,18 @@ class Fleet(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             context: pulumi.Input[Optional[_builtins.str]] = None,
             excess_capacity_termination_policy: pulumi.Input[Optional[_builtins.str]] = None,
-            fleet_instance_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetFleetInstanceSetArgs', 'FleetFleetInstanceSetArgsDict']]]]] = None,
+            fleet_instance_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetFleetInstanceSetArgs', 'FleetFleetInstanceSetArgsDict', 'outputs.FleetFleetInstanceSet']]]]] = None,
             fleet_state: pulumi.Input[Optional[_builtins.str]] = None,
             fulfilled_capacity: pulumi.Input[Optional[_builtins.float]] = None,
             fulfilled_on_demand_capacity: pulumi.Input[Optional[_builtins.float]] = None,
-            launch_template_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetLaunchTemplateConfigArgs', 'FleetLaunchTemplateConfigArgsDict']]]]] = None,
-            on_demand_options: pulumi.Input[Optional[Union['FleetOnDemandOptionsArgs', 'FleetOnDemandOptionsArgsDict']]] = None,
+            launch_template_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetLaunchTemplateConfigArgs', 'FleetLaunchTemplateConfigArgsDict', 'outputs.FleetLaunchTemplateConfig']]]]] = None,
+            on_demand_options: pulumi.Input[Optional[Union['FleetOnDemandOptionsArgs', 'FleetOnDemandOptionsArgsDict', 'outputs.FleetOnDemandOptions']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             replace_unhealthy_instances: pulumi.Input[Optional[_builtins.bool]] = None,
-            spot_options: pulumi.Input[Optional[Union['FleetSpotOptionsArgs', 'FleetSpotOptionsArgsDict']]] = None,
+            spot_options: pulumi.Input[Optional[Union['FleetSpotOptionsArgs', 'FleetSpotOptionsArgsDict', 'outputs.FleetSpotOptions']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            target_capacity_specification: pulumi.Input[Optional[Union['FleetTargetCapacitySpecificationArgs', 'FleetTargetCapacitySpecificationArgsDict']]] = None,
+            target_capacity_specification: pulumi.Input[Optional[Union['FleetTargetCapacitySpecificationArgs', 'FleetTargetCapacitySpecificationArgsDict', 'outputs.FleetTargetCapacitySpecification']]] = None,
             terminate_instances: pulumi.Input[Optional[_builtins.bool]] = None,
             terminate_instances_with_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -862,18 +862,18 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: The ARN of the fleet
         :param pulumi.Input[_builtins.str] context: Reserved.
         :param pulumi.Input[_builtins.str] excess_capacity_termination_policy: Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetFleetInstanceSetArgs', 'FleetFleetInstanceSetArgsDict']]]] fleet_instance_sets: Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetFleetInstanceSetArgs', 'FleetFleetInstanceSetArgsDict', 'outputs.FleetFleetInstanceSet']]]] fleet_instance_sets: Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
         :param pulumi.Input[_builtins.str] fleet_state: The state of the EC2 Fleet.
         :param pulumi.Input[_builtins.float] fulfilled_capacity: The number of units fulfilled by this request compared to the set target capacity.
         :param pulumi.Input[_builtins.float] fulfilled_on_demand_capacity: The number of units fulfilled by this request compared to the set target On-Demand capacity.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetLaunchTemplateConfigArgs', 'FleetLaunchTemplateConfigArgsDict']]]] launch_template_configs: Nested argument containing EC2 Launch Template configurations. Defined below.
-        :param pulumi.Input[Union['FleetOnDemandOptionsArgs', 'FleetOnDemandOptionsArgsDict']] on_demand_options: Nested argument containing On-Demand configurations. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetLaunchTemplateConfigArgs', 'FleetLaunchTemplateConfigArgsDict', 'outputs.FleetLaunchTemplateConfig']]]] launch_template_configs: Nested argument containing EC2 Launch Template configurations. Defined below.
+        :param pulumi.Input[Union['FleetOnDemandOptionsArgs', 'FleetOnDemandOptionsArgsDict', 'outputs.FleetOnDemandOptions']] on_demand_options: Nested argument containing On-Demand configurations. Defined below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] replace_unhealthy_instances: Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
-        :param pulumi.Input[Union['FleetSpotOptionsArgs', 'FleetSpotOptionsArgsDict']] spot_options: Nested argument containing Spot configurations. Defined below.
+        :param pulumi.Input[Union['FleetSpotOptionsArgs', 'FleetSpotOptionsArgsDict', 'outputs.FleetSpotOptions']] spot_options: Nested argument containing Spot configurations. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['FleetTargetCapacitySpecificationArgs', 'FleetTargetCapacitySpecificationArgsDict']] target_capacity_specification: Nested argument containing target capacity configurations. Defined below.
+        :param pulumi.Input[Union['FleetTargetCapacitySpecificationArgs', 'FleetTargetCapacitySpecificationArgsDict', 'outputs.FleetTargetCapacitySpecification']] target_capacity_specification: Nested argument containing target capacity configurations. Defined below.
         :param pulumi.Input[_builtins.bool] terminate_instances: Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] terminate_instances_with_expiration: Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
         :param pulumi.Input[_builtins.str] type: The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.

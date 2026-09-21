@@ -227,7 +227,7 @@ class BillingGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['BillingGroupPropertiesArgs', 'BillingGroupPropertiesArgsDict']]] = None,
+                 properties: pulumi.Input[Optional[Union['BillingGroupPropertiesArgs', 'BillingGroupPropertiesArgsDict', 'outputs.BillingGroupProperties']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -262,7 +262,7 @@ class BillingGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the Billing Group.
-        :param pulumi.Input[Union['BillingGroupPropertiesArgs', 'BillingGroupPropertiesArgsDict']] properties: The Billing Group properties. Defined below.
+        :param pulumi.Input[Union['BillingGroupPropertiesArgs', 'BillingGroupPropertiesArgsDict', 'outputs.BillingGroupProperties']] properties: The Billing Group properties. Defined below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags
         """
@@ -316,7 +316,7 @@ class BillingGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['BillingGroupPropertiesArgs', 'BillingGroupPropertiesArgsDict']]] = None,
+                 properties: pulumi.Input[Optional[Union['BillingGroupPropertiesArgs', 'BillingGroupPropertiesArgsDict', 'outputs.BillingGroupProperties']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -347,9 +347,9 @@ class BillingGroup(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            metadatas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BillingGroupMetadataArgs', 'BillingGroupMetadataArgsDict']]]]] = None,
+            metadatas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BillingGroupMetadataArgs', 'BillingGroupMetadataArgsDict', 'outputs.BillingGroupMetadata']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            properties: pulumi.Input[Optional[Union['BillingGroupPropertiesArgs', 'BillingGroupPropertiesArgsDict']]] = None,
+            properties: pulumi.Input[Optional[Union['BillingGroupPropertiesArgs', 'BillingGroupPropertiesArgsDict', 'outputs.BillingGroupProperties']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -363,7 +363,7 @@ class BillingGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The ARN of the Billing Group.
         :param pulumi.Input[_builtins.str] name: The name of the Billing Group.
-        :param pulumi.Input[Union['BillingGroupPropertiesArgs', 'BillingGroupPropertiesArgsDict']] properties: The Billing Group properties. Defined below.
+        :param pulumi.Input[Union['BillingGroupPropertiesArgs', 'BillingGroupPropertiesArgsDict', 'outputs.BillingGroupProperties']] properties: The Billing Group properties. Defined below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags
         :param pulumi.Input[_builtins.int] version: The current version of the Billing Group record in the registry.

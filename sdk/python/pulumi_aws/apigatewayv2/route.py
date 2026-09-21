@@ -465,7 +465,7 @@ class Route(pulumi.CustomResource):
                  operation_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  request_models: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 request_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict']]]]] = None,
+                 request_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict', 'outputs.RouteRequestParameter']]]]] = None,
                  route_key: pulumi.Input[Optional[_builtins.str]] = None,
                  route_response_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  target: pulumi.Input[Optional[_builtins.str]] = None,
@@ -545,7 +545,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] operation_name: Operation name for the route. Must be between 1 and 64 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_models: Request models for the route. Supported only for WebSocket APIs.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict']]]] request_parameters: Request parameters for the route. Supported only for WebSocket APIs. See `request_parameter` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict', 'outputs.RouteRequestParameter']]]] request_parameters: Request parameters for the route. Supported only for WebSocket APIs. See `request_parameter` Block below.
         :param pulumi.Input[_builtins.str] route_key: Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
         :param pulumi.Input[_builtins.str] route_response_selection_expression: [Route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[_builtins.str] target: Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `apigatewayv2.Integration` resource.
@@ -644,7 +644,7 @@ class Route(pulumi.CustomResource):
                  operation_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  request_models: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 request_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict']]]]] = None,
+                 request_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict', 'outputs.RouteRequestParameter']]]]] = None,
                  route_key: pulumi.Input[Optional[_builtins.str]] = None,
                  route_response_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  target: pulumi.Input[Optional[_builtins.str]] = None,
@@ -693,7 +693,7 @@ class Route(pulumi.CustomResource):
             operation_name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             request_models: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            request_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict']]]]] = None,
+            request_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict', 'outputs.RouteRequestParameter']]]]] = None,
             route_key: pulumi.Input[Optional[_builtins.str]] = None,
             route_response_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
             target: pulumi.Input[Optional[_builtins.str]] = None) -> 'Route':
@@ -713,7 +713,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] operation_name: Operation name for the route. Must be between 1 and 64 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_models: Request models for the route. Supported only for WebSocket APIs.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict']]]] request_parameters: Request parameters for the route. Supported only for WebSocket APIs. See `request_parameter` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict', 'outputs.RouteRequestParameter']]]] request_parameters: Request parameters for the route. Supported only for WebSocket APIs. See `request_parameter` Block below.
         :param pulumi.Input[_builtins.str] route_key: Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
         :param pulumi.Input[_builtins.str] route_response_selection_expression: [Route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[_builtins.str] target: Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `apigatewayv2.Integration` resource.

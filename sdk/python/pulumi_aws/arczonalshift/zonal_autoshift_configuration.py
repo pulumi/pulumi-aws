@@ -307,8 +307,8 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
                  allowed_windows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  blocked_dates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  blocked_windows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocking_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationBlockingAlarmArgs', 'ZonalAutoshiftConfigurationBlockingAlarmArgsDict']]]]] = None,
-                 outcome_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationOutcomeAlarmArgs', 'ZonalAutoshiftConfigurationOutcomeAlarmArgsDict']]]]] = None,
+                 blocking_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationBlockingAlarmArgs', 'ZonalAutoshiftConfigurationBlockingAlarmArgsDict', 'outputs.ZonalAutoshiftConfigurationBlockingAlarm']]]]] = None,
+                 outcome_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationOutcomeAlarmArgs', 'ZonalAutoshiftConfigurationOutcomeAlarmArgsDict', 'outputs.ZonalAutoshiftConfigurationOutcomeAlarm']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  zonal_autoshift_status: pulumi.Input[Optional[_builtins.str]] = None,
@@ -409,8 +409,8 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_windows: List of time windows during which practice runs are allowed, in the format `Day:HH:MM-Day:HH:MM` (e.g., `Mon:09:00-Mon:17:00`). Cannot be used together with `blocked_windows`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blocked_dates: List of dates when practice runs should not be started, in the format `YYYY-MM-DD`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blocked_windows: List of time windows during which practice runs should not be started, in the format `Day:HH:MM-Day:HH:MM` (e.g., `Mon:00:00-Mon:08:00`). Cannot be used together with `allowed_windows`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationBlockingAlarmArgs', 'ZonalAutoshiftConfigurationBlockingAlarmArgsDict']]]] blocking_alarms: List of CloudWatch alarms that can block practice runs when in alarm state. See `blocking_alarms` below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationOutcomeAlarmArgs', 'ZonalAutoshiftConfigurationOutcomeAlarmArgsDict']]]] outcome_alarms: List of CloudWatch alarms monitored during practice runs. See `outcome_alarms` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationBlockingAlarmArgs', 'ZonalAutoshiftConfigurationBlockingAlarmArgsDict', 'outputs.ZonalAutoshiftConfigurationBlockingAlarm']]]] blocking_alarms: List of CloudWatch alarms that can block practice runs when in alarm state. See `blocking_alarms` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationOutcomeAlarmArgs', 'ZonalAutoshiftConfigurationOutcomeAlarmArgsDict', 'outputs.ZonalAutoshiftConfigurationOutcomeAlarm']]]] outcome_alarms: List of CloudWatch alarms monitored during practice runs. See `outcome_alarms` below.
         :param pulumi.Input[_builtins.str] region: AWS region where the resource is deployed.
         :param pulumi.Input[_builtins.str] resource_arn: The ARN of the managed resource to configure zonal autoshift for (e.g., an Application Load Balancer). Changing this creates a new resource.
         :param pulumi.Input[_builtins.str] zonal_autoshift_status: The status of zonal autoshift. Valid values: `ENABLED`, `DISABLED`.
@@ -532,8 +532,8 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
                  allowed_windows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  blocked_dates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  blocked_windows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocking_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationBlockingAlarmArgs', 'ZonalAutoshiftConfigurationBlockingAlarmArgsDict']]]]] = None,
-                 outcome_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationOutcomeAlarmArgs', 'ZonalAutoshiftConfigurationOutcomeAlarmArgsDict']]]]] = None,
+                 blocking_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationBlockingAlarmArgs', 'ZonalAutoshiftConfigurationBlockingAlarmArgsDict', 'outputs.ZonalAutoshiftConfigurationBlockingAlarm']]]]] = None,
+                 outcome_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationOutcomeAlarmArgs', 'ZonalAutoshiftConfigurationOutcomeAlarmArgsDict', 'outputs.ZonalAutoshiftConfigurationOutcomeAlarm']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  zonal_autoshift_status: pulumi.Input[Optional[_builtins.str]] = None,
@@ -571,8 +571,8 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
             allowed_windows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             blocked_dates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             blocked_windows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            blocking_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationBlockingAlarmArgs', 'ZonalAutoshiftConfigurationBlockingAlarmArgsDict']]]]] = None,
-            outcome_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationOutcomeAlarmArgs', 'ZonalAutoshiftConfigurationOutcomeAlarmArgsDict']]]]] = None,
+            blocking_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationBlockingAlarmArgs', 'ZonalAutoshiftConfigurationBlockingAlarmArgsDict', 'outputs.ZonalAutoshiftConfigurationBlockingAlarm']]]]] = None,
+            outcome_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationOutcomeAlarmArgs', 'ZonalAutoshiftConfigurationOutcomeAlarmArgsDict', 'outputs.ZonalAutoshiftConfigurationOutcomeAlarm']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
             zonal_autoshift_status: pulumi.Input[Optional[_builtins.str]] = None) -> 'ZonalAutoshiftConfiguration':
@@ -586,8 +586,8 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_windows: List of time windows during which practice runs are allowed, in the format `Day:HH:MM-Day:HH:MM` (e.g., `Mon:09:00-Mon:17:00`). Cannot be used together with `blocked_windows`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blocked_dates: List of dates when practice runs should not be started, in the format `YYYY-MM-DD`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blocked_windows: List of time windows during which practice runs should not be started, in the format `Day:HH:MM-Day:HH:MM` (e.g., `Mon:00:00-Mon:08:00`). Cannot be used together with `allowed_windows`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationBlockingAlarmArgs', 'ZonalAutoshiftConfigurationBlockingAlarmArgsDict']]]] blocking_alarms: List of CloudWatch alarms that can block practice runs when in alarm state. See `blocking_alarms` below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationOutcomeAlarmArgs', 'ZonalAutoshiftConfigurationOutcomeAlarmArgsDict']]]] outcome_alarms: List of CloudWatch alarms monitored during practice runs. See `outcome_alarms` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationBlockingAlarmArgs', 'ZonalAutoshiftConfigurationBlockingAlarmArgsDict', 'outputs.ZonalAutoshiftConfigurationBlockingAlarm']]]] blocking_alarms: List of CloudWatch alarms that can block practice runs when in alarm state. See `blocking_alarms` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationOutcomeAlarmArgs', 'ZonalAutoshiftConfigurationOutcomeAlarmArgsDict', 'outputs.ZonalAutoshiftConfigurationOutcomeAlarm']]]] outcome_alarms: List of CloudWatch alarms monitored during practice runs. See `outcome_alarms` below.
         :param pulumi.Input[_builtins.str] region: AWS region where the resource is deployed.
         :param pulumi.Input[_builtins.str] resource_arn: The ARN of the managed resource to configure zonal autoshift for (e.g., an Application Load Balancer). Changing this creates a new resource.
         :param pulumi.Input[_builtins.str] zonal_autoshift_status: The status of zonal autoshift. Valid values: `ENABLED`, `DISABLED`.

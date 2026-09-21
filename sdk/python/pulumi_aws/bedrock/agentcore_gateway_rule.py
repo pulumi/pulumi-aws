@@ -312,13 +312,13 @@ class AgentcoreGatewayRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleActionArgs', 'AgentcoreGatewayRuleActionArgsDict']]]]] = None,
-                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleConditionArgs', 'AgentcoreGatewayRuleConditionArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleActionArgs', 'AgentcoreGatewayRuleActionArgsDict', 'outputs.AgentcoreGatewayRuleAction']]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleConditionArgs', 'AgentcoreGatewayRuleConditionArgsDict', 'outputs.AgentcoreGatewayRuleCondition']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayRuleTimeoutsArgs', 'AgentcoreGatewayRuleTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayRuleTimeoutsArgs', 'AgentcoreGatewayRuleTimeoutsArgsDict', 'outputs.AgentcoreGatewayRuleTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS Bedrock AgentCore Gateway Rule. Rules define conditions and actions that control how requests are routed and processed through a gateway, including principal-based access control, path-based routing, weighted target routing, and configuration bundle overrides. Rules are evaluated in order of `priority` (lower numbers first).
@@ -433,8 +433,8 @@ class AgentcoreGatewayRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleActionArgs', 'AgentcoreGatewayRuleActionArgsDict']]]] actions: One or two `action` blocks defining what happens when the rule's conditions match. See Action below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleConditionArgs', 'AgentcoreGatewayRuleConditionArgsDict']]]] conditions: Up to two `condition` blocks that must all be satisfied for the rule's actions to apply. See Condition below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleActionArgs', 'AgentcoreGatewayRuleActionArgsDict', 'outputs.AgentcoreGatewayRuleAction']]]] actions: One or two `action` blocks defining what happens when the rule's conditions match. See Action below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleConditionArgs', 'AgentcoreGatewayRuleConditionArgsDict', 'outputs.AgentcoreGatewayRuleCondition']]]] conditions: Up to two `condition` blocks that must all be satisfied for the rule's actions to apply. See Condition below.
         :param pulumi.Input[_builtins.str] description: Description of the rule. Between 1 and 256 characters.
         :param pulumi.Input[_builtins.str] gateway_identifier: Identifier of the gateway to attach the rule to.
         :param pulumi.Input[_builtins.int] priority: Priority of the rule, between 1 and 1000000. Rules are evaluated in ascending order of priority.
@@ -574,13 +574,13 @@ class AgentcoreGatewayRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleActionArgs', 'AgentcoreGatewayRuleActionArgsDict']]]]] = None,
-                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleConditionArgs', 'AgentcoreGatewayRuleConditionArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleActionArgs', 'AgentcoreGatewayRuleActionArgsDict', 'outputs.AgentcoreGatewayRuleAction']]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleConditionArgs', 'AgentcoreGatewayRuleConditionArgsDict', 'outputs.AgentcoreGatewayRuleCondition']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayRuleTimeoutsArgs', 'AgentcoreGatewayRuleTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayRuleTimeoutsArgs', 'AgentcoreGatewayRuleTimeoutsArgsDict', 'outputs.AgentcoreGatewayRuleTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -614,16 +614,16 @@ class AgentcoreGatewayRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleActionArgs', 'AgentcoreGatewayRuleActionArgsDict']]]]] = None,
-            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleConditionArgs', 'AgentcoreGatewayRuleConditionArgsDict']]]]] = None,
+            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleActionArgs', 'AgentcoreGatewayRuleActionArgsDict', 'outputs.AgentcoreGatewayRuleAction']]]]] = None,
+            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleConditionArgs', 'AgentcoreGatewayRuleConditionArgsDict', 'outputs.AgentcoreGatewayRuleCondition']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
             gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
             priority: pulumi.Input[Optional[_builtins.int]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             rule_id: pulumi.Input[Optional[_builtins.str]] = None,
-            systems: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleSystemArgs', 'AgentcoreGatewayRuleSystemArgsDict']]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayRuleTimeoutsArgs', 'AgentcoreGatewayRuleTimeoutsArgsDict']]] = None) -> 'AgentcoreGatewayRule':
+            systems: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleSystemArgs', 'AgentcoreGatewayRuleSystemArgsDict', 'outputs.AgentcoreGatewayRuleSystem']]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayRuleTimeoutsArgs', 'AgentcoreGatewayRuleTimeoutsArgsDict', 'outputs.AgentcoreGatewayRuleTimeouts']]] = None) -> 'AgentcoreGatewayRule':
         """
         Get an existing AgentcoreGatewayRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -631,8 +631,8 @@ class AgentcoreGatewayRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleActionArgs', 'AgentcoreGatewayRuleActionArgsDict']]]] actions: One or two `action` blocks defining what happens when the rule's conditions match. See Action below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleConditionArgs', 'AgentcoreGatewayRuleConditionArgsDict']]]] conditions: Up to two `condition` blocks that must all be satisfied for the rule's actions to apply. See Condition below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleActionArgs', 'AgentcoreGatewayRuleActionArgsDict', 'outputs.AgentcoreGatewayRuleAction']]]] actions: One or two `action` blocks defining what happens when the rule's conditions match. See Action below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleConditionArgs', 'AgentcoreGatewayRuleConditionArgsDict', 'outputs.AgentcoreGatewayRuleCondition']]]] conditions: Up to two `condition` blocks that must all be satisfied for the rule's actions to apply. See Condition below.
         :param pulumi.Input[_builtins.str] description: Description of the rule. Between 1 and 256 characters.
         :param pulumi.Input[_builtins.str] gateway_arn: ARN of the gateway that owns the rule.
         :param pulumi.Input[_builtins.str] gateway_identifier: Identifier of the gateway to attach the rule to.
@@ -641,7 +641,7 @@ class AgentcoreGatewayRule(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] rule_id: Identifier of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleSystemArgs', 'AgentcoreGatewayRuleSystemArgsDict']]]] systems: Present when the rule is system-managed. See `system` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreGatewayRuleSystemArgs', 'AgentcoreGatewayRuleSystemArgsDict', 'outputs.AgentcoreGatewayRuleSystem']]]] systems: Present when the rule is system-managed. See `system` Block below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

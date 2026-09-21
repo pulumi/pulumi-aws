@@ -350,7 +350,7 @@ class Smsvoicev2SenderId(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  sender_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['Smsvoicev2SenderIdTimeoutsArgs', 'Smsvoicev2SenderIdTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['Smsvoicev2SenderIdTimeoutsArgs', 'Smsvoicev2SenderIdTimeoutsArgsDict', 'outputs.Smsvoicev2SenderIdTimeouts']]] = None,
                  __props__=None):
         """
         Manages an End User Messaging SMS Sender ID.
@@ -492,7 +492,7 @@ class Smsvoicev2SenderId(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  sender_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['Smsvoicev2SenderIdTimeoutsArgs', 'Smsvoicev2SenderIdTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['Smsvoicev2SenderIdTimeoutsArgs', 'Smsvoicev2SenderIdTimeoutsArgsDict', 'outputs.Smsvoicev2SenderIdTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -539,7 +539,7 @@ class Smsvoicev2SenderId(pulumi.CustomResource):
             sender_id: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['Smsvoicev2SenderIdTimeoutsArgs', 'Smsvoicev2SenderIdTimeoutsArgsDict']]] = None) -> 'Smsvoicev2SenderId':
+            timeouts: pulumi.Input[Optional[Union['Smsvoicev2SenderIdTimeoutsArgs', 'Smsvoicev2SenderIdTimeoutsArgsDict', 'outputs.Smsvoicev2SenderIdTimeouts']]] = None) -> 'Smsvoicev2SenderId':
         """
         Get an existing Smsvoicev2SenderId resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

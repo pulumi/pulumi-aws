@@ -266,7 +266,7 @@ class AuthorizeVpcEndpointAccess(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account: pulumi.Input[Optional[_builtins.str]] = None,
-            authorized_principals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs', 'AuthorizeVpcEndpointAccessAuthorizedPrincipalArgsDict']]]]] = None,
+            authorized_principals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs', 'AuthorizeVpcEndpointAccessAuthorizedPrincipalArgsDict', 'outputs.AuthorizeVpcEndpointAccessAuthorizedPrincipal']]]]] = None,
             domain_name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'AuthorizeVpcEndpointAccess':
         """
@@ -277,7 +277,7 @@ class AuthorizeVpcEndpointAccess(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account: AWS account ID to grant access to.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs', 'AuthorizeVpcEndpointAccessAuthorizedPrincipalArgsDict']]]] authorized_principals: Information about the Amazon Web Services account or service that was provided access to the domain. See `authorized_principal` Block for further details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs', 'AuthorizeVpcEndpointAccessAuthorizedPrincipalArgsDict', 'outputs.AuthorizeVpcEndpointAccessAuthorizedPrincipal']]]] authorized_principals: Information about the Amazon Web Services account or service that was provided access to the domain. See `authorized_principal` Block for further details.
         :param pulumi.Input[_builtins.str] domain_name: Name of OpenSearch Service domain to provide access to.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """

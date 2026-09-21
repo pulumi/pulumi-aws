@@ -123,7 +123,7 @@ class SizeConstraintSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 size_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SizeConstraintSetSizeConstraintArgs', 'SizeConstraintSetSizeConstraintArgsDict']]]]] = None,
+                 size_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SizeConstraintSetSizeConstraintArgs', 'SizeConstraintSetSizeConstraintArgsDict', 'outputs.SizeConstraintSetSizeConstraint']]]]] = None,
                  __props__=None):
         """
         Use the `waf.SizeConstraintSet` resource to manage WAF size constraint sets.
@@ -158,7 +158,7 @@ class SizeConstraintSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name or description of the Size Constraint Set.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SizeConstraintSetSizeConstraintArgs', 'SizeConstraintSetSizeConstraintArgsDict']]]] size_constraints: Parts of web requests that you want to inspect the size of.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SizeConstraintSetSizeConstraintArgs', 'SizeConstraintSetSizeConstraintArgsDict', 'outputs.SizeConstraintSetSizeConstraint']]]] size_constraints: Parts of web requests that you want to inspect the size of.
         """
         ...
     @overload
@@ -212,7 +212,7 @@ class SizeConstraintSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 size_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SizeConstraintSetSizeConstraintArgs', 'SizeConstraintSetSizeConstraintArgsDict']]]]] = None,
+                 size_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SizeConstraintSetSizeConstraintArgs', 'SizeConstraintSetSizeConstraintArgsDict', 'outputs.SizeConstraintSetSizeConstraint']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -237,7 +237,7 @@ class SizeConstraintSet(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            size_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SizeConstraintSetSizeConstraintArgs', 'SizeConstraintSetSizeConstraintArgsDict']]]]] = None) -> 'SizeConstraintSet':
+            size_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SizeConstraintSetSizeConstraintArgs', 'SizeConstraintSetSizeConstraintArgsDict', 'outputs.SizeConstraintSetSizeConstraint']]]]] = None) -> 'SizeConstraintSet':
         """
         Get an existing SizeConstraintSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -247,7 +247,7 @@ class SizeConstraintSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN.
         :param pulumi.Input[_builtins.str] name: Name or description of the Size Constraint Set.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SizeConstraintSetSizeConstraintArgs', 'SizeConstraintSetSizeConstraintArgsDict']]]] size_constraints: Parts of web requests that you want to inspect the size of.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SizeConstraintSetSizeConstraintArgs', 'SizeConstraintSetSizeConstraintArgsDict', 'outputs.SizeConstraintSetSizeConstraint']]]] size_constraints: Parts of web requests that you want to inspect the size of.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -90,7 +90,7 @@ class AwaitableGetSubnetsResult(GetSubnetsResult):
             tags=self.tags)
 
 
-def get_subnets(filters: Optional[Sequence[Union['GetSubnetsFilterArgs', 'GetSubnetsFilterArgsDict']]] = None,
+def get_subnets(filters: Optional[Sequence[Union['GetSubnetsFilterArgs', 'GetSubnetsFilterArgsDict', 'outputs.GetSubnetsFilterResult']]] = None,
                 region: Optional[_builtins.str] = None,
                 tags: Optional[Mapping[str, _builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetsResult:
@@ -139,7 +139,7 @@ def get_subnets(filters: Optional[Sequence[Union['GetSubnetsFilterArgs', 'GetSub
     ```
 
 
-    :param Sequence[Union['GetSubnetsFilterArgs', 'GetSubnetsFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetSubnetsFilterArgs', 'GetSubnetsFilterArgsDict', 'outputs.GetSubnetsFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired subnets.
@@ -157,7 +157,7 @@ def get_subnets(filters: Optional[Sequence[Union['GetSubnetsFilterArgs', 'GetSub
         ids=pulumi.get(__ret__, 'ids'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_subnets_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetSubnetsFilterArgs', 'GetSubnetsFilterArgsDict']]]]] = None,
+def get_subnets_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetSubnetsFilterArgs', 'GetSubnetsFilterArgsDict', 'outputs.GetSubnetsFilterResult']]]]] = None,
                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubnetsResult]:
@@ -206,7 +206,7 @@ def get_subnets_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['G
     ```
 
 
-    :param Sequence[Union['GetSubnetsFilterArgs', 'GetSubnetsFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetSubnetsFilterArgs', 'GetSubnetsFilterArgsDict', 'outputs.GetSubnetsFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired subnets.

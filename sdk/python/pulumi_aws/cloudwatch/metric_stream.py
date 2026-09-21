@@ -479,16 +479,16 @@ class MetricStream(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamExcludeFilterArgs', 'MetricStreamExcludeFilterArgsDict']]]]] = None,
+                 exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamExcludeFilterArgs', 'MetricStreamExcludeFilterArgsDict', 'outputs.MetricStreamExcludeFilter']]]]] = None,
                  firehose_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 include_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamIncludeFilterArgs', 'MetricStreamIncludeFilterArgsDict']]]]] = None,
+                 include_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamIncludeFilterArgs', 'MetricStreamIncludeFilterArgsDict', 'outputs.MetricStreamIncludeFilter']]]]] = None,
                  include_linked_accounts_metrics: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  output_format: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 statistics_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict']]]]] = None,
+                 statistics_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict', 'outputs.MetricStreamStatisticsConfiguration']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -640,9 +640,9 @@ class MetricStream(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamExcludeFilterArgs', 'MetricStreamExcludeFilterArgsDict']]]] exclude_filters: List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamExcludeFilterArgs', 'MetricStreamExcludeFilterArgsDict', 'outputs.MetricStreamExcludeFilter']]]] exclude_filters: List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
         :param pulumi.Input[_builtins.str] firehose_arn: ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamIncludeFilterArgs', 'MetricStreamIncludeFilterArgsDict']]]] include_filters: List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `exclude_filter`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamIncludeFilterArgs', 'MetricStreamIncludeFilterArgsDict', 'outputs.MetricStreamIncludeFilter']]]] include_filters: List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `exclude_filter`.
         :param pulumi.Input[_builtins.bool] include_linked_accounts_metrics: If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
         :param pulumi.Input[_builtins.str] name: Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
@@ -651,7 +651,7 @@ class MetricStream(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict']]]] statistics_configurations: For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict', 'outputs.MetricStreamStatisticsConfiguration']]]] statistics_configurations: For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -822,16 +822,16 @@ class MetricStream(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamExcludeFilterArgs', 'MetricStreamExcludeFilterArgsDict']]]]] = None,
+                 exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamExcludeFilterArgs', 'MetricStreamExcludeFilterArgsDict', 'outputs.MetricStreamExcludeFilter']]]]] = None,
                  firehose_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 include_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamIncludeFilterArgs', 'MetricStreamIncludeFilterArgsDict']]]]] = None,
+                 include_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamIncludeFilterArgs', 'MetricStreamIncludeFilterArgsDict', 'outputs.MetricStreamIncludeFilter']]]]] = None,
                  include_linked_accounts_metrics: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  output_format: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 statistics_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict']]]]] = None,
+                 statistics_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict', 'outputs.MetricStreamStatisticsConfiguration']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -876,9 +876,9 @@ class MetricStream(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             creation_date: pulumi.Input[Optional[_builtins.str]] = None,
-            exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamExcludeFilterArgs', 'MetricStreamExcludeFilterArgsDict']]]]] = None,
+            exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamExcludeFilterArgs', 'MetricStreamExcludeFilterArgsDict', 'outputs.MetricStreamExcludeFilter']]]]] = None,
             firehose_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            include_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamIncludeFilterArgs', 'MetricStreamIncludeFilterArgsDict']]]]] = None,
+            include_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamIncludeFilterArgs', 'MetricStreamIncludeFilterArgsDict', 'outputs.MetricStreamIncludeFilter']]]]] = None,
             include_linked_accounts_metrics: pulumi.Input[Optional[_builtins.bool]] = None,
             last_update_date: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -887,7 +887,7 @@ class MetricStream(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             state: pulumi.Input[Optional[_builtins.str]] = None,
-            statistics_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict']]]]] = None,
+            statistics_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict', 'outputs.MetricStreamStatisticsConfiguration']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'MetricStream':
         """
@@ -899,9 +899,9 @@ class MetricStream(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the metric stream.
         :param pulumi.Input[_builtins.str] creation_date: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamExcludeFilterArgs', 'MetricStreamExcludeFilterArgsDict']]]] exclude_filters: List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamExcludeFilterArgs', 'MetricStreamExcludeFilterArgsDict', 'outputs.MetricStreamExcludeFilter']]]] exclude_filters: List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
         :param pulumi.Input[_builtins.str] firehose_arn: ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamIncludeFilterArgs', 'MetricStreamIncludeFilterArgsDict']]]] include_filters: List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `exclude_filter`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamIncludeFilterArgs', 'MetricStreamIncludeFilterArgsDict', 'outputs.MetricStreamIncludeFilter']]]] include_filters: List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `exclude_filter`.
         :param pulumi.Input[_builtins.bool] include_linked_accounts_metrics: If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
         :param pulumi.Input[_builtins.str] last_update_date: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
         :param pulumi.Input[_builtins.str] name: Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -912,7 +912,7 @@ class MetricStream(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
         :param pulumi.Input[_builtins.str] state: State of the metric stream. Possible values are `running` and `stopped`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict']]]] statistics_configurations: For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict', 'outputs.MetricStreamStatisticsConfiguration']]]] statistics_configurations: For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

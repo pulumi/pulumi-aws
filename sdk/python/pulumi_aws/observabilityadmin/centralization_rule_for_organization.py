@@ -265,10 +265,10 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['CentralizationRuleForOrganizationRuleArgs', 'CentralizationRuleForOrganizationRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['CentralizationRuleForOrganizationRuleArgs', 'CentralizationRuleForOrganizationRuleArgsDict', 'outputs.CentralizationRuleForOrganizationRule']]] = None,
                  rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['CentralizationRuleForOrganizationTimeoutsArgs', 'CentralizationRuleForOrganizationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CentralizationRuleForOrganizationTimeoutsArgs', 'CentralizationRuleForOrganizationTimeoutsArgsDict', 'outputs.CentralizationRuleForOrganizationTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS CloudWatch Observability Admin Centralization Rule For Organization.
@@ -432,7 +432,7 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['CentralizationRuleForOrganizationRuleArgs', 'CentralizationRuleForOrganizationRuleArgsDict']] rule: Configuration block for the centralization rule. See `rule` below.
+        :param pulumi.Input[Union['CentralizationRuleForOrganizationRuleArgs', 'CentralizationRuleForOrganizationRuleArgsDict', 'outputs.CentralizationRuleForOrganizationRule']] rule: Configuration block for the centralization rule. See `rule` below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] rule_name: Name of the centralization rule. Must be unique within the organization.
@@ -619,10 +619,10 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['CentralizationRuleForOrganizationRuleArgs', 'CentralizationRuleForOrganizationRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['CentralizationRuleForOrganizationRuleArgs', 'CentralizationRuleForOrganizationRuleArgsDict', 'outputs.CentralizationRuleForOrganizationRule']]] = None,
                  rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['CentralizationRuleForOrganizationTimeoutsArgs', 'CentralizationRuleForOrganizationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CentralizationRuleForOrganizationTimeoutsArgs', 'CentralizationRuleForOrganizationTimeoutsArgsDict', 'outputs.CentralizationRuleForOrganizationTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -656,14 +656,14 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            rule: pulumi.Input[Optional[Union['CentralizationRuleForOrganizationRuleArgs', 'CentralizationRuleForOrganizationRuleArgsDict']]] = None,
+            rule: pulumi.Input[Optional[Union['CentralizationRuleForOrganizationRuleArgs', 'CentralizationRuleForOrganizationRuleArgsDict', 'outputs.CentralizationRuleForOrganizationRule']]] = None,
             rule_arn: pulumi.Input[Optional[_builtins.str]] = None,
             rule_name: pulumi.Input[Optional[_builtins.str]] = None,
             tag_propagation_failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
             tag_propagation_status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['CentralizationRuleForOrganizationTimeoutsArgs', 'CentralizationRuleForOrganizationTimeoutsArgsDict']]] = None) -> 'CentralizationRuleForOrganization':
+            timeouts: pulumi.Input[Optional[Union['CentralizationRuleForOrganizationTimeoutsArgs', 'CentralizationRuleForOrganizationTimeoutsArgsDict', 'outputs.CentralizationRuleForOrganizationTimeouts']]] = None) -> 'CentralizationRuleForOrganization':
         """
         Get an existing CentralizationRuleForOrganization resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -672,7 +672,7 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['CentralizationRuleForOrganizationRuleArgs', 'CentralizationRuleForOrganizationRuleArgsDict']] rule: Configuration block for the centralization rule. See `rule` below.
+        :param pulumi.Input[Union['CentralizationRuleForOrganizationRuleArgs', 'CentralizationRuleForOrganizationRuleArgsDict', 'outputs.CentralizationRuleForOrganizationRule']] rule: Configuration block for the centralization rule. See `rule` below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] rule_arn: ARN of the centralization rule.

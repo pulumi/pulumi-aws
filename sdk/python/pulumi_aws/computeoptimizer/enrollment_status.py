@@ -180,7 +180,7 @@ class EnrollmentStatus(pulumi.CustomResource):
                  include_member_accounts: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['EnrollmentStatusTimeoutsArgs', 'EnrollmentStatusTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['EnrollmentStatusTimeoutsArgs', 'EnrollmentStatusTimeoutsArgsDict', 'outputs.EnrollmentStatusTimeouts']]] = None,
                  __props__=None):
         """
         Manages AWS Compute Optimizer enrollment status.
@@ -254,7 +254,7 @@ class EnrollmentStatus(pulumi.CustomResource):
                  include_member_accounts: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['EnrollmentStatusTimeoutsArgs', 'EnrollmentStatusTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['EnrollmentStatusTimeoutsArgs', 'EnrollmentStatusTimeoutsArgsDict', 'outputs.EnrollmentStatusTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -285,7 +285,7 @@ class EnrollmentStatus(pulumi.CustomResource):
             number_of_member_accounts_opted_in: pulumi.Input[Optional[_builtins.int]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['EnrollmentStatusTimeoutsArgs', 'EnrollmentStatusTimeoutsArgsDict']]] = None) -> 'EnrollmentStatus':
+            timeouts: pulumi.Input[Optional[Union['EnrollmentStatusTimeoutsArgs', 'EnrollmentStatusTimeoutsArgsDict', 'outputs.EnrollmentStatusTimeouts']]] = None) -> 'EnrollmentStatus':
         """
         Get an existing EnrollmentStatus resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

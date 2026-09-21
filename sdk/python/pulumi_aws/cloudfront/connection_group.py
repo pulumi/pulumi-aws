@@ -367,7 +367,7 @@ class ConnectionGroup(pulumi.CustomResource):
                  ipv6_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ConnectionGroupTimeoutsArgs', 'ConnectionGroupTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ConnectionGroupTimeoutsArgs', 'ConnectionGroupTimeoutsArgsDict', 'outputs.ConnectionGroupTimeouts']]] = None,
                  wait_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -456,7 +456,7 @@ class ConnectionGroup(pulumi.CustomResource):
                  ipv6_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ConnectionGroupTimeoutsArgs', 'ConnectionGroupTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ConnectionGroupTimeoutsArgs', 'ConnectionGroupTimeoutsArgsDict', 'outputs.ConnectionGroupTimeouts']]] = None,
                  wait_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -503,7 +503,7 @@ class ConnectionGroup(pulumi.CustomResource):
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['ConnectionGroupTimeoutsArgs', 'ConnectionGroupTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['ConnectionGroupTimeoutsArgs', 'ConnectionGroupTimeoutsArgsDict', 'outputs.ConnectionGroupTimeouts']]] = None,
             wait_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ConnectionGroup':
         """
         Get an existing ConnectionGroup resource's state with the given name, id, and optional extra

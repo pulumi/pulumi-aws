@@ -229,7 +229,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 oidc: pulumi.Input[Optional[Union['IdentityProviderConfigOidcArgs', 'IdentityProviderConfigOidcArgsDict']]] = None,
+                 oidc: pulumi.Input[Optional[Union['IdentityProviderConfigOidcArgs', 'IdentityProviderConfigOidcArgsDict', 'outputs.IdentityProviderConfigOidc']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -275,7 +275,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
-        :param pulumi.Input[Union['IdentityProviderConfigOidcArgs', 'IdentityProviderConfigOidcArgsDict']] oidc: Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
+        :param pulumi.Input[Union['IdentityProviderConfigOidcArgs', 'IdentityProviderConfigOidcArgsDict', 'outputs.IdentityProviderConfigOidc']] oidc: Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -340,7 +340,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 oidc: pulumi.Input[Optional[Union['IdentityProviderConfigOidcArgs', 'IdentityProviderConfigOidcArgsDict']]] = None,
+                 oidc: pulumi.Input[Optional[Union['IdentityProviderConfigOidcArgs', 'IdentityProviderConfigOidcArgsDict', 'outputs.IdentityProviderConfigOidc']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -377,7 +377,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
             identity_provider_config_name: pulumi.Input[Optional[_builtins.str]] = None,
-            oidc: pulumi.Input[Optional[Union['IdentityProviderConfigOidcArgs', 'IdentityProviderConfigOidcArgsDict']]] = None,
+            oidc: pulumi.Input[Optional[Union['IdentityProviderConfigOidcArgs', 'IdentityProviderConfigOidcArgsDict', 'outputs.IdentityProviderConfigOidc']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -391,7 +391,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the EKS Identity Provider Configuration.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
-        :param pulumi.Input[Union['IdentityProviderConfigOidcArgs', 'IdentityProviderConfigOidcArgsDict']] oidc: Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
+        :param pulumi.Input[Union['IdentityProviderConfigOidcArgs', 'IdentityProviderConfigOidcArgsDict', 'outputs.IdentityProviderConfigOidc']] oidc: Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] status: Status of the EKS Identity Provider Configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -395,14 +395,14 @@ class IdcApplication(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 authorized_token_issuer: pulumi.Input[Optional[Union['IdcApplicationAuthorizedTokenIssuerArgs', 'IdcApplicationAuthorizedTokenIssuerArgsDict']]] = None,
+                 authorized_token_issuer: pulumi.Input[Optional[Union['IdcApplicationAuthorizedTokenIssuerArgs', 'IdcApplicationAuthorizedTokenIssuerArgsDict', 'outputs.IdcApplicationAuthorizedTokenIssuer']]] = None,
                  iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  idc_display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  idc_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  redshift_idc_application_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_integration: pulumi.Input[Optional[Union['IdcApplicationServiceIntegrationArgs', 'IdcApplicationServiceIntegrationArgsDict']]] = None,
+                 service_integration: pulumi.Input[Optional[Union['IdcApplicationServiceIntegrationArgs', 'IdcApplicationServiceIntegrationArgsDict', 'outputs.IdcApplicationServiceIntegration']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -434,14 +434,14 @@ class IdcApplication(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_type: Type of application being created. Valid values are `None` or `Lakehouse`.
-        :param pulumi.Input[Union['IdcApplicationAuthorizedTokenIssuerArgs', 'IdcApplicationAuthorizedTokenIssuerArgsDict']] authorized_token_issuer: Token issuer list for the Amazon Redshift IAM Identity Center application instance. Refer to the authorized_token_issuer documentation for more details.
+        :param pulumi.Input[Union['IdcApplicationAuthorizedTokenIssuerArgs', 'IdcApplicationAuthorizedTokenIssuerArgsDict', 'outputs.IdcApplicationAuthorizedTokenIssuer']] authorized_token_issuer: Token issuer list for the Amazon Redshift IAM Identity Center application instance. Refer to the authorized_token_issuer documentation for more details.
         :param pulumi.Input[_builtins.str] iam_role_arn: IAM role ARN for the Amazon Redshift IAM Identity Center application instance.
         :param pulumi.Input[_builtins.str] idc_display_name: Display name for the Amazon Redshift IAM Identity Center application instance.
         :param pulumi.Input[_builtins.str] idc_instance_arn: ARN of the IAM Identity Center instance where Amazon Redshift creates a new managed application.
         :param pulumi.Input[_builtins.str] identity_namespace: Namespace for the Amazon Redshift IAM Identity Center application instance.
         :param pulumi.Input[_builtins.str] redshift_idc_application_name: Name of the Redshift application in IAM Identity Center.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['IdcApplicationServiceIntegrationArgs', 'IdcApplicationServiceIntegrationArgsDict']] service_integration: Collection of service integrations for the Redshift IAM Identity Center application. Refer to the service_integration documentation for more details.
+        :param pulumi.Input[Union['IdcApplicationServiceIntegrationArgs', 'IdcApplicationServiceIntegrationArgsDict', 'outputs.IdcApplicationServiceIntegration']] service_integration: Collection of service integrations for the Redshift IAM Identity Center application. Refer to the service_integration documentation for more details.
         """
         ...
     @overload
@@ -491,14 +491,14 @@ class IdcApplication(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 authorized_token_issuer: pulumi.Input[Optional[Union['IdcApplicationAuthorizedTokenIssuerArgs', 'IdcApplicationAuthorizedTokenIssuerArgsDict']]] = None,
+                 authorized_token_issuer: pulumi.Input[Optional[Union['IdcApplicationAuthorizedTokenIssuerArgs', 'IdcApplicationAuthorizedTokenIssuerArgsDict', 'outputs.IdcApplicationAuthorizedTokenIssuer']]] = None,
                  iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  idc_display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  idc_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  redshift_idc_application_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_integration: pulumi.Input[Optional[Union['IdcApplicationServiceIntegrationArgs', 'IdcApplicationServiceIntegrationArgsDict']]] = None,
+                 service_integration: pulumi.Input[Optional[Union['IdcApplicationServiceIntegrationArgs', 'IdcApplicationServiceIntegrationArgsDict', 'outputs.IdcApplicationServiceIntegration']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -541,7 +541,7 @@ class IdcApplication(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             application_type: pulumi.Input[Optional[_builtins.str]] = None,
-            authorized_token_issuer: pulumi.Input[Optional[Union['IdcApplicationAuthorizedTokenIssuerArgs', 'IdcApplicationAuthorizedTokenIssuerArgsDict']]] = None,
+            authorized_token_issuer: pulumi.Input[Optional[Union['IdcApplicationAuthorizedTokenIssuerArgs', 'IdcApplicationAuthorizedTokenIssuerArgsDict', 'outputs.IdcApplicationAuthorizedTokenIssuer']]] = None,
             iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             idc_display_name: pulumi.Input[Optional[_builtins.str]] = None,
             idc_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -550,7 +550,7 @@ class IdcApplication(pulumi.CustomResource):
             redshift_idc_application_arn: pulumi.Input[Optional[_builtins.str]] = None,
             redshift_idc_application_name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            service_integration: pulumi.Input[Optional[Union['IdcApplicationServiceIntegrationArgs', 'IdcApplicationServiceIntegrationArgsDict']]] = None,
+            service_integration: pulumi.Input[Optional[Union['IdcApplicationServiceIntegrationArgs', 'IdcApplicationServiceIntegrationArgsDict', 'outputs.IdcApplicationServiceIntegration']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'IdcApplication':
         """
@@ -561,7 +561,7 @@ class IdcApplication(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_type: Type of application being created. Valid values are `None` or `Lakehouse`.
-        :param pulumi.Input[Union['IdcApplicationAuthorizedTokenIssuerArgs', 'IdcApplicationAuthorizedTokenIssuerArgsDict']] authorized_token_issuer: Token issuer list for the Amazon Redshift IAM Identity Center application instance. Refer to the authorized_token_issuer documentation for more details.
+        :param pulumi.Input[Union['IdcApplicationAuthorizedTokenIssuerArgs', 'IdcApplicationAuthorizedTokenIssuerArgsDict', 'outputs.IdcApplicationAuthorizedTokenIssuer']] authorized_token_issuer: Token issuer list for the Amazon Redshift IAM Identity Center application instance. Refer to the authorized_token_issuer documentation for more details.
         :param pulumi.Input[_builtins.str] iam_role_arn: IAM role ARN for the Amazon Redshift IAM Identity Center application instance.
         :param pulumi.Input[_builtins.str] idc_display_name: Display name for the Amazon Redshift IAM Identity Center application instance.
         :param pulumi.Input[_builtins.str] idc_instance_arn: ARN of the IAM Identity Center instance where Amazon Redshift creates a new managed application.
@@ -570,7 +570,7 @@ class IdcApplication(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] redshift_idc_application_arn: ARN of the Redshift application in IAM Identity Center.
         :param pulumi.Input[_builtins.str] redshift_idc_application_name: Name of the Redshift application in IAM Identity Center.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['IdcApplicationServiceIntegrationArgs', 'IdcApplicationServiceIntegrationArgsDict']] service_integration: Collection of service integrations for the Redshift IAM Identity Center application. Refer to the service_integration documentation for more details.
+        :param pulumi.Input[Union['IdcApplicationServiceIntegrationArgs', 'IdcApplicationServiceIntegrationArgsDict', 'outputs.IdcApplicationServiceIntegration']] service_integration: Collection of service integrations for the Redshift IAM Identity Center application. Refer to the service_integration documentation for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

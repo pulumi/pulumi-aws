@@ -317,7 +317,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
                  delivery_s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
                  delivery_s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  excluded_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 input_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrganizationConformancePackInputParameterArgs', 'OrganizationConformancePackInputParameterArgsDict']]]]] = None,
+                 input_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrganizationConformancePackInputParameterArgs', 'OrganizationConformancePackInputParameterArgsDict', 'outputs.OrganizationConformancePackInputParameter']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  template_body: pulumi.Input[Optional[_builtins.str]] = None,
@@ -423,7 +423,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] delivery_s3_bucket: Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
         :param pulumi.Input[_builtins.str] delivery_s3_key_prefix: The prefix for the Amazon S3 bucket. Maximum length of 1024.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_accounts: Set of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack. Maximum of 1000 accounts.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConformancePackInputParameterArgs', 'OrganizationConformancePackInputParameterArgsDict']]]] input_parameters: Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConformancePackInputParameterArgs', 'OrganizationConformancePackInputParameterArgsDict', 'outputs.OrganizationConformancePackInputParameter']]]] input_parameters: Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
         :param pulumi.Input[_builtins.str] name: The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] template_body: A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
@@ -548,7 +548,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
                  delivery_s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
                  delivery_s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  excluded_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 input_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrganizationConformancePackInputParameterArgs', 'OrganizationConformancePackInputParameterArgsDict']]]]] = None,
+                 input_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrganizationConformancePackInputParameterArgs', 'OrganizationConformancePackInputParameterArgsDict', 'outputs.OrganizationConformancePackInputParameter']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  template_body: pulumi.Input[Optional[_builtins.str]] = None,
@@ -585,7 +585,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
             delivery_s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
             delivery_s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
             excluded_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            input_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrganizationConformancePackInputParameterArgs', 'OrganizationConformancePackInputParameterArgsDict']]]]] = None,
+            input_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrganizationConformancePackInputParameterArgs', 'OrganizationConformancePackInputParameterArgsDict', 'outputs.OrganizationConformancePackInputParameter']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             template_body: pulumi.Input[Optional[_builtins.str]] = None,
@@ -601,7 +601,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] delivery_s3_bucket: Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
         :param pulumi.Input[_builtins.str] delivery_s3_key_prefix: The prefix for the Amazon S3 bucket. Maximum length of 1024.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_accounts: Set of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack. Maximum of 1000 accounts.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConformancePackInputParameterArgs', 'OrganizationConformancePackInputParameterArgsDict']]]] input_parameters: Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConformancePackInputParameterArgs', 'OrganizationConformancePackInputParameterArgsDict', 'outputs.OrganizationConformancePackInputParameter']]]] input_parameters: Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
         :param pulumi.Input[_builtins.str] name: The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] template_body: A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.

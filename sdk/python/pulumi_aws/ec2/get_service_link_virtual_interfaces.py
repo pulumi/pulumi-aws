@@ -78,7 +78,7 @@ class AwaitableGetServiceLinkVirtualInterfacesResult(GetServiceLinkVirtualInterf
             tags=self.tags)
 
 
-def get_service_link_virtual_interfaces(filters: Optional[Sequence[Union['GetServiceLinkVirtualInterfacesFilterArgs', 'GetServiceLinkVirtualInterfacesFilterArgsDict']]] = None,
+def get_service_link_virtual_interfaces(filters: Optional[Sequence[Union['GetServiceLinkVirtualInterfacesFilterArgs', 'GetServiceLinkVirtualInterfacesFilterArgsDict', 'outputs.GetServiceLinkVirtualInterfacesFilterResult']]] = None,
                                         region: Optional[_builtins.str] = None,
                                         tags: Optional[Mapping[str, _builtins.str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceLinkVirtualInterfacesResult:
@@ -98,7 +98,7 @@ def get_service_link_virtual_interfaces(filters: Optional[Sequence[Union['GetSer
     ```
 
 
-    :param Sequence[Union['GetServiceLinkVirtualInterfacesFilterArgs', 'GetServiceLinkVirtualInterfacesFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeServiceLinkVirtualInterfaces.html) for supported filters. Detailed below.
+    :param Sequence[Union['GetServiceLinkVirtualInterfacesFilterArgs', 'GetServiceLinkVirtualInterfacesFilterArgsDict', 'outputs.GetServiceLinkVirtualInterfacesFilterResult']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeServiceLinkVirtualInterfaces.html) for supported filters. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Key-value map of resource tags, each pair of which must exactly match a pair on the desired Service Link Virtual Interfaces.
     """
@@ -114,7 +114,7 @@ def get_service_link_virtual_interfaces(filters: Optional[Sequence[Union['GetSer
         ids=pulumi.get(__ret__, 'ids'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_service_link_virtual_interfaces_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetServiceLinkVirtualInterfacesFilterArgs', 'GetServiceLinkVirtualInterfacesFilterArgsDict']]]]] = None,
+def get_service_link_virtual_interfaces_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetServiceLinkVirtualInterfacesFilterArgs', 'GetServiceLinkVirtualInterfacesFilterArgsDict', 'outputs.GetServiceLinkVirtualInterfacesFilterResult']]]]] = None,
                                                region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceLinkVirtualInterfacesResult]:
@@ -134,7 +134,7 @@ def get_service_link_virtual_interfaces_output(filters: pulumi.Input[Optional[Op
     ```
 
 
-    :param Sequence[Union['GetServiceLinkVirtualInterfacesFilterArgs', 'GetServiceLinkVirtualInterfacesFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeServiceLinkVirtualInterfaces.html) for supported filters. Detailed below.
+    :param Sequence[Union['GetServiceLinkVirtualInterfacesFilterArgs', 'GetServiceLinkVirtualInterfacesFilterArgsDict', 'outputs.GetServiceLinkVirtualInterfacesFilterResult']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeServiceLinkVirtualInterfaces.html) for supported filters. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Key-value map of resource tags, each pair of which must exactly match a pair on the desired Service Link Virtual Interfaces.
     """

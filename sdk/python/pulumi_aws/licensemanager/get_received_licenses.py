@@ -81,7 +81,7 @@ class AwaitableGetReceivedLicensesResult(GetReceivedLicensesResult):
             region=self.region)
 
 
-def get_received_licenses(filters: Optional[Sequence[Union['GetReceivedLicensesFilterArgs', 'GetReceivedLicensesFilterArgsDict']]] = None,
+def get_received_licenses(filters: Optional[Sequence[Union['GetReceivedLicensesFilterArgs', 'GetReceivedLicensesFilterArgsDict', 'outputs.GetReceivedLicensesFilterResult']]] = None,
                           region: Optional[_builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReceivedLicensesResult:
     """
@@ -102,7 +102,7 @@ def get_received_licenses(filters: Optional[Sequence[Union['GetReceivedLicensesF
     ```
 
 
-    :param Sequence[Union['GetReceivedLicensesFilterArgs', 'GetReceivedLicensesFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetReceivedLicensesFilterArgs', 'GetReceivedLicensesFilterArgsDict', 'outputs.GetReceivedLicensesFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -116,7 +116,7 @@ def get_received_licenses(filters: Optional[Sequence[Union['GetReceivedLicensesF
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_received_licenses_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetReceivedLicensesFilterArgs', 'GetReceivedLicensesFilterArgsDict']]]]] = None,
+def get_received_licenses_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetReceivedLicensesFilterArgs', 'GetReceivedLicensesFilterArgsDict', 'outputs.GetReceivedLicensesFilterResult']]]]] = None,
                                  region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReceivedLicensesResult]:
     """
@@ -137,7 +137,7 @@ def get_received_licenses_output(filters: pulumi.Input[Optional[Optional[Sequenc
     ```
 
 
-    :param Sequence[Union['GetReceivedLicensesFilterArgs', 'GetReceivedLicensesFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetReceivedLicensesFilterArgs', 'GetReceivedLicensesFilterArgsDict', 'outputs.GetReceivedLicensesFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

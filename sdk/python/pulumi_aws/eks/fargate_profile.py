@@ -323,7 +323,7 @@ class FargateProfile(pulumi.CustomResource):
                  fargate_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  pod_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FargateProfileSelectorArgs', 'FargateProfileSelectorArgsDict']]]]] = None,
+                 selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FargateProfileSelectorArgs', 'FargateProfileSelectorArgsDict', 'outputs.FargateProfileSelector']]]]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -397,7 +397,7 @@ class FargateProfile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] fargate_profile_name: Name of the EKS Fargate Profile.
         :param pulumi.Input[_builtins.str] pod_execution_role_arn: ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FargateProfileSelectorArgs', 'FargateProfileSelectorArgsDict']]]] selectors: Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FargateProfileSelectorArgs', 'FargateProfileSelectorArgsDict', 'outputs.FargateProfileSelector']]]] selectors: Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
                
                The following arguments are optional:
@@ -492,7 +492,7 @@ class FargateProfile(pulumi.CustomResource):
                  fargate_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  pod_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FargateProfileSelectorArgs', 'FargateProfileSelectorArgsDict']]]]] = None,
+                 selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FargateProfileSelectorArgs', 'FargateProfileSelectorArgsDict', 'outputs.FargateProfileSelector']]]]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -535,7 +535,7 @@ class FargateProfile(pulumi.CustomResource):
             fargate_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
             pod_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FargateProfileSelectorArgs', 'FargateProfileSelectorArgsDict']]]]] = None,
+            selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FargateProfileSelectorArgs', 'FargateProfileSelectorArgsDict', 'outputs.FargateProfileSelector']]]]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -552,7 +552,7 @@ class FargateProfile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] fargate_profile_name: Name of the EKS Fargate Profile.
         :param pulumi.Input[_builtins.str] pod_execution_role_arn: ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FargateProfileSelectorArgs', 'FargateProfileSelectorArgsDict']]]] selectors: Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FargateProfileSelectorArgs', 'FargateProfileSelectorArgsDict', 'outputs.FargateProfileSelector']]]] selectors: Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
         :param pulumi.Input[_builtins.str] status: Status of the EKS Fargate Profile.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
                

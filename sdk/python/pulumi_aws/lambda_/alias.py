@@ -277,7 +277,7 @@ class Alias(pulumi.CustomResource):
                  function_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 routing_config: pulumi.Input[Optional[Union['AliasRoutingConfigArgs', 'AliasRoutingConfigArgsDict']]] = None,
+                 routing_config: pulumi.Input[Optional[Union['AliasRoutingConfigArgs', 'AliasRoutingConfigArgsDict', 'outputs.AliasRoutingConfig']]] = None,
                  __props__=None):
         """
         Manages an AWS Lambda Alias. Use this resource to create an alias that points to a specific Lambda function version for traffic management and deployment strategies.
@@ -379,7 +379,7 @@ class Alias(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AliasRoutingConfigArgs', 'AliasRoutingConfigArgsDict']] routing_config: Lambda alias' route configuration settings. See below.
+        :param pulumi.Input[Union['AliasRoutingConfigArgs', 'AliasRoutingConfigArgsDict', 'outputs.AliasRoutingConfig']] routing_config: Lambda alias' route configuration settings. See below.
         """
         ...
     @overload
@@ -498,7 +498,7 @@ class Alias(pulumi.CustomResource):
                  function_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 routing_config: pulumi.Input[Optional[Union['AliasRoutingConfigArgs', 'AliasRoutingConfigArgsDict']]] = None,
+                 routing_config: pulumi.Input[Optional[Union['AliasRoutingConfigArgs', 'AliasRoutingConfigArgsDict', 'outputs.AliasRoutingConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -537,7 +537,7 @@ class Alias(pulumi.CustomResource):
             invoke_arn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            routing_config: pulumi.Input[Optional[Union['AliasRoutingConfigArgs', 'AliasRoutingConfigArgsDict']]] = None) -> 'Alias':
+            routing_config: pulumi.Input[Optional[Union['AliasRoutingConfigArgs', 'AliasRoutingConfigArgsDict', 'outputs.AliasRoutingConfig']]] = None) -> 'Alias':
         """
         Get an existing Alias resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -554,7 +554,7 @@ class Alias(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AliasRoutingConfigArgs', 'AliasRoutingConfigArgsDict']] routing_config: Lambda alias' route configuration settings. See below.
+        :param pulumi.Input[Union['AliasRoutingConfigArgs', 'AliasRoutingConfigArgsDict', 'outputs.AliasRoutingConfig']] routing_config: Lambda alias' route configuration settings. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -465,7 +465,7 @@ class Organization(pulumi.CustomResource):
                  organization_alias: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['OrganizationTimeoutsArgs', 'OrganizationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['OrganizationTimeoutsArgs', 'OrganizationTimeoutsArgsDict', 'outputs.OrganizationTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS WorkMail Organization.
@@ -581,7 +581,7 @@ class Organization(pulumi.CustomResource):
                  organization_alias: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['OrganizationTimeoutsArgs', 'OrganizationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['OrganizationTimeoutsArgs', 'OrganizationTimeoutsArgsDict', 'outputs.OrganizationTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -636,7 +636,7 @@ class Organization(pulumi.CustomResource):
             state: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['OrganizationTimeoutsArgs', 'OrganizationTimeoutsArgsDict']]] = None) -> 'Organization':
+            timeouts: pulumi.Input[Optional[Union['OrganizationTimeoutsArgs', 'OrganizationTimeoutsArgsDict', 'outputs.OrganizationTimeouts']]] = None) -> 'Organization':
         """
         Get an existing Organization resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

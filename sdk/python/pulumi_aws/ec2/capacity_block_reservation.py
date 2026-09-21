@@ -424,7 +424,7 @@ class CapacityBlockReservation(pulumi.CustomResource):
                  instance_platform: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['CapacityBlockReservationTimeoutsArgs', 'CapacityBlockReservationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CapacityBlockReservationTimeoutsArgs', 'CapacityBlockReservationTimeoutsArgsDict', 'outputs.CapacityBlockReservationTimeouts']]] = None,
                  __props__=None):
         """
         Provides an EC2 Capacity Block Reservation. This allows you to purchase capacity block for your Amazon EC2 instances in a specific Availability Zone for machine learning (ML) Workloads.
@@ -506,7 +506,7 @@ class CapacityBlockReservation(pulumi.CustomResource):
                  instance_platform: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['CapacityBlockReservationTimeoutsArgs', 'CapacityBlockReservationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CapacityBlockReservationTimeoutsArgs', 'CapacityBlockReservationTimeoutsArgsDict', 'outputs.CapacityBlockReservationTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -567,7 +567,7 @@ class CapacityBlockReservation(pulumi.CustomResource):
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tenancy: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['CapacityBlockReservationTimeoutsArgs', 'CapacityBlockReservationTimeoutsArgsDict']]] = None) -> 'CapacityBlockReservation':
+            timeouts: pulumi.Input[Optional[Union['CapacityBlockReservationTimeoutsArgs', 'CapacityBlockReservationTimeoutsArgsDict', 'outputs.CapacityBlockReservationTimeouts']]] = None) -> 'CapacityBlockReservation':
         """
         Get an existing CapacityBlockReservation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

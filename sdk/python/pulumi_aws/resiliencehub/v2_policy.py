@@ -370,12 +370,12 @@ class V2Policy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_slo: pulumi.Input[Optional[Union['V2PolicyAvailabilitySloArgs', 'V2PolicyAvailabilitySloArgsDict']]] = None,
-                 data_recovery: pulumi.Input[Optional[Union['V2PolicyDataRecoveryArgs', 'V2PolicyDataRecoveryArgsDict']]] = None,
+                 availability_slo: pulumi.Input[Optional[Union['V2PolicyAvailabilitySloArgs', 'V2PolicyAvailabilitySloArgsDict', 'outputs.V2PolicyAvailabilitySlo']]] = None,
+                 data_recovery: pulumi.Input[Optional[Union['V2PolicyDataRecoveryArgs', 'V2PolicyDataRecoveryArgsDict', 'outputs.V2PolicyDataRecovery']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 multi_az: pulumi.Input[Optional[Union['V2PolicyMultiAzArgs', 'V2PolicyMultiAzArgsDict']]] = None,
-                 multi_region: pulumi.Input[Optional[Union['V2PolicyMultiRegionArgs', 'V2PolicyMultiRegionArgsDict']]] = None,
+                 multi_az: pulumi.Input[Optional[Union['V2PolicyMultiAzArgs', 'V2PolicyMultiAzArgsDict', 'outputs.V2PolicyMultiAz']]] = None,
+                 multi_region: pulumi.Input[Optional[Union['V2PolicyMultiRegionArgs', 'V2PolicyMultiRegionArgsDict', 'outputs.V2PolicyMultiRegion']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -460,12 +460,12 @@ class V2Policy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['V2PolicyAvailabilitySloArgs', 'V2PolicyAvailabilitySloArgsDict']] availability_slo: Availability SLO configuration. See `availability_slo` Block below.
-        :param pulumi.Input[Union['V2PolicyDataRecoveryArgs', 'V2PolicyDataRecoveryArgsDict']] data_recovery: Data recovery configuration. See `data_recovery` Block below.
+        :param pulumi.Input[Union['V2PolicyAvailabilitySloArgs', 'V2PolicyAvailabilitySloArgsDict', 'outputs.V2PolicyAvailabilitySlo']] availability_slo: Availability SLO configuration. See `availability_slo` Block below.
+        :param pulumi.Input[Union['V2PolicyDataRecoveryArgs', 'V2PolicyDataRecoveryArgsDict', 'outputs.V2PolicyDataRecovery']] data_recovery: Data recovery configuration. See `data_recovery` Block below.
         :param pulumi.Input[_builtins.str] description: Description of the policy.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key ARN.
-        :param pulumi.Input[Union['V2PolicyMultiAzArgs', 'V2PolicyMultiAzArgsDict']] multi_az: Multi-AZ disaster recovery configuration. See `multi_az` Block below.
-        :param pulumi.Input[Union['V2PolicyMultiRegionArgs', 'V2PolicyMultiRegionArgsDict']] multi_region: Multi-region disaster recovery configuration. See `multi_region` Block below.
+        :param pulumi.Input[Union['V2PolicyMultiAzArgs', 'V2PolicyMultiAzArgsDict', 'outputs.V2PolicyMultiAz']] multi_az: Multi-AZ disaster recovery configuration. See `multi_az` Block below.
+        :param pulumi.Input[Union['V2PolicyMultiRegionArgs', 'V2PolicyMultiRegionArgsDict', 'outputs.V2PolicyMultiRegion']] multi_region: Multi-region disaster recovery configuration. See `multi_region` Block below.
         :param pulumi.Input[_builtins.str] name: Name of the policy. Changing this value requires creating a new resource.
                
                The following arguments are optional:
@@ -571,12 +571,12 @@ class V2Policy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_slo: pulumi.Input[Optional[Union['V2PolicyAvailabilitySloArgs', 'V2PolicyAvailabilitySloArgsDict']]] = None,
-                 data_recovery: pulumi.Input[Optional[Union['V2PolicyDataRecoveryArgs', 'V2PolicyDataRecoveryArgsDict']]] = None,
+                 availability_slo: pulumi.Input[Optional[Union['V2PolicyAvailabilitySloArgs', 'V2PolicyAvailabilitySloArgsDict', 'outputs.V2PolicyAvailabilitySlo']]] = None,
+                 data_recovery: pulumi.Input[Optional[Union['V2PolicyDataRecoveryArgs', 'V2PolicyDataRecoveryArgsDict', 'outputs.V2PolicyDataRecovery']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 multi_az: pulumi.Input[Optional[Union['V2PolicyMultiAzArgs', 'V2PolicyMultiAzArgsDict']]] = None,
-                 multi_region: pulumi.Input[Optional[Union['V2PolicyMultiRegionArgs', 'V2PolicyMultiRegionArgsDict']]] = None,
+                 multi_az: pulumi.Input[Optional[Union['V2PolicyMultiAzArgs', 'V2PolicyMultiAzArgsDict', 'outputs.V2PolicyMultiAz']]] = None,
+                 multi_region: pulumi.Input[Optional[Union['V2PolicyMultiRegionArgs', 'V2PolicyMultiRegionArgsDict', 'outputs.V2PolicyMultiRegion']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -611,12 +611,12 @@ class V2Policy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            availability_slo: pulumi.Input[Optional[Union['V2PolicyAvailabilitySloArgs', 'V2PolicyAvailabilitySloArgsDict']]] = None,
-            data_recovery: pulumi.Input[Optional[Union['V2PolicyDataRecoveryArgs', 'V2PolicyDataRecoveryArgsDict']]] = None,
+            availability_slo: pulumi.Input[Optional[Union['V2PolicyAvailabilitySloArgs', 'V2PolicyAvailabilitySloArgsDict', 'outputs.V2PolicyAvailabilitySlo']]] = None,
+            data_recovery: pulumi.Input[Optional[Union['V2PolicyDataRecoveryArgs', 'V2PolicyDataRecoveryArgsDict', 'outputs.V2PolicyDataRecovery']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-            multi_az: pulumi.Input[Optional[Union['V2PolicyMultiAzArgs', 'V2PolicyMultiAzArgsDict']]] = None,
-            multi_region: pulumi.Input[Optional[Union['V2PolicyMultiRegionArgs', 'V2PolicyMultiRegionArgsDict']]] = None,
+            multi_az: pulumi.Input[Optional[Union['V2PolicyMultiAzArgs', 'V2PolicyMultiAzArgsDict', 'outputs.V2PolicyMultiAz']]] = None,
+            multi_region: pulumi.Input[Optional[Union['V2PolicyMultiRegionArgs', 'V2PolicyMultiRegionArgsDict', 'outputs.V2PolicyMultiRegion']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -629,12 +629,12 @@ class V2Policy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the policy.
-        :param pulumi.Input[Union['V2PolicyAvailabilitySloArgs', 'V2PolicyAvailabilitySloArgsDict']] availability_slo: Availability SLO configuration. See `availability_slo` Block below.
-        :param pulumi.Input[Union['V2PolicyDataRecoveryArgs', 'V2PolicyDataRecoveryArgsDict']] data_recovery: Data recovery configuration. See `data_recovery` Block below.
+        :param pulumi.Input[Union['V2PolicyAvailabilitySloArgs', 'V2PolicyAvailabilitySloArgsDict', 'outputs.V2PolicyAvailabilitySlo']] availability_slo: Availability SLO configuration. See `availability_slo` Block below.
+        :param pulumi.Input[Union['V2PolicyDataRecoveryArgs', 'V2PolicyDataRecoveryArgsDict', 'outputs.V2PolicyDataRecovery']] data_recovery: Data recovery configuration. See `data_recovery` Block below.
         :param pulumi.Input[_builtins.str] description: Description of the policy.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key ARN.
-        :param pulumi.Input[Union['V2PolicyMultiAzArgs', 'V2PolicyMultiAzArgsDict']] multi_az: Multi-AZ disaster recovery configuration. See `multi_az` Block below.
-        :param pulumi.Input[Union['V2PolicyMultiRegionArgs', 'V2PolicyMultiRegionArgsDict']] multi_region: Multi-region disaster recovery configuration. See `multi_region` Block below.
+        :param pulumi.Input[Union['V2PolicyMultiAzArgs', 'V2PolicyMultiAzArgsDict', 'outputs.V2PolicyMultiAz']] multi_az: Multi-AZ disaster recovery configuration. See `multi_az` Block below.
+        :param pulumi.Input[Union['V2PolicyMultiRegionArgs', 'V2PolicyMultiRegionArgsDict', 'outputs.V2PolicyMultiRegion']] multi_region: Multi-region disaster recovery configuration. See `multi_region` Block below.
         :param pulumi.Input[_builtins.str] name: Name of the policy. Changing this value requires creating a new resource.
                
                The following arguments are optional:

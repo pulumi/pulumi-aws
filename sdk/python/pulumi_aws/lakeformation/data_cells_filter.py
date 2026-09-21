@@ -130,8 +130,8 @@ class DataCellsFilter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 table_data: pulumi.Input[Optional[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict']]] = None,
-                 timeouts: pulumi.Input[Optional[Union['DataCellsFilterTimeoutsArgs', 'DataCellsFilterTimeoutsArgsDict']]] = None,
+                 table_data: pulumi.Input[Optional[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict', 'outputs.DataCellsFilterTableData']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DataCellsFilterTimeoutsArgs', 'DataCellsFilterTimeoutsArgsDict', 'outputs.DataCellsFilterTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Lake Formation Data Cells Filter.
@@ -238,7 +238,7 @@ class DataCellsFilter(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict']] table_data: Information about the data cells filter. See Table Data below for details.
+        :param pulumi.Input[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict', 'outputs.DataCellsFilterTableData']] table_data: Information about the data cells filter. See Table Data below for details.
         """
         ...
     @overload
@@ -364,8 +364,8 @@ class DataCellsFilter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 table_data: pulumi.Input[Optional[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict']]] = None,
-                 timeouts: pulumi.Input[Optional[Union['DataCellsFilterTimeoutsArgs', 'DataCellsFilterTimeoutsArgsDict']]] = None,
+                 table_data: pulumi.Input[Optional[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict', 'outputs.DataCellsFilterTableData']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DataCellsFilterTimeoutsArgs', 'DataCellsFilterTimeoutsArgsDict', 'outputs.DataCellsFilterTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -391,8 +391,8 @@ class DataCellsFilter(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            table_data: pulumi.Input[Optional[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict']]] = None,
-            timeouts: pulumi.Input[Optional[Union['DataCellsFilterTimeoutsArgs', 'DataCellsFilterTimeoutsArgsDict']]] = None) -> 'DataCellsFilter':
+            table_data: pulumi.Input[Optional[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict', 'outputs.DataCellsFilterTableData']]] = None,
+            timeouts: pulumi.Input[Optional[Union['DataCellsFilterTimeoutsArgs', 'DataCellsFilterTimeoutsArgsDict', 'outputs.DataCellsFilterTimeouts']]] = None) -> 'DataCellsFilter':
         """
         Get an existing DataCellsFilter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -401,7 +401,7 @@ class DataCellsFilter(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict']] table_data: Information about the data cells filter. See Table Data below for details.
+        :param pulumi.Input[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict', 'outputs.DataCellsFilterTableData']] table_data: Information about the data cells filter. See Table Data below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

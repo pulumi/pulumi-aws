@@ -632,7 +632,7 @@ class VpcEncryptionControl(pulumi.CustomResource):
                  nat_gateway_exclusion: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['VpcEncryptionControlTimeoutsArgs', 'VpcEncryptionControlTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['VpcEncryptionControlTimeoutsArgs', 'VpcEncryptionControlTimeoutsArgsDict', 'outputs.VpcEncryptionControlTimeouts']]] = None,
                  virtual_private_gateway_exclusion: pulumi.Input[Optional[_builtins.str]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  vpc_lattice_exclusion: pulumi.Input[Optional[_builtins.str]] = None,
@@ -783,7 +783,7 @@ class VpcEncryptionControl(pulumi.CustomResource):
                  nat_gateway_exclusion: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['VpcEncryptionControlTimeoutsArgs', 'VpcEncryptionControlTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['VpcEncryptionControlTimeoutsArgs', 'VpcEncryptionControlTimeoutsArgsDict', 'outputs.VpcEncryptionControlTimeouts']]] = None,
                  virtual_private_gateway_exclusion: pulumi.Input[Optional[_builtins.str]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  vpc_lattice_exclusion: pulumi.Input[Optional[_builtins.str]] = None,
@@ -837,12 +837,12 @@ class VpcEncryptionControl(pulumi.CustomResource):
             mode: pulumi.Input[Optional[_builtins.str]] = None,
             nat_gateway_exclusion: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            resource_exclusions: pulumi.Input[Optional[Union['VpcEncryptionControlResourceExclusionsArgs', 'VpcEncryptionControlResourceExclusionsArgsDict']]] = None,
+            resource_exclusions: pulumi.Input[Optional[Union['VpcEncryptionControlResourceExclusionsArgs', 'VpcEncryptionControlResourceExclusionsArgsDict', 'outputs.VpcEncryptionControlResourceExclusions']]] = None,
             state: pulumi.Input[Optional[_builtins.str]] = None,
             state_message: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['VpcEncryptionControlTimeoutsArgs', 'VpcEncryptionControlTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['VpcEncryptionControlTimeoutsArgs', 'VpcEncryptionControlTimeoutsArgsDict', 'outputs.VpcEncryptionControlTimeouts']]] = None,
             virtual_private_gateway_exclusion: pulumi.Input[Optional[_builtins.str]] = None,
             vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
             vpc_lattice_exclusion: pulumi.Input[Optional[_builtins.str]] = None,
@@ -877,7 +877,7 @@ class VpcEncryptionControl(pulumi.CustomResource):
                Default is `disable`.
                Only valid when `mode` is `enforce`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['VpcEncryptionControlResourceExclusionsArgs', 'VpcEncryptionControlResourceExclusionsArgsDict']] resource_exclusions: State of exclusions from encryption enforcement.
+        :param pulumi.Input[Union['VpcEncryptionControlResourceExclusionsArgs', 'VpcEncryptionControlResourceExclusionsArgsDict', 'outputs.VpcEncryptionControlResourceExclusions']] resource_exclusions: State of exclusions from encryption enforcement.
                Will be `nil` if `mode` is `monitor`.
                See `resource_exclusions` below
         :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.

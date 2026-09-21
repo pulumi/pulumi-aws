@@ -511,10 +511,10 @@ class Table(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['TableEncryptionConfigurationArgs', 'TableEncryptionConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['TableEncryptionConfigurationArgs', 'TableEncryptionConfigurationArgsDict', 'outputs.TableEncryptionConfiguration']]] = None,
                  format: pulumi.Input[Optional[_builtins.str]] = None,
-                 maintenance_configuration: pulumi.Input[Optional[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict']]] = None,
-                 metadata: pulumi.Input[Optional[Union['TableMetadataArgs', 'TableMetadataArgsDict']]] = None,
+                 maintenance_configuration: pulumi.Input[Optional[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict', 'outputs.TableMaintenanceConfiguration']]] = None,
+                 metadata: pulumi.Input[Optional[Union['TableMetadataArgs', 'TableMetadataArgsDict', 'outputs.TableMetadata']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -599,10 +599,10 @@ class Table(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TableEncryptionConfigurationArgs', 'TableEncryptionConfigurationArgsDict']] encryption_configuration: Single table bucket encryption configuration object. See `encryption_configuration` below.
+        :param pulumi.Input[Union['TableEncryptionConfigurationArgs', 'TableEncryptionConfigurationArgsDict', 'outputs.TableEncryptionConfiguration']] encryption_configuration: Single table bucket encryption configuration object. See `encryption_configuration` below.
         :param pulumi.Input[_builtins.str] format: Format of the table. Must be `ICEBERG`.
-        :param pulumi.Input[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict']] maintenance_configuration: Single table bucket maintenance configuration object. See `maintenance_configuration` below.
-        :param pulumi.Input[Union['TableMetadataArgs', 'TableMetadataArgsDict']] metadata: Details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
+        :param pulumi.Input[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict', 'outputs.TableMaintenanceConfiguration']] maintenance_configuration: Single table bucket maintenance configuration object. See `maintenance_configuration` below.
+        :param pulumi.Input[Union['TableMetadataArgs', 'TableMetadataArgsDict', 'outputs.TableMetadata']] metadata: Details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
         :param pulumi.Input[_builtins.str] name: Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number. A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
         :param pulumi.Input[_builtins.str] namespace: Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -708,10 +708,10 @@ class Table(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['TableEncryptionConfigurationArgs', 'TableEncryptionConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['TableEncryptionConfigurationArgs', 'TableEncryptionConfigurationArgsDict', 'outputs.TableEncryptionConfiguration']]] = None,
                  format: pulumi.Input[Optional[_builtins.str]] = None,
-                 maintenance_configuration: pulumi.Input[Optional[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict']]] = None,
-                 metadata: pulumi.Input[Optional[Union['TableMetadataArgs', 'TableMetadataArgsDict']]] = None,
+                 maintenance_configuration: pulumi.Input[Optional[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict', 'outputs.TableMaintenanceConfiguration']]] = None,
+                 metadata: pulumi.Input[Optional[Union['TableMetadataArgs', 'TableMetadataArgsDict', 'outputs.TableMetadata']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -765,10 +765,10 @@ class Table(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
             created_by: pulumi.Input[Optional[_builtins.str]] = None,
-            encryption_configuration: pulumi.Input[Optional[Union['TableEncryptionConfigurationArgs', 'TableEncryptionConfigurationArgsDict']]] = None,
+            encryption_configuration: pulumi.Input[Optional[Union['TableEncryptionConfigurationArgs', 'TableEncryptionConfigurationArgsDict', 'outputs.TableEncryptionConfiguration']]] = None,
             format: pulumi.Input[Optional[_builtins.str]] = None,
-            maintenance_configuration: pulumi.Input[Optional[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict']]] = None,
-            metadata: pulumi.Input[Optional[Union['TableMetadataArgs', 'TableMetadataArgsDict']]] = None,
+            maintenance_configuration: pulumi.Input[Optional[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict', 'outputs.TableMaintenanceConfiguration']]] = None,
+            metadata: pulumi.Input[Optional[Union['TableMetadataArgs', 'TableMetadataArgsDict', 'outputs.TableMetadata']]] = None,
             metadata_location: pulumi.Input[Optional[_builtins.str]] = None,
             modified_at: pulumi.Input[Optional[_builtins.str]] = None,
             modified_by: pulumi.Input[Optional[_builtins.str]] = None,
@@ -792,10 +792,10 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the table.
         :param pulumi.Input[_builtins.str] created_at: Date and time when the namespace was created.
         :param pulumi.Input[_builtins.str] created_by: Account ID of the account that created the namespace.
-        :param pulumi.Input[Union['TableEncryptionConfigurationArgs', 'TableEncryptionConfigurationArgsDict']] encryption_configuration: Single table bucket encryption configuration object. See `encryption_configuration` below.
+        :param pulumi.Input[Union['TableEncryptionConfigurationArgs', 'TableEncryptionConfigurationArgsDict', 'outputs.TableEncryptionConfiguration']] encryption_configuration: Single table bucket encryption configuration object. See `encryption_configuration` below.
         :param pulumi.Input[_builtins.str] format: Format of the table. Must be `ICEBERG`.
-        :param pulumi.Input[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict']] maintenance_configuration: Single table bucket maintenance configuration object. See `maintenance_configuration` below.
-        :param pulumi.Input[Union['TableMetadataArgs', 'TableMetadataArgsDict']] metadata: Details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
+        :param pulumi.Input[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict', 'outputs.TableMaintenanceConfiguration']] maintenance_configuration: Single table bucket maintenance configuration object. See `maintenance_configuration` below.
+        :param pulumi.Input[Union['TableMetadataArgs', 'TableMetadataArgsDict', 'outputs.TableMetadata']] metadata: Details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
         :param pulumi.Input[_builtins.str] metadata_location: Location of table metadata.
         :param pulumi.Input[_builtins.str] modified_at: Date and time when the namespace was last modified.
         :param pulumi.Input[_builtins.str] modified_by: Account ID of the account that last modified the namespace.

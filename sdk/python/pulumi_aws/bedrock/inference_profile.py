@@ -343,11 +343,11 @@ class InferenceProfile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 model_source: pulumi.Input[Optional[Union['InferenceProfileModelSourceArgs', 'InferenceProfileModelSourceArgsDict']]] = None,
+                 model_source: pulumi.Input[Optional[Union['InferenceProfileModelSourceArgs', 'InferenceProfileModelSourceArgsDict', 'outputs.InferenceProfileModelSource']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['InferenceProfileTimeoutsArgs', 'InferenceProfileTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['InferenceProfileTimeoutsArgs', 'InferenceProfileTimeoutsArgsDict', 'outputs.InferenceProfileTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Bedrock Inference Profile.
@@ -384,7 +384,7 @@ class InferenceProfile(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the inference profile.
-        :param pulumi.Input[Union['InferenceProfileModelSourceArgs', 'InferenceProfileModelSourceArgsDict']] model_source: The source of the model this inference profile will track metrics and cost for. See `model_source`.
+        :param pulumi.Input[Union['InferenceProfileModelSourceArgs', 'InferenceProfileModelSourceArgsDict', 'outputs.InferenceProfileModelSource']] model_source: The source of the model this inference profile will track metrics and cost for. See `model_source`.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] name: The name of the inference profile.
@@ -445,11 +445,11 @@ class InferenceProfile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 model_source: pulumi.Input[Optional[Union['InferenceProfileModelSourceArgs', 'InferenceProfileModelSourceArgsDict']]] = None,
+                 model_source: pulumi.Input[Optional[Union['InferenceProfileModelSourceArgs', 'InferenceProfileModelSourceArgsDict', 'outputs.InferenceProfileModelSource']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['InferenceProfileTimeoutsArgs', 'InferenceProfileTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['InferenceProfileTimeoutsArgs', 'InferenceProfileTimeoutsArgsDict', 'outputs.InferenceProfileTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -485,14 +485,14 @@ class InferenceProfile(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            model_source: pulumi.Input[Optional[Union['InferenceProfileModelSourceArgs', 'InferenceProfileModelSourceArgsDict']]] = None,
-            models: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InferenceProfileModelArgs', 'InferenceProfileModelArgsDict']]]]] = None,
+            model_source: pulumi.Input[Optional[Union['InferenceProfileModelSourceArgs', 'InferenceProfileModelSourceArgsDict', 'outputs.InferenceProfileModelSource']]] = None,
+            models: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InferenceProfileModelArgs', 'InferenceProfileModelArgsDict', 'outputs.InferenceProfileModel']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['InferenceProfileTimeoutsArgs', 'InferenceProfileTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['InferenceProfileTimeoutsArgs', 'InferenceProfileTimeoutsArgsDict', 'outputs.InferenceProfileTimeouts']]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
             updated_at: pulumi.Input[Optional[_builtins.str]] = None) -> 'InferenceProfile':
         """
@@ -505,10 +505,10 @@ class InferenceProfile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: The ARN of the inference profile.
         :param pulumi.Input[_builtins.str] created_at: The time at which the inference profile was created.
         :param pulumi.Input[_builtins.str] description: The description of the inference profile.
-        :param pulumi.Input[Union['InferenceProfileModelSourceArgs', 'InferenceProfileModelSourceArgsDict']] model_source: The source of the model this inference profile will track metrics and cost for. See `model_source`.
+        :param pulumi.Input[Union['InferenceProfileModelSourceArgs', 'InferenceProfileModelSourceArgsDict', 'outputs.InferenceProfileModelSource']] model_source: The source of the model this inference profile will track metrics and cost for. See `model_source`.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InferenceProfileModelArgs', 'InferenceProfileModelArgsDict']]]] models: A list of information about each model in the inference profile. See `models`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InferenceProfileModelArgs', 'InferenceProfileModelArgsDict', 'outputs.InferenceProfileModel']]]] models: A list of information about each model in the inference profile. See `models`.
         :param pulumi.Input[_builtins.str] name: The name of the inference profile.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] status: The status of the inference profile. `ACTIVE` means that the inference profile is available to use.

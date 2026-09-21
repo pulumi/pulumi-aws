@@ -480,7 +480,7 @@ class InstanceGroup(pulumi.CustomResource):
                  bid_price: pulumi.Input[Optional[_builtins.str]] = None,
                  cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
                  configurations_json: pulumi.Input[Optional[_builtins.str]] = None,
-                 ebs_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceGroupEbsConfigArgs', 'InstanceGroupEbsConfigArgsDict']]]]] = None,
+                 ebs_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceGroupEbsConfigArgs', 'InstanceGroupEbsConfigArgsDict', 'outputs.InstanceGroupEbsConfig']]]]] = None,
                  ebs_optimized: pulumi.Input[Optional[_builtins.bool]] = None,
                  instance_count: pulumi.Input[Optional[_builtins.int]] = None,
                  instance_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -544,7 +544,7 @@ class InstanceGroup(pulumi.CustomResource):
                ]
                \"\"\")
                ```
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceGroupEbsConfigArgs', 'InstanceGroupEbsConfigArgsDict']]]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceGroupEbsConfigArgs', 'InstanceGroupEbsConfigArgsDict', 'outputs.InstanceGroupEbsConfig']]]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] instance_count: target number of instances for the instance group. defaults to 0.
         :param pulumi.Input[_builtins.str] instance_type: The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
@@ -606,7 +606,7 @@ class InstanceGroup(pulumi.CustomResource):
                  bid_price: pulumi.Input[Optional[_builtins.str]] = None,
                  cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
                  configurations_json: pulumi.Input[Optional[_builtins.str]] = None,
-                 ebs_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceGroupEbsConfigArgs', 'InstanceGroupEbsConfigArgsDict']]]]] = None,
+                 ebs_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceGroupEbsConfigArgs', 'InstanceGroupEbsConfigArgsDict', 'outputs.InstanceGroupEbsConfig']]]]] = None,
                  ebs_optimized: pulumi.Input[Optional[_builtins.bool]] = None,
                  instance_count: pulumi.Input[Optional[_builtins.int]] = None,
                  instance_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -651,7 +651,7 @@ class InstanceGroup(pulumi.CustomResource):
             bid_price: pulumi.Input[Optional[_builtins.str]] = None,
             cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
             configurations_json: pulumi.Input[Optional[_builtins.str]] = None,
-            ebs_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceGroupEbsConfigArgs', 'InstanceGroupEbsConfigArgsDict']]]]] = None,
+            ebs_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceGroupEbsConfigArgs', 'InstanceGroupEbsConfigArgsDict', 'outputs.InstanceGroupEbsConfig']]]]] = None,
             ebs_optimized: pulumi.Input[Optional[_builtins.bool]] = None,
             instance_count: pulumi.Input[Optional[_builtins.int]] = None,
             instance_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -691,7 +691,7 @@ class InstanceGroup(pulumi.CustomResource):
                ]
                \"\"\")
                ```
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceGroupEbsConfigArgs', 'InstanceGroupEbsConfigArgsDict']]]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceGroupEbsConfigArgs', 'InstanceGroupEbsConfigArgsDict', 'outputs.InstanceGroupEbsConfig']]]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] instance_count: target number of instances for the instance group. defaults to 0.
         :param pulumi.Input[_builtins.str] instance_type: The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.

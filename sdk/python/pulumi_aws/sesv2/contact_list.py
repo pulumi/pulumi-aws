@@ -273,7 +273,7 @@ class ContactList(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 topics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict']]]]] = None,
+                 topics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict', 'outputs.ContactListTopic']]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS SESv2 (Simple Email V2) Contact List.
@@ -323,7 +323,7 @@ class ContactList(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of what the contact list is about.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict']]]] topics: Configuration block(s) with topic for the contact list. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict', 'outputs.ContactListTopic']]]] topics: Configuration block(s) with topic for the contact list. Detailed below.
         """
         ...
     @overload
@@ -390,7 +390,7 @@ class ContactList(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 topics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict']]]]] = None,
+                 topics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict', 'outputs.ContactListTopic']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -429,7 +429,7 @@ class ContactList(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            topics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict']]]]] = None) -> 'ContactList':
+            topics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict', 'outputs.ContactListTopic']]]]] = None) -> 'ContactList':
         """
         Get an existing ContactList resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -446,7 +446,7 @@ class ContactList(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] last_updated_timestamp: Timestamp noting the last time the contact list was updated in ISO 8601 format.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict']]]] topics: Configuration block(s) with topic for the contact list. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict', 'outputs.ContactListTopic']]]] topics: Configuration block(s) with topic for the contact list. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

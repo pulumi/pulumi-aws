@@ -400,7 +400,7 @@ class VpcAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Union['VpcAttachmentOptionsArgs', 'VpcAttachmentOptionsArgsDict']]] = None,
+                 options: pulumi.Input[Optional[Union['VpcAttachmentOptionsArgs', 'VpcAttachmentOptionsArgsDict', 'outputs.VpcAttachmentOptions']]] = None,
                  routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -453,7 +453,7 @@ class VpcAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] core_network_id: ID of a core network for the VPC attachment.
-        :param pulumi.Input[Union['VpcAttachmentOptionsArgs', 'VpcAttachmentOptionsArgsDict']] options: Options for the VPC attachment. See below.
+        :param pulumi.Input[Union['VpcAttachmentOptionsArgs', 'VpcAttachmentOptionsArgsDict', 'outputs.VpcAttachmentOptions']] options: Options for the VPC attachment. See below.
         :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_arns: Subnet ARNs of the VPC attachment.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -527,7 +527,7 @@ class VpcAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Union['VpcAttachmentOptionsArgs', 'VpcAttachmentOptionsArgsDict']]] = None,
+                 options: pulumi.Input[Optional[Union['VpcAttachmentOptionsArgs', 'VpcAttachmentOptionsArgsDict', 'outputs.VpcAttachmentOptions']]] = None,
                  routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -579,7 +579,7 @@ class VpcAttachment(pulumi.CustomResource):
             core_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
             core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
             edge_location: pulumi.Input[Optional[_builtins.str]] = None,
-            options: pulumi.Input[Optional[Union['VpcAttachmentOptionsArgs', 'VpcAttachmentOptionsArgsDict']]] = None,
+            options: pulumi.Input[Optional[Union['VpcAttachmentOptionsArgs', 'VpcAttachmentOptionsArgsDict', 'outputs.VpcAttachmentOptions']]] = None,
             owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
             resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
             routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
@@ -602,7 +602,7 @@ class VpcAttachment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] core_network_arn: ARN of a core network.
         :param pulumi.Input[_builtins.str] core_network_id: ID of a core network for the VPC attachment.
         :param pulumi.Input[_builtins.str] edge_location: Region where the edge is located.
-        :param pulumi.Input[Union['VpcAttachmentOptionsArgs', 'VpcAttachmentOptionsArgsDict']] options: Options for the VPC attachment. See below.
+        :param pulumi.Input[Union['VpcAttachmentOptionsArgs', 'VpcAttachmentOptionsArgsDict', 'outputs.VpcAttachmentOptions']] options: Options for the VPC attachment. See below.
         :param pulumi.Input[_builtins.str] owner_account_id: ID of the attachment account owner.
         :param pulumi.Input[_builtins.str] resource_arn: Attachment resource ARN.
         :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.

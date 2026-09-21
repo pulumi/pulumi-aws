@@ -562,14 +562,14 @@ class Distribution(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 cache_behavior_settings: pulumi.Input[Optional[Union['DistributionCacheBehaviorSettingsArgs', 'DistributionCacheBehaviorSettingsArgsDict']]] = None,
-                 cache_behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionCacheBehaviorArgs', 'DistributionCacheBehaviorArgsDict']]]]] = None,
+                 cache_behavior_settings: pulumi.Input[Optional[Union['DistributionCacheBehaviorSettingsArgs', 'DistributionCacheBehaviorSettingsArgsDict', 'outputs.DistributionCacheBehaviorSettings']]] = None,
+                 cache_behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionCacheBehaviorArgs', 'DistributionCacheBehaviorArgsDict', 'outputs.DistributionCacheBehavior']]]]] = None,
                  certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 default_cache_behavior: pulumi.Input[Optional[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']]] = None,
+                 default_cache_behavior: pulumi.Input[Optional[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict', 'outputs.DistributionDefaultCacheBehavior']]] = None,
                  ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
                  is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 origin: pulumi.Input[Optional[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']]] = None,
+                 origin: pulumi.Input[Optional[Union['DistributionOriginArgs', 'DistributionOriginArgsDict', 'outputs.DistributionOrigin']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -699,14 +699,14 @@ class Distribution(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bundle_id: Bundle ID to use for the distribution.
-        :param pulumi.Input[Union['DistributionCacheBehaviorSettingsArgs', 'DistributionCacheBehaviorSettingsArgsDict']] cache_behavior_settings: Cache behavior settings of the distribution. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionCacheBehaviorArgs', 'DistributionCacheBehaviorArgsDict']]]] cache_behaviors: Per-path cache behavior of the distribution. See below.
+        :param pulumi.Input[Union['DistributionCacheBehaviorSettingsArgs', 'DistributionCacheBehaviorSettingsArgsDict', 'outputs.DistributionCacheBehaviorSettings']] cache_behavior_settings: Cache behavior settings of the distribution. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionCacheBehaviorArgs', 'DistributionCacheBehaviorArgsDict', 'outputs.DistributionCacheBehavior']]]] cache_behaviors: Per-path cache behavior of the distribution. See below.
         :param pulumi.Input[_builtins.str] certificate_name: Name of the SSL/TLS certificate attached to the distribution.
-        :param pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']] default_cache_behavior: Default cache behavior of the distribution. See below.
+        :param pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict', 'outputs.DistributionDefaultCacheBehavior']] default_cache_behavior: Default cache behavior of the distribution. See below.
         :param pulumi.Input[_builtins.str] ip_address_type: IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
         :param pulumi.Input[_builtins.bool] is_enabled: Whether the distribution is enabled. Default: `true`.
         :param pulumi.Input[_builtins.str] name: Name of the distribution.
-        :param pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']] origin: Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
+        :param pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict', 'outputs.DistributionOrigin']] origin: Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -857,14 +857,14 @@ class Distribution(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 cache_behavior_settings: pulumi.Input[Optional[Union['DistributionCacheBehaviorSettingsArgs', 'DistributionCacheBehaviorSettingsArgsDict']]] = None,
-                 cache_behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionCacheBehaviorArgs', 'DistributionCacheBehaviorArgsDict']]]]] = None,
+                 cache_behavior_settings: pulumi.Input[Optional[Union['DistributionCacheBehaviorSettingsArgs', 'DistributionCacheBehaviorSettingsArgsDict', 'outputs.DistributionCacheBehaviorSettings']]] = None,
+                 cache_behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionCacheBehaviorArgs', 'DistributionCacheBehaviorArgsDict', 'outputs.DistributionCacheBehavior']]]]] = None,
                  certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 default_cache_behavior: pulumi.Input[Optional[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']]] = None,
+                 default_cache_behavior: pulumi.Input[Optional[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict', 'outputs.DistributionDefaultCacheBehavior']]] = None,
                  ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
                  is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 origin: pulumi.Input[Optional[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']]] = None,
+                 origin: pulumi.Input[Optional[Union['DistributionOriginArgs', 'DistributionOriginArgsDict', 'outputs.DistributionOrigin']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -916,17 +916,17 @@ class Distribution(pulumi.CustomResource):
             alternative_domain_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
-            cache_behavior_settings: pulumi.Input[Optional[Union['DistributionCacheBehaviorSettingsArgs', 'DistributionCacheBehaviorSettingsArgsDict']]] = None,
-            cache_behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionCacheBehaviorArgs', 'DistributionCacheBehaviorArgsDict']]]]] = None,
+            cache_behavior_settings: pulumi.Input[Optional[Union['DistributionCacheBehaviorSettingsArgs', 'DistributionCacheBehaviorSettingsArgsDict', 'outputs.DistributionCacheBehaviorSettings']]] = None,
+            cache_behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionCacheBehaviorArgs', 'DistributionCacheBehaviorArgsDict', 'outputs.DistributionCacheBehavior']]]]] = None,
             certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
-            default_cache_behavior: pulumi.Input[Optional[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']]] = None,
+            default_cache_behavior: pulumi.Input[Optional[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict', 'outputs.DistributionDefaultCacheBehavior']]] = None,
             domain_name: pulumi.Input[Optional[_builtins.str]] = None,
             ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
             is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionLocationArgs', 'DistributionLocationArgsDict']]]]] = None,
+            locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionLocationArgs', 'DistributionLocationArgsDict', 'outputs.DistributionLocation']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            origin: pulumi.Input[Optional[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']]] = None,
+            origin: pulumi.Input[Optional[Union['DistributionOriginArgs', 'DistributionOriginArgsDict', 'outputs.DistributionOrigin']]] = None,
             origin_public_dns: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             resource_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -944,17 +944,17 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alternative_domain_names: Alternate domain names of the distribution.
         :param pulumi.Input[_builtins.str] arn: ARN of the distribution.
         :param pulumi.Input[_builtins.str] bundle_id: Bundle ID to use for the distribution.
-        :param pulumi.Input[Union['DistributionCacheBehaviorSettingsArgs', 'DistributionCacheBehaviorSettingsArgsDict']] cache_behavior_settings: Cache behavior settings of the distribution. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionCacheBehaviorArgs', 'DistributionCacheBehaviorArgsDict']]]] cache_behaviors: Per-path cache behavior of the distribution. See below.
+        :param pulumi.Input[Union['DistributionCacheBehaviorSettingsArgs', 'DistributionCacheBehaviorSettingsArgsDict', 'outputs.DistributionCacheBehaviorSettings']] cache_behavior_settings: Cache behavior settings of the distribution. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionCacheBehaviorArgs', 'DistributionCacheBehaviorArgsDict', 'outputs.DistributionCacheBehavior']]]] cache_behaviors: Per-path cache behavior of the distribution. See below.
         :param pulumi.Input[_builtins.str] certificate_name: Name of the SSL/TLS certificate attached to the distribution.
         :param pulumi.Input[_builtins.str] created_at: Timestamp when the distribution was created.
-        :param pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']] default_cache_behavior: Default cache behavior of the distribution. See below.
+        :param pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict', 'outputs.DistributionDefaultCacheBehavior']] default_cache_behavior: Default cache behavior of the distribution. See below.
         :param pulumi.Input[_builtins.str] domain_name: Domain name of the distribution.
         :param pulumi.Input[_builtins.str] ip_address_type: IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
         :param pulumi.Input[_builtins.bool] is_enabled: Whether the distribution is enabled. Default: `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionLocationArgs', 'DistributionLocationArgsDict']]]] locations: Location of the distribution, such as the AWS Region and Availability Zone. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionLocationArgs', 'DistributionLocationArgsDict', 'outputs.DistributionLocation']]]] locations: Location of the distribution, such as the AWS Region and Availability Zone. See below.
         :param pulumi.Input[_builtins.str] name: Name of the distribution.
-        :param pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']] origin: Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
+        :param pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict', 'outputs.DistributionOrigin']] origin: Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] origin_public_dns: Public DNS of the origin.

@@ -171,7 +171,7 @@ class DirectoryBucketAccessPointScope(pulumi.CustomResource):
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope: pulumi.Input[Optional[Union['DirectoryBucketAccessPointScopeScopeArgs', 'DirectoryBucketAccessPointScopeScopeArgsDict']]] = None,
+                 scope: pulumi.Input[Optional[Union['DirectoryBucketAccessPointScopeScopeArgs', 'DirectoryBucketAccessPointScopeScopeArgsDict', 'outputs.DirectoryBucketAccessPointScopeScope']]] = None,
                  __props__=None):
         """
         Provides a resource to manage the access point scope for a directory bucket.
@@ -228,7 +228,7 @@ class DirectoryBucketAccessPointScope(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_id: AWS account ID that owns the specified access point.
         :param pulumi.Input[_builtins.str] name: Name of the access point that you want to apply the scope to.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DirectoryBucketAccessPointScopeScopeArgs', 'DirectoryBucketAccessPointScopeScopeArgsDict']] scope: . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
+        :param pulumi.Input[Union['DirectoryBucketAccessPointScopeScopeArgs', 'DirectoryBucketAccessPointScopeScopeArgsDict', 'outputs.DirectoryBucketAccessPointScopeScope']] scope: . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
         """
         ...
     @overload
@@ -304,7 +304,7 @@ class DirectoryBucketAccessPointScope(pulumi.CustomResource):
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope: pulumi.Input[Optional[Union['DirectoryBucketAccessPointScopeScopeArgs', 'DirectoryBucketAccessPointScopeScopeArgsDict']]] = None,
+                 scope: pulumi.Input[Optional[Union['DirectoryBucketAccessPointScopeScopeArgs', 'DirectoryBucketAccessPointScopeScopeArgsDict', 'outputs.DirectoryBucketAccessPointScopeScope']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -335,7 +335,7 @@ class DirectoryBucketAccessPointScope(pulumi.CustomResource):
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            scope: pulumi.Input[Optional[Union['DirectoryBucketAccessPointScopeScopeArgs', 'DirectoryBucketAccessPointScopeScopeArgsDict']]] = None) -> 'DirectoryBucketAccessPointScope':
+            scope: pulumi.Input[Optional[Union['DirectoryBucketAccessPointScopeScopeArgs', 'DirectoryBucketAccessPointScopeScopeArgsDict', 'outputs.DirectoryBucketAccessPointScopeScope']]] = None) -> 'DirectoryBucketAccessPointScope':
         """
         Get an existing DirectoryBucketAccessPointScope resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -346,7 +346,7 @@ class DirectoryBucketAccessPointScope(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_id: AWS account ID that owns the specified access point.
         :param pulumi.Input[_builtins.str] name: Name of the access point that you want to apply the scope to.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DirectoryBucketAccessPointScopeScopeArgs', 'DirectoryBucketAccessPointScopeScopeArgsDict']] scope: . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
+        :param pulumi.Input[Union['DirectoryBucketAccessPointScopeScopeArgs', 'DirectoryBucketAccessPointScopeScopeArgsDict', 'outputs.DirectoryBucketAccessPointScopeScope']] scope: . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

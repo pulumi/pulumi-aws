@@ -269,7 +269,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['VpcBlockPublicAccessExclusionTimeoutsArgs', 'VpcBlockPublicAccessExclusionTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['VpcBlockPublicAccessExclusionTimeoutsArgs', 'VpcBlockPublicAccessExclusionTimeoutsArgsDict', 'outputs.VpcBlockPublicAccessExclusionTimeouts']]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -389,7 +389,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['VpcBlockPublicAccessExclusionTimeoutsArgs', 'VpcBlockPublicAccessExclusionTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['VpcBlockPublicAccessExclusionTimeoutsArgs', 'VpcBlockPublicAccessExclusionTimeoutsArgsDict', 'outputs.VpcBlockPublicAccessExclusionTimeouts']]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -426,7 +426,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
             subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['VpcBlockPublicAccessExclusionTimeoutsArgs', 'VpcBlockPublicAccessExclusionTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['VpcBlockPublicAccessExclusionTimeoutsArgs', 'VpcBlockPublicAccessExclusionTimeoutsArgsDict', 'outputs.VpcBlockPublicAccessExclusionTimeouts']]] = None,
             vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'VpcBlockPublicAccessExclusion':
         """
         Get an existing VpcBlockPublicAccessExclusion resource's state with the given name, id, and optional extra

@@ -377,14 +377,14 @@ class Scraper(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
-                 destination: pulumi.Input[Optional[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']]] = None,
-                 exporter: pulumi.Input[Optional[Union['ScraperExporterArgs', 'ScraperExporterArgsDict']]] = None,
+                 destination: pulumi.Input[Optional[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict', 'outputs.ScraperDestination']]] = None,
+                 exporter: pulumi.Input[Optional[Union['ScraperExporterArgs', 'ScraperExporterArgsDict', 'outputs.ScraperExporter']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 role_configuration: pulumi.Input[Optional[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict']]] = None,
+                 role_configuration: pulumi.Input[Optional[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict', 'outputs.ScraperRoleConfiguration']]] = None,
                  scrape_configuration: pulumi.Input[Optional[_builtins.str]] = None,
-                 source: pulumi.Input[Optional[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']]] = None,
+                 source: pulumi.Input[Optional[Union['ScraperSourceArgs', 'ScraperSourceArgsDict', 'outputs.ScraperSource']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ScraperTimeoutsArgs', 'ScraperTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ScraperTimeoutsArgs', 'ScraperTimeoutsArgsDict', 'outputs.ScraperTimeouts']]] = None,
                  __props__=None):
         """
         > **Note:** If you change a Scraper's source (EKS cluster or VPC configuration), Terraform
@@ -692,12 +692,12 @@ class Scraper(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: Name to associate with the managed scraper. This is for your use, and does not need to be unique.
-        :param pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']] destination: Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
-        :param pulumi.Input[Union['ScraperExporterArgs', 'ScraperExporterArgsDict']] exporter: Configuration block for additional exporters. See `exporter` Block for details.
+        :param pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict', 'outputs.ScraperDestination']] destination: Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
+        :param pulumi.Input[Union['ScraperExporterArgs', 'ScraperExporterArgsDict', 'outputs.ScraperExporter']] exporter: Configuration block for additional exporters. See `exporter` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict']] role_configuration: Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` Block for details.
+        :param pulumi.Input[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict', 'outputs.ScraperRoleConfiguration']] role_configuration: Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` Block for details.
         :param pulumi.Input[_builtins.str] scrape_configuration: Configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
-        :param pulumi.Input[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']] source: Configuration block to specify where the managed scraper will collect metrics from. See `source` Block for details.
+        :param pulumi.Input[Union['ScraperSourceArgs', 'ScraperSourceArgsDict', 'outputs.ScraperSource']] source: Configuration block to specify where the managed scraper will collect metrics from. See `source` Block for details.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1027,14 +1027,14 @@ class Scraper(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
-                 destination: pulumi.Input[Optional[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']]] = None,
-                 exporter: pulumi.Input[Optional[Union['ScraperExporterArgs', 'ScraperExporterArgsDict']]] = None,
+                 destination: pulumi.Input[Optional[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict', 'outputs.ScraperDestination']]] = None,
+                 exporter: pulumi.Input[Optional[Union['ScraperExporterArgs', 'ScraperExporterArgsDict', 'outputs.ScraperExporter']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 role_configuration: pulumi.Input[Optional[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict']]] = None,
+                 role_configuration: pulumi.Input[Optional[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict', 'outputs.ScraperRoleConfiguration']]] = None,
                  scrape_configuration: pulumi.Input[Optional[_builtins.str]] = None,
-                 source: pulumi.Input[Optional[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']]] = None,
+                 source: pulumi.Input[Optional[Union['ScraperSourceArgs', 'ScraperSourceArgsDict', 'outputs.ScraperSource']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ScraperTimeoutsArgs', 'ScraperTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ScraperTimeoutsArgs', 'ScraperTimeoutsArgsDict', 'outputs.ScraperTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1072,16 +1072,16 @@ class Scraper(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             alias: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            destination: pulumi.Input[Optional[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']]] = None,
-            exporter: pulumi.Input[Optional[Union['ScraperExporterArgs', 'ScraperExporterArgsDict']]] = None,
+            destination: pulumi.Input[Optional[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict', 'outputs.ScraperDestination']]] = None,
+            exporter: pulumi.Input[Optional[Union['ScraperExporterArgs', 'ScraperExporterArgsDict', 'outputs.ScraperExporter']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            role_configuration: pulumi.Input[Optional[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict']]] = None,
+            role_configuration: pulumi.Input[Optional[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict', 'outputs.ScraperRoleConfiguration']]] = None,
             scrape_configuration: pulumi.Input[Optional[_builtins.str]] = None,
-            source: pulumi.Input[Optional[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']]] = None,
+            source: pulumi.Input[Optional[Union['ScraperSourceArgs', 'ScraperSourceArgsDict', 'outputs.ScraperSource']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['ScraperTimeoutsArgs', 'ScraperTimeoutsArgsDict']]] = None) -> 'Scraper':
+            timeouts: pulumi.Input[Optional[Union['ScraperTimeoutsArgs', 'ScraperTimeoutsArgsDict', 'outputs.ScraperTimeouts']]] = None) -> 'Scraper':
         """
         Get an existing Scraper resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1091,13 +1091,13 @@ class Scraper(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: Name to associate with the managed scraper. This is for your use, and does not need to be unique.
         :param pulumi.Input[_builtins.str] arn: ARN of the scraper.
-        :param pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']] destination: Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
-        :param pulumi.Input[Union['ScraperExporterArgs', 'ScraperExporterArgsDict']] exporter: Configuration block for additional exporters. See `exporter` Block for details.
+        :param pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict', 'outputs.ScraperDestination']] destination: Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
+        :param pulumi.Input[Union['ScraperExporterArgs', 'ScraperExporterArgsDict', 'outputs.ScraperExporter']] exporter: Configuration block for additional exporters. See `exporter` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
-        :param pulumi.Input[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict']] role_configuration: Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` Block for details.
+        :param pulumi.Input[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict', 'outputs.ScraperRoleConfiguration']] role_configuration: Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` Block for details.
         :param pulumi.Input[_builtins.str] scrape_configuration: Configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
-        :param pulumi.Input[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']] source: Configuration block to specify where the managed scraper will collect metrics from. See `source` Block for details.
+        :param pulumi.Input[Union['ScraperSourceArgs', 'ScraperSourceArgsDict', 'outputs.ScraperSource']] source: Configuration block to specify where the managed scraper will collect metrics from. See `source` Block for details.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

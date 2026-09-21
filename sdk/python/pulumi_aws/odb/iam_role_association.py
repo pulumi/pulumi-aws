@@ -235,7 +235,7 @@ class IamRoleAssociation(pulumi.CustomResource):
                  iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['IamRoleAssociationTimeoutsArgs', 'IamRoleAssociationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['IamRoleAssociationTimeoutsArgs', 'IamRoleAssociationTimeoutsArgsDict', 'outputs.IamRoleAssociationTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS Oracle Database@AWS Associate Disassociate IAM Role.
@@ -327,7 +327,7 @@ class IamRoleAssociation(pulumi.CustomResource):
                  iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['IamRoleAssociationTimeoutsArgs', 'IamRoleAssociationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['IamRoleAssociationTimeoutsArgs', 'IamRoleAssociationTimeoutsArgsDict', 'outputs.IamRoleAssociationTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -366,7 +366,7 @@ class IamRoleAssociation(pulumi.CustomResource):
             resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             status_reason: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['IamRoleAssociationTimeoutsArgs', 'IamRoleAssociationTimeoutsArgsDict']]] = None) -> 'IamRoleAssociation':
+            timeouts: pulumi.Input[Optional[Union['IamRoleAssociationTimeoutsArgs', 'IamRoleAssociationTimeoutsArgsDict', 'outputs.IamRoleAssociationTimeouts']]] = None) -> 'IamRoleAssociation':
         """
         Get an existing IamRoleAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

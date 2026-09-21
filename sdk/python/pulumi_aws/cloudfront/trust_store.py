@@ -233,10 +233,10 @@ class TrustStore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ca_certificates_bundle_source: pulumi.Input[Optional[Union['TrustStoreCaCertificatesBundleSourceArgs', 'TrustStoreCaCertificatesBundleSourceArgsDict']]] = None,
+                 ca_certificates_bundle_source: pulumi.Input[Optional[Union['TrustStoreCaCertificatesBundleSourceArgs', 'TrustStoreCaCertificatesBundleSourceArgsDict', 'outputs.TrustStoreCaCertificatesBundleSource']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['TrustStoreTimeoutsArgs', 'TrustStoreTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TrustStoreTimeoutsArgs', 'TrustStoreTimeoutsArgsDict', 'outputs.TrustStoreTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS CloudFront Trust Store.
@@ -289,7 +289,7 @@ class TrustStore(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TrustStoreCaCertificatesBundleSourceArgs', 'TrustStoreCaCertificatesBundleSourceArgsDict']] ca_certificates_bundle_source: Configuration block for the CA certificates bundle source. See `ca_certificates_bundle_source` below.
+        :param pulumi.Input[Union['TrustStoreCaCertificatesBundleSourceArgs', 'TrustStoreCaCertificatesBundleSourceArgsDict', 'outputs.TrustStoreCaCertificatesBundleSource']] ca_certificates_bundle_source: Configuration block for the CA certificates bundle source. See `ca_certificates_bundle_source` below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] name: Name of the trust store. Changing this forces a new resource to be created.
@@ -365,10 +365,10 @@ class TrustStore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ca_certificates_bundle_source: pulumi.Input[Optional[Union['TrustStoreCaCertificatesBundleSourceArgs', 'TrustStoreCaCertificatesBundleSourceArgsDict']]] = None,
+                 ca_certificates_bundle_source: pulumi.Input[Optional[Union['TrustStoreCaCertificatesBundleSourceArgs', 'TrustStoreCaCertificatesBundleSourceArgsDict', 'outputs.TrustStoreCaCertificatesBundleSource']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['TrustStoreTimeoutsArgs', 'TrustStoreTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TrustStoreTimeoutsArgs', 'TrustStoreTimeoutsArgsDict', 'outputs.TrustStoreTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -399,13 +399,13 @@ class TrustStore(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            ca_certificates_bundle_source: pulumi.Input[Optional[Union['TrustStoreCaCertificatesBundleSourceArgs', 'TrustStoreCaCertificatesBundleSourceArgsDict']]] = None,
+            ca_certificates_bundle_source: pulumi.Input[Optional[Union['TrustStoreCaCertificatesBundleSourceArgs', 'TrustStoreCaCertificatesBundleSourceArgsDict', 'outputs.TrustStoreCaCertificatesBundleSource']]] = None,
             etag: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             number_of_ca_certificates: pulumi.Input[Optional[_builtins.int]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['TrustStoreTimeoutsArgs', 'TrustStoreTimeoutsArgsDict']]] = None) -> 'TrustStore':
+            timeouts: pulumi.Input[Optional[Union['TrustStoreTimeoutsArgs', 'TrustStoreTimeoutsArgsDict', 'outputs.TrustStoreTimeouts']]] = None) -> 'TrustStore':
         """
         Get an existing TrustStore resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -414,7 +414,7 @@ class TrustStore(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the trust store.
-        :param pulumi.Input[Union['TrustStoreCaCertificatesBundleSourceArgs', 'TrustStoreCaCertificatesBundleSourceArgsDict']] ca_certificates_bundle_source: Configuration block for the CA certificates bundle source. See `ca_certificates_bundle_source` below.
+        :param pulumi.Input[Union['TrustStoreCaCertificatesBundleSourceArgs', 'TrustStoreCaCertificatesBundleSourceArgsDict', 'outputs.TrustStoreCaCertificatesBundleSource']] ca_certificates_bundle_source: Configuration block for the CA certificates bundle source. See `ca_certificates_bundle_source` below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] etag: ETag of the trust store.

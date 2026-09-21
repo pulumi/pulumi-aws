@@ -301,7 +301,7 @@ class LogDelivery(pulumi.CustomResource):
                  field_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
                  record_fields: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3_delivery_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogDeliveryS3DeliveryConfigurationArgs', 'LogDeliveryS3DeliveryConfigurationArgsDict']]]]] = None,
+                 s3_delivery_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogDeliveryS3DeliveryConfigurationArgs', 'LogDeliveryS3DeliveryConfigurationArgsDict', 'outputs.LogDeliveryS3DeliveryConfiguration']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -383,7 +383,7 @@ class LogDelivery(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] field_delimiter: The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] record_fields: The list of record fields to be delivered to the destination, in order. The valid field names vary by the `log_type` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LogDeliveryS3DeliveryConfigurationArgs', 'LogDeliveryS3DeliveryConfigurationArgsDict']]]] s3_delivery_configurations: Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LogDeliveryS3DeliveryConfigurationArgs', 'LogDeliveryS3DeliveryConfigurationArgsDict', 'outputs.LogDeliveryS3DeliveryConfiguration']]]] s3_delivery_configurations: Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -484,7 +484,7 @@ class LogDelivery(pulumi.CustomResource):
                  field_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
                  record_fields: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3_delivery_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogDeliveryS3DeliveryConfigurationArgs', 'LogDeliveryS3DeliveryConfigurationArgsDict']]]]] = None,
+                 s3_delivery_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogDeliveryS3DeliveryConfigurationArgs', 'LogDeliveryS3DeliveryConfigurationArgsDict', 'outputs.LogDeliveryS3DeliveryConfiguration']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -524,7 +524,7 @@ class LogDelivery(pulumi.CustomResource):
             field_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
             record_fields: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            s3_delivery_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogDeliveryS3DeliveryConfigurationArgs', 'LogDeliveryS3DeliveryConfigurationArgsDict']]]]] = None,
+            s3_delivery_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogDeliveryS3DeliveryConfigurationArgs', 'LogDeliveryS3DeliveryConfigurationArgsDict', 'outputs.LogDeliveryS3DeliveryConfiguration']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'LogDelivery':
         """
@@ -540,7 +540,7 @@ class LogDelivery(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] field_delimiter: The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] record_fields: The list of record fields to be delivered to the destination, in order. The valid field names vary by the `log_type` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LogDeliveryS3DeliveryConfigurationArgs', 'LogDeliveryS3DeliveryConfigurationArgsDict']]]] s3_delivery_configurations: Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LogDeliveryS3DeliveryConfigurationArgs', 'LogDeliveryS3DeliveryConfigurationArgsDict', 'outputs.LogDeliveryS3DeliveryConfiguration']]]] s3_delivery_configurations: Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

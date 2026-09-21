@@ -202,10 +202,10 @@ class AnalyticsConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: pulumi.Input[Optional[_builtins.str]] = None,
-                 filter: pulumi.Input[Optional[Union['AnalyticsConfigurationFilterArgs', 'AnalyticsConfigurationFilterArgsDict']]] = None,
+                 filter: pulumi.Input[Optional[Union['AnalyticsConfigurationFilterArgs', 'AnalyticsConfigurationFilterArgsDict', 'outputs.AnalyticsConfigurationFilter']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_class_analysis: pulumi.Input[Optional[Union['AnalyticsConfigurationStorageClassAnalysisArgs', 'AnalyticsConfigurationStorageClassAnalysisArgsDict']]] = None,
+                 storage_class_analysis: pulumi.Input[Optional[Union['AnalyticsConfigurationStorageClassAnalysisArgs', 'AnalyticsConfigurationStorageClassAnalysisArgsDict', 'outputs.AnalyticsConfigurationStorageClassAnalysis']]] = None,
                  __props__=None):
         """
         Provides a S3 bucket [analytics configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html) resource.
@@ -267,10 +267,10 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket this analytics configuration is associated with.
-        :param pulumi.Input[Union['AnalyticsConfigurationFilterArgs', 'AnalyticsConfigurationFilterArgsDict']] filter: Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        :param pulumi.Input[Union['AnalyticsConfigurationFilterArgs', 'AnalyticsConfigurationFilterArgsDict', 'outputs.AnalyticsConfigurationFilter']] filter: Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         :param pulumi.Input[_builtins.str] name: Unique identifier of the analytics configuration for the bucket.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AnalyticsConfigurationStorageClassAnalysisArgs', 'AnalyticsConfigurationStorageClassAnalysisArgsDict']] storage_class_analysis: Configuration for the analytics data export (documented below).
+        :param pulumi.Input[Union['AnalyticsConfigurationStorageClassAnalysisArgs', 'AnalyticsConfigurationStorageClassAnalysisArgsDict', 'outputs.AnalyticsConfigurationStorageClassAnalysis']] storage_class_analysis: Configuration for the analytics data export (documented below).
         """
         ...
     @overload
@@ -351,10 +351,10 @@ class AnalyticsConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: pulumi.Input[Optional[_builtins.str]] = None,
-                 filter: pulumi.Input[Optional[Union['AnalyticsConfigurationFilterArgs', 'AnalyticsConfigurationFilterArgsDict']]] = None,
+                 filter: pulumi.Input[Optional[Union['AnalyticsConfigurationFilterArgs', 'AnalyticsConfigurationFilterArgsDict', 'outputs.AnalyticsConfigurationFilter']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_class_analysis: pulumi.Input[Optional[Union['AnalyticsConfigurationStorageClassAnalysisArgs', 'AnalyticsConfigurationStorageClassAnalysisArgsDict']]] = None,
+                 storage_class_analysis: pulumi.Input[Optional[Union['AnalyticsConfigurationStorageClassAnalysisArgs', 'AnalyticsConfigurationStorageClassAnalysisArgsDict', 'outputs.AnalyticsConfigurationStorageClassAnalysis']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -382,10 +382,10 @@ class AnalyticsConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             bucket: pulumi.Input[Optional[_builtins.str]] = None,
-            filter: pulumi.Input[Optional[Union['AnalyticsConfigurationFilterArgs', 'AnalyticsConfigurationFilterArgsDict']]] = None,
+            filter: pulumi.Input[Optional[Union['AnalyticsConfigurationFilterArgs', 'AnalyticsConfigurationFilterArgsDict', 'outputs.AnalyticsConfigurationFilter']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            storage_class_analysis: pulumi.Input[Optional[Union['AnalyticsConfigurationStorageClassAnalysisArgs', 'AnalyticsConfigurationStorageClassAnalysisArgsDict']]] = None) -> 'AnalyticsConfiguration':
+            storage_class_analysis: pulumi.Input[Optional[Union['AnalyticsConfigurationStorageClassAnalysisArgs', 'AnalyticsConfigurationStorageClassAnalysisArgsDict', 'outputs.AnalyticsConfigurationStorageClassAnalysis']]] = None) -> 'AnalyticsConfiguration':
         """
         Get an existing AnalyticsConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -394,10 +394,10 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket this analytics configuration is associated with.
-        :param pulumi.Input[Union['AnalyticsConfigurationFilterArgs', 'AnalyticsConfigurationFilterArgsDict']] filter: Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        :param pulumi.Input[Union['AnalyticsConfigurationFilterArgs', 'AnalyticsConfigurationFilterArgsDict', 'outputs.AnalyticsConfigurationFilter']] filter: Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         :param pulumi.Input[_builtins.str] name: Unique identifier of the analytics configuration for the bucket.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AnalyticsConfigurationStorageClassAnalysisArgs', 'AnalyticsConfigurationStorageClassAnalysisArgsDict']] storage_class_analysis: Configuration for the analytics data export (documented below).
+        :param pulumi.Input[Union['AnalyticsConfigurationStorageClassAnalysisArgs', 'AnalyticsConfigurationStorageClassAnalysisArgsDict', 'outputs.AnalyticsConfigurationStorageClassAnalysis']] storage_class_analysis: Configuration for the analytics data export (documented below).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -324,7 +324,7 @@ class IpAccessSettings(pulumi.CustomResource):
                  customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpAccessSettingsIpRuleArgs', 'IpAccessSettingsIpRuleArgsDict']]]]] = None,
+                 ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpAccessSettingsIpRuleArgs', 'IpAccessSettingsIpRuleArgsDict', 'outputs.IpAccessSettingsIpRule']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -413,7 +413,7 @@ class IpAccessSettings(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key.
         :param pulumi.Input[_builtins.str] description: The description of the IP access settings.
         :param pulumi.Input[_builtins.str] display_name: The display name of the IP access settings.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IpAccessSettingsIpRuleArgs', 'IpAccessSettingsIpRuleArgsDict']]]] ip_rules: The IP rules of the IP access settings. See IP Rule below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpAccessSettingsIpRuleArgs', 'IpAccessSettingsIpRuleArgsDict', 'outputs.IpAccessSettingsIpRule']]]] ip_rules: The IP rules of the IP access settings. See IP Rule below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -523,7 +523,7 @@ class IpAccessSettings(pulumi.CustomResource):
                  customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpAccessSettingsIpRuleArgs', 'IpAccessSettingsIpRuleArgsDict']]]]] = None,
+                 ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpAccessSettingsIpRuleArgs', 'IpAccessSettingsIpRuleArgsDict', 'outputs.IpAccessSettingsIpRule']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -565,7 +565,7 @@ class IpAccessSettings(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             ip_access_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpAccessSettingsIpRuleArgs', 'IpAccessSettingsIpRuleArgsDict']]]]] = None,
+            ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpAccessSettingsIpRuleArgs', 'IpAccessSettingsIpRuleArgsDict', 'outputs.IpAccessSettingsIpRule']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'IpAccessSettings':
@@ -582,7 +582,7 @@ class IpAccessSettings(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the IP access settings.
         :param pulumi.Input[_builtins.str] display_name: The display name of the IP access settings.
         :param pulumi.Input[_builtins.str] ip_access_settings_arn: ARN of the IP access settings resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IpAccessSettingsIpRuleArgs', 'IpAccessSettingsIpRuleArgsDict']]]] ip_rules: The IP rules of the IP access settings. See IP Rule below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpAccessSettingsIpRuleArgs', 'IpAccessSettingsIpRuleArgsDict', 'outputs.IpAccessSettingsIpRule']]]] ip_rules: The IP rules of the IP access settings. See IP Rule below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

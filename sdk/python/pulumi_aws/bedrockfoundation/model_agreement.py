@@ -171,7 +171,7 @@ class ModelAgreement(pulumi.CustomResource):
                  model_id: pulumi.Input[Optional[_builtins.str]] = None,
                  offer_token: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ModelAgreementTimeoutsArgs', 'ModelAgreementTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ModelAgreementTimeoutsArgs', 'ModelAgreementTimeoutsArgsDict', 'outputs.ModelAgreementTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS Bedrock Foundation Model Agreement.
@@ -283,7 +283,7 @@ class ModelAgreement(pulumi.CustomResource):
                  model_id: pulumi.Input[Optional[_builtins.str]] = None,
                  offer_token: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ModelAgreementTimeoutsArgs', 'ModelAgreementTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ModelAgreementTimeoutsArgs', 'ModelAgreementTimeoutsArgsDict', 'outputs.ModelAgreementTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -314,7 +314,7 @@ class ModelAgreement(pulumi.CustomResource):
             model_id: pulumi.Input[Optional[_builtins.str]] = None,
             offer_token: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['ModelAgreementTimeoutsArgs', 'ModelAgreementTimeoutsArgsDict']]] = None) -> 'ModelAgreement':
+            timeouts: pulumi.Input[Optional[Union['ModelAgreementTimeoutsArgs', 'ModelAgreementTimeoutsArgsDict', 'outputs.ModelAgreementTimeouts']]] = None) -> 'ModelAgreement':
         """
         Get an existing ModelAgreement resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

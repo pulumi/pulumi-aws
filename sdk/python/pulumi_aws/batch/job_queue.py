@@ -356,15 +356,15 @@ class JobQueue(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_environment_orders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobQueueComputeEnvironmentOrderArgs', 'JobQueueComputeEnvironmentOrderArgsDict']]]]] = None,
-                 job_state_time_limit_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobQueueJobStateTimeLimitActionArgs', 'JobQueueJobStateTimeLimitActionArgsDict']]]]] = None,
+                 compute_environment_orders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobQueueComputeEnvironmentOrderArgs', 'JobQueueComputeEnvironmentOrderArgsDict', 'outputs.JobQueueComputeEnvironmentOrder']]]]] = None,
+                 job_state_time_limit_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobQueueJobStateTimeLimitActionArgs', 'JobQueueJobStateTimeLimitActionArgsDict', 'outputs.JobQueueJobStateTimeLimitAction']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  scheduling_policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['JobQueueTimeoutsArgs', 'JobQueueTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['JobQueueTimeoutsArgs', 'JobQueueTimeoutsArgsDict', 'outputs.JobQueueTimeouts']]] = None,
                  __props__=None):
         """
         Provides a Batch Job Queue resource.
@@ -443,8 +443,8 @@ class JobQueue(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['JobQueueComputeEnvironmentOrderArgs', 'JobQueueComputeEnvironmentOrderArgsDict']]]] compute_environment_orders: The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['JobQueueJobStateTimeLimitActionArgs', 'JobQueueJobStateTimeLimitActionArgsDict']]]] job_state_time_limit_actions: The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobQueueComputeEnvironmentOrderArgs', 'JobQueueComputeEnvironmentOrderArgsDict', 'outputs.JobQueueComputeEnvironmentOrder']]]] compute_environment_orders: The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobQueueJobStateTimeLimitActionArgs', 'JobQueueJobStateTimeLimitActionArgsDict', 'outputs.JobQueueJobStateTimeLimitAction']]]] job_state_time_limit_actions: The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the job queue.
         :param pulumi.Input[_builtins.int] priority: The priority of the job queue. Job queues with a higher priority
                are evaluated first when associated with the same compute environment.
@@ -549,15 +549,15 @@ class JobQueue(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_environment_orders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobQueueComputeEnvironmentOrderArgs', 'JobQueueComputeEnvironmentOrderArgsDict']]]]] = None,
-                 job_state_time_limit_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobQueueJobStateTimeLimitActionArgs', 'JobQueueJobStateTimeLimitActionArgsDict']]]]] = None,
+                 compute_environment_orders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobQueueComputeEnvironmentOrderArgs', 'JobQueueComputeEnvironmentOrderArgsDict', 'outputs.JobQueueComputeEnvironmentOrder']]]]] = None,
+                 job_state_time_limit_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobQueueJobStateTimeLimitActionArgs', 'JobQueueJobStateTimeLimitActionArgsDict', 'outputs.JobQueueJobStateTimeLimitAction']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  scheduling_policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['JobQueueTimeoutsArgs', 'JobQueueTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['JobQueueTimeoutsArgs', 'JobQueueTimeoutsArgsDict', 'outputs.JobQueueTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -593,8 +593,8 @@ class JobQueue(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            compute_environment_orders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobQueueComputeEnvironmentOrderArgs', 'JobQueueComputeEnvironmentOrderArgsDict']]]]] = None,
-            job_state_time_limit_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobQueueJobStateTimeLimitActionArgs', 'JobQueueJobStateTimeLimitActionArgsDict']]]]] = None,
+            compute_environment_orders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobQueueComputeEnvironmentOrderArgs', 'JobQueueComputeEnvironmentOrderArgsDict', 'outputs.JobQueueComputeEnvironmentOrder']]]]] = None,
+            job_state_time_limit_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobQueueJobStateTimeLimitActionArgs', 'JobQueueJobStateTimeLimitActionArgsDict', 'outputs.JobQueueJobStateTimeLimitAction']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             priority: pulumi.Input[Optional[_builtins.int]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -602,7 +602,7 @@ class JobQueue(pulumi.CustomResource):
             state: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['JobQueueTimeoutsArgs', 'JobQueueTimeoutsArgsDict']]] = None) -> 'JobQueue':
+            timeouts: pulumi.Input[Optional[Union['JobQueueTimeoutsArgs', 'JobQueueTimeoutsArgsDict', 'outputs.JobQueueTimeouts']]] = None) -> 'JobQueue':
         """
         Get an existing JobQueue resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -611,8 +611,8 @@ class JobQueue(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the job queue.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['JobQueueComputeEnvironmentOrderArgs', 'JobQueueComputeEnvironmentOrderArgsDict']]]] compute_environment_orders: The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['JobQueueJobStateTimeLimitActionArgs', 'JobQueueJobStateTimeLimitActionArgsDict']]]] job_state_time_limit_actions: The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobQueueComputeEnvironmentOrderArgs', 'JobQueueComputeEnvironmentOrderArgsDict', 'outputs.JobQueueComputeEnvironmentOrder']]]] compute_environment_orders: The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobQueueJobStateTimeLimitActionArgs', 'JobQueueJobStateTimeLimitActionArgsDict', 'outputs.JobQueueJobStateTimeLimitAction']]]] job_state_time_limit_actions: The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the job queue.
         :param pulumi.Input[_builtins.int] priority: The priority of the job queue. Job queues with a higher priority
                are evaluated first when associated with the same compute environment.

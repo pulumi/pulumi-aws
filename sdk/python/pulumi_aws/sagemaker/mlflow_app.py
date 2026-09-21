@@ -392,7 +392,7 @@ class MlflowApp(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['MlflowAppTimeoutsArgs', 'MlflowAppTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['MlflowAppTimeoutsArgs', 'MlflowAppTimeoutsArgsDict', 'outputs.MlflowAppTimeouts']]] = None,
                  weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -500,7 +500,7 @@ class MlflowApp(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['MlflowAppTimeoutsArgs', 'MlflowAppTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['MlflowAppTimeoutsArgs', 'MlflowAppTimeoutsArgsDict', 'outputs.MlflowAppTimeouts']]] = None,
                  weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -547,7 +547,7 @@ class MlflowApp(pulumi.CustomResource):
             role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['MlflowAppTimeoutsArgs', 'MlflowAppTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['MlflowAppTimeoutsArgs', 'MlflowAppTimeoutsArgsDict', 'outputs.MlflowAppTimeouts']]] = None,
             weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None) -> 'MlflowApp':
         """
         Get an existing MlflowApp resource's state with the given name, id, and optional extra

@@ -679,16 +679,16 @@ class ImagePipeline(pulumi.CustomResource):
                  enhanced_image_metadata_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  execution_role: pulumi.Input[Optional[_builtins.str]] = None,
                  image_recipe_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 image_scanning_configuration: pulumi.Input[Optional[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']]] = None,
-                 image_tests_configuration: pulumi.Input[Optional[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']]] = None,
+                 image_scanning_configuration: pulumi.Input[Optional[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict', 'outputs.ImagePipelineImageScanningConfiguration']]] = None,
+                 image_tests_configuration: pulumi.Input[Optional[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict', 'outputs.ImagePipelineImageTestsConfiguration']]] = None,
                  infrastructure_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging_configuration: pulumi.Input[Optional[Union['ImagePipelineLoggingConfigurationArgs', 'ImagePipelineLoggingConfigurationArgsDict']]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['ImagePipelineLoggingConfigurationArgs', 'ImagePipelineLoggingConfigurationArgsDict', 'outputs.ImagePipelineLoggingConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict', 'outputs.ImagePipelineSchedule']]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workflows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImagePipelineWorkflowArgs', 'ImagePipelineWorkflowArgsDict']]]]] = None,
+                 workflows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImagePipelineWorkflowArgs', 'ImagePipelineWorkflowArgsDict', 'outputs.ImagePipelineWorkflow']]]]] = None,
                  __props__=None):
         """
         Manages an Image Builder Image Pipeline.
@@ -714,18 +714,18 @@ class ImagePipeline(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
         :param pulumi.Input[_builtins.str] execution_role: ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
         :param pulumi.Input[_builtins.str] image_recipe_arn: ARN of the image recipe.
-        :param pulumi.Input[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
-        :param pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
+        :param pulumi.Input[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict', 'outputs.ImagePipelineImageScanningConfiguration']] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
+        :param pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict', 'outputs.ImagePipelineImageTestsConfiguration']] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
         :param pulumi.Input[_builtins.str] infrastructure_configuration_arn: ARN of the Image Builder Infrastructure Configuration.
-        :param pulumi.Input[Union['ImagePipelineLoggingConfigurationArgs', 'ImagePipelineLoggingConfigurationArgsDict']] logging_configuration: Configuration block with logging configuration. Detailed below.
+        :param pulumi.Input[Union['ImagePipelineLoggingConfigurationArgs', 'ImagePipelineLoggingConfigurationArgsDict', 'outputs.ImagePipelineLoggingConfiguration']] logging_configuration: Configuration block with logging configuration. Detailed below.
         :param pulumi.Input[_builtins.str] name: Name of the image pipeline.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']] schedule: Configuration block with schedule settings. Detailed below.
+        :param pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict', 'outputs.ImagePipelineSchedule']] schedule: Configuration block with schedule settings. Detailed below.
         :param pulumi.Input[_builtins.str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ImagePipelineWorkflowArgs', 'ImagePipelineWorkflowArgsDict']]]] workflows: Configuration block with the workflow configuration. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ImagePipelineWorkflowArgs', 'ImagePipelineWorkflowArgsDict', 'outputs.ImagePipelineWorkflow']]]] workflows: Configuration block with the workflow configuration. Detailed below.
         """
         ...
     @overload
@@ -770,16 +770,16 @@ class ImagePipeline(pulumi.CustomResource):
                  enhanced_image_metadata_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  execution_role: pulumi.Input[Optional[_builtins.str]] = None,
                  image_recipe_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 image_scanning_configuration: pulumi.Input[Optional[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']]] = None,
-                 image_tests_configuration: pulumi.Input[Optional[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']]] = None,
+                 image_scanning_configuration: pulumi.Input[Optional[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict', 'outputs.ImagePipelineImageScanningConfiguration']]] = None,
+                 image_tests_configuration: pulumi.Input[Optional[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict', 'outputs.ImagePipelineImageTestsConfiguration']]] = None,
                  infrastructure_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging_configuration: pulumi.Input[Optional[Union['ImagePipelineLoggingConfigurationArgs', 'ImagePipelineLoggingConfigurationArgsDict']]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['ImagePipelineLoggingConfigurationArgs', 'ImagePipelineLoggingConfigurationArgsDict', 'outputs.ImagePipelineLoggingConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict', 'outputs.ImagePipelineSchedule']]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workflows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImagePipelineWorkflowArgs', 'ImagePipelineWorkflowArgsDict']]]]] = None,
+                 workflows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImagePipelineWorkflowArgs', 'ImagePipelineWorkflowArgsDict', 'outputs.ImagePipelineWorkflow']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -835,18 +835,18 @@ class ImagePipeline(pulumi.CustomResource):
             enhanced_image_metadata_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             execution_role: pulumi.Input[Optional[_builtins.str]] = None,
             image_recipe_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            image_scanning_configuration: pulumi.Input[Optional[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']]] = None,
-            image_tests_configuration: pulumi.Input[Optional[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']]] = None,
+            image_scanning_configuration: pulumi.Input[Optional[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict', 'outputs.ImagePipelineImageScanningConfiguration']]] = None,
+            image_tests_configuration: pulumi.Input[Optional[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict', 'outputs.ImagePipelineImageTestsConfiguration']]] = None,
             infrastructure_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            logging_configuration: pulumi.Input[Optional[Union['ImagePipelineLoggingConfigurationArgs', 'ImagePipelineLoggingConfigurationArgsDict']]] = None,
+            logging_configuration: pulumi.Input[Optional[Union['ImagePipelineLoggingConfigurationArgs', 'ImagePipelineLoggingConfigurationArgsDict', 'outputs.ImagePipelineLoggingConfiguration']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             platform: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            schedule: pulumi.Input[Optional[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']]] = None,
+            schedule: pulumi.Input[Optional[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict', 'outputs.ImagePipelineSchedule']]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            workflows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImagePipelineWorkflowArgs', 'ImagePipelineWorkflowArgsDict']]]]] = None) -> 'ImagePipeline':
+            workflows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImagePipelineWorkflowArgs', 'ImagePipelineWorkflowArgsDict', 'outputs.ImagePipelineWorkflow']]]]] = None) -> 'ImagePipeline':
         """
         Get an existing ImagePipeline resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -865,20 +865,20 @@ class ImagePipeline(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
         :param pulumi.Input[_builtins.str] execution_role: ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
         :param pulumi.Input[_builtins.str] image_recipe_arn: ARN of the image recipe.
-        :param pulumi.Input[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
-        :param pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
+        :param pulumi.Input[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict', 'outputs.ImagePipelineImageScanningConfiguration']] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
+        :param pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict', 'outputs.ImagePipelineImageTestsConfiguration']] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
         :param pulumi.Input[_builtins.str] infrastructure_configuration_arn: ARN of the Image Builder Infrastructure Configuration.
-        :param pulumi.Input[Union['ImagePipelineLoggingConfigurationArgs', 'ImagePipelineLoggingConfigurationArgsDict']] logging_configuration: Configuration block with logging configuration. Detailed below.
+        :param pulumi.Input[Union['ImagePipelineLoggingConfigurationArgs', 'ImagePipelineLoggingConfigurationArgsDict', 'outputs.ImagePipelineLoggingConfiguration']] logging_configuration: Configuration block with logging configuration. Detailed below.
         :param pulumi.Input[_builtins.str] name: Name of the image pipeline.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] platform: Platform of the image pipeline.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']] schedule: Configuration block with schedule settings. Detailed below.
+        :param pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict', 'outputs.ImagePipelineSchedule']] schedule: Configuration block with schedule settings. Detailed below.
         :param pulumi.Input[_builtins.str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ImagePipelineWorkflowArgs', 'ImagePipelineWorkflowArgsDict']]]] workflows: Configuration block with the workflow configuration. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ImagePipelineWorkflowArgs', 'ImagePipelineWorkflowArgsDict', 'outputs.ImagePipelineWorkflow']]]] workflows: Configuration block with the workflow configuration. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

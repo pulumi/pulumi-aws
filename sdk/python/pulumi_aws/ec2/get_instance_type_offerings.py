@@ -114,7 +114,7 @@ class AwaitableGetInstanceTypeOfferingsResult(GetInstanceTypeOfferingsResult):
             region=self.region)
 
 
-def get_instance_type_offerings(filters: Optional[Sequence[Union['GetInstanceTypeOfferingsFilterArgs', 'GetInstanceTypeOfferingsFilterArgsDict']]] = None,
+def get_instance_type_offerings(filters: Optional[Sequence[Union['GetInstanceTypeOfferingsFilterArgs', 'GetInstanceTypeOfferingsFilterArgsDict', 'outputs.GetInstanceTypeOfferingsFilterResult']]] = None,
                                 location_type: Optional[_builtins.str] = None,
                                 region: Optional[_builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceTypeOfferingsResult:
@@ -144,7 +144,7 @@ def get_instance_type_offerings(filters: Optional[Sequence[Union['GetInstanceTyp
     ```
 
 
-    :param Sequence[Union['GetInstanceTypeOfferingsFilterArgs', 'GetInstanceTypeOfferingsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
+    :param Sequence[Union['GetInstanceTypeOfferingsFilterArgs', 'GetInstanceTypeOfferingsFilterArgsDict', 'outputs.GetInstanceTypeOfferingsFilterResult']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
     :param _builtins.str location_type: Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
@@ -163,7 +163,7 @@ def get_instance_type_offerings(filters: Optional[Sequence[Union['GetInstanceTyp
         location_types=pulumi.get(__ret__, 'location_types'),
         locations=pulumi.get(__ret__, 'locations'),
         region=pulumi.get(__ret__, 'region'))
-def get_instance_type_offerings_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetInstanceTypeOfferingsFilterArgs', 'GetInstanceTypeOfferingsFilterArgsDict']]]]] = None,
+def get_instance_type_offerings_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetInstanceTypeOfferingsFilterArgs', 'GetInstanceTypeOfferingsFilterArgsDict', 'outputs.GetInstanceTypeOfferingsFilterResult']]]]] = None,
                                        location_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceTypeOfferingsResult]:
@@ -193,7 +193,7 @@ def get_instance_type_offerings_output(filters: pulumi.Input[Optional[Optional[S
     ```
 
 
-    :param Sequence[Union['GetInstanceTypeOfferingsFilterArgs', 'GetInstanceTypeOfferingsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
+    :param Sequence[Union['GetInstanceTypeOfferingsFilterArgs', 'GetInstanceTypeOfferingsFilterArgsDict', 'outputs.GetInstanceTypeOfferingsFilterResult']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
     :param _builtins.str location_type: Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """

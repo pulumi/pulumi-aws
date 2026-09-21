@@ -378,7 +378,7 @@ class ScheduledAction(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  scalable_dimension: pulumi.Input[Optional[_builtins.str]] = None,
-                 scalable_target_action: pulumi.Input[Optional[Union['ScheduledActionScalableTargetActionArgs', 'ScheduledActionScalableTargetActionArgsDict']]] = None,
+                 scalable_target_action: pulumi.Input[Optional[Union['ScheduledActionScalableTargetActionArgs', 'ScheduledActionScalableTargetActionArgsDict', 'outputs.ScheduledActionScalableTargetAction']]] = None,
                  schedule: pulumi.Input[Optional[_builtins.str]] = None,
                  service_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  start_time: pulumi.Input[Optional[_builtins.str]] = None,
@@ -445,7 +445,7 @@ class ScheduledAction(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_id: Identifier of the resource associated with the scheduled action. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
         :param pulumi.Input[_builtins.str] scalable_dimension: Scalable dimension. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs:service:DesiredCount
-        :param pulumi.Input[Union['ScheduledActionScalableTargetActionArgs', 'ScheduledActionScalableTargetActionArgsDict']] scalable_target_action: New minimum and maximum capacity. You can set both values or just one. See below
+        :param pulumi.Input[Union['ScheduledActionScalableTargetActionArgs', 'ScheduledActionScalableTargetActionArgsDict', 'outputs.ScheduledActionScalableTargetAction']] scalable_target_action: New minimum and maximum capacity. You can set both values or just one. See below
         :param pulumi.Input[_builtins.str] schedule: Schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the `Timezone` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
         :param pulumi.Input[_builtins.str] service_namespace: Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
         :param pulumi.Input[_builtins.str] start_time: Date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
@@ -531,7 +531,7 @@ class ScheduledAction(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  scalable_dimension: pulumi.Input[Optional[_builtins.str]] = None,
-                 scalable_target_action: pulumi.Input[Optional[Union['ScheduledActionScalableTargetActionArgs', 'ScheduledActionScalableTargetActionArgsDict']]] = None,
+                 scalable_target_action: pulumi.Input[Optional[Union['ScheduledActionScalableTargetActionArgs', 'ScheduledActionScalableTargetActionArgsDict', 'outputs.ScheduledActionScalableTargetAction']]] = None,
                  schedule: pulumi.Input[Optional[_builtins.str]] = None,
                  service_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  start_time: pulumi.Input[Optional[_builtins.str]] = None,
@@ -582,7 +582,7 @@ class ScheduledAction(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             resource_id: pulumi.Input[Optional[_builtins.str]] = None,
             scalable_dimension: pulumi.Input[Optional[_builtins.str]] = None,
-            scalable_target_action: pulumi.Input[Optional[Union['ScheduledActionScalableTargetActionArgs', 'ScheduledActionScalableTargetActionArgsDict']]] = None,
+            scalable_target_action: pulumi.Input[Optional[Union['ScheduledActionScalableTargetActionArgs', 'ScheduledActionScalableTargetActionArgsDict', 'outputs.ScheduledActionScalableTargetAction']]] = None,
             schedule: pulumi.Input[Optional[_builtins.str]] = None,
             service_namespace: pulumi.Input[Optional[_builtins.str]] = None,
             start_time: pulumi.Input[Optional[_builtins.str]] = None,
@@ -600,7 +600,7 @@ class ScheduledAction(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_id: Identifier of the resource associated with the scheduled action. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
         :param pulumi.Input[_builtins.str] scalable_dimension: Scalable dimension. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs:service:DesiredCount
-        :param pulumi.Input[Union['ScheduledActionScalableTargetActionArgs', 'ScheduledActionScalableTargetActionArgsDict']] scalable_target_action: New minimum and maximum capacity. You can set both values or just one. See below
+        :param pulumi.Input[Union['ScheduledActionScalableTargetActionArgs', 'ScheduledActionScalableTargetActionArgsDict', 'outputs.ScheduledActionScalableTargetAction']] scalable_target_action: New minimum and maximum capacity. You can set both values or just one. See below
         :param pulumi.Input[_builtins.str] schedule: Schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the `Timezone` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
         :param pulumi.Input[_builtins.str] service_namespace: Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
         :param pulumi.Input[_builtins.str] start_time: Date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.

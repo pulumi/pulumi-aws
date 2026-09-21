@@ -122,7 +122,7 @@ class IpSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ip_set_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpSetIpSetDescriptorArgs', 'IpSetIpSetDescriptorArgsDict']]]]] = None,
+                 ip_set_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpSetIpSetDescriptorArgs', 'IpSetIpSetDescriptorArgsDict', 'outputs.IpSetIpSetDescriptor']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -159,7 +159,7 @@ class IpSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IpSetIpSetDescriptorArgs', 'IpSetIpSetDescriptorArgsDict']]]] ip_set_descriptors: One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpSetIpSetDescriptorArgs', 'IpSetIpSetDescriptorArgsDict', 'outputs.IpSetIpSetDescriptor']]]] ip_set_descriptors: One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
         :param pulumi.Input[_builtins.str] name: The name or description of the IPSet.
         """
         ...
@@ -215,7 +215,7 @@ class IpSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ip_set_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpSetIpSetDescriptorArgs', 'IpSetIpSetDescriptorArgsDict']]]]] = None,
+                 ip_set_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpSetIpSetDescriptorArgs', 'IpSetIpSetDescriptorArgsDict', 'outputs.IpSetIpSetDescriptor']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -240,7 +240,7 @@ class IpSet(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            ip_set_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpSetIpSetDescriptorArgs', 'IpSetIpSetDescriptorArgsDict']]]]] = None,
+            ip_set_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpSetIpSetDescriptorArgs', 'IpSetIpSetDescriptorArgsDict', 'outputs.IpSetIpSetDescriptor']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None) -> 'IpSet':
         """
         Get an existing IpSet resource's state with the given name, id, and optional extra
@@ -250,7 +250,7 @@ class IpSet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The ARN of the WAF IPSet.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IpSetIpSetDescriptorArgs', 'IpSetIpSetDescriptorArgsDict']]]] ip_set_descriptors: One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpSetIpSetDescriptorArgs', 'IpSetIpSetDescriptorArgsDict', 'outputs.IpSetIpSetDescriptor']]]] ip_set_descriptors: One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
         :param pulumi.Input[_builtins.str] name: The name or description of the IPSet.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

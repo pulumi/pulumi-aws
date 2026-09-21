@@ -316,7 +316,7 @@ class VirtualNode(pulumi.CustomResource):
                  mesh_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 spec: pulumi.Input[Optional[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict']]] = None,
+                 spec: pulumi.Input[Optional[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict', 'outputs.VirtualNodeSpec']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -477,7 +477,7 @@ class VirtualNode(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[_builtins.str] name: Name to use for the virtual node. Must be between 1 and 255 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict']] spec: Virtual node specification to apply. See `spec` Block for details.
+        :param pulumi.Input[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict', 'outputs.VirtualNodeSpec']] spec: Virtual node specification to apply. See `spec` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -657,7 +657,7 @@ class VirtualNode(pulumi.CustomResource):
                  mesh_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 spec: pulumi.Input[Optional[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict']]] = None,
+                 spec: pulumi.Input[Optional[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict', 'outputs.VirtualNodeSpec']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -701,7 +701,7 @@ class VirtualNode(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
-            spec: pulumi.Input[Optional[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict']]] = None,
+            spec: pulumi.Input[Optional[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict', 'outputs.VirtualNodeSpec']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'VirtualNode':
         """
@@ -719,7 +719,7 @@ class VirtualNode(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name to use for the virtual node. Must be between 1 and 255 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_owner: Resource owner's AWS account ID.
-        :param pulumi.Input[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict']] spec: Virtual node specification to apply. See `spec` Block for details.
+        :param pulumi.Input[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict', 'outputs.VirtualNodeSpec']] spec: Virtual node specification to apply. See `spec` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

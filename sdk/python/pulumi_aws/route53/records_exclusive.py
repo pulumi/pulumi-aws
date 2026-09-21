@@ -141,8 +141,8 @@ class RecordsExclusive(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_record_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordsExclusiveResourceRecordSetArgs', 'RecordsExclusiveResourceRecordSetArgsDict']]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['RecordsExclusiveTimeoutsArgs', 'RecordsExclusiveTimeoutsArgsDict']]] = None,
+                 resource_record_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordsExclusiveResourceRecordSetArgs', 'RecordsExclusiveResourceRecordSetArgsDict', 'outputs.RecordsExclusiveResourceRecordSet']]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['RecordsExclusiveTimeoutsArgs', 'RecordsExclusiveTimeoutsArgsDict', 'outputs.RecordsExclusiveTimeouts']]] = None,
                  zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -206,7 +206,7 @@ class RecordsExclusive(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordsExclusiveResourceRecordSetArgs', 'RecordsExclusiveResourceRecordSetArgsDict']]]] resource_record_sets: A list of all resource record sets associated with the hosted zone.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordsExclusiveResourceRecordSetArgs', 'RecordsExclusiveResourceRecordSetArgsDict', 'outputs.RecordsExclusiveResourceRecordSet']]]] resource_record_sets: A list of all resource record sets associated with the hosted zone.
                See `resource_record_set` below.
         :param pulumi.Input[_builtins.str] zone_id: ID of the hosted zone containing the resource record sets.
                
@@ -292,8 +292,8 @@ class RecordsExclusive(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_record_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordsExclusiveResourceRecordSetArgs', 'RecordsExclusiveResourceRecordSetArgsDict']]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['RecordsExclusiveTimeoutsArgs', 'RecordsExclusiveTimeoutsArgsDict']]] = None,
+                 resource_record_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordsExclusiveResourceRecordSetArgs', 'RecordsExclusiveResourceRecordSetArgsDict', 'outputs.RecordsExclusiveResourceRecordSet']]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['RecordsExclusiveTimeoutsArgs', 'RecordsExclusiveTimeoutsArgsDict', 'outputs.RecordsExclusiveTimeouts']]] = None,
                  zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -319,8 +319,8 @@ class RecordsExclusive(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            resource_record_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordsExclusiveResourceRecordSetArgs', 'RecordsExclusiveResourceRecordSetArgsDict']]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['RecordsExclusiveTimeoutsArgs', 'RecordsExclusiveTimeoutsArgsDict']]] = None,
+            resource_record_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordsExclusiveResourceRecordSetArgs', 'RecordsExclusiveResourceRecordSetArgsDict', 'outputs.RecordsExclusiveResourceRecordSet']]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['RecordsExclusiveTimeoutsArgs', 'RecordsExclusiveTimeoutsArgsDict', 'outputs.RecordsExclusiveTimeouts']]] = None,
             zone_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'RecordsExclusive':
         """
         Get an existing RecordsExclusive resource's state with the given name, id, and optional extra
@@ -329,7 +329,7 @@ class RecordsExclusive(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordsExclusiveResourceRecordSetArgs', 'RecordsExclusiveResourceRecordSetArgsDict']]]] resource_record_sets: A list of all resource record sets associated with the hosted zone.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordsExclusiveResourceRecordSetArgs', 'RecordsExclusiveResourceRecordSetArgsDict', 'outputs.RecordsExclusiveResourceRecordSet']]]] resource_record_sets: A list of all resource record sets associated with the hosted zone.
                See `resource_record_set` below.
         :param pulumi.Input[_builtins.str] zone_id: ID of the hosted zone containing the resource record sets.
                

@@ -450,15 +450,15 @@ class DistributionTenant(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_group_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 customizations: pulumi.Input[Optional[Union['DistributionTenantCustomizationsArgs', 'DistributionTenantCustomizationsArgsDict']]] = None,
+                 customizations: pulumi.Input[Optional[Union['DistributionTenantCustomizationsArgs', 'DistributionTenantCustomizationsArgsDict', 'outputs.DistributionTenantCustomizations']]] = None,
                  distribution_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 domains: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTenantDomainArgs', 'DistributionTenantDomainArgsDict']]]]] = None,
+                 domains: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTenantDomainArgs', 'DistributionTenantDomainArgsDict', 'outputs.DistributionTenantDomain']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 managed_certificate_request: pulumi.Input[Optional[Union['DistributionTenantManagedCertificateRequestArgs', 'DistributionTenantManagedCertificateRequestArgsDict']]] = None,
+                 managed_certificate_request: pulumi.Input[Optional[Union['DistributionTenantManagedCertificateRequestArgs', 'DistributionTenantManagedCertificateRequestArgsDict', 'outputs.DistributionTenantManagedCertificateRequest']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTenantParameterArgs', 'DistributionTenantParameterArgsDict']]]]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTenantParameterArgs', 'DistributionTenantParameterArgsDict', 'outputs.DistributionTenantParameter']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['DistributionTenantTimeoutsArgs', 'DistributionTenantTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DistributionTenantTimeoutsArgs', 'DistributionTenantTimeoutsArgsDict', 'outputs.DistributionTenantTimeouts']]] = None,
                  wait_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -535,13 +535,13 @@ class DistributionTenant(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connection_group_id: ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
-        :param pulumi.Input[Union['DistributionTenantCustomizationsArgs', 'DistributionTenantCustomizationsArgsDict']] customizations: Customizations for the distribution tenant (maximum one).
+        :param pulumi.Input[Union['DistributionTenantCustomizationsArgs', 'DistributionTenantCustomizationsArgsDict', 'outputs.DistributionTenantCustomizations']] customizations: Customizations for the distribution tenant (maximum one).
         :param pulumi.Input[_builtins.str] distribution_id: ID of the multi-tenant distribution.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionTenantDomainArgs', 'DistributionTenantDomainArgsDict']]]] domains: Set of domains associated with the distribution tenant.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionTenantDomainArgs', 'DistributionTenantDomainArgsDict', 'outputs.DistributionTenantDomain']]]] domains: Set of domains associated with the distribution tenant.
         :param pulumi.Input[_builtins.bool] enabled: Whether the distribution tenant is enabled to serve traffic. Defaults to `true`.
-        :param pulumi.Input[Union['DistributionTenantManagedCertificateRequestArgs', 'DistributionTenantManagedCertificateRequestArgsDict']] managed_certificate_request: Managed certificate request for CloudFront managed ACM certificate (maximum one).
+        :param pulumi.Input[Union['DistributionTenantManagedCertificateRequestArgs', 'DistributionTenantManagedCertificateRequestArgsDict', 'outputs.DistributionTenantManagedCertificateRequest']] managed_certificate_request: Managed certificate request for CloudFront managed ACM certificate (maximum one).
         :param pulumi.Input[_builtins.str] name: Name of the distribution tenant.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionTenantParameterArgs', 'DistributionTenantParameterArgsDict']]]] parameters: Set of parameter values for the distribution tenant.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionTenantParameterArgs', 'DistributionTenantParameterArgsDict', 'outputs.DistributionTenantParameter']]]] parameters: Set of parameter values for the distribution tenant.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.bool] wait_for_deployment: If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `false` will skip the process. Default: `true`.
         """
@@ -638,15 +638,15 @@ class DistributionTenant(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_group_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 customizations: pulumi.Input[Optional[Union['DistributionTenantCustomizationsArgs', 'DistributionTenantCustomizationsArgsDict']]] = None,
+                 customizations: pulumi.Input[Optional[Union['DistributionTenantCustomizationsArgs', 'DistributionTenantCustomizationsArgsDict', 'outputs.DistributionTenantCustomizations']]] = None,
                  distribution_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 domains: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTenantDomainArgs', 'DistributionTenantDomainArgsDict']]]]] = None,
+                 domains: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTenantDomainArgs', 'DistributionTenantDomainArgsDict', 'outputs.DistributionTenantDomain']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 managed_certificate_request: pulumi.Input[Optional[Union['DistributionTenantManagedCertificateRequestArgs', 'DistributionTenantManagedCertificateRequestArgsDict']]] = None,
+                 managed_certificate_request: pulumi.Input[Optional[Union['DistributionTenantManagedCertificateRequestArgs', 'DistributionTenantManagedCertificateRequestArgsDict', 'outputs.DistributionTenantManagedCertificateRequest']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTenantParameterArgs', 'DistributionTenantParameterArgsDict']]]]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTenantParameterArgs', 'DistributionTenantParameterArgsDict', 'outputs.DistributionTenantParameter']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['DistributionTenantTimeoutsArgs', 'DistributionTenantTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DistributionTenantTimeoutsArgs', 'DistributionTenantTimeoutsArgsDict', 'outputs.DistributionTenantTimeouts']]] = None,
                  wait_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -686,18 +686,18 @@ class DistributionTenant(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             connection_group_id: pulumi.Input[Optional[_builtins.str]] = None,
-            customizations: pulumi.Input[Optional[Union['DistributionTenantCustomizationsArgs', 'DistributionTenantCustomizationsArgsDict']]] = None,
+            customizations: pulumi.Input[Optional[Union['DistributionTenantCustomizationsArgs', 'DistributionTenantCustomizationsArgsDict', 'outputs.DistributionTenantCustomizations']]] = None,
             distribution_id: pulumi.Input[Optional[_builtins.str]] = None,
-            domains: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTenantDomainArgs', 'DistributionTenantDomainArgsDict']]]]] = None,
+            domains: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTenantDomainArgs', 'DistributionTenantDomainArgsDict', 'outputs.DistributionTenantDomain']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             etag: pulumi.Input[Optional[_builtins.str]] = None,
-            managed_certificate_request: pulumi.Input[Optional[Union['DistributionTenantManagedCertificateRequestArgs', 'DistributionTenantManagedCertificateRequestArgsDict']]] = None,
+            managed_certificate_request: pulumi.Input[Optional[Union['DistributionTenantManagedCertificateRequestArgs', 'DistributionTenantManagedCertificateRequestArgsDict', 'outputs.DistributionTenantManagedCertificateRequest']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTenantParameterArgs', 'DistributionTenantParameterArgsDict']]]]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTenantParameterArgs', 'DistributionTenantParameterArgsDict', 'outputs.DistributionTenantParameter']]]]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['DistributionTenantTimeoutsArgs', 'DistributionTenantTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['DistributionTenantTimeoutsArgs', 'DistributionTenantTimeoutsArgsDict', 'outputs.DistributionTenantTimeouts']]] = None,
             wait_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None) -> 'DistributionTenant':
         """
         Get an existing DistributionTenant resource's state with the given name, id, and optional extra
@@ -708,14 +708,14 @@ class DistributionTenant(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the distribution tenant.
         :param pulumi.Input[_builtins.str] connection_group_id: ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
-        :param pulumi.Input[Union['DistributionTenantCustomizationsArgs', 'DistributionTenantCustomizationsArgsDict']] customizations: Customizations for the distribution tenant (maximum one).
+        :param pulumi.Input[Union['DistributionTenantCustomizationsArgs', 'DistributionTenantCustomizationsArgsDict', 'outputs.DistributionTenantCustomizations']] customizations: Customizations for the distribution tenant (maximum one).
         :param pulumi.Input[_builtins.str] distribution_id: ID of the multi-tenant distribution.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionTenantDomainArgs', 'DistributionTenantDomainArgsDict']]]] domains: Set of domains associated with the distribution tenant.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionTenantDomainArgs', 'DistributionTenantDomainArgsDict', 'outputs.DistributionTenantDomain']]]] domains: Set of domains associated with the distribution tenant.
         :param pulumi.Input[_builtins.bool] enabled: Whether the distribution tenant is enabled to serve traffic. Defaults to `true`.
         :param pulumi.Input[_builtins.str] etag: Current version of the distribution tenant.
-        :param pulumi.Input[Union['DistributionTenantManagedCertificateRequestArgs', 'DistributionTenantManagedCertificateRequestArgsDict']] managed_certificate_request: Managed certificate request for CloudFront managed ACM certificate (maximum one).
+        :param pulumi.Input[Union['DistributionTenantManagedCertificateRequestArgs', 'DistributionTenantManagedCertificateRequestArgsDict', 'outputs.DistributionTenantManagedCertificateRequest']] managed_certificate_request: Managed certificate request for CloudFront managed ACM certificate (maximum one).
         :param pulumi.Input[_builtins.str] name: Name of the distribution tenant.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionTenantParameterArgs', 'DistributionTenantParameterArgsDict']]]] parameters: Set of parameter values for the distribution tenant.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionTenantParameterArgs', 'DistributionTenantParameterArgsDict', 'outputs.DistributionTenantParameter']]]] parameters: Set of parameter values for the distribution tenant.
         :param pulumi.Input[_builtins.str] status: Current status of the distribution tenant.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

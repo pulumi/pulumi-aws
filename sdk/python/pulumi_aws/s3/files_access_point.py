@@ -314,11 +314,11 @@ class FilesAccessPoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 posix_users: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesAccessPointPosixUserArgs', 'FilesAccessPointPosixUserArgsDict']]]]] = None,
+                 posix_users: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesAccessPointPosixUserArgs', 'FilesAccessPointPosixUserArgsDict', 'outputs.FilesAccessPointPosixUser']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 root_directories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesAccessPointRootDirectoryArgs', 'FilesAccessPointRootDirectoryArgsDict']]]]] = None,
+                 root_directories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesAccessPointRootDirectoryArgs', 'FilesAccessPointRootDirectoryArgsDict', 'outputs.FilesAccessPointRootDirectory']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['FilesAccessPointTimeoutsArgs', 'FilesAccessPointTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['FilesAccessPointTimeoutsArgs', 'FilesAccessPointTimeoutsArgsDict', 'outputs.FilesAccessPointTimeouts']]] = None,
                  __props__=None):
         """
         Manages an S3 Files Access Point.
@@ -360,11 +360,11 @@ class FilesAccessPoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] file_system_id: File system ID. Changing this value forces replacement.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FilesAccessPointPosixUserArgs', 'FilesAccessPointPosixUserArgsDict']]]] posix_users: POSIX user configuration. See `posix_user` below. Changing this value forces replacement.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FilesAccessPointPosixUserArgs', 'FilesAccessPointPosixUserArgsDict', 'outputs.FilesAccessPointPosixUser']]]] posix_users: POSIX user configuration. See `posix_user` below. Changing this value forces replacement.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FilesAccessPointRootDirectoryArgs', 'FilesAccessPointRootDirectoryArgsDict']]]] root_directories: Root directory configuration. See `root_directory` below. Changing this value forces replacement.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FilesAccessPointRootDirectoryArgs', 'FilesAccessPointRootDirectoryArgsDict', 'outputs.FilesAccessPointRootDirectory']]]] root_directories: Root directory configuration. See `root_directory` below. Changing this value forces replacement.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -426,11 +426,11 @@ class FilesAccessPoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 posix_users: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesAccessPointPosixUserArgs', 'FilesAccessPointPosixUserArgsDict']]]]] = None,
+                 posix_users: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesAccessPointPosixUserArgs', 'FilesAccessPointPosixUserArgsDict', 'outputs.FilesAccessPointPosixUser']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 root_directories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesAccessPointRootDirectoryArgs', 'FilesAccessPointRootDirectoryArgsDict']]]]] = None,
+                 root_directories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesAccessPointRootDirectoryArgs', 'FilesAccessPointRootDirectoryArgsDict', 'outputs.FilesAccessPointRootDirectory']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['FilesAccessPointTimeoutsArgs', 'FilesAccessPointTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['FilesAccessPointTimeoutsArgs', 'FilesAccessPointTimeoutsArgsDict', 'outputs.FilesAccessPointTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -467,13 +467,13 @@ class FilesAccessPoint(pulumi.CustomResource):
             file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             owner_id: pulumi.Input[Optional[_builtins.str]] = None,
-            posix_users: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesAccessPointPosixUserArgs', 'FilesAccessPointPosixUserArgsDict']]]]] = None,
+            posix_users: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesAccessPointPosixUserArgs', 'FilesAccessPointPosixUserArgsDict', 'outputs.FilesAccessPointPosixUser']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            root_directories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesAccessPointRootDirectoryArgs', 'FilesAccessPointRootDirectoryArgsDict']]]]] = None,
+            root_directories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesAccessPointRootDirectoryArgs', 'FilesAccessPointRootDirectoryArgsDict', 'outputs.FilesAccessPointRootDirectory']]]]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['FilesAccessPointTimeoutsArgs', 'FilesAccessPointTimeoutsArgsDict']]] = None) -> 'FilesAccessPoint':
+            timeouts: pulumi.Input[Optional[Union['FilesAccessPointTimeoutsArgs', 'FilesAccessPointTimeoutsArgsDict', 'outputs.FilesAccessPointTimeouts']]] = None) -> 'FilesAccessPoint':
         """
         Get an existing FilesAccessPoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -485,11 +485,11 @@ class FilesAccessPoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] file_system_id: File system ID. Changing this value forces replacement.
         :param pulumi.Input[_builtins.str] name: Access point name.
         :param pulumi.Input[_builtins.str] owner_id: AWS account ID of the owner.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FilesAccessPointPosixUserArgs', 'FilesAccessPointPosixUserArgsDict']]]] posix_users: POSIX user configuration. See `posix_user` below. Changing this value forces replacement.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FilesAccessPointPosixUserArgs', 'FilesAccessPointPosixUserArgsDict', 'outputs.FilesAccessPointPosixUser']]]] posix_users: POSIX user configuration. See `posix_user` below. Changing this value forces replacement.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FilesAccessPointRootDirectoryArgs', 'FilesAccessPointRootDirectoryArgsDict']]]] root_directories: Root directory configuration. See `root_directory` below. Changing this value forces replacement.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FilesAccessPointRootDirectoryArgs', 'FilesAccessPointRootDirectoryArgsDict', 'outputs.FilesAccessPointRootDirectory']]]] root_directories: Root directory configuration. See `root_directory` below. Changing this value forces replacement.
         :param pulumi.Input[_builtins.str] status: Access point status.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

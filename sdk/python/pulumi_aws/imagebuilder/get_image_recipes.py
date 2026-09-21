@@ -102,7 +102,7 @@ class AwaitableGetImageRecipesResult(GetImageRecipesResult):
             region=self.region)
 
 
-def get_image_recipes(filters: Optional[Sequence[Union['GetImageRecipesFilterArgs', 'GetImageRecipesFilterArgsDict']]] = None,
+def get_image_recipes(filters: Optional[Sequence[Union['GetImageRecipesFilterArgs', 'GetImageRecipesFilterArgsDict', 'outputs.GetImageRecipesFilterResult']]] = None,
                       owner: Optional[_builtins.str] = None,
                       region: Optional[_builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageRecipesResult:
@@ -123,7 +123,7 @@ def get_image_recipes(filters: Optional[Sequence[Union['GetImageRecipesFilterArg
     ```
 
 
-    :param Sequence[Union['GetImageRecipesFilterArgs', 'GetImageRecipesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetImageRecipesFilterArgs', 'GetImageRecipesFilterArgsDict', 'outputs.GetImageRecipesFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str owner: Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
@@ -141,7 +141,7 @@ def get_image_recipes(filters: Optional[Sequence[Union['GetImageRecipesFilterArg
         names=pulumi.get(__ret__, 'names'),
         owner=pulumi.get(__ret__, 'owner'),
         region=pulumi.get(__ret__, 'region'))
-def get_image_recipes_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetImageRecipesFilterArgs', 'GetImageRecipesFilterArgsDict']]]]] = None,
+def get_image_recipes_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetImageRecipesFilterArgs', 'GetImageRecipesFilterArgsDict', 'outputs.GetImageRecipesFilterResult']]]]] = None,
                              owner: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageRecipesResult]:
@@ -162,7 +162,7 @@ def get_image_recipes_output(filters: pulumi.Input[Optional[Optional[Sequence[Un
     ```
 
 
-    :param Sequence[Union['GetImageRecipesFilterArgs', 'GetImageRecipesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetImageRecipesFilterArgs', 'GetImageRecipesFilterArgsDict', 'outputs.GetImageRecipesFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str owner: Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """

@@ -105,7 +105,7 @@ class AwaitableGetPipelineDefinitionResult(GetPipelineDefinitionResult):
             region=self.region)
 
 
-def get_pipeline_definition(parameter_values: Optional[Sequence[Union['GetPipelineDefinitionParameterValueArgs', 'GetPipelineDefinitionParameterValueArgsDict']]] = None,
+def get_pipeline_definition(parameter_values: Optional[Sequence[Union['GetPipelineDefinitionParameterValueArgs', 'GetPipelineDefinitionParameterValueArgsDict', 'outputs.GetPipelineDefinitionParameterValueResult']]] = None,
                             pipeline_id: Optional[_builtins.str] = None,
                             region: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPipelineDefinitionResult:
@@ -122,7 +122,7 @@ def get_pipeline_definition(parameter_values: Optional[Sequence[Union['GetPipeli
     ```
 
 
-    :param Sequence[Union['GetPipelineDefinitionParameterValueArgs', 'GetPipelineDefinitionParameterValueArgsDict']] parameter_values: Parameter values used in the pipeline definition. See below
+    :param Sequence[Union['GetPipelineDefinitionParameterValueArgs', 'GetPipelineDefinitionParameterValueArgsDict', 'outputs.GetPipelineDefinitionParameterValueResult']] parameter_values: Parameter values used in the pipeline definition. See below
     :param _builtins.str pipeline_id: ID of the pipeline.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
@@ -140,7 +140,7 @@ def get_pipeline_definition(parameter_values: Optional[Sequence[Union['GetPipeli
         pipeline_id=pulumi.get(__ret__, 'pipeline_id'),
         pipeline_objects=pulumi.get(__ret__, 'pipeline_objects'),
         region=pulumi.get(__ret__, 'region'))
-def get_pipeline_definition_output(parameter_values: pulumi.Input[Optional[Optional[Sequence[Union['GetPipelineDefinitionParameterValueArgs', 'GetPipelineDefinitionParameterValueArgsDict']]]]] = None,
+def get_pipeline_definition_output(parameter_values: pulumi.Input[Optional[Optional[Sequence[Union['GetPipelineDefinitionParameterValueArgs', 'GetPipelineDefinitionParameterValueArgsDict', 'outputs.GetPipelineDefinitionParameterValueResult']]]]] = None,
                                    pipeline_id: pulumi.Input[Optional[_builtins.str]] = None,
                                    region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPipelineDefinitionResult]:
@@ -157,7 +157,7 @@ def get_pipeline_definition_output(parameter_values: pulumi.Input[Optional[Optio
     ```
 
 
-    :param Sequence[Union['GetPipelineDefinitionParameterValueArgs', 'GetPipelineDefinitionParameterValueArgsDict']] parameter_values: Parameter values used in the pipeline definition. See below
+    :param Sequence[Union['GetPipelineDefinitionParameterValueArgs', 'GetPipelineDefinitionParameterValueArgsDict', 'outputs.GetPipelineDefinitionParameterValueResult']] parameter_values: Parameter values used in the pipeline definition. See below
     :param _builtins.str pipeline_id: ID of the pipeline.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """

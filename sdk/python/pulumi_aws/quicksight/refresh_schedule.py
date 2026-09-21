@@ -226,7 +226,7 @@ class RefreshSchedule(pulumi.CustomResource):
                  aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional[Union['RefreshScheduleScheduleArgs', 'RefreshScheduleScheduleArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['RefreshScheduleScheduleArgs', 'RefreshScheduleScheduleArgsDict', 'outputs.RefreshScheduleSchedule']]] = None,
                  schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -309,7 +309,7 @@ class RefreshSchedule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] data_set_id: The ID of the dataset.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['RefreshScheduleScheduleArgs', 'RefreshScheduleScheduleArgsDict']] schedule: The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
+        :param pulumi.Input[Union['RefreshScheduleScheduleArgs', 'RefreshScheduleScheduleArgsDict', 'outputs.RefreshScheduleSchedule']] schedule: The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] schedule_id: The ID of the refresh schedule.
@@ -413,7 +413,7 @@ class RefreshSchedule(pulumi.CustomResource):
                  aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional[Union['RefreshScheduleScheduleArgs', 'RefreshScheduleScheduleArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['RefreshScheduleScheduleArgs', 'RefreshScheduleScheduleArgsDict', 'outputs.RefreshScheduleSchedule']]] = None,
                  schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -450,7 +450,7 @@ class RefreshSchedule(pulumi.CustomResource):
             aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
             data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            schedule: pulumi.Input[Optional[Union['RefreshScheduleScheduleArgs', 'RefreshScheduleScheduleArgsDict']]] = None,
+            schedule: pulumi.Input[Optional[Union['RefreshScheduleScheduleArgs', 'RefreshScheduleScheduleArgsDict', 'outputs.RefreshScheduleSchedule']]] = None,
             schedule_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'RefreshSchedule':
         """
         Get an existing RefreshSchedule resource's state with the given name, id, and optional extra
@@ -463,7 +463,7 @@ class RefreshSchedule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] data_set_id: The ID of the dataset.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['RefreshScheduleScheduleArgs', 'RefreshScheduleScheduleArgsDict']] schedule: The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
+        :param pulumi.Input[Union['RefreshScheduleScheduleArgs', 'RefreshScheduleScheduleArgsDict', 'outputs.RefreshScheduleSchedule']] schedule: The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] schedule_id: The ID of the refresh schedule.

@@ -170,7 +170,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 role_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IdentityPoolRoleAttachmentRoleMappingArgs', 'IdentityPoolRoleAttachmentRoleMappingArgsDict']]]]] = None,
+                 role_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IdentityPoolRoleAttachmentRoleMappingArgs', 'IdentityPoolRoleAttachmentRoleMappingArgsDict', 'outputs.IdentityPoolRoleAttachmentRoleMapping']]]]] = None,
                  roles: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -189,7 +189,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] identity_pool_id: An identity pool ID in the format `REGION_GUID`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IdentityPoolRoleAttachmentRoleMappingArgs', 'IdentityPoolRoleAttachmentRoleMappingArgsDict']]]] role_mappings: A List of Role Mapping.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IdentityPoolRoleAttachmentRoleMappingArgs', 'IdentityPoolRoleAttachmentRoleMappingArgsDict', 'outputs.IdentityPoolRoleAttachmentRoleMapping']]]] role_mappings: A List of Role Mapping.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] roles: The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
         """
         ...
@@ -227,7 +227,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 role_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IdentityPoolRoleAttachmentRoleMappingArgs', 'IdentityPoolRoleAttachmentRoleMappingArgsDict']]]]] = None,
+                 role_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IdentityPoolRoleAttachmentRoleMappingArgs', 'IdentityPoolRoleAttachmentRoleMappingArgsDict', 'outputs.IdentityPoolRoleAttachmentRoleMapping']]]]] = None,
                  roles: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -258,7 +258,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             identity_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            role_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IdentityPoolRoleAttachmentRoleMappingArgs', 'IdentityPoolRoleAttachmentRoleMappingArgsDict']]]]] = None,
+            role_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IdentityPoolRoleAttachmentRoleMappingArgs', 'IdentityPoolRoleAttachmentRoleMappingArgsDict', 'outputs.IdentityPoolRoleAttachmentRoleMapping']]]]] = None,
             roles: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'IdentityPoolRoleAttachment':
         """
         Get an existing IdentityPoolRoleAttachment resource's state with the given name, id, and optional extra
@@ -269,7 +269,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] identity_pool_id: An identity pool ID in the format `REGION_GUID`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IdentityPoolRoleAttachmentRoleMappingArgs', 'IdentityPoolRoleAttachmentRoleMappingArgsDict']]]] role_mappings: A List of Role Mapping.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IdentityPoolRoleAttachmentRoleMappingArgs', 'IdentityPoolRoleAttachmentRoleMappingArgsDict', 'outputs.IdentityPoolRoleAttachmentRoleMapping']]]] role_mappings: A List of Role Mapping.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] roles: The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

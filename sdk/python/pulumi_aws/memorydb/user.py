@@ -256,7 +256,7 @@ class User(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_string: pulumi.Input[Optional[_builtins.str]] = None,
-                 authentication_mode: pulumi.Input[Optional[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict']]] = None,
+                 authentication_mode: pulumi.Input[Optional[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict', 'outputs.UserAuthenticationMode']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  user_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -298,7 +298,7 @@ class User(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_string: Access permissions string used for this user.
-        :param pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict']] authentication_mode: Denotes the user's authentication properties. Detailed below.
+        :param pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict', 'outputs.UserAuthenticationMode']] authentication_mode: Denotes the user's authentication properties. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] user_name: Name of the MemoryDB user. Up to 40 characters.
@@ -361,7 +361,7 @@ class User(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_string: pulumi.Input[Optional[_builtins.str]] = None,
-                 authentication_mode: pulumi.Input[Optional[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict']]] = None,
+                 authentication_mode: pulumi.Input[Optional[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict', 'outputs.UserAuthenticationMode']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  user_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -400,7 +400,7 @@ class User(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             access_string: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            authentication_mode: pulumi.Input[Optional[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict']]] = None,
+            authentication_mode: pulumi.Input[Optional[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict', 'outputs.UserAuthenticationMode']]] = None,
             minimum_engine_version: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -415,7 +415,7 @@ class User(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_string: Access permissions string used for this user.
         :param pulumi.Input[_builtins.str] arn: ARN of the user.
-        :param pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict']] authentication_mode: Denotes the user's authentication properties. Detailed below.
+        :param pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict', 'outputs.UserAuthenticationMode']] authentication_mode: Denotes the user's authentication properties. Detailed below.
         :param pulumi.Input[_builtins.str] minimum_engine_version: Minimum engine version supported for the user.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

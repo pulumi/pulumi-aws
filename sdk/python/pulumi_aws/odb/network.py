@@ -897,7 +897,7 @@ class Network(pulumi.CustomResource):
                  sts_access: pulumi.Input[Optional[_builtins.str]] = None,
                  sts_policy_document: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['NetworkTimeoutsArgs', 'NetworkTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['NetworkTimeoutsArgs', 'NetworkTimeoutsArgsDict', 'outputs.NetworkTimeouts']]] = None,
                  zero_etl_access: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -1061,7 +1061,7 @@ class Network(pulumi.CustomResource):
                  sts_access: pulumi.Input[Optional[_builtins.str]] = None,
                  sts_policy_document: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['NetworkTimeoutsArgs', 'NetworkTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['NetworkTimeoutsArgs', 'NetworkTimeoutsArgsDict', 'outputs.NetworkTimeouts']]] = None,
                  zero_etl_access: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1142,8 +1142,8 @@ class Network(pulumi.CustomResource):
             ec2_placement_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             kms_access: pulumi.Input[Optional[_builtins.str]] = None,
             kms_policy_document: pulumi.Input[Optional[_builtins.str]] = None,
-            managed_services: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagedServiceArgs', 'NetworkManagedServiceArgsDict']]]]] = None,
-            oci_dns_forwarding_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkOciDnsForwardingConfigArgs', 'NetworkOciDnsForwardingConfigArgsDict']]]]] = None,
+            managed_services: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagedServiceArgs', 'NetworkManagedServiceArgsDict', 'outputs.NetworkManagedService']]]]] = None,
+            oci_dns_forwarding_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkOciDnsForwardingConfigArgs', 'NetworkOciDnsForwardingConfigArgsDict', 'outputs.NetworkOciDnsForwardingConfig']]]]] = None,
             oci_network_anchor_id: pulumi.Input[Optional[_builtins.str]] = None,
             oci_network_anchor_url: pulumi.Input[Optional[_builtins.str]] = None,
             oci_resource_anchor_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1160,7 +1160,7 @@ class Network(pulumi.CustomResource):
             sts_policy_document: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['NetworkTimeoutsArgs', 'NetworkTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['NetworkTimeoutsArgs', 'NetworkTimeoutsArgsDict', 'outputs.NetworkTimeouts']]] = None,
             zero_etl_access: pulumi.Input[Optional[_builtins.str]] = None) -> 'Network':
         """
         Get an existing Network resource's state with the given name, id, and optional extra
@@ -1183,8 +1183,8 @@ class Network(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ec2_placement_group_ids: List of EC2 placement group IDs associated with the ODB network.
         :param pulumi.Input[_builtins.str] kms_access: Configuration for KMS access from the ODB network.
         :param pulumi.Input[_builtins.str] kms_policy_document: Endpoint policy for KMS access from the ODB network.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagedServiceArgs', 'NetworkManagedServiceArgsDict']]]] managed_services: Managed services configuration for the ODB network. See `managed_services` Block below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkOciDnsForwardingConfigArgs', 'NetworkOciDnsForwardingConfigArgsDict']]]] oci_dns_forwarding_configs: DNS resolver endpoints in OCI for forwarding DNS queries for the `ociPrivateZone` domain. See `oci_dns_forwarding_configs` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagedServiceArgs', 'NetworkManagedServiceArgsDict', 'outputs.NetworkManagedService']]]] managed_services: Managed services configuration for the ODB network. See `managed_services` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkOciDnsForwardingConfigArgs', 'NetworkOciDnsForwardingConfigArgsDict', 'outputs.NetworkOciDnsForwardingConfig']]]] oci_dns_forwarding_configs: DNS resolver endpoints in OCI for forwarding DNS queries for the `ociPrivateZone` domain. See `oci_dns_forwarding_configs` Block below.
         :param pulumi.Input[_builtins.str] oci_network_anchor_id: Unique identifier of the OCI network anchor for the ODB network.
         :param pulumi.Input[_builtins.str] oci_network_anchor_url: URL of the OCI network anchor for the ODB network.
         :param pulumi.Input[_builtins.str] oci_resource_anchor_name: Name of the OCI resource anchor for the ODB network.

@@ -577,14 +577,14 @@ class CustomModel(pulumi.CustomResource):
                  customization_type: pulumi.Input[Optional[_builtins.str]] = None,
                  hyperparameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  job_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 output_data_config: pulumi.Input[Optional[Union['CustomModelOutputDataConfigArgs', 'CustomModelOutputDataConfigArgsDict']]] = None,
+                 output_data_config: pulumi.Input[Optional[Union['CustomModelOutputDataConfigArgs', 'CustomModelOutputDataConfigArgsDict', 'outputs.CustomModelOutputDataConfig']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['CustomModelTimeoutsArgs', 'CustomModelTimeoutsArgsDict']]] = None,
-                 training_data_config: pulumi.Input[Optional[Union['CustomModelTrainingDataConfigArgs', 'CustomModelTrainingDataConfigArgsDict']]] = None,
-                 validation_data_config: pulumi.Input[Optional[Union['CustomModelValidationDataConfigArgs', 'CustomModelValidationDataConfigArgsDict']]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['CustomModelVpcConfigArgs', 'CustomModelVpcConfigArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CustomModelTimeoutsArgs', 'CustomModelTimeoutsArgsDict', 'outputs.CustomModelTimeouts']]] = None,
+                 training_data_config: pulumi.Input[Optional[Union['CustomModelTrainingDataConfigArgs', 'CustomModelTrainingDataConfigArgsDict', 'outputs.CustomModelTrainingDataConfig']]] = None,
+                 validation_data_config: pulumi.Input[Optional[Union['CustomModelValidationDataConfigArgs', 'CustomModelValidationDataConfigArgsDict', 'outputs.CustomModelValidationDataConfig']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['CustomModelVpcConfigArgs', 'CustomModelVpcConfigArgsDict', 'outputs.CustomModelVpcConfig']]] = None,
                  __props__=None):
         """
         Manages an Amazon Bedrock custom model.
@@ -651,13 +651,13 @@ class CustomModel(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] customization_type: The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] hyperparameters: [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
         :param pulumi.Input[_builtins.str] job_name: A name for the customization job.
-        :param pulumi.Input[Union['CustomModelOutputDataConfigArgs', 'CustomModelOutputDataConfigArgsDict']] output_data_config: S3 location for the output data.
+        :param pulumi.Input[Union['CustomModelOutputDataConfigArgs', 'CustomModelOutputDataConfigArgsDict', 'outputs.CustomModelOutputDataConfig']] output_data_config: S3 location for the output data.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['CustomModelTrainingDataConfigArgs', 'CustomModelTrainingDataConfigArgsDict']] training_data_config: Information about the training dataset.
-        :param pulumi.Input[Union['CustomModelValidationDataConfigArgs', 'CustomModelValidationDataConfigArgsDict']] validation_data_config: Information about the validation dataset.
-        :param pulumi.Input[Union['CustomModelVpcConfigArgs', 'CustomModelVpcConfigArgsDict']] vpc_config: Configuration parameters for the private VPC that contains the resources you are using for this job.
+        :param pulumi.Input[Union['CustomModelTrainingDataConfigArgs', 'CustomModelTrainingDataConfigArgsDict', 'outputs.CustomModelTrainingDataConfig']] training_data_config: Information about the training dataset.
+        :param pulumi.Input[Union['CustomModelValidationDataConfigArgs', 'CustomModelValidationDataConfigArgsDict', 'outputs.CustomModelValidationDataConfig']] validation_data_config: Information about the validation dataset.
+        :param pulumi.Input[Union['CustomModelVpcConfigArgs', 'CustomModelVpcConfigArgsDict', 'outputs.CustomModelVpcConfig']] vpc_config: Configuration parameters for the private VPC that contains the resources you are using for this job.
         """
         ...
     @overload
@@ -743,14 +743,14 @@ class CustomModel(pulumi.CustomResource):
                  customization_type: pulumi.Input[Optional[_builtins.str]] = None,
                  hyperparameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  job_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 output_data_config: pulumi.Input[Optional[Union['CustomModelOutputDataConfigArgs', 'CustomModelOutputDataConfigArgsDict']]] = None,
+                 output_data_config: pulumi.Input[Optional[Union['CustomModelOutputDataConfigArgs', 'CustomModelOutputDataConfigArgsDict', 'outputs.CustomModelOutputDataConfig']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['CustomModelTimeoutsArgs', 'CustomModelTimeoutsArgsDict']]] = None,
-                 training_data_config: pulumi.Input[Optional[Union['CustomModelTrainingDataConfigArgs', 'CustomModelTrainingDataConfigArgsDict']]] = None,
-                 validation_data_config: pulumi.Input[Optional[Union['CustomModelValidationDataConfigArgs', 'CustomModelValidationDataConfigArgsDict']]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['CustomModelVpcConfigArgs', 'CustomModelVpcConfigArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CustomModelTimeoutsArgs', 'CustomModelTimeoutsArgsDict', 'outputs.CustomModelTimeouts']]] = None,
+                 training_data_config: pulumi.Input[Optional[Union['CustomModelTrainingDataConfigArgs', 'CustomModelTrainingDataConfigArgsDict', 'outputs.CustomModelTrainingDataConfig']]] = None,
+                 validation_data_config: pulumi.Input[Optional[Union['CustomModelValidationDataConfigArgs', 'CustomModelValidationDataConfigArgsDict', 'outputs.CustomModelValidationDataConfig']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['CustomModelVpcConfigArgs', 'CustomModelVpcConfigArgsDict', 'outputs.CustomModelVpcConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -813,17 +813,17 @@ class CustomModel(pulumi.CustomResource):
             job_arn: pulumi.Input[Optional[_builtins.str]] = None,
             job_name: pulumi.Input[Optional[_builtins.str]] = None,
             job_status: pulumi.Input[Optional[_builtins.str]] = None,
-            output_data_config: pulumi.Input[Optional[Union['CustomModelOutputDataConfigArgs', 'CustomModelOutputDataConfigArgsDict']]] = None,
+            output_data_config: pulumi.Input[Optional[Union['CustomModelOutputDataConfigArgs', 'CustomModelOutputDataConfigArgsDict', 'outputs.CustomModelOutputDataConfig']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['CustomModelTimeoutsArgs', 'CustomModelTimeoutsArgsDict']]] = None,
-            training_data_config: pulumi.Input[Optional[Union['CustomModelTrainingDataConfigArgs', 'CustomModelTrainingDataConfigArgsDict']]] = None,
-            training_metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomModelTrainingMetricArgs', 'CustomModelTrainingMetricArgsDict']]]]] = None,
-            validation_data_config: pulumi.Input[Optional[Union['CustomModelValidationDataConfigArgs', 'CustomModelValidationDataConfigArgsDict']]] = None,
-            validation_metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomModelValidationMetricArgs', 'CustomModelValidationMetricArgsDict']]]]] = None,
-            vpc_config: pulumi.Input[Optional[Union['CustomModelVpcConfigArgs', 'CustomModelVpcConfigArgsDict']]] = None) -> 'CustomModel':
+            timeouts: pulumi.Input[Optional[Union['CustomModelTimeoutsArgs', 'CustomModelTimeoutsArgsDict', 'outputs.CustomModelTimeouts']]] = None,
+            training_data_config: pulumi.Input[Optional[Union['CustomModelTrainingDataConfigArgs', 'CustomModelTrainingDataConfigArgsDict', 'outputs.CustomModelTrainingDataConfig']]] = None,
+            training_metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomModelTrainingMetricArgs', 'CustomModelTrainingMetricArgsDict', 'outputs.CustomModelTrainingMetric']]]]] = None,
+            validation_data_config: pulumi.Input[Optional[Union['CustomModelValidationDataConfigArgs', 'CustomModelValidationDataConfigArgsDict', 'outputs.CustomModelValidationDataConfig']]] = None,
+            validation_metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomModelValidationMetricArgs', 'CustomModelValidationMetricArgsDict', 'outputs.CustomModelValidationMetric']]]]] = None,
+            vpc_config: pulumi.Input[Optional[Union['CustomModelVpcConfigArgs', 'CustomModelVpcConfigArgsDict', 'outputs.CustomModelVpcConfig']]] = None) -> 'CustomModel':
         """
         Get an existing CustomModel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -840,16 +840,16 @@ class CustomModel(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] job_arn: The ARN of the customization job.
         :param pulumi.Input[_builtins.str] job_name: A name for the customization job.
         :param pulumi.Input[_builtins.str] job_status: The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
-        :param pulumi.Input[Union['CustomModelOutputDataConfigArgs', 'CustomModelOutputDataConfigArgsDict']] output_data_config: S3 location for the output data.
+        :param pulumi.Input[Union['CustomModelOutputDataConfigArgs', 'CustomModelOutputDataConfigArgsDict', 'outputs.CustomModelOutputDataConfig']] output_data_config: S3 location for the output data.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['CustomModelTrainingDataConfigArgs', 'CustomModelTrainingDataConfigArgsDict']] training_data_config: Information about the training dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomModelTrainingMetricArgs', 'CustomModelTrainingMetricArgsDict']]]] training_metrics: Metrics associated with the customization job.
-        :param pulumi.Input[Union['CustomModelValidationDataConfigArgs', 'CustomModelValidationDataConfigArgsDict']] validation_data_config: Information about the validation dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomModelValidationMetricArgs', 'CustomModelValidationMetricArgsDict']]]] validation_metrics: The loss metric for each validator that you provided.
-        :param pulumi.Input[Union['CustomModelVpcConfigArgs', 'CustomModelVpcConfigArgsDict']] vpc_config: Configuration parameters for the private VPC that contains the resources you are using for this job.
+        :param pulumi.Input[Union['CustomModelTrainingDataConfigArgs', 'CustomModelTrainingDataConfigArgsDict', 'outputs.CustomModelTrainingDataConfig']] training_data_config: Information about the training dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomModelTrainingMetricArgs', 'CustomModelTrainingMetricArgsDict', 'outputs.CustomModelTrainingMetric']]]] training_metrics: Metrics associated with the customization job.
+        :param pulumi.Input[Union['CustomModelValidationDataConfigArgs', 'CustomModelValidationDataConfigArgsDict', 'outputs.CustomModelValidationDataConfig']] validation_data_config: Information about the validation dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomModelValidationMetricArgs', 'CustomModelValidationMetricArgsDict', 'outputs.CustomModelValidationMetric']]]] validation_metrics: The loss metric for each validator that you provided.
+        :param pulumi.Input[Union['CustomModelVpcConfigArgs', 'CustomModelVpcConfigArgsDict', 'outputs.CustomModelVpcConfig']] vpc_config: Configuration parameters for the private VPC that contains the resources you are using for this job.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

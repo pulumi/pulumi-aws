@@ -514,15 +514,15 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            alternate_path_hints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisAlternatePathHintArgs', 'NetworkInsightsAnalysisAlternatePathHintArgsDict']]]]] = None,
+            alternate_path_hints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisAlternatePathHintArgs', 'NetworkInsightsAnalysisAlternatePathHintArgsDict', 'outputs.NetworkInsightsAnalysisAlternatePathHint']]]]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            explanations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisExplanationArgs', 'NetworkInsightsAnalysisExplanationArgsDict']]]]] = None,
+            explanations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisExplanationArgs', 'NetworkInsightsAnalysisExplanationArgsDict', 'outputs.NetworkInsightsAnalysisExplanation']]]]] = None,
             filter_in_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            forward_path_components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisForwardPathComponentArgs', 'NetworkInsightsAnalysisForwardPathComponentArgsDict']]]]] = None,
+            forward_path_components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisForwardPathComponentArgs', 'NetworkInsightsAnalysisForwardPathComponentArgsDict', 'outputs.NetworkInsightsAnalysisForwardPathComponent']]]]] = None,
             network_insights_path_id: pulumi.Input[Optional[_builtins.str]] = None,
             path_found: pulumi.Input[Optional[_builtins.bool]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            return_path_components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisReturnPathComponentArgs', 'NetworkInsightsAnalysisReturnPathComponentArgsDict']]]]] = None,
+            return_path_components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisReturnPathComponentArgs', 'NetworkInsightsAnalysisReturnPathComponentArgsDict', 'outputs.NetworkInsightsAnalysisReturnPathComponent']]]]] = None,
             start_date: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             status_message: pulumi.Input[Optional[_builtins.str]] = None,
@@ -537,17 +537,17 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisAlternatePathHintArgs', 'NetworkInsightsAnalysisAlternatePathHintArgsDict']]]] alternate_path_hints: Potential intermediate components of a feasible path. Described below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisAlternatePathHintArgs', 'NetworkInsightsAnalysisAlternatePathHintArgsDict', 'outputs.NetworkInsightsAnalysisAlternatePathHint']]]] alternate_path_hints: Potential intermediate components of a feasible path. Described below.
         :param pulumi.Input[_builtins.str] arn: ARN of the Network Insights Analysis.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisExplanationArgs', 'NetworkInsightsAnalysisExplanationArgsDict']]]] explanations: Explanation codes for an unreachable path. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Explanation.html) for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisExplanationArgs', 'NetworkInsightsAnalysisExplanationArgsDict', 'outputs.NetworkInsightsAnalysisExplanation']]]] explanations: Explanation codes for an unreachable path. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Explanation.html) for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] filter_in_arns: A list of ARNs for resources the path must traverse.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisForwardPathComponentArgs', 'NetworkInsightsAnalysisForwardPathComponentArgsDict']]]] forward_path_components: The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisForwardPathComponentArgs', 'NetworkInsightsAnalysisForwardPathComponentArgsDict', 'outputs.NetworkInsightsAnalysisForwardPathComponent']]]] forward_path_components: The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
         :param pulumi.Input[_builtins.str] network_insights_path_id: ID of the Network Insights Path to run an analysis on.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.bool] path_found: Set to `true` if the destination was reachable.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisReturnPathComponentArgs', 'NetworkInsightsAnalysisReturnPathComponentArgsDict']]]] return_path_components: The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisReturnPathComponentArgs', 'NetworkInsightsAnalysisReturnPathComponentArgsDict', 'outputs.NetworkInsightsAnalysisReturnPathComponent']]]] return_path_components: The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
         :param pulumi.Input[_builtins.str] start_date: The date/time the analysis was started.
         :param pulumi.Input[_builtins.str] status: The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
         :param pulumi.Input[_builtins.str] status_message: A message to provide more context when the `status` is `failed`.

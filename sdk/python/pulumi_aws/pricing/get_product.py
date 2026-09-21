@@ -81,7 +81,7 @@ class AwaitableGetProductResult(GetProductResult):
             service_code=self.service_code)
 
 
-def get_product(filters: Optional[Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict']]] = None,
+def get_product(filters: Optional[Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict', 'outputs.GetProductFilterResult']]] = None,
                 service_code: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductResult:
     """
@@ -145,7 +145,7 @@ def get_product(filters: Optional[Sequence[Union['GetProductFilterArgs', 'GetPro
     ```
 
 
-    :param Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict']] filters: List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
+    :param Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict', 'outputs.GetProductFilterResult']] filters: List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
     :param _builtins.str service_code: Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
     """
     __args__ = dict()
@@ -159,7 +159,7 @@ def get_product(filters: Optional[Sequence[Union['GetProductFilterArgs', 'GetPro
         id=pulumi.get(__ret__, 'id'),
         result=pulumi.get(__ret__, 'result'),
         service_code=pulumi.get(__ret__, 'service_code'))
-def get_product_output(filters: pulumi.Input[Optional[Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict']]]] = None,
+def get_product_output(filters: pulumi.Input[Optional[Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict', 'outputs.GetProductFilterResult']]]] = None,
                        service_code: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProductResult]:
     """
@@ -223,7 +223,7 @@ def get_product_output(filters: pulumi.Input[Optional[Sequence[Union['GetProduct
     ```
 
 
-    :param Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict']] filters: List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
+    :param Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict', 'outputs.GetProductFilterResult']] filters: List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
     :param _builtins.str service_code: Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
     """
     __args__ = dict()

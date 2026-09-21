@@ -98,7 +98,7 @@ class OrganizationsAccess(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 timeouts: pulumi.Input[Optional[Union['OrganizationsAccessTimeoutsArgs', 'OrganizationsAccessTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['OrganizationsAccessTimeoutsArgs', 'OrganizationsAccessTimeoutsArgsDict', 'outputs.OrganizationsAccessTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing AWS User Notifications Organizations Access. This resource enables or disables organizations access for AWS User Notifications in AWS Organizations, allowing the service to access organization information.
@@ -180,7 +180,7 @@ class OrganizationsAccess(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 timeouts: pulumi.Input[Optional[Union['OrganizationsAccessTimeoutsArgs', 'OrganizationsAccessTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['OrganizationsAccessTimeoutsArgs', 'OrganizationsAccessTimeoutsArgsDict', 'outputs.OrganizationsAccessTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -205,7 +205,7 @@ class OrganizationsAccess(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            timeouts: pulumi.Input[Optional[Union['OrganizationsAccessTimeoutsArgs', 'OrganizationsAccessTimeoutsArgsDict']]] = None) -> 'OrganizationsAccess':
+            timeouts: pulumi.Input[Optional[Union['OrganizationsAccessTimeoutsArgs', 'OrganizationsAccessTimeoutsArgsDict', 'outputs.OrganizationsAccessTimeouts']]] = None) -> 'OrganizationsAccess':
         """
         Get an existing OrganizationsAccess resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

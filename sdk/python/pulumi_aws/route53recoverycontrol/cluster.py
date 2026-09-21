@@ -315,7 +315,7 @@ class Cluster(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            cluster_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterClusterEndpointArgs', 'ClusterClusterEndpointArgsDict']]]]] = None,
+            cluster_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterClusterEndpointArgs', 'ClusterClusterEndpointArgsDict', 'outputs.ClusterClusterEndpoint']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             network_type: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
@@ -329,7 +329,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the cluster
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterClusterEndpointArgs', 'ClusterClusterEndpointArgsDict']]]] cluster_endpoints: List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterClusterEndpointArgs', 'ClusterClusterEndpointArgsDict', 'outputs.ClusterClusterEndpoint']]]] cluster_endpoints: List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
         :param pulumi.Input[_builtins.str] name: Unique name describing the cluster.
         :param pulumi.Input[_builtins.str] network_type: Network type of cluster. Valid values are `IPV4` and `DUALSTACK`. Defaults to `IPV4`.
                

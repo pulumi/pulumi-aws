@@ -267,7 +267,7 @@ class PrivateGraphEndpoint(pulumi.CustomResource):
                  graph_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['PrivateGraphEndpointTimeoutsArgs', 'PrivateGraphEndpointTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['PrivateGraphEndpointTimeoutsArgs', 'PrivateGraphEndpointTimeoutsArgsDict', 'outputs.PrivateGraphEndpointTimeouts']]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -477,7 +477,7 @@ class PrivateGraphEndpoint(pulumi.CustomResource):
                  graph_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['PrivateGraphEndpointTimeoutsArgs', 'PrivateGraphEndpointTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['PrivateGraphEndpointTimeoutsArgs', 'PrivateGraphEndpointTimeoutsArgsDict', 'outputs.PrivateGraphEndpointTimeouts']]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -515,7 +515,7 @@ class PrivateGraphEndpoint(pulumi.CustomResource):
             private_graph_endpoint_identifier: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['PrivateGraphEndpointTimeoutsArgs', 'PrivateGraphEndpointTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['PrivateGraphEndpointTimeoutsArgs', 'PrivateGraphEndpointTimeoutsArgsDict', 'outputs.PrivateGraphEndpointTimeouts']]] = None,
             vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
             vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
             vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'PrivateGraphEndpoint':

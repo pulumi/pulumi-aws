@@ -366,7 +366,7 @@ class AwaitableGetCapacityBlockReservationResult(GetCapacityBlockReservationResu
             tenancy=self.tenancy)
 
 
-def get_capacity_block_reservation(filters: Optional[Sequence[Union['GetCapacityBlockReservationFilterArgs', 'GetCapacityBlockReservationFilterArgsDict']]] = None,
+def get_capacity_block_reservation(filters: Optional[Sequence[Union['GetCapacityBlockReservationFilterArgs', 'GetCapacityBlockReservationFilterArgsDict', 'outputs.GetCapacityBlockReservationFilterResult']]] = None,
                                    id: Optional[_builtins.str] = None,
                                    region: Optional[_builtins.str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityBlockReservationResult:
@@ -419,7 +419,7 @@ def get_capacity_block_reservation(filters: Optional[Sequence[Union['GetCapacity
     ```
 
 
-    :param Sequence[Union['GetCapacityBlockReservationFilterArgs', 'GetCapacityBlockReservationFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetCapacityBlockReservationFilterArgs', 'GetCapacityBlockReservationFilterArgsDict', 'outputs.GetCapacityBlockReservationFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str id: ID of the Capacity Block reservation to retrieve.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
@@ -459,7 +459,7 @@ def get_capacity_block_reservation(filters: Optional[Sequence[Union['GetCapacity
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         tenancy=pulumi.get(__ret__, 'tenancy'))
-def get_capacity_block_reservation_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetCapacityBlockReservationFilterArgs', 'GetCapacityBlockReservationFilterArgsDict']]]]] = None,
+def get_capacity_block_reservation_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetCapacityBlockReservationFilterArgs', 'GetCapacityBlockReservationFilterArgsDict', 'outputs.GetCapacityBlockReservationFilterResult']]]]] = None,
                                           id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityBlockReservationResult]:
@@ -512,7 +512,7 @@ def get_capacity_block_reservation_output(filters: pulumi.Input[Optional[Optiona
     ```
 
 
-    :param Sequence[Union['GetCapacityBlockReservationFilterArgs', 'GetCapacityBlockReservationFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetCapacityBlockReservationFilterArgs', 'GetCapacityBlockReservationFilterArgsDict', 'outputs.GetCapacityBlockReservationFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str id: ID of the Capacity Block reservation to retrieve.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """

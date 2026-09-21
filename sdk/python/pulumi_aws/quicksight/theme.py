@@ -434,9 +434,9 @@ class Theme(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  base_theme_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union['ThemeConfigurationArgs', 'ThemeConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['ThemeConfigurationArgs', 'ThemeConfigurationArgsDict', 'outputs.ThemeConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThemePermissionArgs', 'ThemePermissionArgsDict']]]]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThemePermissionArgs', 'ThemePermissionArgsDict', 'outputs.ThemePermission']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  theme_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -493,9 +493,9 @@ class Theme(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] base_theme_id: The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
-        :param pulumi.Input[Union['ThemeConfigurationArgs', 'ThemeConfigurationArgsDict']] configuration: The theme configuration, which contains the theme display properties. See configuration.
+        :param pulumi.Input[Union['ThemeConfigurationArgs', 'ThemeConfigurationArgsDict', 'outputs.ThemeConfiguration']] configuration: The theme configuration, which contains the theme display properties. See configuration.
         :param pulumi.Input[_builtins.str] name: Display name of the theme.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ThemePermissionArgs', 'ThemePermissionArgsDict']]]] permissions: A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ThemePermissionArgs', 'ThemePermissionArgsDict', 'outputs.ThemePermission']]]] permissions: A set of resource permissions on the theme. Maximum of 64 items. See permissions.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] theme_id: Identifier of the theme.
@@ -573,9 +573,9 @@ class Theme(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  base_theme_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union['ThemeConfigurationArgs', 'ThemeConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['ThemeConfigurationArgs', 'ThemeConfigurationArgsDict', 'outputs.ThemeConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThemePermissionArgs', 'ThemePermissionArgsDict']]]]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThemePermissionArgs', 'ThemePermissionArgsDict', 'outputs.ThemePermission']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  theme_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -621,11 +621,11 @@ class Theme(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
             base_theme_id: pulumi.Input[Optional[_builtins.str]] = None,
-            configuration: pulumi.Input[Optional[Union['ThemeConfigurationArgs', 'ThemeConfigurationArgsDict']]] = None,
+            configuration: pulumi.Input[Optional[Union['ThemeConfigurationArgs', 'ThemeConfigurationArgsDict', 'outputs.ThemeConfiguration']]] = None,
             created_time: pulumi.Input[Optional[_builtins.str]] = None,
             last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThemePermissionArgs', 'ThemePermissionArgsDict']]]]] = None,
+            permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThemePermissionArgs', 'ThemePermissionArgsDict', 'outputs.ThemePermission']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -643,11 +643,11 @@ class Theme(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the theme.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] base_theme_id: The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
-        :param pulumi.Input[Union['ThemeConfigurationArgs', 'ThemeConfigurationArgsDict']] configuration: The theme configuration, which contains the theme display properties. See configuration.
+        :param pulumi.Input[Union['ThemeConfigurationArgs', 'ThemeConfigurationArgsDict', 'outputs.ThemeConfiguration']] configuration: The theme configuration, which contains the theme display properties. See configuration.
         :param pulumi.Input[_builtins.str] created_time: The time that the theme was created.
         :param pulumi.Input[_builtins.str] last_updated_time: The time that the theme was last updated.
         :param pulumi.Input[_builtins.str] name: Display name of the theme.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ThemePermissionArgs', 'ThemePermissionArgsDict']]]] permissions: A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ThemePermissionArgs', 'ThemePermissionArgsDict', 'outputs.ThemePermission']]]] permissions: A set of resource permissions on the theme. Maximum of 64 items. See permissions.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] status: The theme creation status.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -266,11 +266,11 @@ class Group(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupConfigurationArgs', 'GroupConfigurationArgsDict']]]]] = None,
+                 configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupConfigurationArgs', 'GroupConfigurationArgsDict', 'outputs.GroupConfiguration']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_query: pulumi.Input[Optional[Union['GroupResourceQueryArgs', 'GroupResourceQueryArgsDict']]] = None,
+                 resource_query: pulumi.Input[Optional[Union['GroupResourceQueryArgs', 'GroupResourceQueryArgsDict', 'outputs.GroupResourceQuery']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -311,11 +311,11 @@ class Group(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupConfigurationArgs', 'GroupConfigurationArgsDict']]]] configurations: A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupConfigurationArgs', 'GroupConfigurationArgsDict', 'outputs.GroupConfiguration']]]] configurations: A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
         :param pulumi.Input[_builtins.str] description: A description of the resource group.
         :param pulumi.Input[_builtins.str] name: The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['GroupResourceQueryArgs', 'GroupResourceQueryArgsDict']] resource_query: A `resource_query` block. Resource queries are documented below.
+        :param pulumi.Input[Union['GroupResourceQueryArgs', 'GroupResourceQueryArgsDict', 'outputs.GroupResourceQuery']] resource_query: A `resource_query` block. Resource queries are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -375,11 +375,11 @@ class Group(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupConfigurationArgs', 'GroupConfigurationArgsDict']]]]] = None,
+                 configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupConfigurationArgs', 'GroupConfigurationArgsDict', 'outputs.GroupConfiguration']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_query: pulumi.Input[Optional[Union['GroupResourceQueryArgs', 'GroupResourceQueryArgsDict']]] = None,
+                 resource_query: pulumi.Input[Optional[Union['GroupResourceQueryArgs', 'GroupResourceQueryArgsDict', 'outputs.GroupResourceQuery']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -409,11 +409,11 @@ class Group(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupConfigurationArgs', 'GroupConfigurationArgsDict']]]]] = None,
+            configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupConfigurationArgs', 'GroupConfigurationArgsDict', 'outputs.GroupConfiguration']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            resource_query: pulumi.Input[Optional[Union['GroupResourceQueryArgs', 'GroupResourceQueryArgsDict']]] = None,
+            resource_query: pulumi.Input[Optional[Union['GroupResourceQueryArgs', 'GroupResourceQueryArgsDict', 'outputs.GroupResourceQuery']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Group':
         """
@@ -424,11 +424,11 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The ARN assigned by AWS for this resource group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupConfigurationArgs', 'GroupConfigurationArgsDict']]]] configurations: A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupConfigurationArgs', 'GroupConfigurationArgsDict', 'outputs.GroupConfiguration']]]] configurations: A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
         :param pulumi.Input[_builtins.str] description: A description of the resource group.
         :param pulumi.Input[_builtins.str] name: The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['GroupResourceQueryArgs', 'GroupResourceQueryArgsDict']] resource_query: A `resource_query` block. Resource queries are documented below.
+        :param pulumi.Input[Union['GroupResourceQueryArgs', 'GroupResourceQueryArgsDict', 'outputs.GroupResourceQuery']] resource_query: A `resource_query` block. Resource queries are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

@@ -145,7 +145,7 @@ def get_policy_document(override_json: Optional[_builtins.str] = None,
                         policy_id: Optional[_builtins.str] = None,
                         source_json: Optional[_builtins.str] = None,
                         source_policy_documents: Optional[Sequence[_builtins.str]] = None,
-                        statements: Optional[Sequence[Union['GetPolicyDocumentStatementArgs', 'GetPolicyDocumentStatementArgsDict']]] = None,
+                        statements: Optional[Sequence[Union['GetPolicyDocumentStatementArgs', 'GetPolicyDocumentStatementArgsDict', 'outputs.GetPolicyDocumentStatementResult']]] = None,
                         version: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyDocumentResult:
     """
@@ -438,7 +438,7 @@ def get_policy_document(override_json: Optional[_builtins.str] = None,
     :param Sequence[_builtins.str] override_policy_documents: List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `source_policy_documents`.  Non-overriding statements will be added to the exported document.
     :param _builtins.str policy_id: ID for the policy document.
     :param Sequence[_builtins.str] source_policy_documents: List of IAM policy documents that are merged together into the exported document. Statements defined in `source_policy_documents` must have unique `sid`s. Statements with the same `sid` from `override_policy_documents` will override source statements.
-    :param Sequence[Union['GetPolicyDocumentStatementArgs', 'GetPolicyDocumentStatementArgsDict']] statements: Configuration block for a policy statement. Detailed below.
+    :param Sequence[Union['GetPolicyDocumentStatementArgs', 'GetPolicyDocumentStatementArgsDict', 'outputs.GetPolicyDocumentStatementResult']] statements: Configuration block for a policy statement. Detailed below.
     :param _builtins.str version: IAM policy document version. Valid values are `2008-10-17` and `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
     """
     __args__ = dict()
@@ -468,7 +468,7 @@ def get_policy_document_output(override_json: pulumi.Input[Optional[Optional[_bu
                                policy_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                source_json: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                source_policy_documents: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
-                               statements: pulumi.Input[Optional[Optional[Sequence[Union['GetPolicyDocumentStatementArgs', 'GetPolicyDocumentStatementArgsDict']]]]] = None,
+                               statements: pulumi.Input[Optional[Optional[Sequence[Union['GetPolicyDocumentStatementArgs', 'GetPolicyDocumentStatementArgsDict', 'outputs.GetPolicyDocumentStatementResult']]]]] = None,
                                version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyDocumentResult]:
     """
@@ -761,7 +761,7 @@ def get_policy_document_output(override_json: pulumi.Input[Optional[Optional[_bu
     :param Sequence[_builtins.str] override_policy_documents: List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `source_policy_documents`.  Non-overriding statements will be added to the exported document.
     :param _builtins.str policy_id: ID for the policy document.
     :param Sequence[_builtins.str] source_policy_documents: List of IAM policy documents that are merged together into the exported document. Statements defined in `source_policy_documents` must have unique `sid`s. Statements with the same `sid` from `override_policy_documents` will override source statements.
-    :param Sequence[Union['GetPolicyDocumentStatementArgs', 'GetPolicyDocumentStatementArgsDict']] statements: Configuration block for a policy statement. Detailed below.
+    :param Sequence[Union['GetPolicyDocumentStatementArgs', 'GetPolicyDocumentStatementArgsDict', 'outputs.GetPolicyDocumentStatementResult']] statements: Configuration block for a policy statement. Detailed below.
     :param _builtins.str version: IAM policy document version. Valid values are `2008-10-17` and `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
     """
     __args__ = dict()

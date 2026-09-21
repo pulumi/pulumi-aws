@@ -139,7 +139,7 @@ class ResourceDataSync(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3_destination: pulumi.Input[Optional[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict']]] = None,
+                 s3_destination: pulumi.Input[Optional[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict', 'outputs.ResourceDataSyncS3Destination']]] = None,
                  __props__=None):
         """
         Provides a SSM resource data sync.
@@ -202,7 +202,7 @@ class ResourceDataSync(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name for the configuration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict']] s3_destination: Amazon S3 configuration details for the sync.
+        :param pulumi.Input[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict', 'outputs.ResourceDataSyncS3Destination']] s3_destination: Amazon S3 configuration details for the sync.
         """
         ...
     @overload
@@ -284,7 +284,7 @@ class ResourceDataSync(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3_destination: pulumi.Input[Optional[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict']]] = None,
+                 s3_destination: pulumi.Input[Optional[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict', 'outputs.ResourceDataSyncS3Destination']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -311,7 +311,7 @@ class ResourceDataSync(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            s3_destination: pulumi.Input[Optional[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict']]] = None) -> 'ResourceDataSync':
+            s3_destination: pulumi.Input[Optional[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict', 'outputs.ResourceDataSyncS3Destination']]] = None) -> 'ResourceDataSync':
         """
         Get an existing ResourceDataSync resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -321,7 +321,7 @@ class ResourceDataSync(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name for the configuration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict']] s3_destination: Amazon S3 configuration details for the sync.
+        :param pulumi.Input[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict', 'outputs.ResourceDataSyncS3Destination']] s3_destination: Amazon S3 configuration details for the sync.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

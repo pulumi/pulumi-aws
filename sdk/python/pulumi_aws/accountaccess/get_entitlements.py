@@ -79,7 +79,7 @@ class AwaitableGetEntitlementsResult(GetEntitlementsResult):
 
 
 def get_entitlements(application_arn: Optional[_builtins.str] = None,
-                     filter: Optional[Union['GetEntitlementsFilterArgs', 'GetEntitlementsFilterArgsDict']] = None,
+                     filter: Optional[Union['GetEntitlementsFilterArgs', 'GetEntitlementsFilterArgsDict', 'outputs.GetEntitlementsFilterResult']] = None,
                      region: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEntitlementsResult:
     """
@@ -121,7 +121,7 @@ def get_entitlements(application_arn: Optional[_builtins.str] = None,
 
 
     :param _builtins.str application_arn: ARN of the parent Application to list Entitlements within.
-    :param Union['GetEntitlementsFilterArgs', 'GetEntitlementsFilterArgsDict'] filter: Filter criteria to narrow the entitlements returned. You can filter by principal, IAM role, or account. See `filter` Block below.
+    :param Union['GetEntitlementsFilterArgs', 'GetEntitlementsFilterArgsDict', 'outputs.GetEntitlementsFilterResult'] filter: Filter criteria to narrow the entitlements returned. You can filter by principal, IAM role, or account. See `filter` Block below.
            
            The following arguments are optional:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -139,7 +139,7 @@ def get_entitlements(application_arn: Optional[_builtins.str] = None,
         filter=pulumi.get(__ret__, 'filter'),
         region=pulumi.get(__ret__, 'region'))
 def get_entitlements_output(application_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                            filter: pulumi.Input[Optional[Union['GetEntitlementsFilterArgs', 'GetEntitlementsFilterArgsDict']]] = None,
+                            filter: pulumi.Input[Optional[Union['GetEntitlementsFilterArgs', 'GetEntitlementsFilterArgsDict', 'outputs.GetEntitlementsFilterResult']]] = None,
                             region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEntitlementsResult]:
     """
@@ -181,7 +181,7 @@ def get_entitlements_output(application_arn: pulumi.Input[Optional[_builtins.str
 
 
     :param _builtins.str application_arn: ARN of the parent Application to list Entitlements within.
-    :param Union['GetEntitlementsFilterArgs', 'GetEntitlementsFilterArgsDict'] filter: Filter criteria to narrow the entitlements returned. You can filter by principal, IAM role, or account. See `filter` Block below.
+    :param Union['GetEntitlementsFilterArgs', 'GetEntitlementsFilterArgsDict', 'outputs.GetEntitlementsFilterResult'] filter: Filter criteria to narrow the entitlements returned. You can filter by principal, IAM role, or account. See `filter` Block below.
            
            The following arguments are optional:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

@@ -685,21 +685,21 @@ class MultitenantDistribution(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active_trusted_key_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionActiveTrustedKeyGroupArgs', 'MultitenantDistributionActiveTrustedKeyGroupArgsDict']]]]] = None,
-                 cache_behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionCacheBehaviorArgs', 'MultitenantDistributionCacheBehaviorArgsDict']]]]] = None,
+                 active_trusted_key_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionActiveTrustedKeyGroupArgs', 'MultitenantDistributionActiveTrustedKeyGroupArgsDict', 'outputs.MultitenantDistributionActiveTrustedKeyGroup']]]]] = None,
+                 cache_behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionCacheBehaviorArgs', 'MultitenantDistributionCacheBehaviorArgsDict', 'outputs.MultitenantDistributionCacheBehavior']]]]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
-                 custom_error_responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionCustomErrorResponseArgs', 'MultitenantDistributionCustomErrorResponseArgsDict']]]]] = None,
-                 default_cache_behavior: pulumi.Input[Optional[Union['MultitenantDistributionDefaultCacheBehaviorArgs', 'MultitenantDistributionDefaultCacheBehaviorArgsDict']]] = None,
+                 custom_error_responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionCustomErrorResponseArgs', 'MultitenantDistributionCustomErrorResponseArgsDict', 'outputs.MultitenantDistributionCustomErrorResponse']]]]] = None,
+                 default_cache_behavior: pulumi.Input[Optional[Union['MultitenantDistributionDefaultCacheBehaviorArgs', 'MultitenantDistributionDefaultCacheBehaviorArgsDict', 'outputs.MultitenantDistributionDefaultCacheBehavior']]] = None,
                  default_root_object: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  http_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 origin_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionOriginGroupArgs', 'MultitenantDistributionOriginGroupArgsDict']]]]] = None,
-                 origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionOriginArgs', 'MultitenantDistributionOriginArgsDict']]]]] = None,
-                 restrictions: pulumi.Input[Optional[Union['MultitenantDistributionRestrictionsArgs', 'MultitenantDistributionRestrictionsArgsDict']]] = None,
+                 origin_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionOriginGroupArgs', 'MultitenantDistributionOriginGroupArgsDict', 'outputs.MultitenantDistributionOriginGroup']]]]] = None,
+                 origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionOriginArgs', 'MultitenantDistributionOriginArgsDict', 'outputs.MultitenantDistributionOrigin']]]]] = None,
+                 restrictions: pulumi.Input[Optional[Union['MultitenantDistributionRestrictionsArgs', 'MultitenantDistributionRestrictionsArgsDict', 'outputs.MultitenantDistributionRestrictions']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_config: pulumi.Input[Optional[Union['MultitenantDistributionTenantConfigArgs', 'MultitenantDistributionTenantConfigArgsDict']]] = None,
-                 timeouts: pulumi.Input[Optional[Union['MultitenantDistributionTimeoutsArgs', 'MultitenantDistributionTimeoutsArgsDict']]] = None,
-                 viewer_certificate: pulumi.Input[Optional[Union['MultitenantDistributionViewerCertificateArgs', 'MultitenantDistributionViewerCertificateArgsDict']]] = None,
+                 tenant_config: pulumi.Input[Optional[Union['MultitenantDistributionTenantConfigArgs', 'MultitenantDistributionTenantConfigArgsDict', 'outputs.MultitenantDistributionTenantConfig']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['MultitenantDistributionTimeoutsArgs', 'MultitenantDistributionTimeoutsArgsDict', 'outputs.MultitenantDistributionTimeouts']]] = None,
+                 viewer_certificate: pulumi.Input[Optional[Union['MultitenantDistributionViewerCertificateArgs', 'MultitenantDistributionViewerCertificateArgsDict', 'outputs.MultitenantDistributionViewerCertificate']]] = None,
                  web_acl_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -811,20 +811,20 @@ class MultitenantDistribution(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionActiveTrustedKeyGroupArgs', 'MultitenantDistributionActiveTrustedKeyGroupArgsDict']]]] active_trusted_key_groups: List of key groups that CloudFront can use to validate signed URLs or signed cookies. See Active Trusted Key Groups below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionCacheBehaviorArgs', 'MultitenantDistributionCacheBehaviorArgsDict']]]] cache_behaviors: Ordered list of cache behaviors resource for this distribution. See Cache Behavior below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionActiveTrustedKeyGroupArgs', 'MultitenantDistributionActiveTrustedKeyGroupArgsDict', 'outputs.MultitenantDistributionActiveTrustedKeyGroup']]]] active_trusted_key_groups: List of key groups that CloudFront can use to validate signed URLs or signed cookies. See Active Trusted Key Groups below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionCacheBehaviorArgs', 'MultitenantDistributionCacheBehaviorArgsDict', 'outputs.MultitenantDistributionCacheBehavior']]]] cache_behaviors: Ordered list of cache behaviors resource for this distribution. See Cache Behavior below.
         :param pulumi.Input[_builtins.str] comment: Any comments you want to include about the distribution.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionCustomErrorResponseArgs', 'MultitenantDistributionCustomErrorResponseArgsDict']]]] custom_error_responses: One or more custom error response elements. See Custom Error Response below.
-        :param pulumi.Input[Union['MultitenantDistributionDefaultCacheBehaviorArgs', 'MultitenantDistributionDefaultCacheBehaviorArgsDict']] default_cache_behavior: Default cache behavior for this distribution. See Default Cache Behavior below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionCustomErrorResponseArgs', 'MultitenantDistributionCustomErrorResponseArgsDict', 'outputs.MultitenantDistributionCustomErrorResponse']]]] custom_error_responses: One or more custom error response elements. See Custom Error Response below.
+        :param pulumi.Input[Union['MultitenantDistributionDefaultCacheBehaviorArgs', 'MultitenantDistributionDefaultCacheBehaviorArgsDict', 'outputs.MultitenantDistributionDefaultCacheBehavior']] default_cache_behavior: Default cache behavior for this distribution. See Default Cache Behavior below.
         :param pulumi.Input[_builtins.str] default_root_object: Object that you want CloudFront to return when an end user requests the root URL.
         :param pulumi.Input[_builtins.bool] enabled: Whether the distribution is enabled to accept end user requests for content.
         :param pulumi.Input[_builtins.str] http_version: Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3`, and `http3`. Default: `http2`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionOriginGroupArgs', 'MultitenantDistributionOriginGroupArgsDict']]]] origin_groups: One or more origin_group for this distribution (multiples allowed). See Origin Group below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionOriginArgs', 'MultitenantDistributionOriginArgsDict']]]] origins: One or more origins for this distribution (multiples allowed). See Origin below.
-        :param pulumi.Input[Union['MultitenantDistributionRestrictionsArgs', 'MultitenantDistributionRestrictionsArgsDict']] restrictions: Restriction configuration for this distribution. See Restrictions below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionOriginGroupArgs', 'MultitenantDistributionOriginGroupArgsDict', 'outputs.MultitenantDistributionOriginGroup']]]] origin_groups: One or more origin_group for this distribution (multiples allowed). See Origin Group below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionOriginArgs', 'MultitenantDistributionOriginArgsDict', 'outputs.MultitenantDistributionOrigin']]]] origins: One or more origins for this distribution (multiples allowed). See Origin below.
+        :param pulumi.Input[Union['MultitenantDistributionRestrictionsArgs', 'MultitenantDistributionRestrictionsArgsDict', 'outputs.MultitenantDistributionRestrictions']] restrictions: Restriction configuration for this distribution. See Restrictions below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['MultitenantDistributionTenantConfigArgs', 'MultitenantDistributionTenantConfigArgsDict']] tenant_config: Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
-        :param pulumi.Input[Union['MultitenantDistributionViewerCertificateArgs', 'MultitenantDistributionViewerCertificateArgsDict']] viewer_certificate: SSL configuration for this distribution. See Viewer Certificate below.
+        :param pulumi.Input[Union['MultitenantDistributionTenantConfigArgs', 'MultitenantDistributionTenantConfigArgsDict', 'outputs.MultitenantDistributionTenantConfig']] tenant_config: Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
+        :param pulumi.Input[Union['MultitenantDistributionViewerCertificateArgs', 'MultitenantDistributionViewerCertificateArgsDict', 'outputs.MultitenantDistributionViewerCertificate']] viewer_certificate: SSL configuration for this distribution. See Viewer Certificate below.
         :param pulumi.Input[_builtins.str] web_acl_id: Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.
         """
         ...
@@ -955,21 +955,21 @@ class MultitenantDistribution(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active_trusted_key_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionActiveTrustedKeyGroupArgs', 'MultitenantDistributionActiveTrustedKeyGroupArgsDict']]]]] = None,
-                 cache_behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionCacheBehaviorArgs', 'MultitenantDistributionCacheBehaviorArgsDict']]]]] = None,
+                 active_trusted_key_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionActiveTrustedKeyGroupArgs', 'MultitenantDistributionActiveTrustedKeyGroupArgsDict', 'outputs.MultitenantDistributionActiveTrustedKeyGroup']]]]] = None,
+                 cache_behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionCacheBehaviorArgs', 'MultitenantDistributionCacheBehaviorArgsDict', 'outputs.MultitenantDistributionCacheBehavior']]]]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
-                 custom_error_responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionCustomErrorResponseArgs', 'MultitenantDistributionCustomErrorResponseArgsDict']]]]] = None,
-                 default_cache_behavior: pulumi.Input[Optional[Union['MultitenantDistributionDefaultCacheBehaviorArgs', 'MultitenantDistributionDefaultCacheBehaviorArgsDict']]] = None,
+                 custom_error_responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionCustomErrorResponseArgs', 'MultitenantDistributionCustomErrorResponseArgsDict', 'outputs.MultitenantDistributionCustomErrorResponse']]]]] = None,
+                 default_cache_behavior: pulumi.Input[Optional[Union['MultitenantDistributionDefaultCacheBehaviorArgs', 'MultitenantDistributionDefaultCacheBehaviorArgsDict', 'outputs.MultitenantDistributionDefaultCacheBehavior']]] = None,
                  default_root_object: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  http_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 origin_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionOriginGroupArgs', 'MultitenantDistributionOriginGroupArgsDict']]]]] = None,
-                 origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionOriginArgs', 'MultitenantDistributionOriginArgsDict']]]]] = None,
-                 restrictions: pulumi.Input[Optional[Union['MultitenantDistributionRestrictionsArgs', 'MultitenantDistributionRestrictionsArgsDict']]] = None,
+                 origin_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionOriginGroupArgs', 'MultitenantDistributionOriginGroupArgsDict', 'outputs.MultitenantDistributionOriginGroup']]]]] = None,
+                 origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionOriginArgs', 'MultitenantDistributionOriginArgsDict', 'outputs.MultitenantDistributionOrigin']]]]] = None,
+                 restrictions: pulumi.Input[Optional[Union['MultitenantDistributionRestrictionsArgs', 'MultitenantDistributionRestrictionsArgsDict', 'outputs.MultitenantDistributionRestrictions']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_config: pulumi.Input[Optional[Union['MultitenantDistributionTenantConfigArgs', 'MultitenantDistributionTenantConfigArgsDict']]] = None,
-                 timeouts: pulumi.Input[Optional[Union['MultitenantDistributionTimeoutsArgs', 'MultitenantDistributionTimeoutsArgsDict']]] = None,
-                 viewer_certificate: pulumi.Input[Optional[Union['MultitenantDistributionViewerCertificateArgs', 'MultitenantDistributionViewerCertificateArgsDict']]] = None,
+                 tenant_config: pulumi.Input[Optional[Union['MultitenantDistributionTenantConfigArgs', 'MultitenantDistributionTenantConfigArgsDict', 'outputs.MultitenantDistributionTenantConfig']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['MultitenantDistributionTimeoutsArgs', 'MultitenantDistributionTimeoutsArgsDict', 'outputs.MultitenantDistributionTimeouts']]] = None,
+                 viewer_certificate: pulumi.Input[Optional[Union['MultitenantDistributionViewerCertificateArgs', 'MultitenantDistributionViewerCertificateArgsDict', 'outputs.MultitenantDistributionViewerCertificate']]] = None,
                  web_acl_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1025,14 +1025,14 @@ class MultitenantDistribution(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            active_trusted_key_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionActiveTrustedKeyGroupArgs', 'MultitenantDistributionActiveTrustedKeyGroupArgsDict']]]]] = None,
+            active_trusted_key_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionActiveTrustedKeyGroupArgs', 'MultitenantDistributionActiveTrustedKeyGroupArgsDict', 'outputs.MultitenantDistributionActiveTrustedKeyGroup']]]]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            cache_behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionCacheBehaviorArgs', 'MultitenantDistributionCacheBehaviorArgsDict']]]]] = None,
+            cache_behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionCacheBehaviorArgs', 'MultitenantDistributionCacheBehaviorArgsDict', 'outputs.MultitenantDistributionCacheBehavior']]]]] = None,
             caller_reference: pulumi.Input[Optional[_builtins.str]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             connection_mode: pulumi.Input[Optional[_builtins.str]] = None,
-            custom_error_responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionCustomErrorResponseArgs', 'MultitenantDistributionCustomErrorResponseArgsDict']]]]] = None,
-            default_cache_behavior: pulumi.Input[Optional[Union['MultitenantDistributionDefaultCacheBehaviorArgs', 'MultitenantDistributionDefaultCacheBehaviorArgsDict']]] = None,
+            custom_error_responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionCustomErrorResponseArgs', 'MultitenantDistributionCustomErrorResponseArgsDict', 'outputs.MultitenantDistributionCustomErrorResponse']]]]] = None,
+            default_cache_behavior: pulumi.Input[Optional[Union['MultitenantDistributionDefaultCacheBehaviorArgs', 'MultitenantDistributionDefaultCacheBehaviorArgsDict', 'outputs.MultitenantDistributionDefaultCacheBehavior']]] = None,
             default_root_object: pulumi.Input[Optional[_builtins.str]] = None,
             domain_name: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1040,15 +1040,15 @@ class MultitenantDistribution(pulumi.CustomResource):
             http_version: pulumi.Input[Optional[_builtins.str]] = None,
             in_progress_invalidation_batches: pulumi.Input[Optional[_builtins.int]] = None,
             last_modified_time: pulumi.Input[Optional[_builtins.str]] = None,
-            origin_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionOriginGroupArgs', 'MultitenantDistributionOriginGroupArgsDict']]]]] = None,
-            origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionOriginArgs', 'MultitenantDistributionOriginArgsDict']]]]] = None,
-            restrictions: pulumi.Input[Optional[Union['MultitenantDistributionRestrictionsArgs', 'MultitenantDistributionRestrictionsArgsDict']]] = None,
+            origin_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionOriginGroupArgs', 'MultitenantDistributionOriginGroupArgsDict', 'outputs.MultitenantDistributionOriginGroup']]]]] = None,
+            origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultitenantDistributionOriginArgs', 'MultitenantDistributionOriginArgsDict', 'outputs.MultitenantDistributionOrigin']]]]] = None,
+            restrictions: pulumi.Input[Optional[Union['MultitenantDistributionRestrictionsArgs', 'MultitenantDistributionRestrictionsArgsDict', 'outputs.MultitenantDistributionRestrictions']]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tenant_config: pulumi.Input[Optional[Union['MultitenantDistributionTenantConfigArgs', 'MultitenantDistributionTenantConfigArgsDict']]] = None,
-            timeouts: pulumi.Input[Optional[Union['MultitenantDistributionTimeoutsArgs', 'MultitenantDistributionTimeoutsArgsDict']]] = None,
-            viewer_certificate: pulumi.Input[Optional[Union['MultitenantDistributionViewerCertificateArgs', 'MultitenantDistributionViewerCertificateArgsDict']]] = None,
+            tenant_config: pulumi.Input[Optional[Union['MultitenantDistributionTenantConfigArgs', 'MultitenantDistributionTenantConfigArgsDict', 'outputs.MultitenantDistributionTenantConfig']]] = None,
+            timeouts: pulumi.Input[Optional[Union['MultitenantDistributionTimeoutsArgs', 'MultitenantDistributionTimeoutsArgsDict', 'outputs.MultitenantDistributionTimeouts']]] = None,
+            viewer_certificate: pulumi.Input[Optional[Union['MultitenantDistributionViewerCertificateArgs', 'MultitenantDistributionViewerCertificateArgsDict', 'outputs.MultitenantDistributionViewerCertificate']]] = None,
             web_acl_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'MultitenantDistribution':
         """
         Get an existing MultitenantDistribution resource's state with the given name, id, and optional extra
@@ -1057,14 +1057,14 @@ class MultitenantDistribution(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionActiveTrustedKeyGroupArgs', 'MultitenantDistributionActiveTrustedKeyGroupArgsDict']]]] active_trusted_key_groups: List of key groups that CloudFront can use to validate signed URLs or signed cookies. See Active Trusted Key Groups below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionActiveTrustedKeyGroupArgs', 'MultitenantDistributionActiveTrustedKeyGroupArgsDict', 'outputs.MultitenantDistributionActiveTrustedKeyGroup']]]] active_trusted_key_groups: List of key groups that CloudFront can use to validate signed URLs or signed cookies. See Active Trusted Key Groups below.
         :param pulumi.Input[_builtins.str] arn: ARN for the distribution.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionCacheBehaviorArgs', 'MultitenantDistributionCacheBehaviorArgsDict']]]] cache_behaviors: Ordered list of cache behaviors resource for this distribution. See Cache Behavior below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionCacheBehaviorArgs', 'MultitenantDistributionCacheBehaviorArgsDict', 'outputs.MultitenantDistributionCacheBehavior']]]] cache_behaviors: Ordered list of cache behaviors resource for this distribution. See Cache Behavior below.
         :param pulumi.Input[_builtins.str] caller_reference: Internal value used by CloudFront to allow future updates to the distribution configuration.
         :param pulumi.Input[_builtins.str] comment: Any comments you want to include about the distribution.
         :param pulumi.Input[_builtins.str] connection_mode: Connection mode for the distribution. Always set to `tenant-only` for multi-tenant distributions.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionCustomErrorResponseArgs', 'MultitenantDistributionCustomErrorResponseArgsDict']]]] custom_error_responses: One or more custom error response elements. See Custom Error Response below.
-        :param pulumi.Input[Union['MultitenantDistributionDefaultCacheBehaviorArgs', 'MultitenantDistributionDefaultCacheBehaviorArgsDict']] default_cache_behavior: Default cache behavior for this distribution. See Default Cache Behavior below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionCustomErrorResponseArgs', 'MultitenantDistributionCustomErrorResponseArgsDict', 'outputs.MultitenantDistributionCustomErrorResponse']]]] custom_error_responses: One or more custom error response elements. See Custom Error Response below.
+        :param pulumi.Input[Union['MultitenantDistributionDefaultCacheBehaviorArgs', 'MultitenantDistributionDefaultCacheBehaviorArgsDict', 'outputs.MultitenantDistributionDefaultCacheBehavior']] default_cache_behavior: Default cache behavior for this distribution. See Default Cache Behavior below.
         :param pulumi.Input[_builtins.str] default_root_object: Object that you want CloudFront to return when an end user requests the root URL.
         :param pulumi.Input[_builtins.str] domain_name: Domain name corresponding to the distribution.
         :param pulumi.Input[_builtins.bool] enabled: Whether the distribution is enabled to accept end user requests for content.
@@ -1072,14 +1072,14 @@ class MultitenantDistribution(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] http_version: Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3`, and `http3`. Default: `http2`.
         :param pulumi.Input[_builtins.int] in_progress_invalidation_batches: Number of invalidation batches currently in progress.
         :param pulumi.Input[_builtins.str] last_modified_time: Date and time the distribution was last modified.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionOriginGroupArgs', 'MultitenantDistributionOriginGroupArgsDict']]]] origin_groups: One or more origin_group for this distribution (multiples allowed). See Origin Group below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionOriginArgs', 'MultitenantDistributionOriginArgsDict']]]] origins: One or more origins for this distribution (multiples allowed). See Origin below.
-        :param pulumi.Input[Union['MultitenantDistributionRestrictionsArgs', 'MultitenantDistributionRestrictionsArgsDict']] restrictions: Restriction configuration for this distribution. See Restrictions below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionOriginGroupArgs', 'MultitenantDistributionOriginGroupArgsDict', 'outputs.MultitenantDistributionOriginGroup']]]] origin_groups: One or more origin_group for this distribution (multiples allowed). See Origin Group below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionOriginArgs', 'MultitenantDistributionOriginArgsDict', 'outputs.MultitenantDistributionOrigin']]]] origins: One or more origins for this distribution (multiples allowed). See Origin below.
+        :param pulumi.Input[Union['MultitenantDistributionRestrictionsArgs', 'MultitenantDistributionRestrictionsArgsDict', 'outputs.MultitenantDistributionRestrictions']] restrictions: Restriction configuration for this distribution. See Restrictions below.
         :param pulumi.Input[_builtins.str] status: Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['MultitenantDistributionTenantConfigArgs', 'MultitenantDistributionTenantConfigArgsDict']] tenant_config: Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
-        :param pulumi.Input[Union['MultitenantDistributionViewerCertificateArgs', 'MultitenantDistributionViewerCertificateArgsDict']] viewer_certificate: SSL configuration for this distribution. See Viewer Certificate below.
+        :param pulumi.Input[Union['MultitenantDistributionTenantConfigArgs', 'MultitenantDistributionTenantConfigArgsDict', 'outputs.MultitenantDistributionTenantConfig']] tenant_config: Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
+        :param pulumi.Input[Union['MultitenantDistributionViewerCertificateArgs', 'MultitenantDistributionViewerCertificateArgsDict', 'outputs.MultitenantDistributionViewerCertificate']] viewer_certificate: SSL configuration for this distribution. See Viewer Certificate below.
         :param pulumi.Input[_builtins.str] web_acl_id: Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

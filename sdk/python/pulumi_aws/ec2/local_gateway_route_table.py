@@ -300,7 +300,7 @@ class LocalGatewayRouteTable(pulumi.CustomResource):
                  mode: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['LocalGatewayRouteTableTimeoutsArgs', 'LocalGatewayRouteTableTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['LocalGatewayRouteTableTimeoutsArgs', 'LocalGatewayRouteTableTimeoutsArgsDict', 'outputs.LocalGatewayRouteTableTimeouts']]] = None,
                  __props__=None):
         """
         Manages an EC2 Local Gateway Route Table. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-local-gateways.html#route-tables).
@@ -384,7 +384,7 @@ class LocalGatewayRouteTable(pulumi.CustomResource):
                  mode: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['LocalGatewayRouteTableTimeoutsArgs', 'LocalGatewayRouteTableTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['LocalGatewayRouteTableTimeoutsArgs', 'LocalGatewayRouteTableTimeoutsArgsDict', 'outputs.LocalGatewayRouteTableTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -429,7 +429,7 @@ class LocalGatewayRouteTable(pulumi.CustomResource):
             state: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['LocalGatewayRouteTableTimeoutsArgs', 'LocalGatewayRouteTableTimeoutsArgsDict']]] = None) -> 'LocalGatewayRouteTable':
+            timeouts: pulumi.Input[Optional[Union['LocalGatewayRouteTableTimeoutsArgs', 'LocalGatewayRouteTableTimeoutsArgsDict', 'outputs.LocalGatewayRouteTableTimeouts']]] = None) -> 'LocalGatewayRouteTable':
         """
         Get an existing LocalGatewayRouteTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

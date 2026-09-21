@@ -281,8 +281,8 @@ class DomainName(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 domain_name_configuration: pulumi.Input[Optional[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict']]] = None,
-                 mutual_tls_authentication: pulumi.Input[Optional[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
+                 domain_name_configuration: pulumi.Input[Optional[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict', 'outputs.DomainNameDomainNameConfiguration']]] = None,
+                 mutual_tls_authentication: pulumi.Input[Optional[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict', 'outputs.DomainNameMutualTlsAuthentication']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  routing_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -347,8 +347,8 @@ class DomainName(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_name: Domain name. Must be between 1 and 512 characters in length.
-        :param pulumi.Input[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict']] domain_name_configuration: Domain name configuration. See below.
-        :param pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name.
+        :param pulumi.Input[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict', 'outputs.DomainNameDomainNameConfiguration']] domain_name_configuration: Domain name configuration. See below.
+        :param pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict', 'outputs.DomainNameMutualTlsAuthentication']] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] routing_mode: Mode to route traffic for the domain name. Valid values: `API_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_API_MAPPING`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -432,8 +432,8 @@ class DomainName(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 domain_name_configuration: pulumi.Input[Optional[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict']]] = None,
-                 mutual_tls_authentication: pulumi.Input[Optional[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
+                 domain_name_configuration: pulumi.Input[Optional[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict', 'outputs.DomainNameDomainNameConfiguration']]] = None,
+                 mutual_tls_authentication: pulumi.Input[Optional[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict', 'outputs.DomainNameMutualTlsAuthentication']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  routing_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -472,8 +472,8 @@ class DomainName(pulumi.CustomResource):
             api_mapping_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-            domain_name_configuration: pulumi.Input[Optional[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict']]] = None,
-            mutual_tls_authentication: pulumi.Input[Optional[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
+            domain_name_configuration: pulumi.Input[Optional[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict', 'outputs.DomainNameDomainNameConfiguration']]] = None,
+            mutual_tls_authentication: pulumi.Input[Optional[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict', 'outputs.DomainNameMutualTlsAuthentication']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             routing_mode: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -488,8 +488,8 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] api_mapping_selection_expression: [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
         :param pulumi.Input[_builtins.str] arn: ARN of the domain name.
         :param pulumi.Input[_builtins.str] domain_name: Domain name. Must be between 1 and 512 characters in length.
-        :param pulumi.Input[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict']] domain_name_configuration: Domain name configuration. See below.
-        :param pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name.
+        :param pulumi.Input[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict', 'outputs.DomainNameDomainNameConfiguration']] domain_name_configuration: Domain name configuration. See below.
+        :param pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict', 'outputs.DomainNameMutualTlsAuthentication']] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] routing_mode: Mode to route traffic for the domain name. Valid values: `API_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_API_MAPPING`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

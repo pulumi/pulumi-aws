@@ -340,9 +340,9 @@ class Domain(pulumi.CustomResource):
                  default_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
                  default_expiration_days: pulumi.Input[Optional[_builtins.int]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 matching: pulumi.Input[Optional[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']]] = None,
+                 matching: pulumi.Input[Optional[Union['DomainMatchingArgs', 'DomainMatchingArgsDict', 'outputs.DomainMatching']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_based_matching: pulumi.Input[Optional[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']]] = None,
+                 rule_based_matching: pulumi.Input[Optional[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict', 'outputs.DomainRuleBasedMatching']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -430,9 +430,9 @@ class Domain(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] domain_name: The name for your Customer Profile domain. It must be unique for your AWS account.
-        :param pulumi.Input[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']] matching: A block that specifies the process of matching duplicate profiles. Documented below.
+        :param pulumi.Input[Union['DomainMatchingArgs', 'DomainMatchingArgsDict', 'outputs.DomainMatching']] matching: A block that specifies the process of matching duplicate profiles. Documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']] rule_based_matching: A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
+        :param pulumi.Input[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict', 'outputs.DomainRuleBasedMatching']] rule_based_matching: A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -537,9 +537,9 @@ class Domain(pulumi.CustomResource):
                  default_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
                  default_expiration_days: pulumi.Input[Optional[_builtins.int]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 matching: pulumi.Input[Optional[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']]] = None,
+                 matching: pulumi.Input[Optional[Union['DomainMatchingArgs', 'DomainMatchingArgsDict', 'outputs.DomainMatching']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_based_matching: pulumi.Input[Optional[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']]] = None,
+                 rule_based_matching: pulumi.Input[Optional[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict', 'outputs.DomainRuleBasedMatching']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -579,9 +579,9 @@ class Domain(pulumi.CustomResource):
             default_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
             default_expiration_days: pulumi.Input[Optional[_builtins.int]] = None,
             domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-            matching: pulumi.Input[Optional[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']]] = None,
+            matching: pulumi.Input[Optional[Union['DomainMatchingArgs', 'DomainMatchingArgsDict', 'outputs.DomainMatching']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            rule_based_matching: pulumi.Input[Optional[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']]] = None,
+            rule_based_matching: pulumi.Input[Optional[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict', 'outputs.DomainRuleBasedMatching']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Domain':
         """
@@ -598,9 +598,9 @@ class Domain(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] domain_name: The name for your Customer Profile domain. It must be unique for your AWS account.
-        :param pulumi.Input[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']] matching: A block that specifies the process of matching duplicate profiles. Documented below.
+        :param pulumi.Input[Union['DomainMatchingArgs', 'DomainMatchingArgsDict', 'outputs.DomainMatching']] matching: A block that specifies the process of matching duplicate profiles. Documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']] rule_based_matching: A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
+        :param pulumi.Input[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict', 'outputs.DomainRuleBasedMatching']] rule_based_matching: A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

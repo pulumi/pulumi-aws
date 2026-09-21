@@ -106,7 +106,7 @@ class AwsLogSource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 source: pulumi.Input[Optional[Union['AwsLogSourceSourceArgs', 'AwsLogSourceSourceArgsDict']]] = None,
+                 source: pulumi.Input[Optional[Union['AwsLogSourceSourceArgs', 'AwsLogSourceSourceArgsDict', 'outputs.AwsLogSourceSource']]] = None,
                  __props__=None):
         """
         Resource for managing an Amazon Security Lake AWS Log Source.
@@ -143,7 +143,7 @@ class AwsLogSource(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AwsLogSourceSourceArgs', 'AwsLogSourceSourceArgsDict']] source: Specify the natively-supported AWS service to add as a source in Security Lake.
+        :param pulumi.Input[Union['AwsLogSourceSourceArgs', 'AwsLogSourceSourceArgsDict', 'outputs.AwsLogSourceSource']] source: Specify the natively-supported AWS service to add as a source in Security Lake.
         """
         ...
     @overload
@@ -199,7 +199,7 @@ class AwsLogSource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 source: pulumi.Input[Optional[Union['AwsLogSourceSourceArgs', 'AwsLogSourceSourceArgsDict']]] = None,
+                 source: pulumi.Input[Optional[Union['AwsLogSourceSourceArgs', 'AwsLogSourceSourceArgsDict', 'outputs.AwsLogSourceSource']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -224,7 +224,7 @@ class AwsLogSource(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            source: pulumi.Input[Optional[Union['AwsLogSourceSourceArgs', 'AwsLogSourceSourceArgsDict']]] = None) -> 'AwsLogSource':
+            source: pulumi.Input[Optional[Union['AwsLogSourceSourceArgs', 'AwsLogSourceSourceArgsDict', 'outputs.AwsLogSourceSource']]] = None) -> 'AwsLogSource':
         """
         Get an existing AwsLogSource resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -233,7 +233,7 @@ class AwsLogSource(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AwsLogSourceSourceArgs', 'AwsLogSourceSourceArgsDict']] source: Specify the natively-supported AWS service to add as a source in Security Lake.
+        :param pulumi.Input[Union['AwsLogSourceSourceArgs', 'AwsLogSourceSourceArgsDict', 'outputs.AwsLogSourceSource']] source: Specify the natively-supported AWS service to add as a source in Security Lake.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

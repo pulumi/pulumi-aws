@@ -336,7 +336,7 @@ class ConfiguredTable(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 table_reference: pulumi.Input[Optional[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']]] = None,
+                 table_reference: pulumi.Input[Optional[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict', 'outputs.ConfiguredTableTableReference']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -395,7 +395,7 @@ class ConfiguredTable(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description for the configured table.
         :param pulumi.Input[_builtins.str] name: The name of the configured table.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']] table_reference: A reference to the AWS Glue table which will be used to create the configured table.
+        :param pulumi.Input[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict', 'outputs.ConfiguredTableTableReference']] table_reference: A reference to the AWS Glue table which will be used to create the configured table.
                * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
                * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key value pairs which tag the configured table.
@@ -475,7 +475,7 @@ class ConfiguredTable(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 table_reference: pulumi.Input[Optional[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']]] = None,
+                 table_reference: pulumi.Input[Optional[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict', 'outputs.ConfiguredTableTableReference']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -520,7 +520,7 @@ class ConfiguredTable(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            table_reference: pulumi.Input[Optional[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']]] = None,
+            table_reference: pulumi.Input[Optional[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict', 'outputs.ConfiguredTableTableReference']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             update_time: pulumi.Input[Optional[_builtins.str]] = None) -> 'ConfiguredTable':
@@ -538,7 +538,7 @@ class ConfiguredTable(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description for the configured table.
         :param pulumi.Input[_builtins.str] name: The name of the configured table.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']] table_reference: A reference to the AWS Glue table which will be used to create the configured table.
+        :param pulumi.Input[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict', 'outputs.ConfiguredTableTableReference']] table_reference: A reference to the AWS Glue table which will be used to create the configured table.
                * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
                * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key value pairs which tag the configured table.

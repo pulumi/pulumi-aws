@@ -81,7 +81,7 @@ class AwaitableGetMaintenanceWindowsResult(GetMaintenanceWindowsResult):
             region=self.region)
 
 
-def get_maintenance_windows(filters: Optional[Sequence[Union['GetMaintenanceWindowsFilterArgs', 'GetMaintenanceWindowsFilterArgsDict']]] = None,
+def get_maintenance_windows(filters: Optional[Sequence[Union['GetMaintenanceWindowsFilterArgs', 'GetMaintenanceWindowsFilterArgsDict', 'outputs.GetMaintenanceWindowsFilterResult']]] = None,
                             region: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMaintenanceWindowsResult:
     """
@@ -100,7 +100,7 @@ def get_maintenance_windows(filters: Optional[Sequence[Union['GetMaintenanceWind
     ```
 
 
-    :param Sequence[Union['GetMaintenanceWindowsFilterArgs', 'GetMaintenanceWindowsFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetMaintenanceWindowsFilterArgs', 'GetMaintenanceWindowsFilterArgsDict', 'outputs.GetMaintenanceWindowsFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -114,7 +114,7 @@ def get_maintenance_windows(filters: Optional[Sequence[Union['GetMaintenanceWind
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
         region=pulumi.get(__ret__, 'region'))
-def get_maintenance_windows_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetMaintenanceWindowsFilterArgs', 'GetMaintenanceWindowsFilterArgsDict']]]]] = None,
+def get_maintenance_windows_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetMaintenanceWindowsFilterArgs', 'GetMaintenanceWindowsFilterArgsDict', 'outputs.GetMaintenanceWindowsFilterResult']]]]] = None,
                                    region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMaintenanceWindowsResult]:
     """
@@ -133,7 +133,7 @@ def get_maintenance_windows_output(filters: pulumi.Input[Optional[Optional[Seque
     ```
 
 
-    :param Sequence[Union['GetMaintenanceWindowsFilterArgs', 'GetMaintenanceWindowsFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetMaintenanceWindowsFilterArgs', 'GetMaintenanceWindowsFilterArgsDict', 'outputs.GetMaintenanceWindowsFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

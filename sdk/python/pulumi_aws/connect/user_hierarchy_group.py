@@ -463,7 +463,7 @@ class UserHierarchyGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             hierarchy_group_id: pulumi.Input[Optional[_builtins.str]] = None,
-            hierarchy_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserHierarchyGroupHierarchyPathArgs', 'UserHierarchyGroupHierarchyPathArgsDict']]]]] = None,
+            hierarchy_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserHierarchyGroupHierarchyPathArgs', 'UserHierarchyGroupHierarchyPathArgsDict', 'outputs.UserHierarchyGroupHierarchyPath']]]]] = None,
             instance_id: pulumi.Input[Optional[_builtins.str]] = None,
             level_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -480,7 +480,7 @@ class UserHierarchyGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The ARN of the hierarchy group.
         :param pulumi.Input[_builtins.str] hierarchy_group_id: The identifier for the hierarchy group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['UserHierarchyGroupHierarchyPathArgs', 'UserHierarchyGroupHierarchyPathArgsDict']]]] hierarchy_paths: A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserHierarchyGroupHierarchyPathArgs', 'UserHierarchyGroupHierarchyPathArgsDict', 'outputs.UserHierarchyGroupHierarchyPath']]]] hierarchy_paths: A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
         :param pulumi.Input[_builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[_builtins.str] level_id: The identifier of the level in the hierarchy group.
         :param pulumi.Input[_builtins.str] name: The name of the user hierarchy group. Must not be more than 100 characters.

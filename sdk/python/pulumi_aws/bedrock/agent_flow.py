@@ -394,13 +394,13 @@ class AgentFlow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 definition: pulumi.Input[Optional[Union['AgentFlowDefinitionArgs', 'AgentFlowDefinitionArgsDict']]] = None,
+                 definition: pulumi.Input[Optional[Union['AgentFlowDefinitionArgs', 'AgentFlowDefinitionArgsDict', 'outputs.AgentFlowDefinition']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentFlowTimeoutsArgs', 'AgentFlowTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentFlowTimeoutsArgs', 'AgentFlowTimeoutsArgsDict', 'outputs.AgentFlowTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Bedrock Agents Flow.
@@ -533,7 +533,7 @@ class AgentFlow(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] customer_encryption_key_arn: ARN of the KMS key to encrypt the flow.
-        :param pulumi.Input[Union['AgentFlowDefinitionArgs', 'AgentFlowDefinitionArgsDict']] definition: A definition of the nodes and connections between nodes in the flow. See Definition for more information.
+        :param pulumi.Input[Union['AgentFlowDefinitionArgs', 'AgentFlowDefinitionArgsDict', 'outputs.AgentFlowDefinition']] definition: A definition of the nodes and connections between nodes in the flow. See Definition for more information.
         :param pulumi.Input[_builtins.str] description: A description for the flow.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
                
@@ -692,13 +692,13 @@ class AgentFlow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 definition: pulumi.Input[Optional[Union['AgentFlowDefinitionArgs', 'AgentFlowDefinitionArgsDict']]] = None,
+                 definition: pulumi.Input[Optional[Union['AgentFlowDefinitionArgs', 'AgentFlowDefinitionArgsDict', 'outputs.AgentFlowDefinition']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentFlowTimeoutsArgs', 'AgentFlowTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentFlowTimeoutsArgs', 'AgentFlowTimeoutsArgsDict', 'outputs.AgentFlowTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -737,7 +737,7 @@ class AgentFlow(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
             customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            definition: pulumi.Input[Optional[Union['AgentFlowDefinitionArgs', 'AgentFlowDefinitionArgsDict']]] = None,
+            definition: pulumi.Input[Optional[Union['AgentFlowDefinitionArgs', 'AgentFlowDefinitionArgsDict', 'outputs.AgentFlowDefinition']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -745,7 +745,7 @@ class AgentFlow(pulumi.CustomResource):
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['AgentFlowTimeoutsArgs', 'AgentFlowTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentFlowTimeoutsArgs', 'AgentFlowTimeoutsArgsDict', 'outputs.AgentFlowTimeouts']]] = None,
             updated_at: pulumi.Input[Optional[_builtins.str]] = None,
             version: pulumi.Input[Optional[_builtins.str]] = None) -> 'AgentFlow':
         """
@@ -758,7 +758,7 @@ class AgentFlow(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the flow.
         :param pulumi.Input[_builtins.str] created_at: The time at which the flow was created.
         :param pulumi.Input[_builtins.str] customer_encryption_key_arn: ARN of the KMS key to encrypt the flow.
-        :param pulumi.Input[Union['AgentFlowDefinitionArgs', 'AgentFlowDefinitionArgsDict']] definition: A definition of the nodes and connections between nodes in the flow. See Definition for more information.
+        :param pulumi.Input[Union['AgentFlowDefinitionArgs', 'AgentFlowDefinitionArgsDict', 'outputs.AgentFlowDefinition']] definition: A definition of the nodes and connections between nodes in the flow. See Definition for more information.
         :param pulumi.Input[_builtins.str] description: A description for the flow.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
                

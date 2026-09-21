@@ -617,7 +617,7 @@ class Environment(pulumi.CustomResource):
                  engine_type: pulumi.Input[Optional[_builtins.str]] = None,
                  engine_version: pulumi.Input[Optional[_builtins.str]] = None,
                  force_update: pulumi.Input[Optional[_builtins.bool]] = None,
-                 high_availability_config: pulumi.Input[Optional[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict']]] = None,
+                 high_availability_config: pulumi.Input[Optional[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict', 'outputs.EnvironmentHighAvailabilityConfig']]] = None,
                  instance_type: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -625,10 +625,10 @@ class Environment(pulumi.CustomResource):
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_configuration: pulumi.Input[Optional[Union['EnvironmentStorageConfigurationArgs', 'EnvironmentStorageConfigurationArgsDict']]] = None,
+                 storage_configuration: pulumi.Input[Optional[Union['EnvironmentStorageConfigurationArgs', 'EnvironmentStorageConfigurationArgsDict', 'outputs.EnvironmentStorageConfiguration']]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['EnvironmentTimeoutsArgs', 'EnvironmentTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['EnvironmentTimeoutsArgs', 'EnvironmentTimeoutsArgsDict', 'outputs.EnvironmentTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an [AWS Mainframe Modernization Environment](https://docs.aws.amazon.com/m2/latest/userguide/environments-m2.html).
@@ -867,7 +867,7 @@ class Environment(pulumi.CustomResource):
                  engine_type: pulumi.Input[Optional[_builtins.str]] = None,
                  engine_version: pulumi.Input[Optional[_builtins.str]] = None,
                  force_update: pulumi.Input[Optional[_builtins.bool]] = None,
-                 high_availability_config: pulumi.Input[Optional[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict']]] = None,
+                 high_availability_config: pulumi.Input[Optional[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict', 'outputs.EnvironmentHighAvailabilityConfig']]] = None,
                  instance_type: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -875,10 +875,10 @@ class Environment(pulumi.CustomResource):
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_configuration: pulumi.Input[Optional[Union['EnvironmentStorageConfigurationArgs', 'EnvironmentStorageConfigurationArgsDict']]] = None,
+                 storage_configuration: pulumi.Input[Optional[Union['EnvironmentStorageConfigurationArgs', 'EnvironmentStorageConfigurationArgsDict', 'outputs.EnvironmentStorageConfiguration']]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['EnvironmentTimeoutsArgs', 'EnvironmentTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['EnvironmentTimeoutsArgs', 'EnvironmentTimeoutsArgsDict', 'outputs.EnvironmentTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -930,7 +930,7 @@ class Environment(pulumi.CustomResource):
             engine_version: pulumi.Input[Optional[_builtins.str]] = None,
             environment_id: pulumi.Input[Optional[_builtins.str]] = None,
             force_update: pulumi.Input[Optional[_builtins.bool]] = None,
-            high_availability_config: pulumi.Input[Optional[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict']]] = None,
+            high_availability_config: pulumi.Input[Optional[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict', 'outputs.EnvironmentHighAvailabilityConfig']]] = None,
             instance_type: pulumi.Input[Optional[_builtins.str]] = None,
             kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
             load_balancer_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -939,11 +939,11 @@ class Environment(pulumi.CustomResource):
             publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            storage_configuration: pulumi.Input[Optional[Union['EnvironmentStorageConfigurationArgs', 'EnvironmentStorageConfigurationArgsDict']]] = None,
+            storage_configuration: pulumi.Input[Optional[Union['EnvironmentStorageConfigurationArgs', 'EnvironmentStorageConfigurationArgsDict', 'outputs.EnvironmentStorageConfiguration']]] = None,
             subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['EnvironmentTimeoutsArgs', 'EnvironmentTimeoutsArgsDict']]] = None) -> 'Environment':
+            timeouts: pulumi.Input[Optional[Union['EnvironmentTimeoutsArgs', 'EnvironmentTimeoutsArgsDict', 'outputs.EnvironmentTimeouts']]] = None) -> 'Environment':
         """
         Get an existing Environment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

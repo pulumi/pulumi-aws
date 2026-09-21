@@ -281,8 +281,8 @@ class NetworkAcl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 egress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkAclEgressArgs', 'NetworkAclEgressArgsDict']]]]] = None,
-                 ingress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkAclIngressArgs', 'NetworkAclIngressArgsDict']]]]] = None,
+                 egress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkAclEgressArgs', 'NetworkAclEgressArgsDict', 'outputs.NetworkAclEgress']]]]] = None,
+                 ingress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkAclIngressArgs', 'NetworkAclIngressArgsDict', 'outputs.NetworkAclIngress']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -353,8 +353,8 @@ class NetworkAcl(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclEgressArgs', 'NetworkAclEgressArgsDict']]]] egress: Specifies an egress rule. Parameters defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclIngressArgs', 'NetworkAclIngressArgsDict']]]] ingress: Specifies an ingress rule. Parameters defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclEgressArgs', 'NetworkAclEgressArgsDict', 'outputs.NetworkAclEgress']]]] egress: Specifies an egress rule. Parameters defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclIngressArgs', 'NetworkAclIngressArgsDict', 'outputs.NetworkAclIngress']]]] ingress: Specifies an ingress rule. Parameters defined below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of Subnet IDs to apply the ACL to
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -444,8 +444,8 @@ class NetworkAcl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 egress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkAclEgressArgs', 'NetworkAclEgressArgsDict']]]]] = None,
-                 ingress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkAclIngressArgs', 'NetworkAclIngressArgsDict']]]]] = None,
+                 egress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkAclEgressArgs', 'NetworkAclEgressArgsDict', 'outputs.NetworkAclEgress']]]]] = None,
+                 ingress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkAclIngressArgs', 'NetworkAclIngressArgsDict', 'outputs.NetworkAclIngress']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -481,8 +481,8 @@ class NetworkAcl(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            egress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkAclEgressArgs', 'NetworkAclEgressArgsDict']]]]] = None,
-            ingress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkAclIngressArgs', 'NetworkAclIngressArgsDict']]]]] = None,
+            egress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkAclEgressArgs', 'NetworkAclEgressArgsDict', 'outputs.NetworkAclEgress']]]]] = None,
+            ingress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkAclIngressArgs', 'NetworkAclIngressArgsDict', 'outputs.NetworkAclIngress']]]]] = None,
             owner_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -497,8 +497,8 @@ class NetworkAcl(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The ARN of the network ACL
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclEgressArgs', 'NetworkAclEgressArgsDict']]]] egress: Specifies an egress rule. Parameters defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclIngressArgs', 'NetworkAclIngressArgsDict']]]] ingress: Specifies an ingress rule. Parameters defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclEgressArgs', 'NetworkAclEgressArgsDict', 'outputs.NetworkAclEgress']]]] egress: Specifies an egress rule. Parameters defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclIngressArgs', 'NetworkAclIngressArgsDict', 'outputs.NetworkAclIngress']]]] ingress: Specifies an ingress rule. Parameters defined below.
         :param pulumi.Input[_builtins.str] owner_id: The ID of the AWS account that owns the network ACL.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of Subnet IDs to apply the ACL to

@@ -399,7 +399,7 @@ class FilesMountTarget(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['FilesMountTargetTimeoutsArgs', 'FilesMountTargetTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['FilesMountTargetTimeoutsArgs', 'FilesMountTargetTimeoutsArgsDict', 'outputs.FilesMountTargetTimeouts']]] = None,
                  __props__=None):
         """
         Manages an S3 Files Mount Target.
@@ -509,7 +509,7 @@ class FilesMountTarget(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['FilesMountTargetTimeoutsArgs', 'FilesMountTargetTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['FilesMountTargetTimeoutsArgs', 'FilesMountTargetTimeoutsArgsDict', 'outputs.FilesMountTargetTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -559,7 +559,7 @@ class FilesMountTarget(pulumi.CustomResource):
             status: pulumi.Input[Optional[_builtins.str]] = None,
             status_message: pulumi.Input[Optional[_builtins.str]] = None,
             subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['FilesMountTargetTimeoutsArgs', 'FilesMountTargetTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['FilesMountTargetTimeoutsArgs', 'FilesMountTargetTimeoutsArgsDict', 'outputs.FilesMountTargetTimeouts']]] = None,
             vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'FilesMountTarget':
         """
         Get an existing FilesMountTarget resource's state with the given name, id, and optional extra

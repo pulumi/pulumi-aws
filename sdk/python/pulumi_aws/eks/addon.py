@@ -548,8 +548,8 @@ class Addon(pulumi.CustomResource):
                  addon_version: pulumi.Input[Optional[_builtins.str]] = None,
                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  configuration_values: pulumi.Input[Optional[_builtins.str]] = None,
-                 namespace_config: pulumi.Input[Optional[Union['AddonNamespaceConfigArgs', 'AddonNamespaceConfigArgsDict']]] = None,
-                 pod_identity_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]]] = None,
+                 namespace_config: pulumi.Input[Optional[Union['AddonNamespaceConfigArgs', 'AddonNamespaceConfigArgsDict', 'outputs.AddonNamespaceConfig']]] = None,
+                 pod_identity_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict', 'outputs.AddonPodIdentityAssociation']]]]] = None,
                  preserve: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  resolve_conflicts_on_create: pulumi.Input[Optional[_builtins.str]] = None,
@@ -644,8 +644,8 @@ class Addon(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] configuration_values: Custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
-        :param pulumi.Input[Union['AddonNamespaceConfigArgs', 'AddonNamespaceConfigArgsDict']] namespace_config: Namespace configuration for the add-on. See `namespace_config` below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]] pod_identity_associations: Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
+        :param pulumi.Input[Union['AddonNamespaceConfigArgs', 'AddonNamespaceConfigArgsDict', 'outputs.AddonNamespaceConfig']] namespace_config: Namespace configuration for the add-on. See `namespace_config` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict', 'outputs.AddonPodIdentityAssociation']]]] pod_identity_associations: Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
         :param pulumi.Input[_builtins.bool] preserve: Indicates if you want to preserve the created resources when deleting the EKS add-on.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resolve_conflicts_on_create: How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Documentation.
@@ -765,8 +765,8 @@ class Addon(pulumi.CustomResource):
                  addon_version: pulumi.Input[Optional[_builtins.str]] = None,
                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  configuration_values: pulumi.Input[Optional[_builtins.str]] = None,
-                 namespace_config: pulumi.Input[Optional[Union['AddonNamespaceConfigArgs', 'AddonNamespaceConfigArgsDict']]] = None,
-                 pod_identity_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]]] = None,
+                 namespace_config: pulumi.Input[Optional[Union['AddonNamespaceConfigArgs', 'AddonNamespaceConfigArgsDict', 'outputs.AddonNamespaceConfig']]] = None,
+                 pod_identity_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict', 'outputs.AddonPodIdentityAssociation']]]]] = None,
                  preserve: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  resolve_conflicts_on_create: pulumi.Input[Optional[_builtins.str]] = None,
@@ -819,8 +819,8 @@ class Addon(pulumi.CustomResource):
             configuration_values: pulumi.Input[Optional[_builtins.str]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
             modified_at: pulumi.Input[Optional[_builtins.str]] = None,
-            namespace_config: pulumi.Input[Optional[Union['AddonNamespaceConfigArgs', 'AddonNamespaceConfigArgsDict']]] = None,
-            pod_identity_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]]] = None,
+            namespace_config: pulumi.Input[Optional[Union['AddonNamespaceConfigArgs', 'AddonNamespaceConfigArgsDict', 'outputs.AddonNamespaceConfig']]] = None,
+            pod_identity_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict', 'outputs.AddonPodIdentityAssociation']]]]] = None,
             preserve: pulumi.Input[Optional[_builtins.bool]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             resolve_conflicts_on_create: pulumi.Input[Optional[_builtins.str]] = None,
@@ -846,8 +846,8 @@ class Addon(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] configuration_values: Custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
         :param pulumi.Input[_builtins.str] created_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
         :param pulumi.Input[_builtins.str] modified_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
-        :param pulumi.Input[Union['AddonNamespaceConfigArgs', 'AddonNamespaceConfigArgsDict']] namespace_config: Namespace configuration for the add-on. See `namespace_config` below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]] pod_identity_associations: Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
+        :param pulumi.Input[Union['AddonNamespaceConfigArgs', 'AddonNamespaceConfigArgsDict', 'outputs.AddonNamespaceConfig']] namespace_config: Namespace configuration for the add-on. See `namespace_config` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict', 'outputs.AddonPodIdentityAssociation']]]] pod_identity_associations: Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
         :param pulumi.Input[_builtins.bool] preserve: Indicates if you want to preserve the created resources when deleting the EKS add-on.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resolve_conflicts_on_create: How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Documentation.

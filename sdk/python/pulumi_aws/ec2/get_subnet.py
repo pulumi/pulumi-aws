@@ -322,7 +322,7 @@ def get_subnet(availability_zone: Optional[_builtins.str] = None,
                availability_zone_id: Optional[_builtins.str] = None,
                cidr_block: Optional[_builtins.str] = None,
                default_for_az: Optional[_builtins.bool] = None,
-               filters: Optional[Sequence[Union['GetSubnetFilterArgs', 'GetSubnetFilterArgsDict']]] = None,
+               filters: Optional[Sequence[Union['GetSubnetFilterArgs', 'GetSubnetFilterArgsDict', 'outputs.GetSubnetFilterResult']]] = None,
                id: Optional[_builtins.str] = None,
                ipv6_cidr_block: Optional[_builtins.str] = None,
                region: Optional[_builtins.str] = None,
@@ -375,7 +375,7 @@ def get_subnet(availability_zone: Optional[_builtins.str] = None,
     :param _builtins.str availability_zone_id: ID of the Availability Zone for the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
     :param _builtins.str cidr_block: CIDR block of the desired subnet.
     :param _builtins.bool default_for_az: Whether the desired subnet must be the default subnet for its associated availability zone.
-    :param Sequence[Union['GetSubnetFilterArgs', 'GetSubnetFilterArgsDict']] filters: Configuration block. Detailed below.
+    :param Sequence[Union['GetSubnetFilterArgs', 'GetSubnetFilterArgsDict', 'outputs.GetSubnetFilterResult']] filters: Configuration block. Detailed below.
     :param _builtins.str id: ID of the specific subnet to retrieve.
     :param _builtins.str ipv6_cidr_block: IPv6 CIDR block of the desired subnet.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -429,7 +429,7 @@ def get_subnet_output(availability_zone: pulumi.Input[Optional[Optional[_builtin
                       availability_zone_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       cidr_block: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       default_for_az: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
-                      filters: pulumi.Input[Optional[Optional[Sequence[Union['GetSubnetFilterArgs', 'GetSubnetFilterArgsDict']]]]] = None,
+                      filters: pulumi.Input[Optional[Optional[Sequence[Union['GetSubnetFilterArgs', 'GetSubnetFilterArgsDict', 'outputs.GetSubnetFilterResult']]]]] = None,
                       id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       ipv6_cidr_block: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -482,7 +482,7 @@ def get_subnet_output(availability_zone: pulumi.Input[Optional[Optional[_builtin
     :param _builtins.str availability_zone_id: ID of the Availability Zone for the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
     :param _builtins.str cidr_block: CIDR block of the desired subnet.
     :param _builtins.bool default_for_az: Whether the desired subnet must be the default subnet for its associated availability zone.
-    :param Sequence[Union['GetSubnetFilterArgs', 'GetSubnetFilterArgsDict']] filters: Configuration block. Detailed below.
+    :param Sequence[Union['GetSubnetFilterArgs', 'GetSubnetFilterArgsDict', 'outputs.GetSubnetFilterResult']] filters: Configuration block. Detailed below.
     :param _builtins.str id: ID of the specific subnet to retrieve.
     :param _builtins.str ipv6_cidr_block: IPv6 CIDR block of the desired subnet.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

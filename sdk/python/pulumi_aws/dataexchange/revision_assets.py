@@ -345,14 +345,14 @@ class RevisionAssets(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RevisionAssetsAssetArgs', 'RevisionAssetsAssetArgsDict']]]]] = None,
+                 assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RevisionAssetsAssetArgs', 'RevisionAssetsAssetArgsDict', 'outputs.RevisionAssetsAsset']]]]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
                  finalized: pulumi.Input[Optional[_builtins.bool]] = None,
                  force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['RevisionAssetsTimeoutsArgs', 'RevisionAssetsTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['RevisionAssetsTimeoutsArgs', 'RevisionAssetsTimeoutsArgsDict', 'outputs.RevisionAssetsTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing AWS Data Exchange Revision Assets.
@@ -384,7 +384,7 @@ class RevisionAssets(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RevisionAssetsAssetArgs', 'RevisionAssetsAssetArgsDict']]]] assets: A block to define the asset associated with the revision. See Asset for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RevisionAssetsAssetArgs', 'RevisionAssetsAssetArgsDict', 'outputs.RevisionAssetsAsset']]]] assets: A block to define the asset associated with the revision. See Asset for more details.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] comment: A comment for the revision. Maximum length is 16,348 characters.
@@ -441,14 +441,14 @@ class RevisionAssets(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RevisionAssetsAssetArgs', 'RevisionAssetsAssetArgsDict']]]]] = None,
+                 assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RevisionAssetsAssetArgs', 'RevisionAssetsAssetArgsDict', 'outputs.RevisionAssetsAsset']]]]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
                  finalized: pulumi.Input[Optional[_builtins.bool]] = None,
                  force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['RevisionAssetsTimeoutsArgs', 'RevisionAssetsTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['RevisionAssetsTimeoutsArgs', 'RevisionAssetsTimeoutsArgsDict', 'outputs.RevisionAssetsTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -483,7 +483,7 @@ class RevisionAssets(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RevisionAssetsAssetArgs', 'RevisionAssetsAssetArgsDict']]]]] = None,
+            assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RevisionAssetsAssetArgs', 'RevisionAssetsAssetArgsDict', 'outputs.RevisionAssetsAsset']]]]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
             data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -492,7 +492,7 @@ class RevisionAssets(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['RevisionAssetsTimeoutsArgs', 'RevisionAssetsTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['RevisionAssetsTimeoutsArgs', 'RevisionAssetsTimeoutsArgsDict', 'outputs.RevisionAssetsTimeouts']]] = None,
             updated_at: pulumi.Input[Optional[_builtins.str]] = None) -> 'RevisionAssets':
         """
         Get an existing RevisionAssets resource's state with the given name, id, and optional extra
@@ -502,7 +502,7 @@ class RevisionAssets(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The ARN of the Data Exchange Revision Assets.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RevisionAssetsAssetArgs', 'RevisionAssetsAssetArgsDict']]]] assets: A block to define the asset associated with the revision. See Asset for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RevisionAssetsAssetArgs', 'RevisionAssetsAssetArgsDict', 'outputs.RevisionAssetsAsset']]]] assets: A block to define the asset associated with the revision. See Asset for more details.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] comment: A comment for the revision. Maximum length is 16,348 characters.

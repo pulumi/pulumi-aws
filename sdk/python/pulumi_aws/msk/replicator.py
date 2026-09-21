@@ -339,10 +339,10 @@ class Replicator(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 kafka_clusters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]]] = None,
-                 log_delivery: pulumi.Input[Optional[Union['ReplicatorLogDeliveryArgs', 'ReplicatorLogDeliveryArgsDict']]] = None,
+                 kafka_clusters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict', 'outputs.ReplicatorKafkaCluster']]]]] = None,
+                 log_delivery: pulumi.Input[Optional[Union['ReplicatorLogDeliveryArgs', 'ReplicatorLogDeliveryArgsDict', 'outputs.ReplicatorLogDelivery']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 replication_info_list: pulumi.Input[Optional[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict']]] = None,
+                 replication_info_list: pulumi.Input[Optional[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict', 'outputs.ReplicatorReplicationInfoList']]] = None,
                  replicator_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -537,10 +537,10 @@ class Replicator(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A summary description of the replicator.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]] kafka_clusters: The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
-        :param pulumi.Input[Union['ReplicatorLogDeliveryArgs', 'ReplicatorLogDeliveryArgsDict']] log_delivery: Configuration block for delivering replicator logs to customer destinations. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict', 'outputs.ReplicatorKafkaCluster']]]] kafka_clusters: The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
+        :param pulumi.Input[Union['ReplicatorLogDeliveryArgs', 'ReplicatorLogDeliveryArgsDict', 'outputs.ReplicatorLogDelivery']] log_delivery: Configuration block for delivering replicator logs to customer destinations. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict']] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
+        :param pulumi.Input[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict', 'outputs.ReplicatorReplicationInfoList']] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         :param pulumi.Input[_builtins.str] replicator_name: The name of the replicator.
         :param pulumi.Input[_builtins.str] service_execution_role_arn: The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -754,10 +754,10 @@ class Replicator(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 kafka_clusters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]]] = None,
-                 log_delivery: pulumi.Input[Optional[Union['ReplicatorLogDeliveryArgs', 'ReplicatorLogDeliveryArgsDict']]] = None,
+                 kafka_clusters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict', 'outputs.ReplicatorKafkaCluster']]]]] = None,
+                 log_delivery: pulumi.Input[Optional[Union['ReplicatorLogDeliveryArgs', 'ReplicatorLogDeliveryArgsDict', 'outputs.ReplicatorLogDelivery']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 replication_info_list: pulumi.Input[Optional[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict']]] = None,
+                 replication_info_list: pulumi.Input[Optional[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict', 'outputs.ReplicatorReplicationInfoList']]] = None,
                  replicator_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -802,10 +802,10 @@ class Replicator(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             current_version: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            kafka_clusters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]]] = None,
-            log_delivery: pulumi.Input[Optional[Union['ReplicatorLogDeliveryArgs', 'ReplicatorLogDeliveryArgsDict']]] = None,
+            kafka_clusters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict', 'outputs.ReplicatorKafkaCluster']]]]] = None,
+            log_delivery: pulumi.Input[Optional[Union['ReplicatorLogDeliveryArgs', 'ReplicatorLogDeliveryArgsDict', 'outputs.ReplicatorLogDelivery']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            replication_info_list: pulumi.Input[Optional[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict']]] = None,
+            replication_info_list: pulumi.Input[Optional[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict', 'outputs.ReplicatorReplicationInfoList']]] = None,
             replicator_name: pulumi.Input[Optional[_builtins.str]] = None,
             service_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -819,10 +819,10 @@ class Replicator(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Replicator.
         :param pulumi.Input[_builtins.str] description: A summary description of the replicator.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]] kafka_clusters: The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
-        :param pulumi.Input[Union['ReplicatorLogDeliveryArgs', 'ReplicatorLogDeliveryArgsDict']] log_delivery: Configuration block for delivering replicator logs to customer destinations. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict', 'outputs.ReplicatorKafkaCluster']]]] kafka_clusters: The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
+        :param pulumi.Input[Union['ReplicatorLogDeliveryArgs', 'ReplicatorLogDeliveryArgsDict', 'outputs.ReplicatorLogDelivery']] log_delivery: Configuration block for delivering replicator logs to customer destinations. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict']] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
+        :param pulumi.Input[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict', 'outputs.ReplicatorReplicationInfoList']] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         :param pulumi.Input[_builtins.str] replicator_name: The name of the replicator.
         :param pulumi.Input[_builtins.str] service_execution_role_arn: The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

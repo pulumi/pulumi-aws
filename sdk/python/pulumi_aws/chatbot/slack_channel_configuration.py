@@ -463,7 +463,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
                  slack_team_id: pulumi.Input[Optional[_builtins.str]] = None,
                  sns_topic_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['SlackChannelConfigurationTimeoutsArgs', 'SlackChannelConfigurationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['SlackChannelConfigurationTimeoutsArgs', 'SlackChannelConfigurationTimeoutsArgsDict', 'outputs.SlackChannelConfigurationTimeouts']]] = None,
                  user_authorization_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -571,7 +571,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
                  slack_team_id: pulumi.Input[Optional[_builtins.str]] = None,
                  sns_topic_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['SlackChannelConfigurationTimeoutsArgs', 'SlackChannelConfigurationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['SlackChannelConfigurationTimeoutsArgs', 'SlackChannelConfigurationTimeoutsArgsDict', 'outputs.SlackChannelConfigurationTimeouts']]] = None,
                  user_authorization_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -628,7 +628,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
             sns_topic_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['SlackChannelConfigurationTimeoutsArgs', 'SlackChannelConfigurationTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['SlackChannelConfigurationTimeoutsArgs', 'SlackChannelConfigurationTimeoutsArgsDict', 'outputs.SlackChannelConfigurationTimeouts']]] = None,
             user_authorization_required: pulumi.Input[Optional[_builtins.bool]] = None) -> 'SlackChannelConfiguration':
         """
         Get an existing SlackChannelConfiguration resource's state with the given name, id, and optional extra

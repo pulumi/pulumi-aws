@@ -213,7 +213,7 @@ class TelemetryEvaluationForOrganization(pulumi.CustomResource):
                  all_regions: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['TelemetryEvaluationForOrganizationTimeoutsArgs', 'TelemetryEvaluationForOrganizationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TelemetryEvaluationForOrganizationTimeoutsArgs', 'TelemetryEvaluationForOrganizationTimeoutsArgsDict', 'outputs.TelemetryEvaluationForOrganizationTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS CloudWatch Observability Admin Telemetry Evaluation For Organization.
@@ -359,7 +359,7 @@ class TelemetryEvaluationForOrganization(pulumi.CustomResource):
                  all_regions: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['TelemetryEvaluationForOrganizationTimeoutsArgs', 'TelemetryEvaluationForOrganizationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TelemetryEvaluationForOrganizationTimeoutsArgs', 'TelemetryEvaluationForOrganizationTimeoutsArgsDict', 'outputs.TelemetryEvaluationForOrganizationTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -392,7 +392,7 @@ class TelemetryEvaluationForOrganization(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['TelemetryEvaluationForOrganizationTimeoutsArgs', 'TelemetryEvaluationForOrganizationTimeoutsArgsDict']]] = None) -> 'TelemetryEvaluationForOrganization':
+            timeouts: pulumi.Input[Optional[Union['TelemetryEvaluationForOrganizationTimeoutsArgs', 'TelemetryEvaluationForOrganizationTimeoutsArgsDict', 'outputs.TelemetryEvaluationForOrganizationTimeouts']]] = None) -> 'TelemetryEvaluationForOrganization':
         """
         Get an existing TelemetryEvaluationForOrganization resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

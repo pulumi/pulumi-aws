@@ -102,7 +102,7 @@ class AwaitableGetEipsResult(GetEipsResult):
             tags=self.tags)
 
 
-def get_eips(filters: Optional[Sequence[Union['GetEipsFilterArgs', 'GetEipsFilterArgsDict']]] = None,
+def get_eips(filters: Optional[Sequence[Union['GetEipsFilterArgs', 'GetEipsFilterArgsDict', 'outputs.GetEipsFilterResult']]] = None,
              region: Optional[_builtins.str] = None,
              tags: Optional[Mapping[str, _builtins.str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEipsResult:
@@ -125,7 +125,7 @@ def get_eips(filters: Optional[Sequence[Union['GetEipsFilterArgs', 'GetEipsFilte
     ```
 
 
-    :param Sequence[Union['GetEipsFilterArgs', 'GetEipsFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetEipsFilterArgs', 'GetEipsFilterArgsDict', 'outputs.GetEipsFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
     """
@@ -143,7 +143,7 @@ def get_eips(filters: Optional[Sequence[Union['GetEipsFilterArgs', 'GetEipsFilte
         public_ips=pulumi.get(__ret__, 'public_ips'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_eips_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetEipsFilterArgs', 'GetEipsFilterArgsDict']]]]] = None,
+def get_eips_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetEipsFilterArgs', 'GetEipsFilterArgsDict', 'outputs.GetEipsFilterResult']]]]] = None,
                     region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                     tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEipsResult]:
@@ -166,7 +166,7 @@ def get_eips_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetE
     ```
 
 
-    :param Sequence[Union['GetEipsFilterArgs', 'GetEipsFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetEipsFilterArgs', 'GetEipsFilterArgsDict', 'outputs.GetEipsFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
     """

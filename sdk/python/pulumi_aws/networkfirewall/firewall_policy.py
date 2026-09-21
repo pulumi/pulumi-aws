@@ -282,8 +282,8 @@ class FirewallPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['FirewallPolicyEncryptionConfigurationArgs', 'FirewallPolicyEncryptionConfigurationArgsDict']]] = None,
-                 firewall_policy: pulumi.Input[Optional[Union['FirewallPolicyFirewallPolicyArgs', 'FirewallPolicyFirewallPolicyArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['FirewallPolicyEncryptionConfigurationArgs', 'FirewallPolicyEncryptionConfigurationArgsDict', 'outputs.FirewallPolicyEncryptionConfiguration']]] = None,
+                 firewall_policy: pulumi.Input[Optional[Union['FirewallPolicyFirewallPolicyArgs', 'FirewallPolicyFirewallPolicyArgsDict', 'outputs.FirewallPolicyFirewallPolicy']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -433,8 +433,8 @@ class FirewallPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A friendly description of the firewall policy.
-        :param pulumi.Input[Union['FirewallPolicyEncryptionConfigurationArgs', 'FirewallPolicyEncryptionConfigurationArgsDict']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
-        :param pulumi.Input[Union['FirewallPolicyFirewallPolicyArgs', 'FirewallPolicyFirewallPolicyArgsDict']] firewall_policy: A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
+        :param pulumi.Input[Union['FirewallPolicyEncryptionConfigurationArgs', 'FirewallPolicyEncryptionConfigurationArgsDict', 'outputs.FirewallPolicyEncryptionConfiguration']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
+        :param pulumi.Input[Union['FirewallPolicyFirewallPolicyArgs', 'FirewallPolicyFirewallPolicyArgsDict', 'outputs.FirewallPolicyFirewallPolicy']] firewall_policy: A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
         :param pulumi.Input[_builtins.str] name: A friendly name of the firewall policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -603,8 +603,8 @@ class FirewallPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['FirewallPolicyEncryptionConfigurationArgs', 'FirewallPolicyEncryptionConfigurationArgsDict']]] = None,
-                 firewall_policy: pulumi.Input[Optional[Union['FirewallPolicyFirewallPolicyArgs', 'FirewallPolicyFirewallPolicyArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['FirewallPolicyEncryptionConfigurationArgs', 'FirewallPolicyEncryptionConfigurationArgsDict', 'outputs.FirewallPolicyEncryptionConfiguration']]] = None,
+                 firewall_policy: pulumi.Input[Optional[Union['FirewallPolicyFirewallPolicyArgs', 'FirewallPolicyFirewallPolicyArgsDict', 'outputs.FirewallPolicyFirewallPolicy']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -640,8 +640,8 @@ class FirewallPolicy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            encryption_configuration: pulumi.Input[Optional[Union['FirewallPolicyEncryptionConfigurationArgs', 'FirewallPolicyEncryptionConfigurationArgsDict']]] = None,
-            firewall_policy: pulumi.Input[Optional[Union['FirewallPolicyFirewallPolicyArgs', 'FirewallPolicyFirewallPolicyArgsDict']]] = None,
+            encryption_configuration: pulumi.Input[Optional[Union['FirewallPolicyEncryptionConfigurationArgs', 'FirewallPolicyEncryptionConfigurationArgsDict', 'outputs.FirewallPolicyEncryptionConfiguration']]] = None,
+            firewall_policy: pulumi.Input[Optional[Union['FirewallPolicyFirewallPolicyArgs', 'FirewallPolicyFirewallPolicyArgsDict', 'outputs.FirewallPolicyFirewallPolicy']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -656,8 +656,8 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN that identifies the firewall policy.
         :param pulumi.Input[_builtins.str] description: A friendly description of the firewall policy.
-        :param pulumi.Input[Union['FirewallPolicyEncryptionConfigurationArgs', 'FirewallPolicyEncryptionConfigurationArgsDict']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
-        :param pulumi.Input[Union['FirewallPolicyFirewallPolicyArgs', 'FirewallPolicyFirewallPolicyArgsDict']] firewall_policy: A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
+        :param pulumi.Input[Union['FirewallPolicyEncryptionConfigurationArgs', 'FirewallPolicyEncryptionConfigurationArgsDict', 'outputs.FirewallPolicyEncryptionConfiguration']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
+        :param pulumi.Input[Union['FirewallPolicyFirewallPolicyArgs', 'FirewallPolicyFirewallPolicyArgsDict', 'outputs.FirewallPolicyFirewallPolicy']] firewall_policy: A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
         :param pulumi.Input[_builtins.str] name: A friendly name of the firewall policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

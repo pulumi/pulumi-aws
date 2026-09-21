@@ -93,7 +93,7 @@ class AwaitableGetAmiIdsResult(GetAmiIdsResult):
             region=self.region)
 
 
-def get_ami_ids(filters: Optional[Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict']]] = None,
+def get_ami_ids(filters: Optional[Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict', 'outputs.GetAmiIdsFilterResult']]] = None,
                 names: Optional[Sequence[_builtins.str]] = None,
                 region: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAmiIdsResult:
@@ -129,7 +129,7 @@ def get_ami_ids(filters: Optional[Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiI
     ```
 
 
-    :param Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict']] filters: Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+    :param Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict', 'outputs.GetAmiIdsFilterResult']] filters: Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
     :param Sequence[_builtins.str] names: List of autoscaling group names
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
@@ -146,7 +146,7 @@ def get_ami_ids(filters: Optional[Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiI
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'),
         region=pulumi.get(__ret__, 'region'))
-def get_ami_ids_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict']]]]] = None,
+def get_ami_ids_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict', 'outputs.GetAmiIdsFilterResult']]]]] = None,
                        names: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAmiIdsResult]:
@@ -182,7 +182,7 @@ def get_ami_ids_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['G
     ```
 
 
-    :param Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict']] filters: Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+    :param Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict', 'outputs.GetAmiIdsFilterResult']] filters: Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
     :param Sequence[_builtins.str] names: List of autoscaling group names
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """

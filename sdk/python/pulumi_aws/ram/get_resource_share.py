@@ -156,7 +156,7 @@ class AwaitableGetResourceShareResult(GetResourceShareResult):
             tags=self.tags)
 
 
-def get_resource_share(filters: Optional[Sequence[Union['GetResourceShareFilterArgs', 'GetResourceShareFilterArgsDict']]] = None,
+def get_resource_share(filters: Optional[Sequence[Union['GetResourceShareFilterArgs', 'GetResourceShareFilterArgsDict', 'outputs.GetResourceShareFilterResult']]] = None,
                        name: Optional[_builtins.str] = None,
                        region: Optional[_builtins.str] = None,
                        resource_owner: Optional[_builtins.str] = None,
@@ -190,7 +190,7 @@ def get_resource_share(filters: Optional[Sequence[Union['GetResourceShareFilterA
     ```
 
 
-    :param Sequence[Union['GetResourceShareFilterArgs', 'GetResourceShareFilterArgsDict']] filters: Filter used to scope the list e.g., by tags. See `filter` Block below.
+    :param Sequence[Union['GetResourceShareFilterArgs', 'GetResourceShareFilterArgsDict', 'outputs.GetResourceShareFilterResult']] filters: Filter used to scope the list e.g., by tags. See `filter` Block below.
     :param _builtins.str name: Name of the resource share to retrieve.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str resource_owner: Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
@@ -219,7 +219,7 @@ def get_resource_share(filters: Optional[Sequence[Union['GetResourceShareFilterA
         resource_share_status=pulumi.get(__ret__, 'resource_share_status'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_resource_share_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetResourceShareFilterArgs', 'GetResourceShareFilterArgsDict']]]]] = None,
+def get_resource_share_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetResourceShareFilterArgs', 'GetResourceShareFilterArgsDict', 'outputs.GetResourceShareFilterResult']]]]] = None,
                               name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
@@ -253,7 +253,7 @@ def get_resource_share_output(filters: pulumi.Input[Optional[Optional[Sequence[U
     ```
 
 
-    :param Sequence[Union['GetResourceShareFilterArgs', 'GetResourceShareFilterArgsDict']] filters: Filter used to scope the list e.g., by tags. See `filter` Block below.
+    :param Sequence[Union['GetResourceShareFilterArgs', 'GetResourceShareFilterArgsDict', 'outputs.GetResourceShareFilterResult']] filters: Filter used to scope the list e.g., by tags. See `filter` Block below.
     :param _builtins.str name: Name of the resource share to retrieve.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str resource_owner: Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.

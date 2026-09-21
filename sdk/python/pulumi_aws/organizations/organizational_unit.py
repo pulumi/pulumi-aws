@@ -312,7 +312,7 @@ class OrganizationalUnit(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrganizationalUnitAccountArgs', 'OrganizationalUnitAccountArgsDict']]]]] = None,
+            accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrganizationalUnitAccountArgs', 'OrganizationalUnitAccountArgsDict', 'outputs.OrganizationalUnitAccount']]]]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             parent_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -325,7 +325,7 @@ class OrganizationalUnit(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationalUnitAccountArgs', 'OrganizationalUnitAccountArgsDict']]]] accounts: List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationalUnitAccountArgs', 'OrganizationalUnitAccountArgsDict', 'outputs.OrganizationalUnitAccount']]]] accounts: List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
         :param pulumi.Input[_builtins.str] arn: ARN of the organizational unit
         :param pulumi.Input[_builtins.str] name: The name for the organizational unit
         :param pulumi.Input[_builtins.str] parent_id: ID of the parent organizational unit, which may be the root

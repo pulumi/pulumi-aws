@@ -345,14 +345,14 @@ class AgentDataSource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_deletion_policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 data_source_configuration: pulumi.Input[Optional[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict']]] = None,
+                 data_source_configuration: pulumi.Input[Optional[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict', 'outputs.AgentDataSourceDataSourceConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  knowledge_base_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_side_encryption_configuration: pulumi.Input[Optional[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict']]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentDataSourceTimeoutsArgs', 'AgentDataSourceTimeoutsArgsDict']]] = None,
-                 vector_ingestion_configuration: pulumi.Input[Optional[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict']]] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict', 'outputs.AgentDataSourceServerSideEncryptionConfiguration']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentDataSourceTimeoutsArgs', 'AgentDataSourceTimeoutsArgsDict', 'outputs.AgentDataSourceTimeouts']]] = None,
+                 vector_ingestion_configuration: pulumi.Input[Optional[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict', 'outputs.AgentDataSourceVectorIngestionConfiguration']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Agents for Amazon Bedrock Data Source.
@@ -499,15 +499,15 @@ class AgentDataSource(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_deletion_policy: Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
-        :param pulumi.Input[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict']] data_source_configuration: Details about how the data source is stored. See `data_source_configuration` block for details.
+        :param pulumi.Input[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict', 'outputs.AgentDataSourceDataSourceConfiguration']] data_source_configuration: Details about how the data source is stored. See `data_source_configuration` block for details.
         :param pulumi.Input[_builtins.str] description: Description of the data source.
         :param pulumi.Input[_builtins.str] knowledge_base_id: Unique identifier of the knowledge base to which the data source belongs.
         :param pulumi.Input[_builtins.str] name: Name of the data source.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
-        :param pulumi.Input[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict']] vector_ingestion_configuration: Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
+        :param pulumi.Input[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict', 'outputs.AgentDataSourceServerSideEncryptionConfiguration']] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
+        :param pulumi.Input[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict', 'outputs.AgentDataSourceVectorIngestionConfiguration']] vector_ingestion_configuration: Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
         """
         ...
     @overload
@@ -673,14 +673,14 @@ class AgentDataSource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_deletion_policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 data_source_configuration: pulumi.Input[Optional[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict']]] = None,
+                 data_source_configuration: pulumi.Input[Optional[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict', 'outputs.AgentDataSourceDataSourceConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  knowledge_base_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_side_encryption_configuration: pulumi.Input[Optional[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict']]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentDataSourceTimeoutsArgs', 'AgentDataSourceTimeoutsArgsDict']]] = None,
-                 vector_ingestion_configuration: pulumi.Input[Optional[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict']]] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict', 'outputs.AgentDataSourceServerSideEncryptionConfiguration']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentDataSourceTimeoutsArgs', 'AgentDataSourceTimeoutsArgsDict', 'outputs.AgentDataSourceTimeouts']]] = None,
+                 vector_ingestion_configuration: pulumi.Input[Optional[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict', 'outputs.AgentDataSourceVectorIngestionConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -715,15 +715,15 @@ class AgentDataSource(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             data_deletion_policy: pulumi.Input[Optional[_builtins.str]] = None,
-            data_source_configuration: pulumi.Input[Optional[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict']]] = None,
+            data_source_configuration: pulumi.Input[Optional[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict', 'outputs.AgentDataSourceDataSourceConfiguration']]] = None,
             data_source_id: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             knowledge_base_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            server_side_encryption_configuration: pulumi.Input[Optional[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict']]] = None,
-            timeouts: pulumi.Input[Optional[Union['AgentDataSourceTimeoutsArgs', 'AgentDataSourceTimeoutsArgsDict']]] = None,
-            vector_ingestion_configuration: pulumi.Input[Optional[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict']]] = None) -> 'AgentDataSource':
+            server_side_encryption_configuration: pulumi.Input[Optional[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict', 'outputs.AgentDataSourceServerSideEncryptionConfiguration']]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentDataSourceTimeoutsArgs', 'AgentDataSourceTimeoutsArgsDict', 'outputs.AgentDataSourceTimeouts']]] = None,
+            vector_ingestion_configuration: pulumi.Input[Optional[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict', 'outputs.AgentDataSourceVectorIngestionConfiguration']]] = None) -> 'AgentDataSource':
         """
         Get an existing AgentDataSource resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -732,7 +732,7 @@ class AgentDataSource(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_deletion_policy: Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
-        :param pulumi.Input[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict']] data_source_configuration: Details about how the data source is stored. See `data_source_configuration` block for details.
+        :param pulumi.Input[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict', 'outputs.AgentDataSourceDataSourceConfiguration']] data_source_configuration: Details about how the data source is stored. See `data_source_configuration` block for details.
         :param pulumi.Input[_builtins.str] data_source_id: Unique identifier of the data source.
         :param pulumi.Input[_builtins.str] description: Description of the data source.
         :param pulumi.Input[_builtins.str] knowledge_base_id: Unique identifier of the knowledge base to which the data source belongs.
@@ -740,8 +740,8 @@ class AgentDataSource(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
-        :param pulumi.Input[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict']] vector_ingestion_configuration: Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
+        :param pulumi.Input[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict', 'outputs.AgentDataSourceServerSideEncryptionConfiguration']] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
+        :param pulumi.Input[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict', 'outputs.AgentDataSourceVectorIngestionConfiguration']] vector_ingestion_configuration: Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

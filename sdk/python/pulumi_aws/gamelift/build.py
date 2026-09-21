@@ -267,7 +267,7 @@ class Build(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  operating_system: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_location: pulumi.Input[Optional[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict']]] = None,
+                 storage_location: pulumi.Input[Optional[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict', 'outputs.BuildStorageLocation']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -304,7 +304,7 @@ class Build(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the build
         :param pulumi.Input[_builtins.str] operating_system: Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict']] storage_location: Information indicating where your game build files are stored. See below.
+        :param pulumi.Input[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict', 'outputs.BuildStorageLocation']] storage_location: Information indicating where your game build files are stored. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] version: Version that is associated with this build.
         """
@@ -360,7 +360,7 @@ class Build(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  operating_system: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_location: pulumi.Input[Optional[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict']]] = None,
+                 storage_location: pulumi.Input[Optional[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict', 'outputs.BuildStorageLocation']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -398,7 +398,7 @@ class Build(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             operating_system: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            storage_location: pulumi.Input[Optional[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict']]] = None,
+            storage_location: pulumi.Input[Optional[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict', 'outputs.BuildStorageLocation']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             version: pulumi.Input[Optional[_builtins.str]] = None) -> 'Build':
@@ -413,7 +413,7 @@ class Build(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the build
         :param pulumi.Input[_builtins.str] operating_system: Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict']] storage_location: Information indicating where your game build files are stored. See below.
+        :param pulumi.Input[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict', 'outputs.BuildStorageLocation']] storage_location: Information indicating where your game build files are stored. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] version: Version that is associated with this build.

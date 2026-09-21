@@ -140,7 +140,7 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 sql_injection_match_tuples: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SqlInjectionMatchSetSqlInjectionMatchTupleArgs', 'SqlInjectionMatchSetSqlInjectionMatchTupleArgsDict']]]]] = None,
+                 sql_injection_match_tuples: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SqlInjectionMatchSetSqlInjectionMatchTupleArgs', 'SqlInjectionMatchSetSqlInjectionMatchTupleArgsDict', 'outputs.SqlInjectionMatchSetSqlInjectionMatchTuple']]]]] = None,
                  __props__=None):
         """
         Provides a WAF Regional SQL Injection Match Set Resource for use with Application Load Balancer.
@@ -174,7 +174,7 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name or description of the SizeConstraintSet.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SqlInjectionMatchSetSqlInjectionMatchTupleArgs', 'SqlInjectionMatchSetSqlInjectionMatchTupleArgsDict']]]] sql_injection_match_tuples: The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SqlInjectionMatchSetSqlInjectionMatchTupleArgs', 'SqlInjectionMatchSetSqlInjectionMatchTupleArgsDict', 'outputs.SqlInjectionMatchSetSqlInjectionMatchTuple']]]] sql_injection_match_tuples: The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
         """
         ...
     @overload
@@ -227,7 +227,7 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 sql_injection_match_tuples: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SqlInjectionMatchSetSqlInjectionMatchTupleArgs', 'SqlInjectionMatchSetSqlInjectionMatchTupleArgsDict']]]]] = None,
+                 sql_injection_match_tuples: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SqlInjectionMatchSetSqlInjectionMatchTupleArgs', 'SqlInjectionMatchSetSqlInjectionMatchTupleArgsDict', 'outputs.SqlInjectionMatchSetSqlInjectionMatchTuple']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -252,7 +252,7 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            sql_injection_match_tuples: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SqlInjectionMatchSetSqlInjectionMatchTupleArgs', 'SqlInjectionMatchSetSqlInjectionMatchTupleArgsDict']]]]] = None) -> 'SqlInjectionMatchSet':
+            sql_injection_match_tuples: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SqlInjectionMatchSetSqlInjectionMatchTupleArgs', 'SqlInjectionMatchSetSqlInjectionMatchTupleArgsDict', 'outputs.SqlInjectionMatchSetSqlInjectionMatchTuple']]]]] = None) -> 'SqlInjectionMatchSet':
         """
         Get an existing SqlInjectionMatchSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -262,7 +262,7 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name or description of the SizeConstraintSet.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SqlInjectionMatchSetSqlInjectionMatchTupleArgs', 'SqlInjectionMatchSetSqlInjectionMatchTupleArgsDict']]]] sql_injection_match_tuples: The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SqlInjectionMatchSetSqlInjectionMatchTupleArgs', 'SqlInjectionMatchSetSqlInjectionMatchTupleArgsDict', 'outputs.SqlInjectionMatchSetSqlInjectionMatchTuple']]]] sql_injection_match_tuples: The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

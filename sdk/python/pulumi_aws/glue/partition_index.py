@@ -201,7 +201,7 @@ class PartitionIndex(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 partition_index: pulumi.Input[Optional[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict']]] = None,
+                 partition_index: pulumi.Input[Optional[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict', 'outputs.PartitionIndexPartitionIndex']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -303,7 +303,7 @@ class PartitionIndex(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: The catalog ID where the table resides.
         :param pulumi.Input[_builtins.str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-        :param pulumi.Input[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict']] partition_index: Configuration block for a partition index. See `partition_index` below.
+        :param pulumi.Input[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict', 'outputs.PartitionIndexPartitionIndex']] partition_index: Configuration block for a partition index. See `partition_index` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] table_name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         """
@@ -424,7 +424,7 @@ class PartitionIndex(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 partition_index: pulumi.Input[Optional[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict']]] = None,
+                 partition_index: pulumi.Input[Optional[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict', 'outputs.PartitionIndexPartitionIndex']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -459,7 +459,7 @@ class PartitionIndex(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
             database_name: pulumi.Input[Optional[_builtins.str]] = None,
-            partition_index: pulumi.Input[Optional[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict']]] = None,
+            partition_index: pulumi.Input[Optional[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict', 'outputs.PartitionIndexPartitionIndex']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             table_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'PartitionIndex':
         """
@@ -471,7 +471,7 @@ class PartitionIndex(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: The catalog ID where the table resides.
         :param pulumi.Input[_builtins.str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-        :param pulumi.Input[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict']] partition_index: Configuration block for a partition index. See `partition_index` below.
+        :param pulumi.Input[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict', 'outputs.PartitionIndexPartitionIndex']] partition_index: Configuration block for a partition index. See `partition_index` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] table_name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         """

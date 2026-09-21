@@ -260,9 +260,9 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 elements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict']]]]] = None,
+                 elements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict', 'outputs.MediaInsightsPipelineConfigurationElement']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 real_time_alert_configuration: pulumi.Input[Optional[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict']]] = None,
+                 real_time_alert_configuration: pulumi.Input[Optional[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict', 'outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -541,9 +541,9 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict']]]] elements: Collection of processors and sinks to transform media and deliver data.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict', 'outputs.MediaInsightsPipelineConfigurationElement']]]] elements: Collection of processors and sinks to transform media and deliver data.
         :param pulumi.Input[_builtins.str] name: Configuration name.
-        :param pulumi.Input[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict']] real_time_alert_configuration: Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
+        :param pulumi.Input[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict', 'outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration']] real_time_alert_configuration: Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_access_role_arn: ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags for the resource.
@@ -841,9 +841,9 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 elements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict']]]]] = None,
+                 elements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict', 'outputs.MediaInsightsPipelineConfigurationElement']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 real_time_alert_configuration: pulumi.Input[Optional[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict']]] = None,
+                 real_time_alert_configuration: pulumi.Input[Optional[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict', 'outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -879,9 +879,9 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            elements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict']]]]] = None,
+            elements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict', 'outputs.MediaInsightsPipelineConfigurationElement']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            real_time_alert_configuration: pulumi.Input[Optional[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict']]] = None,
+            real_time_alert_configuration: pulumi.Input[Optional[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict', 'outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             resource_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -894,9 +894,9 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Media Insights Pipeline Configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict']]]] elements: Collection of processors and sinks to transform media and deliver data.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict', 'outputs.MediaInsightsPipelineConfigurationElement']]]] elements: Collection of processors and sinks to transform media and deliver data.
         :param pulumi.Input[_builtins.str] name: Configuration name.
-        :param pulumi.Input[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict']] real_time_alert_configuration: Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
+        :param pulumi.Input[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict', 'outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration']] real_time_alert_configuration: Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_access_role_arn: ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags for the resource.

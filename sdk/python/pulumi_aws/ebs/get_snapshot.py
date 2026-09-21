@@ -285,7 +285,7 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             volume_size=self.volume_size)
 
 
-def get_snapshot(filters: Optional[Sequence[Union['GetSnapshotFilterArgs', 'GetSnapshotFilterArgsDict']]] = None,
+def get_snapshot(filters: Optional[Sequence[Union['GetSnapshotFilterArgs', 'GetSnapshotFilterArgsDict', 'outputs.GetSnapshotFilterResult']]] = None,
                  most_recent: Optional[_builtins.bool] = None,
                  owners: Optional[Sequence[_builtins.str]] = None,
                  region: Optional[_builtins.str] = None,
@@ -317,7 +317,7 @@ def get_snapshot(filters: Optional[Sequence[Union['GetSnapshotFilterArgs', 'GetS
     ```
 
 
-    :param Sequence[Union['GetSnapshotFilterArgs', 'GetSnapshotFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-snapshots.html).
+    :param Sequence[Union['GetSnapshotFilterArgs', 'GetSnapshotFilterArgsDict', 'outputs.GetSnapshotFilterResult']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-snapshots.html).
     :param _builtins.bool most_recent: If more than one result is returned, use the most recent snapshot.
     :param Sequence[_builtins.str] owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -359,7 +359,7 @@ def get_snapshot(filters: Optional[Sequence[Union['GetSnapshotFilterArgs', 'GetS
         tags=pulumi.get(__ret__, 'tags'),
         volume_id=pulumi.get(__ret__, 'volume_id'),
         volume_size=pulumi.get(__ret__, 'volume_size'))
-def get_snapshot_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetSnapshotFilterArgs', 'GetSnapshotFilterArgsDict']]]]] = None,
+def get_snapshot_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetSnapshotFilterArgs', 'GetSnapshotFilterArgsDict', 'outputs.GetSnapshotFilterResult']]]]] = None,
                         most_recent: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                         owners: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                         region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -391,7 +391,7 @@ def get_snapshot_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['
     ```
 
 
-    :param Sequence[Union['GetSnapshotFilterArgs', 'GetSnapshotFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-snapshots.html).
+    :param Sequence[Union['GetSnapshotFilterArgs', 'GetSnapshotFilterArgsDict', 'outputs.GetSnapshotFilterResult']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-snapshots.html).
     :param _builtins.bool most_recent: If more than one result is returned, use the most recent snapshot.
     :param Sequence[_builtins.str] owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

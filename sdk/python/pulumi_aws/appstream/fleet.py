@@ -716,11 +716,11 @@ class Fleet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_capacity: pulumi.Input[Optional[Union['FleetComputeCapacityArgs', 'FleetComputeCapacityArgsDict']]] = None,
+                 compute_capacity: pulumi.Input[Optional[Union['FleetComputeCapacityArgs', 'FleetComputeCapacityArgsDict', 'outputs.FleetComputeCapacity']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  disconnect_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 domain_join_info: pulumi.Input[Optional[Union['FleetDomainJoinInfoArgs', 'FleetDomainJoinInfoArgsDict']]] = None,
+                 domain_join_info: pulumi.Input[Optional[Union['FleetDomainJoinInfoArgs', 'FleetDomainJoinInfoArgsDict', 'outputs.FleetDomainJoinInfo']]] = None,
                  enable_default_internet_access: pulumi.Input[Optional[_builtins.bool]] = None,
                  fleet_type: pulumi.Input[Optional[_builtins.str]] = None,
                  iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -734,7 +734,7 @@ class Fleet(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  stream_view: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict', 'outputs.FleetVpcConfig']]] = None,
                  __props__=None):
         """
         Provides an AppStream fleet.
@@ -777,11 +777,11 @@ class Fleet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['FleetComputeCapacityArgs', 'FleetComputeCapacityArgsDict']] compute_capacity: Configuration block for the desired capacity of the fleet. See below.
+        :param pulumi.Input[Union['FleetComputeCapacityArgs', 'FleetComputeCapacityArgsDict', 'outputs.FleetComputeCapacity']] compute_capacity: Configuration block for the desired capacity of the fleet. See below.
         :param pulumi.Input[_builtins.str] description: Description to display.
         :param pulumi.Input[_builtins.int] disconnect_timeout_in_seconds: Amount of time that a streaming session remains active after users disconnect.
         :param pulumi.Input[_builtins.str] display_name: Human-readable friendly name for the AppStream fleet.
-        :param pulumi.Input[Union['FleetDomainJoinInfoArgs', 'FleetDomainJoinInfoArgsDict']] domain_join_info: Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
+        :param pulumi.Input[Union['FleetDomainJoinInfoArgs', 'FleetDomainJoinInfoArgsDict', 'outputs.FleetDomainJoinInfo']] domain_join_info: Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
         :param pulumi.Input[_builtins.bool] enable_default_internet_access: Enables or disables default internet access for the fleet.
         :param pulumi.Input[_builtins.str] fleet_type: Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
         :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role to apply to the fleet.
@@ -797,7 +797,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] stream_view: AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to attach to AppStream instances.
-        :param pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
+        :param pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict', 'outputs.FleetVpcConfig']] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
         """
         ...
     @overload
@@ -859,11 +859,11 @@ class Fleet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_capacity: pulumi.Input[Optional[Union['FleetComputeCapacityArgs', 'FleetComputeCapacityArgsDict']]] = None,
+                 compute_capacity: pulumi.Input[Optional[Union['FleetComputeCapacityArgs', 'FleetComputeCapacityArgsDict', 'outputs.FleetComputeCapacity']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  disconnect_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 domain_join_info: pulumi.Input[Optional[Union['FleetDomainJoinInfoArgs', 'FleetDomainJoinInfoArgsDict']]] = None,
+                 domain_join_info: pulumi.Input[Optional[Union['FleetDomainJoinInfoArgs', 'FleetDomainJoinInfoArgsDict', 'outputs.FleetDomainJoinInfo']]] = None,
                  enable_default_internet_access: pulumi.Input[Optional[_builtins.bool]] = None,
                  fleet_type: pulumi.Input[Optional[_builtins.str]] = None,
                  iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -877,7 +877,7 @@ class Fleet(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  stream_view: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict', 'outputs.FleetVpcConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -925,12 +925,12 @@ class Fleet(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            compute_capacity: pulumi.Input[Optional[Union['FleetComputeCapacityArgs', 'FleetComputeCapacityArgsDict']]] = None,
+            compute_capacity: pulumi.Input[Optional[Union['FleetComputeCapacityArgs', 'FleetComputeCapacityArgsDict', 'outputs.FleetComputeCapacity']]] = None,
             created_time: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             disconnect_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            domain_join_info: pulumi.Input[Optional[Union['FleetDomainJoinInfoArgs', 'FleetDomainJoinInfoArgsDict']]] = None,
+            domain_join_info: pulumi.Input[Optional[Union['FleetDomainJoinInfoArgs', 'FleetDomainJoinInfoArgsDict', 'outputs.FleetDomainJoinInfo']]] = None,
             enable_default_internet_access: pulumi.Input[Optional[_builtins.bool]] = None,
             fleet_type: pulumi.Input[Optional[_builtins.str]] = None,
             iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -946,7 +946,7 @@ class Fleet(pulumi.CustomResource):
             stream_view: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            vpc_config: pulumi.Input[Optional[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]] = None) -> 'Fleet':
+            vpc_config: pulumi.Input[Optional[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict', 'outputs.FleetVpcConfig']]] = None) -> 'Fleet':
         """
         Get an existing Fleet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -955,12 +955,12 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the appstream fleet.
-        :param pulumi.Input[Union['FleetComputeCapacityArgs', 'FleetComputeCapacityArgsDict']] compute_capacity: Configuration block for the desired capacity of the fleet. See below.
+        :param pulumi.Input[Union['FleetComputeCapacityArgs', 'FleetComputeCapacityArgsDict', 'outputs.FleetComputeCapacity']] compute_capacity: Configuration block for the desired capacity of the fleet. See below.
         :param pulumi.Input[_builtins.str] created_time: Date and time, in UTC and extended RFC 3339 format, when the fleet was created.
         :param pulumi.Input[_builtins.str] description: Description to display.
         :param pulumi.Input[_builtins.int] disconnect_timeout_in_seconds: Amount of time that a streaming session remains active after users disconnect.
         :param pulumi.Input[_builtins.str] display_name: Human-readable friendly name for the AppStream fleet.
-        :param pulumi.Input[Union['FleetDomainJoinInfoArgs', 'FleetDomainJoinInfoArgsDict']] domain_join_info: Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
+        :param pulumi.Input[Union['FleetDomainJoinInfoArgs', 'FleetDomainJoinInfoArgsDict', 'outputs.FleetDomainJoinInfo']] domain_join_info: Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
         :param pulumi.Input[_builtins.bool] enable_default_internet_access: Enables or disables default internet access for the fleet.
         :param pulumi.Input[_builtins.str] fleet_type: Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
         :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role to apply to the fleet.
@@ -977,7 +977,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] state: State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
         :param pulumi.Input[_builtins.str] stream_view: AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to attach to AppStream instances.
-        :param pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
+        :param pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict', 'outputs.FleetVpcConfig']] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

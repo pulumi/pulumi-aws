@@ -162,7 +162,7 @@ class AwaitableGetManagedPrefixListResult(GetManagedPrefixListResult):
             version=self.version)
 
 
-def get_managed_prefix_list(filters: Optional[Sequence[Union['GetManagedPrefixListFilterArgs', 'GetManagedPrefixListFilterArgsDict']]] = None,
+def get_managed_prefix_list(filters: Optional[Sequence[Union['GetManagedPrefixListFilterArgs', 'GetManagedPrefixListFilterArgsDict', 'outputs.GetManagedPrefixListFilterResult']]] = None,
                             id: Optional[_builtins.str] = None,
                             name: Optional[_builtins.str] = None,
                             region: Optional[_builtins.str] = None,
@@ -197,7 +197,7 @@ def get_managed_prefix_list(filters: Optional[Sequence[Union['GetManagedPrefixLi
     ```
 
 
-    :param Sequence[Union['GetManagedPrefixListFilterArgs', 'GetManagedPrefixListFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetManagedPrefixListFilterArgs', 'GetManagedPrefixListFilterArgsDict', 'outputs.GetManagedPrefixListFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
            
            The arguments of this data source act as filters for querying the available
            prefix lists. The given filters must match exactly one prefix list
@@ -228,7 +228,7 @@ def get_managed_prefix_list(filters: Optional[Sequence[Union['GetManagedPrefixLi
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
-def get_managed_prefix_list_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetManagedPrefixListFilterArgs', 'GetManagedPrefixListFilterArgsDict']]]]] = None,
+def get_managed_prefix_list_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetManagedPrefixListFilterArgs', 'GetManagedPrefixListFilterArgsDict', 'outputs.GetManagedPrefixListFilterResult']]]]] = None,
                                    id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                    name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                    region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -263,7 +263,7 @@ def get_managed_prefix_list_output(filters: pulumi.Input[Optional[Optional[Seque
     ```
 
 
-    :param Sequence[Union['GetManagedPrefixListFilterArgs', 'GetManagedPrefixListFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetManagedPrefixListFilterArgs', 'GetManagedPrefixListFilterArgsDict', 'outputs.GetManagedPrefixListFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
            
            The arguments of this data source act as filters for querying the available
            prefix lists. The given filters must match exactly one prefix list

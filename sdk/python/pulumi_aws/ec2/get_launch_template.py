@@ -402,7 +402,7 @@ class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
             vpc_security_group_ids=self.vpc_security_group_ids)
 
 
-def get_launch_template(filters: Optional[Sequence[Union['GetLaunchTemplateFilterArgs', 'GetLaunchTemplateFilterArgsDict']]] = None,
+def get_launch_template(filters: Optional[Sequence[Union['GetLaunchTemplateFilterArgs', 'GetLaunchTemplateFilterArgsDict', 'outputs.GetLaunchTemplateFilterResult']]] = None,
                         id: Optional[_builtins.str] = None,
                         name: Optional[_builtins.str] = None,
                         region: Optional[_builtins.str] = None,
@@ -433,7 +433,7 @@ def get_launch_template(filters: Optional[Sequence[Union['GetLaunchTemplateFilte
     ```
 
 
-    :param Sequence[Union['GetLaunchTemplateFilterArgs', 'GetLaunchTemplateFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetLaunchTemplateFilterArgs', 'GetLaunchTemplateFilterArgsDict', 'outputs.GetLaunchTemplateFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str id: ID of the specific launch template to retrieve.
     :param _builtins.str name: Name of the launch template.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -489,7 +489,7 @@ def get_launch_template(filters: Optional[Sequence[Union['GetLaunchTemplateFilte
         tags=pulumi.get(__ret__, 'tags'),
         user_data=pulumi.get(__ret__, 'user_data'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
-def get_launch_template_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetLaunchTemplateFilterArgs', 'GetLaunchTemplateFilterArgsDict']]]]] = None,
+def get_launch_template_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetLaunchTemplateFilterArgs', 'GetLaunchTemplateFilterArgsDict', 'outputs.GetLaunchTemplateFilterResult']]]]] = None,
                                id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -520,7 +520,7 @@ def get_launch_template_output(filters: pulumi.Input[Optional[Optional[Sequence[
     ```
 
 
-    :param Sequence[Union['GetLaunchTemplateFilterArgs', 'GetLaunchTemplateFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetLaunchTemplateFilterArgs', 'GetLaunchTemplateFilterArgsDict', 'outputs.GetLaunchTemplateFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str id: ID of the specific launch template to retrieve.
     :param _builtins.str name: Name of the launch template.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

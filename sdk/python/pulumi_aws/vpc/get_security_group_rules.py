@@ -87,7 +87,7 @@ class AwaitableGetSecurityGroupRulesResult(GetSecurityGroupRulesResult):
             tags=self.tags)
 
 
-def get_security_group_rules(filters: Optional[Sequence[Union['GetSecurityGroupRulesFilterArgs', 'GetSecurityGroupRulesFilterArgsDict']]] = None,
+def get_security_group_rules(filters: Optional[Sequence[Union['GetSecurityGroupRulesFilterArgs', 'GetSecurityGroupRulesFilterArgsDict', 'outputs.GetSecurityGroupRulesFilterResult']]] = None,
                              region: Optional[_builtins.str] = None,
                              tags: Optional[Mapping[str, _builtins.str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityGroupRulesResult:
@@ -107,7 +107,7 @@ def get_security_group_rules(filters: Optional[Sequence[Union['GetSecurityGroupR
     ```
 
 
-    :param Sequence[Union['GetSecurityGroupRulesFilterArgs', 'GetSecurityGroupRulesFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetSecurityGroupRulesFilterArgs', 'GetSecurityGroupRulesFilterArgsDict', 'outputs.GetSecurityGroupRulesFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired security group rule.
@@ -125,7 +125,7 @@ def get_security_group_rules(filters: Optional[Sequence[Union['GetSecurityGroupR
         ids=pulumi.get(__ret__, 'ids'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_security_group_rules_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetSecurityGroupRulesFilterArgs', 'GetSecurityGroupRulesFilterArgsDict']]]]] = None,
+def get_security_group_rules_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetSecurityGroupRulesFilterArgs', 'GetSecurityGroupRulesFilterArgsDict', 'outputs.GetSecurityGroupRulesFilterResult']]]]] = None,
                                     region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                     tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityGroupRulesResult]:
@@ -145,7 +145,7 @@ def get_security_group_rules_output(filters: pulumi.Input[Optional[Optional[Sequ
     ```
 
 
-    :param Sequence[Union['GetSecurityGroupRulesFilterArgs', 'GetSecurityGroupRulesFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetSecurityGroupRulesFilterArgs', 'GetSecurityGroupRulesFilterArgsDict', 'outputs.GetSecurityGroupRulesFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired security group rule.

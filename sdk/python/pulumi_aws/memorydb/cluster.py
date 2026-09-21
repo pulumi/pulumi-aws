@@ -1290,7 +1290,7 @@ class Cluster(pulumi.CustomResource):
             acl_name: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
-            cluster_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterClusterEndpointArgs', 'ClusterClusterEndpointArgsDict']]]]] = None,
+            cluster_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterClusterEndpointArgs', 'ClusterClusterEndpointArgsDict', 'outputs.ClusterClusterEndpoint']]]]] = None,
             data_tiering: pulumi.Input[Optional[_builtins.bool]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             engine: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1311,7 +1311,7 @@ class Cluster(pulumi.CustomResource):
             port: pulumi.Input[Optional[_builtins.int]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            shards: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterShardArgs', 'ClusterShardArgsDict']]]]] = None,
+            shards: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterShardArgs', 'ClusterShardArgsDict', 'outputs.ClusterShard']]]]] = None,
             snapshot_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
             snapshot_retention_limit: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1353,7 +1353,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Set of VPC Security Group ID-s to associate with this cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterShardArgs', 'ClusterShardArgsDict']]]] shards: Set of shards in this cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterShardArgs', 'ClusterShardArgsDict', 'outputs.ClusterShard']]]] shards: Set of shards in this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
         :param pulumi.Input[_builtins.str] snapshot_name: The name of a snapshot from which to restore data into the new cluster.
         :param pulumi.Input[_builtins.int] snapshot_retention_limit: The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.

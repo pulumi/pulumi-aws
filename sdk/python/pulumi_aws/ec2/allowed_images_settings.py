@@ -137,7 +137,7 @@ class AllowedImagesSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 image_criterions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AllowedImagesSettingsImageCriterionArgs', 'AllowedImagesSettingsImageCriterionArgsDict']]]]] = None,
+                 image_criterions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AllowedImagesSettingsImageCriterionArgs', 'AllowedImagesSettingsImageCriterionArgsDict', 'outputs.AllowedImagesSettingsImageCriterion']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -192,7 +192,7 @@ class AllowedImagesSettings(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AllowedImagesSettingsImageCriterionArgs', 'AllowedImagesSettingsImageCriterionArgsDict']]]] image_criterions: List of image criteria. Maximum of 10 criterion blocks allowed. See `image_criterion` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AllowedImagesSettingsImageCriterionArgs', 'AllowedImagesSettingsImageCriterionArgsDict', 'outputs.AllowedImagesSettingsImageCriterion']]]] image_criterions: List of image criteria. Maximum of 10 criterion blocks allowed. See `image_criterion` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] state: State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
         """
@@ -266,7 +266,7 @@ class AllowedImagesSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 image_criterions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AllowedImagesSettingsImageCriterionArgs', 'AllowedImagesSettingsImageCriterionArgsDict']]]]] = None,
+                 image_criterions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AllowedImagesSettingsImageCriterionArgs', 'AllowedImagesSettingsImageCriterionArgsDict', 'outputs.AllowedImagesSettingsImageCriterion']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -293,7 +293,7 @@ class AllowedImagesSettings(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            image_criterions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AllowedImagesSettingsImageCriterionArgs', 'AllowedImagesSettingsImageCriterionArgsDict']]]]] = None,
+            image_criterions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AllowedImagesSettingsImageCriterionArgs', 'AllowedImagesSettingsImageCriterionArgsDict', 'outputs.AllowedImagesSettingsImageCriterion']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             state: pulumi.Input[Optional[_builtins.str]] = None) -> 'AllowedImagesSettings':
         """
@@ -303,7 +303,7 @@ class AllowedImagesSettings(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AllowedImagesSettingsImageCriterionArgs', 'AllowedImagesSettingsImageCriterionArgsDict']]]] image_criterions: List of image criteria. Maximum of 10 criterion blocks allowed. See `image_criterion` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AllowedImagesSettingsImageCriterionArgs', 'AllowedImagesSettingsImageCriterionArgsDict', 'outputs.AllowedImagesSettingsImageCriterion']]]] image_criterions: List of image criteria. Maximum of 10 criterion blocks allowed. See `image_criterion` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] state: State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
         """

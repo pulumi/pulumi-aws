@@ -250,9 +250,9 @@ class ModelCardExportJob(pulumi.CustomResource):
                  model_card_export_job_name: pulumi.Input[Optional[_builtins.str]] = None,
                  model_card_name: pulumi.Input[Optional[_builtins.str]] = None,
                  model_card_version: pulumi.Input[Optional[_builtins.int]] = None,
-                 output_config: pulumi.Input[Optional[Union['ModelCardExportJobOutputConfigArgs', 'ModelCardExportJobOutputConfigArgsDict']]] = None,
+                 output_config: pulumi.Input[Optional[Union['ModelCardExportJobOutputConfigArgs', 'ModelCardExportJobOutputConfigArgsDict', 'outputs.ModelCardExportJobOutputConfig']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ModelCardExportJobTimeoutsArgs', 'ModelCardExportJobTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ModelCardExportJobTimeoutsArgs', 'ModelCardExportJobTimeoutsArgsDict', 'outputs.ModelCardExportJobTimeouts']]] = None,
                  __props__=None):
         """
         Manage an Amazon SageMaker Model Card export job.
@@ -286,7 +286,7 @@ class ModelCardExportJob(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] model_card_export_job_name: Name of the model card export job.
         :param pulumi.Input[_builtins.str] model_card_name: Name of the model card.
-        :param pulumi.Input[Union['ModelCardExportJobOutputConfigArgs', 'ModelCardExportJobOutputConfigArgsDict']] output_config: Export output details. Fields are documented below.
+        :param pulumi.Input[Union['ModelCardExportJobOutputConfigArgs', 'ModelCardExportJobOutputConfigArgsDict', 'outputs.ModelCardExportJobOutputConfig']] output_config: Export output details. Fields are documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
         """
         ...
@@ -341,9 +341,9 @@ class ModelCardExportJob(pulumi.CustomResource):
                  model_card_export_job_name: pulumi.Input[Optional[_builtins.str]] = None,
                  model_card_name: pulumi.Input[Optional[_builtins.str]] = None,
                  model_card_version: pulumi.Input[Optional[_builtins.int]] = None,
-                 output_config: pulumi.Input[Optional[Union['ModelCardExportJobOutputConfigArgs', 'ModelCardExportJobOutputConfigArgsDict']]] = None,
+                 output_config: pulumi.Input[Optional[Union['ModelCardExportJobOutputConfigArgs', 'ModelCardExportJobOutputConfigArgsDict', 'outputs.ModelCardExportJobOutputConfig']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ModelCardExportJobTimeoutsArgs', 'ModelCardExportJobTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ModelCardExportJobTimeoutsArgs', 'ModelCardExportJobTimeoutsArgsDict', 'outputs.ModelCardExportJobTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -377,14 +377,14 @@ class ModelCardExportJob(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            export_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ModelCardExportJobExportArtifactArgs', 'ModelCardExportJobExportArtifactArgsDict']]]]] = None,
+            export_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ModelCardExportJobExportArtifactArgs', 'ModelCardExportJobExportArtifactArgsDict', 'outputs.ModelCardExportJobExportArtifact']]]]] = None,
             model_card_export_job_arn: pulumi.Input[Optional[_builtins.str]] = None,
             model_card_export_job_name: pulumi.Input[Optional[_builtins.str]] = None,
             model_card_name: pulumi.Input[Optional[_builtins.str]] = None,
             model_card_version: pulumi.Input[Optional[_builtins.int]] = None,
-            output_config: pulumi.Input[Optional[Union['ModelCardExportJobOutputConfigArgs', 'ModelCardExportJobOutputConfigArgsDict']]] = None,
+            output_config: pulumi.Input[Optional[Union['ModelCardExportJobOutputConfigArgs', 'ModelCardExportJobOutputConfigArgsDict', 'outputs.ModelCardExportJobOutputConfig']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['ModelCardExportJobTimeoutsArgs', 'ModelCardExportJobTimeoutsArgsDict']]] = None) -> 'ModelCardExportJob':
+            timeouts: pulumi.Input[Optional[Union['ModelCardExportJobTimeoutsArgs', 'ModelCardExportJobTimeoutsArgsDict', 'outputs.ModelCardExportJobTimeouts']]] = None) -> 'ModelCardExportJob':
         """
         Get an existing ModelCardExportJob resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -392,11 +392,11 @@ class ModelCardExportJob(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ModelCardExportJobExportArtifactArgs', 'ModelCardExportJobExportArtifactArgsDict']]]] export_artifacts: Exported model card artifacts.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ModelCardExportJobExportArtifactArgs', 'ModelCardExportJobExportArtifactArgsDict', 'outputs.ModelCardExportJobExportArtifact']]]] export_artifacts: Exported model card artifacts.
         :param pulumi.Input[_builtins.str] model_card_export_job_arn: ARN of the model card export job.
         :param pulumi.Input[_builtins.str] model_card_export_job_name: Name of the model card export job.
         :param pulumi.Input[_builtins.str] model_card_name: Name of the model card.
-        :param pulumi.Input[Union['ModelCardExportJobOutputConfigArgs', 'ModelCardExportJobOutputConfigArgsDict']] output_config: Export output details. Fields are documented below.
+        :param pulumi.Input[Union['ModelCardExportJobOutputConfigArgs', 'ModelCardExportJobOutputConfigArgsDict', 'outputs.ModelCardExportJobOutputConfig']] output_config: Export output details. Fields are documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

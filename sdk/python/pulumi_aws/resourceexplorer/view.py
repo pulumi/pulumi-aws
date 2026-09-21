@@ -299,8 +299,8 @@ class View(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_view: pulumi.Input[Optional[_builtins.bool]] = None,
-                 filters: pulumi.Input[Optional[Union['ViewFiltersArgs', 'ViewFiltersArgsDict']]] = None,
-                 included_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]]] = None,
+                 filters: pulumi.Input[Optional[Union['ViewFiltersArgs', 'ViewFiltersArgsDict', 'outputs.ViewFilters']]] = None,
+                 included_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict', 'outputs.ViewIncludedProperty']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  scope: pulumi.Input[Optional[_builtins.str]] = None,
@@ -345,8 +345,8 @@ class View(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] default_view: Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
-        :param pulumi.Input[Union['ViewFiltersArgs', 'ViewFiltersArgsDict']] filters: Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]] included_properties: Optional fields to be included in search results from this view. See Included Properties below for more details.
+        :param pulumi.Input[Union['ViewFiltersArgs', 'ViewFiltersArgsDict', 'outputs.ViewFilters']] filters: Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict', 'outputs.ViewIncludedProperty']]]] included_properties: Optional fields to be included in search results from this view. See Included Properties below for more details.
         :param pulumi.Input[_builtins.str] name: The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] scope: The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
@@ -410,8 +410,8 @@ class View(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_view: pulumi.Input[Optional[_builtins.bool]] = None,
-                 filters: pulumi.Input[Optional[Union['ViewFiltersArgs', 'ViewFiltersArgsDict']]] = None,
-                 included_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]]] = None,
+                 filters: pulumi.Input[Optional[Union['ViewFiltersArgs', 'ViewFiltersArgsDict', 'outputs.ViewFilters']]] = None,
+                 included_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict', 'outputs.ViewIncludedProperty']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  scope: pulumi.Input[Optional[_builtins.str]] = None,
@@ -446,8 +446,8 @@ class View(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             default_view: pulumi.Input[Optional[_builtins.bool]] = None,
-            filters: pulumi.Input[Optional[Union['ViewFiltersArgs', 'ViewFiltersArgsDict']]] = None,
-            included_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]]] = None,
+            filters: pulumi.Input[Optional[Union['ViewFiltersArgs', 'ViewFiltersArgsDict', 'outputs.ViewFilters']]] = None,
+            included_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict', 'outputs.ViewIncludedProperty']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             scope: pulumi.Input[Optional[_builtins.str]] = None,
@@ -462,8 +462,8 @@ class View(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Resource Explorer view.
         :param pulumi.Input[_builtins.bool] default_view: Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
-        :param pulumi.Input[Union['ViewFiltersArgs', 'ViewFiltersArgsDict']] filters: Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]] included_properties: Optional fields to be included in search results from this view. See Included Properties below for more details.
+        :param pulumi.Input[Union['ViewFiltersArgs', 'ViewFiltersArgsDict', 'outputs.ViewFilters']] filters: Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict', 'outputs.ViewIncludedProperty']]]] included_properties: Optional fields to be included in search results from this view. See Included Properties below for more details.
         :param pulumi.Input[_builtins.str] name: The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] scope: The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.

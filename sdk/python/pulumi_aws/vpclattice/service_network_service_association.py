@@ -387,7 +387,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             created_by: pulumi.Input[Optional[_builtins.str]] = None,
             custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-            dns_entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceNetworkServiceAssociationDnsEntryArgs', 'ServiceNetworkServiceAssociationDnsEntryArgsDict']]]]] = None,
+            dns_entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceNetworkServiceAssociationDnsEntryArgs', 'ServiceNetworkServiceAssociationDnsEntryArgsDict', 'outputs.ServiceNetworkServiceAssociationDnsEntry']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             service_identifier: pulumi.Input[Optional[_builtins.str]] = None,
             service_network_identifier: pulumi.Input[Optional[_builtins.str]] = None,
@@ -404,7 +404,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the Association.
         :param pulumi.Input[_builtins.str] created_by: Account that created the association.
         :param pulumi.Input[_builtins.str] custom_domain_name: Custom domain name of the service.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceNetworkServiceAssociationDnsEntryArgs', 'ServiceNetworkServiceAssociationDnsEntryArgsDict']]]] dns_entries: DNS name of the service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceNetworkServiceAssociationDnsEntryArgs', 'ServiceNetworkServiceAssociationDnsEntryArgsDict', 'outputs.ServiceNetworkServiceAssociationDnsEntry']]]] dns_entries: DNS name of the service.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] service_identifier: ID or Amazon Resource Identifier (ARN) of the service.
         :param pulumi.Input[_builtins.str] service_network_identifier: ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.

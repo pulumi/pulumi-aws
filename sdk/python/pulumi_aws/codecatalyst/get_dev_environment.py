@@ -221,7 +221,7 @@ def get_dev_environment(alias: Optional[_builtins.str] = None,
                         env_id: Optional[_builtins.str] = None,
                         project_name: Optional[_builtins.str] = None,
                         region: Optional[_builtins.str] = None,
-                        repositories: Optional[Sequence[Union['GetDevEnvironmentRepositoryArgs', 'GetDevEnvironmentRepositoryArgsDict']]] = None,
+                        repositories: Optional[Sequence[Union['GetDevEnvironmentRepositoryArgs', 'GetDevEnvironmentRepositoryArgsDict', 'outputs.GetDevEnvironmentRepositoryResult']]] = None,
                         space_name: Optional[_builtins.str] = None,
                         tags: Optional[Mapping[str, _builtins.str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDevEnvironmentResult:
@@ -247,7 +247,7 @@ def get_dev_environment(alias: Optional[_builtins.str] = None,
     :param _builtins.str env_id: - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
     :param _builtins.str project_name: The name of the project in the space.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Sequence[Union['GetDevEnvironmentRepositoryArgs', 'GetDevEnvironmentRepositoryArgsDict']] repositories: The source repository that contains the branch to clone into the Dev Environment.
+    :param Sequence[Union['GetDevEnvironmentRepositoryArgs', 'GetDevEnvironmentRepositoryArgsDict', 'outputs.GetDevEnvironmentRepositoryResult']] repositories: The source repository that contains the branch to clone into the Dev Environment.
     :param _builtins.str space_name: The name of the space.
     """
     __args__ = dict()
@@ -284,7 +284,7 @@ def get_dev_environment_output(alias: pulumi.Input[Optional[Optional[_builtins.s
                                env_id: pulumi.Input[Optional[_builtins.str]] = None,
                                project_name: pulumi.Input[Optional[_builtins.str]] = None,
                                region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                               repositories: pulumi.Input[Optional[Optional[Sequence[Union['GetDevEnvironmentRepositoryArgs', 'GetDevEnvironmentRepositoryArgsDict']]]]] = None,
+                               repositories: pulumi.Input[Optional[Optional[Sequence[Union['GetDevEnvironmentRepositoryArgs', 'GetDevEnvironmentRepositoryArgsDict', 'outputs.GetDevEnvironmentRepositoryResult']]]]] = None,
                                space_name: pulumi.Input[Optional[_builtins.str]] = None,
                                tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDevEnvironmentResult]:
@@ -310,7 +310,7 @@ def get_dev_environment_output(alias: pulumi.Input[Optional[Optional[_builtins.s
     :param _builtins.str env_id: - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
     :param _builtins.str project_name: The name of the project in the space.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Sequence[Union['GetDevEnvironmentRepositoryArgs', 'GetDevEnvironmentRepositoryArgsDict']] repositories: The source repository that contains the branch to clone into the Dev Environment.
+    :param Sequence[Union['GetDevEnvironmentRepositoryArgs', 'GetDevEnvironmentRepositoryArgsDict', 'outputs.GetDevEnvironmentRepositoryResult']] repositories: The source repository that contains the branch to clone into the Dev Environment.
     :param _builtins.str space_name: The name of the space.
     """
     __args__ = dict()

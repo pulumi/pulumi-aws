@@ -230,7 +230,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict', 'outputs.CatalogTableOptimizerConfiguration']]] = None,
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  table_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -324,7 +324,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: The Catalog ID of the table.
-        :param pulumi.Input[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict']] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
+        :param pulumi.Input[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict', 'outputs.CatalogTableOptimizerConfiguration']] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
         :param pulumi.Input[_builtins.str] database_name: The name of the database in the catalog in which the table resides.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] table_name: The name of the table.
@@ -437,7 +437,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict', 'outputs.CatalogTableOptimizerConfiguration']]] = None,
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  table_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -478,7 +478,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
-            configuration: pulumi.Input[Optional[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict']]] = None,
+            configuration: pulumi.Input[Optional[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict', 'outputs.CatalogTableOptimizerConfiguration']]] = None,
             database_name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             table_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -491,7 +491,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: The Catalog ID of the table.
-        :param pulumi.Input[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict']] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
+        :param pulumi.Input[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict', 'outputs.CatalogTableOptimizerConfiguration']] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
         :param pulumi.Input[_builtins.str] database_name: The name of the database in the catalog in which the table resides.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] table_name: The name of the table.

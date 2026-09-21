@@ -364,7 +364,7 @@ class DxGatewayAttachment(pulumi.CustomResource):
                  edge_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['DxGatewayAttachmentTimeoutsArgs', 'DxGatewayAttachmentTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DxGatewayAttachmentTimeoutsArgs', 'DxGatewayAttachmentTimeoutsArgsDict', 'outputs.DxGatewayAttachmentTimeouts']]] = None,
                  __props__=None):
         """
         Manages a Network Manager Direct Connect Gateway Attachment.
@@ -458,7 +458,7 @@ class DxGatewayAttachment(pulumi.CustomResource):
                  edge_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['DxGatewayAttachmentTimeoutsArgs', 'DxGatewayAttachmentTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DxGatewayAttachmentTimeoutsArgs', 'DxGatewayAttachmentTimeoutsArgsDict', 'outputs.DxGatewayAttachmentTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -511,7 +511,7 @@ class DxGatewayAttachment(pulumi.CustomResource):
             state: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['DxGatewayAttachmentTimeoutsArgs', 'DxGatewayAttachmentTimeoutsArgsDict']]] = None) -> 'DxGatewayAttachment':
+            timeouts: pulumi.Input[Optional[Union['DxGatewayAttachmentTimeoutsArgs', 'DxGatewayAttachmentTimeoutsArgsDict', 'outputs.DxGatewayAttachmentTimeouts']]] = None) -> 'DxGatewayAttachment':
         """
         Get an existing DxGatewayAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -265,7 +265,7 @@ class EventIntegration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 event_filter: pulumi.Input[Optional[Union['EventIntegrationEventFilterArgs', 'EventIntegrationEventFilterArgsDict']]] = None,
+                 event_filter: pulumi.Input[Optional[Union['EventIntegrationEventFilterArgs', 'EventIntegrationEventFilterArgsDict', 'outputs.EventIntegrationEventFilter']]] = None,
                  eventbridge_bus: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -304,7 +304,7 @@ class EventIntegration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the Event Integration.
-        :param pulumi.Input[Union['EventIntegrationEventFilterArgs', 'EventIntegrationEventFilterArgsDict']] event_filter: Block that defines the configuration information for the event filter. The Event Filter block is documented below.
+        :param pulumi.Input[Union['EventIntegrationEventFilterArgs', 'EventIntegrationEventFilterArgsDict', 'outputs.EventIntegrationEventFilter']] event_filter: Block that defines the configuration information for the event filter. The Event Filter block is documented below.
         :param pulumi.Input[_builtins.str] eventbridge_bus: EventBridge bus.
         :param pulumi.Input[_builtins.str] name: Name of the Event Integration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -362,7 +362,7 @@ class EventIntegration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 event_filter: pulumi.Input[Optional[Union['EventIntegrationEventFilterArgs', 'EventIntegrationEventFilterArgsDict']]] = None,
+                 event_filter: pulumi.Input[Optional[Union['EventIntegrationEventFilterArgs', 'EventIntegrationEventFilterArgsDict', 'outputs.EventIntegrationEventFilter']]] = None,
                  eventbridge_bus: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -400,7 +400,7 @@ class EventIntegration(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            event_filter: pulumi.Input[Optional[Union['EventIntegrationEventFilterArgs', 'EventIntegrationEventFilterArgsDict']]] = None,
+            event_filter: pulumi.Input[Optional[Union['EventIntegrationEventFilterArgs', 'EventIntegrationEventFilterArgsDict', 'outputs.EventIntegrationEventFilter']]] = None,
             eventbridge_bus: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -415,7 +415,7 @@ class EventIntegration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Event Integration.
         :param pulumi.Input[_builtins.str] description: Description of the Event Integration.
-        :param pulumi.Input[Union['EventIntegrationEventFilterArgs', 'EventIntegrationEventFilterArgsDict']] event_filter: Block that defines the configuration information for the event filter. The Event Filter block is documented below.
+        :param pulumi.Input[Union['EventIntegrationEventFilterArgs', 'EventIntegrationEventFilterArgsDict', 'outputs.EventIntegrationEventFilter']] event_filter: Block that defines the configuration information for the event filter. The Event Filter block is documented below.
         :param pulumi.Input[_builtins.str] eventbridge_bus: EventBridge bus.
         :param pulumi.Input[_builtins.str] name: Name of the Event Integration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

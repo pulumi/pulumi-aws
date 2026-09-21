@@ -285,7 +285,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
                  resource_configuration_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  service_network_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ServiceNetworkResourceAssociationTimeoutsArgs', 'ServiceNetworkResourceAssociationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ServiceNetworkResourceAssociationTimeoutsArgs', 'ServiceNetworkResourceAssociationTimeoutsArgsDict', 'outputs.ServiceNetworkResourceAssociationTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS VPC Lattice Service Network Resource Association.
@@ -379,7 +379,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
                  resource_configuration_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  service_network_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ServiceNetworkResourceAssociationTimeoutsArgs', 'ServiceNetworkResourceAssociationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ServiceNetworkResourceAssociationTimeoutsArgs', 'ServiceNetworkResourceAssociationTimeoutsArgsDict', 'outputs.ServiceNetworkResourceAssociationTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -413,14 +413,14 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            dns_entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceNetworkResourceAssociationDnsEntryArgs', 'ServiceNetworkResourceAssociationDnsEntryArgsDict']]]]] = None,
+            dns_entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceNetworkResourceAssociationDnsEntryArgs', 'ServiceNetworkResourceAssociationDnsEntryArgsDict', 'outputs.ServiceNetworkResourceAssociationDnsEntry']]]]] = None,
             private_dns_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             resource_configuration_identifier: pulumi.Input[Optional[_builtins.str]] = None,
             service_network_identifier: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['ServiceNetworkResourceAssociationTimeoutsArgs', 'ServiceNetworkResourceAssociationTimeoutsArgsDict']]] = None) -> 'ServiceNetworkResourceAssociation':
+            timeouts: pulumi.Input[Optional[Union['ServiceNetworkResourceAssociationTimeoutsArgs', 'ServiceNetworkResourceAssociationTimeoutsArgsDict', 'outputs.ServiceNetworkResourceAssociationTimeouts']]] = None) -> 'ServiceNetworkResourceAssociation':
         """
         Get an existing ServiceNetworkResourceAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -429,7 +429,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Service Network Resource Association.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceNetworkResourceAssociationDnsEntryArgs', 'ServiceNetworkResourceAssociationDnsEntryArgsDict']]]] dns_entries: DNS entry of the association in the service network.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceNetworkResourceAssociationDnsEntryArgs', 'ServiceNetworkResourceAssociationDnsEntryArgsDict', 'outputs.ServiceNetworkResourceAssociationDnsEntry']]]] dns_entries: DNS entry of the association in the service network.
         :param pulumi.Input[_builtins.bool] private_dns_enabled: Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resource_configuration_identifier` must have a custom domain name or a group domain for private DNS.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_configuration_identifier: Identifier of Resource Configuration to associate to the Service Network.

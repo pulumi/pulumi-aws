@@ -320,7 +320,7 @@ class Certificate(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  signing_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
                  template_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 validity: pulumi.Input[Optional[Union['CertificateValidityArgs', 'CertificateValidityArgsDict']]] = None,
+                 validity: pulumi.Input[Optional[Union['CertificateValidityArgs', 'CertificateValidityArgsDict', 'outputs.CertificateValidity']]] = None,
                  __props__=None):
         """
         Provides a resource to issue a certificate using AWS Certificate Manager Private Certificate Authority (ACM PCA).
@@ -388,7 +388,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] signing_algorithm: Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
         :param pulumi.Input[_builtins.str] template_arn: Template to use when issuing a certificate.
                See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
-        :param pulumi.Input[Union['CertificateValidityArgs', 'CertificateValidityArgsDict']] validity: Configures end of the validity period for the certificate. See validity block below.
+        :param pulumi.Input[Union['CertificateValidityArgs', 'CertificateValidityArgsDict', 'outputs.CertificateValidity']] validity: Configures end of the validity period for the certificate. See validity block below.
         """
         ...
     @overload
@@ -474,7 +474,7 @@ class Certificate(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  signing_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
                  template_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 validity: pulumi.Input[Optional[Union['CertificateValidityArgs', 'CertificateValidityArgsDict']]] = None,
+                 validity: pulumi.Input[Optional[Union['CertificateValidityArgs', 'CertificateValidityArgsDict', 'outputs.CertificateValidity']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -521,7 +521,7 @@ class Certificate(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             signing_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
             template_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            validity: pulumi.Input[Optional[Union['CertificateValidityArgs', 'CertificateValidityArgsDict']]] = None) -> 'Certificate':
+            validity: pulumi.Input[Optional[Union['CertificateValidityArgs', 'CertificateValidityArgsDict', 'outputs.CertificateValidity']]] = None) -> 'Certificate':
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -539,7 +539,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] signing_algorithm: Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
         :param pulumi.Input[_builtins.str] template_arn: Template to use when issuing a certificate.
                See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
-        :param pulumi.Input[Union['CertificateValidityArgs', 'CertificateValidityArgsDict']] validity: Configures end of the validity period for the certificate. See validity block below.
+        :param pulumi.Input[Union['CertificateValidityArgs', 'CertificateValidityArgsDict', 'outputs.CertificateValidity']] validity: Configures end of the validity period for the certificate. See validity block below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -295,13 +295,13 @@ class Monitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 local_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorLocalResourceArgs', 'MonitorLocalResourceArgsDict']]]]] = None,
+                 local_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorLocalResourceArgs', 'MonitorLocalResourceArgsDict', 'outputs.MonitorLocalResource']]]]] = None,
                  monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 remote_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorRemoteResourceArgs', 'MonitorRemoteResourceArgsDict']]]]] = None,
+                 remote_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorRemoteResourceArgs', 'MonitorRemoteResourceArgsDict', 'outputs.MonitorRemoteResource']]]]] = None,
                  scope_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['MonitorTimeoutsArgs', 'MonitorTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['MonitorTimeoutsArgs', 'MonitorTimeoutsArgsDict', 'outputs.MonitorTimeouts']]] = None,
                  __props__=None):
         """
         Manages a Network Flow Monitor Monitor.
@@ -346,10 +346,10 @@ class Monitor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorLocalResourceArgs', 'MonitorLocalResourceArgsDict']]]] local_resources: The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorLocalResourceArgs', 'MonitorLocalResourceArgsDict', 'outputs.MonitorLocalResource']]]] local_resources: The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
         :param pulumi.Input[_builtins.str] monitor_name: The name of the monitor. Cannot be changed after creation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorRemoteResourceArgs', 'MonitorRemoteResourceArgsDict']]]] remote_resources: The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorRemoteResourceArgs', 'MonitorRemoteResourceArgsDict', 'outputs.MonitorRemoteResource']]]] remote_resources: The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource.
         :param pulumi.Input[_builtins.str] scope_arn: ARN of the scope for the monitor. Cannot be changed after creation.
                
                The following arguments are optional:
@@ -417,13 +417,13 @@ class Monitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 local_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorLocalResourceArgs', 'MonitorLocalResourceArgsDict']]]]] = None,
+                 local_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorLocalResourceArgs', 'MonitorLocalResourceArgsDict', 'outputs.MonitorLocalResource']]]]] = None,
                  monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 remote_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorRemoteResourceArgs', 'MonitorRemoteResourceArgsDict']]]]] = None,
+                 remote_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorRemoteResourceArgs', 'MonitorRemoteResourceArgsDict', 'outputs.MonitorRemoteResource']]]]] = None,
                  scope_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['MonitorTimeoutsArgs', 'MonitorTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['MonitorTimeoutsArgs', 'MonitorTimeoutsArgsDict', 'outputs.MonitorTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -458,15 +458,15 @@ class Monitor(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            local_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorLocalResourceArgs', 'MonitorLocalResourceArgsDict']]]]] = None,
+            local_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorLocalResourceArgs', 'MonitorLocalResourceArgsDict', 'outputs.MonitorLocalResource']]]]] = None,
             monitor_arn: pulumi.Input[Optional[_builtins.str]] = None,
             monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            remote_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorRemoteResourceArgs', 'MonitorRemoteResourceArgsDict']]]]] = None,
+            remote_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorRemoteResourceArgs', 'MonitorRemoteResourceArgsDict', 'outputs.MonitorRemoteResource']]]]] = None,
             scope_arn: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['MonitorTimeoutsArgs', 'MonitorTimeoutsArgsDict']]] = None) -> 'Monitor':
+            timeouts: pulumi.Input[Optional[Union['MonitorTimeoutsArgs', 'MonitorTimeoutsArgsDict', 'outputs.MonitorTimeouts']]] = None) -> 'Monitor':
         """
         Get an existing Monitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -474,11 +474,11 @@ class Monitor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorLocalResourceArgs', 'MonitorLocalResourceArgsDict']]]] local_resources: The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorLocalResourceArgs', 'MonitorLocalResourceArgsDict', 'outputs.MonitorLocalResource']]]] local_resources: The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
         :param pulumi.Input[_builtins.str] monitor_arn: ARN of the monitor.
         :param pulumi.Input[_builtins.str] monitor_name: The name of the monitor. Cannot be changed after creation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorRemoteResourceArgs', 'MonitorRemoteResourceArgsDict']]]] remote_resources: The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorRemoteResourceArgs', 'MonitorRemoteResourceArgsDict', 'outputs.MonitorRemoteResource']]]] remote_resources: The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource.
         :param pulumi.Input[_builtins.str] scope_arn: ARN of the scope for the monitor. Cannot be changed after creation.
                
                The following arguments are optional:

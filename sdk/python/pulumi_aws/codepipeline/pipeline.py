@@ -415,16 +415,16 @@ class Pipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact_stores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineArtifactStoreArgs', 'PipelineArtifactStoreArgsDict']]]]] = None,
+                 artifact_stores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineArtifactStoreArgs', 'PipelineArtifactStoreArgsDict', 'outputs.PipelineArtifactStore']]]]] = None,
                  execution_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  pipeline_type: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineStageArgs', 'PipelineStageArgsDict']]]]] = None,
+                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineStageArgs', 'PipelineStageArgsDict', 'outputs.PipelineStage']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineTriggerArgs', 'PipelineTriggerArgsDict']]]]] = None,
-                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineVariableArgs', 'PipelineVariableArgsDict']]]]] = None,
+                 triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineTriggerArgs', 'PipelineTriggerArgsDict', 'outputs.PipelineTrigger']]]]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineVariableArgs', 'PipelineVariableArgsDict', 'outputs.PipelineVariable']]]]] = None,
                  __props__=None):
         """
         Provides a CodePipeline.
@@ -576,16 +576,16 @@ class Pipeline(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineArtifactStoreArgs', 'PipelineArtifactStoreArgsDict']]]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineArtifactStoreArgs', 'PipelineArtifactStoreArgsDict', 'outputs.PipelineArtifactStore']]]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
         :param pulumi.Input[_builtins.str] execution_mode: The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
         :param pulumi.Input[_builtins.str] name: The name of the pipeline.
         :param pulumi.Input[_builtins.str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineStageArgs', 'PipelineStageArgsDict']]]] stages: A stage block. Stages are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineStageArgs', 'PipelineStageArgsDict', 'outputs.PipelineStage']]]] stages: A stage block. Stages are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineTriggerArgs', 'PipelineTriggerArgsDict']]]] triggers: A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineVariableArgs', 'PipelineVariableArgsDict']]]] variables: A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineTriggerArgs', 'PipelineTriggerArgsDict', 'outputs.PipelineTrigger']]]] triggers: A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineVariableArgs', 'PipelineVariableArgsDict', 'outputs.PipelineVariable']]]] variables: A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
                
                **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         """
@@ -758,16 +758,16 @@ class Pipeline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact_stores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineArtifactStoreArgs', 'PipelineArtifactStoreArgsDict']]]]] = None,
+                 artifact_stores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineArtifactStoreArgs', 'PipelineArtifactStoreArgsDict', 'outputs.PipelineArtifactStore']]]]] = None,
                  execution_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  pipeline_type: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineStageArgs', 'PipelineStageArgsDict']]]]] = None,
+                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineStageArgs', 'PipelineStageArgsDict', 'outputs.PipelineStage']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineTriggerArgs', 'PipelineTriggerArgsDict']]]]] = None,
-                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineVariableArgs', 'PipelineVariableArgsDict']]]]] = None,
+                 triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineTriggerArgs', 'PipelineTriggerArgsDict', 'outputs.PipelineTrigger']]]]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineVariableArgs', 'PipelineVariableArgsDict', 'outputs.PipelineVariable']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -807,18 +807,18 @@ class Pipeline(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            artifact_stores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineArtifactStoreArgs', 'PipelineArtifactStoreArgsDict']]]]] = None,
+            artifact_stores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineArtifactStoreArgs', 'PipelineArtifactStoreArgsDict', 'outputs.PipelineArtifactStore']]]]] = None,
             execution_mode: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             pipeline_type: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineStageArgs', 'PipelineStageArgsDict']]]]] = None,
+            stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineStageArgs', 'PipelineStageArgsDict', 'outputs.PipelineStage']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            trigger_alls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineTriggerAllArgs', 'PipelineTriggerAllArgsDict']]]]] = None,
-            triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineTriggerArgs', 'PipelineTriggerArgsDict']]]]] = None,
-            variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineVariableArgs', 'PipelineVariableArgsDict']]]]] = None) -> 'Pipeline':
+            trigger_alls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineTriggerAllArgs', 'PipelineTriggerAllArgsDict', 'outputs.PipelineTriggerAll']]]]] = None,
+            triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineTriggerArgs', 'PipelineTriggerArgsDict', 'outputs.PipelineTrigger']]]]] = None,
+            variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineVariableArgs', 'PipelineVariableArgsDict', 'outputs.PipelineVariable']]]]] = None) -> 'Pipeline':
         """
         Get an existing Pipeline resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -827,18 +827,18 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: Codepipeline ARN.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineArtifactStoreArgs', 'PipelineArtifactStoreArgsDict']]]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineArtifactStoreArgs', 'PipelineArtifactStoreArgsDict', 'outputs.PipelineArtifactStore']]]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
         :param pulumi.Input[_builtins.str] execution_mode: The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
         :param pulumi.Input[_builtins.str] name: The name of the pipeline.
         :param pulumi.Input[_builtins.str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineStageArgs', 'PipelineStageArgsDict']]]] stages: A stage block. Stages are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineStageArgs', 'PipelineStageArgsDict', 'outputs.PipelineStage']]]] stages: A stage block. Stages are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineTriggerAllArgs', 'PipelineTriggerAllArgsDict']]]] trigger_alls: A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineTriggerArgs', 'PipelineTriggerArgsDict']]]] triggers: A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineVariableArgs', 'PipelineVariableArgsDict']]]] variables: A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineTriggerAllArgs', 'PipelineTriggerAllArgsDict', 'outputs.PipelineTriggerAll']]]] trigger_alls: A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineTriggerArgs', 'PipelineTriggerArgsDict', 'outputs.PipelineTrigger']]]] triggers: A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineVariableArgs', 'PipelineVariableArgsDict', 'outputs.PipelineVariable']]]] variables: A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
                
                **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         """

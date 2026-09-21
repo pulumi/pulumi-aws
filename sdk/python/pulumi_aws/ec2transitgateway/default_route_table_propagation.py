@@ -173,7 +173,7 @@ class DefaultRouteTablePropagation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['DefaultRouteTablePropagationTimeoutsArgs', 'DefaultRouteTablePropagationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DefaultRouteTablePropagationTimeoutsArgs', 'DefaultRouteTablePropagationTimeoutsArgsDict', 'outputs.DefaultRouteTablePropagationTimeouts']]] = None,
                  transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  transit_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -239,7 +239,7 @@ class DefaultRouteTablePropagation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['DefaultRouteTablePropagationTimeoutsArgs', 'DefaultRouteTablePropagationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DefaultRouteTablePropagationTimeoutsArgs', 'DefaultRouteTablePropagationTimeoutsArgsDict', 'outputs.DefaultRouteTablePropagationTimeouts']]] = None,
                  transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  transit_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -272,7 +272,7 @@ class DefaultRouteTablePropagation(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             original_default_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['DefaultRouteTablePropagationTimeoutsArgs', 'DefaultRouteTablePropagationTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['DefaultRouteTablePropagationTimeoutsArgs', 'DefaultRouteTablePropagationTimeoutsArgsDict', 'outputs.DefaultRouteTablePropagationTimeouts']]] = None,
             transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
             transit_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'DefaultRouteTablePropagation':
         """

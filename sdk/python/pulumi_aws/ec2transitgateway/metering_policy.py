@@ -252,7 +252,7 @@ class MeteringPolicy(pulumi.CustomResource):
                  middlebox_attachment_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['MeteringPolicyTimeoutsArgs', 'MeteringPolicyTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['MeteringPolicyTimeoutsArgs', 'MeteringPolicyTimeoutsArgsDict', 'outputs.MeteringPolicyTimeouts']]] = None,
                  transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -398,7 +398,7 @@ class MeteringPolicy(pulumi.CustomResource):
                  middlebox_attachment_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['MeteringPolicyTimeoutsArgs', 'MeteringPolicyTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['MeteringPolicyTimeoutsArgs', 'MeteringPolicyTimeoutsArgsDict', 'outputs.MeteringPolicyTimeouts']]] = None,
                  transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -434,7 +434,7 @@ class MeteringPolicy(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['MeteringPolicyTimeoutsArgs', 'MeteringPolicyTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['MeteringPolicyTimeoutsArgs', 'MeteringPolicyTimeoutsArgsDict', 'outputs.MeteringPolicyTimeouts']]] = None,
             transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
             transit_gateway_metering_policy_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'MeteringPolicy':
         """

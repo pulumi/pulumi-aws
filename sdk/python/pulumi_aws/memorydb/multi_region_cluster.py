@@ -485,7 +485,7 @@ class MultiRegionCluster(pulumi.CustomResource):
                  num_shards: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['MultiRegionClusterTimeoutsArgs', 'MultiRegionClusterTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['MultiRegionClusterTimeoutsArgs', 'MultiRegionClusterTimeoutsArgsDict', 'outputs.MultiRegionClusterTimeouts']]] = None,
                  tls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  update_strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -604,7 +604,7 @@ class MultiRegionCluster(pulumi.CustomResource):
                  num_shards: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['MultiRegionClusterTimeoutsArgs', 'MultiRegionClusterTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['MultiRegionClusterTimeoutsArgs', 'MultiRegionClusterTimeoutsArgsDict', 'outputs.MultiRegionClusterTimeouts']]] = None,
                  tls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  update_strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -659,7 +659,7 @@ class MultiRegionCluster(pulumi.CustomResource):
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['MultiRegionClusterTimeoutsArgs', 'MultiRegionClusterTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['MultiRegionClusterTimeoutsArgs', 'MultiRegionClusterTimeoutsArgsDict', 'outputs.MultiRegionClusterTimeouts']]] = None,
             tls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             update_strategy: pulumi.Input[Optional[_builtins.str]] = None) -> 'MultiRegionCluster':
         """

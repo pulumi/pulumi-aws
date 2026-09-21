@@ -153,11 +153,11 @@ class AwaitableGetServerlessSecurityConfigResult(GetServerlessSecurityConfigResu
             type=self.type)
 
 
-def get_serverless_security_config(iam_federation_options: Optional[Sequence[Union['GetServerlessSecurityConfigIamFederationOptionArgs', 'GetServerlessSecurityConfigIamFederationOptionArgsDict']]] = None,
-                                   iam_identity_center_options: Optional[Sequence[Union['GetServerlessSecurityConfigIamIdentityCenterOptionArgs', 'GetServerlessSecurityConfigIamIdentityCenterOptionArgsDict']]] = None,
+def get_serverless_security_config(iam_federation_options: Optional[Sequence[Union['GetServerlessSecurityConfigIamFederationOptionArgs', 'GetServerlessSecurityConfigIamFederationOptionArgsDict', 'outputs.GetServerlessSecurityConfigIamFederationOptionResult']]] = None,
+                                   iam_identity_center_options: Optional[Sequence[Union['GetServerlessSecurityConfigIamIdentityCenterOptionArgs', 'GetServerlessSecurityConfigIamIdentityCenterOptionArgsDict', 'outputs.GetServerlessSecurityConfigIamIdentityCenterOptionResult']]] = None,
                                    id: Optional[_builtins.str] = None,
                                    region: Optional[_builtins.str] = None,
-                                   saml_options: Optional[Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict']]] = None,
+                                   saml_options: Optional[Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict', 'outputs.GetServerlessSecurityConfigSamlOptionResult']]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerlessSecurityConfigResult:
     """
     Data source for managing an AWS OpenSearch Serverless Security Config.
@@ -174,11 +174,11 @@ def get_serverless_security_config(iam_federation_options: Optional[Sequence[Uni
     ```
 
 
-    :param Sequence[Union['GetServerlessSecurityConfigIamFederationOptionArgs', 'GetServerlessSecurityConfigIamFederationOptionArgsDict']] iam_federation_options: IAM Federation options for the security configuration.
-    :param Sequence[Union['GetServerlessSecurityConfigIamIdentityCenterOptionArgs', 'GetServerlessSecurityConfigIamIdentityCenterOptionArgsDict']] iam_identity_center_options: IAM Identity Center options for the security configuration.
+    :param Sequence[Union['GetServerlessSecurityConfigIamFederationOptionArgs', 'GetServerlessSecurityConfigIamFederationOptionArgsDict', 'outputs.GetServerlessSecurityConfigIamFederationOptionResult']] iam_federation_options: IAM Federation options for the security configuration.
+    :param Sequence[Union['GetServerlessSecurityConfigIamIdentityCenterOptionArgs', 'GetServerlessSecurityConfigIamIdentityCenterOptionArgsDict', 'outputs.GetServerlessSecurityConfigIamIdentityCenterOptionResult']] iam_identity_center_options: IAM Identity Center options for the security configuration.
     :param _builtins.str id: Unique identifier of the security configuration.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict']] saml_options: SAML options for the security configuration.
+    :param Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict', 'outputs.GetServerlessSecurityConfigSamlOptionResult']] saml_options: SAML options for the security configuration.
     """
     __args__ = dict()
     __args__['iamFederationOptions'] = iam_federation_options
@@ -200,11 +200,11 @@ def get_serverless_security_config(iam_federation_options: Optional[Sequence[Uni
         region=pulumi.get(__ret__, 'region'),
         saml_options=pulumi.get(__ret__, 'saml_options'),
         type=pulumi.get(__ret__, 'type'))
-def get_serverless_security_config_output(iam_federation_options: pulumi.Input[Optional[Optional[Sequence[Union['GetServerlessSecurityConfigIamFederationOptionArgs', 'GetServerlessSecurityConfigIamFederationOptionArgsDict']]]]] = None,
-                                          iam_identity_center_options: pulumi.Input[Optional[Optional[Sequence[Union['GetServerlessSecurityConfigIamIdentityCenterOptionArgs', 'GetServerlessSecurityConfigIamIdentityCenterOptionArgsDict']]]]] = None,
+def get_serverless_security_config_output(iam_federation_options: pulumi.Input[Optional[Optional[Sequence[Union['GetServerlessSecurityConfigIamFederationOptionArgs', 'GetServerlessSecurityConfigIamFederationOptionArgsDict', 'outputs.GetServerlessSecurityConfigIamFederationOptionResult']]]]] = None,
+                                          iam_identity_center_options: pulumi.Input[Optional[Optional[Sequence[Union['GetServerlessSecurityConfigIamIdentityCenterOptionArgs', 'GetServerlessSecurityConfigIamIdentityCenterOptionArgsDict', 'outputs.GetServerlessSecurityConfigIamIdentityCenterOptionResult']]]]] = None,
                                           id: pulumi.Input[Optional[_builtins.str]] = None,
                                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                          saml_options: pulumi.Input[Optional[Optional[Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict']]]]] = None,
+                                          saml_options: pulumi.Input[Optional[Optional[Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict', 'outputs.GetServerlessSecurityConfigSamlOptionResult']]]]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessSecurityConfigResult]:
     """
     Data source for managing an AWS OpenSearch Serverless Security Config.
@@ -221,11 +221,11 @@ def get_serverless_security_config_output(iam_federation_options: pulumi.Input[O
     ```
 
 
-    :param Sequence[Union['GetServerlessSecurityConfigIamFederationOptionArgs', 'GetServerlessSecurityConfigIamFederationOptionArgsDict']] iam_federation_options: IAM Federation options for the security configuration.
-    :param Sequence[Union['GetServerlessSecurityConfigIamIdentityCenterOptionArgs', 'GetServerlessSecurityConfigIamIdentityCenterOptionArgsDict']] iam_identity_center_options: IAM Identity Center options for the security configuration.
+    :param Sequence[Union['GetServerlessSecurityConfigIamFederationOptionArgs', 'GetServerlessSecurityConfigIamFederationOptionArgsDict', 'outputs.GetServerlessSecurityConfigIamFederationOptionResult']] iam_federation_options: IAM Federation options for the security configuration.
+    :param Sequence[Union['GetServerlessSecurityConfigIamIdentityCenterOptionArgs', 'GetServerlessSecurityConfigIamIdentityCenterOptionArgsDict', 'outputs.GetServerlessSecurityConfigIamIdentityCenterOptionResult']] iam_identity_center_options: IAM Identity Center options for the security configuration.
     :param _builtins.str id: Unique identifier of the security configuration.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict']] saml_options: SAML options for the security configuration.
+    :param Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict', 'outputs.GetServerlessSecurityConfigSamlOptionResult']] saml_options: SAML options for the security configuration.
     """
     __args__ = dict()
     __args__['iamFederationOptions'] = iam_federation_options

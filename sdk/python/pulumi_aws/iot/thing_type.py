@@ -236,7 +236,7 @@ class ThingType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deprecated: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['ThingTypePropertiesArgs', 'ThingTypePropertiesArgsDict']]] = None,
+                 properties: pulumi.Input[Optional[Union['ThingTypePropertiesArgs', 'ThingTypePropertiesArgsDict', 'outputs.ThingTypeProperties']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -265,7 +265,7 @@ class ThingType(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] deprecated: Whether the thing type is deprecated. If true, no new things could be associated with this type.
         :param pulumi.Input[_builtins.str] name: The name of the thing type.
-        :param pulumi.Input[Union['ThingTypePropertiesArgs', 'ThingTypePropertiesArgsDict']] properties: , Configuration block that can contain the following properties of the thing type:
+        :param pulumi.Input[Union['ThingTypePropertiesArgs', 'ThingTypePropertiesArgsDict', 'outputs.ThingTypeProperties']] properties: , Configuration block that can contain the following properties of the thing type:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
@@ -313,7 +313,7 @@ class ThingType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deprecated: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['ThingTypePropertiesArgs', 'ThingTypePropertiesArgsDict']]] = None,
+                 properties: pulumi.Input[Optional[Union['ThingTypePropertiesArgs', 'ThingTypePropertiesArgsDict', 'outputs.ThingTypeProperties']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -345,7 +345,7 @@ class ThingType(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             deprecated: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            properties: pulumi.Input[Optional[Union['ThingTypePropertiesArgs', 'ThingTypePropertiesArgsDict']]] = None,
+            properties: pulumi.Input[Optional[Union['ThingTypePropertiesArgs', 'ThingTypePropertiesArgsDict', 'outputs.ThingTypeProperties']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ThingType':
@@ -359,7 +359,7 @@ class ThingType(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: The ARN of the created AWS IoT Thing Type.
         :param pulumi.Input[_builtins.bool] deprecated: Whether the thing type is deprecated. If true, no new things could be associated with this type.
         :param pulumi.Input[_builtins.str] name: The name of the thing type.
-        :param pulumi.Input[Union['ThingTypePropertiesArgs', 'ThingTypePropertiesArgsDict']] properties: , Configuration block that can contain the following properties of the thing type:
+        :param pulumi.Input[Union['ThingTypePropertiesArgs', 'ThingTypePropertiesArgsDict', 'outputs.ThingTypeProperties']] properties: , Configuration block that can contain the following properties of the thing type:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

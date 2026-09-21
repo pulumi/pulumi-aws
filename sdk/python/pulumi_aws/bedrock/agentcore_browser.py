@@ -441,17 +441,17 @@ class AgentcoreBrowser(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 browser_signing: pulumi.Input[Optional[Union['AgentcoreBrowserBrowserSigningArgs', 'AgentcoreBrowserBrowserSigningArgsDict']]] = None,
-                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreBrowserCertificateArgs', 'AgentcoreBrowserCertificateArgsDict']]]]] = None,
+                 browser_signing: pulumi.Input[Optional[Union['AgentcoreBrowserBrowserSigningArgs', 'AgentcoreBrowserBrowserSigningArgsDict', 'outputs.AgentcoreBrowserBrowserSigning']]] = None,
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreBrowserCertificateArgs', 'AgentcoreBrowserCertificateArgsDict', 'outputs.AgentcoreBrowserCertificate']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 enterprise_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreBrowserEnterprisePolicyArgs', 'AgentcoreBrowserEnterprisePolicyArgsDict']]]]] = None,
+                 enterprise_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreBrowserEnterprisePolicyArgs', 'AgentcoreBrowserEnterprisePolicyArgsDict', 'outputs.AgentcoreBrowserEnterprisePolicy']]]]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_configuration: pulumi.Input[Optional[Union['AgentcoreBrowserNetworkConfigurationArgs', 'AgentcoreBrowserNetworkConfigurationArgsDict']]] = None,
-                 recording: pulumi.Input[Optional[Union['AgentcoreBrowserRecordingArgs', 'AgentcoreBrowserRecordingArgsDict']]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['AgentcoreBrowserNetworkConfigurationArgs', 'AgentcoreBrowserNetworkConfigurationArgsDict', 'outputs.AgentcoreBrowserNetworkConfiguration']]] = None,
+                 recording: pulumi.Input[Optional[Union['AgentcoreBrowserRecordingArgs', 'AgentcoreBrowserRecordingArgsDict', 'outputs.AgentcoreBrowserRecording']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentcoreBrowserTimeoutsArgs', 'AgentcoreBrowserTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcoreBrowserTimeoutsArgs', 'AgentcoreBrowserTimeoutsArgsDict', 'outputs.AgentcoreBrowserTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS Bedrock AgentCore Browser. Browser provides AI agents with web browsing capabilities, allowing them to navigate websites, extract information, and interact with web content in a controlled environment.
@@ -538,16 +538,16 @@ class AgentcoreBrowser(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AgentcoreBrowserBrowserSigningArgs', 'AgentcoreBrowserBrowserSigningArgsDict']] browser_signing: Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browser_signing` below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreBrowserCertificateArgs', 'AgentcoreBrowserCertificateArgsDict']]]] certificates: Certificates to install in the browser. See `certificate` below.
+        :param pulumi.Input[Union['AgentcoreBrowserBrowserSigningArgs', 'AgentcoreBrowserBrowserSigningArgsDict', 'outputs.AgentcoreBrowserBrowserSigning']] browser_signing: Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browser_signing` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreBrowserCertificateArgs', 'AgentcoreBrowserCertificateArgsDict', 'outputs.AgentcoreBrowserCertificate']]]] certificates: Certificates to install in the browser. See `certificate` below.
         :param pulumi.Input[_builtins.str] description: Description of the browser.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreBrowserEnterprisePolicyArgs', 'AgentcoreBrowserEnterprisePolicyArgsDict']]]] enterprise_policies: Enterprise policy files to apply to the browser. See `enterprise_policy` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreBrowserEnterprisePolicyArgs', 'AgentcoreBrowserEnterprisePolicyArgsDict', 'outputs.AgentcoreBrowserEnterprisePolicy']]]] enterprise_policies: Enterprise policy files to apply to the browser. See `enterprise_policy` below.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the browser assumes for execution.
         :param pulumi.Input[_builtins.str] name: Name of the browser.
-        :param pulumi.Input[Union['AgentcoreBrowserNetworkConfigurationArgs', 'AgentcoreBrowserNetworkConfigurationArgsDict']] network_configuration: Network configuration for the browser. See `network_configuration` below.
+        :param pulumi.Input[Union['AgentcoreBrowserNetworkConfigurationArgs', 'AgentcoreBrowserNetworkConfigurationArgsDict', 'outputs.AgentcoreBrowserNetworkConfiguration']] network_configuration: Network configuration for the browser. See `network_configuration` below.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['AgentcoreBrowserRecordingArgs', 'AgentcoreBrowserRecordingArgsDict']] recording: Recording configuration for browser sessions. See `recording` below.
+        :param pulumi.Input[Union['AgentcoreBrowserRecordingArgs', 'AgentcoreBrowserRecordingArgsDict', 'outputs.AgentcoreBrowserRecording']] recording: Recording configuration for browser sessions. See `recording` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -655,17 +655,17 @@ class AgentcoreBrowser(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 browser_signing: pulumi.Input[Optional[Union['AgentcoreBrowserBrowserSigningArgs', 'AgentcoreBrowserBrowserSigningArgsDict']]] = None,
-                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreBrowserCertificateArgs', 'AgentcoreBrowserCertificateArgsDict']]]]] = None,
+                 browser_signing: pulumi.Input[Optional[Union['AgentcoreBrowserBrowserSigningArgs', 'AgentcoreBrowserBrowserSigningArgsDict', 'outputs.AgentcoreBrowserBrowserSigning']]] = None,
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreBrowserCertificateArgs', 'AgentcoreBrowserCertificateArgsDict', 'outputs.AgentcoreBrowserCertificate']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 enterprise_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreBrowserEnterprisePolicyArgs', 'AgentcoreBrowserEnterprisePolicyArgsDict']]]]] = None,
+                 enterprise_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreBrowserEnterprisePolicyArgs', 'AgentcoreBrowserEnterprisePolicyArgsDict', 'outputs.AgentcoreBrowserEnterprisePolicy']]]]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_configuration: pulumi.Input[Optional[Union['AgentcoreBrowserNetworkConfigurationArgs', 'AgentcoreBrowserNetworkConfigurationArgsDict']]] = None,
-                 recording: pulumi.Input[Optional[Union['AgentcoreBrowserRecordingArgs', 'AgentcoreBrowserRecordingArgsDict']]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['AgentcoreBrowserNetworkConfigurationArgs', 'AgentcoreBrowserNetworkConfigurationArgsDict', 'outputs.AgentcoreBrowserNetworkConfiguration']]] = None,
+                 recording: pulumi.Input[Optional[Union['AgentcoreBrowserRecordingArgs', 'AgentcoreBrowserRecordingArgsDict', 'outputs.AgentcoreBrowserRecording']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentcoreBrowserTimeoutsArgs', 'AgentcoreBrowserTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcoreBrowserTimeoutsArgs', 'AgentcoreBrowserTimeoutsArgsDict', 'outputs.AgentcoreBrowserTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -703,18 +703,18 @@ class AgentcoreBrowser(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             browser_arn: pulumi.Input[Optional[_builtins.str]] = None,
             browser_id: pulumi.Input[Optional[_builtins.str]] = None,
-            browser_signing: pulumi.Input[Optional[Union['AgentcoreBrowserBrowserSigningArgs', 'AgentcoreBrowserBrowserSigningArgsDict']]] = None,
-            certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreBrowserCertificateArgs', 'AgentcoreBrowserCertificateArgsDict']]]]] = None,
+            browser_signing: pulumi.Input[Optional[Union['AgentcoreBrowserBrowserSigningArgs', 'AgentcoreBrowserBrowserSigningArgsDict', 'outputs.AgentcoreBrowserBrowserSigning']]] = None,
+            certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreBrowserCertificateArgs', 'AgentcoreBrowserCertificateArgsDict', 'outputs.AgentcoreBrowserCertificate']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            enterprise_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreBrowserEnterprisePolicyArgs', 'AgentcoreBrowserEnterprisePolicyArgsDict']]]]] = None,
+            enterprise_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreBrowserEnterprisePolicyArgs', 'AgentcoreBrowserEnterprisePolicyArgsDict', 'outputs.AgentcoreBrowserEnterprisePolicy']]]]] = None,
             execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            network_configuration: pulumi.Input[Optional[Union['AgentcoreBrowserNetworkConfigurationArgs', 'AgentcoreBrowserNetworkConfigurationArgsDict']]] = None,
-            recording: pulumi.Input[Optional[Union['AgentcoreBrowserRecordingArgs', 'AgentcoreBrowserRecordingArgsDict']]] = None,
+            network_configuration: pulumi.Input[Optional[Union['AgentcoreBrowserNetworkConfigurationArgs', 'AgentcoreBrowserNetworkConfigurationArgsDict', 'outputs.AgentcoreBrowserNetworkConfiguration']]] = None,
+            recording: pulumi.Input[Optional[Union['AgentcoreBrowserRecordingArgs', 'AgentcoreBrowserRecordingArgsDict', 'outputs.AgentcoreBrowserRecording']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['AgentcoreBrowserTimeoutsArgs', 'AgentcoreBrowserTimeoutsArgsDict']]] = None) -> 'AgentcoreBrowser':
+            timeouts: pulumi.Input[Optional[Union['AgentcoreBrowserTimeoutsArgs', 'AgentcoreBrowserTimeoutsArgsDict', 'outputs.AgentcoreBrowserTimeouts']]] = None) -> 'AgentcoreBrowser':
         """
         Get an existing AgentcoreBrowser resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -724,16 +724,16 @@ class AgentcoreBrowser(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] browser_arn: ARN of the Browser.
         :param pulumi.Input[_builtins.str] browser_id: Unique identifier of the Browser.
-        :param pulumi.Input[Union['AgentcoreBrowserBrowserSigningArgs', 'AgentcoreBrowserBrowserSigningArgsDict']] browser_signing: Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browser_signing` below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreBrowserCertificateArgs', 'AgentcoreBrowserCertificateArgsDict']]]] certificates: Certificates to install in the browser. See `certificate` below.
+        :param pulumi.Input[Union['AgentcoreBrowserBrowserSigningArgs', 'AgentcoreBrowserBrowserSigningArgsDict', 'outputs.AgentcoreBrowserBrowserSigning']] browser_signing: Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browser_signing` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreBrowserCertificateArgs', 'AgentcoreBrowserCertificateArgsDict', 'outputs.AgentcoreBrowserCertificate']]]] certificates: Certificates to install in the browser. See `certificate` below.
         :param pulumi.Input[_builtins.str] description: Description of the browser.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreBrowserEnterprisePolicyArgs', 'AgentcoreBrowserEnterprisePolicyArgsDict']]]] enterprise_policies: Enterprise policy files to apply to the browser. See `enterprise_policy` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreBrowserEnterprisePolicyArgs', 'AgentcoreBrowserEnterprisePolicyArgsDict', 'outputs.AgentcoreBrowserEnterprisePolicy']]]] enterprise_policies: Enterprise policy files to apply to the browser. See `enterprise_policy` below.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the browser assumes for execution.
         :param pulumi.Input[_builtins.str] name: Name of the browser.
-        :param pulumi.Input[Union['AgentcoreBrowserNetworkConfigurationArgs', 'AgentcoreBrowserNetworkConfigurationArgsDict']] network_configuration: Network configuration for the browser. See `network_configuration` below.
+        :param pulumi.Input[Union['AgentcoreBrowserNetworkConfigurationArgs', 'AgentcoreBrowserNetworkConfigurationArgsDict', 'outputs.AgentcoreBrowserNetworkConfiguration']] network_configuration: Network configuration for the browser. See `network_configuration` below.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['AgentcoreBrowserRecordingArgs', 'AgentcoreBrowserRecordingArgsDict']] recording: Recording configuration for browser sessions. See `recording` below.
+        :param pulumi.Input[Union['AgentcoreBrowserRecordingArgs', 'AgentcoreBrowserRecordingArgsDict', 'outputs.AgentcoreBrowserRecording']] recording: Recording configuration for browser sessions. See `recording` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

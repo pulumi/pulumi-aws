@@ -171,7 +171,7 @@ class ClusterCapacityProviders(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 default_capacity_provider_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs', 'ClusterCapacityProvidersDefaultCapacityProviderStrategyArgsDict']]]]] = None,
+                 default_capacity_provider_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs', 'ClusterCapacityProvidersDefaultCapacityProviderStrategyArgsDict', 'outputs.ClusterCapacityProvidersDefaultCapacityProviderStrategy']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -211,7 +211,7 @@ class ClusterCapacityProviders(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capacity_providers: Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the ECS cluster to manage capacity providers for.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs', 'ClusterCapacityProvidersDefaultCapacityProviderStrategyArgsDict']]]] default_capacity_provider_strategies: Set of capacity provider strategies to use by default for the cluster. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs', 'ClusterCapacityProvidersDefaultCapacityProviderStrategyArgsDict', 'outputs.ClusterCapacityProvidersDefaultCapacityProviderStrategy']]]] default_capacity_provider_strategies: Set of capacity provider strategies to use by default for the cluster. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -270,7 +270,7 @@ class ClusterCapacityProviders(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 default_capacity_provider_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs', 'ClusterCapacityProvidersDefaultCapacityProviderStrategyArgsDict']]]]] = None,
+                 default_capacity_provider_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs', 'ClusterCapacityProvidersDefaultCapacityProviderStrategyArgsDict', 'outputs.ClusterCapacityProvidersDefaultCapacityProviderStrategy']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -299,7 +299,7 @@ class ClusterCapacityProviders(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             capacity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-            default_capacity_provider_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs', 'ClusterCapacityProvidersDefaultCapacityProviderStrategyArgsDict']]]]] = None,
+            default_capacity_provider_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs', 'ClusterCapacityProvidersDefaultCapacityProviderStrategyArgsDict', 'outputs.ClusterCapacityProvidersDefaultCapacityProviderStrategy']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'ClusterCapacityProviders':
         """
         Get an existing ClusterCapacityProviders resource's state with the given name, id, and optional extra
@@ -310,7 +310,7 @@ class ClusterCapacityProviders(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capacity_providers: Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the ECS cluster to manage capacity providers for.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs', 'ClusterCapacityProvidersDefaultCapacityProviderStrategyArgsDict']]]] default_capacity_provider_strategies: Set of capacity provider strategies to use by default for the cluster. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs', 'ClusterCapacityProvidersDefaultCapacityProviderStrategyArgsDict', 'outputs.ClusterCapacityProvidersDefaultCapacityProviderStrategy']]]] default_capacity_provider_strategies: Set of capacity provider strategies to use by default for the cluster. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

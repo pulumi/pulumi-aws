@@ -128,13 +128,13 @@ class AwaitableGetListenerRuleResult(GetListenerRuleResult):
             transforms=self.transforms)
 
 
-def get_listener_rule(actions: Optional[Sequence[Union['GetListenerRuleActionArgs', 'GetListenerRuleActionArgsDict']]] = None,
+def get_listener_rule(actions: Optional[Sequence[Union['GetListenerRuleActionArgs', 'GetListenerRuleActionArgsDict', 'outputs.GetListenerRuleActionResult']]] = None,
                       arn: Optional[_builtins.str] = None,
-                      conditions: Optional[Sequence[Union['GetListenerRuleConditionArgs', 'GetListenerRuleConditionArgsDict']]] = None,
+                      conditions: Optional[Sequence[Union['GetListenerRuleConditionArgs', 'GetListenerRuleConditionArgsDict', 'outputs.GetListenerRuleConditionResult']]] = None,
                       listener_arn: Optional[_builtins.str] = None,
                       priority: Optional[_builtins.int] = None,
                       region: Optional[_builtins.str] = None,
-                      transforms: Optional[Sequence[Union['GetListenerRuleTransformArgs', 'GetListenerRuleTransformArgsDict']]] = None,
+                      transforms: Optional[Sequence[Union['GetListenerRuleTransformArgs', 'GetListenerRuleTransformArgsDict', 'outputs.GetListenerRuleTransformResult']]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetListenerRuleResult:
     """
     Provides information about an AWS Elastic Load Balancing Listener Rule.
@@ -166,18 +166,18 @@ def get_listener_rule(actions: Optional[Sequence[Union['GetListenerRuleActionArg
     ```
 
 
-    :param Sequence[Union['GetListenerRuleActionArgs', 'GetListenerRuleActionArgsDict']] actions: List of actions associated with the rule, sorted by `order`.
+    :param Sequence[Union['GetListenerRuleActionArgs', 'GetListenerRuleActionArgsDict', 'outputs.GetListenerRuleActionResult']] actions: List of actions associated with the rule, sorted by `order`.
            Detailed below.
     :param _builtins.str arn: ARN of the Listener Rule.
            Either `arn` or `listener_arn` must be set.
-    :param Sequence[Union['GetListenerRuleConditionArgs', 'GetListenerRuleConditionArgsDict']] conditions: Set of conditions associated with the rule.
+    :param Sequence[Union['GetListenerRuleConditionArgs', 'GetListenerRuleConditionArgsDict', 'outputs.GetListenerRuleConditionResult']] conditions: Set of conditions associated with the rule.
            Detailed below.
     :param _builtins.str listener_arn: ARN of the associated Listener.
            Either `arn` or `listener_arn` must be set.
     :param _builtins.int priority: Priority of the Listener Rule within the Listener.
            Must be set if `listener_arn` is set, otherwise must not be set.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Sequence[Union['GetListenerRuleTransformArgs', 'GetListenerRuleTransformArgsDict']] transforms: Block for transform to apply to requests that match this rule. Detailed below.
+    :param Sequence[Union['GetListenerRuleTransformArgs', 'GetListenerRuleTransformArgsDict', 'outputs.GetListenerRuleTransformResult']] transforms: Block for transform to apply to requests that match this rule. Detailed below.
     """
     __args__ = dict()
     __args__['actions'] = actions
@@ -199,13 +199,13 @@ def get_listener_rule(actions: Optional[Sequence[Union['GetListenerRuleActionArg
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         transforms=pulumi.get(__ret__, 'transforms'))
-def get_listener_rule_output(actions: pulumi.Input[Optional[Optional[Sequence[Union['GetListenerRuleActionArgs', 'GetListenerRuleActionArgsDict']]]]] = None,
+def get_listener_rule_output(actions: pulumi.Input[Optional[Optional[Sequence[Union['GetListenerRuleActionArgs', 'GetListenerRuleActionArgsDict', 'outputs.GetListenerRuleActionResult']]]]] = None,
                              arn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                             conditions: pulumi.Input[Optional[Optional[Sequence[Union['GetListenerRuleConditionArgs', 'GetListenerRuleConditionArgsDict']]]]] = None,
+                             conditions: pulumi.Input[Optional[Optional[Sequence[Union['GetListenerRuleConditionArgs', 'GetListenerRuleConditionArgsDict', 'outputs.GetListenerRuleConditionResult']]]]] = None,
                              listener_arn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              priority: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
                              region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                             transforms: pulumi.Input[Optional[Optional[Sequence[Union['GetListenerRuleTransformArgs', 'GetListenerRuleTransformArgsDict']]]]] = None,
+                             transforms: pulumi.Input[Optional[Optional[Sequence[Union['GetListenerRuleTransformArgs', 'GetListenerRuleTransformArgsDict', 'outputs.GetListenerRuleTransformResult']]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetListenerRuleResult]:
     """
     Provides information about an AWS Elastic Load Balancing Listener Rule.
@@ -237,18 +237,18 @@ def get_listener_rule_output(actions: pulumi.Input[Optional[Optional[Sequence[Un
     ```
 
 
-    :param Sequence[Union['GetListenerRuleActionArgs', 'GetListenerRuleActionArgsDict']] actions: List of actions associated with the rule, sorted by `order`.
+    :param Sequence[Union['GetListenerRuleActionArgs', 'GetListenerRuleActionArgsDict', 'outputs.GetListenerRuleActionResult']] actions: List of actions associated with the rule, sorted by `order`.
            Detailed below.
     :param _builtins.str arn: ARN of the Listener Rule.
            Either `arn` or `listener_arn` must be set.
-    :param Sequence[Union['GetListenerRuleConditionArgs', 'GetListenerRuleConditionArgsDict']] conditions: Set of conditions associated with the rule.
+    :param Sequence[Union['GetListenerRuleConditionArgs', 'GetListenerRuleConditionArgsDict', 'outputs.GetListenerRuleConditionResult']] conditions: Set of conditions associated with the rule.
            Detailed below.
     :param _builtins.str listener_arn: ARN of the associated Listener.
            Either `arn` or `listener_arn` must be set.
     :param _builtins.int priority: Priority of the Listener Rule within the Listener.
            Must be set if `listener_arn` is set, otherwise must not be set.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Sequence[Union['GetListenerRuleTransformArgs', 'GetListenerRuleTransformArgsDict']] transforms: Block for transform to apply to requests that match this rule. Detailed below.
+    :param Sequence[Union['GetListenerRuleTransformArgs', 'GetListenerRuleTransformArgsDict', 'outputs.GetListenerRuleTransformResult']] transforms: Block for transform to apply to requests that match this rule. Detailed below.
     """
     __args__ = dict()
     __args__['actions'] = actions

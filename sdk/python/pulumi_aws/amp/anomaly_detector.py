@@ -375,13 +375,13 @@ class AnomalyDetector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union['AnomalyDetectorConfigurationArgs', 'AnomalyDetectorConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['AnomalyDetectorConfigurationArgs', 'AnomalyDetectorConfigurationArgsDict', 'outputs.AnomalyDetectorConfiguration']]] = None,
                  evaluation_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 missing_data_action: pulumi.Input[Optional[Union['AnomalyDetectorMissingDataActionArgs', 'AnomalyDetectorMissingDataActionArgsDict']]] = None,
+                 missing_data_action: pulumi.Input[Optional[Union['AnomalyDetectorMissingDataActionArgs', 'AnomalyDetectorMissingDataActionArgsDict', 'outputs.AnomalyDetectorMissingDataAction']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AnomalyDetectorTimeoutsArgs', 'AnomalyDetectorTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AnomalyDetectorTimeoutsArgs', 'AnomalyDetectorTimeoutsArgsDict', 'outputs.AnomalyDetectorTimeouts']]] = None,
                  workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -466,10 +466,10 @@ class AnomalyDetector(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: Name of the anomaly detector.
-        :param pulumi.Input[Union['AnomalyDetectorConfigurationArgs', 'AnomalyDetectorConfigurationArgsDict']] configuration: Configuration block for the anomaly detector algorithm. See `configuration` below.
+        :param pulumi.Input[Union['AnomalyDetectorConfigurationArgs', 'AnomalyDetectorConfigurationArgsDict', 'outputs.AnomalyDetectorConfiguration']] configuration: Configuration block for the anomaly detector algorithm. See `configuration` below.
         :param pulumi.Input[_builtins.int] evaluation_interval_in_seconds: Interval in seconds at which the anomaly detector evaluates data.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: Map of label key-value pairs used to scope the anomaly detector to specific time series.
-        :param pulumi.Input[Union['AnomalyDetectorMissingDataActionArgs', 'AnomalyDetectorMissingDataActionArgsDict']] missing_data_action: Configuration block for the action to take when data is missing. See `missing_data_action` below.
+        :param pulumi.Input[Union['AnomalyDetectorMissingDataActionArgs', 'AnomalyDetectorMissingDataActionArgsDict', 'outputs.AnomalyDetectorMissingDataAction']] missing_data_action: Configuration block for the action to take when data is missing. See `missing_data_action` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] workspace_id: ID of the AMP workspace in which to create the anomaly detector.
@@ -577,13 +577,13 @@ class AnomalyDetector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union['AnomalyDetectorConfigurationArgs', 'AnomalyDetectorConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['AnomalyDetectorConfigurationArgs', 'AnomalyDetectorConfigurationArgsDict', 'outputs.AnomalyDetectorConfiguration']]] = None,
                  evaluation_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 missing_data_action: pulumi.Input[Optional[Union['AnomalyDetectorMissingDataActionArgs', 'AnomalyDetectorMissingDataActionArgsDict']]] = None,
+                 missing_data_action: pulumi.Input[Optional[Union['AnomalyDetectorMissingDataActionArgs', 'AnomalyDetectorMissingDataActionArgsDict', 'outputs.AnomalyDetectorMissingDataAction']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AnomalyDetectorTimeoutsArgs', 'AnomalyDetectorTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AnomalyDetectorTimeoutsArgs', 'AnomalyDetectorTimeoutsArgsDict', 'outputs.AnomalyDetectorTimeouts']]] = None,
                  workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -626,15 +626,15 @@ class AnomalyDetector(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             alias: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            configuration: pulumi.Input[Optional[Union['AnomalyDetectorConfigurationArgs', 'AnomalyDetectorConfigurationArgsDict']]] = None,
+            configuration: pulumi.Input[Optional[Union['AnomalyDetectorConfigurationArgs', 'AnomalyDetectorConfigurationArgsDict', 'outputs.AnomalyDetectorConfiguration']]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
             evaluation_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
             labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            missing_data_action: pulumi.Input[Optional[Union['AnomalyDetectorMissingDataActionArgs', 'AnomalyDetectorMissingDataActionArgsDict']]] = None,
+            missing_data_action: pulumi.Input[Optional[Union['AnomalyDetectorMissingDataActionArgs', 'AnomalyDetectorMissingDataActionArgsDict', 'outputs.AnomalyDetectorMissingDataAction']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['AnomalyDetectorTimeoutsArgs', 'AnomalyDetectorTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['AnomalyDetectorTimeoutsArgs', 'AnomalyDetectorTimeoutsArgsDict', 'outputs.AnomalyDetectorTimeouts']]] = None,
             workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'AnomalyDetector':
         """
         Get an existing AnomalyDetector resource's state with the given name, id, and optional extra
@@ -645,11 +645,11 @@ class AnomalyDetector(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: Name of the anomaly detector.
         :param pulumi.Input[_builtins.str] arn: ARN of the Anomaly Detector.
-        :param pulumi.Input[Union['AnomalyDetectorConfigurationArgs', 'AnomalyDetectorConfigurationArgsDict']] configuration: Configuration block for the anomaly detector algorithm. See `configuration` below.
+        :param pulumi.Input[Union['AnomalyDetectorConfigurationArgs', 'AnomalyDetectorConfigurationArgsDict', 'outputs.AnomalyDetectorConfiguration']] configuration: Configuration block for the anomaly detector algorithm. See `configuration` below.
         :param pulumi.Input[_builtins.str] created_at: RFC3339 timestamp of when the anomaly detector was created.
         :param pulumi.Input[_builtins.int] evaluation_interval_in_seconds: Interval in seconds at which the anomaly detector evaluates data.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: Map of label key-value pairs used to scope the anomaly detector to specific time series.
-        :param pulumi.Input[Union['AnomalyDetectorMissingDataActionArgs', 'AnomalyDetectorMissingDataActionArgsDict']] missing_data_action: Configuration block for the action to take when data is missing. See `missing_data_action` below.
+        :param pulumi.Input[Union['AnomalyDetectorMissingDataActionArgs', 'AnomalyDetectorMissingDataActionArgsDict', 'outputs.AnomalyDetectorMissingDataAction']] missing_data_action: Configuration block for the action to take when data is missing. See `missing_data_action` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -248,7 +248,7 @@ class AwaitableGetConnectionResult(GetConnectionResult):
             vpn_gateway_id=self.vpn_gateway_id)
 
 
-def get_connection(filters: Optional[Sequence[Union['GetConnectionFilterArgs', 'GetConnectionFilterArgsDict']]] = None,
+def get_connection(filters: Optional[Sequence[Union['GetConnectionFilterArgs', 'GetConnectionFilterArgsDict', 'outputs.GetConnectionFilterResult']]] = None,
                    region: Optional[_builtins.str] = None,
                    vpn_connection_id: Optional[_builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionResult:
@@ -281,7 +281,7 @@ def get_connection(filters: Optional[Sequence[Union['GetConnectionFilterArgs', '
     ```
 
 
-    :param Sequence[Union['GetConnectionFilterArgs', 'GetConnectionFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetConnectionFilterArgs', 'GetConnectionFilterArgsDict', 'outputs.GetConnectionFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str vpn_connection_id: Identifier of the EC2 VPN Connection.
     """
@@ -312,7 +312,7 @@ def get_connection(filters: Optional[Sequence[Union['GetConnectionFilterArgs', '
         vpn_concentrator_id=pulumi.get(__ret__, 'vpn_concentrator_id'),
         vpn_connection_id=pulumi.get(__ret__, 'vpn_connection_id'),
         vpn_gateway_id=pulumi.get(__ret__, 'vpn_gateway_id'))
-def get_connection_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetConnectionFilterArgs', 'GetConnectionFilterArgsDict']]]]] = None,
+def get_connection_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetConnectionFilterArgs', 'GetConnectionFilterArgsDict', 'outputs.GetConnectionFilterResult']]]]] = None,
                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           vpn_connection_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionResult]:
@@ -345,7 +345,7 @@ def get_connection_output(filters: pulumi.Input[Optional[Optional[Sequence[Union
     ```
 
 
-    :param Sequence[Union['GetConnectionFilterArgs', 'GetConnectionFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetConnectionFilterArgs', 'GetConnectionFilterArgsDict', 'outputs.GetConnectionFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str vpn_connection_id: Identifier of the EC2 VPN Connection.
     """

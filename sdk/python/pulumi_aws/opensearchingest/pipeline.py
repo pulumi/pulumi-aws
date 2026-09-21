@@ -466,9 +466,9 @@ class Pipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 buffer_options: pulumi.Input[Optional[Union['PipelineBufferOptionsArgs', 'PipelineBufferOptionsArgsDict']]] = None,
-                 encryption_at_rest_options: pulumi.Input[Optional[Union['PipelineEncryptionAtRestOptionsArgs', 'PipelineEncryptionAtRestOptionsArgsDict']]] = None,
-                 log_publishing_options: pulumi.Input[Optional[Union['PipelineLogPublishingOptionsArgs', 'PipelineLogPublishingOptionsArgsDict']]] = None,
+                 buffer_options: pulumi.Input[Optional[Union['PipelineBufferOptionsArgs', 'PipelineBufferOptionsArgsDict', 'outputs.PipelineBufferOptions']]] = None,
+                 encryption_at_rest_options: pulumi.Input[Optional[Union['PipelineEncryptionAtRestOptionsArgs', 'PipelineEncryptionAtRestOptionsArgsDict', 'outputs.PipelineEncryptionAtRestOptions']]] = None,
+                 log_publishing_options: pulumi.Input[Optional[Union['PipelineLogPublishingOptionsArgs', 'PipelineLogPublishingOptionsArgsDict', 'outputs.PipelineLogPublishingOptions']]] = None,
                  max_units: pulumi.Input[Optional[_builtins.int]] = None,
                  min_units: pulumi.Input[Optional[_builtins.int]] = None,
                  pipeline_configuration_body: pulumi.Input[Optional[_builtins.str]] = None,
@@ -476,8 +476,8 @@ class Pipeline(pulumi.CustomResource):
                  pipeline_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['PipelineTimeoutsArgs', 'PipelineTimeoutsArgsDict']]] = None,
-                 vpc_options: pulumi.Input[Optional[Union['PipelineVpcOptionsArgs', 'PipelineVpcOptionsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['PipelineTimeoutsArgs', 'PipelineTimeoutsArgsDict', 'outputs.PipelineTimeouts']]] = None,
+                 vpc_options: pulumi.Input[Optional[Union['PipelineVpcOptionsArgs', 'PipelineVpcOptionsArgsDict', 'outputs.PipelineVpcOptions']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS OpenSearch Ingestion Pipeline.
@@ -561,9 +561,9 @@ class Pipeline(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['PipelineBufferOptionsArgs', 'PipelineBufferOptionsArgsDict']] buffer_options: Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
-        :param pulumi.Input[Union['PipelineEncryptionAtRestOptionsArgs', 'PipelineEncryptionAtRestOptionsArgsDict']] encryption_at_rest_options: Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
-        :param pulumi.Input[Union['PipelineLogPublishingOptionsArgs', 'PipelineLogPublishingOptionsArgsDict']] log_publishing_options: Key-value pairs to configure log publishing. See `log_publishing_options` below.
+        :param pulumi.Input[Union['PipelineBufferOptionsArgs', 'PipelineBufferOptionsArgsDict', 'outputs.PipelineBufferOptions']] buffer_options: Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
+        :param pulumi.Input[Union['PipelineEncryptionAtRestOptionsArgs', 'PipelineEncryptionAtRestOptionsArgsDict', 'outputs.PipelineEncryptionAtRestOptions']] encryption_at_rest_options: Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
+        :param pulumi.Input[Union['PipelineLogPublishingOptionsArgs', 'PipelineLogPublishingOptionsArgsDict', 'outputs.PipelineLogPublishingOptions']] log_publishing_options: Key-value pairs to configure log publishing. See `log_publishing_options` below.
         :param pulumi.Input[_builtins.int] max_units: The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
         :param pulumi.Input[_builtins.int] min_units: The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
         :param pulumi.Input[_builtins.str] pipeline_configuration_body: The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\\n`.
@@ -573,7 +573,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] pipeline_role_arn: ARN of the IAM role that grants the pipeline permission to access AWS resources.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['PipelineVpcOptionsArgs', 'PipelineVpcOptionsArgsDict']] vpc_options: Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
+        :param pulumi.Input[Union['PipelineVpcOptionsArgs', 'PipelineVpcOptionsArgsDict', 'outputs.PipelineVpcOptions']] vpc_options: Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
         """
         ...
     @overload
@@ -676,9 +676,9 @@ class Pipeline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 buffer_options: pulumi.Input[Optional[Union['PipelineBufferOptionsArgs', 'PipelineBufferOptionsArgsDict']]] = None,
-                 encryption_at_rest_options: pulumi.Input[Optional[Union['PipelineEncryptionAtRestOptionsArgs', 'PipelineEncryptionAtRestOptionsArgsDict']]] = None,
-                 log_publishing_options: pulumi.Input[Optional[Union['PipelineLogPublishingOptionsArgs', 'PipelineLogPublishingOptionsArgsDict']]] = None,
+                 buffer_options: pulumi.Input[Optional[Union['PipelineBufferOptionsArgs', 'PipelineBufferOptionsArgsDict', 'outputs.PipelineBufferOptions']]] = None,
+                 encryption_at_rest_options: pulumi.Input[Optional[Union['PipelineEncryptionAtRestOptionsArgs', 'PipelineEncryptionAtRestOptionsArgsDict', 'outputs.PipelineEncryptionAtRestOptions']]] = None,
+                 log_publishing_options: pulumi.Input[Optional[Union['PipelineLogPublishingOptionsArgs', 'PipelineLogPublishingOptionsArgsDict', 'outputs.PipelineLogPublishingOptions']]] = None,
                  max_units: pulumi.Input[Optional[_builtins.int]] = None,
                  min_units: pulumi.Input[Optional[_builtins.int]] = None,
                  pipeline_configuration_body: pulumi.Input[Optional[_builtins.str]] = None,
@@ -686,8 +686,8 @@ class Pipeline(pulumi.CustomResource):
                  pipeline_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['PipelineTimeoutsArgs', 'PipelineTimeoutsArgsDict']]] = None,
-                 vpc_options: pulumi.Input[Optional[Union['PipelineVpcOptionsArgs', 'PipelineVpcOptionsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['PipelineTimeoutsArgs', 'PipelineTimeoutsArgsDict', 'outputs.PipelineTimeouts']]] = None,
+                 vpc_options: pulumi.Input[Optional[Union['PipelineVpcOptionsArgs', 'PipelineVpcOptionsArgsDict', 'outputs.PipelineVpcOptions']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -730,10 +730,10 @@ class Pipeline(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            buffer_options: pulumi.Input[Optional[Union['PipelineBufferOptionsArgs', 'PipelineBufferOptionsArgsDict']]] = None,
-            encryption_at_rest_options: pulumi.Input[Optional[Union['PipelineEncryptionAtRestOptionsArgs', 'PipelineEncryptionAtRestOptionsArgsDict']]] = None,
+            buffer_options: pulumi.Input[Optional[Union['PipelineBufferOptionsArgs', 'PipelineBufferOptionsArgsDict', 'outputs.PipelineBufferOptions']]] = None,
+            encryption_at_rest_options: pulumi.Input[Optional[Union['PipelineEncryptionAtRestOptionsArgs', 'PipelineEncryptionAtRestOptionsArgsDict', 'outputs.PipelineEncryptionAtRestOptions']]] = None,
             ingest_endpoint_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            log_publishing_options: pulumi.Input[Optional[Union['PipelineLogPublishingOptionsArgs', 'PipelineLogPublishingOptionsArgsDict']]] = None,
+            log_publishing_options: pulumi.Input[Optional[Union['PipelineLogPublishingOptionsArgs', 'PipelineLogPublishingOptionsArgsDict', 'outputs.PipelineLogPublishingOptions']]] = None,
             max_units: pulumi.Input[Optional[_builtins.int]] = None,
             min_units: pulumi.Input[Optional[_builtins.int]] = None,
             pipeline_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -743,8 +743,8 @@ class Pipeline(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['PipelineTimeoutsArgs', 'PipelineTimeoutsArgsDict']]] = None,
-            vpc_options: pulumi.Input[Optional[Union['PipelineVpcOptionsArgs', 'PipelineVpcOptionsArgsDict']]] = None) -> 'Pipeline':
+            timeouts: pulumi.Input[Optional[Union['PipelineTimeoutsArgs', 'PipelineTimeoutsArgsDict', 'outputs.PipelineTimeouts']]] = None,
+            vpc_options: pulumi.Input[Optional[Union['PipelineVpcOptionsArgs', 'PipelineVpcOptionsArgsDict', 'outputs.PipelineVpcOptions']]] = None) -> 'Pipeline':
         """
         Get an existing Pipeline resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -752,10 +752,10 @@ class Pipeline(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['PipelineBufferOptionsArgs', 'PipelineBufferOptionsArgsDict']] buffer_options: Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
-        :param pulumi.Input[Union['PipelineEncryptionAtRestOptionsArgs', 'PipelineEncryptionAtRestOptionsArgsDict']] encryption_at_rest_options: Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
+        :param pulumi.Input[Union['PipelineBufferOptionsArgs', 'PipelineBufferOptionsArgsDict', 'outputs.PipelineBufferOptions']] buffer_options: Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
+        :param pulumi.Input[Union['PipelineEncryptionAtRestOptionsArgs', 'PipelineEncryptionAtRestOptionsArgsDict', 'outputs.PipelineEncryptionAtRestOptions']] encryption_at_rest_options: Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ingest_endpoint_urls: The list of ingestion endpoints for the pipeline, which you can send data to.
-        :param pulumi.Input[Union['PipelineLogPublishingOptionsArgs', 'PipelineLogPublishingOptionsArgsDict']] log_publishing_options: Key-value pairs to configure log publishing. See `log_publishing_options` below.
+        :param pulumi.Input[Union['PipelineLogPublishingOptionsArgs', 'PipelineLogPublishingOptionsArgsDict', 'outputs.PipelineLogPublishingOptions']] log_publishing_options: Key-value pairs to configure log publishing. See `log_publishing_options` below.
         :param pulumi.Input[_builtins.int] max_units: The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
         :param pulumi.Input[_builtins.int] min_units: The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
         :param pulumi.Input[_builtins.str] pipeline_arn: ARN of the pipeline.
@@ -766,7 +766,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] pipeline_role_arn: ARN of the IAM role that grants the pipeline permission to access AWS resources.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['PipelineVpcOptionsArgs', 'PipelineVpcOptionsArgsDict']] vpc_options: Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
+        :param pulumi.Input[Union['PipelineVpcOptionsArgs', 'PipelineVpcOptionsArgsDict', 'outputs.PipelineVpcOptions']] vpc_options: Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

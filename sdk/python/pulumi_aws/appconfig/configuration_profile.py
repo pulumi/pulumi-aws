@@ -417,7 +417,7 @@ class ConfigurationProfile(pulumi.CustomResource):
                  retrieval_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
-                 validators: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationProfileValidatorArgs', 'ConfigurationProfileValidatorArgsDict']]]]] = None,
+                 validators: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationProfileValidatorArgs', 'ConfigurationProfileValidatorArgsDict', 'outputs.ConfigurationProfileValidator']]]]] = None,
                  __props__=None):
         """
         Provides an AppConfig Configuration Profile resource.
@@ -462,7 +462,7 @@ class ConfigurationProfile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] retrieval_role_arn: ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] type: Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationProfileValidatorArgs', 'ConfigurationProfileValidatorArgsDict']]]] validators: Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationProfileValidatorArgs', 'ConfigurationProfileValidatorArgsDict', 'outputs.ConfigurationProfileValidator']]]] validators: Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
         """
         ...
     @overload
@@ -526,7 +526,7 @@ class ConfigurationProfile(pulumi.CustomResource):
                  retrieval_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
-                 validators: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationProfileValidatorArgs', 'ConfigurationProfileValidatorArgsDict']]]]] = None,
+                 validators: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationProfileValidatorArgs', 'ConfigurationProfileValidatorArgsDict', 'outputs.ConfigurationProfileValidator']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -575,7 +575,7 @@ class ConfigurationProfile(pulumi.CustomResource):
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
-            validators: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationProfileValidatorArgs', 'ConfigurationProfileValidatorArgsDict']]]]] = None) -> 'ConfigurationProfile':
+            validators: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationProfileValidatorArgs', 'ConfigurationProfileValidatorArgsDict', 'outputs.ConfigurationProfileValidator']]]]] = None) -> 'ConfigurationProfile':
         """
         Get an existing ConfigurationProfile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -595,7 +595,7 @@ class ConfigurationProfile(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] type: Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationProfileValidatorArgs', 'ConfigurationProfileValidatorArgsDict']]]] validators: Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationProfileValidatorArgs', 'ConfigurationProfileValidatorArgsDict', 'outputs.ConfigurationProfileValidator']]]] validators: Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

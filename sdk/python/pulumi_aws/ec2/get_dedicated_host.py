@@ -351,7 +351,7 @@ class AwaitableGetDedicatedHostResult(GetDedicatedHostResult):
             total_vcpus=self.total_vcpus)
 
 
-def get_dedicated_host(filters: Optional[Sequence[Union['GetDedicatedHostFilterArgs', 'GetDedicatedHostFilterArgsDict']]] = None,
+def get_dedicated_host(filters: Optional[Sequence[Union['GetDedicatedHostFilterArgs', 'GetDedicatedHostFilterArgsDict', 'outputs.GetDedicatedHostFilterResult']]] = None,
                        host_id: Optional[_builtins.str] = None,
                        region: Optional[_builtins.str] = None,
                        tags: Optional[Mapping[str, _builtins.str]] = None,
@@ -384,7 +384,7 @@ def get_dedicated_host(filters: Optional[Sequence[Union['GetDedicatedHostFilterA
     ```
 
 
-    :param Sequence[Union['GetDedicatedHostFilterArgs', 'GetDedicatedHostFilterArgsDict']] filters: Configuration block. Detailed below.
+    :param Sequence[Union['GetDedicatedHostFilterArgs', 'GetDedicatedHostFilterArgsDict', 'outputs.GetDedicatedHostFilterResult']] filters: Configuration block. Detailed below.
     :param _builtins.str host_id: ID of the Dedicated Host.
            
            The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
@@ -427,7 +427,7 @@ def get_dedicated_host(filters: Optional[Sequence[Union['GetDedicatedHostFilterA
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         total_vcpus=pulumi.get(__ret__, 'total_vcpus'))
-def get_dedicated_host_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetDedicatedHostFilterArgs', 'GetDedicatedHostFilterArgsDict']]]]] = None,
+def get_dedicated_host_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetDedicatedHostFilterArgs', 'GetDedicatedHostFilterArgsDict', 'outputs.GetDedicatedHostFilterResult']]]]] = None,
                               host_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
@@ -460,7 +460,7 @@ def get_dedicated_host_output(filters: pulumi.Input[Optional[Optional[Sequence[U
     ```
 
 
-    :param Sequence[Union['GetDedicatedHostFilterArgs', 'GetDedicatedHostFilterArgsDict']] filters: Configuration block. Detailed below.
+    :param Sequence[Union['GetDedicatedHostFilterArgs', 'GetDedicatedHostFilterArgsDict', 'outputs.GetDedicatedHostFilterResult']] filters: Configuration block. Detailed below.
     :param _builtins.str host_id: ID of the Dedicated Host.
            
            The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.

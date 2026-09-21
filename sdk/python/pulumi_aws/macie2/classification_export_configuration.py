@@ -106,7 +106,7 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3_destination: pulumi.Input[Optional[Union['ClassificationExportConfigurationS3DestinationArgs', 'ClassificationExportConfigurationS3DestinationArgsDict']]] = None,
+                 s3_destination: pulumi.Input[Optional[Union['ClassificationExportConfigurationS3DestinationArgs', 'ClassificationExportConfigurationS3DestinationArgsDict', 'outputs.ClassificationExportConfigurationS3Destination']]] = None,
                  __props__=None):
         """
         Provides a resource to manage an [Amazon Macie Classification Export Configuration](https://docs.aws.amazon.com/macie/latest/APIReference/classification-export-configuration.html).
@@ -145,7 +145,7 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ClassificationExportConfigurationS3DestinationArgs', 'ClassificationExportConfigurationS3DestinationArgsDict']] s3_destination: Configuration block for a S3 Destination. Defined below
+        :param pulumi.Input[Union['ClassificationExportConfigurationS3DestinationArgs', 'ClassificationExportConfigurationS3DestinationArgsDict', 'outputs.ClassificationExportConfigurationS3Destination']] s3_destination: Configuration block for a S3 Destination. Defined below
         """
         ...
     @overload
@@ -203,7 +203,7 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3_destination: pulumi.Input[Optional[Union['ClassificationExportConfigurationS3DestinationArgs', 'ClassificationExportConfigurationS3DestinationArgsDict']]] = None,
+                 s3_destination: pulumi.Input[Optional[Union['ClassificationExportConfigurationS3DestinationArgs', 'ClassificationExportConfigurationS3DestinationArgsDict', 'outputs.ClassificationExportConfigurationS3Destination']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -228,7 +228,7 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            s3_destination: pulumi.Input[Optional[Union['ClassificationExportConfigurationS3DestinationArgs', 'ClassificationExportConfigurationS3DestinationArgsDict']]] = None) -> 'ClassificationExportConfiguration':
+            s3_destination: pulumi.Input[Optional[Union['ClassificationExportConfigurationS3DestinationArgs', 'ClassificationExportConfigurationS3DestinationArgsDict', 'outputs.ClassificationExportConfigurationS3Destination']]] = None) -> 'ClassificationExportConfiguration':
         """
         Get an existing ClassificationExportConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -237,7 +237,7 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ClassificationExportConfigurationS3DestinationArgs', 'ClassificationExportConfigurationS3DestinationArgsDict']] s3_destination: Configuration block for a S3 Destination. Defined below
+        :param pulumi.Input[Union['ClassificationExportConfigurationS3DestinationArgs', 'ClassificationExportConfigurationS3DestinationArgsDict', 'outputs.ClassificationExportConfigurationS3Destination']] s3_destination: Configuration block for a S3 Destination. Defined below
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

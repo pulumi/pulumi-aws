@@ -99,7 +99,7 @@ class AwaitableGetVpnAttachmentResult(GetVpnAttachmentResult):
             vpn_connection_id=self.vpn_connection_id)
 
 
-def get_vpn_attachment(filters: Optional[Sequence[Union['GetVpnAttachmentFilterArgs', 'GetVpnAttachmentFilterArgsDict']]] = None,
+def get_vpn_attachment(filters: Optional[Sequence[Union['GetVpnAttachmentFilterArgs', 'GetVpnAttachmentFilterArgsDict', 'outputs.GetVpnAttachmentFilterResult']]] = None,
                        region: Optional[_builtins.str] = None,
                        tags: Optional[Mapping[str, _builtins.str]] = None,
                        transit_gateway_id: Optional[_builtins.str] = None,
@@ -135,7 +135,7 @@ def get_vpn_attachment(filters: Optional[Sequence[Union['GetVpnAttachmentFilterA
     ```
 
 
-    :param Sequence[Union['GetVpnAttachmentFilterArgs', 'GetVpnAttachmentFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetVpnAttachmentFilterArgs', 'GetVpnAttachmentFilterArgsDict', 'outputs.GetVpnAttachmentFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
     :param _builtins.str transit_gateway_id: Identifier of the EC2 Transit Gateway.
@@ -157,7 +157,7 @@ def get_vpn_attachment(filters: Optional[Sequence[Union['GetVpnAttachmentFilterA
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
         vpn_connection_id=pulumi.get(__ret__, 'vpn_connection_id'))
-def get_vpn_attachment_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpnAttachmentFilterArgs', 'GetVpnAttachmentFilterArgsDict']]]]] = None,
+def get_vpn_attachment_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpnAttachmentFilterArgs', 'GetVpnAttachmentFilterArgsDict', 'outputs.GetVpnAttachmentFilterResult']]]]] = None,
                               region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                               transit_gateway_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -193,7 +193,7 @@ def get_vpn_attachment_output(filters: pulumi.Input[Optional[Optional[Sequence[U
     ```
 
 
-    :param Sequence[Union['GetVpnAttachmentFilterArgs', 'GetVpnAttachmentFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetVpnAttachmentFilterArgs', 'GetVpnAttachmentFilterArgsDict', 'outputs.GetVpnAttachmentFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
     :param _builtins.str transit_gateway_id: Identifier of the EC2 Transit Gateway.

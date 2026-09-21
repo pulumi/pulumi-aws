@@ -189,7 +189,7 @@ class AwaitableGetVpcAttachmentResult(GetVpcAttachmentResult):
             vpc_owner_id=self.vpc_owner_id)
 
 
-def get_vpc_attachment(filters: Optional[Sequence[Union['GetVpcAttachmentFilterArgs', 'GetVpcAttachmentFilterArgsDict']]] = None,
+def get_vpc_attachment(filters: Optional[Sequence[Union['GetVpcAttachmentFilterArgs', 'GetVpcAttachmentFilterArgsDict', 'outputs.GetVpcAttachmentFilterResult']]] = None,
                        id: Optional[_builtins.str] = None,
                        region: Optional[_builtins.str] = None,
                        tags: Optional[Mapping[str, _builtins.str]] = None,
@@ -223,7 +223,7 @@ def get_vpc_attachment(filters: Optional[Sequence[Union['GetVpcAttachmentFilterA
     ```
 
 
-    :param Sequence[Union['GetVpcAttachmentFilterArgs', 'GetVpcAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetVpcAttachmentFilterArgs', 'GetVpcAttachmentFilterArgsDict', 'outputs.GetVpcAttachmentFilterResult']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param _builtins.str id: Identifier of the EC2 Transit Gateway VPC Attachment.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment
@@ -250,7 +250,7 @@ def get_vpc_attachment(filters: Optional[Sequence[Union['GetVpcAttachmentFilterA
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         vpc_owner_id=pulumi.get(__ret__, 'vpc_owner_id'))
-def get_vpc_attachment_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpcAttachmentFilterArgs', 'GetVpcAttachmentFilterArgsDict']]]]] = None,
+def get_vpc_attachment_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpcAttachmentFilterArgs', 'GetVpcAttachmentFilterArgsDict', 'outputs.GetVpcAttachmentFilterResult']]]]] = None,
                               id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
@@ -284,7 +284,7 @@ def get_vpc_attachment_output(filters: pulumi.Input[Optional[Optional[Sequence[U
     ```
 
 
-    :param Sequence[Union['GetVpcAttachmentFilterArgs', 'GetVpcAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetVpcAttachmentFilterArgs', 'GetVpcAttachmentFilterArgsDict', 'outputs.GetVpcAttachmentFilterResult']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param _builtins.str id: Identifier of the EC2 Transit Gateway VPC Attachment.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment

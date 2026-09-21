@@ -93,7 +93,7 @@ class AwaitableGetInfrastructureConfigurationsResult(GetInfrastructureConfigurat
             region=self.region)
 
 
-def get_infrastructure_configurations(filters: Optional[Sequence[Union['GetInfrastructureConfigurationsFilterArgs', 'GetInfrastructureConfigurationsFilterArgsDict']]] = None,
+def get_infrastructure_configurations(filters: Optional[Sequence[Union['GetInfrastructureConfigurationsFilterArgs', 'GetInfrastructureConfigurationsFilterArgsDict', 'outputs.GetInfrastructureConfigurationsFilterResult']]] = None,
                                       region: Optional[_builtins.str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInfrastructureConfigurationsResult:
     """
@@ -112,7 +112,7 @@ def get_infrastructure_configurations(filters: Optional[Sequence[Union['GetInfra
     ```
 
 
-    :param Sequence[Union['GetInfrastructureConfigurationsFilterArgs', 'GetInfrastructureConfigurationsFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetInfrastructureConfigurationsFilterArgs', 'GetInfrastructureConfigurationsFilterArgsDict', 'outputs.GetInfrastructureConfigurationsFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -127,7 +127,7 @@ def get_infrastructure_configurations(filters: Optional[Sequence[Union['GetInfra
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'),
         region=pulumi.get(__ret__, 'region'))
-def get_infrastructure_configurations_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetInfrastructureConfigurationsFilterArgs', 'GetInfrastructureConfigurationsFilterArgsDict']]]]] = None,
+def get_infrastructure_configurations_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetInfrastructureConfigurationsFilterArgs', 'GetInfrastructureConfigurationsFilterArgsDict', 'outputs.GetInfrastructureConfigurationsFilterResult']]]]] = None,
                                              region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInfrastructureConfigurationsResult]:
     """
@@ -146,7 +146,7 @@ def get_infrastructure_configurations_output(filters: pulumi.Input[Optional[Opti
     ```
 
 
-    :param Sequence[Union['GetInfrastructureConfigurationsFilterArgs', 'GetInfrastructureConfigurationsFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetInfrastructureConfigurationsFilterArgs', 'GetInfrastructureConfigurationsFilterArgsDict', 'outputs.GetInfrastructureConfigurationsFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

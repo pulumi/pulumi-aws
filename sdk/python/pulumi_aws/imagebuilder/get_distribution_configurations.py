@@ -93,7 +93,7 @@ class AwaitableGetDistributionConfigurationsResult(GetDistributionConfigurations
             region=self.region)
 
 
-def get_distribution_configurations(filters: Optional[Sequence[Union['GetDistributionConfigurationsFilterArgs', 'GetDistributionConfigurationsFilterArgsDict']]] = None,
+def get_distribution_configurations(filters: Optional[Sequence[Union['GetDistributionConfigurationsFilterArgs', 'GetDistributionConfigurationsFilterArgsDict', 'outputs.GetDistributionConfigurationsFilterResult']]] = None,
                                     region: Optional[_builtins.str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDistributionConfigurationsResult:
     """
@@ -112,7 +112,7 @@ def get_distribution_configurations(filters: Optional[Sequence[Union['GetDistrib
     ```
 
 
-    :param Sequence[Union['GetDistributionConfigurationsFilterArgs', 'GetDistributionConfigurationsFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetDistributionConfigurationsFilterArgs', 'GetDistributionConfigurationsFilterArgsDict', 'outputs.GetDistributionConfigurationsFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -127,7 +127,7 @@ def get_distribution_configurations(filters: Optional[Sequence[Union['GetDistrib
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'),
         region=pulumi.get(__ret__, 'region'))
-def get_distribution_configurations_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetDistributionConfigurationsFilterArgs', 'GetDistributionConfigurationsFilterArgsDict']]]]] = None,
+def get_distribution_configurations_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetDistributionConfigurationsFilterArgs', 'GetDistributionConfigurationsFilterArgsDict', 'outputs.GetDistributionConfigurationsFilterResult']]]]] = None,
                                            region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDistributionConfigurationsResult]:
     """
@@ -146,7 +146,7 @@ def get_distribution_configurations_output(filters: pulumi.Input[Optional[Option
     ```
 
 
-    :param Sequence[Union['GetDistributionConfigurationsFilterArgs', 'GetDistributionConfigurationsFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetDistributionConfigurationsFilterArgs', 'GetDistributionConfigurationsFilterArgsDict', 'outputs.GetDistributionConfigurationsFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

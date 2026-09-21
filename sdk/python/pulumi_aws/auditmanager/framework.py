@@ -289,7 +289,7 @@ class Framework(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compliance_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 control_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrameworkControlSetArgs', 'FrameworkControlSetArgsDict']]]]] = None,
+                 control_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrameworkControlSetArgs', 'FrameworkControlSetArgsDict', 'outputs.FrameworkControlSet']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -344,7 +344,7 @@ class Framework(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] compliance_type: Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlSetArgs', 'FrameworkControlSetArgsDict']]]] control_sets: Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlSetArgs', 'FrameworkControlSetArgsDict', 'outputs.FrameworkControlSet']]]] control_sets: Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] description: Description of the framework.
@@ -420,7 +420,7 @@ class Framework(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compliance_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 control_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrameworkControlSetArgs', 'FrameworkControlSetArgsDict']]]]] = None,
+                 control_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrameworkControlSetArgs', 'FrameworkControlSetArgsDict', 'outputs.FrameworkControlSet']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -455,7 +455,7 @@ class Framework(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             compliance_type: pulumi.Input[Optional[_builtins.str]] = None,
-            control_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrameworkControlSetArgs', 'FrameworkControlSetArgsDict']]]]] = None,
+            control_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrameworkControlSetArgs', 'FrameworkControlSetArgsDict', 'outputs.FrameworkControlSet']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             framework_type: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -472,7 +472,7 @@ class Framework(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the framework.
                * `control_sets[*].id` - Unique identifier for the framework control set.
         :param pulumi.Input[_builtins.str] compliance_type: Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlSetArgs', 'FrameworkControlSetArgsDict']]]] control_sets: Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlSetArgs', 'FrameworkControlSetArgsDict', 'outputs.FrameworkControlSet']]]] control_sets: Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] description: Description of the framework.

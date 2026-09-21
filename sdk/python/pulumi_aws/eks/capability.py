@@ -367,12 +367,12 @@ class Capability(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capability_name: pulumi.Input[Optional[_builtins.str]] = None,
                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union['CapabilityConfigurationArgs', 'CapabilityConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['CapabilityConfigurationArgs', 'CapabilityConfigurationArgsDict', 'outputs.CapabilityConfiguration']]] = None,
                  delete_propagation_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['CapabilityTimeoutsArgs', 'CapabilityTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CapabilityTimeoutsArgs', 'CapabilityTimeoutsArgsDict', 'outputs.CapabilityTimeouts']]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -459,7 +459,7 @@ class Capability(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] capability_name: Name of the capability. Must be unique within the cluster.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS cluster.
-        :param pulumi.Input[Union['CapabilityConfigurationArgs', 'CapabilityConfigurationArgsDict']] configuration: Configuration for the capability. See `configuration` below.
+        :param pulumi.Input[Union['CapabilityConfigurationArgs', 'CapabilityConfigurationArgsDict', 'outputs.CapabilityConfiguration']] configuration: Configuration for the capability. See `configuration` below.
         :param pulumi.Input[_builtins.str] delete_propagation_policy: Delete propagation policy for the capability. Valid values: `RETAIN`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role to associate with the capability.
@@ -569,12 +569,12 @@ class Capability(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capability_name: pulumi.Input[Optional[_builtins.str]] = None,
                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union['CapabilityConfigurationArgs', 'CapabilityConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['CapabilityConfigurationArgs', 'CapabilityConfigurationArgsDict', 'outputs.CapabilityConfiguration']]] = None,
                  delete_propagation_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['CapabilityTimeoutsArgs', 'CapabilityTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CapabilityTimeoutsArgs', 'CapabilityTimeoutsArgsDict', 'outputs.CapabilityTimeouts']]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -620,13 +620,13 @@ class Capability(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             capability_name: pulumi.Input[Optional[_builtins.str]] = None,
             cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-            configuration: pulumi.Input[Optional[Union['CapabilityConfigurationArgs', 'CapabilityConfigurationArgsDict']]] = None,
+            configuration: pulumi.Input[Optional[Union['CapabilityConfigurationArgs', 'CapabilityConfigurationArgsDict', 'outputs.CapabilityConfiguration']]] = None,
             delete_propagation_policy: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['CapabilityTimeoutsArgs', 'CapabilityTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['CapabilityTimeoutsArgs', 'CapabilityTimeoutsArgsDict', 'outputs.CapabilityTimeouts']]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
             version: pulumi.Input[Optional[_builtins.str]] = None) -> 'Capability':
         """
@@ -639,7 +639,7 @@ class Capability(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the capability.
         :param pulumi.Input[_builtins.str] capability_name: Name of the capability. Must be unique within the cluster.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS cluster.
-        :param pulumi.Input[Union['CapabilityConfigurationArgs', 'CapabilityConfigurationArgsDict']] configuration: Configuration for the capability. See `configuration` below.
+        :param pulumi.Input[Union['CapabilityConfigurationArgs', 'CapabilityConfigurationArgsDict', 'outputs.CapabilityConfiguration']] configuration: Configuration for the capability. See `configuration` below.
         :param pulumi.Input[_builtins.str] delete_propagation_policy: Delete propagation policy for the capability. Valid values: `RETAIN`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role to associate with the capability.

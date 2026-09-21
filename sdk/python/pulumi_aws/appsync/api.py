@@ -305,7 +305,7 @@ class Api(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_config: pulumi.Input[Optional[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']]] = None,
+                 event_config: pulumi.Input[Optional[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict', 'outputs.ApiEventConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_contact: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -409,7 +409,7 @@ class Api(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']] event_config: Configuration for the Event API. See `event_config` Block below.
+        :param pulumi.Input[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict', 'outputs.ApiEventConfig']] event_config: Configuration for the Event API. See `event_config` Block below.
         :param pulumi.Input[_builtins.str] name: Name of the Event API.
                
                The following arguments are optional:
@@ -534,7 +534,7 @@ class Api(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_config: pulumi.Input[Optional[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']]] = None,
+                 event_config: pulumi.Input[Optional[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict', 'outputs.ApiEventConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_contact: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -574,7 +574,7 @@ class Api(pulumi.CustomResource):
             api_arn: pulumi.Input[Optional[_builtins.str]] = None,
             api_id: pulumi.Input[Optional[_builtins.str]] = None,
             dns: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            event_config: pulumi.Input[Optional[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']]] = None,
+            event_config: pulumi.Input[Optional[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict', 'outputs.ApiEventConfig']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             owner_contact: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -592,7 +592,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] api_arn: ARN of the Event API.
         :param pulumi.Input[_builtins.str] api_id: ID of the Event API.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] dns: DNS configuration for the Event API.
-        :param pulumi.Input[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']] event_config: Configuration for the Event API. See `event_config` Block below.
+        :param pulumi.Input[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict', 'outputs.ApiEventConfig']] event_config: Configuration for the Event API. See `event_config` Block below.
         :param pulumi.Input[_builtins.str] name: Name of the Event API.
                
                The following arguments are optional:

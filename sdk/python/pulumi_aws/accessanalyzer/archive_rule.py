@@ -168,7 +168,7 @@ class ArchiveRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analyzer_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ArchiveRuleFilterArgs', 'ArchiveRuleFilterArgsDict']]]]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ArchiveRuleFilterArgs', 'ArchiveRuleFilterArgsDict', 'outputs.ArchiveRuleFilter']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -214,7 +214,7 @@ class ArchiveRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] analyzer_name: Analyzer name.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ArchiveRuleFilterArgs', 'ArchiveRuleFilterArgsDict']]]] filters: Filter criteria for the archive rule. See Filter for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ArchiveRuleFilterArgs', 'ArchiveRuleFilterArgsDict', 'outputs.ArchiveRuleFilter']]]] filters: Filter criteria for the archive rule. See Filter for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] rule_name: Rule name.
         """
@@ -279,7 +279,7 @@ class ArchiveRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analyzer_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ArchiveRuleFilterArgs', 'ArchiveRuleFilterArgsDict']]]]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ArchiveRuleFilterArgs', 'ArchiveRuleFilterArgsDict', 'outputs.ArchiveRuleFilter']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -312,7 +312,7 @@ class ArchiveRule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             analyzer_name: pulumi.Input[Optional[_builtins.str]] = None,
-            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ArchiveRuleFilterArgs', 'ArchiveRuleFilterArgsDict']]]]] = None,
+            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ArchiveRuleFilterArgs', 'ArchiveRuleFilterArgsDict', 'outputs.ArchiveRuleFilter']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             rule_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ArchiveRule':
         """
@@ -323,7 +323,7 @@ class ArchiveRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] analyzer_name: Analyzer name.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ArchiveRuleFilterArgs', 'ArchiveRuleFilterArgsDict']]]] filters: Filter criteria for the archive rule. See Filter for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ArchiveRuleFilterArgs', 'ArchiveRuleFilterArgsDict', 'outputs.ArchiveRuleFilter']]]] filters: Filter criteria for the archive rule. See Filter for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] rule_name: Rule name.
         """
