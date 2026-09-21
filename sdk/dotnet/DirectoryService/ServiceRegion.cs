@@ -28,6 +28,7 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     ///     var available = Aws.GetAvailabilityZones.Invoke(new()
     ///     {
+    ///         State = "available",
     ///         Filters = new[]
     ///         {
     ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
@@ -39,7 +40,6 @@ namespace Pulumi.Aws.DirectoryService
     ///                 },
     ///             },
     ///         },
-    ///         State = "available",
     ///     });
     /// 
     ///     var exampleVpc = new Aws.Ec2.Vpc("example", new()
@@ -73,18 +73,19 @@ namespace Pulumi.Aws.DirectoryService
     ///     }
     ///     var exampleDirectory = new Aws.DirectoryService.Directory("example", new()
     ///     {
+    ///         Name = "example.com",
+    ///         Password = "SuperSecretPassw0rd",
+    ///         Type = "MicrosoftAD",
     ///         VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
     ///         {
     ///             VpcId = exampleVpc.Id,
     ///             SubnetIds = exampleSubnet.Select(__item =&gt; __item.Id).ToList(),
     ///         },
-    ///         Name = "example.com",
-    ///         Password = "SuperSecretPassw0rd",
-    ///         Type = "MicrosoftAD",
     ///     });
     /// 
     ///     var available_secondary = Aws.GetAvailabilityZones.Invoke(new()
     ///     {
+    ///         State = "available",
     ///         Filters = new[]
     ///         {
     ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
@@ -96,7 +97,6 @@ namespace Pulumi.Aws.DirectoryService
     ///                 },
     ///             },
     ///         },
-    ///         State = "available",
     ///     });
     /// 
     ///     var example_secondary = new Aws.Ec2.Vpc("example-secondary", new()
@@ -130,13 +130,13 @@ namespace Pulumi.Aws.DirectoryService
     ///     }
     ///     var exampleServiceRegion = new Aws.DirectoryService.ServiceRegion("example", new()
     ///     {
+    ///         DirectoryId = exampleDirectory.Id,
+    ///         RegionName = example.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///         VpcSettings = new Aws.DirectoryService.Inputs.ServiceRegionVpcSettingsArgs
     ///         {
     ///             VpcId = example_secondary.Id,
     ///             SubnetIds = example_secondarySubnet.Select(__item =&gt; __item.Id).ToList(),
     ///         },
-    ///         DirectoryId = exampleDirectory.Id,
-    ///         RegionName = example.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///         Tags = 
     ///         {
     ///             { "Name", "Secondary" },

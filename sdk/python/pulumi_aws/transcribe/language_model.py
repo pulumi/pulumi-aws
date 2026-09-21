@@ -267,7 +267,7 @@ class LanguageModel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  base_model_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 input_data_config: pulumi.Input[Optional[Union['LanguageModelInputDataConfigArgs', 'LanguageModelInputDataConfigArgsDict']]] = None,
+                 input_data_config: pulumi.Input[Optional[Union['LanguageModelInputDataConfigArgs', 'LanguageModelInputDataConfigArgsDict', 'outputs.LanguageModelInputDataConfig']]] = None,
                  language_code: pulumi.Input[Optional[_builtins.str]] = None,
                  model_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -288,11 +288,11 @@ class LanguageModel(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["transcribe.amazonaws.com"],
             }],
-            "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example",
             name="example",
@@ -319,12 +319,12 @@ class LanguageModel(pulumi.CustomResource):
             key="transcribe/test1.txt",
             source=pulumi.FileAsset("test1.txt"))
         example_language_model = aws.transcribe.LanguageModel("example",
+            model_name="example",
+            base_model_name="NarrowBand",
             input_data_config={
                 "data_access_role_arn": example_role.arn,
                 "s3_uri": example_bucket.id.apply(lambda id: f"s3://{id}/transcribe/"),
             },
-            model_name="example",
-            base_model_name="NarrowBand",
             language_code="en-US",
             tags={
                 "ENVIRONMENT": "development",
@@ -343,7 +343,7 @@ class LanguageModel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] base_model_name: Name of reference base model.
-        :param pulumi.Input[Union['LanguageModelInputDataConfigArgs', 'LanguageModelInputDataConfigArgsDict']] input_data_config: Input data configuration for the LanguageModel. See `input_data_config` Block for details.
+        :param pulumi.Input[Union['LanguageModelInputDataConfigArgs', 'LanguageModelInputDataConfigArgsDict', 'outputs.LanguageModelInputDataConfig']] input_data_config: Input data configuration for the LanguageModel. See `input_data_config` Block for details.
         :param pulumi.Input[_builtins.str] language_code: Language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         :param pulumi.Input[_builtins.str] model_name: Model name.
                
@@ -372,11 +372,11 @@ class LanguageModel(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["transcribe.amazonaws.com"],
             }],
-            "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example",
             name="example",
@@ -403,12 +403,12 @@ class LanguageModel(pulumi.CustomResource):
             key="transcribe/test1.txt",
             source=pulumi.FileAsset("test1.txt"))
         example_language_model = aws.transcribe.LanguageModel("example",
+            model_name="example",
+            base_model_name="NarrowBand",
             input_data_config={
                 "data_access_role_arn": example_role.arn,
                 "s3_uri": example_bucket.id.apply(lambda id: f"s3://{id}/transcribe/"),
             },
-            model_name="example",
-            base_model_name="NarrowBand",
             language_code="en-US",
             tags={
                 "ENVIRONMENT": "development",
@@ -440,7 +440,7 @@ class LanguageModel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  base_model_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 input_data_config: pulumi.Input[Optional[Union['LanguageModelInputDataConfigArgs', 'LanguageModelInputDataConfigArgsDict']]] = None,
+                 input_data_config: pulumi.Input[Optional[Union['LanguageModelInputDataConfigArgs', 'LanguageModelInputDataConfigArgsDict', 'outputs.LanguageModelInputDataConfig']]] = None,
                  language_code: pulumi.Input[Optional[_builtins.str]] = None,
                  model_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -482,7 +482,7 @@ class LanguageModel(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             base_model_name: pulumi.Input[Optional[_builtins.str]] = None,
-            input_data_config: pulumi.Input[Optional[Union['LanguageModelInputDataConfigArgs', 'LanguageModelInputDataConfigArgsDict']]] = None,
+            input_data_config: pulumi.Input[Optional[Union['LanguageModelInputDataConfigArgs', 'LanguageModelInputDataConfigArgsDict', 'outputs.LanguageModelInputDataConfig']]] = None,
             language_code: pulumi.Input[Optional[_builtins.str]] = None,
             model_name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -497,7 +497,7 @@ class LanguageModel(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the LanguageModel.
         :param pulumi.Input[_builtins.str] base_model_name: Name of reference base model.
-        :param pulumi.Input[Union['LanguageModelInputDataConfigArgs', 'LanguageModelInputDataConfigArgsDict']] input_data_config: Input data configuration for the LanguageModel. See `input_data_config` Block for details.
+        :param pulumi.Input[Union['LanguageModelInputDataConfigArgs', 'LanguageModelInputDataConfigArgsDict', 'outputs.LanguageModelInputDataConfig']] input_data_config: Input data configuration for the LanguageModel. See `input_data_config` Block for details.
         :param pulumi.Input[_builtins.str] language_code: Language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         :param pulumi.Input[_builtins.str] model_name: Model name.
                

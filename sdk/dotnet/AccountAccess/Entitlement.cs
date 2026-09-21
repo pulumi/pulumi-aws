@@ -30,10 +30,12 @@ namespace Pulumi.Aws.AccountAccess
     /// {
     ///     var example = new Aws.AccountAccess.Entitlement("example", new()
     ///     {
+    ///         ApplicationArn = exampleAwsAccountaccessApplication.Arn,
     ///         EntitlementDetails = new Aws.AccountAccess.Inputs.EntitlementEntitlementArgs
     ///         {
     ///             PrincipalRole = new Aws.AccountAccess.Inputs.EntitlementEntitlementPrincipalRoleArgs
     ///             {
+    ///                 RoleArn = "arn:aws:iam::123456789012:role/Developer",
     ///                 Principal = new Aws.AccountAccess.Inputs.EntitlementEntitlementPrincipalRolePrincipalArgs
     ///                 {
     ///                     IdentityCenter = new Aws.AccountAccess.Inputs.EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs
@@ -41,10 +43,8 @@ namespace Pulumi.Aws.AccountAccess
     ///                         UserId = "11111111-2222-3333-4444-555555555555",
     ///                     },
     ///                 },
-    ///                 RoleArn = "arn:aws:iam::123456789012:role/Developer",
     ///             },
     ///         },
-    ///         ApplicationArn = exampleAwsAccountaccessApplication.Arn,
     ///     });
     /// 
     /// });
@@ -62,10 +62,12 @@ namespace Pulumi.Aws.AccountAccess
     /// {
     ///     var example = new Aws.AccountAccess.Entitlement("example", new()
     ///     {
+    ///         ApplicationArn = exampleAwsAccountaccessApplication.Arn,
     ///         EntitlementDetails = new Aws.AccountAccess.Inputs.EntitlementEntitlementArgs
     ///         {
     ///             PrincipalRole = new Aws.AccountAccess.Inputs.EntitlementEntitlementPrincipalRoleArgs
     ///             {
+    ///                 RoleArn = "arn:aws:iam::123456789012:role/Engineering",
     ///                 Principal = new Aws.AccountAccess.Inputs.EntitlementEntitlementPrincipalRolePrincipalArgs
     ///                 {
     ///                     IdentityCenter = new Aws.AccountAccess.Inputs.EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs
@@ -73,10 +75,8 @@ namespace Pulumi.Aws.AccountAccess
     ///                         GroupId = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
     ///                     },
     ///                 },
-    ///                 RoleArn = "arn:aws:iam::123456789012:role/Engineering",
     ///             },
     ///         },
-    ///         ApplicationArn = exampleAwsAccountaccessApplication.Arn,
     ///     });
     /// 
     /// });
@@ -138,10 +138,12 @@ namespace Pulumi.Aws.AccountAccess
     /// 
     ///     var exampleEntitlement = new Aws.AccountAccess.Entitlement("example", new()
     ///     {
+    ///         ApplicationArn = exampleApplication.Arn,
     ///         EntitlementDetails = new Aws.AccountAccess.Inputs.EntitlementEntitlementArgs
     ///         {
     ///             PrincipalRole = new Aws.AccountAccess.Inputs.EntitlementEntitlementPrincipalRoleArgs
     ///             {
+    ///                 RoleArn = target.Arn,
     ///                 Principal = new Aws.AccountAccess.Inputs.EntitlementEntitlementPrincipalRolePrincipalArgs
     ///                 {
     ///                     IdentityCenter = new Aws.AccountAccess.Inputs.EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs
@@ -149,10 +151,8 @@ namespace Pulumi.Aws.AccountAccess
     ///                         UserId = "11111111-2222-3333-4444-555555555555",
     ///                     },
     ///                 },
-    ///                 RoleArn = target.Arn,
     ///             },
     ///         },
-    ///         ApplicationArn = exampleApplication.Arn,
     ///     });
     /// 
     /// });

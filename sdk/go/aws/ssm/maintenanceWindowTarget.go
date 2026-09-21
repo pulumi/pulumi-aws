@@ -40,6 +40,10 @@ import (
 //				return err
 //			}
 //			_, err = ssm.NewMaintenanceWindowTarget(ctx, "target1", &ssm.MaintenanceWindowTargetArgs{
+//				WindowId:     window.ID().ToIDOutput().ToStringOutput(),
+//				Name:         pulumi.String("maintenance-window-target"),
+//				Description:  pulumi.String("This is a maintenance window target"),
+//				ResourceType: pulumi.String("INSTANCE"),
 //				Targets: ssm.MaintenanceWindowTargetTargetArray{
 //					&ssm.MaintenanceWindowTargetTargetArgs{
 //						Key: pulumi.String("tag:Name"),
@@ -48,10 +52,6 @@ import (
 //						},
 //					},
 //				},
-//				WindowId:     window.ID().ToIDOutput().ToStringOutput(),
-//				Name:         pulumi.String("maintenance-window-target"),
-//				Description:  pulumi.String("This is a maintenance window target"),
-//				ResourceType: pulumi.String("INSTANCE"),
 //			})
 //			if err != nil {
 //				return err
@@ -86,6 +86,10 @@ import (
 //				return err
 //			}
 //			_, err = ssm.NewMaintenanceWindowTarget(ctx, "target1", &ssm.MaintenanceWindowTargetArgs{
+//				WindowId:     window.ID().ToIDOutput().ToStringOutput(),
+//				Name:         pulumi.String("maintenance-window-target"),
+//				Description:  pulumi.String("This is a maintenance window target"),
+//				ResourceType: pulumi.String("RESOURCE_GROUP"),
 //				Targets: ssm.MaintenanceWindowTargetTargetArray{
 //					&ssm.MaintenanceWindowTargetTargetArgs{
 //						Key: pulumi.String("resource-groups:ResourceTypeFilters"),
@@ -94,10 +98,6 @@ import (
 //						},
 //					},
 //				},
-//				WindowId:     window.ID().ToIDOutput().ToStringOutput(),
-//				Name:         pulumi.String("maintenance-window-target"),
-//				Description:  pulumi.String("This is a maintenance window target"),
-//				ResourceType: pulumi.String("RESOURCE_GROUP"),
 //			})
 //			if err != nil {
 //				return err

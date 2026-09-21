@@ -33,6 +33,11 @@ namespace Pulumi.Aws.Ecs
     /// 
     ///     var exampleClusterCapacityProviders = new Aws.Ecs.ClusterCapacityProviders("example", new()
     ///     {
+    ///         ClusterName = example.Name,
+    ///         CapacityProviders = new[]
+    ///         {
+    ///             "FARGATE",
+    ///         },
     ///         DefaultCapacityProviderStrategies = new[]
     ///         {
     ///             new Aws.Ecs.Inputs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs
@@ -41,11 +46,6 @@ namespace Pulumi.Aws.Ecs
     ///                 Weight = 100,
     ///                 CapacityProvider = "FARGATE",
     ///             },
-    ///         },
-    ///         ClusterName = example.Name,
-    ///         CapacityProviders = new[]
-    ///         {
-    ///             "FARGATE",
     ///         },
     ///     });
     /// 

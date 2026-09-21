@@ -26,12 +26,12 @@ namespace Pulumi.Aws.SecretsManager
     /// {
     ///     var example = new Aws.SecretsManager.SecretRotation("example", new()
     ///     {
+    ///         SecretId = exampleAwsSecretsmanagerSecret.Id,
+    ///         RotationLambdaArn = exampleAwsLambdaFunction.Arn,
     ///         RotationRules = new Aws.SecretsManager.Inputs.SecretRotationRotationRulesArgs
     ///         {
     ///             AutomaticallyAfterDays = 30,
     ///         },
-    ///         SecretId = exampleAwsSecretsmanagerSecret.Id,
-    ///         RotationLambdaArn = exampleAwsLambdaFunction.Arn,
     ///     });
     /// 
     /// });
@@ -57,10 +57,8 @@ namespace Pulumi.Aws.SecretsManager
     /// 
     ///     var exampleSecretRotation = new Aws.SecretsManager.SecretRotation("example", new()
     ///     {
-    ///         RotationRules = new Aws.SecretsManager.Inputs.SecretRotationRotationRulesArgs
-    ///         {
-    ///             AutomaticallyAfterDays = rotationDays,
-    ///         },
+    ///         SecretId = example.Id,
+    ///         ExternalSecretRotationRoleArn = exampleAwsIamRole.Arn,
     ///         ExternalSecretRotationMetadatas = new[]
     ///         {
     ///             new Aws.SecretsManager.Inputs.SecretRotationExternalSecretRotationMetadataArgs
@@ -74,8 +72,10 @@ namespace Pulumi.Aws.SecretsManager
     ///                 Value = "v65.0",
     ///             },
     ///         },
-    ///         SecretId = example.Id,
-    ///         ExternalSecretRotationRoleArn = exampleAwsIamRole.Arn,
+    ///         RotationRules = new Aws.SecretsManager.Inputs.SecretRotationRotationRulesArgs
+    ///         {
+    ///             AutomaticallyAfterDays = rotationDays,
+    ///         },
     ///     });
     /// 
     /// });
@@ -125,13 +125,16 @@ namespace Pulumi.Aws.SecretsManager
     ///     var rotationEnabled = config.GetBoolean("rotationEnabled") ?? true;
     ///     var example = new Aws.SecretsManager.SecretRotation("example", new()
     ///     {
-    ///         RotationRules = Enumerable.SingleOrDefault(rotationEnabled ? new[]
+    ///         RotationRules = Enumerable.SingleOrDefault((rotationEnabled ? new[]
     ///         {
-    ///             
+    ///             1,
+    ///         } : new[] {}).Select((v, k) =&gt; new { Key = k, Value = v }).Select(entry =&gt; 
+    ///         {
+    ///             return 
     ///             {
     ///                 { "automaticallyAfterDays", 30 },
-    ///             },
-    ///         } : new[] {}),
+    ///             };
+    ///         }).ToList()),
     ///         SecretId = exampleAwsDbInstance.MasterUserSecret[0].SecretArn,
     ///         RotationEnabled = rotationEnabled,
     ///     });

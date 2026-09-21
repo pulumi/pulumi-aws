@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.verifiedaccess.Instance("example", {});
  * const exampleTrustProvider = new aws.verifiedaccess.TrustProvider("example", {
- *     deviceOptions: {
- *         tenantId: "example",
- *     },
  *     deviceTrustProviderType: "jamf",
  *     policyReferenceName: "example",
  *     trustProviderType: "device",
+ *     deviceOptions: {
+ *         tenantId: "example",
+ *     },
  * });
  * const exampleInstanceTrustProviderAttachment = new aws.verifiedaccess.InstanceTrustProviderAttachment("example", {
  *     verifiedaccessInstanceId: example.id,

@@ -21,12 +21,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
+ *     name: "serviceBv1",
+ *     meshName: simple.id,
  *     spec: {
- *         serviceDiscovery: {
- *             dns: {
- *                 hostname: "serviceb.simpleapp.local",
- *             },
- *         },
  *         backends: [{
  *             virtualService: {
  *                 virtualServiceName: "servicea.simpleapp.local",
@@ -38,9 +35,12 @@ import * as utilities from "../utilities";
  *                 protocol: "http",
  *             },
  *         }],
+ *         serviceDiscovery: {
+ *             dns: {
+ *                 hostname: "serviceb.simpleapp.local",
+ *             },
+ *         },
  *     },
- *     name: "serviceBv1",
- *     meshName: simple.id,
  * });
  * ```
  *
@@ -52,16 +52,9 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.servicediscovery.HttpNamespace("example", {name: "example-ns"});
  * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
+ *     name: "serviceBv1",
+ *     meshName: simple.id,
  *     spec: {
- *         serviceDiscovery: {
- *             awsCloudMap: {
- *                 attributes: {
- *                     stack: "blue",
- *                 },
- *                 serviceName: "serviceb1",
- *                 namespaceName: example.name,
- *             },
- *         },
  *         backends: [{
  *             virtualService: {
  *                 virtualServiceName: "servicea.simpleapp.local",
@@ -73,9 +66,16 @@ import * as utilities from "../utilities";
  *                 protocol: "http",
  *             },
  *         }],
+ *         serviceDiscovery: {
+ *             awsCloudMap: {
+ *                 attributes: {
+ *                     stack: "blue",
+ *                 },
+ *                 serviceName: "serviceb1",
+ *                 namespaceName: example.name,
+ *             },
+ *         },
  *     },
- *     name: "serviceBv1",
- *     meshName: simple.id,
  * });
  * ```
  *
@@ -86,12 +86,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
+ *     name: "serviceBv1",
+ *     meshName: simple.id,
  *     spec: {
- *         serviceDiscovery: {
- *             dns: {
- *                 hostname: "serviceb.simpleapp.local",
- *             },
- *         },
  *         backends: [{
  *             virtualService: {
  *                 virtualServiceName: "servicea.simpleapp.local",
@@ -111,9 +108,12 @@ import * as utilities from "../utilities";
  *                 intervalMillis: 5000,
  *             },
  *         }],
+ *         serviceDiscovery: {
+ *             dns: {
+ *                 hostname: "serviceb.simpleapp.local",
+ *             },
+ *         },
  *     },
- *     name: "serviceBv1",
- *     meshName: simple.id,
  * });
  * ```
  *
@@ -124,7 +124,20 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
+ *     name: "serviceBv1",
+ *     meshName: simple.id,
  *     spec: {
+ *         backends: [{
+ *             virtualService: {
+ *                 virtualServiceName: "servicea.simpleapp.local",
+ *             },
+ *         }],
+ *         listeners: [{
+ *             portMapping: {
+ *                 port: 8080,
+ *                 protocol: "http",
+ *             },
+ *         }],
  *         serviceDiscovery: {
  *             dns: {
  *                 hostname: "serviceb.simpleapp.local",
@@ -137,20 +150,7 @@ import * as utilities from "../utilities";
  *                 },
  *             },
  *         },
- *         backends: [{
- *             virtualService: {
- *                 virtualServiceName: "servicea.simpleapp.local",
- *             },
- *         }],
- *         listeners: [{
- *             portMapping: {
- *                 port: 8080,
- *                 protocol: "http",
- *             },
- *         }],
  *     },
- *     name: "serviceBv1",
- *     meshName: simple.id,
  * });
  * ```
  *

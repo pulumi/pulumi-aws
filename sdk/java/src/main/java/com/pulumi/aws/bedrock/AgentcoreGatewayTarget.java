@@ -75,12 +75,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var gatewayAssume = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect("Allow")
+ *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("bedrock-agentcore.amazonaws.com")
  *                     .build())
- *                 .effect("Allow")
- *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
@@ -91,12 +91,12 @@ import javax.annotation.Nullable;
  * 
  *         final var lambdaAssume = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect("Allow")
+ *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("lambda.amazonaws.com")
  *                     .build())
- *                 .effect("Allow")
- *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
@@ -114,16 +114,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAgentcoreGateway = new AgentcoreGateway("exampleAgentcoreGateway", AgentcoreGatewayArgs.builder()
+ *             .name("example-gateway")
+ *             .roleArn(gatewayRole.arn())
  *             .authorizerConfiguration(AgentcoreGatewayAuthorizerConfigurationArgs.builder()
  *                 .customJwtAuthorizer(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs.builder()
  *                     .discoveryUrl("https://accounts.google.com/.well-known/openid-configuration")
  *                     .build())
  *                 .build())
- *             .name("example-gateway")
- *             .roleArn(gatewayRole.arn())
  *             .build());
  * 
  *         var exampleAgentcoreGatewayTarget = new AgentcoreGatewayTarget("exampleAgentcoreGatewayTarget", AgentcoreGatewayTargetArgs.builder()
+ *             .name("example-target")
+ *             .gatewayIdentifier(exampleAgentcoreGateway.gatewayId())
+ *             .description("Lambda function target for processing requests")
  *             .credentialProviderConfiguration(AgentcoreGatewayTargetCredentialProviderConfigurationArgs.builder()
  *                 .gatewayIamRole(AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs.builder()
  *                     .build())
@@ -131,9 +134,14 @@ import javax.annotation.Nullable;
  *             .targetConfiguration(AgentcoreGatewayTargetTargetConfigurationArgs.builder()
  *                 .mcp(AgentcoreGatewayTargetTargetConfigurationMcpArgs.builder()
  *                     .lambda(AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs.builder()
+ *                         .lambdaArn(example.arn())
  *                         .toolSchema(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs.builder()
  *                             .inlinePayloads(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs.builder()
+ *                                 .name("process_request")
+ *                                 .description("Process incoming requests")
  *                                 .inputSchema(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs.builder()
+ *                                     .type("object")
+ *                                     .description("Request processing schema")
  *                                     .properties(                                    
  *                                         AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs.builder()
  *                                             .name("message")
@@ -142,23 +150,22 @@ import javax.annotation.Nullable;
  *                                             .required(true)
  *                                             .build(),
  *                                         AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs.builder()
+ *                                             .name("options")
+ *                                             .type("object")
  *                                             .properties(                                            
  *                                                 AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs.builder()
  *                                                     .name("priority")
  *                                                     .type("string")
  *                                                     .build(),
  *                                                 AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs.builder()
- *                                                     .items(Arrays.asList(Map.of("type", "string")))
  *                                                     .name("tags")
  *                                                     .type("array")
+ *                                                     .items(Arrays.asList(Map.of("type", "string")))
  *                                                     .build())
- *                                             .name("options")
- *                                             .type("object")
  *                                             .build())
- *                                     .type("object")
- *                                     .description("Request processing schema")
  *                                     .build())
  *                                 .outputSchema(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs.builder()
+ *                                     .type("object")
  *                                     .properties(                                    
  *                                         AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgs.builder()
  *                                             .name("status")
@@ -169,19 +176,12 @@ import javax.annotation.Nullable;
  *                                             .name("result")
  *                                             .type("string")
  *                                             .build())
- *                                     .type("object")
  *                                     .build())
- *                                 .name("process_request")
- *                                 .description("Process incoming requests")
  *                                 .build())
  *                             .build())
- *                         .lambdaArn(example.arn())
  *                         .build())
  *                     .build())
  *                 .build())
- *             .name("example-target")
- *             .gatewayIdentifier(exampleAgentcoreGateway.gatewayId())
- *             .description("Lambda function target for processing requests")
  *             .build());
  * 
  *     }
@@ -222,6 +222,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var apiKeyExample = new AgentcoreGatewayTarget("apiKeyExample", AgentcoreGatewayTargetArgs.builder()
+ *             .name("api-target")
+ *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.gatewayId())
+ *             .description("External API target with API key authentication")
  *             .credentialProviderConfiguration(AgentcoreGatewayTargetCredentialProviderConfigurationArgs.builder()
  *                 .apiKey(AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs.builder()
  *                     .providerArn("arn:aws:iam::123456789012:oidc-provider/example.com")
@@ -233,23 +236,20 @@ import javax.annotation.Nullable;
  *             .targetConfiguration(AgentcoreGatewayTargetTargetConfigurationArgs.builder()
  *                 .mcp(AgentcoreGatewayTargetTargetConfigurationMcpArgs.builder()
  *                     .lambda(AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs.builder()
+ *                         .lambdaArn(example.arn())
  *                         .toolSchema(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs.builder()
  *                             .inlinePayloads(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs.builder()
+ *                                 .name("api_tool")
+ *                                 .description("External API integration tool")
  *                                 .inputSchema(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs.builder()
  *                                     .type("string")
  *                                     .description("Simple string input for API calls")
  *                                     .build())
- *                                 .name("api_tool")
- *                                 .description("External API integration tool")
  *                                 .build())
  *                             .build())
- *                         .lambdaArn(example.arn())
  *                         .build())
  *                     .build())
  *                 .build())
- *             .name("api-target")
- *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.gatewayId())
- *             .description("External API target with API key authentication")
  *             .build());
  * 
  *     }
@@ -292,6 +292,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var oauthExample = new AgentcoreGatewayTarget("oauthExample", AgentcoreGatewayTargetArgs.builder()
+ *             .name("oauth-target")
+ *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.gatewayId())
  *             .credentialProviderConfiguration(AgentcoreGatewayTargetCredentialProviderConfigurationArgs.builder()
  *                 .oauth(AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs.builder()
  *                     .providerArn("arn:aws:iam::123456789012:oidc-provider/oauth.example.com")
@@ -306,10 +308,15 @@ import javax.annotation.Nullable;
  *             .targetConfiguration(AgentcoreGatewayTargetTargetConfigurationArgs.builder()
  *                 .mcp(AgentcoreGatewayTargetTargetConfigurationMcpArgs.builder()
  *                     .lambda(AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs.builder()
+ *                         .lambdaArn(example.arn())
  *                         .toolSchema(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs.builder()
  *                             .inlinePayloads(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs.builder()
+ *                                 .name("oauth_tool")
+ *                                 .description("OAuth-authenticated service")
  *                                 .inputSchema(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs.builder()
+ *                                     .type("array")
  *                                     .items(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs.builder()
+ *                                         .type("object")
  *                                         .properties(                                        
  *                                             AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs.builder()
  *                                                 .name("id")
@@ -320,20 +327,13 @@ import javax.annotation.Nullable;
  *                                                 .name("value")
  *                                                 .type("number")
  *                                                 .build())
- *                                         .type("object")
  *                                         .build())
- *                                     .type("array")
  *                                     .build())
- *                                 .name("oauth_tool")
- *                                 .description("OAuth-authenticated service")
  *                                 .build())
  *                             .build())
- *                         .lambdaArn(example.arn())
  *                         .build())
  *                     .build())
  *                 .build())
- *             .name("oauth-target")
- *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.gatewayId())
  *             .build());
  * 
  *     }
@@ -373,6 +373,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sigv4Example = new AgentcoreGatewayTarget("sigv4Example", AgentcoreGatewayTargetArgs.builder()
+ *             .name("sigv4-target")
+ *             .gatewayIdentifier(example.gatewayId())
  *             .credentialProviderConfiguration(AgentcoreGatewayTargetCredentialProviderConfigurationArgs.builder()
  *                 .gatewayIamRole(AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs.builder()
  *                     .service("bedrock-agentcore")
@@ -385,8 +387,6 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .name("sigv4-target")
- *             .gatewayIdentifier(example.gatewayId())
  *             .build());
  * 
  *     }
@@ -430,6 +430,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var complexSchema = new AgentcoreGatewayTarget("complexSchema", AgentcoreGatewayTargetArgs.builder()
+ *             .name("complex-target")
+ *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.gatewayId())
  *             .credentialProviderConfiguration(AgentcoreGatewayTargetCredentialProviderConfigurationArgs.builder()
  *                 .gatewayIamRole(AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs.builder()
  *                     .build())
@@ -437,10 +439,16 @@ import javax.annotation.Nullable;
  *             .targetConfiguration(AgentcoreGatewayTargetTargetConfigurationArgs.builder()
  *                 .mcp(AgentcoreGatewayTargetTargetConfigurationMcpArgs.builder()
  *                     .lambda(AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs.builder()
+ *                         .lambdaArn(example.arn())
  *                         .toolSchema(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs.builder()
  *                             .inlinePayloads(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs.builder()
+ *                                 .name("complex_tool")
+ *                                 .description("Tool with complex nested schema")
  *                                 .inputSchema(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs.builder()
+ *                                     .type("object")
  *                                     .properties(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs.builder()
+ *                                         .name("profile")
+ *                                         .type("object")
  *                                         .properties(                                        
  *                                             AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs.builder()
  *                                                 .name("nested_tags")
@@ -466,21 +474,13 @@ import javax.annotation.Nullable;
  *                                                         jsonProperty("required", jsonArray("created_at"))
  *                                                     )))
  *                                                 .build())
- *                                         .name("profile")
- *                                         .type("object")
  *                                         .build())
- *                                     .type("object")
  *                                     .build())
- *                                 .name("complex_tool")
- *                                 .description("Tool with complex nested schema")
  *                                 .build())
  *                             .build())
- *                         .lambdaArn(example.arn())
  *                         .build())
  *                     .build())
  *                 .build())
- *             .name("complex-target")
- *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.gatewayId())
  *             .build());
  * 
  *     }
@@ -517,6 +517,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var mcpWithHeaders = new AgentcoreGatewayTarget("mcpWithHeaders", AgentcoreGatewayTargetArgs.builder()
+ *             .name("mcp-target-with-headers")
+ *             .gatewayIdentifier(example.gatewayId())
+ *             .description("MCP server target with header propagation")
  *             .targetConfiguration(AgentcoreGatewayTargetTargetConfigurationArgs.builder()
  *                 .mcp(AgentcoreGatewayTargetTargetConfigurationMcpArgs.builder()
  *                     .mcpServer(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs.builder()
@@ -531,9 +534,6 @@ import javax.annotation.Nullable;
  *                 .allowedResponseHeaders("x-rate-limit-remaining")
  *                 .allowedQueryParameters("version")
  *                 .build())
- *             .name("mcp-target-with-headers")
- *             .gatewayIdentifier(example.gatewayId())
- *             .description("MCP server target with header propagation")
  *             .build());
  * 
  *     }
@@ -571,6 +571,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentcoreGatewayTarget("example", AgentcoreGatewayTargetArgs.builder()
+ *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.gatewayId())
+ *             .name("my-private-mcp-target")
  *             .targetConfiguration(AgentcoreGatewayTargetTargetConfigurationArgs.builder()
  *                 .mcp(AgentcoreGatewayTargetTargetConfigurationMcpArgs.builder()
  *                     .mcpServer(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs.builder()
@@ -586,8 +588,6 @@ import javax.annotation.Nullable;
  *                     .securityGroupIds(mcpLattice.id())
  *                     .build())
  *                 .build())
- *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.gatewayId())
- *             .name("my-private-mcp-target")
  *             .build());
  * 
  *     }
@@ -627,6 +627,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentcoreGatewayTarget("example", AgentcoreGatewayTargetArgs.builder()
+ *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.gatewayId())
+ *             .name("my-private-mcp-via-alb")
  *             .targetConfiguration(AgentcoreGatewayTargetTargetConfigurationArgs.builder()
  *                 .mcp(AgentcoreGatewayTargetTargetConfigurationMcpArgs.builder()
  *                     .mcpServer(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs.builder()
@@ -642,8 +644,6 @@ import javax.annotation.Nullable;
  *                     .routingDomain(mcpAlb.dnsName())
  *                     .build())
  *                 .build())
- *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.gatewayId())
- *             .name("my-private-mcp-via-alb")
  *             .build());
  * 
  *     }
@@ -681,6 +681,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentcoreGatewayTarget("example", AgentcoreGatewayTargetArgs.builder()
+ *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.gatewayId())
+ *             .name("my-private-mcp-self-managed")
  *             .targetConfiguration(AgentcoreGatewayTargetTargetConfigurationArgs.builder()
  *                 .mcp(AgentcoreGatewayTargetTargetConfigurationMcpArgs.builder()
  *                     .mcpServer(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs.builder()
@@ -693,8 +695,6 @@ import javax.annotation.Nullable;
  *                     .resourceConfigurationIdentifier(mcp.arn())
  *                     .build())
  *                 .build())
- *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.gatewayId())
- *             .name("my-private-mcp-self-managed")
  *             .build());
  * 
  *     }

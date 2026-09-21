@@ -60,9 +60,7 @@ import javax.annotation.Nullable;
  *         var example = new Bucket("example", BucketArgs.builder()
  *             .bucket("example")
  *             .forceDestroy(true)
- *             .build(), CustomResourceOptions.builder()
- *                 .ignoreChanges("tags[\"CreatorId\"]", "tags[\"CreatorName\"]")
- *                 .build());
+ *             .build());
  * 
  *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()
  *             .bucket(example.bucket())
@@ -97,14 +95,14 @@ import javax.annotation.Nullable;
  * 
  *         var exampleInvocationLoggingConfiguration = new InvocationLoggingConfiguration("exampleInvocationLoggingConfiguration", InvocationLoggingConfigurationArgs.builder()
  *             .loggingConfig(InvocationLoggingConfigurationLoggingConfigArgs.builder()
- *                 .s3Config(InvocationLoggingConfigurationLoggingConfigS3ConfigArgs.builder()
- *                     .bucketName(example.id())
- *                     .keyPrefix("bedrock")
- *                     .build())
  *                 .embeddingDataDeliveryEnabled(true)
  *                 .imageDataDeliveryEnabled(true)
  *                 .textDataDeliveryEnabled(true)
  *                 .videoDataDeliveryEnabled(true)
+ *                 .s3Config(InvocationLoggingConfigurationLoggingConfigS3ConfigArgs.builder()
+ *                     .bucketName(example.id())
+ *                     .keyPrefix("bedrock")
+ *                     .build())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleBucketPolicy)

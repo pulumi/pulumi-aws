@@ -48,14 +48,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleTable = new Table("exampleTable", TableArgs.builder()
- *             .attributes(TableAttributeArgs.builder()
- *                 .name("exampleHashKey")
- *                 .type("S")
- *                 .build())
  *             .name("example-name")
  *             .readCapacity(10)
  *             .writeCapacity(10)
  *             .hashKey("exampleHashKey")
+ *             .attributes(TableAttributeArgs.builder()
+ *                 .name("exampleHashKey")
+ *                 .type("S")
+ *                 .build())
  *             .build());
  * 
  *         var example = new TableItem("example", TableItemArgs.builder()

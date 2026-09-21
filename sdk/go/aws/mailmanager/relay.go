@@ -31,12 +31,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := mailmanager.NewRelay(ctx, "example", &mailmanager.RelayArgs{
-//				Authentication: &mailmanager.RelayAuthenticationArgs{
-//					NoAuthentication: &mailmanager.RelayAuthenticationNoAuthenticationArgs{},
-//				},
 //				Name:       pulumi.String("example"),
 //				ServerName: pulumi.String("smtp.example.com"),
 //				ServerPort: pulumi.Int(25),
+//				Authentication: &mailmanager.RelayAuthenticationArgs{
+//					NoAuthentication: &mailmanager.RelayAuthenticationNoAuthenticationArgs{},
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -86,12 +86,12 @@ import (
 //				return err
 //			}
 //			_, err = mailmanager.NewRelay(ctx, "example", &mailmanager.RelayArgs{
-//				Authentication: &mailmanager.RelayAuthenticationArgs{
-//					SecretArn: exampleSecretVersion.Arn,
-//				},
 //				Name:       pulumi.String("example"),
 //				ServerName: pulumi.String("smtp.example.com"),
 //				ServerPort: pulumi.Int(587),
+//				Authentication: &mailmanager.RelayAuthenticationArgs{
+//					SecretArn: exampleSecretVersion.Arn,
+//				},
 //			})
 //			if err != nil {
 //				return err

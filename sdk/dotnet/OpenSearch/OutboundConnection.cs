@@ -30,6 +30,8 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     ///     var foo = new Aws.OpenSearch.OutboundConnection("foo", new()
     ///     {
+    ///         ConnectionAlias = "outbound_connection",
+    ///         ConnectionMode = "DIRECT",
     ///         LocalDomainInfo = new Aws.OpenSearch.Inputs.OutboundConnectionLocalDomainInfoArgs
     ///         {
     ///             OwnerId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
@@ -42,8 +44,6 @@ namespace Pulumi.Aws.OpenSearch
     ///             Region = currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///             DomainName = remoteDomain.DomainName,
     ///         },
-    ///         ConnectionAlias = "outbound_connection",
-    ///         ConnectionMode = "DIRECT",
     ///     });
     /// 
     /// });

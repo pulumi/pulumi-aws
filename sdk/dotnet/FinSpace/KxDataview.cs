@@ -26,6 +26,13 @@ namespace Pulumi.Aws.FinSpace
     /// {
     ///     var example = new Aws.FinSpace.KxDataview("example", new()
     ///     {
+    ///         Name = "my-tf-kx-dataview",
+    ///         EnvironmentId = exampleAwsFinspaceKxEnvironment.Id,
+    ///         DatabaseName = exampleAwsFinspaceKxDatabase.Name,
+    ///         AvailabilityZoneId = "use1-az2",
+    ///         Description = "Terraform managed Kx Dataview",
+    ///         AzMode = "SINGLE",
+    ///         AutoUpdate = true,
     ///         SegmentConfigurations = new[]
     ///         {
     ///             new Aws.FinSpace.Inputs.KxDataviewSegmentConfigurationArgs
@@ -37,13 +44,6 @@ namespace Pulumi.Aws.FinSpace
     ///                 },
     ///             },
     ///         },
-    ///         Name = "my-tf-kx-dataview",
-    ///         EnvironmentId = exampleAwsFinspaceKxEnvironment.Id,
-    ///         DatabaseName = exampleAwsFinspaceKxDatabase.Name,
-    ///         AvailabilityZoneId = "use1-az2",
-    ///         Description = "Terraform managed Kx Dataview",
-    ///         AzMode = "SINGLE",
-    ///         AutoUpdate = true,
     ///     });
     /// 
     /// });

@@ -29,8 +29,11 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var example = new Aws.CloudFront.ResponseHeadersPolicy("example", new()
     ///     {
+    ///         Name = "example-policy",
+    ///         Comment = "test comment",
     ///         CorsConfig = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCorsConfigArgs
     ///         {
+    ///             AccessControlAllowCredentials = true,
     ///             AccessControlAllowHeaders = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs
     ///             {
     ///                 Items = new[]
@@ -52,11 +55,8 @@ namespace Pulumi.Aws.CloudFront
     ///                     "test.example.comtest",
     ///                 },
     ///             },
-    ///             AccessControlAllowCredentials = true,
     ///             OriginOverride = true,
     ///         },
-    ///         Name = "example-policy",
-    ///         Comment = "test comment",
     ///     });
     /// 
     /// });
@@ -74,6 +74,7 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var example = new Aws.CloudFront.ResponseHeadersPolicy("example", new()
     ///     {
+    ///         Name = "example-headers-policy",
     ///         CustomHeadersConfig = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCustomHeadersConfigArgs
     ///         {
     ///             Items = new[]
@@ -92,7 +93,6 @@ namespace Pulumi.Aws.CloudFront
     ///                 },
     ///             },
     ///         },
-    ///         Name = "example-headers-policy",
     ///     });
     /// 
     /// });
@@ -112,6 +112,7 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var example = new Aws.CloudFront.ResponseHeadersPolicy("example", new()
     ///     {
+    ///         Name = "example-headers-policy",
     ///         CustomHeadersConfig = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCustomHeadersConfigArgs
     ///         {
     ///             Items = new[]
@@ -139,7 +140,6 @@ namespace Pulumi.Aws.CloudFront
     ///             Enabled = true,
     ///             SamplingRate = 50,
     ///         },
-    ///         Name = "example-headers-policy",
     ///     });
     /// 
     /// });

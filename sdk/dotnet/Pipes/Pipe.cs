@@ -141,6 +141,11 @@ namespace Pulumi.Aws.Pipes
     /// {
     ///     var example = new Aws.Pipes.Pipe("example", new()
     ///     {
+    ///         Name = "example-pipe",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         Source = source.Arn,
+    ///         Target = target.Arn,
+    ///         Enrichment = exampleAwsCloudwatchEventApiDestination.Arn,
     ///         EnrichmentParameters = new Aws.Pipes.Inputs.PipeEnrichmentParametersArgs
     ///         {
     ///             HttpParameters = new Aws.Pipes.Inputs.PipeEnrichmentParametersHttpParametersArgs
@@ -158,11 +163,6 @@ namespace Pulumi.Aws.Pipes
     ///                 },
     ///             },
     ///         },
-    ///         Name = "example-pipe",
-    ///         RoleArn = exampleAwsIamRole.Arn,
-    ///         Source = source.Arn,
-    ///         Target = target.Arn,
-    ///         Enrichment = exampleAwsCloudwatchEventApiDestination.Arn,
     ///     });
     /// 
     /// });
@@ -181,6 +181,10 @@ namespace Pulumi.Aws.Pipes
     /// {
     ///     var example = new Aws.Pipes.Pipe("example", new()
     ///     {
+    ///         Name = "example-pipe",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         Source = source.Arn,
+    ///         Target = target.Arn,
     ///         SourceParameters = new Aws.Pipes.Inputs.PipeSourceParametersArgs
     ///         {
     ///             FilterCriteria = new Aws.Pipes.Inputs.PipeSourceParametersFilterCriteriaArgs
@@ -200,10 +204,6 @@ namespace Pulumi.Aws.Pipes
     ///                 },
     ///             },
     ///         },
-    ///         Name = "example-pipe",
-    ///         RoleArn = exampleAwsIamRole.Arn,
-    ///         Source = source.Arn,
-    ///         Target = target.Arn,
     ///     });
     /// 
     /// });
@@ -226,22 +226,22 @@ namespace Pulumi.Aws.Pipes
     /// 
     ///     var examplePipe = new Aws.Pipes.Pipe("example", new()
     ///     {
+    ///         Name = "example-pipe",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         Source = sourceAwsSqsQueue.Arn,
+    ///         Target = targetAwsSqsQueue.Arn,
     ///         LogConfiguration = new Aws.Pipes.Inputs.PipeLogConfigurationArgs
     ///         {
-    ///             CloudwatchLogsLogDestination = new Aws.Pipes.Inputs.PipeLogConfigurationCloudwatchLogsLogDestinationArgs
-    ///             {
-    ///                 LogGroupArn = targetAwsCloudwatchLogGroup.Arn,
-    ///             },
     ///             IncludeExecutionDatas = new[]
     ///             {
     ///                 "ALL",
     ///             },
     ///             Level = "INFO",
+    ///             CloudwatchLogsLogDestination = new Aws.Pipes.Inputs.PipeLogConfigurationCloudwatchLogsLogDestinationArgs
+    ///             {
+    ///                 LogGroupArn = targetAwsCloudwatchLogGroup.Arn,
+    ///             },
     ///         },
-    ///         Name = "example-pipe",
-    ///         RoleArn = exampleAwsIamRole.Arn,
-    ///         Source = sourceAwsSqsQueue.Arn,
-    ///         Target = targetAwsSqsQueue.Arn,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -266,6 +266,10 @@ namespace Pulumi.Aws.Pipes
     /// {
     ///     var example = new Aws.Pipes.Pipe("example", new()
     ///     {
+    ///         Name = "example-pipe",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         Source = source.Arn,
+    ///         Target = target.Arn,
     ///         SourceParameters = new Aws.Pipes.Inputs.PipeSourceParametersArgs
     ///         {
     ///             SqsQueueParameters = new Aws.Pipes.Inputs.PipeSourceParametersSqsQueueParametersArgs
@@ -282,10 +286,6 @@ namespace Pulumi.Aws.Pipes
     ///                 MessageGroupId = "example-group",
     ///             },
     ///         },
-    ///         Name = "example-pipe",
-    ///         RoleArn = exampleAwsIamRole.Arn,
-    ///         Source = source.Arn,
-    ///         Target = target.Arn,
     ///     });
     /// 
     /// });

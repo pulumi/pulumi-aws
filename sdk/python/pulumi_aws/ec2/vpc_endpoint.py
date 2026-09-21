@@ -738,7 +738,7 @@ class VpcEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_accept: pulumi.Input[Optional[_builtins.bool]] = None,
-                 dns_options: pulumi.Input[Optional[Union['VpcEndpointDnsOptionsArgs', 'VpcEndpointDnsOptionsArgsDict']]] = None,
+                 dns_options: pulumi.Input[Optional[Union['VpcEndpointDnsOptionsArgs', 'VpcEndpointDnsOptionsArgsDict', 'outputs.VpcEndpointDnsOptions']]] = None,
                  ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
                  policy: pulumi.Input[Optional[_builtins.str]] = None,
                  private_dns_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -749,7 +749,7 @@ class VpcEndpoint(pulumi.CustomResource):
                  service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  service_region: pulumi.Input[Optional[_builtins.str]] = None,
-                 subnet_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpcEndpointSubnetConfigurationArgs', 'VpcEndpointSubnetConfigurationArgsDict']]]]] = None,
+                 subnet_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpcEndpointSubnetConfigurationArgs', 'VpcEndpointSubnetConfigurationArgsDict', 'outputs.VpcEndpointSubnetConfiguration']]]]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  vpc_endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -830,6 +830,9 @@ class VpcEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ec2 = aws.ec2.VpcEndpoint("ec2",
+            vpc_id=example["id"],
+            service_name="com.amazonaws.us-west-2.ec2",
+            vpc_endpoint_type="Interface",
             subnet_configurations=[
                 {
                     "ipv4": "10.0.1.10",
@@ -840,9 +843,6 @@ class VpcEndpoint(pulumi.CustomResource):
                     "subnet_id": example2["id"],
                 },
             ],
-            vpc_id=example["id"],
-            service_name="com.amazonaws.us-west-2.ec2",
-            vpc_endpoint_type="Interface",
             subnet_ids=[
                 example1["id"],
                 example2["id"],
@@ -942,7 +942,7 @@ class VpcEndpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_accept: Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
-        :param pulumi.Input[Union['VpcEndpointDnsOptionsArgs', 'VpcEndpointDnsOptionsArgsDict']] dns_options: The DNS options for the endpoint. See dns_options below.
+        :param pulumi.Input[Union['VpcEndpointDnsOptionsArgs', 'VpcEndpointDnsOptionsArgsDict', 'outputs.VpcEndpointDnsOptions']] dns_options: The DNS options for the endpoint. See dns_options below.
         :param pulumi.Input[_builtins.str] ip_address_type: The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
         :param pulumi.Input[_builtins.str] policy: A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
         :param pulumi.Input[_builtins.bool] private_dns_enabled: Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
@@ -955,7 +955,7 @@ class VpcEndpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] service_name: The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
         :param pulumi.Input[_builtins.str] service_network_arn: The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
         :param pulumi.Input[_builtins.str] service_region: The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointSubnetConfigurationArgs', 'VpcEndpointSubnetConfigurationArgsDict']]]] subnet_configurations: Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointSubnetConfigurationArgs', 'VpcEndpointSubnetConfigurationArgsDict', 'outputs.VpcEndpointSubnetConfiguration']]]] subnet_configurations: Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] vpc_endpoint_type: The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
@@ -1042,6 +1042,9 @@ class VpcEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ec2 = aws.ec2.VpcEndpoint("ec2",
+            vpc_id=example["id"],
+            service_name="com.amazonaws.us-west-2.ec2",
+            vpc_endpoint_type="Interface",
             subnet_configurations=[
                 {
                     "ipv4": "10.0.1.10",
@@ -1052,9 +1055,6 @@ class VpcEndpoint(pulumi.CustomResource):
                     "subnet_id": example2["id"],
                 },
             ],
-            vpc_id=example["id"],
-            service_name="com.amazonaws.us-west-2.ec2",
-            vpc_endpoint_type="Interface",
             subnet_ids=[
                 example1["id"],
                 example2["id"],
@@ -1167,7 +1167,7 @@ class VpcEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_accept: pulumi.Input[Optional[_builtins.bool]] = None,
-                 dns_options: pulumi.Input[Optional[Union['VpcEndpointDnsOptionsArgs', 'VpcEndpointDnsOptionsArgsDict']]] = None,
+                 dns_options: pulumi.Input[Optional[Union['VpcEndpointDnsOptionsArgs', 'VpcEndpointDnsOptionsArgsDict', 'outputs.VpcEndpointDnsOptions']]] = None,
                  ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
                  policy: pulumi.Input[Optional[_builtins.str]] = None,
                  private_dns_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1178,7 +1178,7 @@ class VpcEndpoint(pulumi.CustomResource):
                  service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  service_region: pulumi.Input[Optional[_builtins.str]] = None,
-                 subnet_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpcEndpointSubnetConfigurationArgs', 'VpcEndpointSubnetConfigurationArgsDict']]]]] = None,
+                 subnet_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpcEndpointSubnetConfigurationArgs', 'VpcEndpointSubnetConfigurationArgsDict', 'outputs.VpcEndpointSubnetConfiguration']]]]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  vpc_endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1233,8 +1233,8 @@ class VpcEndpoint(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             auto_accept: pulumi.Input[Optional[_builtins.bool]] = None,
             cidr_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            dns_entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpcEndpointDnsEntryArgs', 'VpcEndpointDnsEntryArgsDict']]]]] = None,
-            dns_options: pulumi.Input[Optional[Union['VpcEndpointDnsOptionsArgs', 'VpcEndpointDnsOptionsArgsDict']]] = None,
+            dns_entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpcEndpointDnsEntryArgs', 'VpcEndpointDnsEntryArgsDict', 'outputs.VpcEndpointDnsEntry']]]]] = None,
+            dns_options: pulumi.Input[Optional[Union['VpcEndpointDnsOptionsArgs', 'VpcEndpointDnsOptionsArgsDict', 'outputs.VpcEndpointDnsOptions']]] = None,
             ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
             network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             owner_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1250,7 +1250,7 @@ class VpcEndpoint(pulumi.CustomResource):
             service_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
             service_region: pulumi.Input[Optional[_builtins.str]] = None,
             state: pulumi.Input[Optional[_builtins.str]] = None,
-            subnet_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpcEndpointSubnetConfigurationArgs', 'VpcEndpointSubnetConfigurationArgsDict']]]]] = None,
+            subnet_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpcEndpointSubnetConfigurationArgs', 'VpcEndpointSubnetConfigurationArgsDict', 'outputs.VpcEndpointSubnetConfiguration']]]]] = None,
             subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -1266,8 +1266,8 @@ class VpcEndpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the VPC endpoint.
         :param pulumi.Input[_builtins.bool] auto_accept: Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_blocks: The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointDnsEntryArgs', 'VpcEndpointDnsEntryArgsDict']]]] dns_entries: The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
-        :param pulumi.Input[Union['VpcEndpointDnsOptionsArgs', 'VpcEndpointDnsOptionsArgsDict']] dns_options: The DNS options for the endpoint. See dns_options below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointDnsEntryArgs', 'VpcEndpointDnsEntryArgsDict', 'outputs.VpcEndpointDnsEntry']]]] dns_entries: The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
+        :param pulumi.Input[Union['VpcEndpointDnsOptionsArgs', 'VpcEndpointDnsOptionsArgsDict', 'outputs.VpcEndpointDnsOptions']] dns_options: The DNS options for the endpoint. See dns_options below.
         :param pulumi.Input[_builtins.str] ip_address_type: The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
         :param pulumi.Input[_builtins.str] owner_id: The ID of the AWS account that owns the VPC endpoint.
@@ -1285,7 +1285,7 @@ class VpcEndpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] service_network_arn: The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
         :param pulumi.Input[_builtins.str] service_region: The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
         :param pulumi.Input[_builtins.str] state: The state of the VPC endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointSubnetConfigurationArgs', 'VpcEndpointSubnetConfigurationArgsDict']]]] subnet_configurations: Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointSubnetConfigurationArgs', 'VpcEndpointSubnetConfigurationArgsDict', 'outputs.VpcEndpointSubnetConfiguration']]]] subnet_configurations: Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

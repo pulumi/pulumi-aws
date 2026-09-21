@@ -26,14 +26,6 @@ namespace Pulumi.Aws.FinSpace
     /// {
     ///     var example = new Aws.FinSpace.KxVolume("example", new()
     ///     {
-    ///         Nas1Configurations = new[]
-    ///         {
-    ///             new Aws.FinSpace.Inputs.KxVolumeNas1ConfigurationArgs
-    ///             {
-    ///                 Size = 1200,
-    ///                 Type = "SSD_250",
-    ///             },
-    ///         },
     ///         Name = "my-tf-kx-volume",
     ///         EnvironmentId = exampleAwsFinspaceKxEnvironment.Id,
     ///         AvailabilityZones = new[]
@@ -42,6 +34,14 @@ namespace Pulumi.Aws.FinSpace
     ///         },
     ///         AzMode = "SINGLE",
     ///         Type = "NAS_1",
+    ///         Nas1Configurations = new[]
+    ///         {
+    ///             new Aws.FinSpace.Inputs.KxVolumeNas1ConfigurationArgs
+    ///             {
+    ///                 Size = 1200,
+    ///                 Type = "SSD_250",
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });

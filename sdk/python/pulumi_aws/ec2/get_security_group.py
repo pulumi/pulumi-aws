@@ -117,7 +117,7 @@ class AwaitableGetSecurityGroupResult(GetSecurityGroupResult):
             vpc_id=self.vpc_id)
 
 
-def get_security_group(filters: Optional[Sequence[Union['GetSecurityGroupFilterArgs', 'GetSecurityGroupFilterArgsDict']]] = None,
+def get_security_group(filters: Optional[Sequence[Union['GetSecurityGroupFilterArgs', 'GetSecurityGroupFilterArgsDict', 'outputs.GetSecurityGroupFilterResult']]] = None,
                        id: Optional[_builtins.str] = None,
                        name: Optional[_builtins.str] = None,
                        region: Optional[_builtins.str] = None,
@@ -149,7 +149,7 @@ def get_security_group(filters: Optional[Sequence[Union['GetSecurityGroupFilterA
     ```
 
 
-    :param Sequence[Union['GetSecurityGroupFilterArgs', 'GetSecurityGroupFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetSecurityGroupFilterArgs', 'GetSecurityGroupFilterArgsDict', 'outputs.GetSecurityGroupFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str id: Id of the specific security group to retrieve.
     :param _builtins.str name: Name of the field to filter by, as defined by
            [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
@@ -180,7 +180,7 @@ def get_security_group(filters: Optional[Sequence[Union['GetSecurityGroupFilterA
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_security_group_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetSecurityGroupFilterArgs', 'GetSecurityGroupFilterArgsDict']]]]] = None,
+def get_security_group_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetSecurityGroupFilterArgs', 'GetSecurityGroupFilterArgsDict', 'outputs.GetSecurityGroupFilterResult']]]]] = None,
                               id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -212,7 +212,7 @@ def get_security_group_output(filters: pulumi.Input[Optional[Optional[Sequence[U
     ```
 
 
-    :param Sequence[Union['GetSecurityGroupFilterArgs', 'GetSecurityGroupFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetSecurityGroupFilterArgs', 'GetSecurityGroupFilterArgsDict', 'outputs.GetSecurityGroupFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str id: Id of the specific security group to retrieve.
     :param _builtins.str name: Name of the field to filter by, as defined by
            [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).

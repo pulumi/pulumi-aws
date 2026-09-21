@@ -291,7 +291,7 @@ class IamPolicyAssignment(pulumi.CustomResource):
                  assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  assignment_status: pulumi.Input[Optional[_builtins.str]] = None,
                  aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 identities: pulumi.Input[Optional[Union['IamPolicyAssignmentIdentitiesArgs', 'IamPolicyAssignmentIdentitiesArgsDict']]] = None,
+                 identities: pulumi.Input[Optional[Union['IamPolicyAssignmentIdentitiesArgs', 'IamPolicyAssignmentIdentitiesArgsDict', 'outputs.IamPolicyAssignmentIdentities']]] = None,
                  namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -308,12 +308,12 @@ class IamPolicyAssignment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.IamPolicyAssignment("example",
-            identities={
-                "users": [example_aws_quicksight_user["userName"]],
-            },
             assignment_name="example",
             assignment_status="ENABLED",
-            policy_arn=example_aws_iam_policy["arn"])
+            policy_arn=example_aws_iam_policy["arn"],
+            identities={
+                "users": [example_aws_quicksight_user["userName"]],
+            })
         ```
 
         ## Import
@@ -332,7 +332,7 @@ class IamPolicyAssignment(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[Union['IamPolicyAssignmentIdentitiesArgs', 'IamPolicyAssignmentIdentitiesArgsDict']] identities: Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
+        :param pulumi.Input[Union['IamPolicyAssignmentIdentitiesArgs', 'IamPolicyAssignmentIdentitiesArgsDict', 'outputs.IamPolicyAssignmentIdentities']] identities: Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         :param pulumi.Input[_builtins.str] namespace: Namespace that contains the assignment. Defaults to `default`.
         :param pulumi.Input[_builtins.str] policy_arn: ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -355,12 +355,12 @@ class IamPolicyAssignment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.IamPolicyAssignment("example",
-            identities={
-                "users": [example_aws_quicksight_user["userName"]],
-            },
             assignment_name="example",
             assignment_status="ENABLED",
-            policy_arn=example_aws_iam_policy["arn"])
+            policy_arn=example_aws_iam_policy["arn"],
+            identities={
+                "users": [example_aws_quicksight_user["userName"]],
+            })
         ```
 
         ## Import
@@ -390,7 +390,7 @@ class IamPolicyAssignment(pulumi.CustomResource):
                  assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  assignment_status: pulumi.Input[Optional[_builtins.str]] = None,
                  aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 identities: pulumi.Input[Optional[Union['IamPolicyAssignmentIdentitiesArgs', 'IamPolicyAssignmentIdentitiesArgsDict']]] = None,
+                 identities: pulumi.Input[Optional[Union['IamPolicyAssignmentIdentitiesArgs', 'IamPolicyAssignmentIdentitiesArgsDict', 'outputs.IamPolicyAssignmentIdentities']]] = None,
                  namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -429,7 +429,7 @@ class IamPolicyAssignment(pulumi.CustomResource):
             assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
             assignment_status: pulumi.Input[Optional[_builtins.str]] = None,
             aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-            identities: pulumi.Input[Optional[Union['IamPolicyAssignmentIdentitiesArgs', 'IamPolicyAssignmentIdentitiesArgsDict']]] = None,
+            identities: pulumi.Input[Optional[Union['IamPolicyAssignmentIdentitiesArgs', 'IamPolicyAssignmentIdentitiesArgsDict', 'outputs.IamPolicyAssignmentIdentities']]] = None,
             namespace: pulumi.Input[Optional[_builtins.str]] = None,
             policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'IamPolicyAssignment':
@@ -446,7 +446,7 @@ class IamPolicyAssignment(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[Union['IamPolicyAssignmentIdentitiesArgs', 'IamPolicyAssignmentIdentitiesArgsDict']] identities: Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
+        :param pulumi.Input[Union['IamPolicyAssignmentIdentitiesArgs', 'IamPolicyAssignmentIdentitiesArgsDict', 'outputs.IamPolicyAssignmentIdentities']] identities: Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         :param pulumi.Input[_builtins.str] namespace: Namespace that contains the assignment. Defaults to `default`.
         :param pulumi.Input[_builtins.str] policy_arn: ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

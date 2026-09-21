@@ -29,11 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewFilesSynchronizationConfiguration(ctx, "example", &s3.FilesSynchronizationConfigurationArgs{
-//				ExpirationDataRules: s3.FilesSynchronizationConfigurationExpirationDataRuleArray{
-//					&s3.FilesSynchronizationConfigurationExpirationDataRuleArgs{
-//						DaysAfterLastAccess: pulumi.Int(30),
-//					},
-//				},
+//				FileSystemId: pulumi.Any(exampleAwsS3filesFileSystem.Id),
 //				ImportDataRules: s3.FilesSynchronizationConfigurationImportDataRuleArray{
 //					&s3.FilesSynchronizationConfigurationImportDataRuleArgs{
 //						Prefix:       pulumi.String(""),
@@ -41,7 +37,11 @@ import (
 //						Trigger:      pulumi.String("ON_FILE_ACCESS"),
 //					},
 //				},
-//				FileSystemId: pulumi.Any(exampleAwsS3filesFileSystem.Id),
+//				ExpirationDataRules: s3.FilesSynchronizationConfigurationExpirationDataRuleArray{
+//					&s3.FilesSynchronizationConfigurationExpirationDataRuleArgs{
+//						DaysAfterLastAccess: pulumi.Int(30),
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err

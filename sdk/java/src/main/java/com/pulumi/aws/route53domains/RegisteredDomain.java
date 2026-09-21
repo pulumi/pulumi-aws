@@ -55,6 +55,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RegisteredDomain("example", RegisteredDomainArgs.builder()
+ *             .domainName("example.com")
  *             .nameServers(            
  *                 RegisteredDomainNameServerArgs.builder()
  *                     .name("ns-195.awsdns-24.com")
@@ -62,7 +63,6 @@ import javax.annotation.Nullable;
  *                 RegisteredDomainNameServerArgs.builder()
  *                     .name("ns-874.awsdns-45.net")
  *                     .build())
- *             .domainName("example.com")
  *             .tags(Map.of("Environment", "test"))
  *             .build());
  * 

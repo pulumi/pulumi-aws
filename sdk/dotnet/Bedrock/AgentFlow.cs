@@ -45,12 +45,18 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentFlow("example", new()
     ///     {
+    ///         Name = "example",
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
     ///         Definition = new Aws.Bedrock.Inputs.AgentFlowDefinitionArgs
     ///         {
     ///             Connections = new[]
     ///             {
     ///                 new Aws.Bedrock.Inputs.AgentFlowDefinitionConnectionArgs
     ///                 {
+    ///                     Name = "FlowInputNodeFlowInputNode0ToPrompt_1PromptsNode0",
+    ///                     Source = "FlowInputNode",
+    ///                     Target = "Prompt_1",
+    ///                     Type = "Data",
     ///                     Configuration = new Aws.Bedrock.Inputs.AgentFlowDefinitionConnectionConfigurationArgs
     ///                     {
     ///                         Data = new Aws.Bedrock.Inputs.AgentFlowDefinitionConnectionConfigurationDataArgs
@@ -59,13 +65,13 @@ namespace Pulumi.Aws.Bedrock
     ///                             TargetInput = "topic",
     ///                         },
     ///                     },
-    ///                     Name = "FlowInputNodeFlowInputNode0ToPrompt_1PromptsNode0",
-    ///                     Source = "FlowInputNode",
-    ///                     Target = "Prompt_1",
-    ///                     Type = "Data",
     ///                 },
     ///                 new Aws.Bedrock.Inputs.AgentFlowDefinitionConnectionArgs
     ///                 {
+    ///                     Name = "Prompt_1PromptsNode0ToFlowOutputNodeFlowOutputNode0",
+    ///                     Source = "Prompt_1",
+    ///                     Target = "FlowOutputNode",
+    ///                     Type = "Data",
     ///                     Configuration = new Aws.Bedrock.Inputs.AgentFlowDefinitionConnectionConfigurationArgs
     ///                     {
     ///                         Data = new Aws.Bedrock.Inputs.AgentFlowDefinitionConnectionConfigurationDataArgs
@@ -74,16 +80,14 @@ namespace Pulumi.Aws.Bedrock
     ///                             TargetInput = "document",
     ///                         },
     ///                     },
-    ///                     Name = "Prompt_1PromptsNode0ToFlowOutputNodeFlowOutputNode0",
-    ///                     Source = "Prompt_1",
-    ///                     Target = "FlowOutputNode",
-    ///                     Type = "Data",
     ///                 },
     ///             },
     ///             Nodes = new[]
     ///             {
     ///                 new Aws.Bedrock.Inputs.AgentFlowDefinitionNodeArgs
     ///                 {
+    ///                     Name = "FlowInputNode",
+    ///                     Type = "Input",
     ///                     Configuration = new Aws.Bedrock.Inputs.AgentFlowDefinitionNodeConfigurationArgs
     ///                     {
     ///                         Input = null,
@@ -96,11 +100,11 @@ namespace Pulumi.Aws.Bedrock
     ///                             Type = "String",
     ///                         },
     ///                     },
-    ///                     Name = "FlowInputNode",
-    ///                     Type = "Input",
     ///                 },
     ///                 new Aws.Bedrock.Inputs.AgentFlowDefinitionNodeArgs
     ///                 {
+    ///                     Name = "Prompt_1",
+    ///                     Type = "Prompt",
     ///                     Configuration = new Aws.Bedrock.Inputs.AgentFlowDefinitionNodeConfigurationArgs
     ///                     {
     ///                         Prompt = new Aws.Bedrock.Inputs.AgentFlowDefinitionNodeConfigurationPromptArgs
@@ -109,6 +113,8 @@ namespace Pulumi.Aws.Bedrock
     ///                             {
     ///                                 Inline = new Aws.Bedrock.Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs
     ///                                 {
+    ///                                     ModelId = "amazon.titan-text-express-v1",
+    ///                                     TemplateType = "TEXT",
     ///                                     InferenceConfiguration = new Aws.Bedrock.Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs
     ///                                     {
     ///                                         Text = new Aws.Bedrock.Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs
@@ -126,6 +132,7 @@ namespace Pulumi.Aws.Bedrock
     ///                                     {
     ///                                         Text = new Aws.Bedrock.Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs
     ///                                         {
+    ///                                             Text = "Write a paragraph about {{topic}}.",
     ///                                             InputVariables = new[]
     ///                                             {
     ///                                                 new Aws.Bedrock.Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs
@@ -133,11 +140,8 @@ namespace Pulumi.Aws.Bedrock
     ///                                                     Name = "topic",
     ///                                                 },
     ///                                             },
-    ///                                             Text = "Write a paragraph about {{topic}}.",
     ///                                         },
     ///                                     },
-    ///                                     ModelId = "amazon.titan-text-express-v1",
-    ///                                     TemplateType = "TEXT",
     ///                                 },
     ///                             },
     ///                         },
@@ -159,11 +163,11 @@ namespace Pulumi.Aws.Bedrock
     ///                             Type = "String",
     ///                         },
     ///                     },
-    ///                     Name = "Prompt_1",
-    ///                     Type = "Prompt",
     ///                 },
     ///                 new Aws.Bedrock.Inputs.AgentFlowDefinitionNodeArgs
     ///                 {
+    ///                     Name = "FlowOutputNode",
+    ///                     Type = "Output",
     ///                     Configuration = new Aws.Bedrock.Inputs.AgentFlowDefinitionNodeConfigurationArgs
     ///                     {
     ///                         Output = null,
@@ -177,13 +181,9 @@ namespace Pulumi.Aws.Bedrock
     ///                             Type = "String",
     ///                         },
     ///                     },
-    ///                     Name = "FlowOutputNode",
-    ///                     Type = "Output",
     ///                 },
     ///             },
     ///         },
-    ///         Name = "example",
-    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });

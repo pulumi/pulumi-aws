@@ -87,6 +87,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Microvm("example", MicrovmArgs.builder()
+ *             .imageArn(exampleAwsLambdamicrovmsImage.arn())
+ *             .executionRoleArn(exampleAwsIamRole.arn())
+ *             .maximumDurationInSeconds(14400)
+ *             .egressNetworkConnectors("arn:aws:lambda:us-east-1:aws:network-connector:aws-network-connector:INTERNET_EGRESS")
+ *             .ingressNetworkConnectors("arn:aws:lambda:us-east-1:aws:network-connector:aws-network-connector:ALL_INGRESS")
  *             .idlePolicy(MicrovmIdlePolicyArgs.builder()
  *                 .autoResumeEnabled(true)
  *                 .maxIdleDurationSeconds(900)
@@ -97,11 +102,6 @@ import javax.annotation.Nullable;
  *                     .logGroup(exampleAwsCloudwatchLogGroup.name())
  *                     .build())
  *                 .build())
- *             .imageArn(exampleAwsLambdamicrovmsImage.arn())
- *             .executionRoleArn(exampleAwsIamRole.arn())
- *             .maximumDurationInSeconds(14400)
- *             .egressNetworkConnectors("arn:aws:lambda:us-east-1:aws:network-connector:aws-network-connector:INTERNET_EGRESS")
- *             .ingressNetworkConnectors("arn:aws:lambda:us-east-1:aws:network-connector:aws-network-connector:ALL_INGRESS")
  *             .build());
  * 
  *     }

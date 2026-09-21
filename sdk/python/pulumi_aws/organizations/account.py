@@ -479,8 +479,7 @@ class Account(pulumi.CustomResource):
         account = aws.organizations.Account("account",
             name="my_new_account",
             email="john@doe.org",
-            role_name="myOrganizationRole",
-            opts = pulumi.ResourceOptions(ignore_changes=["roleName"]))
+            role_name="myOrganizationRole")
         ```
 
 
@@ -554,8 +553,7 @@ class Account(pulumi.CustomResource):
         account = aws.organizations.Account("account",
             name="my_new_account",
             email="john@doe.org",
-            role_name="myOrganizationRole",
-            opts = pulumi.ResourceOptions(ignore_changes=["roleName"]))
+            role_name="myOrganizationRole")
         ```
 
 

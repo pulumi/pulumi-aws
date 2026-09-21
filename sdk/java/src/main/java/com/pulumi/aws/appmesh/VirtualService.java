@@ -49,6 +49,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var servicea = new VirtualService("servicea", VirtualServiceArgs.builder()
+ *             .name("servicea.simpleapp.local")
+ *             .meshName(simple.id())
  *             .spec(VirtualServiceSpecArgs.builder()
  *                 .provider(VirtualServiceSpecProviderArgs.builder()
  *                     .virtualNode(VirtualServiceSpecProviderVirtualNodeArgs.builder()
@@ -56,8 +58,6 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .name("servicea.simpleapp.local")
- *             .meshName(simple.id())
  *             .build());
  * 
  *     }
@@ -93,6 +93,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var servicea = new VirtualService("servicea", VirtualServiceArgs.builder()
+ *             .name("servicea.simpleapp.local")
+ *             .meshName(simple.id())
  *             .spec(VirtualServiceSpecArgs.builder()
  *                 .provider(VirtualServiceSpecProviderArgs.builder()
  *                     .virtualRouter(VirtualServiceSpecProviderVirtualRouterArgs.builder()
@@ -100,8 +102,6 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .name("servicea.simpleapp.local")
- *             .meshName(simple.id())
  *             .build());
  * 
  *     }

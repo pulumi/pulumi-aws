@@ -435,14 +435,14 @@ class Connection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  athena_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 authentication_configuration: pulumi.Input[Optional[Union['ConnectionAuthenticationConfigurationArgs', 'ConnectionAuthenticationConfigurationArgsDict']]] = None,
+                 authentication_configuration: pulumi.Input[Optional[Union['ConnectionAuthenticationConfigurationArgs', 'ConnectionAuthenticationConfigurationArgsDict', 'outputs.ConnectionAuthenticationConfiguration']]] = None,
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
                  connection_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  connection_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  match_criterias: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 physical_connection_requirements: pulumi.Input[Optional[Union['ConnectionPhysicalConnectionRequirementsArgs', 'ConnectionPhysicalConnectionRequirementsArgsDict']]] = None,
+                 physical_connection_requirements: pulumi.Input[Optional[Union['ConnectionPhysicalConnectionRequirementsArgs', 'ConnectionPhysicalConnectionRequirementsArgsDict', 'outputs.ConnectionPhysicalConnectionRequirements']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -490,16 +490,16 @@ class Connection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Connection("example",
-            physical_connection_requirements={
-                "availability_zone": example_aws_subnet["availabilityZone"],
-                "security_group_id_lists": [example_aws_security_group["id"]],
-                "subnet_id": example_aws_subnet["id"],
-            },
             name="example",
             connection_properties={
                 "JDBC_CONNECTION_URL": f"jdbc:mysql://{example_aws_rds_cluster['endpoint']}/exampledatabase",
                 "PASSWORD": "examplepassword",
                 "USERNAME": "exampleusername",
+            },
+            physical_connection_requirements={
+                "availability_zone": example_aws_subnet["availabilityZone"],
+                "security_group_id_lists": [example_aws_security_group["id"]],
+                "subnet_id": example_aws_subnet["id"],
             })
         ```
 
@@ -716,15 +716,6 @@ class Connection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Connection("example",
-            authentication_configuration={
-                "authentication_type": "BASIC",
-                "secret_arn": example_aws_secretsmanager_secret["arn"],
-            },
-            physical_connection_requirements={
-                "availability_zone": example_aws_subnet["availabilityZone"],
-                "security_group_id_lists": [example_aws_security_group["id"]],
-                "subnet_id": example_aws_subnet["id"],
-            },
             name="athenafederatedcatalog_mysql",
             connection_type="MYSQL",
             athena_properties={
@@ -735,6 +726,15 @@ class Connection(pulumi.CustomResource):
                 "HOST": example_aws_rds_cluster["endpoint"],
                 "PORT": example_aws_rds_cluster["port"],
                 "DATABASE": example_aws_rds_cluster["databaseName"],
+            },
+            authentication_configuration={
+                "authentication_type": "BASIC",
+                "secret_arn": example_aws_secretsmanager_secret["arn"],
+            },
+            physical_connection_requirements={
+                "availability_zone": example_aws_subnet["availabilityZone"],
+                "security_group_id_lists": [example_aws_security_group["id"]],
+                "subnet_id": example_aws_subnet["id"],
             })
         ```
 
@@ -750,7 +750,7 @@ class Connection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] athena_properties: Map of key-value pairs used as connection properties specific to the Athena compute environment.
-        :param pulumi.Input[Union['ConnectionAuthenticationConfigurationArgs', 'ConnectionAuthenticationConfigurationArgsDict']] authentication_configuration: Configuration block for authentication options. See `authentication_configuration` below.
+        :param pulumi.Input[Union['ConnectionAuthenticationConfigurationArgs', 'ConnectionAuthenticationConfigurationArgsDict', 'outputs.ConnectionAuthenticationConfiguration']] authentication_configuration: Configuration block for authentication options. See `authentication_configuration` below.
         :param pulumi.Input[_builtins.str] catalog_id: ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] connection_properties: Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
         :param pulumi.Input[_builtins.str] connection_type: Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`. Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
@@ -759,7 +759,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the connection.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['ConnectionPhysicalConnectionRequirementsArgs', 'ConnectionPhysicalConnectionRequirementsArgsDict']] physical_connection_requirements: Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` below.
+        :param pulumi.Input[Union['ConnectionPhysicalConnectionRequirementsArgs', 'ConnectionPhysicalConnectionRequirementsArgsDict', 'outputs.ConnectionPhysicalConnectionRequirements']] physical_connection_requirements: Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -813,16 +813,16 @@ class Connection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Connection("example",
-            physical_connection_requirements={
-                "availability_zone": example_aws_subnet["availabilityZone"],
-                "security_group_id_lists": [example_aws_security_group["id"]],
-                "subnet_id": example_aws_subnet["id"],
-            },
             name="example",
             connection_properties={
                 "JDBC_CONNECTION_URL": f"jdbc:mysql://{example_aws_rds_cluster['endpoint']}/exampledatabase",
                 "PASSWORD": "examplepassword",
                 "USERNAME": "exampleusername",
+            },
+            physical_connection_requirements={
+                "availability_zone": example_aws_subnet["availabilityZone"],
+                "security_group_id_lists": [example_aws_security_group["id"]],
+                "subnet_id": example_aws_subnet["id"],
             })
         ```
 
@@ -1039,15 +1039,6 @@ class Connection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Connection("example",
-            authentication_configuration={
-                "authentication_type": "BASIC",
-                "secret_arn": example_aws_secretsmanager_secret["arn"],
-            },
-            physical_connection_requirements={
-                "availability_zone": example_aws_subnet["availabilityZone"],
-                "security_group_id_lists": [example_aws_security_group["id"]],
-                "subnet_id": example_aws_subnet["id"],
-            },
             name="athenafederatedcatalog_mysql",
             connection_type="MYSQL",
             athena_properties={
@@ -1058,6 +1049,15 @@ class Connection(pulumi.CustomResource):
                 "HOST": example_aws_rds_cluster["endpoint"],
                 "PORT": example_aws_rds_cluster["port"],
                 "DATABASE": example_aws_rds_cluster["databaseName"],
+            },
+            authentication_configuration={
+                "authentication_type": "BASIC",
+                "secret_arn": example_aws_secretsmanager_secret["arn"],
+            },
+            physical_connection_requirements={
+                "availability_zone": example_aws_subnet["availabilityZone"],
+                "security_group_id_lists": [example_aws_security_group["id"]],
+                "subnet_id": example_aws_subnet["id"],
             })
         ```
 
@@ -1086,14 +1086,14 @@ class Connection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  athena_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 authentication_configuration: pulumi.Input[Optional[Union['ConnectionAuthenticationConfigurationArgs', 'ConnectionAuthenticationConfigurationArgsDict']]] = None,
+                 authentication_configuration: pulumi.Input[Optional[Union['ConnectionAuthenticationConfigurationArgs', 'ConnectionAuthenticationConfigurationArgsDict', 'outputs.ConnectionAuthenticationConfiguration']]] = None,
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
                  connection_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  connection_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  match_criterias: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 physical_connection_requirements: pulumi.Input[Optional[Union['ConnectionPhysicalConnectionRequirementsArgs', 'ConnectionPhysicalConnectionRequirementsArgsDict']]] = None,
+                 physical_connection_requirements: pulumi.Input[Optional[Union['ConnectionPhysicalConnectionRequirementsArgs', 'ConnectionPhysicalConnectionRequirementsArgsDict', 'outputs.ConnectionPhysicalConnectionRequirements']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -1132,14 +1132,14 @@ class Connection(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             athena_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            authentication_configuration: pulumi.Input[Optional[Union['ConnectionAuthenticationConfigurationArgs', 'ConnectionAuthenticationConfigurationArgsDict']]] = None,
+            authentication_configuration: pulumi.Input[Optional[Union['ConnectionAuthenticationConfigurationArgs', 'ConnectionAuthenticationConfigurationArgsDict', 'outputs.ConnectionAuthenticationConfiguration']]] = None,
             catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
             connection_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             connection_type: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             match_criterias: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            physical_connection_requirements: pulumi.Input[Optional[Union['ConnectionPhysicalConnectionRequirementsArgs', 'ConnectionPhysicalConnectionRequirementsArgsDict']]] = None,
+            physical_connection_requirements: pulumi.Input[Optional[Union['ConnectionPhysicalConnectionRequirementsArgs', 'ConnectionPhysicalConnectionRequirementsArgsDict', 'outputs.ConnectionPhysicalConnectionRequirements']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Connection':
@@ -1152,7 +1152,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Glue Connection.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] athena_properties: Map of key-value pairs used as connection properties specific to the Athena compute environment.
-        :param pulumi.Input[Union['ConnectionAuthenticationConfigurationArgs', 'ConnectionAuthenticationConfigurationArgsDict']] authentication_configuration: Configuration block for authentication options. See `authentication_configuration` below.
+        :param pulumi.Input[Union['ConnectionAuthenticationConfigurationArgs', 'ConnectionAuthenticationConfigurationArgsDict', 'outputs.ConnectionAuthenticationConfiguration']] authentication_configuration: Configuration block for authentication options. See `authentication_configuration` below.
         :param pulumi.Input[_builtins.str] catalog_id: ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] connection_properties: Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
         :param pulumi.Input[_builtins.str] connection_type: Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`. Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
@@ -1161,7 +1161,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the connection.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['ConnectionPhysicalConnectionRequirementsArgs', 'ConnectionPhysicalConnectionRequirementsArgsDict']] physical_connection_requirements: Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` below.
+        :param pulumi.Input[Union['ConnectionPhysicalConnectionRequirementsArgs', 'ConnectionPhysicalConnectionRequirementsArgsDict', 'outputs.ConnectionPhysicalConnectionRequirements']] physical_connection_requirements: Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

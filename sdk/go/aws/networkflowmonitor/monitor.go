@@ -41,6 +41,8 @@ import (
 //				return err
 //			}
 //			_, err = networkflowmonitor.NewMonitor(ctx, "example", &networkflowmonitor.MonitorArgs{
+//				MonitorName: pulumi.String("example-monitor"),
+//				ScopeArn:    pulumi.Any(exampleAwsNetworkflowmonitorScope.ScopeArn),
 //				LocalResources: networkflowmonitor.MonitorLocalResourceArray{
 //					&networkflowmonitor.MonitorLocalResourceArgs{
 //						Type:       pulumi.String("AWS::EC2::VPC"),
@@ -53,8 +55,6 @@ import (
 //						Identifier: example.Arn,
 //					},
 //				},
-//				MonitorName: pulumi.String("example-monitor"),
-//				ScopeArn:    pulumi.Any(exampleAwsNetworkflowmonitorScope.ScopeArn),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example"),
 //				},

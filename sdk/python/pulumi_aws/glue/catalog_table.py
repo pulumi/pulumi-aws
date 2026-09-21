@@ -613,17 +613,17 @@ class CatalogTable(pulumi.CustomResource):
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 open_table_format_input: pulumi.Input[Optional[Union['CatalogTableOpenTableFormatInputArgs', 'CatalogTableOpenTableFormatInputArgsDict']]] = None,
+                 open_table_format_input: pulumi.Input[Optional[Union['CatalogTableOpenTableFormatInputArgs', 'CatalogTableOpenTableFormatInputArgsDict', 'outputs.CatalogTableOpenTableFormatInput']]] = None,
                  owner: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 partition_indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogTablePartitionIndexArgs', 'CatalogTablePartitionIndexArgsDict']]]]] = None,
-                 partition_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogTablePartitionKeyArgs', 'CatalogTablePartitionKeyArgsDict']]]]] = None,
+                 partition_indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogTablePartitionIndexArgs', 'CatalogTablePartitionIndexArgsDict', 'outputs.CatalogTablePartitionIndex']]]]] = None,
+                 partition_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogTablePartitionKeyArgs', 'CatalogTablePartitionKeyArgsDict', 'outputs.CatalogTablePartitionKey']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  retention: pulumi.Input[Optional[_builtins.int]] = None,
-                 storage_descriptor: pulumi.Input[Optional[Union['CatalogTableStorageDescriptorArgs', 'CatalogTableStorageDescriptorArgsDict']]] = None,
+                 storage_descriptor: pulumi.Input[Optional[Union['CatalogTableStorageDescriptorArgs', 'CatalogTableStorageDescriptorArgsDict', 'outputs.CatalogTableStorageDescriptor']]] = None,
                  table_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 target_table: pulumi.Input[Optional[Union['CatalogTableTargetTableArgs', 'CatalogTableTargetTableArgsDict']]] = None,
-                 view_definition: pulumi.Input[Optional[Union['CatalogTableViewDefinitionArgs', 'CatalogTableViewDefinitionArgsDict']]] = None,
+                 target_table: pulumi.Input[Optional[Union['CatalogTableTargetTableArgs', 'CatalogTableTargetTableArgsDict', 'outputs.CatalogTableTargetTable']]] = None,
+                 view_definition: pulumi.Input[Optional[Union['CatalogTableViewDefinitionArgs', 'CatalogTableViewDefinitionArgsDict', 'outputs.CatalogTableViewDefinition']]] = None,
                  view_expanded_text: pulumi.Input[Optional[_builtins.str]] = None,
                  view_original_text: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -650,7 +650,17 @@ class CatalogTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.CatalogTable("example",
+            name="MyCatalogTable",
+            database_name="MyCatalogDatabase",
+            table_type="EXTERNAL_TABLE",
+            parameters={
+                "EXTERNAL": "TRUE",
+                "parquet.compression": "SNAPPY",
+            },
             storage_descriptor={
+                "location": "s3://my-bucket/event-streams/my-stream",
+                "input_format": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "output_format": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
                 "ser_de_info": {
                     "name": "my-stream",
                     "serialization_library": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
@@ -683,16 +693,6 @@ class CatalogTable(pulumi.CustomResource):
                         "comment": "",
                     },
                 ],
-                "location": "s3://my-bucket/event-streams/my-stream",
-                "input_format": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
-                "output_format": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
-            },
-            name="MyCatalogTable",
-            database_name="MyCatalogDatabase",
-            table_type="EXTERNAL_TABLE",
-            parameters={
-                "EXTERNAL": "TRUE",
-                "parquet.compression": "SNAPPY",
             })
         ```
 
@@ -703,10 +703,17 @@ class CatalogTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.CatalogTable("example",
+            name="transactiontable1",
+            database_name="bankdata_icebergdb",
             open_table_format_input={
                 "iceberg_input": {
+                    "metadata_operation": "CREATE",
+                    "version": "2",
                     "iceberg_table_input": {
+                        "location": "s3://sampledatabucket/bankdataiceberg/transactiontable1/",
                         "schema": {
+                            "schema_id": 0,
+                            "type": "struct",
                             "fields": [
                                 {
                                     "id": 1,
@@ -727,8 +734,6 @@ class CatalogTable(pulumi.CustomResource):
                                     "type": "            \\\\\\"float\\\\\\"\\n",
                                 },
                             ],
-                            "schema_id": 0,
-                            "type": "struct",
                         },
                         "partition_spec": {
                             "fields": [{
@@ -747,14 +752,9 @@ class CatalogTable(pulumi.CustomResource):
                             }],
                             "order_id": 1,
                         },
-                        "location": "s3://sampledatabucket/bankdataiceberg/transactiontable1/",
                     },
-                    "metadata_operation": "CREATE",
-                    "version": "2",
                 },
-            },
-            name="transactiontable1",
-            database_name="bankdata_icebergdb")
+            })
         ```
 
         ### Protected View
@@ -764,18 +764,18 @@ class CatalogTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.CatalogTable("example",
+            name="multidialect_view",
+            database_name="catalog_database",
+            table_type="VIRTUAL_VIEW",
             view_definition={
+                "is_protected": True,
                 "representations": [{
                     "dialect": "ATHENA",
                     "dialect_version": "3",
                     "view_original_text": "SELECT * FROM catalog_database.base_table",
                     "validation_connection": example_aws_glue_connection["name"],
                 }],
-                "is_protected": True,
-            },
-            name="multidialect_view",
-            database_name="catalog_database",
-            table_type="VIRTUAL_VIEW")
+            })
         ```
 
         ## Import
@@ -808,17 +808,17 @@ class CatalogTable(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the table. For Hive compatibility, this must be entirely lowercase.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['CatalogTableOpenTableFormatInputArgs', 'CatalogTableOpenTableFormatInputArgsDict']] open_table_format_input: Configuration block for open table formats. See `open_table_format_input` below.
+        :param pulumi.Input[Union['CatalogTableOpenTableFormatInputArgs', 'CatalogTableOpenTableFormatInputArgsDict', 'outputs.CatalogTableOpenTableFormatInput']] open_table_format_input: Configuration block for open table formats. See `open_table_format_input` below.
         :param pulumi.Input[_builtins.str] owner: Owner of the table.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Properties associated with this table, as a map of key-value pairs.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogTablePartitionIndexArgs', 'CatalogTablePartitionIndexArgsDict']]]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogTablePartitionKeyArgs', 'CatalogTablePartitionKeyArgsDict']]]] partition_keys: Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogTablePartitionIndexArgs', 'CatalogTablePartitionIndexArgsDict', 'outputs.CatalogTablePartitionIndex']]]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogTablePartitionKeyArgs', 'CatalogTablePartitionKeyArgsDict', 'outputs.CatalogTablePartitionKey']]]] partition_keys: Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] retention: Retention time for this table.
-        :param pulumi.Input[Union['CatalogTableStorageDescriptorArgs', 'CatalogTableStorageDescriptorArgsDict']] storage_descriptor: Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
+        :param pulumi.Input[Union['CatalogTableStorageDescriptorArgs', 'CatalogTableStorageDescriptorArgsDict', 'outputs.CatalogTableStorageDescriptor']] storage_descriptor: Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         :param pulumi.Input[_builtins.str] table_type: Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
-        :param pulumi.Input[Union['CatalogTableTargetTableArgs', 'CatalogTableTargetTableArgsDict']] target_table: Configuration block of a target table for resource linking. See `target_table` below.
-        :param pulumi.Input[Union['CatalogTableViewDefinitionArgs', 'CatalogTableViewDefinitionArgsDict']] view_definition: Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `view_definition` below.
+        :param pulumi.Input[Union['CatalogTableTargetTableArgs', 'CatalogTableTargetTableArgsDict', 'outputs.CatalogTableTargetTable']] target_table: Configuration block of a target table for resource linking. See `target_table` below.
+        :param pulumi.Input[Union['CatalogTableViewDefinitionArgs', 'CatalogTableViewDefinitionArgsDict', 'outputs.CatalogTableViewDefinition']] view_definition: Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `view_definition` below.
         :param pulumi.Input[_builtins.str] view_expanded_text: If the table is a view, the expanded text of the view; otherwise null.
         :param pulumi.Input[_builtins.str] view_original_text: If the table is a view, the original text of the view; otherwise null.
         """
@@ -851,7 +851,17 @@ class CatalogTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.CatalogTable("example",
+            name="MyCatalogTable",
+            database_name="MyCatalogDatabase",
+            table_type="EXTERNAL_TABLE",
+            parameters={
+                "EXTERNAL": "TRUE",
+                "parquet.compression": "SNAPPY",
+            },
             storage_descriptor={
+                "location": "s3://my-bucket/event-streams/my-stream",
+                "input_format": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "output_format": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
                 "ser_de_info": {
                     "name": "my-stream",
                     "serialization_library": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
@@ -884,16 +894,6 @@ class CatalogTable(pulumi.CustomResource):
                         "comment": "",
                     },
                 ],
-                "location": "s3://my-bucket/event-streams/my-stream",
-                "input_format": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
-                "output_format": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
-            },
-            name="MyCatalogTable",
-            database_name="MyCatalogDatabase",
-            table_type="EXTERNAL_TABLE",
-            parameters={
-                "EXTERNAL": "TRUE",
-                "parquet.compression": "SNAPPY",
             })
         ```
 
@@ -904,10 +904,17 @@ class CatalogTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.CatalogTable("example",
+            name="transactiontable1",
+            database_name="bankdata_icebergdb",
             open_table_format_input={
                 "iceberg_input": {
+                    "metadata_operation": "CREATE",
+                    "version": "2",
                     "iceberg_table_input": {
+                        "location": "s3://sampledatabucket/bankdataiceberg/transactiontable1/",
                         "schema": {
+                            "schema_id": 0,
+                            "type": "struct",
                             "fields": [
                                 {
                                     "id": 1,
@@ -928,8 +935,6 @@ class CatalogTable(pulumi.CustomResource):
                                     "type": "            \\\\\\"float\\\\\\"\\n",
                                 },
                             ],
-                            "schema_id": 0,
-                            "type": "struct",
                         },
                         "partition_spec": {
                             "fields": [{
@@ -948,14 +953,9 @@ class CatalogTable(pulumi.CustomResource):
                             }],
                             "order_id": 1,
                         },
-                        "location": "s3://sampledatabucket/bankdataiceberg/transactiontable1/",
                     },
-                    "metadata_operation": "CREATE",
-                    "version": "2",
                 },
-            },
-            name="transactiontable1",
-            database_name="bankdata_icebergdb")
+            })
         ```
 
         ### Protected View
@@ -965,18 +965,18 @@ class CatalogTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.CatalogTable("example",
+            name="multidialect_view",
+            database_name="catalog_database",
+            table_type="VIRTUAL_VIEW",
             view_definition={
+                "is_protected": True,
                 "representations": [{
                     "dialect": "ATHENA",
                     "dialect_version": "3",
                     "view_original_text": "SELECT * FROM catalog_database.base_table",
                     "validation_connection": example_aws_glue_connection["name"],
                 }],
-                "is_protected": True,
-            },
-            name="multidialect_view",
-            database_name="catalog_database",
-            table_type="VIRTUAL_VIEW")
+            })
         ```
 
         ## Import
@@ -1020,17 +1020,17 @@ class CatalogTable(pulumi.CustomResource):
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 open_table_format_input: pulumi.Input[Optional[Union['CatalogTableOpenTableFormatInputArgs', 'CatalogTableOpenTableFormatInputArgsDict']]] = None,
+                 open_table_format_input: pulumi.Input[Optional[Union['CatalogTableOpenTableFormatInputArgs', 'CatalogTableOpenTableFormatInputArgsDict', 'outputs.CatalogTableOpenTableFormatInput']]] = None,
                  owner: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 partition_indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogTablePartitionIndexArgs', 'CatalogTablePartitionIndexArgsDict']]]]] = None,
-                 partition_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogTablePartitionKeyArgs', 'CatalogTablePartitionKeyArgsDict']]]]] = None,
+                 partition_indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogTablePartitionIndexArgs', 'CatalogTablePartitionIndexArgsDict', 'outputs.CatalogTablePartitionIndex']]]]] = None,
+                 partition_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogTablePartitionKeyArgs', 'CatalogTablePartitionKeyArgsDict', 'outputs.CatalogTablePartitionKey']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  retention: pulumi.Input[Optional[_builtins.int]] = None,
-                 storage_descriptor: pulumi.Input[Optional[Union['CatalogTableStorageDescriptorArgs', 'CatalogTableStorageDescriptorArgsDict']]] = None,
+                 storage_descriptor: pulumi.Input[Optional[Union['CatalogTableStorageDescriptorArgs', 'CatalogTableStorageDescriptorArgsDict', 'outputs.CatalogTableStorageDescriptor']]] = None,
                  table_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 target_table: pulumi.Input[Optional[Union['CatalogTableTargetTableArgs', 'CatalogTableTargetTableArgsDict']]] = None,
-                 view_definition: pulumi.Input[Optional[Union['CatalogTableViewDefinitionArgs', 'CatalogTableViewDefinitionArgsDict']]] = None,
+                 target_table: pulumi.Input[Optional[Union['CatalogTableTargetTableArgs', 'CatalogTableTargetTableArgsDict', 'outputs.CatalogTableTargetTable']]] = None,
+                 view_definition: pulumi.Input[Optional[Union['CatalogTableViewDefinitionArgs', 'CatalogTableViewDefinitionArgsDict', 'outputs.CatalogTableViewDefinition']]] = None,
                  view_expanded_text: pulumi.Input[Optional[_builtins.str]] = None,
                  view_original_text: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -1077,17 +1077,17 @@ class CatalogTable(pulumi.CustomResource):
             database_name: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            open_table_format_input: pulumi.Input[Optional[Union['CatalogTableOpenTableFormatInputArgs', 'CatalogTableOpenTableFormatInputArgsDict']]] = None,
+            open_table_format_input: pulumi.Input[Optional[Union['CatalogTableOpenTableFormatInputArgs', 'CatalogTableOpenTableFormatInputArgsDict', 'outputs.CatalogTableOpenTableFormatInput']]] = None,
             owner: pulumi.Input[Optional[_builtins.str]] = None,
             parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            partition_indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogTablePartitionIndexArgs', 'CatalogTablePartitionIndexArgsDict']]]]] = None,
-            partition_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogTablePartitionKeyArgs', 'CatalogTablePartitionKeyArgsDict']]]]] = None,
+            partition_indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogTablePartitionIndexArgs', 'CatalogTablePartitionIndexArgsDict', 'outputs.CatalogTablePartitionIndex']]]]] = None,
+            partition_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogTablePartitionKeyArgs', 'CatalogTablePartitionKeyArgsDict', 'outputs.CatalogTablePartitionKey']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             retention: pulumi.Input[Optional[_builtins.int]] = None,
-            storage_descriptor: pulumi.Input[Optional[Union['CatalogTableStorageDescriptorArgs', 'CatalogTableStorageDescriptorArgsDict']]] = None,
+            storage_descriptor: pulumi.Input[Optional[Union['CatalogTableStorageDescriptorArgs', 'CatalogTableStorageDescriptorArgsDict', 'outputs.CatalogTableStorageDescriptor']]] = None,
             table_type: pulumi.Input[Optional[_builtins.str]] = None,
-            target_table: pulumi.Input[Optional[Union['CatalogTableTargetTableArgs', 'CatalogTableTargetTableArgsDict']]] = None,
-            view_definition: pulumi.Input[Optional[Union['CatalogTableViewDefinitionArgs', 'CatalogTableViewDefinitionArgsDict']]] = None,
+            target_table: pulumi.Input[Optional[Union['CatalogTableTargetTableArgs', 'CatalogTableTargetTableArgsDict', 'outputs.CatalogTableTargetTable']]] = None,
+            view_definition: pulumi.Input[Optional[Union['CatalogTableViewDefinitionArgs', 'CatalogTableViewDefinitionArgsDict', 'outputs.CatalogTableViewDefinition']]] = None,
             view_expanded_text: pulumi.Input[Optional[_builtins.str]] = None,
             view_original_text: pulumi.Input[Optional[_builtins.str]] = None) -> 'CatalogTable':
         """
@@ -1104,17 +1104,17 @@ class CatalogTable(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the table. For Hive compatibility, this must be entirely lowercase.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['CatalogTableOpenTableFormatInputArgs', 'CatalogTableOpenTableFormatInputArgsDict']] open_table_format_input: Configuration block for open table formats. See `open_table_format_input` below.
+        :param pulumi.Input[Union['CatalogTableOpenTableFormatInputArgs', 'CatalogTableOpenTableFormatInputArgsDict', 'outputs.CatalogTableOpenTableFormatInput']] open_table_format_input: Configuration block for open table formats. See `open_table_format_input` below.
         :param pulumi.Input[_builtins.str] owner: Owner of the table.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Properties associated with this table, as a map of key-value pairs.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogTablePartitionIndexArgs', 'CatalogTablePartitionIndexArgsDict']]]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogTablePartitionKeyArgs', 'CatalogTablePartitionKeyArgsDict']]]] partition_keys: Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogTablePartitionIndexArgs', 'CatalogTablePartitionIndexArgsDict', 'outputs.CatalogTablePartitionIndex']]]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogTablePartitionKeyArgs', 'CatalogTablePartitionKeyArgsDict', 'outputs.CatalogTablePartitionKey']]]] partition_keys: Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] retention: Retention time for this table.
-        :param pulumi.Input[Union['CatalogTableStorageDescriptorArgs', 'CatalogTableStorageDescriptorArgsDict']] storage_descriptor: Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
+        :param pulumi.Input[Union['CatalogTableStorageDescriptorArgs', 'CatalogTableStorageDescriptorArgsDict', 'outputs.CatalogTableStorageDescriptor']] storage_descriptor: Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         :param pulumi.Input[_builtins.str] table_type: Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
-        :param pulumi.Input[Union['CatalogTableTargetTableArgs', 'CatalogTableTargetTableArgsDict']] target_table: Configuration block of a target table for resource linking. See `target_table` below.
-        :param pulumi.Input[Union['CatalogTableViewDefinitionArgs', 'CatalogTableViewDefinitionArgsDict']] view_definition: Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `view_definition` below.
+        :param pulumi.Input[Union['CatalogTableTargetTableArgs', 'CatalogTableTargetTableArgsDict', 'outputs.CatalogTableTargetTable']] target_table: Configuration block of a target table for resource linking. See `target_table` below.
+        :param pulumi.Input[Union['CatalogTableViewDefinitionArgs', 'CatalogTableViewDefinitionArgsDict', 'outputs.CatalogTableViewDefinition']] view_definition: Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `view_definition` below.
         :param pulumi.Input[_builtins.str] view_expanded_text: If the table is a view, the expanded text of the view; otherwise null.
         :param pulumi.Input[_builtins.str] view_original_text: If the table is a view, the original text of the view; otherwise null.
         """

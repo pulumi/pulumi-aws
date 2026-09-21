@@ -321,7 +321,7 @@ class ServerlessCollectionGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessCollectionGroupCapacityLimitArgs', 'ServerlessCollectionGroupCapacityLimitArgsDict']]]]] = None,
+                 capacity_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessCollectionGroupCapacityLimitArgs', 'ServerlessCollectionGroupCapacityLimitArgsDict', 'outputs.ServerlessCollectionGroupCapacityLimit']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  generation: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -343,15 +343,15 @@ class ServerlessCollectionGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessCollectionGroup("example",
+            name="example-group",
+            description="Shared compute for production collections",
+            standby_replicas="ENABLED",
             capacity_limits=[{
                 "min_indexing_capacity_in_ocu": float(2),
                 "max_indexing_capacity_in_ocu": float(16),
                 "min_search_capacity_in_ocu": float(2),
                 "max_search_capacity_in_ocu": float(16),
-            }],
-            name="example-group",
-            description="Shared compute for production collections",
-            standby_replicas="ENABLED")
+            }])
         ```
 
         ## Import
@@ -376,7 +376,7 @@ class ServerlessCollectionGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCollectionGroupCapacityLimitArgs', 'ServerlessCollectionGroupCapacityLimitArgsDict']]]] capacity_limits: Configuration block for the collection group's indexing and search capacity limits. See `capacity_limits` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCollectionGroupCapacityLimitArgs', 'ServerlessCollectionGroupCapacityLimitArgsDict', 'outputs.ServerlessCollectionGroupCapacityLimit']]]] capacity_limits: Configuration block for the collection group's indexing and search capacity limits. See `capacity_limits` below for details.
         :param pulumi.Input[_builtins.str] description: Description of the collection group.
         :param pulumi.Input[_builtins.str] generation: Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.
         :param pulumi.Input[_builtins.str] name: Name of the collection group.
@@ -406,15 +406,15 @@ class ServerlessCollectionGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessCollectionGroup("example",
+            name="example-group",
+            description="Shared compute for production collections",
+            standby_replicas="ENABLED",
             capacity_limits=[{
                 "min_indexing_capacity_in_ocu": float(2),
                 "max_indexing_capacity_in_ocu": float(16),
                 "min_search_capacity_in_ocu": float(2),
                 "max_search_capacity_in_ocu": float(16),
-            }],
-            name="example-group",
-            description="Shared compute for production collections",
-            standby_replicas="ENABLED")
+            }])
         ```
 
         ## Import
@@ -452,7 +452,7 @@ class ServerlessCollectionGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessCollectionGroupCapacityLimitArgs', 'ServerlessCollectionGroupCapacityLimitArgsDict']]]]] = None,
+                 capacity_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessCollectionGroupCapacityLimitArgs', 'ServerlessCollectionGroupCapacityLimitArgsDict', 'outputs.ServerlessCollectionGroupCapacityLimit']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  generation: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -491,7 +491,7 @@ class ServerlessCollectionGroup(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            capacity_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessCollectionGroupCapacityLimitArgs', 'ServerlessCollectionGroupCapacityLimitArgsDict']]]]] = None,
+            capacity_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessCollectionGroupCapacityLimitArgs', 'ServerlessCollectionGroupCapacityLimitArgsDict', 'outputs.ServerlessCollectionGroupCapacityLimit']]]]] = None,
             created_date: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             generation: pulumi.Input[Optional[_builtins.str]] = None,
@@ -508,7 +508,7 @@ class ServerlessCollectionGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the collection group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCollectionGroupCapacityLimitArgs', 'ServerlessCollectionGroupCapacityLimitArgsDict']]]] capacity_limits: Configuration block for the collection group's indexing and search capacity limits. See `capacity_limits` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCollectionGroupCapacityLimitArgs', 'ServerlessCollectionGroupCapacityLimitArgsDict', 'outputs.ServerlessCollectionGroupCapacityLimit']]]] capacity_limits: Configuration block for the collection group's indexing and search capacity limits. See `capacity_limits` below for details.
         :param pulumi.Input[_builtins.str] created_date: Date the collection group was created.
         :param pulumi.Input[_builtins.str] description: Description of the collection group.
         :param pulumi.Input[_builtins.str] generation: Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.

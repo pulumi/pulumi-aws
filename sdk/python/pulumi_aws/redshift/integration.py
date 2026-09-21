@@ -391,7 +391,7 @@ class Integration(pulumi.CustomResource):
                  source_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['IntegrationTimeoutsArgs', 'IntegrationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['IntegrationTimeoutsArgs', 'IntegrationTimeoutsArgsDict', 'outputs.IntegrationTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing a DynamoDB zero-ETL integration or S3 event integration with Amazon Redshift. You can refer to the [User Guide](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/RedshiftforDynamoDB-zero-etl.html) for a DynamoDB zero-ETL integration or the [User Guide](https://docs.aws.amazon.com/redshift/latest/dg/loading-data-copy-job.html) for a S3 event integration.
@@ -405,23 +405,19 @@ class Integration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dynamodb.Table("example",
-            point_in_time_recovery={
-                "enabled": True,
-            },
+            name="dynamodb-table-example",
+            read_capacity=1,
+            write_capacity=1,
+            hash_key="example",
             attributes=[{
                 "name": "example",
                 "type": "S",
             }],
-            name="dynamodb-table-example",
-            read_capacity=1,
-            write_capacity=1,
-            hash_key="example")
+            point_in_time_recovery={
+                "enabled": True,
+            })
         example_namespace = aws.redshiftserverless.Namespace("example", namespace_name="redshift-example")
         example_workgroup = aws.redshiftserverless.Workgroup("example",
-            config_parameters=[{
-                "parameter_key": "enable_case_sensitive_identifier",
-                "parameter_value": "true",
-            }],
             namespace_name=example_namespace.namespace_name,
             workgroup_name="example-workgroup",
             base_capacity=8,
@@ -430,7 +426,11 @@ class Integration(pulumi.CustomResource):
                 example1["id"],
                 example2["id"],
                 example3["id"],
-            ])
+            ],
+            config_parameters=[{
+                "parameter_key": "enable_case_sensitive_identifier",
+                "parameter_value": "true",
+            }])
         example_integration = aws.redshift.Integration("example",
             integration_name="example",
             source_arn=example.arn,
@@ -544,23 +544,19 @@ class Integration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dynamodb.Table("example",
-            point_in_time_recovery={
-                "enabled": True,
-            },
+            name="dynamodb-table-example",
+            read_capacity=1,
+            write_capacity=1,
+            hash_key="example",
             attributes=[{
                 "name": "example",
                 "type": "S",
             }],
-            name="dynamodb-table-example",
-            read_capacity=1,
-            write_capacity=1,
-            hash_key="example")
+            point_in_time_recovery={
+                "enabled": True,
+            })
         example_namespace = aws.redshiftserverless.Namespace("example", namespace_name="redshift-example")
         example_workgroup = aws.redshiftserverless.Workgroup("example",
-            config_parameters=[{
-                "parameter_key": "enable_case_sensitive_identifier",
-                "parameter_value": "true",
-            }],
             namespace_name=example_namespace.namespace_name,
             workgroup_name="example-workgroup",
             base_capacity=8,
@@ -569,7 +565,11 @@ class Integration(pulumi.CustomResource):
                 example1["id"],
                 example2["id"],
                 example3["id"],
-            ])
+            ],
+            config_parameters=[{
+                "parameter_key": "enable_case_sensitive_identifier",
+                "parameter_value": "true",
+            }])
         example_integration = aws.redshift.Integration("example",
             integration_name="example",
             source_arn=example.arn,
@@ -669,7 +669,7 @@ class Integration(pulumi.CustomResource):
                  source_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['IntegrationTimeoutsArgs', 'IntegrationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['IntegrationTimeoutsArgs', 'IntegrationTimeoutsArgsDict', 'outputs.IntegrationTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -716,7 +716,7 @@ class Integration(pulumi.CustomResource):
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             target_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['IntegrationTimeoutsArgs', 'IntegrationTimeoutsArgsDict']]] = None) -> 'Integration':
+            timeouts: pulumi.Input[Optional[Union['IntegrationTimeoutsArgs', 'IntegrationTimeoutsArgsDict', 'outputs.IntegrationTimeouts']]] = None) -> 'Integration':
         """
         Get an existing Integration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

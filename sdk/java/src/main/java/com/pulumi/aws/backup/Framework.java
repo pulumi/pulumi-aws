@@ -50,15 +50,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Framework("example", FrameworkArgs.builder()
+ *             .name("exampleFramework")
+ *             .description("this is an example framework")
  *             .controls(            
  *                 FrameworkControlArgs.builder()
+ *                     .name("BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK")
  *                     .inputParameters(FrameworkControlInputParameterArgs.builder()
  *                         .name("requiredRetentionDays")
  *                         .value("35")
  *                         .build())
- *                     .name("BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK")
  *                     .build(),
  *                 FrameworkControlArgs.builder()
+ *                     .name("BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK")
  *                     .inputParameters(                    
  *                         FrameworkControlInputParameterArgs.builder()
  *                             .name("requiredFrequencyUnit")
@@ -72,24 +75,21 @@ import javax.annotation.Nullable;
  *                             .name("requiredFrequencyValue")
  *                             .value("1")
  *                             .build())
- *                     .name("BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK")
  *                     .build(),
  *                 FrameworkControlArgs.builder()
  *                     .name("BACKUP_RECOVERY_POINT_ENCRYPTED")
  *                     .build(),
  *                 FrameworkControlArgs.builder()
+ *                     .name("BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN")
  *                     .scope(FrameworkControlScopeArgs.builder()
  *                         .complianceResourceTypes("EBS")
  *                         .build())
- *                     .name("BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN")
  *                     .build(),
  *                 FrameworkControlArgs.builder()
  *                     .name("BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED")
  *                     .build(),
  *                 FrameworkControlArgs.builder()
- *                     .scope(FrameworkControlScopeArgs.builder()
- *                         .complianceResourceTypes("EBS")
- *                         .build())
+ *                     .name("BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK")
  *                     .inputParameters(                    
  *                         FrameworkControlInputParameterArgs.builder()
  *                             .name("maxRetentionDays")
@@ -99,12 +99,12 @@ import javax.annotation.Nullable;
  *                             .name("minRetentionDays")
  *                             .value("1")
  *                             .build())
- *                     .name("BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK")
- *                     .build(),
- *                 FrameworkControlArgs.builder()
  *                     .scope(FrameworkControlScopeArgs.builder()
  *                         .complianceResourceTypes("EBS")
  *                         .build())
+ *                     .build(),
+ *                 FrameworkControlArgs.builder()
+ *                     .name("BACKUP_LAST_RECOVERY_POINT_CREATED")
  *                     .inputParameters(                    
  *                         FrameworkControlInputParameterArgs.builder()
  *                             .name("recoveryPointAgeUnit")
@@ -114,10 +114,10 @@ import javax.annotation.Nullable;
  *                             .name("recoveryPointAgeValue")
  *                             .value("1")
  *                             .build())
- *                     .name("BACKUP_LAST_RECOVERY_POINT_CREATED")
+ *                     .scope(FrameworkControlScopeArgs.builder()
+ *                         .complianceResourceTypes("EBS")
+ *                         .build())
  *                     .build())
- *             .name("exampleFramework")
- *             .description("this is an example framework")
  *             .tags(Map.of("Name", "Example Framework"))
  *             .build());
  * 

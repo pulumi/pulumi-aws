@@ -34,6 +34,7 @@ namespace Pulumi.Aws.ApiGateway
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -45,7 +46,6 @@ namespace Pulumi.Aws.ApiGateway
     ///                         },
     ///                     },
     ///                 },
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -67,6 +67,11 @@ namespace Pulumi.Aws.ApiGateway
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -77,11 +82,6 @@ namespace Pulumi.Aws.ApiGateway
     ///                             "lambda.amazonaws.com",
     ///                         },
     ///                     },
-    ///                 },
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
     ///                 },
     ///             },
     ///         },

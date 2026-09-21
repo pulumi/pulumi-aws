@@ -26,6 +26,10 @@ namespace Pulumi.Aws.DataZone
     /// {
     ///     var example = new Aws.DataZone.PolicyGrant("example", new()
     ///     {
+    ///         DomainIdentifier = exampleAwsDatazoneDomain.Id,
+    ///         EntityIdentifier = exampleAwsDatazoneDomain.RootDomainUnitId,
+    ///         EntityType = "DOMAIN_UNIT",
+    ///         PolicyType = "CREATE_DOMAIN_UNIT",
     ///         Detail = new Aws.DataZone.Inputs.PolicyGrantDetailArgs
     ///         {
     ///             CreateDomainUnit = null,
@@ -37,10 +41,6 @@ namespace Pulumi.Aws.DataZone
     ///                 AllUsersGrantFilter = null,
     ///             },
     ///         },
-    ///         DomainIdentifier = exampleAwsDatazoneDomain.Id,
-    ///         EntityIdentifier = exampleAwsDatazoneDomain.RootDomainUnitId,
-    ///         EntityType = "DOMAIN_UNIT",
-    ///         PolicyType = "CREATE_DOMAIN_UNIT",
     ///     });
     /// 
     /// });
@@ -58,6 +58,10 @@ namespace Pulumi.Aws.DataZone
     /// {
     ///     var example = new Aws.DataZone.PolicyGrant("example", new()
     ///     {
+    ///         DomainIdentifier = exampleAwsDatazoneDomain.Id,
+    ///         EntityIdentifier = exampleAwsDatazoneDomain.RootDomainUnitId,
+    ///         EntityType = "DOMAIN_UNIT",
+    ///         PolicyType = "CREATE_DOMAIN_UNIT",
     ///         Detail = new Aws.DataZone.Inputs.PolicyGrantDetailArgs
     ///         {
     ///             CreateDomainUnit = new Aws.DataZone.Inputs.PolicyGrantDetailCreateDomainUnitArgs
@@ -72,10 +76,6 @@ namespace Pulumi.Aws.DataZone
     ///                 AllUsersGrantFilter = null,
     ///             },
     ///         },
-    ///         DomainIdentifier = exampleAwsDatazoneDomain.Id,
-    ///         EntityIdentifier = exampleAwsDatazoneDomain.RootDomainUnitId,
-    ///         EntityType = "DOMAIN_UNIT",
-    ///         PolicyType = "CREATE_DOMAIN_UNIT",
     ///     });
     /// 
     /// });
@@ -93,6 +93,10 @@ namespace Pulumi.Aws.DataZone
     /// {
     ///     var example = new Aws.DataZone.PolicyGrant("example", new()
     ///     {
+    ///         DomainIdentifier = exampleAwsDatazoneDomain.Id,
+    ///         EntityIdentifier = exampleAwsDatazoneDomain.RootDomainUnitId,
+    ///         EntityType = "DOMAIN_UNIT",
+    ///         PolicyType = "CREATE_GLOSSARY",
     ///         Detail = new Aws.DataZone.Inputs.PolicyGrantDetailArgs
     ///         {
     ///             CreateGlossary = null,
@@ -105,10 +109,6 @@ namespace Pulumi.Aws.DataZone
     ///                 ProjectIdentifier = exampleAwsDatazoneProject.Id,
     ///             },
     ///         },
-    ///         DomainIdentifier = exampleAwsDatazoneDomain.Id,
-    ///         EntityIdentifier = exampleAwsDatazoneDomain.RootDomainUnitId,
-    ///         EntityType = "DOMAIN_UNIT",
-    ///         PolicyType = "CREATE_GLOSSARY",
     ///     });
     /// 
     /// });

@@ -442,7 +442,7 @@ class Instance(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            verified_access_trust_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceVerifiedAccessTrustProviderArgs', 'InstanceVerifiedAccessTrustProviderArgsDict']]]]] = None) -> 'Instance':
+            verified_access_trust_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceVerifiedAccessTrustProviderArgs', 'InstanceVerifiedAccessTrustProviderArgsDict', 'outputs.InstanceVerifiedAccessTrustProvider']]]]] = None) -> 'Instance':
         """
         Get an existing Instance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -457,7 +457,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] last_updated_time: The time that the Verified Access Instance was last updated.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceVerifiedAccessTrustProviderArgs', 'InstanceVerifiedAccessTrustProviderArgsDict']]]] verified_access_trust_providers: One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceVerifiedAccessTrustProviderArgs', 'InstanceVerifiedAccessTrustProviderArgsDict', 'outputs.InstanceVerifiedAccessTrustProvider']]]] verified_access_trust_providers: One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

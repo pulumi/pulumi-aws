@@ -407,15 +407,15 @@ class Flow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 destination_flow_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowDestinationFlowConfigArgs', 'FlowDestinationFlowConfigArgsDict']]]]] = None,
+                 destination_flow_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowDestinationFlowConfigArgs', 'FlowDestinationFlowConfigArgsDict', 'outputs.FlowDestinationFlowConfig']]]]] = None,
                  kms_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadata_catalog_config: pulumi.Input[Optional[Union['FlowMetadataCatalogConfigArgs', 'FlowMetadataCatalogConfigArgsDict']]] = None,
+                 metadata_catalog_config: pulumi.Input[Optional[Union['FlowMetadataCatalogConfigArgs', 'FlowMetadataCatalogConfigArgsDict', 'outputs.FlowMetadataCatalogConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_flow_config: pulumi.Input[Optional[Union['FlowSourceFlowConfigArgs', 'FlowSourceFlowConfigArgsDict']]] = None,
+                 source_flow_config: pulumi.Input[Optional[Union['FlowSourceFlowConfigArgs', 'FlowSourceFlowConfigArgsDict', 'outputs.FlowSourceFlowConfig']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tasks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowTaskArgs', 'FlowTaskArgsDict']]]]] = None,
-                 trigger_config: pulumi.Input[Optional[Union['FlowTriggerConfigArgs', 'FlowTriggerConfigArgsDict']]] = None,
+                 tasks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowTaskArgs', 'FlowTaskArgsDict', 'outputs.FlowTask']]]]] = None,
+                 trigger_config: pulumi.Input[Optional[Union['FlowTriggerConfigArgs', 'FlowTriggerConfigArgsDict', 'outputs.FlowTriggerConfig']]] = None,
                  __props__=None):
         """
         Provides an AppFlow flow resource.
@@ -428,12 +428,12 @@ class Flow(pulumi.CustomResource):
 
         example_source_bucket = aws.s3.Bucket("example_source", bucket="example-source")
         example_source = aws.iam.get_policy_document(statements=[{
+            "sid": "AllowAppFlowSourceActions",
+            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["appflow.amazonaws.com"],
             }],
-            "sid": "AllowAppFlowSourceActions",
-            "effect": "Allow",
             "actions": [
                 "s3:ListBucket",
                 "s3:GetObject",
@@ -452,12 +452,12 @@ class Flow(pulumi.CustomResource):
             source=pulumi.FileAsset("example_source.csv"))
         example_destination_bucket = aws.s3.Bucket("example_destination", bucket="example-destination")
         example_destination = aws.iam.get_policy_document(statements=[{
+            "sid": "AllowAppFlowDestinationActions",
+            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["appflow.amazonaws.com"],
             }],
-            "sid": "AllowAppFlowDestinationActions",
-            "effect": "Allow",
             "actions": [
                 "s3:PutObject",
                 "s3:AbortMultipartUpload",
@@ -475,40 +475,40 @@ class Flow(pulumi.CustomResource):
             bucket=example_destination_bucket.id,
             policy=example_destination.json)
         example_flow = aws.appflow.Flow("example",
+            name="example",
             source_flow_config={
+                "connector_type": "S3",
                 "source_connector_properties": {
                     "s3": {
                         "bucket_name": example_source_bucket_policy.bucket,
                         "bucket_prefix": "example",
                     },
                 },
-                "connector_type": "S3",
-            },
-            trigger_config={
-                "trigger_type": "OnDemand",
             },
             destination_flow_configs=[{
+                "connector_type": "S3",
                 "destination_connector_properties": {
                     "s3": {
+                        "bucket_name": example_destination_bucket_policy.bucket,
                         "s3_output_format_config": {
                             "prefix_config": {
                                 "prefix_type": "PATH",
                             },
                         },
-                        "bucket_name": example_destination_bucket_policy.bucket,
                     },
                 },
-                "connector_type": "S3",
             }],
             tasks=[{
-                "connector_operators": [{
-                    "s3": "NO_OP",
-                }],
                 "source_fields": ["exampleField"],
                 "destination_field": "exampleField",
                 "task_type": "Map",
+                "connector_operators": [{
+                    "s3": "NO_OP",
+                }],
             }],
-            name="example")
+            trigger_config={
+                "trigger_type": "OnDemand",
+            })
         ```
 
         ## Import
@@ -534,15 +534,15 @@ class Flow(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the flow.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowDestinationFlowConfigArgs', 'FlowDestinationFlowConfigArgsDict']]]] destination_flow_configs: Configuration that controls how Amazon AppFlow places data in the destination connector. See the `destination_flow_config` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowDestinationFlowConfigArgs', 'FlowDestinationFlowConfigArgsDict', 'outputs.FlowDestinationFlowConfig']]]] destination_flow_configs: Configuration that controls how Amazon AppFlow places data in the destination connector. See the `destination_flow_config` Block for details.
         :param pulumi.Input[_builtins.str] kms_arn: ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
-        :param pulumi.Input[Union['FlowMetadataCatalogConfigArgs', 'FlowMetadataCatalogConfigArgsDict']] metadata_catalog_config: Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadata_catalog_config` Block for details.
+        :param pulumi.Input[Union['FlowMetadataCatalogConfigArgs', 'FlowMetadataCatalogConfigArgsDict', 'outputs.FlowMetadataCatalogConfig']] metadata_catalog_config: Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadata_catalog_config` Block for details.
         :param pulumi.Input[_builtins.str] name: Name of the flow.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['FlowSourceFlowConfigArgs', 'FlowSourceFlowConfigArgsDict']] source_flow_config: Configuration that controls how Amazon AppFlow retrieves data from the source connector. See the `source_flow_config` Block for details.
+        :param pulumi.Input[Union['FlowSourceFlowConfigArgs', 'FlowSourceFlowConfigArgsDict', 'outputs.FlowSourceFlowConfig']] source_flow_config: Configuration that controls how Amazon AppFlow retrieves data from the source connector. See the `source_flow_config` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowTaskArgs', 'FlowTaskArgsDict']]]] tasks: Tasks that Amazon AppFlow performs while transferring the data in the flow run. See the `task` Block for details.
-        :param pulumi.Input[Union['FlowTriggerConfigArgs', 'FlowTriggerConfigArgsDict']] trigger_config: Configuration that determines how and when the flow runs. See the `trigger_config` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowTaskArgs', 'FlowTaskArgsDict', 'outputs.FlowTask']]]] tasks: Tasks that Amazon AppFlow performs while transferring the data in the flow run. See the `task` Block for details.
+        :param pulumi.Input[Union['FlowTriggerConfigArgs', 'FlowTriggerConfigArgsDict', 'outputs.FlowTriggerConfig']] trigger_config: Configuration that determines how and when the flow runs. See the `trigger_config` Block for details.
         """
         ...
     @overload
@@ -561,12 +561,12 @@ class Flow(pulumi.CustomResource):
 
         example_source_bucket = aws.s3.Bucket("example_source", bucket="example-source")
         example_source = aws.iam.get_policy_document(statements=[{
+            "sid": "AllowAppFlowSourceActions",
+            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["appflow.amazonaws.com"],
             }],
-            "sid": "AllowAppFlowSourceActions",
-            "effect": "Allow",
             "actions": [
                 "s3:ListBucket",
                 "s3:GetObject",
@@ -585,12 +585,12 @@ class Flow(pulumi.CustomResource):
             source=pulumi.FileAsset("example_source.csv"))
         example_destination_bucket = aws.s3.Bucket("example_destination", bucket="example-destination")
         example_destination = aws.iam.get_policy_document(statements=[{
+            "sid": "AllowAppFlowDestinationActions",
+            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["appflow.amazonaws.com"],
             }],
-            "sid": "AllowAppFlowDestinationActions",
-            "effect": "Allow",
             "actions": [
                 "s3:PutObject",
                 "s3:AbortMultipartUpload",
@@ -608,40 +608,40 @@ class Flow(pulumi.CustomResource):
             bucket=example_destination_bucket.id,
             policy=example_destination.json)
         example_flow = aws.appflow.Flow("example",
+            name="example",
             source_flow_config={
+                "connector_type": "S3",
                 "source_connector_properties": {
                     "s3": {
                         "bucket_name": example_source_bucket_policy.bucket,
                         "bucket_prefix": "example",
                     },
                 },
-                "connector_type": "S3",
-            },
-            trigger_config={
-                "trigger_type": "OnDemand",
             },
             destination_flow_configs=[{
+                "connector_type": "S3",
                 "destination_connector_properties": {
                     "s3": {
+                        "bucket_name": example_destination_bucket_policy.bucket,
                         "s3_output_format_config": {
                             "prefix_config": {
                                 "prefix_type": "PATH",
                             },
                         },
-                        "bucket_name": example_destination_bucket_policy.bucket,
                     },
                 },
-                "connector_type": "S3",
             }],
             tasks=[{
-                "connector_operators": [{
-                    "s3": "NO_OP",
-                }],
                 "source_fields": ["exampleField"],
                 "destination_field": "exampleField",
                 "task_type": "Map",
+                "connector_operators": [{
+                    "s3": "NO_OP",
+                }],
             }],
-            name="example")
+            trigger_config={
+                "trigger_type": "OnDemand",
+            })
         ```
 
         ## Import
@@ -680,15 +680,15 @@ class Flow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 destination_flow_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowDestinationFlowConfigArgs', 'FlowDestinationFlowConfigArgsDict']]]]] = None,
+                 destination_flow_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowDestinationFlowConfigArgs', 'FlowDestinationFlowConfigArgsDict', 'outputs.FlowDestinationFlowConfig']]]]] = None,
                  kms_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadata_catalog_config: pulumi.Input[Optional[Union['FlowMetadataCatalogConfigArgs', 'FlowMetadataCatalogConfigArgsDict']]] = None,
+                 metadata_catalog_config: pulumi.Input[Optional[Union['FlowMetadataCatalogConfigArgs', 'FlowMetadataCatalogConfigArgsDict', 'outputs.FlowMetadataCatalogConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_flow_config: pulumi.Input[Optional[Union['FlowSourceFlowConfigArgs', 'FlowSourceFlowConfigArgsDict']]] = None,
+                 source_flow_config: pulumi.Input[Optional[Union['FlowSourceFlowConfigArgs', 'FlowSourceFlowConfigArgsDict', 'outputs.FlowSourceFlowConfig']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tasks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowTaskArgs', 'FlowTaskArgsDict']]]]] = None,
-                 trigger_config: pulumi.Input[Optional[Union['FlowTriggerConfigArgs', 'FlowTriggerConfigArgsDict']]] = None,
+                 tasks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowTaskArgs', 'FlowTaskArgsDict', 'outputs.FlowTask']]]]] = None,
+                 trigger_config: pulumi.Input[Optional[Union['FlowTriggerConfigArgs', 'FlowTriggerConfigArgsDict', 'outputs.FlowTriggerConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -731,17 +731,17 @@ class Flow(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            destination_flow_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowDestinationFlowConfigArgs', 'FlowDestinationFlowConfigArgsDict']]]]] = None,
+            destination_flow_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowDestinationFlowConfigArgs', 'FlowDestinationFlowConfigArgsDict', 'outputs.FlowDestinationFlowConfig']]]]] = None,
             flow_status: pulumi.Input[Optional[_builtins.str]] = None,
             kms_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            metadata_catalog_config: pulumi.Input[Optional[Union['FlowMetadataCatalogConfigArgs', 'FlowMetadataCatalogConfigArgsDict']]] = None,
+            metadata_catalog_config: pulumi.Input[Optional[Union['FlowMetadataCatalogConfigArgs', 'FlowMetadataCatalogConfigArgsDict', 'outputs.FlowMetadataCatalogConfig']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            source_flow_config: pulumi.Input[Optional[Union['FlowSourceFlowConfigArgs', 'FlowSourceFlowConfigArgsDict']]] = None,
+            source_flow_config: pulumi.Input[Optional[Union['FlowSourceFlowConfigArgs', 'FlowSourceFlowConfigArgsDict', 'outputs.FlowSourceFlowConfig']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tasks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowTaskArgs', 'FlowTaskArgsDict']]]]] = None,
-            trigger_config: pulumi.Input[Optional[Union['FlowTriggerConfigArgs', 'FlowTriggerConfigArgsDict']]] = None) -> 'Flow':
+            tasks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowTaskArgs', 'FlowTaskArgsDict', 'outputs.FlowTask']]]]] = None,
+            trigger_config: pulumi.Input[Optional[Union['FlowTriggerConfigArgs', 'FlowTriggerConfigArgsDict', 'outputs.FlowTriggerConfig']]] = None) -> 'Flow':
         """
         Get an existing Flow resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -751,17 +751,17 @@ class Flow(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: Flow's ARN.
         :param pulumi.Input[_builtins.str] description: Description of the flow.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowDestinationFlowConfigArgs', 'FlowDestinationFlowConfigArgsDict']]]] destination_flow_configs: Configuration that controls how Amazon AppFlow places data in the destination connector. See the `destination_flow_config` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowDestinationFlowConfigArgs', 'FlowDestinationFlowConfigArgsDict', 'outputs.FlowDestinationFlowConfig']]]] destination_flow_configs: Configuration that controls how Amazon AppFlow places data in the destination connector. See the `destination_flow_config` Block for details.
         :param pulumi.Input[_builtins.str] flow_status: Current status of the flow.
         :param pulumi.Input[_builtins.str] kms_arn: ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
-        :param pulumi.Input[Union['FlowMetadataCatalogConfigArgs', 'FlowMetadataCatalogConfigArgsDict']] metadata_catalog_config: Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadata_catalog_config` Block for details.
+        :param pulumi.Input[Union['FlowMetadataCatalogConfigArgs', 'FlowMetadataCatalogConfigArgsDict', 'outputs.FlowMetadataCatalogConfig']] metadata_catalog_config: Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadata_catalog_config` Block for details.
         :param pulumi.Input[_builtins.str] name: Name of the flow.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['FlowSourceFlowConfigArgs', 'FlowSourceFlowConfigArgsDict']] source_flow_config: Configuration that controls how Amazon AppFlow retrieves data from the source connector. See the `source_flow_config` Block for details.
+        :param pulumi.Input[Union['FlowSourceFlowConfigArgs', 'FlowSourceFlowConfigArgsDict', 'outputs.FlowSourceFlowConfig']] source_flow_config: Configuration that controls how Amazon AppFlow retrieves data from the source connector. See the `source_flow_config` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowTaskArgs', 'FlowTaskArgsDict']]]] tasks: Tasks that Amazon AppFlow performs while transferring the data in the flow run. See the `task` Block for details.
-        :param pulumi.Input[Union['FlowTriggerConfigArgs', 'FlowTriggerConfigArgsDict']] trigger_config: Configuration that determines how and when the flow runs. See the `trigger_config` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowTaskArgs', 'FlowTaskArgsDict', 'outputs.FlowTask']]]] tasks: Tasks that Amazon AppFlow performs while transferring the data in the flow run. See the `task` Block for details.
+        :param pulumi.Input[Union['FlowTriggerConfigArgs', 'FlowTriggerConfigArgsDict', 'outputs.FlowTriggerConfig']] trigger_config: Configuration that determines how and when the flow runs. See the `trigger_config` Block for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

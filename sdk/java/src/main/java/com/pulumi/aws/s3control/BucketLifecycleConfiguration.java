@@ -50,6 +50,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfiguration("example", BucketLifecycleConfigurationArgs.builder()
+ *             .bucket(exampleAwsS3controlBucket.arn())
  *             .rules(            
  *                 BucketLifecycleConfigurationRuleArgs.builder()
  *                     .expiration(BucketLifecycleConfigurationRuleExpirationArgs.builder()
@@ -69,7 +70,6 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .id("temp")
  *                     .build())
- *             .bucket(exampleAwsS3controlBucket.arn())
  *             .build());
  * 
  *     }

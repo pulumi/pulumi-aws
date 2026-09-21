@@ -26,15 +26,6 @@ namespace Pulumi.Aws.Amplify
     /// {
     ///     var example = new Aws.Amplify.App("example", new()
     ///     {
-    ///         CustomRules = new[]
-    ///         {
-    ///             new Aws.Amplify.Inputs.AppCustomRuleArgs
-    ///             {
-    ///                 Source = "/&lt;*&gt;",
-    ///                 Status = "404",
-    ///                 Target = "/index.html",
-    ///             },
-    ///         },
     ///         Name = "example",
     ///         Repository = "https://github.com/example/app",
     ///         BuildSpec = @"version: 0.1
@@ -54,6 +45,15 @@ namespace Pulumi.Aws.Amplify
     ///     paths:
     ///       - node_modules/**/*
     /// ",
+    ///         CustomRules = new[]
+    ///         {
+    ///             new Aws.Amplify.Inputs.AppCustomRuleArgs
+    ///             {
+    ///                 Source = "/&lt;*&gt;",
+    ///                 Status = "404",
+    ///                 Target = "/index.html",
+    ///             },
+    ///         },
     ///         EnvironmentVariables = 
     ///         {
     ///             { "ENV", "test" },
@@ -99,16 +99,16 @@ namespace Pulumi.Aws.Amplify
     /// {
     ///     var example = new Aws.Amplify.App("example", new()
     ///     {
-    ///         AutoBranchCreationConfig = new Aws.Amplify.Inputs.AppAutoBranchCreationConfigArgs
-    ///         {
-    ///             EnableAutoBuild = true,
-    ///         },
     ///         Name = "example",
     ///         EnableAutoBranchCreation = true,
     ///         AutoBranchCreationPatterns = new[]
     ///         {
     ///             "*",
     ///             "*/**",
+    ///         },
+    ///         AutoBranchCreationConfig = new Aws.Amplify.Inputs.AppAutoBranchCreationConfigArgs
+    ///         {
+    ///             EnableAutoBuild = true,
     ///         },
     ///     });
     /// 
@@ -151,6 +151,7 @@ namespace Pulumi.Aws.Amplify
     /// {
     ///     var example = new Aws.Amplify.App("example", new()
     ///     {
+    ///         Name = "example",
     ///         CustomRules = new[]
     ///         {
     ///             new Aws.Amplify.Inputs.AppCustomRuleArgs
@@ -166,7 +167,6 @@ namespace Pulumi.Aws.Amplify
     ///                 Target = "/index.html",
     ///             },
     ///         },
-    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -238,11 +238,11 @@ namespace Pulumi.Aws.Amplify
     /// {
     ///     var example = new Aws.Amplify.App("example", new()
     ///     {
+    ///         Name = "example",
     ///         JobConfig = new Aws.Amplify.Inputs.AppJobConfigArgs
     ///         {
     ///             BuildComputeType = "STANDARD_8GB",
     ///         },
-    ///         Name = "example",
     ///     });
     /// 
     /// });

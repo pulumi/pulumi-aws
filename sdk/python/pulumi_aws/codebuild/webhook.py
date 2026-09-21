@@ -347,12 +347,12 @@ class Webhook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  branch_filter: pulumi.Input[Optional[_builtins.str]] = None,
                  build_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 filter_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict']]]]] = None,
+                 filter_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict', 'outputs.WebhookFilterGroup']]]]] = None,
                  manual_creation: pulumi.Input[Optional[_builtins.bool]] = None,
                  project_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 pull_request_build_policy: pulumi.Input[Optional[Union['WebhookPullRequestBuildPolicyArgs', 'WebhookPullRequestBuildPolicyArgsDict']]] = None,
+                 pull_request_build_policy: pulumi.Input[Optional[Union['WebhookPullRequestBuildPolicyArgs', 'WebhookPullRequestBuildPolicyArgsDict', 'outputs.WebhookPullRequestBuildPolicy']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope_configuration: pulumi.Input[Optional[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict']]] = None,
+                 scope_configuration: pulumi.Input[Optional[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict', 'outputs.WebhookScopeConfiguration']]] = None,
                  __props__=None):
         """
         Manages a CodeBuild webhook, which is an endpoint accepted by the CodeBuild service to trigger builds from source code repositories. Depending on the source type of the CodeBuild project, the CodeBuild service may also automatically create and delete the actual repository webhook as well.
@@ -372,6 +372,8 @@ class Webhook(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.codebuild.Webhook("example",
+            project_name=example_aws_codebuild_project["name"],
+            build_type="BUILD",
             filter_groups=[{
                 "filters": [
                     {
@@ -383,9 +385,7 @@ class Webhook(pulumi.CustomResource):
                         "pattern": "master",
                     },
                 ],
-            }],
-            project_name=example_aws_codebuild_project["name"],
-            build_type="BUILD")
+            }])
         ```
 
         ### GitHub Enterprise
@@ -401,16 +401,16 @@ class Webhook(pulumi.CustomResource):
 
         example = aws.codebuild.Webhook("example", project_name=example_aws_codebuild_project["name"])
         example_repository_webhook = github.RepositoryWebhook("example",
+            active=True,
+            events=["push"],
+            name="example",
+            repository=example_github_repository["name"],
             configuration=[{
                 "url": example.payload_url,
                 "secret": example.secret,
                 "contentType": "json",
                 "insecureSsl": False,
-            }],
-            active=True,
-            events=["push"],
-            name="example",
-            repository=example_github_repository["name"])
+            }])
         ```
 
         ### For CodeBuild Runner Project
@@ -423,14 +423,14 @@ class Webhook(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.codebuild.Webhook("example",
+            project_name=example_aws_codebuild_project["name"],
+            build_type="BUILD",
             filter_groups=[{
                 "filters": [{
                     "type": "EVENT",
                     "pattern": "WORKFLOW_JOB_QUEUED",
                 }],
-            }],
-            project_name=example_aws_codebuild_project["name"],
-            build_type="BUILD")
+            }])
         ```
 
         ## Import
@@ -446,12 +446,12 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] branch_filter: A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
         :param pulumi.Input[_builtins.str] build_type: The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict']]]] filter_groups: Information about the webhook's trigger. See filter_group for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict', 'outputs.WebhookFilterGroup']]]] filter_groups: Information about the webhook's trigger. See filter_group for details.
         :param pulumi.Input[_builtins.bool] manual_creation: If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
         :param pulumi.Input[_builtins.str] project_name: The name of the build project.
-        :param pulumi.Input[Union['WebhookPullRequestBuildPolicyArgs', 'WebhookPullRequestBuildPolicyArgsDict']] pull_request_build_policy: Defines comment-based approval requirements for triggering builds on pull requests. See pull_request_build_policy for details.
+        :param pulumi.Input[Union['WebhookPullRequestBuildPolicyArgs', 'WebhookPullRequestBuildPolicyArgsDict', 'outputs.WebhookPullRequestBuildPolicy']] pull_request_build_policy: Defines comment-based approval requirements for triggering builds on pull requests. See pull_request_build_policy for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict']] scope_configuration: Scope configuration for global or organization webhooks. See scope_configuration for details.
+        :param pulumi.Input[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict', 'outputs.WebhookScopeConfiguration']] scope_configuration: Scope configuration for global or organization webhooks. See scope_configuration for details.
         """
         ...
     @overload
@@ -477,6 +477,8 @@ class Webhook(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.codebuild.Webhook("example",
+            project_name=example_aws_codebuild_project["name"],
+            build_type="BUILD",
             filter_groups=[{
                 "filters": [
                     {
@@ -488,9 +490,7 @@ class Webhook(pulumi.CustomResource):
                         "pattern": "master",
                     },
                 ],
-            }],
-            project_name=example_aws_codebuild_project["name"],
-            build_type="BUILD")
+            }])
         ```
 
         ### GitHub Enterprise
@@ -506,16 +506,16 @@ class Webhook(pulumi.CustomResource):
 
         example = aws.codebuild.Webhook("example", project_name=example_aws_codebuild_project["name"])
         example_repository_webhook = github.RepositoryWebhook("example",
+            active=True,
+            events=["push"],
+            name="example",
+            repository=example_github_repository["name"],
             configuration=[{
                 "url": example.payload_url,
                 "secret": example.secret,
                 "contentType": "json",
                 "insecureSsl": False,
-            }],
-            active=True,
-            events=["push"],
-            name="example",
-            repository=example_github_repository["name"])
+            }])
         ```
 
         ### For CodeBuild Runner Project
@@ -528,14 +528,14 @@ class Webhook(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.codebuild.Webhook("example",
+            project_name=example_aws_codebuild_project["name"],
+            build_type="BUILD",
             filter_groups=[{
                 "filters": [{
                     "type": "EVENT",
                     "pattern": "WORKFLOW_JOB_QUEUED",
                 }],
-            }],
-            project_name=example_aws_codebuild_project["name"],
-            build_type="BUILD")
+            }])
         ```
 
         ## Import
@@ -564,12 +564,12 @@ class Webhook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  branch_filter: pulumi.Input[Optional[_builtins.str]] = None,
                  build_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 filter_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict']]]]] = None,
+                 filter_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict', 'outputs.WebhookFilterGroup']]]]] = None,
                  manual_creation: pulumi.Input[Optional[_builtins.bool]] = None,
                  project_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 pull_request_build_policy: pulumi.Input[Optional[Union['WebhookPullRequestBuildPolicyArgs', 'WebhookPullRequestBuildPolicyArgsDict']]] = None,
+                 pull_request_build_policy: pulumi.Input[Optional[Union['WebhookPullRequestBuildPolicyArgs', 'WebhookPullRequestBuildPolicyArgsDict', 'outputs.WebhookPullRequestBuildPolicy']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope_configuration: pulumi.Input[Optional[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict']]] = None,
+                 scope_configuration: pulumi.Input[Optional[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict', 'outputs.WebhookScopeConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -606,13 +606,13 @@ class Webhook(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             branch_filter: pulumi.Input[Optional[_builtins.str]] = None,
             build_type: pulumi.Input[Optional[_builtins.str]] = None,
-            filter_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict']]]]] = None,
+            filter_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict', 'outputs.WebhookFilterGroup']]]]] = None,
             manual_creation: pulumi.Input[Optional[_builtins.bool]] = None,
             payload_url: pulumi.Input[Optional[_builtins.str]] = None,
             project_name: pulumi.Input[Optional[_builtins.str]] = None,
-            pull_request_build_policy: pulumi.Input[Optional[Union['WebhookPullRequestBuildPolicyArgs', 'WebhookPullRequestBuildPolicyArgsDict']]] = None,
+            pull_request_build_policy: pulumi.Input[Optional[Union['WebhookPullRequestBuildPolicyArgs', 'WebhookPullRequestBuildPolicyArgsDict', 'outputs.WebhookPullRequestBuildPolicy']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            scope_configuration: pulumi.Input[Optional[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict']]] = None,
+            scope_configuration: pulumi.Input[Optional[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict', 'outputs.WebhookScopeConfiguration']]] = None,
             secret: pulumi.Input[Optional[_builtins.str]] = None,
             url: pulumi.Input[Optional[_builtins.str]] = None) -> 'Webhook':
         """
@@ -624,13 +624,13 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] branch_filter: A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
         :param pulumi.Input[_builtins.str] build_type: The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict']]]] filter_groups: Information about the webhook's trigger. See filter_group for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict', 'outputs.WebhookFilterGroup']]]] filter_groups: Information about the webhook's trigger. See filter_group for details.
         :param pulumi.Input[_builtins.bool] manual_creation: If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
         :param pulumi.Input[_builtins.str] payload_url: The CodeBuild endpoint where webhook events are sent.
         :param pulumi.Input[_builtins.str] project_name: The name of the build project.
-        :param pulumi.Input[Union['WebhookPullRequestBuildPolicyArgs', 'WebhookPullRequestBuildPolicyArgsDict']] pull_request_build_policy: Defines comment-based approval requirements for triggering builds on pull requests. See pull_request_build_policy for details.
+        :param pulumi.Input[Union['WebhookPullRequestBuildPolicyArgs', 'WebhookPullRequestBuildPolicyArgsDict', 'outputs.WebhookPullRequestBuildPolicy']] pull_request_build_policy: Defines comment-based approval requirements for triggering builds on pull requests. See pull_request_build_policy for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict']] scope_configuration: Scope configuration for global or organization webhooks. See scope_configuration for details.
+        :param pulumi.Input[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict', 'outputs.WebhookScopeConfiguration']] scope_configuration: Scope configuration for global or organization webhooks. See scope_configuration for details.
         :param pulumi.Input[_builtins.str] secret: The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
         :param pulumi.Input[_builtins.str] url: The URL to the webhook.
         """

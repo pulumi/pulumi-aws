@@ -171,7 +171,7 @@ class RouteServerPropagation(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  route_server_id: pulumi.Input[Optional[_builtins.str]] = None,
                  route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['RouteServerPropagationTimeoutsArgs', 'RouteServerPropagationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['RouteServerPropagationTimeoutsArgs', 'RouteServerPropagationTimeoutsArgsDict', 'outputs.RouteServerPropagationTimeouts']]] = None,
                  __props__=None):
         """
         Provides a resource for managing propagation between VPC route server and a route table.
@@ -255,7 +255,7 @@ class RouteServerPropagation(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  route_server_id: pulumi.Input[Optional[_builtins.str]] = None,
                  route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['RouteServerPropagationTimeoutsArgs', 'RouteServerPropagationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['RouteServerPropagationTimeoutsArgs', 'RouteServerPropagationTimeoutsArgsDict', 'outputs.RouteServerPropagationTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -286,7 +286,7 @@ class RouteServerPropagation(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             route_server_id: pulumi.Input[Optional[_builtins.str]] = None,
             route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['RouteServerPropagationTimeoutsArgs', 'RouteServerPropagationTimeoutsArgsDict']]] = None) -> 'RouteServerPropagation':
+            timeouts: pulumi.Input[Optional[Union['RouteServerPropagationTimeoutsArgs', 'RouteServerPropagationTimeoutsArgsDict', 'outputs.RouteServerPropagationTimeouts']]] = None) -> 'RouteServerPropagation':
         """
         Get an existing RouteServerPropagation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -41,6 +41,15 @@ namespace Pulumi.Aws.Pinpoint
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sms-voice:SendTextMessage",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     exampleSmsvoicev2PhoneNumber.Arn,
+    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -51,15 +60,6 @@ namespace Pulumi.Aws.Pinpoint
     ///                             "123456789012",
     ///                         },
     ///                     },
-    ///                 },
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sms-voice:SendTextMessage",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     exampleSmsvoicev2PhoneNumber.Arn,
     ///                 },
     ///             },
     ///         },

@@ -31,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elasticsearch.NewVpcEndpoint(ctx, "foo", &elasticsearch.VpcEndpointArgs{
+//				DomainArn: pulumi.Any(domain1.Arn),
 //				VpcOptions: &elasticsearch.VpcEndpointVpcOptionsArgs{
 //					SecurityGroupIds: pulumi.StringArray{
 //						test.Id,
@@ -41,7 +42,6 @@ import (
 //						test2AwsSubnet.Id,
 //					},
 //				},
-//				DomainArn: pulumi.Any(domain1.Arn),
 //			})
 //			if err != nil {
 //				return err

@@ -19,6 +19,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.Theme("example", {
+ *     themeId: "example",
+ *     name: "example",
+ *     baseThemeId: "MIDNIGHT",
  *     configuration: {
  *         dataColorPalette: {
  *             colors: [
@@ -40,9 +43,6 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     },
- *     themeId: "example",
- *     name: "example",
- *     baseThemeId: "MIDNIGHT",
  * });
  * ```
  *

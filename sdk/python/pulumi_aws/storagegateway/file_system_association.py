@@ -327,7 +327,7 @@ class FileSystemAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  audit_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 cache_attributes: pulumi.Input[Optional[Union['FileSystemAssociationCacheAttributesArgs', 'FileSystemAssociationCacheAttributesArgsDict']]] = None,
+                 cache_attributes: pulumi.Input[Optional[Union['FileSystemAssociationCacheAttributesArgs', 'FileSystemAssociationCacheAttributesArgsDict', 'outputs.FileSystemAssociationCacheAttributes']]] = None,
                  gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  location_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
@@ -372,15 +372,15 @@ class FileSystemAssociation(pulumi.CustomResource):
                     test_aws_vpc_dhcp_options_association,
                 ]))
         test_gateway = aws.storagegateway.Gateway("test",
+            gateway_ip_address=test.public_ip,
+            gateway_name="test-sgw",
+            gateway_timezone="GMT",
+            gateway_type="FILE_FSX_SMB",
             smb_active_directory_settings={
                 "domain_name": test_aws_directory_service_directory["name"],
                 "password": test_aws_directory_service_directory["password"],
                 "username": "Admin",
-            },
-            gateway_ip_address=test.public_ip,
-            gateway_name="test-sgw",
-            gateway_timezone="GMT",
-            gateway_type="FILE_FSX_SMB")
+            })
         test_windows_file_system = aws.fsx.WindowsFileSystem("test",
             active_directory_id=test_aws_directory_service_directory["id"],
             security_group_ids=[test_aws_security_group["id"]],
@@ -389,13 +389,13 @@ class FileSystemAssociation(pulumi.CustomResource):
             subnet_ids=[test_aws_subnet[0]["id"]],
             throughput_capacity=8)
         fsx = aws.storagegateway.FileSystemAssociation("fsx",
-            cache_attributes={
-                "cache_stale_timeout_in_seconds": 400,
-            },
             gateway_arn=test_gateway.arn,
             location_arn=test_windows_file_system.arn,
             username="Admin",
             password=test_aws_directory_service_directory["password"],
+            cache_attributes={
+                "cache_stale_timeout_in_seconds": 400,
+            },
             audit_destination_arn=test_aws_cloudwatch_log_group["arn"])
         ```
 
@@ -411,7 +411,7 @@ class FileSystemAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] audit_destination_arn: ARN of the storage used for the audit logs.
-        :param pulumi.Input[Union['FileSystemAssociationCacheAttributesArgs', 'FileSystemAssociationCacheAttributesArgsDict']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
+        :param pulumi.Input[Union['FileSystemAssociationCacheAttributesArgs', 'FileSystemAssociationCacheAttributesArgsDict', 'outputs.FileSystemAssociationCacheAttributes']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[_builtins.str] gateway_arn: ARN of the gateway.
         :param pulumi.Input[_builtins.str] location_arn: ARN of the Amazon FSx file system to associate with the FSx File Gateway.
         :param pulumi.Input[_builtins.str] password: The password of the user credential.
@@ -462,15 +462,15 @@ class FileSystemAssociation(pulumi.CustomResource):
                     test_aws_vpc_dhcp_options_association,
                 ]))
         test_gateway = aws.storagegateway.Gateway("test",
+            gateway_ip_address=test.public_ip,
+            gateway_name="test-sgw",
+            gateway_timezone="GMT",
+            gateway_type="FILE_FSX_SMB",
             smb_active_directory_settings={
                 "domain_name": test_aws_directory_service_directory["name"],
                 "password": test_aws_directory_service_directory["password"],
                 "username": "Admin",
-            },
-            gateway_ip_address=test.public_ip,
-            gateway_name="test-sgw",
-            gateway_timezone="GMT",
-            gateway_type="FILE_FSX_SMB")
+            })
         test_windows_file_system = aws.fsx.WindowsFileSystem("test",
             active_directory_id=test_aws_directory_service_directory["id"],
             security_group_ids=[test_aws_security_group["id"]],
@@ -479,13 +479,13 @@ class FileSystemAssociation(pulumi.CustomResource):
             subnet_ids=[test_aws_subnet[0]["id"]],
             throughput_capacity=8)
         fsx = aws.storagegateway.FileSystemAssociation("fsx",
-            cache_attributes={
-                "cache_stale_timeout_in_seconds": 400,
-            },
             gateway_arn=test_gateway.arn,
             location_arn=test_windows_file_system.arn,
             username="Admin",
             password=test_aws_directory_service_directory["password"],
+            cache_attributes={
+                "cache_stale_timeout_in_seconds": 400,
+            },
             audit_destination_arn=test_aws_cloudwatch_log_group["arn"])
         ```
 
@@ -514,7 +514,7 @@ class FileSystemAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  audit_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 cache_attributes: pulumi.Input[Optional[Union['FileSystemAssociationCacheAttributesArgs', 'FileSystemAssociationCacheAttributesArgsDict']]] = None,
+                 cache_attributes: pulumi.Input[Optional[Union['FileSystemAssociationCacheAttributesArgs', 'FileSystemAssociationCacheAttributesArgsDict', 'outputs.FileSystemAssociationCacheAttributes']]] = None,
                  gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  location_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
@@ -562,7 +562,7 @@ class FileSystemAssociation(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             audit_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            cache_attributes: pulumi.Input[Optional[Union['FileSystemAssociationCacheAttributesArgs', 'FileSystemAssociationCacheAttributesArgsDict']]] = None,
+            cache_attributes: pulumi.Input[Optional[Union['FileSystemAssociationCacheAttributesArgs', 'FileSystemAssociationCacheAttributesArgsDict', 'outputs.FileSystemAssociationCacheAttributes']]] = None,
             gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
             location_arn: pulumi.Input[Optional[_builtins.str]] = None,
             password: pulumi.Input[Optional[_builtins.str]] = None,
@@ -579,7 +579,7 @@ class FileSystemAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the newly created file system association.
         :param pulumi.Input[_builtins.str] audit_destination_arn: ARN of the storage used for the audit logs.
-        :param pulumi.Input[Union['FileSystemAssociationCacheAttributesArgs', 'FileSystemAssociationCacheAttributesArgsDict']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
+        :param pulumi.Input[Union['FileSystemAssociationCacheAttributesArgs', 'FileSystemAssociationCacheAttributesArgsDict', 'outputs.FileSystemAssociationCacheAttributes']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[_builtins.str] gateway_arn: ARN of the gateway.
         :param pulumi.Input[_builtins.str] location_arn: ARN of the Amazon FSx file system to associate with the FSx File Gateway.
         :param pulumi.Input[_builtins.str] password: The password of the user credential.

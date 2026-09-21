@@ -31,6 +31,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewVirtualRouter(ctx, "serviceb", &appmesh.VirtualRouterArgs{
+//				Name:     pulumi.String("serviceB"),
+//				MeshName: pulumi.Any(simple.Id),
 //				Spec: &appmesh.VirtualRouterSpecArgs{
 //					Listeners: appmesh.VirtualRouterSpecListenerArray{
 //						&appmesh.VirtualRouterSpecListenerArgs{
@@ -41,8 +43,6 @@ import (
 //						},
 //					},
 //				},
-//				Name:     pulumi.String("serviceB"),
-//				MeshName: pulumi.Any(simple.Id),
 //			})
 //			if err != nil {
 //				return err

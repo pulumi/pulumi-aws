@@ -46,6 +46,7 @@ namespace Pulumi.Aws.Elb
         ///         {
         ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
         ///             {
+        ///                 Effect = "Allow",
         ///                 Principals = new[]
         ///                 {
         ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -57,7 +58,6 @@ namespace Pulumi.Aws.Elb
         ///                         },
         ///                     },
         ///                 },
-        ///                 Effect = "Allow",
         ///                 Actions = new[]
         ///                 {
         ///                     "s3:PutObject",
@@ -78,6 +78,11 @@ namespace Pulumi.Aws.Elb
         /// 
         ///     var bar = new Aws.Elb.LoadBalancer("bar", new()
         ///     {
+        ///         Name = "my-foobar-elb",
+        ///         AvailabilityZones = new[]
+        ///         {
+        ///             "us-west-2a",
+        ///         },
         ///         AccessLogs = new Aws.Elb.Inputs.LoadBalancerAccessLogsArgs
         ///         {
         ///             Bucket = elbLogs.Id,
@@ -92,11 +97,6 @@ namespace Pulumi.Aws.Elb
         ///                 LbPort = 80,
         ///                 LbProtocol = "http",
         ///             },
-        ///         },
-        ///         Name = "my-foobar-elb",
-        ///         AvailabilityZones = new[]
-        ///         {
-        ///             "us-west-2a",
         ///         },
         ///     });
         /// 
@@ -141,6 +141,7 @@ namespace Pulumi.Aws.Elb
         ///         {
         ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
         ///             {
+        ///                 Effect = "Allow",
         ///                 Principals = new[]
         ///                 {
         ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -152,7 +153,6 @@ namespace Pulumi.Aws.Elb
         ///                         },
         ///                     },
         ///                 },
-        ///                 Effect = "Allow",
         ///                 Actions = new[]
         ///                 {
         ///                     "s3:PutObject",
@@ -173,6 +173,11 @@ namespace Pulumi.Aws.Elb
         /// 
         ///     var bar = new Aws.Elb.LoadBalancer("bar", new()
         ///     {
+        ///         Name = "my-foobar-elb",
+        ///         AvailabilityZones = new[]
+        ///         {
+        ///             "us-west-2a",
+        ///         },
         ///         AccessLogs = new Aws.Elb.Inputs.LoadBalancerAccessLogsArgs
         ///         {
         ///             Bucket = elbLogs.Id,
@@ -187,11 +192,6 @@ namespace Pulumi.Aws.Elb
         ///                 LbPort = 80,
         ///                 LbProtocol = "http",
         ///             },
-        ///         },
-        ///         Name = "my-foobar-elb",
-        ///         AvailabilityZones = new[]
-        ///         {
-        ///             "us-west-2a",
         ///         },
         ///     });
         /// 
@@ -236,6 +236,7 @@ namespace Pulumi.Aws.Elb
         ///         {
         ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
         ///             {
+        ///                 Effect = "Allow",
         ///                 Principals = new[]
         ///                 {
         ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -247,7 +248,6 @@ namespace Pulumi.Aws.Elb
         ///                         },
         ///                     },
         ///                 },
-        ///                 Effect = "Allow",
         ///                 Actions = new[]
         ///                 {
         ///                     "s3:PutObject",
@@ -268,6 +268,11 @@ namespace Pulumi.Aws.Elb
         /// 
         ///     var bar = new Aws.Elb.LoadBalancer("bar", new()
         ///     {
+        ///         Name = "my-foobar-elb",
+        ///         AvailabilityZones = new[]
+        ///         {
+        ///             "us-west-2a",
+        ///         },
         ///         AccessLogs = new Aws.Elb.Inputs.LoadBalancerAccessLogsArgs
         ///         {
         ///             Bucket = elbLogs.Id,
@@ -282,11 +287,6 @@ namespace Pulumi.Aws.Elb
         ///                 LbPort = 80,
         ///                 LbProtocol = "http",
         ///             },
-        ///         },
-        ///         Name = "my-foobar-elb",
-        ///         AvailabilityZones = new[]
-        ///         {
-        ///             "us-west-2a",
         ///         },
         ///     });
         /// 

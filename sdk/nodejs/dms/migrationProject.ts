@@ -21,13 +21,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.dms.MigrationProject("example", {
+ *     instanceProfileArn: exampleAwsDmsInstanceProfile.arn,
  *     sourceDataProviderDescriptors: [{
  *         dataProviderArn: source.arn,
  *     }],
  *     targetDataProviderDescriptors: [{
  *         dataProviderArn: target.arn,
  *     }],
- *     instanceProfileArn: exampleAwsDmsInstanceProfile.arn,
  * });
  * ```
  *
@@ -38,10 +38,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.dms.MigrationProject("example", {
- *     schemaConversionApplicationAttributes: {
- *         s3BucketPath: "s3://example-bucket",
- *         s3BucketRoleArn: exampleAwsIamRole.arn,
- *     },
+ *     name: "example",
+ *     description: "Example migration project",
+ *     instanceProfileArn: exampleAwsDmsInstanceProfile.arn,
  *     sourceDataProviderDescriptors: [{
  *         dataProviderArn: source.arn,
  *         secretsManagerAccessRoleArn: exampleAwsIamRole.arn,
@@ -52,9 +51,10 @@ import * as utilities from "../utilities";
  *         secretsManagerAccessRoleArn: exampleAwsIamRole.arn,
  *         secretsManagerSecretId: targetAwsSecretsmanagerSecret.arn,
  *     }],
- *     name: "example",
- *     description: "Example migration project",
- *     instanceProfileArn: exampleAwsDmsInstanceProfile.arn,
+ *     schemaConversionApplicationAttributes: {
+ *         s3BucketPath: "s3://example-bucket",
+ *         s3BucketRoleArn: exampleAwsIamRole.arn,
+ *     },
  *     tags: {
  *         Environment: "example",
  *     },

@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cfg.NewConfigurationAggregator(ctx, "account", &cfg.ConfigurationAggregatorArgs{
+//				Name: pulumi.String("example"),
 //				AccountAggregationSource: &cfg.ConfigurationAggregatorAccountAggregationSourceArgs{
 //					AccountIds: pulumi.StringArray{
 //						pulumi.String("123456789012"),
@@ -38,7 +39,6 @@ import (
 //						pulumi.String("us-west-2"),
 //					},
 //				},
-//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -67,6 +67,7 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
+//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -75,7 +76,6 @@ import (
 //								},
 //							},
 //						},
-//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -100,11 +100,11 @@ import (
 //				return err
 //			}
 //			_, err = cfg.NewConfigurationAggregator(ctx, "organization", &cfg.ConfigurationAggregatorArgs{
+//				Name: pulumi.String("example"),
 //				OrganizationAggregationSource: &cfg.ConfigurationAggregatorOrganizationAggregationSourceArgs{
 //					AllRegions: pulumi.Bool(true),
 //					RoleArn:    organizationRole.Arn,
 //				},
-//				Name: pulumi.String("example"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				organizationRolePolicyAttachment,
 //			}))

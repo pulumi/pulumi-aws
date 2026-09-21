@@ -24,6 +24,8 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// {
     ///     var example = new Aws.Route53RecoveryReadiness.ResourceSet("example", new()
     ///     {
+    ///         ResourceSetName = my_cw_alarm_set,
+    ///         ResourceSetType = "AWS::CloudWatch::Alarm",
     ///         Resources = new[]
     ///         {
     ///             new Aws.Route53RecoveryReadiness.Inputs.ResourceSetResourceArgs
@@ -31,8 +33,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     ///                 ResourceArn = exampleAwsCloudwatchMetricAlarm.Arn,
     ///             },
     ///         },
-    ///         ResourceSetName = my_cw_alarm_set,
-    ///         ResourceSetType = "AWS::CloudWatch::Alarm",
     ///     });
     /// 
     /// });

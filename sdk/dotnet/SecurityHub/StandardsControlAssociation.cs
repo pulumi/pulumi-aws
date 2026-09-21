@@ -62,6 +62,7 @@ namespace Pulumi.Aws.SecurityHub
     /// using System.Threading.Tasks;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(async() =&gt; 
     /// {
@@ -73,7 +74,7 @@ namespace Pulumi.Aws.SecurityHub
     ///     });
     /// 
     ///     var iam1StandardsControlAssociation = new List&lt;Aws.SecurityHub.StandardsControlAssociation&gt;();
-    ///     foreach (var range in .Select(pair =&gt; new { pair.Key, pair.Value }))
+    ///     foreach (var range in )
     ///     {
     ///         iam1StandardsControlAssociation.Add(new Aws.SecurityHub.StandardsControlAssociation($"iam_1-{range.Key}", new()
     ///         {

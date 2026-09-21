@@ -110,6 +110,19 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = autoscaling.NewGroup(ctx, "bar", &autoscaling.GroupArgs{
+//				Name:                   pulumi.String("foobar3-test"),
+//				MaxSize:                pulumi.Int(5),
+//				MinSize:                pulumi.Int(2),
+//				HealthCheckGracePeriod: pulumi.Int(300),
+//				HealthCheckType:        pulumi.String("ELB"),
+//				DesiredCapacity:        pulumi.Int(4),
+//				ForceDelete:            pulumi.Bool(true),
+//				PlacementGroup:         test.ID().ToIDOutput().ToStringOutput(),
+//				LaunchConfiguration:    pulumi.Any(foobar.Name),
+//				VpcZoneIdentifiers: pulumi.StringArray{
+//					example1.Id,
+//					example2.Id,
+//				},
 //				InstanceMaintenancePolicy: &autoscaling.GroupInstanceMaintenancePolicyArgs{
 //					MinHealthyPercentage: pulumi.Int(90),
 //					MaxHealthyPercentage: pulumi.Int(120),
@@ -137,20 +150,7 @@ import (
 //						PropagateAtLaunch: pulumi.Bool(false),
 //					},
 //				},
-//				Name:                   pulumi.String("foobar3-test"),
-//				MaxSize:                pulumi.Int(5),
-//				MinSize:                pulumi.Int(2),
-//				HealthCheckGracePeriod: pulumi.Int(300),
-//				HealthCheckType:        pulumi.String("ELB"),
-//				DesiredCapacity:        pulumi.Int(4),
-//				ForceDelete:            pulumi.Bool(true),
-//				PlacementGroup:         test.ID().ToIDOutput().ToStringOutput(),
-//				LaunchConfiguration:    pulumi.Any(foobar.Name),
-//				VpcZoneIdentifiers: pulumi.StringArray{
-//					example1.Id,
-//					example2.Id,
-//				},
-//			}, pulumi.Timeouts(&pulumi.CustomTimeouts{Delete: "15m"}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -184,16 +184,16 @@ import (
 //				return err
 //			}
 //			_, err = autoscaling.NewGroup(ctx, "bar", &autoscaling.GroupArgs{
-//				LaunchTemplate: &autoscaling.GroupLaunchTemplateArgs{
-//					Id:      foobar.ID().ToIDOutput().ToStringOutput(),
-//					Version: pulumi.String("$Latest"),
-//				},
 //				AvailabilityZones: pulumi.StringArray{
 //					pulumi.String("us-east-1a"),
 //				},
 //				DesiredCapacity: pulumi.Int(1),
 //				MaxSize:         pulumi.Int(1),
 //				MinSize:         pulumi.Int(1),
+//				LaunchTemplate: &autoscaling.GroupLaunchTemplateArgs{
+//					Id:      foobar.ID().ToIDOutput().ToStringOutput(),
+//					Version: pulumi.String("$Latest"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -228,6 +228,12 @@ import (
 //				return err
 //			}
 //			_, err = autoscaling.NewGroup(ctx, "example", &autoscaling.GroupArgs{
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.String("us-east-1a"),
+//				},
+//				DesiredCapacity: pulumi.Int(1),
+//				MaxSize:         pulumi.Int(1),
+//				MinSize:         pulumi.Int(1),
 //				MixedInstancesPolicy: &autoscaling.GroupMixedInstancesPolicyArgs{
 //					LaunchTemplate: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs{
 //						LaunchTemplateSpecification: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{
@@ -245,12 +251,6 @@ import (
 //						},
 //					},
 //				},
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1a"),
-//				},
-//				DesiredCapacity: pulumi.Int(1),
-//				MaxSize:         pulumi.Int(1),
-//				MinSize:         pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
@@ -285,6 +285,14 @@ import (
 //				return err
 //			}
 //			_, err = autoscaling.NewGroup(ctx, "example", &autoscaling.GroupArgs{
+//				CapacityRebalance: pulumi.Bool(true),
+//				DesiredCapacity:   pulumi.Int(12),
+//				MaxSize:           pulumi.Int(15),
+//				MinSize:           pulumi.Int(12),
+//				VpcZoneIdentifiers: pulumi.StringArray{
+//					example1.Id,
+//					example2.Id,
+//				},
 //				MixedInstancesPolicy: &autoscaling.GroupMixedInstancesPolicyArgs{
 //					InstancesDistribution: &autoscaling.GroupMixedInstancesPolicyInstancesDistributionArgs{
 //						OnDemandBaseCapacity:                pulumi.Int(0),
@@ -306,14 +314,6 @@ import (
 //							},
 //						},
 //					},
-//				},
-//				CapacityRebalance: pulumi.Bool(true),
-//				DesiredCapacity:   pulumi.Int(12),
-//				MaxSize:           pulumi.Int(15),
-//				MinSize:           pulumi.Int(12),
-//				VpcZoneIdentifiers: pulumi.StringArray{
-//					example1.Id,
-//					example2.Id,
 //				},
 //			})
 //			if err != nil {
@@ -358,6 +358,12 @@ import (
 //				return err
 //			}
 //			_, err = autoscaling.NewGroup(ctx, "example", &autoscaling.GroupArgs{
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.String("us-east-1a"),
+//				},
+//				DesiredCapacity: pulumi.Int(1),
+//				MaxSize:         pulumi.Int(1),
+//				MinSize:         pulumi.Int(1),
 //				MixedInstancesPolicy: &autoscaling.GroupMixedInstancesPolicyArgs{
 //					LaunchTemplate: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs{
 //						LaunchTemplateSpecification: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{
@@ -369,21 +375,15 @@ import (
 //								WeightedCapacity: pulumi.String("3"),
 //							},
 //							&autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{
+//								InstanceType: pulumi.String("c6g.large"),
 //								LaunchTemplateSpecification: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs{
 //									LaunchTemplateId: example2.ID().ToIDOutput().ToStringOutput(),
 //								},
-//								InstanceType:     pulumi.String("c6g.large"),
 //								WeightedCapacity: pulumi.String("2"),
 //							},
 //						},
 //					},
 //				},
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1a"),
-//				},
-//				DesiredCapacity: pulumi.Int(1),
-//				MaxSize:         pulumi.Int(1),
-//				MinSize:         pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
@@ -420,6 +420,12 @@ import (
 //				return err
 //			}
 //			_, err = autoscaling.NewGroup(ctx, "example", &autoscaling.GroupArgs{
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.String("us-east-1a"),
+//				},
+//				DesiredCapacity: pulumi.Int(1),
+//				MaxSize:         pulumi.Int(1),
+//				MinSize:         pulumi.Int(1),
 //				MixedInstancesPolicy: &autoscaling.GroupMixedInstancesPolicyArgs{
 //					LaunchTemplate: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs{
 //						LaunchTemplateSpecification: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{
@@ -439,12 +445,6 @@ import (
 //						},
 //					},
 //				},
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1a"),
-//				},
-//				DesiredCapacity: pulumi.Int(1),
-//				MaxSize:         pulumi.Int(1),
-//				MinSize:         pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
@@ -534,6 +534,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+//				MostRecent: pulumi.BoolRef(true),
+//				Owners: []string{
+//					"amazon",
+//				},
 //				Filters: []ec2.GetAmiFilter{
 //					{
 //						Name: "name",
@@ -541,10 +545,6 @@ import (
 //							"amzn-ami-hvm-*-x86_64-gp2",
 //						},
 //					},
-//				},
-//				MostRecent: pulumi.BoolRef(true),
-//				Owners: []string{
-//					"amazon",
 //				},
 //			}, nil)
 //			if err != nil {
@@ -558,18 +558,15 @@ import (
 //				return err
 //			}
 //			_, err = autoscaling.NewGroup(ctx, "example", &autoscaling.GroupArgs{
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.String("us-east-1a"),
+//				},
+//				DesiredCapacity: pulumi.Int(1),
+//				MaxSize:         pulumi.Int(2),
+//				MinSize:         pulumi.Int(1),
 //				LaunchTemplate: &autoscaling.GroupLaunchTemplateArgs{
 //					Id:      exampleLaunchTemplate.ID().ToIDOutput().ToStringOutput(),
 //					Version: exampleLaunchTemplate.LatestVersion,
-//				},
-//				InstanceRefresh: &autoscaling.GroupInstanceRefreshArgs{
-//					Preferences: &autoscaling.GroupInstanceRefreshPreferencesArgs{
-//						MinHealthyPercentage: pulumi.Int(50),
-//					},
-//					Strategy: pulumi.String("Rolling"),
-//					Triggers: pulumi.StringArray{
-//						pulumi.String("tag"),
-//					},
 //				},
 //				Tags: autoscaling.GroupTagArray{
 //					&autoscaling.GroupTagArgs{
@@ -578,12 +575,15 @@ import (
 //						PropagateAtLaunch: pulumi.Bool(true),
 //					},
 //				},
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1a"),
+//				InstanceRefresh: &autoscaling.GroupInstanceRefreshArgs{
+//					Strategy: pulumi.String("Rolling"),
+//					Preferences: &autoscaling.GroupInstanceRefreshPreferencesArgs{
+//						MinHealthyPercentage: pulumi.Int(50),
+//					},
+//					Triggers: pulumi.StringArray{
+//						pulumi.String("tag"),
+//					},
 //				},
-//				DesiredCapacity: pulumi.Int(1),
-//				MaxSize:         pulumi.Int(2),
-//				MinSize:         pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
@@ -618,20 +618,20 @@ import (
 //				return err
 //			}
 //			_, err = autoscaling.NewGroup(ctx, "example", &autoscaling.GroupArgs{
-//				WarmPool: &autoscaling.GroupWarmPoolArgs{
-//					InstanceReusePolicy: &autoscaling.GroupWarmPoolInstanceReusePolicyArgs{
-//						ReuseOnScaleIn: pulumi.Bool(true),
-//					},
-//					PoolState:                pulumi.String("Hibernated"),
-//					MinSize:                  pulumi.Int(1),
-//					MaxGroupPreparedCapacity: pulumi.Int(10),
-//				},
 //				AvailabilityZones: pulumi.StringArray{
 //					pulumi.String("us-east-1a"),
 //				},
 //				DesiredCapacity: pulumi.Int(1),
 //				MaxSize:         pulumi.Int(5),
 //				MinSize:         pulumi.Int(1),
+//				WarmPool: &autoscaling.GroupWarmPoolArgs{
+//					PoolState:                pulumi.String("Hibernated"),
+//					MinSize:                  pulumi.Int(1),
+//					MaxGroupPreparedCapacity: pulumi.Int(10),
+//					InstanceReusePolicy: &autoscaling.GroupWarmPoolInstanceReusePolicyArgs{
+//						ReuseOnScaleIn: pulumi.Bool(true),
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -643,46 +643,6 @@ import (
 // ```
 //
 // ### Auto Scaling group with Traffic Sources
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// var forResult0 []map[string]interface{}
-// for _, entry := range %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:1,34-65) {
-// forResult0 = append(forResult0, map[string]interface{}{
-// "identifier": entry.(map[string]interface{})["arn"],
-// "type": "vpc-lattice",
-// })
-// }
-// _, err := autoscaling.NewGroup(ctx, "test", &autoscaling.GroupArgs{
-// TrafficSources: toPulumiMapArray(forResult0),
-// VpcZoneIdentifiers: pulumi.Any(testAwsSubnet.Id),
-// MaxSize: pulumi.Int(1),
-// MinSize: pulumi.Int(1),
-// ForceDelete: pulumi.Bool(true),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// func toPulumiMapArray(arr []Map) pulumi.MapArray {
-// var pulumiArr pulumi.MapArray
-// for _, v := range arr {
-// pulumiArr = append(pulumiArr, pulumi.Map(v))
-// }
-// return pulumiArr
-// }
-// ```
 //
 // ## Import
 //

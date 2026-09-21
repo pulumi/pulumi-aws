@@ -217,6 +217,11 @@ def get_organization(return_organization_only: Optional[_builtins.bool] = None,
     example = aws.organizations.get_organization()
     sns_topic = aws.sns.Topic("sns_topic", name="my-sns-topic")
     sns_topic_policy = aws.iam.get_policy_document_output(statements=[{
+        "effect": "Allow",
+        "actions": [
+            "SNS:Subscribe",
+            "SNS:Publish",
+        ],
         "conditions": [{
             "test": "StringEquals",
             "variable": "aws:PrincipalOrgID",
@@ -226,11 +231,6 @@ def get_organization(return_organization_only: Optional[_builtins.bool] = None,
             "type": "AWS",
             "identifiers": ["*"],
         }],
-        "effect": "Allow",
-        "actions": [
-            "SNS:Subscribe",
-            "SNS:Publish",
-        ],
         "resources": [sns_topic.arn],
     }])
     sns_topic_policy_topic_policy = aws.sns.TopicPolicy("sns_topic_policy",
@@ -286,6 +286,11 @@ def get_organization_output(return_organization_only: pulumi.Input[Optional[Opti
     example = aws.organizations.get_organization()
     sns_topic = aws.sns.Topic("sns_topic", name="my-sns-topic")
     sns_topic_policy = aws.iam.get_policy_document_output(statements=[{
+        "effect": "Allow",
+        "actions": [
+            "SNS:Subscribe",
+            "SNS:Publish",
+        ],
         "conditions": [{
             "test": "StringEquals",
             "variable": "aws:PrincipalOrgID",
@@ -295,11 +300,6 @@ def get_organization_output(return_organization_only: pulumi.Input[Optional[Opti
             "type": "AWS",
             "identifiers": ["*"],
         }],
-        "effect": "Allow",
-        "actions": [
-            "SNS:Subscribe",
-            "SNS:Publish",
-        ],
         "resources": [sns_topic.arn],
     }])
     sns_topic_policy_topic_policy = aws.sns.TopicPolicy("sns_topic_policy",

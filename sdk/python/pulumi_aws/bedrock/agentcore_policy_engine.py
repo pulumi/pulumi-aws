@@ -287,7 +287,7 @@ class AgentcorePolicyEngine(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentcorePolicyEngineTimeoutsArgs', 'AgentcorePolicyEngineTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcorePolicyEngineTimeoutsArgs', 'AgentcorePolicyEngineTimeoutsArgsDict', 'outputs.AgentcorePolicyEngineTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS Bedrock AgentCore Policy Engine. A Policy Engine controls what actions and resources an agent runtime can use.
@@ -445,7 +445,7 @@ class AgentcorePolicyEngine(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentcorePolicyEngineTimeoutsArgs', 'AgentcorePolicyEngineTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcorePolicyEngineTimeoutsArgs', 'AgentcorePolicyEngineTimeoutsArgsDict', 'outputs.AgentcorePolicyEngineTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -482,7 +482,7 @@ class AgentcorePolicyEngine(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['AgentcorePolicyEngineTimeoutsArgs', 'AgentcorePolicyEngineTimeoutsArgsDict']]] = None) -> 'AgentcorePolicyEngine':
+            timeouts: pulumi.Input[Optional[Union['AgentcorePolicyEngineTimeoutsArgs', 'AgentcorePolicyEngineTimeoutsArgsDict', 'outputs.AgentcorePolicyEngineTimeouts']]] = None) -> 'AgentcorePolicyEngine':
         """
         Get an existing AgentcorePolicyEngine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

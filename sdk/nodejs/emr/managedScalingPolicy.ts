@@ -17,16 +17,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const sample = new aws.emr.Cluster("sample", {
+ *     name: "emr-sample-cluster",
+ *     releaseLabel: "emr-5.30.0",
  *     masterInstanceGroup: {
  *         instanceType: "m4.large",
  *     },
  *     coreInstanceGroup: {
  *         instanceType: "c4.large",
  *     },
- *     name: "emr-sample-cluster",
- *     releaseLabel: "emr-5.30.0",
  * });
  * const samplepolicy = new aws.emr.ManagedScalingPolicy("samplepolicy", {
+ *     clusterId: sample.id,
  *     computeLimits: [{
  *         unitType: "Instances",
  *         minimumCapacityUnits: 2,
@@ -34,7 +35,6 @@ import * as utilities from "../utilities";
  *         maximumOndemandCapacityUnits: 2,
  *         maximumCoreCapacityUnits: 10,
  *     }],
- *     clusterId: sample.id,
  * });
  * ```
  *

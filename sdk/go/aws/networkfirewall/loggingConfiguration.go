@@ -31,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.NewLoggingConfiguration(ctx, "example", &networkfirewall.LoggingConfigurationArgs{
+//				FirewallArn: pulumi.Any(exampleAwsNetworkfirewallFirewall.Arn),
 //				LoggingConfiguration: &networkfirewall.LoggingConfigurationLoggingConfigurationArgs{
 //					LogDestinationConfigs: networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArray{
 //						&networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs{
@@ -43,7 +44,6 @@ import (
 //						},
 //					},
 //				},
-//				FirewallArn: pulumi.Any(exampleAwsNetworkfirewallFirewall.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -69,6 +69,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.NewLoggingConfiguration(ctx, "example", &networkfirewall.LoggingConfigurationArgs{
+//				FirewallArn: pulumi.Any(exampleAwsNetworkfirewallFirewall.Arn),
 //				LoggingConfiguration: &networkfirewall.LoggingConfigurationLoggingConfigurationArgs{
 //					LogDestinationConfigs: networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArray{
 //						&networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs{
@@ -80,7 +81,6 @@ import (
 //						},
 //					},
 //				},
-//				FirewallArn: pulumi.Any(exampleAwsNetworkfirewallFirewall.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -106,6 +106,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.NewLoggingConfiguration(ctx, "example", &networkfirewall.LoggingConfigurationArgs{
+//				FirewallArn: pulumi.Any(exampleAwsNetworkfirewallFirewall.Arn),
 //				LoggingConfiguration: &networkfirewall.LoggingConfigurationLoggingConfigurationArgs{
 //					LogDestinationConfigs: networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArray{
 //						&networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs{
@@ -117,7 +118,6 @@ import (
 //						},
 //					},
 //				},
-//				FirewallArn: pulumi.Any(exampleAwsNetworkfirewallFirewall.Arn),
 //			})
 //			if err != nil {
 //				return err

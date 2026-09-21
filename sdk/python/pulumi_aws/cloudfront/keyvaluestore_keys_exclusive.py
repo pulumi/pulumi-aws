@@ -167,7 +167,7 @@ class KeyvaluestoreKeysExclusive(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  key_value_store_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  max_batch_size: pulumi.Input[Optional[_builtins.int]] = None,
-                 resource_key_value_pairs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs', 'KeyvaluestoreKeysExclusiveResourceKeyValuePairArgsDict']]]]] = None,
+                 resource_key_value_pairs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs', 'KeyvaluestoreKeysExclusiveResourceKeyValuePairArgsDict', 'outputs.KeyvaluestoreKeysExclusiveResourceKeyValuePair']]]]] = None,
                  __props__=None):
         """
         Resource for maintaining exclusive management of resource key value pairs defined in an AWS CloudFront KeyValueStore.
@@ -188,11 +188,11 @@ class KeyvaluestoreKeysExclusive(pulumi.CustomResource):
             name="ExampleKeyValueStore",
             comment="This is an example key value store")
         example_keyvaluestore_keys_exclusive = aws.cloudfront.KeyvaluestoreKeysExclusive("example",
+            key_value_store_arn=example.arn,
             resource_key_value_pairs=[{
                 "key": "Test Key",
                 "value": "Test Value",
-            }],
-            key_value_store_arn=example.arn)
+            }])
         ```
 
         ### Disallow Key Value Pairs
@@ -223,7 +223,7 @@ class KeyvaluestoreKeysExclusive(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.int] max_batch_size: Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs', 'KeyvaluestoreKeysExclusiveResourceKeyValuePairArgsDict']]]] resource_key_value_pairs: A list of all resource key value pairs associated with the KeyValueStore.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs', 'KeyvaluestoreKeysExclusiveResourceKeyValuePairArgsDict', 'outputs.KeyvaluestoreKeysExclusiveResourceKeyValuePair']]]] resource_key_value_pairs: A list of all resource key value pairs associated with the KeyValueStore.
                See `resource_key_value_pair` below.
         """
         ...
@@ -251,11 +251,11 @@ class KeyvaluestoreKeysExclusive(pulumi.CustomResource):
             name="ExampleKeyValueStore",
             comment="This is an example key value store")
         example_keyvaluestore_keys_exclusive = aws.cloudfront.KeyvaluestoreKeysExclusive("example",
+            key_value_store_arn=example.arn,
             resource_key_value_pairs=[{
                 "key": "Test Key",
                 "value": "Test Value",
-            }],
-            key_value_store_arn=example.arn)
+            }])
         ```
 
         ### Disallow Key Value Pairs
@@ -297,7 +297,7 @@ class KeyvaluestoreKeysExclusive(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  key_value_store_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  max_batch_size: pulumi.Input[Optional[_builtins.int]] = None,
-                 resource_key_value_pairs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs', 'KeyvaluestoreKeysExclusiveResourceKeyValuePairArgsDict']]]]] = None,
+                 resource_key_value_pairs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs', 'KeyvaluestoreKeysExclusiveResourceKeyValuePairArgsDict', 'outputs.KeyvaluestoreKeysExclusiveResourceKeyValuePair']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -325,7 +325,7 @@ class KeyvaluestoreKeysExclusive(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             key_value_store_arn: pulumi.Input[Optional[_builtins.str]] = None,
             max_batch_size: pulumi.Input[Optional[_builtins.int]] = None,
-            resource_key_value_pairs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs', 'KeyvaluestoreKeysExclusiveResourceKeyValuePairArgsDict']]]]] = None,
+            resource_key_value_pairs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs', 'KeyvaluestoreKeysExclusiveResourceKeyValuePairArgsDict', 'outputs.KeyvaluestoreKeysExclusiveResourceKeyValuePair']]]]] = None,
             total_size_in_bytes: pulumi.Input[Optional[_builtins.int]] = None) -> 'KeyvaluestoreKeysExclusive':
         """
         Get an existing KeyvaluestoreKeysExclusive resource's state with the given name, id, and optional extra
@@ -338,7 +338,7 @@ class KeyvaluestoreKeysExclusive(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.int] max_batch_size: Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs', 'KeyvaluestoreKeysExclusiveResourceKeyValuePairArgsDict']]]] resource_key_value_pairs: A list of all resource key value pairs associated with the KeyValueStore.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs', 'KeyvaluestoreKeysExclusiveResourceKeyValuePairArgsDict', 'outputs.KeyvaluestoreKeysExclusiveResourceKeyValuePair']]]] resource_key_value_pairs: A list of all resource key value pairs associated with the KeyValueStore.
                See `resource_key_value_pair` below.
         :param pulumi.Input[_builtins.int] total_size_in_bytes: Total size of the Key Value Store in bytes.
         """

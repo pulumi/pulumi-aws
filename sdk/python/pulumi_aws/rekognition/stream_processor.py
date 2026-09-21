@@ -474,18 +474,18 @@ class StreamProcessor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_sharing_preference: pulumi.Input[Optional[Union['StreamProcessorDataSharingPreferenceArgs', 'StreamProcessorDataSharingPreferenceArgsDict']]] = None,
-                 input: pulumi.Input[Optional[Union['StreamProcessorInputArgs', 'StreamProcessorInputArgsDict']]] = None,
+                 data_sharing_preference: pulumi.Input[Optional[Union['StreamProcessorDataSharingPreferenceArgs', 'StreamProcessorDataSharingPreferenceArgsDict', 'outputs.StreamProcessorDataSharingPreference']]] = None,
+                 input: pulumi.Input[Optional[Union['StreamProcessorInputArgs', 'StreamProcessorInputArgsDict', 'outputs.StreamProcessorInput']]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notification_channel: pulumi.Input[Optional[Union['StreamProcessorNotificationChannelArgs', 'StreamProcessorNotificationChannelArgsDict']]] = None,
-                 output: pulumi.Input[Optional[Union['StreamProcessorOutputArgs', 'StreamProcessorOutputArgsDict']]] = None,
+                 notification_channel: pulumi.Input[Optional[Union['StreamProcessorNotificationChannelArgs', 'StreamProcessorNotificationChannelArgsDict', 'outputs.StreamProcessorNotificationChannel']]] = None,
+                 output: pulumi.Input[Optional[Union['StreamProcessorOutputArgs', 'StreamProcessorOutputArgsDict', 'outputs.StreamProcessorOutput']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 regions_of_interests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamProcessorRegionsOfInterestArgs', 'StreamProcessorRegionsOfInterestArgsDict']]]]] = None,
+                 regions_of_interests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamProcessorRegionsOfInterestArgs', 'StreamProcessorRegionsOfInterestArgsDict', 'outputs.StreamProcessorRegionsOfInterest']]]]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 settings: pulumi.Input[Optional[Union['StreamProcessorSettingsArgs', 'StreamProcessorSettingsArgsDict']]] = None,
+                 settings: pulumi.Input[Optional[Union['StreamProcessorSettingsArgs', 'StreamProcessorSettingsArgsDict', 'outputs.StreamProcessorSettings']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['StreamProcessorTimeoutsArgs', 'StreamProcessorTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['StreamProcessorTimeoutsArgs', 'StreamProcessorTimeoutsArgsDict', 'outputs.StreamProcessorTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Rekognition Stream Processor.
@@ -511,6 +511,7 @@ class StreamProcessor(pulumi.CustomResource):
             device_name="kinesis-video-device-name",
             media_type="video/h264")
         example_role = aws.iam.Role("example",
+            name="example-role",
             inline_policies=[{
                 "name": "Rekognition-Access",
                 "policy": pulumi.Output.json_dumps({
@@ -537,7 +538,6 @@ class StreamProcessor(pulumi.CustomResource):
                     ],
                 }),
             }],
-            name="example-role",
             assume_role_policy=json.dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
@@ -549,6 +549,8 @@ class StreamProcessor(pulumi.CustomResource):
                 }],
             }))
         example_stream_processor = aws.rekognition.StreamProcessor("example",
+            role_arn=example_role.arn,
+            name="example-processor",
             data_sharing_preference={
                 "opt_in": False,
             },
@@ -572,9 +574,7 @@ class StreamProcessor(pulumi.CustomResource):
             },
             notification_channel={
                 "sns_topic_arn": example_topic.arn,
-            },
-            role_arn=example_role.arn,
-            name="example-processor")
+            })
         ```
 
         ### Face Detection Usage
@@ -593,6 +593,7 @@ class StreamProcessor(pulumi.CustomResource):
             name="pulumi-kinesis-example",
             shard_count=1)
         example_role = aws.iam.Role("example",
+            name="example-role",
             inline_policies=[{
                 "name": "Rekognition-Access",
                 "policy": pulumi.Output.json_dumps({
@@ -614,7 +615,6 @@ class StreamProcessor(pulumi.CustomResource):
                     ],
                 }),
             }],
-            name="example-role",
             assume_role_policy=json.dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
@@ -627,23 +627,10 @@ class StreamProcessor(pulumi.CustomResource):
             }))
         example_collection = aws.rekognition.Collection("example", collection_id="example-collection")
         example_stream_processor = aws.rekognition.StreamProcessor("example",
+            role_arn=example_role.arn,
+            name="example-processor",
             data_sharing_preference={
                 "opt_in": False,
-            },
-            input={
-                "kinesis_video_stream": {
-                    "arn": example.arn,
-                },
-            },
-            output={
-                "kinesis_data_stream": {
-                    "arn": example_stream.arn,
-                },
-            },
-            settings={
-                "face_search": {
-                    "collection_id": example_collection.id,
-                },
             },
             regions_of_interests=[{
                 "polygons": [
@@ -661,8 +648,21 @@ class StreamProcessor(pulumi.CustomResource):
                     },
                 ],
             }],
-            role_arn=example_role.arn,
-            name="example-processor")
+            input={
+                "kinesis_video_stream": {
+                    "arn": example.arn,
+                },
+            },
+            output={
+                "kinesis_data_stream": {
+                    "arn": example_stream.arn,
+                },
+            },
+            settings={
+                "face_search": {
+                    "collection_id": example_collection.id,
+                },
+            })
         ```
 
         ## Import
@@ -687,16 +687,16 @@ class StreamProcessor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['StreamProcessorDataSharingPreferenceArgs', 'StreamProcessorDataSharingPreferenceArgsDict']] data_sharing_preference: See `data_sharing_preference`.
-        :param pulumi.Input[Union['StreamProcessorInputArgs', 'StreamProcessorInputArgsDict']] input: Input video stream. See `input`.
+        :param pulumi.Input[Union['StreamProcessorDataSharingPreferenceArgs', 'StreamProcessorDataSharingPreferenceArgsDict', 'outputs.StreamProcessorDataSharingPreference']] data_sharing_preference: See `data_sharing_preference`.
+        :param pulumi.Input[Union['StreamProcessorInputArgs', 'StreamProcessorInputArgsDict', 'outputs.StreamProcessorInput']] input: Input video stream. See `input`.
         :param pulumi.Input[_builtins.str] kms_key_id: Optional parameter for label detection stream processors.
         :param pulumi.Input[_builtins.str] name: Name of the Stream Processor.
-        :param pulumi.Input[Union['StreamProcessorNotificationChannelArgs', 'StreamProcessorNotificationChannelArgsDict']] notification_channel: Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
-        :param pulumi.Input[Union['StreamProcessorOutputArgs', 'StreamProcessorOutputArgsDict']] output: Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
+        :param pulumi.Input[Union['StreamProcessorNotificationChannelArgs', 'StreamProcessorNotificationChannelArgsDict', 'outputs.StreamProcessorNotificationChannel']] notification_channel: Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
+        :param pulumi.Input[Union['StreamProcessorOutputArgs', 'StreamProcessorOutputArgsDict', 'outputs.StreamProcessorOutput']] output: Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamProcessorRegionsOfInterestArgs', 'StreamProcessorRegionsOfInterestArgsDict']]]] regions_of_interests: Locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamProcessorRegionsOfInterestArgs', 'StreamProcessorRegionsOfInterestArgsDict', 'outputs.StreamProcessorRegionsOfInterest']]]] regions_of_interests: Locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
         :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
-        :param pulumi.Input[Union['StreamProcessorSettingsArgs', 'StreamProcessorSettingsArgsDict']] settings: Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
+        :param pulumi.Input[Union['StreamProcessorSettingsArgs', 'StreamProcessorSettingsArgsDict', 'outputs.StreamProcessorSettings']] settings: Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -731,6 +731,7 @@ class StreamProcessor(pulumi.CustomResource):
             device_name="kinesis-video-device-name",
             media_type="video/h264")
         example_role = aws.iam.Role("example",
+            name="example-role",
             inline_policies=[{
                 "name": "Rekognition-Access",
                 "policy": pulumi.Output.json_dumps({
@@ -757,7 +758,6 @@ class StreamProcessor(pulumi.CustomResource):
                     ],
                 }),
             }],
-            name="example-role",
             assume_role_policy=json.dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
@@ -769,6 +769,8 @@ class StreamProcessor(pulumi.CustomResource):
                 }],
             }))
         example_stream_processor = aws.rekognition.StreamProcessor("example",
+            role_arn=example_role.arn,
+            name="example-processor",
             data_sharing_preference={
                 "opt_in": False,
             },
@@ -792,9 +794,7 @@ class StreamProcessor(pulumi.CustomResource):
             },
             notification_channel={
                 "sns_topic_arn": example_topic.arn,
-            },
-            role_arn=example_role.arn,
-            name="example-processor")
+            })
         ```
 
         ### Face Detection Usage
@@ -813,6 +813,7 @@ class StreamProcessor(pulumi.CustomResource):
             name="pulumi-kinesis-example",
             shard_count=1)
         example_role = aws.iam.Role("example",
+            name="example-role",
             inline_policies=[{
                 "name": "Rekognition-Access",
                 "policy": pulumi.Output.json_dumps({
@@ -834,7 +835,6 @@ class StreamProcessor(pulumi.CustomResource):
                     ],
                 }),
             }],
-            name="example-role",
             assume_role_policy=json.dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
@@ -847,23 +847,10 @@ class StreamProcessor(pulumi.CustomResource):
             }))
         example_collection = aws.rekognition.Collection("example", collection_id="example-collection")
         example_stream_processor = aws.rekognition.StreamProcessor("example",
+            role_arn=example_role.arn,
+            name="example-processor",
             data_sharing_preference={
                 "opt_in": False,
-            },
-            input={
-                "kinesis_video_stream": {
-                    "arn": example.arn,
-                },
-            },
-            output={
-                "kinesis_data_stream": {
-                    "arn": example_stream.arn,
-                },
-            },
-            settings={
-                "face_search": {
-                    "collection_id": example_collection.id,
-                },
             },
             regions_of_interests=[{
                 "polygons": [
@@ -881,8 +868,21 @@ class StreamProcessor(pulumi.CustomResource):
                     },
                 ],
             }],
-            role_arn=example_role.arn,
-            name="example-processor")
+            input={
+                "kinesis_video_stream": {
+                    "arn": example.arn,
+                },
+            },
+            output={
+                "kinesis_data_stream": {
+                    "arn": example_stream.arn,
+                },
+            },
+            settings={
+                "face_search": {
+                    "collection_id": example_collection.id,
+                },
+            })
         ```
 
         ## Import
@@ -920,18 +920,18 @@ class StreamProcessor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_sharing_preference: pulumi.Input[Optional[Union['StreamProcessorDataSharingPreferenceArgs', 'StreamProcessorDataSharingPreferenceArgsDict']]] = None,
-                 input: pulumi.Input[Optional[Union['StreamProcessorInputArgs', 'StreamProcessorInputArgsDict']]] = None,
+                 data_sharing_preference: pulumi.Input[Optional[Union['StreamProcessorDataSharingPreferenceArgs', 'StreamProcessorDataSharingPreferenceArgsDict', 'outputs.StreamProcessorDataSharingPreference']]] = None,
+                 input: pulumi.Input[Optional[Union['StreamProcessorInputArgs', 'StreamProcessorInputArgsDict', 'outputs.StreamProcessorInput']]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notification_channel: pulumi.Input[Optional[Union['StreamProcessorNotificationChannelArgs', 'StreamProcessorNotificationChannelArgsDict']]] = None,
-                 output: pulumi.Input[Optional[Union['StreamProcessorOutputArgs', 'StreamProcessorOutputArgsDict']]] = None,
+                 notification_channel: pulumi.Input[Optional[Union['StreamProcessorNotificationChannelArgs', 'StreamProcessorNotificationChannelArgsDict', 'outputs.StreamProcessorNotificationChannel']]] = None,
+                 output: pulumi.Input[Optional[Union['StreamProcessorOutputArgs', 'StreamProcessorOutputArgsDict', 'outputs.StreamProcessorOutput']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 regions_of_interests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamProcessorRegionsOfInterestArgs', 'StreamProcessorRegionsOfInterestArgsDict']]]]] = None,
+                 regions_of_interests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamProcessorRegionsOfInterestArgs', 'StreamProcessorRegionsOfInterestArgsDict', 'outputs.StreamProcessorRegionsOfInterest']]]]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 settings: pulumi.Input[Optional[Union['StreamProcessorSettingsArgs', 'StreamProcessorSettingsArgsDict']]] = None,
+                 settings: pulumi.Input[Optional[Union['StreamProcessorSettingsArgs', 'StreamProcessorSettingsArgsDict', 'outputs.StreamProcessorSettings']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['StreamProcessorTimeoutsArgs', 'StreamProcessorTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['StreamProcessorTimeoutsArgs', 'StreamProcessorTimeoutsArgsDict', 'outputs.StreamProcessorTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -975,20 +975,20 @@ class StreamProcessor(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            data_sharing_preference: pulumi.Input[Optional[Union['StreamProcessorDataSharingPreferenceArgs', 'StreamProcessorDataSharingPreferenceArgsDict']]] = None,
-            input: pulumi.Input[Optional[Union['StreamProcessorInputArgs', 'StreamProcessorInputArgsDict']]] = None,
+            data_sharing_preference: pulumi.Input[Optional[Union['StreamProcessorDataSharingPreferenceArgs', 'StreamProcessorDataSharingPreferenceArgsDict', 'outputs.StreamProcessorDataSharingPreference']]] = None,
+            input: pulumi.Input[Optional[Union['StreamProcessorInputArgs', 'StreamProcessorInputArgsDict', 'outputs.StreamProcessorInput']]] = None,
             kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            notification_channel: pulumi.Input[Optional[Union['StreamProcessorNotificationChannelArgs', 'StreamProcessorNotificationChannelArgsDict']]] = None,
-            output: pulumi.Input[Optional[Union['StreamProcessorOutputArgs', 'StreamProcessorOutputArgsDict']]] = None,
+            notification_channel: pulumi.Input[Optional[Union['StreamProcessorNotificationChannelArgs', 'StreamProcessorNotificationChannelArgsDict', 'outputs.StreamProcessorNotificationChannel']]] = None,
+            output: pulumi.Input[Optional[Union['StreamProcessorOutputArgs', 'StreamProcessorOutputArgsDict', 'outputs.StreamProcessorOutput']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            regions_of_interests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamProcessorRegionsOfInterestArgs', 'StreamProcessorRegionsOfInterestArgsDict']]]]] = None,
+            regions_of_interests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamProcessorRegionsOfInterestArgs', 'StreamProcessorRegionsOfInterestArgsDict', 'outputs.StreamProcessorRegionsOfInterest']]]]] = None,
             role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            settings: pulumi.Input[Optional[Union['StreamProcessorSettingsArgs', 'StreamProcessorSettingsArgsDict']]] = None,
+            settings: pulumi.Input[Optional[Union['StreamProcessorSettingsArgs', 'StreamProcessorSettingsArgsDict', 'outputs.StreamProcessorSettings']]] = None,
             stream_processor_arn: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['StreamProcessorTimeoutsArgs', 'StreamProcessorTimeoutsArgsDict']]] = None) -> 'StreamProcessor':
+            timeouts: pulumi.Input[Optional[Union['StreamProcessorTimeoutsArgs', 'StreamProcessorTimeoutsArgsDict', 'outputs.StreamProcessorTimeouts']]] = None) -> 'StreamProcessor':
         """
         Get an existing StreamProcessor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -997,16 +997,16 @@ class StreamProcessor(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Stream Processor.
-        :param pulumi.Input[Union['StreamProcessorDataSharingPreferenceArgs', 'StreamProcessorDataSharingPreferenceArgsDict']] data_sharing_preference: See `data_sharing_preference`.
-        :param pulumi.Input[Union['StreamProcessorInputArgs', 'StreamProcessorInputArgsDict']] input: Input video stream. See `input`.
+        :param pulumi.Input[Union['StreamProcessorDataSharingPreferenceArgs', 'StreamProcessorDataSharingPreferenceArgsDict', 'outputs.StreamProcessorDataSharingPreference']] data_sharing_preference: See `data_sharing_preference`.
+        :param pulumi.Input[Union['StreamProcessorInputArgs', 'StreamProcessorInputArgsDict', 'outputs.StreamProcessorInput']] input: Input video stream. See `input`.
         :param pulumi.Input[_builtins.str] kms_key_id: Optional parameter for label detection stream processors.
         :param pulumi.Input[_builtins.str] name: Name of the Stream Processor.
-        :param pulumi.Input[Union['StreamProcessorNotificationChannelArgs', 'StreamProcessorNotificationChannelArgsDict']] notification_channel: Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
-        :param pulumi.Input[Union['StreamProcessorOutputArgs', 'StreamProcessorOutputArgsDict']] output: Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
+        :param pulumi.Input[Union['StreamProcessorNotificationChannelArgs', 'StreamProcessorNotificationChannelArgsDict', 'outputs.StreamProcessorNotificationChannel']] notification_channel: Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
+        :param pulumi.Input[Union['StreamProcessorOutputArgs', 'StreamProcessorOutputArgsDict', 'outputs.StreamProcessorOutput']] output: Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamProcessorRegionsOfInterestArgs', 'StreamProcessorRegionsOfInterestArgsDict']]]] regions_of_interests: Locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamProcessorRegionsOfInterestArgs', 'StreamProcessorRegionsOfInterestArgsDict', 'outputs.StreamProcessorRegionsOfInterest']]]] regions_of_interests: Locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
         :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
-        :param pulumi.Input[Union['StreamProcessorSettingsArgs', 'StreamProcessorSettingsArgsDict']] settings: Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
+        :param pulumi.Input[Union['StreamProcessorSettingsArgs', 'StreamProcessorSettingsArgsDict', 'outputs.StreamProcessorSettings']] settings: Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] stream_processor_arn: (**Deprecated**) ARN of the Stream Processor. Use `arn` instead.

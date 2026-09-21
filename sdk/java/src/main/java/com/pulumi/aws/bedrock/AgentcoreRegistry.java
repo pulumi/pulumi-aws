@@ -120,6 +120,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentcoreRegistry("example", AgentcoreRegistryArgs.builder()
+ *             .name("example_registry")
+ *             .authorizerType("CUSTOM_JWT")
  *             .authorizerConfiguration(AgentcoreRegistryAuthorizerConfigurationArgs.builder()
  *                 .customJwtAuthorizer(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs.builder()
  *                     .discoveryUrl("https://example.okta.com/.well-known/openid-configuration")
@@ -127,8 +129,6 @@ import javax.annotation.Nullable;
  *                     .allowedClients("client-id")
  *                     .build())
  *                 .build())
- *             .name("example_registry")
- *             .authorizerType("CUSTOM_JWT")
  *             .build());
  * 
  *     }

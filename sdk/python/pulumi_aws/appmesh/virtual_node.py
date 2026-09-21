@@ -316,7 +316,7 @@ class VirtualNode(pulumi.CustomResource):
                  mesh_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 spec: pulumi.Input[Optional[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict']]] = None,
+                 spec: pulumi.Input[Optional[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict', 'outputs.VirtualNodeSpec']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -333,12 +333,9 @@ class VirtualNode(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
+            name="serviceBv1",
+            mesh_name=simple["id"],
             spec={
-                "service_discovery": {
-                    "dns": {
-                        "hostname": "serviceb.simpleapp.local",
-                    },
-                },
                 "backends": [{
                     "virtual_service": {
                         "virtual_service_name": "servicea.simpleapp.local",
@@ -350,9 +347,12 @@ class VirtualNode(pulumi.CustomResource):
                         "protocol": "http",
                     },
                 }],
-            },
-            name="serviceBv1",
-            mesh_name=simple["id"])
+                "service_discovery": {
+                    "dns": {
+                        "hostname": "serviceb.simpleapp.local",
+                    },
+                },
+            })
         ```
 
         ### AWS Cloud Map Service Discovery
@@ -363,16 +363,9 @@ class VirtualNode(pulumi.CustomResource):
 
         example = aws.servicediscovery.HttpNamespace("example", name="example-ns")
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
+            name="serviceBv1",
+            mesh_name=simple["id"],
             spec={
-                "service_discovery": {
-                    "aws_cloud_map": {
-                        "attributes": {
-                            "stack": "blue",
-                        },
-                        "service_name": "serviceb1",
-                        "namespace_name": example.name,
-                    },
-                },
                 "backends": [{
                     "virtual_service": {
                         "virtual_service_name": "servicea.simpleapp.local",
@@ -384,9 +377,16 @@ class VirtualNode(pulumi.CustomResource):
                         "protocol": "http",
                     },
                 }],
-            },
-            name="serviceBv1",
-            mesh_name=simple["id"])
+                "service_discovery": {
+                    "aws_cloud_map": {
+                        "attributes": {
+                            "stack": "blue",
+                        },
+                        "service_name": "serviceb1",
+                        "namespace_name": example.name,
+                    },
+                },
+            })
         ```
 
         ### Listener Health Check
@@ -396,12 +396,9 @@ class VirtualNode(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
+            name="serviceBv1",
+            mesh_name=simple["id"],
             spec={
-                "service_discovery": {
-                    "dns": {
-                        "hostname": "serviceb.simpleapp.local",
-                    },
-                },
                 "backends": [{
                     "virtual_service": {
                         "virtual_service_name": "servicea.simpleapp.local",
@@ -421,9 +418,12 @@ class VirtualNode(pulumi.CustomResource):
                         "interval_millis": 5000,
                     },
                 }],
-            },
-            name="serviceBv1",
-            mesh_name=simple["id"])
+                "service_discovery": {
+                    "dns": {
+                        "hostname": "serviceb.simpleapp.local",
+                    },
+                },
+            })
         ```
 
         ### Logging
@@ -433,7 +433,20 @@ class VirtualNode(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
+            name="serviceBv1",
+            mesh_name=simple["id"],
             spec={
+                "backends": [{
+                    "virtual_service": {
+                        "virtual_service_name": "servicea.simpleapp.local",
+                    },
+                }],
+                "listeners": [{
+                    "port_mapping": {
+                        "port": 8080,
+                        "protocol": "http",
+                    },
+                }],
                 "service_discovery": {
                     "dns": {
                         "hostname": "serviceb.simpleapp.local",
@@ -446,20 +459,7 @@ class VirtualNode(pulumi.CustomResource):
                         },
                     },
                 },
-                "backends": [{
-                    "virtual_service": {
-                        "virtual_service_name": "servicea.simpleapp.local",
-                    },
-                }],
-                "listeners": [{
-                    "port_mapping": {
-                        "port": 8080,
-                        "protocol": "http",
-                    },
-                }],
-            },
-            name="serviceBv1",
-            mesh_name=simple["id"])
+            })
         ```
 
         ## Import
@@ -477,7 +477,7 @@ class VirtualNode(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[_builtins.str] name: Name to use for the virtual node. Must be between 1 and 255 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict']] spec: Virtual node specification to apply. See `spec` Block for details.
+        :param pulumi.Input[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict', 'outputs.VirtualNodeSpec']] spec: Virtual node specification to apply. See `spec` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -500,12 +500,9 @@ class VirtualNode(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
+            name="serviceBv1",
+            mesh_name=simple["id"],
             spec={
-                "service_discovery": {
-                    "dns": {
-                        "hostname": "serviceb.simpleapp.local",
-                    },
-                },
                 "backends": [{
                     "virtual_service": {
                         "virtual_service_name": "servicea.simpleapp.local",
@@ -517,9 +514,12 @@ class VirtualNode(pulumi.CustomResource):
                         "protocol": "http",
                     },
                 }],
-            },
-            name="serviceBv1",
-            mesh_name=simple["id"])
+                "service_discovery": {
+                    "dns": {
+                        "hostname": "serviceb.simpleapp.local",
+                    },
+                },
+            })
         ```
 
         ### AWS Cloud Map Service Discovery
@@ -530,16 +530,9 @@ class VirtualNode(pulumi.CustomResource):
 
         example = aws.servicediscovery.HttpNamespace("example", name="example-ns")
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
+            name="serviceBv1",
+            mesh_name=simple["id"],
             spec={
-                "service_discovery": {
-                    "aws_cloud_map": {
-                        "attributes": {
-                            "stack": "blue",
-                        },
-                        "service_name": "serviceb1",
-                        "namespace_name": example.name,
-                    },
-                },
                 "backends": [{
                     "virtual_service": {
                         "virtual_service_name": "servicea.simpleapp.local",
@@ -551,9 +544,16 @@ class VirtualNode(pulumi.CustomResource):
                         "protocol": "http",
                     },
                 }],
-            },
-            name="serviceBv1",
-            mesh_name=simple["id"])
+                "service_discovery": {
+                    "aws_cloud_map": {
+                        "attributes": {
+                            "stack": "blue",
+                        },
+                        "service_name": "serviceb1",
+                        "namespace_name": example.name,
+                    },
+                },
+            })
         ```
 
         ### Listener Health Check
@@ -563,12 +563,9 @@ class VirtualNode(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
+            name="serviceBv1",
+            mesh_name=simple["id"],
             spec={
-                "service_discovery": {
-                    "dns": {
-                        "hostname": "serviceb.simpleapp.local",
-                    },
-                },
                 "backends": [{
                     "virtual_service": {
                         "virtual_service_name": "servicea.simpleapp.local",
@@ -588,9 +585,12 @@ class VirtualNode(pulumi.CustomResource):
                         "interval_millis": 5000,
                     },
                 }],
-            },
-            name="serviceBv1",
-            mesh_name=simple["id"])
+                "service_discovery": {
+                    "dns": {
+                        "hostname": "serviceb.simpleapp.local",
+                    },
+                },
+            })
         ```
 
         ### Logging
@@ -600,7 +600,20 @@ class VirtualNode(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
+            name="serviceBv1",
+            mesh_name=simple["id"],
             spec={
+                "backends": [{
+                    "virtual_service": {
+                        "virtual_service_name": "servicea.simpleapp.local",
+                    },
+                }],
+                "listeners": [{
+                    "port_mapping": {
+                        "port": 8080,
+                        "protocol": "http",
+                    },
+                }],
                 "service_discovery": {
                     "dns": {
                         "hostname": "serviceb.simpleapp.local",
@@ -613,20 +626,7 @@ class VirtualNode(pulumi.CustomResource):
                         },
                     },
                 },
-                "backends": [{
-                    "virtual_service": {
-                        "virtual_service_name": "servicea.simpleapp.local",
-                    },
-                }],
-                "listeners": [{
-                    "port_mapping": {
-                        "port": 8080,
-                        "protocol": "http",
-                    },
-                }],
-            },
-            name="serviceBv1",
-            mesh_name=simple["id"])
+            })
         ```
 
         ## Import
@@ -657,7 +657,7 @@ class VirtualNode(pulumi.CustomResource):
                  mesh_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 spec: pulumi.Input[Optional[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict']]] = None,
+                 spec: pulumi.Input[Optional[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict', 'outputs.VirtualNodeSpec']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -701,7 +701,7 @@ class VirtualNode(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
-            spec: pulumi.Input[Optional[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict']]] = None,
+            spec: pulumi.Input[Optional[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict', 'outputs.VirtualNodeSpec']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'VirtualNode':
         """
@@ -719,7 +719,7 @@ class VirtualNode(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name to use for the virtual node. Must be between 1 and 255 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_owner: Resource owner's AWS account ID.
-        :param pulumi.Input[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict']] spec: Virtual node specification to apply. See `spec` Block for details.
+        :param pulumi.Input[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict', 'outputs.VirtualNodeSpec']] spec: Virtual node specification to apply. See `spec` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

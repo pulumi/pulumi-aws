@@ -160,9 +160,9 @@ class Export(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 export: pulumi.Input[Optional[Union['ExportExportArgs', 'ExportExportArgsDict']]] = None,
+                 export: pulumi.Input[Optional[Union['ExportExportArgs', 'ExportExportArgsDict', 'outputs.ExportExport']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ExportTimeoutsArgs', 'ExportTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ExportTimeoutsArgs', 'ExportTimeoutsArgsDict', 'outputs.ExportTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS BCM Data Exports Export.
@@ -178,6 +178,7 @@ class Export(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_partition = aws.get_partition()
         test = aws.bcmdata.Export("test", export={
+            "name": "testexample",
             "data_queries": [{
                 "query_statement": "SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT",
                 "table_configurations": {
@@ -192,21 +193,20 @@ class Export(pulumi.CustomResource):
             }],
             "destination_configurations": [{
                 "s3_destinations": [{
+                    "s3_bucket": test_aws_s3_bucket["bucket"],
+                    "s3_prefix": test_aws_s3_bucket["bucketPrefix"],
+                    "s3_region": test_aws_s3_bucket["region"],
                     "s3_output_configurations": [{
                         "overwrite": "OVERWRITE_REPORT",
                         "format": "TEXT_OR_CSV",
                         "compression": "GZIP",
                         "output_type": "CUSTOM",
                     }],
-                    "s3_bucket": test_aws_s3_bucket["bucket"],
-                    "s3_prefix": test_aws_s3_bucket["bucketPrefix"],
-                    "s3_region": test_aws_s3_bucket["region"],
                 }],
             }],
             "refresh_cadences": [{
                 "frequency": "SYNCHRONOUS",
             }],
-            "name": "testexample",
         })
         ```
 
@@ -227,7 +227,7 @@ class Export(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ExportExportArgs', 'ExportExportArgsDict']] export: The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
+        :param pulumi.Input[Union['ExportExportArgs', 'ExportExportArgsDict', 'outputs.ExportExport']] export: The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -250,6 +250,7 @@ class Export(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_partition = aws.get_partition()
         test = aws.bcmdata.Export("test", export={
+            "name": "testexample",
             "data_queries": [{
                 "query_statement": "SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT",
                 "table_configurations": {
@@ -264,21 +265,20 @@ class Export(pulumi.CustomResource):
             }],
             "destination_configurations": [{
                 "s3_destinations": [{
+                    "s3_bucket": test_aws_s3_bucket["bucket"],
+                    "s3_prefix": test_aws_s3_bucket["bucketPrefix"],
+                    "s3_region": test_aws_s3_bucket["region"],
                     "s3_output_configurations": [{
                         "overwrite": "OVERWRITE_REPORT",
                         "format": "TEXT_OR_CSV",
                         "compression": "GZIP",
                         "output_type": "CUSTOM",
                     }],
-                    "s3_bucket": test_aws_s3_bucket["bucket"],
-                    "s3_prefix": test_aws_s3_bucket["bucketPrefix"],
-                    "s3_region": test_aws_s3_bucket["region"],
                 }],
             }],
             "refresh_cadences": [{
                 "frequency": "SYNCHRONOUS",
             }],
-            "name": "testexample",
         })
         ```
 
@@ -312,9 +312,9 @@ class Export(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 export: pulumi.Input[Optional[Union['ExportExportArgs', 'ExportExportArgsDict']]] = None,
+                 export: pulumi.Input[Optional[Union['ExportExportArgs', 'ExportExportArgsDict', 'outputs.ExportExport']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ExportTimeoutsArgs', 'ExportTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ExportTimeoutsArgs', 'ExportTimeoutsArgsDict', 'outputs.ExportTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -340,10 +340,10 @@ class Export(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            export: pulumi.Input[Optional[Union['ExportExportArgs', 'ExportExportArgsDict']]] = None,
+            export: pulumi.Input[Optional[Union['ExportExportArgs', 'ExportExportArgsDict', 'outputs.ExportExport']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['ExportTimeoutsArgs', 'ExportTimeoutsArgsDict']]] = None) -> 'Export':
+            timeouts: pulumi.Input[Optional[Union['ExportTimeoutsArgs', 'ExportTimeoutsArgsDict', 'outputs.ExportTimeouts']]] = None) -> 'Export':
         """
         Get an existing Export resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -353,7 +353,7 @@ class Export(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN for this export.
                * `export[0].export_arn` - ARN for this export.
-        :param pulumi.Input[Union['ExportExportArgs', 'ExportExportArgsDict']] export: The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
+        :param pulumi.Input[Union['ExportExportArgs', 'ExportExportArgsDict', 'outputs.ExportExport']] export: The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

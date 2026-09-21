@@ -571,14 +571,14 @@ class StackSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administration_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 auto_deployment: pulumi.Input[Optional[Union['StackSetAutoDeploymentArgs', 'StackSetAutoDeploymentArgsDict']]] = None,
+                 auto_deployment: pulumi.Input[Optional[Union['StackSetAutoDeploymentArgs', 'StackSetAutoDeploymentArgsDict', 'outputs.StackSetAutoDeployment']]] = None,
                  call_as: pulumi.Input[Optional[_builtins.str]] = None,
                  capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_execution: pulumi.Input[Optional[Union['StackSetManagedExecutionArgs', 'StackSetManagedExecutionArgsDict']]] = None,
+                 managed_execution: pulumi.Input[Optional[Union['StackSetManagedExecutionArgs', 'StackSetManagedExecutionArgsDict', 'outputs.StackSetManagedExecution']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 operation_preferences: pulumi.Input[Optional[Union['StackSetOperationPreferencesArgs', 'StackSetOperationPreferencesArgsDict']]] = None,
+                 operation_preferences: pulumi.Input[Optional[Union['StackSetOperationPreferencesArgs', 'StackSetOperationPreferencesArgsDict', 'outputs.StackSetOperationPreferences']]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  permission_model: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -603,12 +603,12 @@ class StackSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         a_ws_cloud_formation_stack_set_administration_role_assume_role_policy = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "effect": "Allow",
             "principals": [{
                 "identifiers": ["cloudformation.amazonaws.com"],
                 "type": "Service",
             }],
-            "actions": ["sts:AssumeRole"],
-            "effect": "Allow",
         }])
         a_ws_cloud_formation_stack_set_administration_role = aws.iam.Role("AWSCloudFormationStackSetAdministrationRole",
             assume_role_policy=a_ws_cloud_formation_stack_set_administration_role_assume_role_policy.json,
@@ -673,14 +673,14 @@ class StackSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] administration_role_arn: Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
-        :param pulumi.Input[Union['StackSetAutoDeploymentArgs', 'StackSetAutoDeploymentArgsDict']] auto_deployment: Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
+        :param pulumi.Input[Union['StackSetAutoDeploymentArgs', 'StackSetAutoDeploymentArgsDict', 'outputs.StackSetAutoDeployment']] auto_deployment: Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
         :param pulumi.Input[_builtins.str] call_as: Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capabilities: A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
         :param pulumi.Input[_builtins.str] description: Description of the StackSet.
         :param pulumi.Input[_builtins.str] execution_role_name: Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
-        :param pulumi.Input[Union['StackSetManagedExecutionArgs', 'StackSetManagedExecutionArgsDict']] managed_execution: Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+        :param pulumi.Input[Union['StackSetManagedExecutionArgs', 'StackSetManagedExecutionArgsDict', 'outputs.StackSetManagedExecution']] managed_execution: Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
         :param pulumi.Input[_builtins.str] name: Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
-        :param pulumi.Input[Union['StackSetOperationPreferencesArgs', 'StackSetOperationPreferencesArgsDict']] operation_preferences: Preferences for how AWS CloudFormation performs a stack set update.
+        :param pulumi.Input[Union['StackSetOperationPreferencesArgs', 'StackSetOperationPreferencesArgsDict', 'outputs.StackSetOperationPreferences']] operation_preferences: Preferences for how AWS CloudFormation performs a stack set update.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
         :param pulumi.Input[_builtins.str] permission_model: Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -711,12 +711,12 @@ class StackSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         a_ws_cloud_formation_stack_set_administration_role_assume_role_policy = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "effect": "Allow",
             "principals": [{
                 "identifiers": ["cloudformation.amazonaws.com"],
                 "type": "Service",
             }],
-            "actions": ["sts:AssumeRole"],
-            "effect": "Allow",
         }])
         a_ws_cloud_formation_stack_set_administration_role = aws.iam.Role("AWSCloudFormationStackSetAdministrationRole",
             assume_role_policy=a_ws_cloud_formation_stack_set_administration_role_assume_role_policy.json,
@@ -794,14 +794,14 @@ class StackSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administration_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 auto_deployment: pulumi.Input[Optional[Union['StackSetAutoDeploymentArgs', 'StackSetAutoDeploymentArgsDict']]] = None,
+                 auto_deployment: pulumi.Input[Optional[Union['StackSetAutoDeploymentArgs', 'StackSetAutoDeploymentArgsDict', 'outputs.StackSetAutoDeployment']]] = None,
                  call_as: pulumi.Input[Optional[_builtins.str]] = None,
                  capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_execution: pulumi.Input[Optional[Union['StackSetManagedExecutionArgs', 'StackSetManagedExecutionArgsDict']]] = None,
+                 managed_execution: pulumi.Input[Optional[Union['StackSetManagedExecutionArgs', 'StackSetManagedExecutionArgsDict', 'outputs.StackSetManagedExecution']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 operation_preferences: pulumi.Input[Optional[Union['StackSetOperationPreferencesArgs', 'StackSetOperationPreferencesArgsDict']]] = None,
+                 operation_preferences: pulumi.Input[Optional[Union['StackSetOperationPreferencesArgs', 'StackSetOperationPreferencesArgsDict', 'outputs.StackSetOperationPreferences']]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  permission_model: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -847,14 +847,14 @@ class StackSet(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             administration_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            auto_deployment: pulumi.Input[Optional[Union['StackSetAutoDeploymentArgs', 'StackSetAutoDeploymentArgsDict']]] = None,
+            auto_deployment: pulumi.Input[Optional[Union['StackSetAutoDeploymentArgs', 'StackSetAutoDeploymentArgsDict', 'outputs.StackSetAutoDeployment']]] = None,
             call_as: pulumi.Input[Optional[_builtins.str]] = None,
             capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             execution_role_name: pulumi.Input[Optional[_builtins.str]] = None,
-            managed_execution: pulumi.Input[Optional[Union['StackSetManagedExecutionArgs', 'StackSetManagedExecutionArgsDict']]] = None,
+            managed_execution: pulumi.Input[Optional[Union['StackSetManagedExecutionArgs', 'StackSetManagedExecutionArgsDict', 'outputs.StackSetManagedExecution']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            operation_preferences: pulumi.Input[Optional[Union['StackSetOperationPreferencesArgs', 'StackSetOperationPreferencesArgsDict']]] = None,
+            operation_preferences: pulumi.Input[Optional[Union['StackSetOperationPreferencesArgs', 'StackSetOperationPreferencesArgsDict', 'outputs.StackSetOperationPreferences']]] = None,
             parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             permission_model: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -872,14 +872,14 @@ class StackSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] administration_role_arn: Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
         :param pulumi.Input[_builtins.str] arn: ARN of the StackSet.
-        :param pulumi.Input[Union['StackSetAutoDeploymentArgs', 'StackSetAutoDeploymentArgsDict']] auto_deployment: Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
+        :param pulumi.Input[Union['StackSetAutoDeploymentArgs', 'StackSetAutoDeploymentArgsDict', 'outputs.StackSetAutoDeployment']] auto_deployment: Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
         :param pulumi.Input[_builtins.str] call_as: Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capabilities: A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
         :param pulumi.Input[_builtins.str] description: Description of the StackSet.
         :param pulumi.Input[_builtins.str] execution_role_name: Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
-        :param pulumi.Input[Union['StackSetManagedExecutionArgs', 'StackSetManagedExecutionArgsDict']] managed_execution: Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+        :param pulumi.Input[Union['StackSetManagedExecutionArgs', 'StackSetManagedExecutionArgsDict', 'outputs.StackSetManagedExecution']] managed_execution: Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
         :param pulumi.Input[_builtins.str] name: Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
-        :param pulumi.Input[Union['StackSetOperationPreferencesArgs', 'StackSetOperationPreferencesArgsDict']] operation_preferences: Preferences for how AWS CloudFormation performs a stack set update.
+        :param pulumi.Input[Union['StackSetOperationPreferencesArgs', 'StackSetOperationPreferencesArgsDict', 'outputs.StackSetOperationPreferences']] operation_preferences: Preferences for how AWS CloudFormation performs a stack set update.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
         :param pulumi.Input[_builtins.str] permission_model: Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

@@ -104,9 +104,7 @@ import (
 //				NumCacheClusters:   pulumi.Int(2),
 //				ParameterGroupName: pulumi.String("default.redis3.2"),
 //				Port:               pulumi.Int(6379),
-//			}, pulumi.IgnoreChanges([]string{
-//				"numCacheClusters",
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -181,6 +179,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elasticache.NewReplicationGroup(ctx, "example", &elasticache.ReplicationGroupArgs{
+//				ReplicationGroupId:       pulumi.String("tf-redis-cluster"),
+//				Description:              pulumi.String("example description"),
+//				NodeType:                 pulumi.String("cache.t2.small"),
+//				Port:                     pulumi.Int(6379),
+//				ParameterGroupName:       pulumi.String("default.redis3.2.cluster.on"),
+//				AutomaticFailoverEnabled: pulumi.Bool(true),
+//				NumNodeGroups:            pulumi.Int(2),
 //				NodeGroupConfigurations: elasticache.ReplicationGroupNodeGroupConfigurationArray{
 //					&elasticache.ReplicationGroupNodeGroupConfigurationArgs{
 //						NodeGroupId:             pulumi.String("0001"),
@@ -201,13 +206,6 @@ import (
 //						Slots:        pulumi.String("8192-16383"),
 //					},
 //				},
-//				ReplicationGroupId:       pulumi.String("tf-redis-cluster"),
-//				Description:              pulumi.String("example description"),
-//				NodeType:                 pulumi.String("cache.t2.small"),
-//				Port:                     pulumi.Int(6379),
-//				ParameterGroupName:       pulumi.String("default.redis3.2.cluster.on"),
-//				AutomaticFailoverEnabled: pulumi.Bool(true),
-//				NumNodeGroups:            pulumi.Int(2),
 //			})
 //			if err != nil {
 //				return err
@@ -233,6 +231,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elasticache.NewReplicationGroup(ctx, "test", &elasticache.ReplicationGroupArgs{
+//				ReplicationGroupId:      pulumi.String("myreplicaciongroup"),
+//				Description:             pulumi.String("test description"),
+//				NodeType:                pulumi.String("cache.t3.small"),
+//				Port:                    pulumi.Int(6379),
+//				ApplyImmediately:        pulumi.Bool(true),
+//				AutoMinorVersionUpgrade: pulumi.Bool(false),
+//				MaintenanceWindow:       pulumi.String("tue:06:30-tue:07:30"),
+//				SnapshotWindow:          pulumi.String("01:00-02:00"),
 //				LogDeliveryConfigurations: elasticache.ReplicationGroupLogDeliveryConfigurationArray{
 //					&elasticache.ReplicationGroupLogDeliveryConfigurationArgs{
 //						Destination:     pulumi.Any(example.Name),
@@ -247,14 +253,6 @@ import (
 //						LogType:         pulumi.String("engine-log"),
 //					},
 //				},
-//				ReplicationGroupId:      pulumi.String("myreplicaciongroup"),
-//				Description:             pulumi.String("test description"),
-//				NodeType:                pulumi.String("cache.t3.small"),
-//				Port:                    pulumi.Int(6379),
-//				ApplyImmediately:        pulumi.Bool(true),
-//				AutoMinorVersionUpgrade: pulumi.Bool(false),
-//				MaintenanceWindow:       pulumi.String("tue:06:30-tue:07:30"),
-//				SnapshotWindow:          pulumi.String("01:00-02:00"),
 //			})
 //			if err != nil {
 //				return err

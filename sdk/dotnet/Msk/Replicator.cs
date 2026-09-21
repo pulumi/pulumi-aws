@@ -26,40 +26,9 @@ namespace Pulumi.Aws.Msk
     /// {
     ///     var test = new Aws.Msk.Replicator("test", new()
     ///     {
-    ///         ReplicationInfoList = new Aws.Msk.Inputs.ReplicatorReplicationInfoListArgs
-    ///         {
-    ///             ConsumerGroupReplications = new[]
-    ///             {
-    ///                 new Aws.Msk.Inputs.ReplicatorReplicationInfoListConsumerGroupReplicationArgs
-    ///                 {
-    ///                     ConsumerGroupsToReplicates = new[]
-    ///                     {
-    ///                         ".*",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             TopicReplications = new[]
-    ///             {
-    ///                 new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationArgs
-    ///                 {
-    ///                     TopicNameConfiguration = new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs
-    ///                     {
-    ///                         Type = "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS",
-    ///                     },
-    ///                     StartingPosition = new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs
-    ///                     {
-    ///                         Type = "LATEST",
-    ///                     },
-    ///                     TopicsToReplicates = new[]
-    ///                     {
-    ///                         ".*",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             SourceKafkaClusterArn = source.Arn,
-    ///             TargetKafkaClusterArn = target.Arn,
-    ///             TargetCompressionType = "NONE",
-    ///         },
+    ///         ReplicatorName = "test-name",
+    ///         Description = "test-description",
+    ///         ServiceExecutionRoleArn = sourceAwsIamRole.Arn,
     ///         KafkaClusters = new[]
     ///         {
     ///             new Aws.Msk.Inputs.ReplicatorKafkaClusterArgs
@@ -93,9 +62,40 @@ namespace Pulumi.Aws.Msk
     ///                 },
     ///             },
     ///         },
-    ///         ReplicatorName = "test-name",
-    ///         Description = "test-description",
-    ///         ServiceExecutionRoleArn = sourceAwsIamRole.Arn,
+    ///         ReplicationInfoList = new Aws.Msk.Inputs.ReplicatorReplicationInfoListArgs
+    ///         {
+    ///             SourceKafkaClusterArn = source.Arn,
+    ///             TargetKafkaClusterArn = target.Arn,
+    ///             TargetCompressionType = "NONE",
+    ///             TopicReplications = new[]
+    ///             {
+    ///                 new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationArgs
+    ///                 {
+    ///                     TopicNameConfiguration = new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs
+    ///                     {
+    ///                         Type = "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS",
+    ///                     },
+    ///                     TopicsToReplicates = new[]
+    ///                     {
+    ///                         ".*",
+    ///                     },
+    ///                     StartingPosition = new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs
+    ///                     {
+    ///                         Type = "LATEST",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ConsumerGroupReplications = new[]
+    ///             {
+    ///                 new Aws.Msk.Inputs.ReplicatorReplicationInfoListConsumerGroupReplicationArgs
+    ///                 {
+    ///                     ConsumerGroupsToReplicates = new[]
+    ///                     {
+    ///                         ".*",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });
@@ -115,40 +115,9 @@ namespace Pulumi.Aws.Msk
     /// {
     ///     var test = new Aws.Msk.Replicator("test", new()
     ///     {
-    ///         ReplicationInfoList = new Aws.Msk.Inputs.ReplicatorReplicationInfoListArgs
-    ///         {
-    ///             ConsumerGroupReplications = new[]
-    ///             {
-    ///                 new Aws.Msk.Inputs.ReplicatorReplicationInfoListConsumerGroupReplicationArgs
-    ///                 {
-    ///                     ConsumerGroupsToReplicates = new[]
-    ///                     {
-    ///                         ".*",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             TopicReplications = new[]
-    ///             {
-    ///                 new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationArgs
-    ///                 {
-    ///                     TopicNameConfiguration = new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs
-    ///                     {
-    ///                         Type = "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS",
-    ///                     },
-    ///                     StartingPosition = new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs
-    ///                     {
-    ///                         Type = "LATEST",
-    ///                     },
-    ///                     TopicsToReplicates = new[]
-    ///                     {
-    ///                         ".*",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             SourceKafkaClusterArn = source.Arn,
-    ///             TargetKafkaClusterId = "target-apache-kafka-cluster",
-    ///             TargetCompressionType = "NONE",
-    ///         },
+    ///         ReplicatorName = "test-name",
+    ///         Description = "test-description",
+    ///         ServiceExecutionRoleArn = sourceAwsIamRole.Arn,
     ///         KafkaClusters = new[]
     ///         {
     ///             new Aws.Msk.Inputs.ReplicatorKafkaClusterArgs
@@ -187,9 +156,40 @@ namespace Pulumi.Aws.Msk
     ///                 },
     ///             },
     ///         },
-    ///         ReplicatorName = "test-name",
-    ///         Description = "test-description",
-    ///         ServiceExecutionRoleArn = sourceAwsIamRole.Arn,
+    ///         ReplicationInfoList = new Aws.Msk.Inputs.ReplicatorReplicationInfoListArgs
+    ///         {
+    ///             SourceKafkaClusterArn = source.Arn,
+    ///             TargetKafkaClusterId = "target-apache-kafka-cluster",
+    ///             TargetCompressionType = "NONE",
+    ///             TopicReplications = new[]
+    ///             {
+    ///                 new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationArgs
+    ///                 {
+    ///                     TopicNameConfiguration = new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs
+    ///                     {
+    ///                         Type = "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS",
+    ///                     },
+    ///                     TopicsToReplicates = new[]
+    ///                     {
+    ///                         ".*",
+    ///                     },
+    ///                     StartingPosition = new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs
+    ///                     {
+    ///                         Type = "LATEST",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ConsumerGroupReplications = new[]
+    ///             {
+    ///                 new Aws.Msk.Inputs.ReplicatorReplicationInfoListConsumerGroupReplicationArgs
+    ///                 {
+    ///                     ConsumerGroupsToReplicates = new[]
+    ///                     {
+    ///                         ".*",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });
@@ -209,54 +209,8 @@ namespace Pulumi.Aws.Msk
     /// {
     ///     var test = new Aws.Msk.Replicator("test", new()
     ///     {
-    ///         ReplicationInfoList = new Aws.Msk.Inputs.ReplicatorReplicationInfoListArgs
-    ///         {
-    ///             ConsumerGroupReplications = new[]
-    ///             {
-    ///                 new Aws.Msk.Inputs.ReplicatorReplicationInfoListConsumerGroupReplicationArgs
-    ///                 {
-    ///                     ConsumerGroupsToReplicates = new[]
-    ///                     {
-    ///                         ".*",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             TopicReplications = new[]
-    ///             {
-    ///                 new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationArgs
-    ///                 {
-    ///                     TopicsToReplicates = new[]
-    ///                     {
-    ///                         ".*",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             SourceKafkaClusterArn = source.Arn,
-    ///             TargetKafkaClusterArn = target.Arn,
-    ///             TargetCompressionType = "NONE",
-    ///         },
-    ///         LogDelivery = new Aws.Msk.Inputs.ReplicatorLogDeliveryArgs
-    ///         {
-    ///             LogDelivery = new Aws.Msk.Inputs.ReplicatorLogDeliveryReplicatorLogDeliveryArgs
-    ///             {
-    ///                 CloudwatchLogs = new Aws.Msk.Inputs.ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     LogGroup = testAwsCloudwatchLogGroup.Name,
-    ///                 },
-    ///                 Firehose = new Aws.Msk.Inputs.ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     DeliveryStream = testAwsKinesisFirehoseDeliveryStream.Name,
-    ///                 },
-    ///                 S3 = new Aws.Msk.Inputs.ReplicatorLogDeliveryReplicatorLogDeliveryS3Args
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Bucket = testAwsS3Bucket.Bucket,
-    ///                     Prefix = "replicator-logs",
-    ///                 },
-    ///             },
-    ///         },
+    ///         ReplicatorName = "test-name",
+    ///         ServiceExecutionRoleArn = sourceAwsIamRole.Arn,
     ///         KafkaClusters = new[]
     ///         {
     ///             new Aws.Msk.Inputs.ReplicatorKafkaClusterArgs
@@ -290,8 +244,54 @@ namespace Pulumi.Aws.Msk
     ///                 },
     ///             },
     ///         },
-    ///         ReplicatorName = "test-name",
-    ///         ServiceExecutionRoleArn = sourceAwsIamRole.Arn,
+    ///         ReplicationInfoList = new Aws.Msk.Inputs.ReplicatorReplicationInfoListArgs
+    ///         {
+    ///             SourceKafkaClusterArn = source.Arn,
+    ///             TargetKafkaClusterArn = target.Arn,
+    ///             TargetCompressionType = "NONE",
+    ///             TopicReplications = new[]
+    ///             {
+    ///                 new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationArgs
+    ///                 {
+    ///                     TopicsToReplicates = new[]
+    ///                     {
+    ///                         ".*",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ConsumerGroupReplications = new[]
+    ///             {
+    ///                 new Aws.Msk.Inputs.ReplicatorReplicationInfoListConsumerGroupReplicationArgs
+    ///                 {
+    ///                     ConsumerGroupsToReplicates = new[]
+    ///                     {
+    ///                         ".*",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         LogDelivery = new Aws.Msk.Inputs.ReplicatorLogDeliveryArgs
+    ///         {
+    ///             LogDelivery = new Aws.Msk.Inputs.ReplicatorLogDeliveryReplicatorLogDeliveryArgs
+    ///             {
+    ///                 CloudwatchLogs = new Aws.Msk.Inputs.ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     LogGroup = testAwsCloudwatchLogGroup.Name,
+    ///                 },
+    ///                 Firehose = new Aws.Msk.Inputs.ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     DeliveryStream = testAwsKinesisFirehoseDeliveryStream.Name,
+    ///                 },
+    ///                 S3 = new Aws.Msk.Inputs.ReplicatorLogDeliveryReplicatorLogDeliveryS3Args
+    ///                 {
+    ///                     Enabled = true,
+    ///                     Bucket = testAwsS3Bucket.Bucket,
+    ///                     Prefix = "replicator-logs",
+    ///                 },
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });

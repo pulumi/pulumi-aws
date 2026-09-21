@@ -26,10 +26,15 @@ namespace Pulumi.Aws.MskConnect
     /// {
     ///     var example = new Aws.MskConnect.Connector("example", new()
     ///     {
+    ///         Name = "example",
+    ///         KafkaconnectVersion = "2.7.1",
     ///         Capacity = new Aws.MskConnect.Inputs.ConnectorCapacityArgs
     ///         {
     ///             Autoscaling = new Aws.MskConnect.Inputs.ConnectorCapacityAutoscalingArgs
     ///             {
+    ///                 McuCount = 1,
+    ///                 MinWorkerCount = 1,
+    ///                 MaxWorkerCount = 2,
     ///                 ScaleInPolicy = new Aws.MskConnect.Inputs.ConnectorCapacityAutoscalingScaleInPolicyArgs
     ///                 {
     ///                     CpuUtilizationPercentage = 20,
@@ -38,15 +43,19 @@ namespace Pulumi.Aws.MskConnect
     ///                 {
     ///                     CpuUtilizationPercentage = 80,
     ///                 },
-    ///                 McuCount = 1,
-    ///                 MinWorkerCount = 1,
-    ///                 MaxWorkerCount = 2,
     ///             },
+    ///         },
+    ///         ConnectorConfiguration = 
+    ///         {
+    ///             { "connector.class", "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector" },
+    ///             { "tasks.max", "1" },
+    ///             { "topics", "example" },
     ///         },
     ///         KafkaCluster = new Aws.MskConnect.Inputs.ConnectorKafkaClusterArgs
     ///         {
     ///             ApacheKafkaCluster = new Aws.MskConnect.Inputs.ConnectorKafkaClusterApacheKafkaClusterArgs
     ///             {
+    ///                 BootstrapServers = exampleAwsMskCluster.BootstrapBrokersTls,
     ///                 Vpc = new Aws.MskConnect.Inputs.ConnectorKafkaClusterApacheKafkaClusterVpcArgs
     ///                 {
     ///                     SecurityGroups = new[]
@@ -60,7 +69,6 @@ namespace Pulumi.Aws.MskConnect
     ///                         example3.Id,
     ///                     },
     ///                 },
-    ///                 BootstrapServers = exampleAwsMskCluster.BootstrapBrokersTls,
     ///             },
     ///         },
     ///         KafkaClusterClientAuthentication = new Aws.MskConnect.Inputs.ConnectorKafkaClusterClientAuthenticationArgs
@@ -81,14 +89,6 @@ namespace Pulumi.Aws.MskConnect
     ///                     Revision = exampleAwsMskconnectCustomPlugin.LatestRevision,
     ///                 },
     ///             },
-    ///         },
-    ///         Name = "example",
-    ///         KafkaconnectVersion = "2.7.1",
-    ///         ConnectorConfiguration = 
-    ///         {
-    ///             { "connector.class", "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector" },
-    ///             { "tasks.max", "1" },
-    ///             { "topics", "example" },
     ///         },
     ///         ServiceExecutionRoleArn = exampleAwsIamRole.Arn,
     ///     });

@@ -517,16 +517,16 @@ class InvocationJob(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 input_data_config: pulumi.Input[Optional[Union['InvocationJobInputDataConfigArgs', 'InvocationJobInputDataConfigArgsDict']]] = None,
+                 input_data_config: pulumi.Input[Optional[Union['InvocationJobInputDataConfigArgs', 'InvocationJobInputDataConfigArgsDict', 'outputs.InvocationJobInputDataConfig']]] = None,
                  job_name: pulumi.Input[Optional[_builtins.str]] = None,
                  model_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 output_data_config: pulumi.Input[Optional[Union['InvocationJobOutputDataConfigArgs', 'InvocationJobOutputDataConfigArgsDict']]] = None,
+                 output_data_config: pulumi.Input[Optional[Union['InvocationJobOutputDataConfigArgs', 'InvocationJobOutputDataConfigArgsDict', 'outputs.InvocationJobOutputDataConfig']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  timeout_duration_in_hours: pulumi.Input[Optional[_builtins.int]] = None,
-                 timeouts: pulumi.Input[Optional[Union['InvocationJobTimeoutsArgs', 'InvocationJobTimeoutsArgsDict']]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['InvocationJobVpcConfigArgs', 'InvocationJobVpcConfigArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['InvocationJobTimeoutsArgs', 'InvocationJobTimeoutsArgsDict', 'outputs.InvocationJobTimeouts']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['InvocationJobVpcConfigArgs', 'InvocationJobVpcConfigArgsDict', 'outputs.InvocationJobVpcConfig']]] = None,
                  __props__=None):
         """
         Manages an Amazon Bedrock model invocation job. A model invocation job runs a foundation model, or a model accessed through an inference profile, against multiple prompts read from Amazon S3, and writes the results back to Amazon S3.
@@ -544,6 +544,9 @@ class InvocationJob(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrockmodel.InvocationJob("example",
+            job_name="example-job",
+            model_id="us.amazon.nova-2-lite-v1:0",
+            role_arn=example_aws_iam_role["arn"],
             input_data_config={
                 "s3_input_data_config": {
                     "s3_uri": f"s3://{example_aws_s3_bucket['id']}/input/",
@@ -553,10 +556,7 @@ class InvocationJob(pulumi.CustomResource):
                 "s3_output_data_config": {
                     "s3_uri": f"s3://{example_aws_s3_bucket['id']}/output/",
                 },
-            },
-            job_name="example-job",
-            model_id="us.amazon.nova-2-lite-v1:0",
-            role_arn=example_aws_iam_role["arn"])
+            })
         ```
 
         ## Import
@@ -576,17 +576,17 @@ class InvocationJob(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['InvocationJobInputDataConfigArgs', 'InvocationJobInputDataConfigArgsDict']] input_data_config: Location of the input data for the batch inference job. See `input_data_config` Block below.
+        :param pulumi.Input[Union['InvocationJobInputDataConfigArgs', 'InvocationJobInputDataConfigArgsDict', 'outputs.InvocationJobInputDataConfig']] input_data_config: Location of the input data for the batch inference job. See `input_data_config` Block below.
         :param pulumi.Input[_builtins.str] job_name: Name for the batch inference job.
         :param pulumi.Input[_builtins.str] model_id: Identifier of the foundation model, or inference profile, to use for the batch inference job.
-        :param pulumi.Input[Union['InvocationJobOutputDataConfigArgs', 'InvocationJobOutputDataConfigArgsDict']] output_data_config: Location where the results of the batch inference job are stored. See `output_data_config` Block below.
+        :param pulumi.Input[Union['InvocationJobOutputDataConfigArgs', 'InvocationJobOutputDataConfigArgsDict', 'outputs.InvocationJobOutputDataConfig']] output_data_config: Location where the results of the batch inference job are stored. See `output_data_config` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM service role that Amazon Bedrock can assume to carry out and manage the batch inference job. See [Create a service role for batch inference](https://docs.aws.amazon.com/bedrock/latest/userguide/batch-iam-sr.html).
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.bool] skip_destroy: Whether to leave the batch inference job in its current state when destroying the resource, instead of stopping it.
         :param pulumi.Input[_builtins.int] timeout_duration_in_hours: Number of hours after which to force the batch inference job to time out.
-        :param pulumi.Input[Union['InvocationJobVpcConfigArgs', 'InvocationJobVpcConfigArgsDict']] vpc_config: VPC configuration for the data used by the batch inference job. See `vpc_config` Block below.
+        :param pulumi.Input[Union['InvocationJobVpcConfigArgs', 'InvocationJobVpcConfigArgsDict', 'outputs.InvocationJobVpcConfig']] vpc_config: VPC configuration for the data used by the batch inference job. See `vpc_config` Block below.
         """
         ...
     @overload
@@ -610,6 +610,9 @@ class InvocationJob(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrockmodel.InvocationJob("example",
+            job_name="example-job",
+            model_id="us.amazon.nova-2-lite-v1:0",
+            role_arn=example_aws_iam_role["arn"],
             input_data_config={
                 "s3_input_data_config": {
                     "s3_uri": f"s3://{example_aws_s3_bucket['id']}/input/",
@@ -619,10 +622,7 @@ class InvocationJob(pulumi.CustomResource):
                 "s3_output_data_config": {
                     "s3_uri": f"s3://{example_aws_s3_bucket['id']}/output/",
                 },
-            },
-            job_name="example-job",
-            model_id="us.amazon.nova-2-lite-v1:0",
-            role_arn=example_aws_iam_role["arn"])
+            })
         ```
 
         ## Import
@@ -655,16 +655,16 @@ class InvocationJob(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 input_data_config: pulumi.Input[Optional[Union['InvocationJobInputDataConfigArgs', 'InvocationJobInputDataConfigArgsDict']]] = None,
+                 input_data_config: pulumi.Input[Optional[Union['InvocationJobInputDataConfigArgs', 'InvocationJobInputDataConfigArgsDict', 'outputs.InvocationJobInputDataConfig']]] = None,
                  job_name: pulumi.Input[Optional[_builtins.str]] = None,
                  model_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 output_data_config: pulumi.Input[Optional[Union['InvocationJobOutputDataConfigArgs', 'InvocationJobOutputDataConfigArgsDict']]] = None,
+                 output_data_config: pulumi.Input[Optional[Union['InvocationJobOutputDataConfigArgs', 'InvocationJobOutputDataConfigArgsDict', 'outputs.InvocationJobOutputDataConfig']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  timeout_duration_in_hours: pulumi.Input[Optional[_builtins.int]] = None,
-                 timeouts: pulumi.Input[Optional[Union['InvocationJobTimeoutsArgs', 'InvocationJobTimeoutsArgsDict']]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['InvocationJobVpcConfigArgs', 'InvocationJobVpcConfigArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['InvocationJobTimeoutsArgs', 'InvocationJobTimeoutsArgsDict', 'outputs.InvocationJobTimeouts']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['InvocationJobVpcConfigArgs', 'InvocationJobVpcConfigArgsDict', 'outputs.InvocationJobVpcConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -716,13 +716,13 @@ class InvocationJob(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             end_time: pulumi.Input[Optional[_builtins.str]] = None,
             error_record_count: pulumi.Input[Optional[_builtins.int]] = None,
-            input_data_config: pulumi.Input[Optional[Union['InvocationJobInputDataConfigArgs', 'InvocationJobInputDataConfigArgsDict']]] = None,
+            input_data_config: pulumi.Input[Optional[Union['InvocationJobInputDataConfigArgs', 'InvocationJobInputDataConfigArgsDict', 'outputs.InvocationJobInputDataConfig']]] = None,
             job_arn: pulumi.Input[Optional[_builtins.str]] = None,
             job_expiration_time: pulumi.Input[Optional[_builtins.str]] = None,
             job_name: pulumi.Input[Optional[_builtins.str]] = None,
             model_id: pulumi.Input[Optional[_builtins.str]] = None,
             model_invocation_type: pulumi.Input[Optional[_builtins.str]] = None,
-            output_data_config: pulumi.Input[Optional[Union['InvocationJobOutputDataConfigArgs', 'InvocationJobOutputDataConfigArgsDict']]] = None,
+            output_data_config: pulumi.Input[Optional[Union['InvocationJobOutputDataConfigArgs', 'InvocationJobOutputDataConfigArgsDict', 'outputs.InvocationJobOutputDataConfig']]] = None,
             processed_record_count: pulumi.Input[Optional[_builtins.int]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             role_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -731,9 +731,9 @@ class InvocationJob(pulumi.CustomResource):
             submit_time: pulumi.Input[Optional[_builtins.str]] = None,
             success_record_count: pulumi.Input[Optional[_builtins.int]] = None,
             timeout_duration_in_hours: pulumi.Input[Optional[_builtins.int]] = None,
-            timeouts: pulumi.Input[Optional[Union['InvocationJobTimeoutsArgs', 'InvocationJobTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['InvocationJobTimeoutsArgs', 'InvocationJobTimeoutsArgsDict', 'outputs.InvocationJobTimeouts']]] = None,
             total_record_count: pulumi.Input[Optional[_builtins.int]] = None,
-            vpc_config: pulumi.Input[Optional[Union['InvocationJobVpcConfigArgs', 'InvocationJobVpcConfigArgsDict']]] = None) -> 'InvocationJob':
+            vpc_config: pulumi.Input[Optional[Union['InvocationJobVpcConfigArgs', 'InvocationJobVpcConfigArgsDict', 'outputs.InvocationJobVpcConfig']]] = None) -> 'InvocationJob':
         """
         Get an existing InvocationJob resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -743,13 +743,13 @@ class InvocationJob(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] end_time: Time at which the batch inference job ended.
         :param pulumi.Input[_builtins.int] error_record_count: Number of records that failed to process in the batch inference job.
-        :param pulumi.Input[Union['InvocationJobInputDataConfigArgs', 'InvocationJobInputDataConfigArgsDict']] input_data_config: Location of the input data for the batch inference job. See `input_data_config` Block below.
+        :param pulumi.Input[Union['InvocationJobInputDataConfigArgs', 'InvocationJobInputDataConfigArgsDict', 'outputs.InvocationJobInputDataConfig']] input_data_config: Location of the input data for the batch inference job. See `input_data_config` Block below.
         :param pulumi.Input[_builtins.str] job_arn: ARN of the batch inference job.
         :param pulumi.Input[_builtins.str] job_expiration_time: Time at which the batch inference job times or timed out.
         :param pulumi.Input[_builtins.str] job_name: Name for the batch inference job.
         :param pulumi.Input[_builtins.str] model_id: Identifier of the foundation model, or inference profile, to use for the batch inference job.
         :param pulumi.Input[_builtins.str] model_invocation_type: Invocation endpoint used for the batch inference job.
-        :param pulumi.Input[Union['InvocationJobOutputDataConfigArgs', 'InvocationJobOutputDataConfigArgsDict']] output_data_config: Location where the results of the batch inference job are stored. See `output_data_config` Block below.
+        :param pulumi.Input[Union['InvocationJobOutputDataConfigArgs', 'InvocationJobOutputDataConfigArgsDict', 'outputs.InvocationJobOutputDataConfig']] output_data_config: Location where the results of the batch inference job are stored. See `output_data_config` Block below.
         :param pulumi.Input[_builtins.int] processed_record_count: Number of records that have been processed in the batch inference job.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM service role that Amazon Bedrock can assume to carry out and manage the batch inference job. See [Create a service role for batch inference](https://docs.aws.amazon.com/bedrock/latest/userguide/batch-iam-sr.html).
@@ -761,7 +761,7 @@ class InvocationJob(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] success_record_count: Number of records that were successfully processed in the batch inference job.
         :param pulumi.Input[_builtins.int] timeout_duration_in_hours: Number of hours after which to force the batch inference job to time out.
         :param pulumi.Input[_builtins.int] total_record_count: Total number of records in the batch inference job.
-        :param pulumi.Input[Union['InvocationJobVpcConfigArgs', 'InvocationJobVpcConfigArgsDict']] vpc_config: VPC configuration for the data used by the batch inference job. See `vpc_config` Block below.
+        :param pulumi.Input[Union['InvocationJobVpcConfigArgs', 'InvocationJobVpcConfigArgsDict', 'outputs.InvocationJobVpcConfig']] vpc_config: VPC configuration for the data used by the batch inference job. See `vpc_config` Block below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -34,6 +34,16 @@ namespace Pulumi.Aws.CloudWatch
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Sid = "DevAccountAccess",
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "events:PutEvents",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "arn:aws:events:eu-west-1:123456789012:event-bus/default",
+    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -44,16 +54,6 @@ namespace Pulumi.Aws.CloudWatch
     ///                             "123456789012",
     ///                         },
     ///                     },
-    ///                 },
-    ///                 Sid = "DevAccountAccess",
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "events:PutEvents",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     "arn:aws:events:eu-west-1:123456789012:event-bus/default",
     ///                 },
     ///             },
     ///         },
@@ -84,29 +84,6 @@ namespace Pulumi.Aws.CloudWatch
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "StringEquals",
-    ///                         Variable = "aws:PrincipalOrgID",
-    ///                         Values = new[]
-    ///                         {
-    ///                             example.Id,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "*",
-    ///                         },
-    ///                     },
-    ///                 },
     ///                 Sid = "OrganizationAccess",
     ///                 Effect = "Allow",
     ///                 Actions = new[]
@@ -120,6 +97,29 @@ namespace Pulumi.Aws.CloudWatch
     ///                 {
     ///                     "arn:aws:events:eu-west-1:123456789012:rule/*",
     ///                     "arn:aws:events:eu-west-1:123456789012:event-bus/default",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "AWS",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = "aws:PrincipalOrgID",
+    ///                         Values = new[]
+    ///                         {
+    ///                             example.Id,
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
     ///         },
@@ -150,6 +150,16 @@ namespace Pulumi.Aws.CloudWatch
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Sid = "DevAccountAccess",
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "events:PutEvents",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "arn:aws:events:eu-west-1:123456789012:event-bus/default",
+    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -161,42 +171,9 @@ namespace Pulumi.Aws.CloudWatch
     ///                         },
     ///                     },
     ///                 },
-    ///                 Sid = "DevAccountAccess",
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "events:PutEvents",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     "arn:aws:events:eu-west-1:123456789012:event-bus/default",
-    ///                 },
     ///             },
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "StringEquals",
-    ///                         Variable = "aws:PrincipalOrgID",
-    ///                         Values = new[]
-    ///                         {
-    ///                             example.Id,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "*",
-    ///                         },
-    ///                     },
-    ///                 },
     ///                 Sid = "OrganizationAccess",
     ///                 Effect = "Allow",
     ///                 Actions = new[]
@@ -210,6 +187,29 @@ namespace Pulumi.Aws.CloudWatch
     ///                 {
     ///                     "arn:aws:events:eu-west-1:123456789012:rule/*",
     ///                     "arn:aws:events:eu-west-1:123456789012:event-bus/default",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "AWS",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = "aws:PrincipalOrgID",
+    ///                         Values = new[]
+    ///                         {
+    ///                             example.Id,
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
     ///         },

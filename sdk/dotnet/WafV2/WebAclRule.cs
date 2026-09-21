@@ -34,6 +34,8 @@ namespace Pulumi.Aws.WafV2
     /// {
     ///     var example = new Aws.WafV2.WebAcl("example", new()
     ///     {
+    ///         Name = "example",
+    ///         Scope = "REGIONAL",
     ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
     ///         {
     ///             Allow = null,
@@ -44,19 +46,14 @@ namespace Pulumi.Aws.WafV2
     ///             MetricName = "example",
     ///             SampledRequestsEnabled = false,
     ///         },
-    ///         Name = "example",
-    ///         Scope = "REGIONAL",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         IgnoreChanges =
-    ///         {
-    ///             "rules",
-    ///         },
     ///     });
     /// 
     ///     // Separate rule resource with identical configuration
     ///     var blockCountries = new Aws.WafV2.WebAclRule("block_countries", new()
     ///     {
+    ///         Name = "block-countries",
+    ///         Priority = 1,
+    ///         WebAclArn = example.Arn,
     ///         Action = new Aws.WafV2.Inputs.WebAclRuleActionArgs
     ///         {
     ///             Block = null,
@@ -78,9 +75,6 @@ namespace Pulumi.Aws.WafV2
     ///             MetricName = "block-countries",
     ///             SampledRequestsEnabled = false,
     ///         },
-    ///         Name = "block-countries",
-    ///         Priority = 1,
-    ///         WebAclArn = example.Arn,
     ///     });
     /// 
     /// });
@@ -106,6 +100,8 @@ namespace Pulumi.Aws.WafV2
     /// {
     ///     var example = new Aws.WafV2.WebAcl("example", new()
     ///     {
+    ///         Name = "example",
+    ///         Scope = "REGIONAL",
     ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
     ///         {
     ///             Allow = null,
@@ -116,18 +112,13 @@ namespace Pulumi.Aws.WafV2
     ///             MetricName = "example",
     ///             SampledRequestsEnabled = false,
     ///         },
-    ///         Name = "example",
-    ///         Scope = "REGIONAL",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         IgnoreChanges =
-    ///         {
-    ///             "rules",
-    ///         },
     ///     });
     /// 
     ///     var blockCountries = new Aws.WafV2.WebAclRule("block_countries", new()
     ///     {
+    ///         Name = "block-countries",
+    ///         Priority = 1,
+    ///         WebAclArn = example.Arn,
     ///         Action = new Aws.WafV2.Inputs.WebAclRuleActionArgs
     ///         {
     ///             Block = null,
@@ -149,9 +140,6 @@ namespace Pulumi.Aws.WafV2
     ///             MetricName = "block-countries",
     ///             SampledRequestsEnabled = false,
     ///         },
-    ///         Name = "block-countries",
-    ///         Priority = 1,
-    ///         WebAclArn = example.Arn,
     ///     });
     /// 
     /// });
@@ -183,6 +171,8 @@ namespace Pulumi.Aws.WafV2
     /// 
     ///     var example = new Aws.WafV2.WebAcl("example", new()
     ///     {
+    ///         Name = "example",
+    ///         Scope = "REGIONAL",
     ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
     ///         {
     ///             Allow = null,
@@ -193,18 +183,13 @@ namespace Pulumi.Aws.WafV2
     ///             MetricName = "example",
     ///             SampledRequestsEnabled = true,
     ///         },
-    ///         Name = "example",
-    ///         Scope = "REGIONAL",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         IgnoreChanges =
-    ///         {
-    ///             "rules",
-    ///         },
     ///     });
     /// 
     ///     var blockIps = new Aws.WafV2.WebAclRule("block_ips", new()
     ///     {
+    ///         Name = "block-bad-ips",
+    ///         Priority = 1,
+    ///         WebAclArn = example.Arn,
     ///         Action = new Aws.WafV2.Inputs.WebAclRuleActionArgs
     ///         {
     ///             Block = null,
@@ -222,9 +207,6 @@ namespace Pulumi.Aws.WafV2
     ///             MetricName = "block-bad-ips",
     ///             SampledRequestsEnabled = true,
     ///         },
-    ///         Name = "block-bad-ips",
-    ///         Priority = 1,
-    ///         WebAclArn = example.Arn,
     ///     });
     /// 
     /// });
@@ -242,6 +224,9 @@ namespace Pulumi.Aws.WafV2
     /// {
     ///     var rateLimit = new Aws.WafV2.WebAclRule("rate_limit", new()
     ///     {
+    ///         Name = "rate-limit",
+    ///         Priority = 2,
+    ///         WebAclArn = example.Arn,
     ///         Action = new Aws.WafV2.Inputs.WebAclRuleActionArgs
     ///         {
     ///             Block = null,
@@ -260,9 +245,6 @@ namespace Pulumi.Aws.WafV2
     ///             MetricName = "rate-limit",
     ///             SampledRequestsEnabled = true,
     ///         },
-    ///         Name = "rate-limit",
-    ///         Priority = 2,
-    ///         WebAclArn = example.Arn,
     ///     });
     /// 
     /// });
@@ -280,6 +262,9 @@ namespace Pulumi.Aws.WafV2
     /// {
     ///     var awsManagedRules = new Aws.WafV2.WebAclRule("aws_managed_rules", new()
     ///     {
+    ///         Name = "aws-managed-rules",
+    ///         Priority = 3,
+    ///         WebAclArn = example.Arn,
     ///         OverrideAction = new Aws.WafV2.Inputs.WebAclRuleOverrideActionArgs
     ///         {
     ///             None = null,
@@ -298,9 +283,6 @@ namespace Pulumi.Aws.WafV2
     ///             MetricName = "aws-managed-rules",
     ///             SampledRequestsEnabled = true,
     ///         },
-    ///         Name = "aws-managed-rules",
-    ///         Priority = 3,
-    ///         WebAclArn = example.Arn,
     ///     });
     /// 
     /// });
@@ -318,6 +300,9 @@ namespace Pulumi.Aws.WafV2
     /// {
     ///     var captchaWithHeaders = new Aws.WafV2.WebAclRule("captcha_with_headers", new()
     ///     {
+    ///         Name = "captcha-with-headers",
+    ///         Priority = 4,
+    ///         WebAclArn = example.Arn,
     ///         Action = new Aws.WafV2.Inputs.WebAclRuleActionArgs
     ///         {
     ///             Captcha = new Aws.WafV2.Inputs.WebAclRuleActionCaptchaArgs
@@ -351,9 +336,6 @@ namespace Pulumi.Aws.WafV2
     ///             MetricName = "captcha-with-headers",
     ///             SampledRequestsEnabled = true,
     ///         },
-    ///         Name = "captcha-with-headers",
-    ///         Priority = 4,
-    ///         WebAclArn = example.Arn,
     ///     });
     /// 
     /// });
@@ -371,6 +353,9 @@ namespace Pulumi.Aws.WafV2
     /// {
     ///     var blockedIps = new Aws.WafV2.WebAclRule("blocked_ips", new()
     ///     {
+    ///         Name = "blocked-ips",
+    ///         Priority = 1,
+    ///         WebAclArn = example.Arn,
     ///         Action = new Aws.WafV2.Inputs.WebAclRuleActionArgs
     ///         {
     ///             Block = null,
@@ -388,9 +373,6 @@ namespace Pulumi.Aws.WafV2
     ///             MetricName = "block-bad-ips",
     ///             SampledRequestsEnabled = true,
     ///         },
-    ///         Name = "blocked-ips",
-    ///         Priority = 1,
-    ///         WebAclArn = example.Arn,
     ///     });
     /// 
     /// });
@@ -417,6 +399,9 @@ namespace Pulumi.Aws.WafV2
     /// {
     ///     var blockSuspicious = new Aws.WafV2.WebAclRule("block_suspicious", new()
     ///     {
+    ///         Name = "block-suspicious",
+    ///         Priority = 1,
+    ///         WebAclArn = example.Arn,
     ///         Action = new Aws.WafV2.Inputs.WebAclRuleActionArgs
     ///         {
     ///             Block = null,
@@ -441,6 +426,8 @@ namespace Pulumi.Aws.WafV2
     ///                     {
     ///                         ByteMatchStatement = new Aws.WafV2.Inputs.WebAclRuleStatementByteMatchStatementArgs
     ///                         {
+    ///                             SearchString = "admin",
+    ///                             PositionalConstraint = "CONTAINS",
     ///                             FieldToMatch = new Aws.WafV2.Inputs.WebAclRuleStatementByteMatchStatementFieldToMatchArgs
     ///                             {
     ///                                 UriPath = null,
@@ -453,8 +440,6 @@ namespace Pulumi.Aws.WafV2
     ///                                     Type = "LOWERCASE",
     ///                                 },
     ///                             },
-    ///                             SearchString = "admin",
-    ///                             PositionalConstraint = "CONTAINS",
     ///                         },
     ///                     },
     ///                 },
@@ -466,9 +451,6 @@ namespace Pulumi.Aws.WafV2
     ///             MetricName = "block-suspicious",
     ///             SampledRequestsEnabled = true,
     ///         },
-    ///         Name = "block-suspicious",
-    ///         Priority = 1,
-    ///         WebAclArn = example.Arn,
     ///     });
     /// 
     /// });
@@ -488,6 +470,9 @@ namespace Pulumi.Aws.WafV2
     /// {
     ///     var blockCountries = new Aws.WafV2.WebAclRule("block_countries", new()
     ///     {
+    ///         Name = "block-countries",
+    ///         Priority = 2,
+    ///         WebAclArn = example.Arn,
     ///         Action = new Aws.WafV2.Inputs.WebAclRuleActionArgs
     ///         {
     ///             Block = null,
@@ -527,9 +512,6 @@ namespace Pulumi.Aws.WafV2
     ///             MetricName = "block-countries",
     ///             SampledRequestsEnabled = true,
     ///         },
-    ///         Name = "block-countries",
-    ///         Priority = 2,
-    ///         WebAclArn = example.Arn,
     ///     });
     /// 
     /// });
@@ -549,6 +531,9 @@ namespace Pulumi.Aws.WafV2
     /// {
     ///     var allowOnlyUs = new Aws.WafV2.WebAclRule("allow_only_us", new()
     ///     {
+    ///         Name = "allow-only-us",
+    ///         Priority = 3,
+    ///         WebAclArn = example.Arn,
     ///         Action = new Aws.WafV2.Inputs.WebAclRuleActionArgs
     ///         {
     ///             Block = null,
@@ -576,9 +561,6 @@ namespace Pulumi.Aws.WafV2
     ///             MetricName = "allow-only-us",
     ///             SampledRequestsEnabled = true,
     ///         },
-    ///         Name = "allow-only-us",
-    ///         Priority = 3,
-    ///         WebAclArn = example.Arn,
     ///     });
     /// 
     /// });

@@ -30,16 +30,11 @@ namespace Pulumi.Aws.Comprehend
     /// 
     ///     var example = new Aws.Comprehend.EntityRecognizer("example", new()
     ///     {
+    ///         Name = "example",
+    ///         DataAccessRoleArn = exampleAwsIamRole.Arn,
+    ///         LanguageCode = "en",
     ///         InputDataConfig = new Aws.Comprehend.Inputs.EntityRecognizerInputDataConfigArgs
     ///         {
-    ///             Documents = new Aws.Comprehend.Inputs.EntityRecognizerInputDataConfigDocumentsArgs
-    ///             {
-    ///                 S3Uri = documents.Key.Apply(key =&gt; $"s3://{documentsAwsS3Bucket.Bucket}/{key}"),
-    ///             },
-    ///             EntityList = new Aws.Comprehend.Inputs.EntityRecognizerInputDataConfigEntityListArgs
-    ///             {
-    ///                 S3Uri = entities.Key.Apply(key =&gt; $"s3://{entitiesAwsS3Bucket.Bucket}/{key}"),
-    ///             },
     ///             EntityTypes = new[]
     ///             {
     ///                 new Aws.Comprehend.Inputs.EntityRecognizerInputDataConfigEntityTypeArgs
@@ -51,10 +46,15 @@ namespace Pulumi.Aws.Comprehend
     ///                     Type = "ENTITY_2",
     ///                 },
     ///             },
+    ///             Documents = new Aws.Comprehend.Inputs.EntityRecognizerInputDataConfigDocumentsArgs
+    ///             {
+    ///                 S3Uri = documents.Key.Apply(key =&gt; $"s3://{documentsAwsS3Bucket.Bucket}/{key}"),
+    ///             },
+    ///             EntityList = new Aws.Comprehend.Inputs.EntityRecognizerInputDataConfigEntityListArgs
+    ///             {
+    ///                 S3Uri = entities.Key.Apply(key =&gt; $"s3://{entitiesAwsS3Bucket.Bucket}/{key}"),
+    ///             },
     ///         },
-    ///         Name = "example",
-    ///         DataAccessRoleArn = exampleAwsIamRole.Arn,
-    ///         LanguageCode = "en",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

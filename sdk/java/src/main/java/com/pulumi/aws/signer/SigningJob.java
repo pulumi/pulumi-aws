@@ -58,6 +58,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var buildSigningJob = new SigningJob("buildSigningJob", SigningJobArgs.builder()
+ *             .profileName(testSp.name())
  *             .source(SigningJobSourceArgs.builder()
  *                 .s3(SigningJobSourceS3Args.builder()
  *                     .bucket("s3-bucket-name")
@@ -71,7 +72,6 @@ import javax.annotation.Nullable;
  *                     .prefix("signed/")
  *                     .build())
  *                 .build())
- *             .profileName(testSp.name())
  *             .ignoreSigningJobFailure(true)
  *             .build());
  * 

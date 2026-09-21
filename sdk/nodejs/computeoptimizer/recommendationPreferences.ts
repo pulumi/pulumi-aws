@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.computeoptimizer.RecommendationPreferences("example", {
+ *     resourceType: "Ec2Instance",
  *     scope: {
  *         name: "AccountId",
  *         value: "123456789012",
  *     },
- *     resourceType: "Ec2Instance",
  *     lookBackPeriod: "DAYS_32",
  * });
  * ```
@@ -35,10 +35,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.computeoptimizer.RecommendationPreferences("example", {
+ *     resourceType: "Ec2Instance",
  *     scope: {
  *         name: "AccountId",
  *         value: "123456789012",
  *     },
+ *     enhancedInfrastructureMetrics: "Active",
  *     externalMetricsPreference: {
  *         source: "Datadog",
  *     },
@@ -49,8 +51,6 @@ import * as utilities from "../utilities";
  *         ],
  *         name: "Ec2InstanceTypes",
  *     }],
- *     resourceType: "Ec2Instance",
- *     enhancedInfrastructureMetrics: "Active",
  * });
  * ```
  *

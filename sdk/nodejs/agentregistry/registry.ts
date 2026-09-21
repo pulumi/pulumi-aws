@@ -21,10 +21,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.agentregistry.Registry("example", {
+ *     name: "example-registry",
  *     discoveryConfiguration: {
  *         authorizerType: "AWS_IAM",
  *     },
- *     name: "example-registry",
  * });
  * ```
  *
@@ -35,11 +35,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.agentregistry.Registry("example", {
+ *     name: "example-registry",
+ *     description: "Example agent registry",
  *     discoveryConfiguration: {
  *         authorizerType: "AWS_IAM",
  *     },
- *     name: "example-registry",
- *     description: "Example agent registry",
  * });
  * ```
  *
@@ -50,13 +50,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.agentregistry.Registry("example", {
+ *     name: "example-registry",
  *     approvalConfiguration: {
  *         autoApprovalRules: ["APPROVE_ALL"],
  *     },
  *     discoveryConfiguration: {
  *         authorizerType: "AWS_IAM",
  *     },
- *     name: "example-registry",
  * });
  * ```
  *
@@ -67,19 +67,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.agentregistry.Registry("example", {
+ *     name: "example-registry",
  *     discoveryConfiguration: {
+ *         authorizerType: "CUSTOM_JWT",
  *         authorizerConfiguration: {
  *             customJwtAuthorizer: {
- *                 customClaims: [{
- *                     authorizingClaimMatchValue: {
- *                         claimMatchValue: {
- *                             matchValueString: "authorized-user",
- *                         },
- *                         claimMatchOperator: "EQUALS",
- *                     },
- *                     inboundTokenClaimName: "sub",
- *                     inboundTokenClaimValueType: "STRING",
- *                 }],
  *                 discoveryUrl: "https://example.com/.well-known/openid-configuration",
  *                 allowedAudiences: ["https://api.example.com"],
  *                 allowedClients: ["client-id-1"],
@@ -87,11 +79,19 @@ import * as utilities from "../utilities";
  *                     "read",
  *                     "write",
  *                 ],
+ *                 customClaims: [{
+ *                     inboundTokenClaimName: "sub",
+ *                     inboundTokenClaimValueType: "STRING",
+ *                     authorizingClaimMatchValue: {
+ *                         claimMatchOperator: "EQUALS",
+ *                         claimMatchValue: {
+ *                             matchValueString: "authorized-user",
+ *                         },
+ *                     },
+ *                 }],
  *             },
  *         },
- *         authorizerType: "CUSTOM_JWT",
  *     },
- *     name: "example-registry",
  * });
  * ```
  *

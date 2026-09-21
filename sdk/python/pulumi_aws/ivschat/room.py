@@ -321,7 +321,7 @@ class Room(pulumi.CustomResource):
                  logging_configuration_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  maximum_message_length: pulumi.Input[Optional[_builtins.int]] = None,
                  maximum_message_rate_per_second: pulumi.Input[Optional[_builtins.int]] = None,
-                 message_review_handler: pulumi.Input[Optional[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict']]] = None,
+                 message_review_handler: pulumi.Input[Optional[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict', 'outputs.RoomMessageReviewHandler']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -360,7 +360,7 @@ class Room(pulumi.CustomResource):
                specifically to rune/code-point count, not number of bytes.
         :param pulumi.Input[_builtins.int] maximum_message_rate_per_second: Maximum number of messages per
                second that can be sent to the room (by all clients).
-        :param pulumi.Input[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict']] message_review_handler: Configuration information for optional
+        :param pulumi.Input[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict', 'outputs.RoomMessageReviewHandler']] message_review_handler: Configuration information for optional
                review of messages.
         :param pulumi.Input[_builtins.str] name: Room name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -415,7 +415,7 @@ class Room(pulumi.CustomResource):
                  logging_configuration_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  maximum_message_length: pulumi.Input[Optional[_builtins.int]] = None,
                  maximum_message_rate_per_second: pulumi.Input[Optional[_builtins.int]] = None,
-                 message_review_handler: pulumi.Input[Optional[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict']]] = None,
+                 message_review_handler: pulumi.Input[Optional[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict', 'outputs.RoomMessageReviewHandler']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -451,7 +451,7 @@ class Room(pulumi.CustomResource):
             logging_configuration_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             maximum_message_length: pulumi.Input[Optional[_builtins.int]] = None,
             maximum_message_rate_per_second: pulumi.Input[Optional[_builtins.int]] = None,
-            message_review_handler: pulumi.Input[Optional[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict']]] = None,
+            message_review_handler: pulumi.Input[Optional[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict', 'outputs.RoomMessageReviewHandler']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -471,7 +471,7 @@ class Room(pulumi.CustomResource):
                specifically to rune/code-point count, not number of bytes.
         :param pulumi.Input[_builtins.int] maximum_message_rate_per_second: Maximum number of messages per
                second that can be sent to the room (by all clients).
-        :param pulumi.Input[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict']] message_review_handler: Configuration information for optional
+        :param pulumi.Input[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict', 'outputs.RoomMessageReviewHandler']] message_review_handler: Configuration information for optional
                review of messages.
         :param pulumi.Input[_builtins.str] name: Room name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

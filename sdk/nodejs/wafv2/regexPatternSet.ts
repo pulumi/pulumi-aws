@@ -17,6 +17,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.wafv2.RegexPatternSet("example", {
+ *     name: "example",
+ *     description: "Example regex pattern set",
+ *     scope: "REGIONAL",
  *     regularExpressions: [
  *         {
  *             regexString: "one",
@@ -25,9 +28,6 @@ import * as utilities from "../utilities";
  *             regexString: "two",
  *         },
  *     ],
- *     name: "example",
- *     description: "Example regex pattern set",
- *     scope: "REGIONAL",
  *     tags: {
  *         Tag1: "Value1",
  *         Tag2: "Value2",

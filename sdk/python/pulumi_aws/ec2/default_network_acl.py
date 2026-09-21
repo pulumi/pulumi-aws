@@ -306,8 +306,8 @@ class DefaultNetworkAcl(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_network_acl_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 egress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultNetworkAclEgressArgs', 'DefaultNetworkAclEgressArgsDict']]]]] = None,
-                 ingress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultNetworkAclIngressArgs', 'DefaultNetworkAclIngressArgsDict']]]]] = None,
+                 egress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultNetworkAclEgressArgs', 'DefaultNetworkAclEgressArgsDict', 'outputs.DefaultNetworkAclEgress']]]]] = None,
+                 ingress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultNetworkAclIngressArgs', 'DefaultNetworkAclIngressArgsDict', 'outputs.DefaultNetworkAclIngress']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -335,14 +335,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
         mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
         default = aws.ec2.DefaultNetworkAcl("default",
-            egress=[{
-                "protocol": "-1",
-                "rule_no": 100,
-                "action": "allow",
-                "cidr_block": "0.0.0.0/0",
-                "from_port": 0,
-                "to_port": 0,
-            }],
+            default_network_acl_id=mainvpc.default_network_acl_id,
             ingress=[{
                 "protocol": "-1",
                 "rule_no": 100,
@@ -351,7 +344,14 @@ class DefaultNetworkAcl(pulumi.CustomResource):
                 "from_port": 0,
                 "to_port": 0,
             }],
-            default_network_acl_id=mainvpc.default_network_acl_id)
+            egress=[{
+                "protocol": "-1",
+                "rule_no": 100,
+                "action": "allow",
+                "cidr_block": "0.0.0.0/0",
+                "from_port": 0,
+                "to_port": 0,
+            }])
         ```
 
         ### Example: Deny All Egress Traffic, Allow Ingress
@@ -364,6 +364,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
         mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
         default = aws.ec2.DefaultNetworkAcl("default",
+            default_network_acl_id=mainvpc.default_network_acl_id,
             ingress=[{
                 "protocol": "-1",
                 "rule_no": 100,
@@ -371,8 +372,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
                 "cidr_block": mainvpc_aws_default_vpc["cidrBlock"],
                 "from_port": 0,
                 "to_port": 0,
-            }],
-            default_network_acl_id=mainvpc.default_network_acl_id)
+            }])
         ```
 
         ### Example: Deny All Traffic To Any Subnet In The Default Network ACL
@@ -401,7 +401,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.ec2.DefaultNetworkAcl("default", opts = pulumi.ResourceOptions(ignore_changes=["subnetIds"]))
+        default = aws.ec2.DefaultNetworkAcl("default")
         ```
 
         ### Removing `ec2.DefaultNetworkAcl` From Your Configuration
@@ -422,8 +422,8 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] default_network_acl_id: Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultNetworkAclEgressArgs', 'DefaultNetworkAclEgressArgsDict']]]] egress: Configuration block for an egress rule. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultNetworkAclIngressArgs', 'DefaultNetworkAclIngressArgsDict']]]] ingress: Configuration block for an ingress rule. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultNetworkAclEgressArgs', 'DefaultNetworkAclEgressArgsDict', 'outputs.DefaultNetworkAclEgress']]]] egress: Configuration block for an egress rule. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultNetworkAclIngressArgs', 'DefaultNetworkAclIngressArgsDict', 'outputs.DefaultNetworkAclIngress']]]] ingress: Configuration block for an ingress rule. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -457,14 +457,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
         mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
         default = aws.ec2.DefaultNetworkAcl("default",
-            egress=[{
-                "protocol": "-1",
-                "rule_no": 100,
-                "action": "allow",
-                "cidr_block": "0.0.0.0/0",
-                "from_port": 0,
-                "to_port": 0,
-            }],
+            default_network_acl_id=mainvpc.default_network_acl_id,
             ingress=[{
                 "protocol": "-1",
                 "rule_no": 100,
@@ -473,7 +466,14 @@ class DefaultNetworkAcl(pulumi.CustomResource):
                 "from_port": 0,
                 "to_port": 0,
             }],
-            default_network_acl_id=mainvpc.default_network_acl_id)
+            egress=[{
+                "protocol": "-1",
+                "rule_no": 100,
+                "action": "allow",
+                "cidr_block": "0.0.0.0/0",
+                "from_port": 0,
+                "to_port": 0,
+            }])
         ```
 
         ### Example: Deny All Egress Traffic, Allow Ingress
@@ -486,6 +486,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
         mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
         default = aws.ec2.DefaultNetworkAcl("default",
+            default_network_acl_id=mainvpc.default_network_acl_id,
             ingress=[{
                 "protocol": "-1",
                 "rule_no": 100,
@@ -493,8 +494,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
                 "cidr_block": mainvpc_aws_default_vpc["cidrBlock"],
                 "from_port": 0,
                 "to_port": 0,
-            }],
-            default_network_acl_id=mainvpc.default_network_acl_id)
+            }])
         ```
 
         ### Example: Deny All Traffic To Any Subnet In The Default Network ACL
@@ -523,7 +523,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.ec2.DefaultNetworkAcl("default", opts = pulumi.ResourceOptions(ignore_changes=["subnetIds"]))
+        default = aws.ec2.DefaultNetworkAcl("default")
         ```
 
         ### Removing `ec2.DefaultNetworkAcl` From Your Configuration
@@ -555,8 +555,8 @@ class DefaultNetworkAcl(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_network_acl_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 egress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultNetworkAclEgressArgs', 'DefaultNetworkAclEgressArgsDict']]]]] = None,
-                 ingress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultNetworkAclIngressArgs', 'DefaultNetworkAclIngressArgsDict']]]]] = None,
+                 egress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultNetworkAclEgressArgs', 'DefaultNetworkAclEgressArgsDict', 'outputs.DefaultNetworkAclEgress']]]]] = None,
+                 ingress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultNetworkAclIngressArgs', 'DefaultNetworkAclIngressArgsDict', 'outputs.DefaultNetworkAclIngress']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -593,8 +593,8 @@ class DefaultNetworkAcl(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             default_network_acl_id: pulumi.Input[Optional[_builtins.str]] = None,
-            egress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultNetworkAclEgressArgs', 'DefaultNetworkAclEgressArgsDict']]]]] = None,
-            ingress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultNetworkAclIngressArgs', 'DefaultNetworkAclIngressArgsDict']]]]] = None,
+            egress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultNetworkAclEgressArgs', 'DefaultNetworkAclEgressArgsDict', 'outputs.DefaultNetworkAclEgress']]]]] = None,
+            ingress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultNetworkAclIngressArgs', 'DefaultNetworkAclIngressArgsDict', 'outputs.DefaultNetworkAclIngress']]]]] = None,
             owner_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -612,8 +612,8 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] default_network_acl_id: Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultNetworkAclEgressArgs', 'DefaultNetworkAclEgressArgsDict']]]] egress: Configuration block for an egress rule. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultNetworkAclIngressArgs', 'DefaultNetworkAclIngressArgsDict']]]] ingress: Configuration block for an ingress rule. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultNetworkAclEgressArgs', 'DefaultNetworkAclEgressArgsDict', 'outputs.DefaultNetworkAclEgress']]]] egress: Configuration block for an egress rule. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultNetworkAclIngressArgs', 'DefaultNetworkAclIngressArgsDict', 'outputs.DefaultNetworkAclIngress']]]] ingress: Configuration block for an ingress rule. Detailed below.
         :param pulumi.Input[_builtins.str] owner_id: ID of the AWS account that owns the Default Network ACL
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL

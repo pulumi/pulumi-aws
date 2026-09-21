@@ -19,21 +19,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.codedeploy.DeploymentConfig("foo", {
+ *     deploymentConfigName: "test-deployment-config",
  *     minimumHealthyHosts: {
  *         type: "HOST_COUNT",
  *         value: 2,
  *     },
- *     deploymentConfigName: "test-deployment-config",
  * });
  * const fooDeploymentGroup = new aws.codedeploy.DeploymentGroup("foo", {
- *     autoRollbackConfiguration: {
- *         enabled: true,
- *         events: ["DEPLOYMENT_FAILURE"],
- *     },
- *     alarmConfiguration: {
- *         alarms: ["my-alarm-name"],
- *         enabled: true,
- *     },
+ *     appName: fooApp.name,
+ *     deploymentGroupName: "bar",
+ *     serviceRoleArn: fooRole.arn,
+ *     deploymentConfigName: foo.id,
  *     ec2TagFilters: [{
  *         key: "filterkey",
  *         type: "KEY_AND_VALUE",
@@ -44,10 +40,14 @@ import * as utilities from "../utilities";
  *         triggerName: "foo-trigger",
  *         triggerTargetArn: "foo-topic-arn",
  *     }],
- *     appName: fooApp.name,
- *     deploymentGroupName: "bar",
- *     serviceRoleArn: fooRole.arn,
- *     deploymentConfigName: foo.id,
+ *     autoRollbackConfiguration: {
+ *         enabled: true,
+ *         events: ["DEPLOYMENT_FAILURE"],
+ *     },
+ *     alarmConfiguration: {
+ *         alarms: ["my-alarm-name"],
+ *         enabled: true,
+ *     },
  * });
  * ```
  *
@@ -58,17 +58,21 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.codedeploy.DeploymentConfig("foo", {
+ *     deploymentConfigName: "test-deployment-config",
+ *     computePlatform: "Lambda",
  *     trafficRoutingConfig: {
+ *         type: "TimeBasedLinear",
  *         timeBasedLinear: {
  *             interval: 10,
  *             percentage: 10,
  *         },
- *         type: "TimeBasedLinear",
  *     },
- *     deploymentConfigName: "test-deployment-config",
- *     computePlatform: "Lambda",
  * });
  * const fooDeploymentGroup = new aws.codedeploy.DeploymentGroup("foo", {
+ *     appName: fooApp.name,
+ *     deploymentGroupName: "bar",
+ *     serviceRoleArn: fooRole.arn,
+ *     deploymentConfigName: foo.id,
  *     autoRollbackConfiguration: {
  *         enabled: true,
  *         events: ["DEPLOYMENT_STOP_ON_ALARM"],
@@ -77,10 +81,6 @@ import * as utilities from "../utilities";
  *         alarms: ["my-alarm-name"],
  *         enabled: true,
  *     },
- *     appName: fooApp.name,
- *     deploymentGroupName: "bar",
- *     serviceRoleArn: fooRole.arn,
- *     deploymentConfigName: foo.id,
  * });
  * ```
  *

@@ -41,9 +41,7 @@ import (
 //			_, err = ec2.NewVpcIpamPoolCidrAllocation(ctx, "test", &ec2.VpcIpamPoolCidrAllocationArgs{
 //				IpamPoolId: pulumi.Any(testAwsVpcIpamPool.Id),
 //				Cidr:       pulumi.String(test.Cidr),
-//			}, pulumi.IgnoreChanges([]string{
-//				"cidr",
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

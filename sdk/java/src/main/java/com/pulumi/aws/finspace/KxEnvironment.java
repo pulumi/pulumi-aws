@@ -104,6 +104,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEnv = new KxEnvironment("exampleEnv", KxEnvironmentArgs.builder()
+ *             .name("my-tf-kx-environment")
+ *             .description("Environment description")
+ *             .kmsKeyId(example.arn())
  *             .transitGatewayConfiguration(KxEnvironmentTransitGatewayConfigurationArgs.builder()
  *                 .transitGatewayId(exampleTransitGateway.id())
  *                 .routableCidrSpace("100.64.0.0/26")
@@ -112,9 +115,6 @@ import javax.annotation.Nullable;
  *                 .customDnsServerName("example.finspace.amazonaws.com")
  *                 .customDnsServerIp("10.0.0.76")
  *                 .build())
- *             .name("my-tf-kx-environment")
- *             .description("Environment description")
- *             .kmsKeyId(example.arn())
  *             .build());
  * 
  *     }
@@ -165,8 +165,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEnv = new KxEnvironment("exampleEnv", KxEnvironmentArgs.builder()
+ *             .name("my-tf-kx-environment")
+ *             .description("Environment description")
+ *             .kmsKeyId(example.arn())
  *             .transitGatewayConfiguration(KxEnvironmentTransitGatewayConfigurationArgs.builder()
+ *                 .transitGatewayId(exampleTransitGateway.id())
+ *                 .routableCidrSpace("100.64.0.0/26")
  *                 .attachmentNetworkAclConfigurations(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs.builder()
+ *                     .ruleNumber(1)
+ *                     .protocol("6")
+ *                     .ruleAction("allow")
+ *                     .cidrBlock("0.0.0.0/0")
  *                     .portRange(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs.builder()
  *                         .from(53)
  *                         .to(53)
@@ -175,21 +184,12 @@ import javax.annotation.Nullable;
  *                         .type(-1)
  *                         .code(-1)
  *                         .build())
- *                     .ruleNumber(1)
- *                     .protocol("6")
- *                     .ruleAction("allow")
- *                     .cidrBlock("0.0.0.0/0")
  *                     .build())
- *                 .transitGatewayId(exampleTransitGateway.id())
- *                 .routableCidrSpace("100.64.0.0/26")
  *                 .build())
  *             .customDnsConfigurations(KxEnvironmentCustomDnsConfigurationArgs.builder()
  *                 .customDnsServerName("example.finspace.amazonaws.com")
  *                 .customDnsServerIp("10.0.0.76")
  *                 .build())
- *             .name("my-tf-kx-environment")
- *             .description("Environment description")
- *             .kmsKeyId(example.arn())
  *             .build());
  * 
  *     }

@@ -52,14 +52,6 @@ import (
 //			bucketPol := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("Service"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("guardduty.amazonaws.com"),
-//								},
-//							},
-//						},
 //						Sid: pulumi.String("Allow PutObject"),
 //						Actions: pulumi.StringArray{
 //							pulumi.String("s3:PutObject"),
@@ -69,8 +61,6 @@ import (
 //								return fmt.Sprintf("%v/*", arn), nil
 //							}).(pulumi.StringOutput),
 //						},
-//					},
-//					&iam.GetPolicyDocumentStatementArgs{
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("Service"),
@@ -79,6 +69,8 @@ import (
 //								},
 //							},
 //						},
+//					},
+//					&iam.GetPolicyDocumentStatementArgs{
 //						Sid: pulumi.String("Allow GetBucketLocation"),
 //						Actions: pulumi.StringArray{
 //							pulumi.String("s3:GetBucketLocation"),
@@ -86,12 +78,27 @@ import (
 //						Resources: pulumi.StringArray{
 //							gdBucket.Arn,
 //						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("Service"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("guardduty.amazonaws.com"),
+//								},
+//							},
+//						},
 //					},
 //				},
 //			}, nil)
 //			kmsPol, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
+//						Sid: pulumi.StringRef("Allow GuardDuty to encrypt findings"),
+//						Actions: []string{
+//							"kms:GenerateDataKey",
+//						},
+//						Resources: []string{
+//							fmt.Sprintf("arn:aws:kms:%v:%v:key/*", currentGetRegion.Region, current.AccountId),
+//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -100,15 +107,15 @@ import (
 //								},
 //							},
 //						},
-//						Sid: pulumi.StringRef("Allow GuardDuty to encrypt findings"),
+//					},
+//					{
+//						Sid: pulumi.StringRef("Allow all users to modify/delete key (test only)"),
 //						Actions: []string{
-//							"kms:GenerateDataKey",
+//							"kms:*",
 //						},
 //						Resources: []string{
 //							fmt.Sprintf("arn:aws:kms:%v:%v:key/*", currentGetRegion.Region, current.AccountId),
 //						},
-//					},
-//					{
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "AWS",
@@ -116,13 +123,6 @@ import (
 //									fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
 //								},
 //							},
-//						},
-//						Sid: pulumi.StringRef("Allow all users to modify/delete key (test only)"),
-//						Actions: []string{
-//							"kms:*",
-//						},
-//						Resources: []string{
-//							fmt.Sprintf("arn:aws:kms:%v:%v:key/*", currentGetRegion.Region, current.AccountId),
 //						},
 //					},
 //				},

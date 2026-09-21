@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudsearch.Domain("example", {
+ *     name: "example-domain",
  *     scalingParameters: {
  *         desiredInstanceType: "search.medium",
  *     },
@@ -42,7 +43,6 @@ import * as utilities from "../utilities";
  *             sourceFields: "headline",
  *         },
  *     ],
- *     name: "example-domain",
  * });
  * ```
  *

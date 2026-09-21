@@ -347,7 +347,7 @@ class GatewayRoute(pulumi.CustomResource):
                  mesh_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 spec: pulumi.Input[Optional[Union['GatewayRouteSpecArgs', 'GatewayRouteSpecArgsDict']]] = None,
+                 spec: pulumi.Input[Optional[Union['GatewayRouteSpecArgs', 'GatewayRouteSpecArgsDict', 'outputs.GatewayRouteSpec']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -361,6 +361,9 @@ class GatewayRoute(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appmesh.GatewayRoute("example",
+            name="example-gateway-route",
+            mesh_name="example-service-mesh",
+            virtual_gateway_name=example_aws_appmesh_virtual_gateway["name"],
             spec={
                 "http_route": {
                     "action": {
@@ -375,9 +378,6 @@ class GatewayRoute(pulumi.CustomResource):
                     },
                 },
             },
-            name="example-gateway-route",
-            mesh_name="example-service-mesh",
-            virtual_gateway_name=example_aws_appmesh_virtual_gateway["name"],
             tags={
                 "Environment": "test",
             })
@@ -398,7 +398,7 @@ class GatewayRoute(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[_builtins.str] name: Name to use for the gateway route. Must be between 1 and 255 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['GatewayRouteSpecArgs', 'GatewayRouteSpecArgsDict']] spec: Gateway route specification to apply.
+        :param pulumi.Input[Union['GatewayRouteSpecArgs', 'GatewayRouteSpecArgsDict', 'outputs.GatewayRouteSpec']] spec: Gateway route specification to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] virtual_gateway_name: Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
         """
@@ -418,6 +418,9 @@ class GatewayRoute(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appmesh.GatewayRoute("example",
+            name="example-gateway-route",
+            mesh_name="example-service-mesh",
+            virtual_gateway_name=example_aws_appmesh_virtual_gateway["name"],
             spec={
                 "http_route": {
                     "action": {
@@ -432,9 +435,6 @@ class GatewayRoute(pulumi.CustomResource):
                     },
                 },
             },
-            name="example-gateway-route",
-            mesh_name="example-service-mesh",
-            virtual_gateway_name=example_aws_appmesh_virtual_gateway["name"],
             tags={
                 "Environment": "test",
             })
@@ -468,7 +468,7 @@ class GatewayRoute(pulumi.CustomResource):
                  mesh_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 spec: pulumi.Input[Optional[Union['GatewayRouteSpecArgs', 'GatewayRouteSpecArgsDict']]] = None,
+                 spec: pulumi.Input[Optional[Union['GatewayRouteSpecArgs', 'GatewayRouteSpecArgsDict', 'outputs.GatewayRouteSpec']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -516,7 +516,7 @@ class GatewayRoute(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
-            spec: pulumi.Input[Optional[Union['GatewayRouteSpecArgs', 'GatewayRouteSpecArgsDict']]] = None,
+            spec: pulumi.Input[Optional[Union['GatewayRouteSpecArgs', 'GatewayRouteSpecArgsDict', 'outputs.GatewayRouteSpec']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             virtual_gateway_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'GatewayRoute':
@@ -535,7 +535,7 @@ class GatewayRoute(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name to use for the gateway route. Must be between 1 and 255 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_owner: Resource owner's AWS account ID.
-        :param pulumi.Input[Union['GatewayRouteSpecArgs', 'GatewayRouteSpecArgsDict']] spec: Gateway route specification to apply.
+        :param pulumi.Input[Union['GatewayRouteSpecArgs', 'GatewayRouteSpecArgsDict', 'outputs.GatewayRouteSpec']] spec: Gateway route specification to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] virtual_gateway_name: Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.

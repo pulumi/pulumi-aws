@@ -63,6 +63,8 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     ///     var exampleCustomerManagedPolicyAttachmentsExclusive = new Aws.SsoAdmin.CustomerManagedPolicyAttachmentsExclusive("example", new()
     ///     {
+    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
+    ///         PermissionSetArn = examplePermissionSet.Arn,
     ///         CustomerManagedPolicyReferences = new[]
     ///         {
     ///             new Aws.SsoAdmin.Inputs.CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs
@@ -71,8 +73,6 @@ namespace Pulumi.Aws.SsoAdmin
     ///                 Path = "/",
     ///             },
     ///         },
-    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
-    ///         PermissionSetArn = examplePermissionSet.Arn,
     ///     });
     /// 
     /// });

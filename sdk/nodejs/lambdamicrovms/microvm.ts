@@ -30,6 +30,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambdamicrovms.Microvm("example", {
+ *     imageArn: exampleAwsLambdamicrovmsImage.arn,
+ *     executionRoleArn: exampleAwsIamRole.arn,
+ *     maximumDurationInSeconds: 14400,
+ *     egressNetworkConnectors: ["arn:aws:lambda:us-east-1:aws:network-connector:aws-network-connector:INTERNET_EGRESS"],
+ *     ingressNetworkConnectors: ["arn:aws:lambda:us-east-1:aws:network-connector:aws-network-connector:ALL_INGRESS"],
  *     idlePolicy: {
  *         autoResumeEnabled: true,
  *         maxIdleDurationSeconds: 900,
@@ -40,11 +45,6 @@ import * as utilities from "../utilities";
  *             logGroup: exampleAwsCloudwatchLogGroup.name,
  *         },
  *     },
- *     imageArn: exampleAwsLambdamicrovmsImage.arn,
- *     executionRoleArn: exampleAwsIamRole.arn,
- *     maximumDurationInSeconds: 14400,
- *     egressNetworkConnectors: ["arn:aws:lambda:us-east-1:aws:network-connector:aws-network-connector:INTERNET_EGRESS"],
- *     ingressNetworkConnectors: ["arn:aws:lambda:us-east-1:aws:network-connector:aws-network-connector:ALL_INGRESS"],
  * });
  * ```
  *

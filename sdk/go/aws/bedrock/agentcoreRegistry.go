@@ -86,6 +86,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreRegistry(ctx, "example", &bedrock.AgentcoreRegistryArgs{
+//				Name:           pulumi.String("example_registry"),
+//				AuthorizerType: pulumi.String("CUSTOM_JWT"),
 //				AuthorizerConfiguration: &bedrock.AgentcoreRegistryAuthorizerConfigurationArgs{
 //					CustomJwtAuthorizer: &bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs{
 //						DiscoveryUrl: pulumi.String("https://example.okta.com/.well-known/openid-configuration"),
@@ -97,8 +99,6 @@ import (
 //						},
 //					},
 //				},
-//				Name:           pulumi.String("example_registry"),
-//				AuthorizerType: pulumi.String("CUSTOM_JWT"),
 //			})
 //			if err != nil {
 //				return err

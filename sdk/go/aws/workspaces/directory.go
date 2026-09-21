@@ -55,6 +55,9 @@ import (
 //				return err
 //			}
 //			exampleDirectory, err := directoryservice.NewDirectory(ctx, "example", &directoryservice.DirectoryArgs{
+//				Name:     pulumi.String("corp.example.com"),
+//				Password: pulumi.String("#S1ncerely"),
+//				Size:     pulumi.String("Small"),
 //				VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
 //					VpcId: exampleVpc.ID().ToIDOutput().ToStringOutput(),
 //					SubnetIds: pulumi.StringArray{
@@ -62,9 +65,6 @@ import (
 //						exampleB.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
-//				Name:     pulumi.String("corp.example.com"),
-//				Password: pulumi.String("#S1ncerely"),
-//				Size:     pulumi.String("Small"),
 //			})
 //			if err != nil {
 //				return err
@@ -72,6 +72,9 @@ import (
 //			workspaces2, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -79,9 +82,6 @@ import (
 //									"workspaces.amazonaws.com",
 //								},
 //							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
 //						},
 //					},
 //				},
@@ -127,6 +127,14 @@ import (
 //				return err
 //			}
 //			_, err = workspaces.NewDirectory(ctx, "example", &workspaces.DirectoryArgs{
+//				DirectoryId: exampleDirectory.ID().ToIDOutput().ToStringOutput(),
+//				SubnetIds: pulumi.StringArray{
+//					exampleC.ID().ToIDOutput().ToStringOutput(),
+//					exampleD.ID().ToIDOutput().ToStringOutput(),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Example": pulumi.String("true"),
+//				},
 //				CertificateBasedAuthProperties: &workspaces.DirectoryCertificateBasedAuthPropertiesArgs{
 //					CertificateAuthorityArn: pulumi.String("arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012"),
 //					Status:                  pulumi.String("ENABLED"),
@@ -159,14 +167,6 @@ import (
 //					EnableMaintenanceMode:           pulumi.Bool(true),
 //					UserEnabledAsLocalAdministrator: pulumi.Bool(true),
 //				},
-//				DirectoryId: exampleDirectory.ID().ToIDOutput().ToStringOutput(),
-//				SubnetIds: pulumi.StringArray{
-//					exampleC.ID().ToIDOutput().ToStringOutput(),
-//					exampleD.ID().ToIDOutput().ToStringOutput(),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Example": pulumi.String("true"),
-//				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				workspacesDefaultServiceAccess,
 //				workspacesDefaultSelfServiceAccess,
@@ -195,6 +195,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := workspaces.NewDirectory(ctx, "example", &workspaces.DirectoryArgs{
+//				SubnetIds: pulumi.StringArray{
+//					exampleC.Id,
+//					exampleD.Id,
+//				},
+//				WorkspaceType:                 pulumi.String("POOLS"),
+//				WorkspaceDirectoryName:        pulumi.String("Pool directory"),
+//				WorkspaceDirectoryDescription: pulumi.String("WorkSpaces Pools directory"),
+//				UserIdentityType:              pulumi.String("CUSTOMER_MANAGED"),
 //				ActiveDirectoryConfig: &workspaces.DirectoryActiveDirectoryConfigArgs{
 //					DomainName:              pulumi.String("example.internal"),
 //					ServiceAccountSecretArn: pulumi.Any(exampleAwsSecretsmanagerSecret.Arn),
@@ -219,14 +227,6 @@ import (
 //					UserAccessUrl:           pulumi.String("https://sso.example.com/"),
 //					Status:                  pulumi.String("ENABLED"),
 //				},
-//				SubnetIds: pulumi.StringArray{
-//					exampleC.Id,
-//					exampleD.Id,
-//				},
-//				WorkspaceType:                 pulumi.String("POOLS"),
-//				WorkspaceDirectoryName:        pulumi.String("Pool directory"),
-//				WorkspaceDirectoryDescription: pulumi.String("WorkSpaces Pools directory"),
-//				UserIdentityType:              pulumi.String("CUSTOMER_MANAGED"),
 //			})
 //			if err != nil {
 //				return err
@@ -317,7 +317,9 @@ import (
 //				return err
 //			}
 //			_, err = workspaces.NewDirectory(ctx, "example", &workspaces.DirectoryArgs{
+//				DirectoryId: pulumi.Any(exampleAwsDirectoryServiceDirectory.Id),
 //				WorkspaceAccessProperties: &workspaces.DirectoryWorkspaceAccessPropertiesArgs{
+//					DeviceTypeWindows: pulumi.String("ALLOW"),
 //					AccessEndpointConfig: &workspaces.DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs{
 //						AccessEndpoints: workspaces.DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArray{
 //							&workspaces.DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArgs{
@@ -329,9 +331,7 @@ import (
 //							pulumi.String("PCOIP"),
 //						},
 //					},
-//					DeviceTypeWindows: pulumi.String("ALLOW"),
 //				},
-//				DirectoryId: pulumi.Any(exampleAwsDirectoryServiceDirectory.Id),
 //			})
 //			if err != nil {
 //				return err

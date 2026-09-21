@@ -105,7 +105,7 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 logging_config: pulumi.Input[Optional[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict']]] = None,
+                 logging_config: pulumi.Input[Optional[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict', 'outputs.InvocationLoggingConfigurationLoggingConfig']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -124,11 +124,7 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
         current = aws.get_caller_identity()
         example = aws.s3.Bucket("example",
             bucket="example",
-            force_destroy=True,
-            opts = pulumi.ResourceOptions(ignore_changes=[
-                    "tags[\\"CreatorId\\"]",
-                    "tags[\\"CreatorName\\"]",
-                ]))
+            force_destroy=True)
         example_bucket_policy = aws.s3.BucketPolicy("example",
             bucket=example.bucket,
             policy=example.arn.apply(lambda arn: f\"\"\"{{
@@ -158,14 +154,14 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
         }}
         \"\"\"))
         example_invocation_logging_configuration = aws.bedrockmodel.InvocationLoggingConfiguration("example", logging_config={
-            "s3_config": {
-                "bucket_name": example.id,
-                "key_prefix": "bedrock",
-            },
             "embedding_data_delivery_enabled": True,
             "image_data_delivery_enabled": True,
             "text_data_delivery_enabled": True,
             "video_data_delivery_enabled": True,
+            "s3_config": {
+                "bucket_name": example.id,
+                "key_prefix": "bedrock",
+            },
         },
         opts = pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
         ```
@@ -188,7 +184,7 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict']] logging_config: The logging configuration values to set. See `logging_config` Block for details.
+        :param pulumi.Input[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict', 'outputs.InvocationLoggingConfigurationLoggingConfig']] logging_config: The logging configuration values to set. See `logging_config` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -213,11 +209,7 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
         current = aws.get_caller_identity()
         example = aws.s3.Bucket("example",
             bucket="example",
-            force_destroy=True,
-            opts = pulumi.ResourceOptions(ignore_changes=[
-                    "tags[\\"CreatorId\\"]",
-                    "tags[\\"CreatorName\\"]",
-                ]))
+            force_destroy=True)
         example_bucket_policy = aws.s3.BucketPolicy("example",
             bucket=example.bucket,
             policy=example.arn.apply(lambda arn: f\"\"\"{{
@@ -247,14 +239,14 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
         }}
         \"\"\"))
         example_invocation_logging_configuration = aws.bedrockmodel.InvocationLoggingConfiguration("example", logging_config={
-            "s3_config": {
-                "bucket_name": example.id,
-                "key_prefix": "bedrock",
-            },
             "embedding_data_delivery_enabled": True,
             "image_data_delivery_enabled": True,
             "text_data_delivery_enabled": True,
             "video_data_delivery_enabled": True,
+            "s3_config": {
+                "bucket_name": example.id,
+                "key_prefix": "bedrock",
+            },
         },
         opts = pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
         ```
@@ -290,7 +282,7 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 logging_config: pulumi.Input[Optional[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict']]] = None,
+                 logging_config: pulumi.Input[Optional[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict', 'outputs.InvocationLoggingConfigurationLoggingConfig']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -315,7 +307,7 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            logging_config: pulumi.Input[Optional[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict']]] = None,
+            logging_config: pulumi.Input[Optional[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict', 'outputs.InvocationLoggingConfigurationLoggingConfig']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'InvocationLoggingConfiguration':
         """
         Get an existing InvocationLoggingConfiguration resource's state with the given name, id, and optional extra
@@ -324,7 +316,7 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict']] logging_config: The logging configuration values to set. See `logging_config` Block for details.
+        :param pulumi.Input[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict', 'outputs.InvocationLoggingConfigurationLoggingConfig']] logging_config: The logging configuration values to set. See `logging_config` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

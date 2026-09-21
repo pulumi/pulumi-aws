@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
  *     artifactStores: [{}],
  *     stages: [
  *         {
+ *             name: "Source",
  *             actions: [{
  *                 name: "Source",
  *                 category: "Source",
@@ -36,7 +37,6 @@ import * as utilities from "../utilities";
  *                     BranchName: "main",
  *                 },
  *             }],
- *             name: "Source",
  *         },
  *         {
  *             actions: [{}],

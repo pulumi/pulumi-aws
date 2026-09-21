@@ -169,19 +169,19 @@ class ResourcePolicy(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         example = aws.iam.get_policy_document(statements=[{
+            "sid": "AllowInvokeFromS3",
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["s3.amazonaws.com"],
+            }],
+            "actions": ["lambda:InvokeFunction"],
+            "resources": [example_aws_lambda_function["arn"]],
             "conditions": [{
                 "test": "StringEquals",
                 "variable": "aws:SourceAccount",
                 "values": [current.account_id],
             }],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["s3.amazonaws.com"],
-            }],
-            "sid": "AllowInvokeFromS3",
-            "effect": "Allow",
-            "actions": ["lambda:InvokeFunction"],
-            "resources": [example_aws_lambda_function["arn"]],
         }])
         example_resource_policy = aws.lambda_.ResourcePolicy("example",
             resource_arn=example_aws_lambda_function["arn"],
@@ -196,6 +196,8 @@ class ResourcePolicy(pulumi.CustomResource):
 
         example = aws.iam.get_policy_document(statements=[
             {
+                "sid": "AllowCrossAccountInvoke",
+                "effect": "Allow",
                 "principals": [{
                     "type": "AWS",
                     "identifiers": [
@@ -203,25 +205,23 @@ class ResourcePolicy(pulumi.CustomResource):
                         "210987654321",
                     ],
                 }],
-                "sid": "AllowCrossAccountInvoke",
-                "effect": "Allow",
                 "actions": ["lambda:InvokeFunction"],
                 "resources": [example_aws_lambda_function["arn"]],
             },
             {
+                "sid": "AllowOrganizationInvoke",
+                "effect": "Allow",
+                "principals": [{
+                    "type": "AWS",
+                    "identifiers": ["*"],
+                }],
+                "actions": ["lambda:InvokeFunction"],
+                "resources": [example_aws_lambda_function["arn"]],
                 "conditions": [{
                     "test": "StringEquals",
                     "variable": "aws:PrincipalOrgID",
                     "values": ["o-1234567890"],
                 }],
-                "principals": [{
-                    "type": "AWS",
-                    "identifiers": ["*"],
-                }],
-                "sid": "AllowOrganizationInvoke",
-                "effect": "Allow",
-                "actions": ["lambda:InvokeFunction"],
-                "resources": [example_aws_lambda_function["arn"]],
             },
         ])
         example_resource_policy = aws.lambda_.ResourcePolicy("example",
@@ -271,19 +271,19 @@ class ResourcePolicy(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         example = aws.iam.get_policy_document(statements=[{
+            "sid": "AllowInvokeFromS3",
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["s3.amazonaws.com"],
+            }],
+            "actions": ["lambda:InvokeFunction"],
+            "resources": [example_aws_lambda_function["arn"]],
             "conditions": [{
                 "test": "StringEquals",
                 "variable": "aws:SourceAccount",
                 "values": [current.account_id],
             }],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["s3.amazonaws.com"],
-            }],
-            "sid": "AllowInvokeFromS3",
-            "effect": "Allow",
-            "actions": ["lambda:InvokeFunction"],
-            "resources": [example_aws_lambda_function["arn"]],
         }])
         example_resource_policy = aws.lambda_.ResourcePolicy("example",
             resource_arn=example_aws_lambda_function["arn"],
@@ -298,6 +298,8 @@ class ResourcePolicy(pulumi.CustomResource):
 
         example = aws.iam.get_policy_document(statements=[
             {
+                "sid": "AllowCrossAccountInvoke",
+                "effect": "Allow",
                 "principals": [{
                     "type": "AWS",
                     "identifiers": [
@@ -305,25 +307,23 @@ class ResourcePolicy(pulumi.CustomResource):
                         "210987654321",
                     ],
                 }],
-                "sid": "AllowCrossAccountInvoke",
-                "effect": "Allow",
                 "actions": ["lambda:InvokeFunction"],
                 "resources": [example_aws_lambda_function["arn"]],
             },
             {
+                "sid": "AllowOrganizationInvoke",
+                "effect": "Allow",
+                "principals": [{
+                    "type": "AWS",
+                    "identifiers": ["*"],
+                }],
+                "actions": ["lambda:InvokeFunction"],
+                "resources": [example_aws_lambda_function["arn"]],
                 "conditions": [{
                     "test": "StringEquals",
                     "variable": "aws:PrincipalOrgID",
                     "values": ["o-1234567890"],
                 }],
-                "principals": [{
-                    "type": "AWS",
-                    "identifiers": ["*"],
-                }],
-                "sid": "AllowOrganizationInvoke",
-                "effect": "Allow",
-                "actions": ["lambda:InvokeFunction"],
-                "resources": [example_aws_lambda_function["arn"]],
             },
         ])
         example_resource_policy = aws.lambda_.ResourcePolicy("example",

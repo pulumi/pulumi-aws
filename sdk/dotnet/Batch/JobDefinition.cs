@@ -163,21 +163,23 @@ namespace Pulumi.Aws.Batch
     /// {
     ///     var test = new Aws.Batch.JobDefinition("test", new()
     ///     {
+    ///         Name = " tf_test_batch_job_definition_eks",
+    ///         Type = "container",
     ///         EksProperties = new Aws.Batch.Inputs.JobDefinitionEksPropertiesArgs
     ///         {
     ///             PodProperties = new Aws.Batch.Inputs.JobDefinitionEksPropertiesPodPropertiesArgs
     ///             {
-    ///                 Metadata = new Aws.Batch.Inputs.JobDefinitionEksPropertiesPodPropertiesMetadataArgs
-    ///                 {
-    ///                     Labels = 
-    ///                     {
-    ///                         { "environment", "test" },
-    ///                     },
-    ///                 },
+    ///                 HostNetwork = true,
     ///                 Containers = new[]
     ///                 {
     ///                     new Aws.Batch.Inputs.JobDefinitionEksPropertiesPodPropertiesContainerArgs
     ///                     {
+    ///                         Image = "public.ecr.aws/amazonlinux/amazonlinux:1",
+    ///                         Commands = new[]
+    ///                         {
+    ///                             "sleep",
+    ///                             "60",
+    ///                         },
     ///                         Resources = new Aws.Batch.Inputs.JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgs
     ///                         {
     ///                             Limits = 
@@ -186,19 +188,17 @@ namespace Pulumi.Aws.Batch
     ///                                 { "memory", "1024Mi" },
     ///                             },
     ///                         },
-    ///                         Image = "public.ecr.aws/amazonlinux/amazonlinux:1",
-    ///                         Commands = new[]
-    ///                         {
-    ///                             "sleep",
-    ///                             "60",
-    ///                         },
     ///                     },
     ///                 },
-    ///                 HostNetwork = true,
+    ///                 Metadata = new Aws.Batch.Inputs.JobDefinitionEksPropertiesPodPropertiesMetadataArgs
+    ///                 {
+    ///                     Labels = 
+    ///                     {
+    ///                         { "environment", "test" },
+    ///                     },
+    ///                 },
     ///             },
     ///         },
-    ///         Name = " tf_test_batch_job_definition_eks",
-    ///         Type = "container",
     ///     });
     /// 
     /// });
@@ -221,6 +221,10 @@ namespace Pulumi.Aws.Batch
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -231,10 +235,6 @@ namespace Pulumi.Aws.Batch
     ///                             "ecs-tasks.amazonaws.com",
     ///                         },
     ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
     ///                 },
     ///             },
     ///         },

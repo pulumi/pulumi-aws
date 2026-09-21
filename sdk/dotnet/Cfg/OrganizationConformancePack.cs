@@ -37,6 +37,7 @@ namespace Pulumi.Aws.Cfg
     /// 
     ///     var example = new Aws.Cfg.OrganizationConformancePack("example", new()
     ///     {
+    ///         Name = "example",
     ///         InputParameters = new[]
     ///         {
     ///             new Aws.Cfg.Inputs.OrganizationConformancePackInputParameterArgs
@@ -45,7 +46,6 @@ namespace Pulumi.Aws.Cfg
     ///                 ParameterValue = "90",
     ///             },
     ///         },
-    ///         Name = "example",
     ///         TemplateBody = @"Parameters:
     ///   AccessKeysRotatedParameterMaxAccessKeyAge:
     ///     Type: String

@@ -621,19 +621,19 @@ class ContainerRecipe(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerRecipeComponentArgs', 'ContainerRecipeComponentArgsDict']]]]] = None,
+                 components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerRecipeComponentArgs', 'ContainerRecipeComponentArgsDict', 'outputs.ContainerRecipeComponent']]]]] = None,
                  container_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  dockerfile_template_data: pulumi.Input[Optional[_builtins.str]] = None,
                  dockerfile_template_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_configuration: pulumi.Input[Optional[Union['ContainerRecipeInstanceConfigurationArgs', 'ContainerRecipeInstanceConfigurationArgsDict']]] = None,
+                 instance_configuration: pulumi.Input[Optional[Union['ContainerRecipeInstanceConfigurationArgs', 'ContainerRecipeInstanceConfigurationArgsDict', 'outputs.ContainerRecipeInstanceConfiguration']]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parent_image: pulumi.Input[Optional[_builtins.str]] = None,
                  platform_override: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_repository: pulumi.Input[Optional[Union['ContainerRecipeTargetRepositoryArgs', 'ContainerRecipeTargetRepositoryArgsDict']]] = None,
+                 target_repository: pulumi.Input[Optional[Union['ContainerRecipeTargetRepositoryArgs', 'ContainerRecipeTargetRepositoryArgsDict', 'outputs.ContainerRecipeTargetRepository']]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
                  working_directory: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -647,11 +647,16 @@ class ContainerRecipe(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.imagebuilder.ContainerRecipe("example",
+            name="example",
+            version="1.0.0",
+            container_type="DOCKER",
+            parent_image="arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
             target_repository={
                 "repository_name": example_aws_ecr_repository["name"],
                 "service": "ECR",
             },
             components=[{
+                "component_arn": example_aws_imagebuilder_component["arn"],
                 "parameters": [
                     {
                         "name": "Parameter1",
@@ -662,12 +667,7 @@ class ContainerRecipe(pulumi.CustomResource):
                         "value": "Value2",
                     },
                 ],
-                "component_arn": example_aws_imagebuilder_component["arn"],
             }],
-            name="example",
-            version="1.0.0",
-            container_type="DOCKER",
-            parent_image="arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
             dockerfile_template_data=\"\"\"FROM {{{ imagebuilder:parentImage }}}
         {{{ imagebuilder:environments }}}
         {{{ imagebuilder:components }}}
@@ -691,19 +691,19 @@ class ContainerRecipe(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerRecipeComponentArgs', 'ContainerRecipeComponentArgsDict']]]] components: Ordered configuration block(s) with components for the container recipe. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerRecipeComponentArgs', 'ContainerRecipeComponentArgsDict', 'outputs.ContainerRecipeComponent']]]] components: Ordered configuration block(s) with components for the container recipe. Detailed below.
         :param pulumi.Input[_builtins.str] container_type: The type of the container to create. Valid values: `DOCKER`.
         :param pulumi.Input[_builtins.str] description: The description of the container recipe.
         :param pulumi.Input[_builtins.str] dockerfile_template_data: The Dockerfile template used to build the image as an inline data blob.
         :param pulumi.Input[_builtins.str] dockerfile_template_uri: The Amazon S3 URI for the Dockerfile that will be used to build the container image.
-        :param pulumi.Input[Union['ContainerRecipeInstanceConfigurationArgs', 'ContainerRecipeInstanceConfigurationArgsDict']] instance_configuration: Configuration block used to configure an instance for building and testing container images. Detailed below.
+        :param pulumi.Input[Union['ContainerRecipeInstanceConfigurationArgs', 'ContainerRecipeInstanceConfigurationArgsDict', 'outputs.ContainerRecipeInstanceConfiguration']] instance_configuration: Configuration block used to configure an instance for building and testing container images. Detailed below.
         :param pulumi.Input[_builtins.str] kms_key_id: The KMS key used to encrypt the container image.
         :param pulumi.Input[_builtins.str] name: The name of the container recipe.
         :param pulumi.Input[_builtins.str] parent_image: The base image for the container recipe.
         :param pulumi.Input[_builtins.str] platform_override: Specifies the operating system platform when you use a custom base image.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['ContainerRecipeTargetRepositoryArgs', 'ContainerRecipeTargetRepositoryArgsDict']] target_repository: The destination repository for the container image. Detailed below.
+        :param pulumi.Input[Union['ContainerRecipeTargetRepositoryArgs', 'ContainerRecipeTargetRepositoryArgsDict', 'outputs.ContainerRecipeTargetRepository']] target_repository: The destination repository for the container image. Detailed below.
         :param pulumi.Input[_builtins.str] version: Version of the container recipe.
                
                The following arguments are optional:
@@ -725,11 +725,16 @@ class ContainerRecipe(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.imagebuilder.ContainerRecipe("example",
+            name="example",
+            version="1.0.0",
+            container_type="DOCKER",
+            parent_image="arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
             target_repository={
                 "repository_name": example_aws_ecr_repository["name"],
                 "service": "ECR",
             },
             components=[{
+                "component_arn": example_aws_imagebuilder_component["arn"],
                 "parameters": [
                     {
                         "name": "Parameter1",
@@ -740,12 +745,7 @@ class ContainerRecipe(pulumi.CustomResource):
                         "value": "Value2",
                     },
                 ],
-                "component_arn": example_aws_imagebuilder_component["arn"],
             }],
-            name="example",
-            version="1.0.0",
-            container_type="DOCKER",
-            parent_image="arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
             dockerfile_template_data=\"\"\"FROM {{{ imagebuilder:parentImage }}}
         {{{ imagebuilder:environments }}}
         {{{ imagebuilder:components }}}
@@ -782,19 +782,19 @@ class ContainerRecipe(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerRecipeComponentArgs', 'ContainerRecipeComponentArgsDict']]]]] = None,
+                 components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerRecipeComponentArgs', 'ContainerRecipeComponentArgsDict', 'outputs.ContainerRecipeComponent']]]]] = None,
                  container_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  dockerfile_template_data: pulumi.Input[Optional[_builtins.str]] = None,
                  dockerfile_template_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_configuration: pulumi.Input[Optional[Union['ContainerRecipeInstanceConfigurationArgs', 'ContainerRecipeInstanceConfigurationArgsDict']]] = None,
+                 instance_configuration: pulumi.Input[Optional[Union['ContainerRecipeInstanceConfigurationArgs', 'ContainerRecipeInstanceConfigurationArgsDict', 'outputs.ContainerRecipeInstanceConfiguration']]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parent_image: pulumi.Input[Optional[_builtins.str]] = None,
                  platform_override: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_repository: pulumi.Input[Optional[Union['ContainerRecipeTargetRepositoryArgs', 'ContainerRecipeTargetRepositoryArgsDict']]] = None,
+                 target_repository: pulumi.Input[Optional[Union['ContainerRecipeTargetRepositoryArgs', 'ContainerRecipeTargetRepositoryArgsDict', 'outputs.ContainerRecipeTargetRepository']]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
                  working_directory: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -848,14 +848,14 @@ class ContainerRecipe(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerRecipeComponentArgs', 'ContainerRecipeComponentArgsDict']]]]] = None,
+            components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerRecipeComponentArgs', 'ContainerRecipeComponentArgsDict', 'outputs.ContainerRecipeComponent']]]]] = None,
             container_type: pulumi.Input[Optional[_builtins.str]] = None,
             date_created: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             dockerfile_template_data: pulumi.Input[Optional[_builtins.str]] = None,
             dockerfile_template_uri: pulumi.Input[Optional[_builtins.str]] = None,
             encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
-            instance_configuration: pulumi.Input[Optional[Union['ContainerRecipeInstanceConfigurationArgs', 'ContainerRecipeInstanceConfigurationArgsDict']]] = None,
+            instance_configuration: pulumi.Input[Optional[Union['ContainerRecipeInstanceConfigurationArgs', 'ContainerRecipeInstanceConfigurationArgsDict', 'outputs.ContainerRecipeInstanceConfiguration']]] = None,
             kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             owner: pulumi.Input[Optional[_builtins.str]] = None,
@@ -865,7 +865,7 @@ class ContainerRecipe(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            target_repository: pulumi.Input[Optional[Union['ContainerRecipeTargetRepositoryArgs', 'ContainerRecipeTargetRepositoryArgsDict']]] = None,
+            target_repository: pulumi.Input[Optional[Union['ContainerRecipeTargetRepositoryArgs', 'ContainerRecipeTargetRepositoryArgsDict', 'outputs.ContainerRecipeTargetRepository']]] = None,
             version: pulumi.Input[Optional[_builtins.str]] = None,
             working_directory: pulumi.Input[Optional[_builtins.str]] = None) -> 'ContainerRecipe':
         """
@@ -876,14 +876,14 @@ class ContainerRecipe(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: (Required) ARN of the container recipe.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerRecipeComponentArgs', 'ContainerRecipeComponentArgsDict']]]] components: Ordered configuration block(s) with components for the container recipe. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerRecipeComponentArgs', 'ContainerRecipeComponentArgsDict', 'outputs.ContainerRecipeComponent']]]] components: Ordered configuration block(s) with components for the container recipe. Detailed below.
         :param pulumi.Input[_builtins.str] container_type: The type of the container to create. Valid values: `DOCKER`.
         :param pulumi.Input[_builtins.str] date_created: Date the container recipe was created.
         :param pulumi.Input[_builtins.str] description: The description of the container recipe.
         :param pulumi.Input[_builtins.str] dockerfile_template_data: The Dockerfile template used to build the image as an inline data blob.
         :param pulumi.Input[_builtins.str] dockerfile_template_uri: The Amazon S3 URI for the Dockerfile that will be used to build the container image.
         :param pulumi.Input[_builtins.bool] encrypted: A flag that indicates if the target container is encrypted.
-        :param pulumi.Input[Union['ContainerRecipeInstanceConfigurationArgs', 'ContainerRecipeInstanceConfigurationArgsDict']] instance_configuration: Configuration block used to configure an instance for building and testing container images. Detailed below.
+        :param pulumi.Input[Union['ContainerRecipeInstanceConfigurationArgs', 'ContainerRecipeInstanceConfigurationArgsDict', 'outputs.ContainerRecipeInstanceConfiguration']] instance_configuration: Configuration block used to configure an instance for building and testing container images. Detailed below.
         :param pulumi.Input[_builtins.str] kms_key_id: The KMS key used to encrypt the container image.
         :param pulumi.Input[_builtins.str] name: The name of the container recipe.
         :param pulumi.Input[_builtins.str] owner: Owner of the container recipe.
@@ -893,7 +893,7 @@ class ContainerRecipe(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['ContainerRecipeTargetRepositoryArgs', 'ContainerRecipeTargetRepositoryArgsDict']] target_repository: The destination repository for the container image. Detailed below.
+        :param pulumi.Input[Union['ContainerRecipeTargetRepositoryArgs', 'ContainerRecipeTargetRepositoryArgsDict', 'outputs.ContainerRecipeTargetRepository']] target_repository: The destination repository for the container image. Detailed below.
         :param pulumi.Input[_builtins.str] version: Version of the container recipe.
                
                The following arguments are optional:

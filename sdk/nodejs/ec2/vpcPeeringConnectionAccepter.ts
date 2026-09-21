@@ -95,9 +95,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2.VpcPeeringConnectionAccepter("example", {}, {
- *     ignoreChanges: ["autoAccept"],
- * });
+ * const example = new aws.ec2.VpcPeeringConnectionAccepter("example", {});
  * ```
  */
 export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {

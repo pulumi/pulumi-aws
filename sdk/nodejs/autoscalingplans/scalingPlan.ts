@@ -38,6 +38,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const exampleScalingPlan = new aws.autoscalingplans.ScalingPlan("example", {
+ *     name: "example-dynamic-cost-optimization",
  *     applicationSource: {
  *         tagFilters: [{
  *             key: "application",
@@ -45,12 +46,6 @@ import * as utilities from "../utilities";
  *         }],
  *     },
  *     scalingInstructions: [{
- *         targetTrackingConfigurations: [{
- *             predefinedScalingMetricSpecification: {
- *                 predefinedScalingMetricType: "ASGAverageCPUUtilization",
- *             },
- *             targetValue: 70,
- *         }],
  *         maxCapacity: 3,
  *         minCapacity: 0,
  *         resourceId: std.format({
@@ -59,8 +54,13 @@ import * as utilities from "../utilities";
  *         }).then(invoke => invoke.result),
  *         scalableDimension: "autoscaling:autoScalingGroup:DesiredCapacity",
  *         serviceNamespace: "autoscaling",
+ *         targetTrackingConfigurations: [{
+ *             predefinedScalingMetricSpecification: {
+ *                 predefinedScalingMetricType: "ASGAverageCPUUtilization",
+ *             },
+ *             targetValue: 70,
+ *         }],
  *     }],
- *     name: "example-dynamic-cost-optimization",
  * });
  * ```
  *
@@ -85,6 +85,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const exampleScalingPlan = new aws.autoscalingplans.ScalingPlan("example", {
+ *     name: "example-predictive-cost-optimization",
  *     applicationSource: {
  *         tagFilters: [{
  *             key: "application",
@@ -92,15 +93,6 @@ import * as utilities from "../utilities";
  *         }],
  *     },
  *     scalingInstructions: [{
- *         predefinedLoadMetricSpecification: {
- *             predefinedLoadMetricType: "ASGTotalCPUUtilization",
- *         },
- *         targetTrackingConfigurations: [{
- *             predefinedScalingMetricSpecification: {
- *                 predefinedScalingMetricType: "ASGAverageCPUUtilization",
- *             },
- *             targetValue: 70,
- *         }],
  *         disableDynamicScaling: true,
  *         maxCapacity: 3,
  *         minCapacity: 0,
@@ -110,10 +102,18 @@ import * as utilities from "../utilities";
  *         }).then(invoke => invoke.result),
  *         scalableDimension: "autoscaling:autoScalingGroup:DesiredCapacity",
  *         serviceNamespace: "autoscaling",
+ *         targetTrackingConfigurations: [{
+ *             predefinedScalingMetricSpecification: {
+ *                 predefinedScalingMetricType: "ASGAverageCPUUtilization",
+ *             },
+ *             targetValue: 70,
+ *         }],
  *         predictiveScalingMaxCapacityBehavior: "SetForecastCapacityToMaxCapacity",
  *         predictiveScalingMode: "ForecastAndScale",
+ *         predefinedLoadMetricSpecification: {
+ *             predefinedLoadMetricType: "ASGTotalCPUUtilization",
+ *         },
  *     }],
- *     name: "example-predictive-cost-optimization",
  * });
  * ```
  *

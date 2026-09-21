@@ -35,17 +35,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := accountaccess.NewEntitlement(ctx, "example", &accountaccess.EntitlementArgs{
+//				ApplicationArn: pulumi.Any(exampleAwsAccountaccessApplication.Arn),
 //				Entitlement: &accountaccess.EntitlementEntitlementArgs{
 //					PrincipalRole: &accountaccess.EntitlementEntitlementPrincipalRoleArgs{
+//						RoleArn: pulumi.String("arn:aws:iam::123456789012:role/Developer"),
 //						Principal: &accountaccess.EntitlementEntitlementPrincipalRolePrincipalArgs{
 //							IdentityCenter: &accountaccess.EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs{
 //								UserId: pulumi.String("11111111-2222-3333-4444-555555555555"),
 //							},
 //						},
-//						RoleArn: pulumi.String("arn:aws:iam::123456789012:role/Developer"),
 //					},
 //				},
-//				ApplicationArn: pulumi.Any(exampleAwsAccountaccessApplication.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -71,17 +71,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := accountaccess.NewEntitlement(ctx, "example", &accountaccess.EntitlementArgs{
+//				ApplicationArn: pulumi.Any(exampleAwsAccountaccessApplication.Arn),
 //				Entitlement: &accountaccess.EntitlementEntitlementArgs{
 //					PrincipalRole: &accountaccess.EntitlementEntitlementPrincipalRoleArgs{
+//						RoleArn: pulumi.String("arn:aws:iam::123456789012:role/Engineering"),
 //						Principal: &accountaccess.EntitlementEntitlementPrincipalRolePrincipalArgs{
 //							IdentityCenter: &accountaccess.EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs{
 //								GroupId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"),
 //							},
 //						},
-//						RoleArn: pulumi.String("arn:aws:iam::123456789012:role/Engineering"),
 //					},
 //				},
-//				ApplicationArn: pulumi.Any(exampleAwsAccountaccessApplication.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -156,17 +156,17 @@ import (
 //				return err
 //			}
 //			_, err = accountaccess.NewEntitlement(ctx, "example", &accountaccess.EntitlementArgs{
+//				ApplicationArn: exampleApplication.Arn,
 //				Entitlement: &accountaccess.EntitlementEntitlementArgs{
 //					PrincipalRole: &accountaccess.EntitlementEntitlementPrincipalRoleArgs{
+//						RoleArn: target.Arn,
 //						Principal: &accountaccess.EntitlementEntitlementPrincipalRolePrincipalArgs{
 //							IdentityCenter: &accountaccess.EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs{
 //								UserId: pulumi.String("11111111-2222-3333-4444-555555555555"),
 //							},
 //						},
-//						RoleArn: target.Arn,
 //					},
 //				},
-//				ApplicationArn: exampleApplication.Arn,
 //			})
 //			if err != nil {
 //				return err

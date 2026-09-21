@@ -262,9 +262,9 @@ class AccessPoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 posix_user: pulumi.Input[Optional[Union['AccessPointPosixUserArgs', 'AccessPointPosixUserArgsDict']]] = None,
+                 posix_user: pulumi.Input[Optional[Union['AccessPointPosixUserArgs', 'AccessPointPosixUserArgsDict', 'outputs.AccessPointPosixUser']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 root_directory: pulumi.Input[Optional[Union['AccessPointRootDirectoryArgs', 'AccessPointRootDirectoryArgsDict']]] = None,
+                 root_directory: pulumi.Input[Optional[Union['AccessPointRootDirectoryArgs', 'AccessPointRootDirectoryArgsDict', 'outputs.AccessPointRootDirectory']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -291,9 +291,9 @@ class AccessPoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] file_system_id: ID of the file system for which the access point is intended.
-        :param pulumi.Input[Union['AccessPointPosixUserArgs', 'AccessPointPosixUserArgsDict']] posix_user: Operating system user and group applied to all file system requests made using the access point. Detailed below.
+        :param pulumi.Input[Union['AccessPointPosixUserArgs', 'AccessPointPosixUserArgsDict', 'outputs.AccessPointPosixUser']] posix_user: Operating system user and group applied to all file system requests made using the access point. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AccessPointRootDirectoryArgs', 'AccessPointRootDirectoryArgsDict']] root_directory: Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
+        :param pulumi.Input[Union['AccessPointRootDirectoryArgs', 'AccessPointRootDirectoryArgsDict', 'outputs.AccessPointRootDirectory']] root_directory: Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         ...
@@ -339,9 +339,9 @@ class AccessPoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 posix_user: pulumi.Input[Optional[Union['AccessPointPosixUserArgs', 'AccessPointPosixUserArgsDict']]] = None,
+                 posix_user: pulumi.Input[Optional[Union['AccessPointPosixUserArgs', 'AccessPointPosixUserArgsDict', 'outputs.AccessPointPosixUser']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 root_directory: pulumi.Input[Optional[Union['AccessPointRootDirectoryArgs', 'AccessPointRootDirectoryArgsDict']]] = None,
+                 root_directory: pulumi.Input[Optional[Union['AccessPointRootDirectoryArgs', 'AccessPointRootDirectoryArgsDict', 'outputs.AccessPointRootDirectory']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -377,9 +377,9 @@ class AccessPoint(pulumi.CustomResource):
             file_system_arn: pulumi.Input[Optional[_builtins.str]] = None,
             file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
             owner_id: pulumi.Input[Optional[_builtins.str]] = None,
-            posix_user: pulumi.Input[Optional[Union['AccessPointPosixUserArgs', 'AccessPointPosixUserArgsDict']]] = None,
+            posix_user: pulumi.Input[Optional[Union['AccessPointPosixUserArgs', 'AccessPointPosixUserArgsDict', 'outputs.AccessPointPosixUser']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            root_directory: pulumi.Input[Optional[Union['AccessPointRootDirectoryArgs', 'AccessPointRootDirectoryArgsDict']]] = None,
+            root_directory: pulumi.Input[Optional[Union['AccessPointRootDirectoryArgs', 'AccessPointRootDirectoryArgsDict', 'outputs.AccessPointRootDirectory']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'AccessPoint':
         """
@@ -392,9 +392,9 @@ class AccessPoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the access point.
         :param pulumi.Input[_builtins.str] file_system_arn: ARN of the file system.
         :param pulumi.Input[_builtins.str] file_system_id: ID of the file system for which the access point is intended.
-        :param pulumi.Input[Union['AccessPointPosixUserArgs', 'AccessPointPosixUserArgsDict']] posix_user: Operating system user and group applied to all file system requests made using the access point. Detailed below.
+        :param pulumi.Input[Union['AccessPointPosixUserArgs', 'AccessPointPosixUserArgsDict', 'outputs.AccessPointPosixUser']] posix_user: Operating system user and group applied to all file system requests made using the access point. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AccessPointRootDirectoryArgs', 'AccessPointRootDirectoryArgsDict']] root_directory: Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
+        :param pulumi.Input[Union['AccessPointRootDirectoryArgs', 'AccessPointRootDirectoryArgsDict', 'outputs.AccessPointRootDirectory']] root_directory: Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

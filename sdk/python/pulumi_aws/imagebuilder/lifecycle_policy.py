@@ -369,9 +369,9 @@ class LifecyclePolicy(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 policy_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict']]]]] = None,
+                 policy_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict', 'outputs.LifecyclePolicyPolicyDetail']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_selection: pulumi.Input[Optional[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict']]] = None,
+                 resource_selection: pulumi.Input[Optional[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict', 'outputs.LifecyclePolicyResourceSelection']]] = None,
                  resource_type: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -404,12 +404,10 @@ class LifecyclePolicy(pulumi.CustomResource):
             policy_arn=f"arn:{current_get_partition.partition}:iam::aws:policy/service-role/EC2ImageBuilderLifecycleExecutionPolicy",
             role=example.name)
         example_lifecycle_policy = aws.imagebuilder.LifecyclePolicy("example",
-            resource_selection={
-                "tag_map": {
-                    "key1": "value1",
-                    "key2": "value2",
-                },
-            },
+            name="name",
+            description="Example description",
+            execution_role=example.arn,
+            resource_type="AMI_IMAGE",
             policy_details=[{
                 "action": {
                     "type": "DELETE",
@@ -421,10 +419,12 @@ class LifecyclePolicy(pulumi.CustomResource):
                     "unit": "YEARS",
                 },
             }],
-            name="name",
-            description="Example description",
-            execution_role=example.arn,
-            resource_type="AMI_IMAGE",
+            resource_selection={
+                "tag_map": {
+                    "key1": "value1",
+                    "key2": "value2",
+                },
+            },
             opts = pulumi.ResourceOptions(depends_on=[example_role_policy_attachment]))
         ```
 
@@ -448,9 +448,9 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: description for the lifecycle policy.
         :param pulumi.Input[_builtins.str] execution_role: ARN for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
         :param pulumi.Input[_builtins.str] name: The name of the lifecycle policy to create.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict']]]] policy_details: Configuration block with policy details. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict', 'outputs.LifecyclePolicyPolicyDetail']]]] policy_details: Configuration block with policy details. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict']] resource_selection: Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
+        :param pulumi.Input[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict', 'outputs.LifecyclePolicyResourceSelection']] resource_selection: Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] resource_type: The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
@@ -491,12 +491,10 @@ class LifecyclePolicy(pulumi.CustomResource):
             policy_arn=f"arn:{current_get_partition.partition}:iam::aws:policy/service-role/EC2ImageBuilderLifecycleExecutionPolicy",
             role=example.name)
         example_lifecycle_policy = aws.imagebuilder.LifecyclePolicy("example",
-            resource_selection={
-                "tag_map": {
-                    "key1": "value1",
-                    "key2": "value2",
-                },
-            },
+            name="name",
+            description="Example description",
+            execution_role=example.arn,
+            resource_type="AMI_IMAGE",
             policy_details=[{
                 "action": {
                     "type": "DELETE",
@@ -508,10 +506,12 @@ class LifecyclePolicy(pulumi.CustomResource):
                     "unit": "YEARS",
                 },
             }],
-            name="name",
-            description="Example description",
-            execution_role=example.arn,
-            resource_type="AMI_IMAGE",
+            resource_selection={
+                "tag_map": {
+                    "key1": "value1",
+                    "key2": "value2",
+                },
+            },
             opts = pulumi.ResourceOptions(depends_on=[example_role_policy_attachment]))
         ```
 
@@ -548,9 +548,9 @@ class LifecyclePolicy(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 policy_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict']]]]] = None,
+                 policy_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict', 'outputs.LifecyclePolicyPolicyDetail']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_selection: pulumi.Input[Optional[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict']]] = None,
+                 resource_selection: pulumi.Input[Optional[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict', 'outputs.LifecyclePolicyResourceSelection']]] = None,
                  resource_type: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -596,9 +596,9 @@ class LifecyclePolicy(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             execution_role: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            policy_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict']]]]] = None,
+            policy_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict', 'outputs.LifecyclePolicyPolicyDetail']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            resource_selection: pulumi.Input[Optional[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict']]] = None,
+            resource_selection: pulumi.Input[Optional[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict', 'outputs.LifecyclePolicyResourceSelection']]] = None,
             resource_type: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -614,9 +614,9 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: description for the lifecycle policy.
         :param pulumi.Input[_builtins.str] execution_role: ARN for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
         :param pulumi.Input[_builtins.str] name: The name of the lifecycle policy to create.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict']]]] policy_details: Configuration block with policy details. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict', 'outputs.LifecyclePolicyPolicyDetail']]]] policy_details: Configuration block with policy details. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict']] resource_selection: Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
+        :param pulumi.Input[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict', 'outputs.LifecyclePolicyResourceSelection']] resource_selection: Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] resource_type: The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.

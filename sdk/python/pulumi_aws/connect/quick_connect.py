@@ -283,7 +283,7 @@ class QuickConnect(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 quick_connect_config: pulumi.Input[Optional[Union['QuickConnectQuickConnectConfigArgs', 'QuickConnectQuickConnectConfigArgsDict']]] = None,
+                 quick_connect_config: pulumi.Input[Optional[Union['QuickConnectQuickConnectConfigArgs', 'QuickConnectQuickConnectConfigArgsDict', 'outputs.QuickConnectQuickConnectConfig']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -298,15 +298,15 @@ class QuickConnect(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.connect.QuickConnect("test",
-            quick_connect_config={
-                "phone_configs": [{
-                    "phone_number": "+12345678912",
-                }],
-                "quick_connect_type": "PHONE_NUMBER",
-            },
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             name="Example Name",
             description="quick connect phone number",
+            quick_connect_config={
+                "quick_connect_type": "PHONE_NUMBER",
+                "phone_configs": [{
+                    "phone_number": "+12345678912",
+                }],
+            },
             tags={
                 "Name": "Example Quick Connect",
             })
@@ -326,7 +326,7 @@ class QuickConnect(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Specifies the description of the Quick Connect.
         :param pulumi.Input[_builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Quick Connect.
-        :param pulumi.Input[Union['QuickConnectQuickConnectConfigArgs', 'QuickConnectQuickConnectConfigArgsDict']] quick_connect_config: A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
+        :param pulumi.Input[Union['QuickConnectQuickConnectConfigArgs', 'QuickConnectQuickConnectConfigArgsDict', 'outputs.QuickConnectQuickConnectConfig']] quick_connect_config: A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -347,15 +347,15 @@ class QuickConnect(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.connect.QuickConnect("test",
-            quick_connect_config={
-                "phone_configs": [{
-                    "phone_number": "+12345678912",
-                }],
-                "quick_connect_type": "PHONE_NUMBER",
-            },
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             name="Example Name",
             description="quick connect phone number",
+            quick_connect_config={
+                "quick_connect_type": "PHONE_NUMBER",
+                "phone_configs": [{
+                    "phone_number": "+12345678912",
+                }],
+            },
             tags={
                 "Name": "Example Quick Connect",
             })
@@ -388,7 +388,7 @@ class QuickConnect(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 quick_connect_config: pulumi.Input[Optional[Union['QuickConnectQuickConnectConfigArgs', 'QuickConnectQuickConnectConfigArgsDict']]] = None,
+                 quick_connect_config: pulumi.Input[Optional[Union['QuickConnectQuickConnectConfigArgs', 'QuickConnectQuickConnectConfigArgsDict', 'outputs.QuickConnectQuickConnectConfig']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -427,7 +427,7 @@ class QuickConnect(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             instance_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            quick_connect_config: pulumi.Input[Optional[Union['QuickConnectQuickConnectConfigArgs', 'QuickConnectQuickConnectConfigArgsDict']]] = None,
+            quick_connect_config: pulumi.Input[Optional[Union['QuickConnectQuickConnectConfigArgs', 'QuickConnectQuickConnectConfigArgsDict', 'outputs.QuickConnectQuickConnectConfig']]] = None,
             quick_connect_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -443,7 +443,7 @@ class QuickConnect(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Specifies the description of the Quick Connect.
         :param pulumi.Input[_builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Quick Connect.
-        :param pulumi.Input[Union['QuickConnectQuickConnectConfigArgs', 'QuickConnectQuickConnectConfigArgsDict']] quick_connect_config: A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
+        :param pulumi.Input[Union['QuickConnectQuickConnectConfigArgs', 'QuickConnectQuickConnectConfigArgsDict', 'outputs.QuickConnectQuickConnectConfig']] quick_connect_config: A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
         :param pulumi.Input[_builtins.str] quick_connect_id: The identifier for the Quick Connect.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -81,6 +81,9 @@ import (
 //				return err
 //			}
 //			_, err = finspace.NewKxEnvironment(ctx, "example_env", &finspace.KxEnvironmentArgs{
+//				Name:        pulumi.String("my-tf-kx-environment"),
+//				Description: pulumi.String("Environment description"),
+//				KmsKeyId:    example.Arn,
 //				TransitGatewayConfiguration: &finspace.KxEnvironmentTransitGatewayConfigurationArgs{
 //					TransitGatewayId:  exampleTransitGateway.ID().ToIDOutput().ToStringOutput(),
 //					RoutableCidrSpace: pulumi.String("100.64.0.0/26"),
@@ -91,9 +94,6 @@ import (
 //						CustomDnsServerIp:   pulumi.String("10.0.0.76"),
 //					},
 //				},
-//				Name:        pulumi.String("my-tf-kx-environment"),
-//				Description: pulumi.String("Environment description"),
-//				KmsKeyId:    example.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -134,9 +134,18 @@ import (
 //				return err
 //			}
 //			_, err = finspace.NewKxEnvironment(ctx, "example_env", &finspace.KxEnvironmentArgs{
+//				Name:        pulumi.String("my-tf-kx-environment"),
+//				Description: pulumi.String("Environment description"),
+//				KmsKeyId:    example.Arn,
 //				TransitGatewayConfiguration: &finspace.KxEnvironmentTransitGatewayConfigurationArgs{
+//					TransitGatewayId:  exampleTransitGateway.ID().ToIDOutput().ToStringOutput(),
+//					RoutableCidrSpace: pulumi.String("100.64.0.0/26"),
 //					AttachmentNetworkAclConfigurations: finspace.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArray{
 //						&finspace.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs{
+//							RuleNumber: pulumi.Int(1),
+//							Protocol:   pulumi.String("6"),
+//							RuleAction: pulumi.String("allow"),
+//							CidrBlock:  pulumi.String("0.0.0.0/0"),
 //							PortRange: &finspace.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs{
 //								From: pulumi.Int(53),
 //								To:   pulumi.Int(53),
@@ -145,14 +154,8 @@ import (
 //								Type: pulumi.Int(-1),
 //								Code: pulumi.Int(-1),
 //							},
-//							RuleNumber: pulumi.Int(1),
-//							Protocol:   pulumi.String("6"),
-//							RuleAction: pulumi.String("allow"),
-//							CidrBlock:  pulumi.String("0.0.0.0/0"),
 //						},
 //					},
-//					TransitGatewayId:  exampleTransitGateway.ID().ToIDOutput().ToStringOutput(),
-//					RoutableCidrSpace: pulumi.String("100.64.0.0/26"),
 //				},
 //				CustomDnsConfigurations: finspace.KxEnvironmentCustomDnsConfigurationArray{
 //					&finspace.KxEnvironmentCustomDnsConfigurationArgs{
@@ -160,9 +163,6 @@ import (
 //						CustomDnsServerIp:   pulumi.String("10.0.0.76"),
 //					},
 //				},
-//				Name:        pulumi.String("my-tf-kx-environment"),
-//				Description: pulumi.String("Environment description"),
-//				KmsKeyId:    example.Arn,
 //			})
 //			if err != nil {
 //				return err

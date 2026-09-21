@@ -91,12 +91,6 @@ namespace Pulumi.Aws.ElastiCache
     ///         NumCacheClusters = 2,
     ///         ParameterGroupName = "default.redis3.2",
     ///         Port = 6379,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         IgnoreChanges =
-    ///         {
-    ///             "numCacheClusters",
-    ///         },
     ///     });
     /// 
     ///     var replica = new List&lt;Aws.ElastiCache.Cluster&gt;();
@@ -153,6 +147,13 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var example = new Aws.ElastiCache.ReplicationGroup("example", new()
     ///     {
+    ///         ReplicationGroupId = "tf-redis-cluster",
+    ///         Description = "example description",
+    ///         NodeType = "cache.t2.small",
+    ///         Port = 6379,
+    ///         ParameterGroupName = "default.redis3.2.cluster.on",
+    ///         AutomaticFailoverEnabled = true,
+    ///         NumNodeGroups = 2,
     ///         NodeGroupConfigurations = new[]
     ///         {
     ///             new Aws.ElastiCache.Inputs.ReplicationGroupNodeGroupConfigurationArgs
@@ -178,13 +179,6 @@ namespace Pulumi.Aws.ElastiCache
     ///                 Slots = "8192-16383",
     ///             },
     ///         },
-    ///         ReplicationGroupId = "tf-redis-cluster",
-    ///         Description = "example description",
-    ///         NodeType = "cache.t2.small",
-    ///         Port = 6379,
-    ///         ParameterGroupName = "default.redis3.2.cluster.on",
-    ///         AutomaticFailoverEnabled = true,
-    ///         NumNodeGroups = 2,
     ///     });
     /// 
     /// });
@@ -202,6 +196,14 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var test = new Aws.ElastiCache.ReplicationGroup("test", new()
     ///     {
+    ///         ReplicationGroupId = "myreplicaciongroup",
+    ///         Description = "test description",
+    ///         NodeType = "cache.t3.small",
+    ///         Port = 6379,
+    ///         ApplyImmediately = true,
+    ///         AutoMinorVersionUpgrade = false,
+    ///         MaintenanceWindow = "tue:06:30-tue:07:30",
+    ///         SnapshotWindow = "01:00-02:00",
     ///         LogDeliveryConfigurations = new[]
     ///         {
     ///             new Aws.ElastiCache.Inputs.ReplicationGroupLogDeliveryConfigurationArgs
@@ -219,14 +221,6 @@ namespace Pulumi.Aws.ElastiCache
     ///                 LogType = "engine-log",
     ///             },
     ///         },
-    ///         ReplicationGroupId = "myreplicaciongroup",
-    ///         Description = "test description",
-    ///         NodeType = "cache.t3.small",
-    ///         Port = 6379,
-    ///         ApplyImmediately = true,
-    ///         AutoMinorVersionUpgrade = false,
-    ///         MaintenanceWindow = "tue:06:30-tue:07:30",
-    ///         SnapshotWindow = "01:00-02:00",
     ///     });
     /// 
     /// });

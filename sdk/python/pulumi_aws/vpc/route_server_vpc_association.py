@@ -170,7 +170,7 @@ class RouteServerVpcAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  route_server_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['RouteServerVpcAssociationTimeoutsArgs', 'RouteServerVpcAssociationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['RouteServerVpcAssociationTimeoutsArgs', 'RouteServerVpcAssociationTimeoutsArgsDict', 'outputs.RouteServerVpcAssociationTimeouts']]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -254,7 +254,7 @@ class RouteServerVpcAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  route_server_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['RouteServerVpcAssociationTimeoutsArgs', 'RouteServerVpcAssociationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['RouteServerVpcAssociationTimeoutsArgs', 'RouteServerVpcAssociationTimeoutsArgsDict', 'outputs.RouteServerVpcAssociationTimeouts']]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -285,7 +285,7 @@ class RouteServerVpcAssociation(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             route_server_id: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['RouteServerVpcAssociationTimeoutsArgs', 'RouteServerVpcAssociationTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['RouteServerVpcAssociationTimeoutsArgs', 'RouteServerVpcAssociationTimeoutsArgsDict', 'outputs.RouteServerVpcAssociationTimeouts']]] = None,
             vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'RouteServerVpcAssociation':
         """
         Get an existing RouteServerVpcAssociation resource's state with the given name, id, and optional extra

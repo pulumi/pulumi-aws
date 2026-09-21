@@ -31,6 +31,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentKnowledgeBase(ctx, "example", &bedrock.AgentKnowledgeBaseArgs{
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				KnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs{
 //					VectorKnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs{
 //						EmbeddingModelArn: pulumi.String("arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0"),
@@ -38,19 +40,17 @@ import (
 //					Type: pulumi.String("VECTOR"),
 //				},
 //				StorageConfiguration: &bedrock.AgentKnowledgeBaseStorageConfigurationArgs{
+//					Type: pulumi.String("OPENSEARCH_SERVERLESS"),
 //					OpensearchServerlessConfiguration: &bedrock.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs{
+//						CollectionArn:   pulumi.String("arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf"),
+//						VectorIndexName: pulumi.String("bedrock-knowledge-base-default-index"),
 //						FieldMapping: &bedrock.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs{
 //							VectorField:   pulumi.String("bedrock-knowledge-base-default-vector"),
 //							TextField:     pulumi.String("AMAZON_BEDROCK_TEXT_CHUNK"),
 //							MetadataField: pulumi.String("AMAZON_BEDROCK_METADATA"),
 //						},
-//						CollectionArn:   pulumi.String("arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf"),
-//						VectorIndexName: pulumi.String("bedrock-knowledge-base-default-index"),
 //					},
-//					Type: pulumi.String("OPENSEARCH_SERVERLESS"),
 //				},
-//				Name:    pulumi.String("example"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -76,14 +76,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentKnowledgeBase(ctx, "kendra_example", &bedrock.AgentKnowledgeBaseArgs{
+//				Name:    pulumi.String("example-kendra-kb"),
+//				RoleArn: pulumi.Any(example.Arn),
 //				KnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs{
+//					Type: pulumi.String("KENDRA"),
 //					KendraKnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs{
 //						KendraIndexArn: pulumi.String("arn:aws:kendra:us-east-1:123456789012:index/example-index-id"),
 //					},
-//					Type: pulumi.String("KENDRA"),
 //				},
-//				Name:    pulumi.String("example-kendra-kb"),
-//				RoleArn: pulumi.Any(example.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -109,32 +109,32 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentKnowledgeBase(ctx, "example", &bedrock.AgentKnowledgeBaseArgs{
+//				Name:    pulumi.String("example-kb"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				KnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs{
+//					Type: pulumi.String("SQL"),
 //					SqlKnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs{
+//						Type: pulumi.String("REDSHIFT"),
 //						RedshiftConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs{
 //							QueryEngineConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs{
+//								Type: pulumi.String("PROVISIONED"),
 //								ProvisionedConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs{
+//									ClusterIdentifier: pulumi.Any(exampleAwsRedshiftCluster.ClusterIdentifier),
 //									AuthConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs{
 //										Type:         pulumi.String("USERNAME"),
 //										DatabaseUser: pulumi.Any(exampleAwsRedshiftCluster.MasterUsername),
 //									},
-//									ClusterIdentifier: pulumi.Any(exampleAwsRedshiftCluster.ClusterIdentifier),
 //								},
-//								Type: pulumi.String("PROVISIONED"),
 //							},
 //							StorageConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs{
+//								Type: pulumi.String("REDSHIFT"),
 //								RedshiftConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs{
 //									DatabaseName: pulumi.Any(exampleAwsRedshiftCluster.DatabaseName),
 //								},
-//								Type: pulumi.String("REDSHIFT"),
 //							},
 //						},
-//						Type: pulumi.String("REDSHIFT"),
 //					},
-//					Type: pulumi.String("SQL"),
 //				},
-//				Name:    pulumi.String("example-kb"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -160,6 +160,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentKnowledgeBase(ctx, "example", &bedrock.AgentKnowledgeBaseArgs{
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				KnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs{
 //					VectorKnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs{
 //						EmbeddingModelArn: pulumi.String("arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0"),
@@ -167,20 +169,18 @@ import (
 //					Type: pulumi.String("VECTOR"),
 //				},
 //				StorageConfiguration: &bedrock.AgentKnowledgeBaseStorageConfigurationArgs{
+//					Type: pulumi.String("OPENSEARCH_MANAGED_CLUSTER"),
 //					OpensearchManagedClusterConfiguration: &bedrock.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs{
+//						DomainArn:       pulumi.String("arn:aws:es:us-west-2:123456789012:domain/example-domain"),
+//						DomainEndpoint:  pulumi.String("https://search-example-domain.us-west-2.es.amazonaws.com"),
+//						VectorIndexName: pulumi.String("example_index"),
 //						FieldMapping: &bedrock.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs{
 //							MetadataField: pulumi.String("metadata"),
 //							TextField:     pulumi.String("chunks"),
 //							VectorField:   pulumi.String("embedding"),
 //						},
-//						DomainArn:       pulumi.String("arn:aws:es:us-west-2:123456789012:domain/example-domain"),
-//						DomainEndpoint:  pulumi.String("https://search-example-domain.us-west-2.es.amazonaws.com"),
-//						VectorIndexName: pulumi.String("example_index"),
 //					},
-//					Type: pulumi.String("OPENSEARCH_MANAGED_CLUSTER"),
 //				},
-//				Name:    pulumi.String("example"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -206,10 +206,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentKnowledgeBase(ctx, "example", &bedrock.AgentKnowledgeBaseArgs{
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				KnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs{
 //					VectorKnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs{
+//						EmbeddingModelArn: pulumi.String("arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0"),
 //						EmbeddingModelConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs{
 //							BedrockEmbeddingModelConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs{
+//								Dimensions:        pulumi.Int(1024),
+//								EmbeddingDataType: pulumi.String("FLOAT32"),
 //								Audio: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs{
 //									SegmentationConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgs{
 //										FixedLengthDuration: pulumi.Int(60),
@@ -220,36 +225,31 @@ import (
 //										FixedLengthDuration: pulumi.Int(60),
 //									},
 //								},
-//								Dimensions:        pulumi.Int(1024),
-//								EmbeddingDataType: pulumi.String("FLOAT32"),
 //							},
 //						},
 //						SupplementalDataStorageConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs{
 //							StorageLocation: map[string]interface{}{
+//								"type": "S3",
 //								"s3Location": map[string]string{
 //									"uri": "s3://my-bucket/chunk-processor/",
 //								},
-//								"type": "S3",
 //							},
 //						},
-//						EmbeddingModelArn: pulumi.String("arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0"),
 //					},
 //					Type: pulumi.String("VECTOR"),
 //				},
 //				StorageConfiguration: &bedrock.AgentKnowledgeBaseStorageConfigurationArgs{
+//					Type: pulumi.String("OPENSEARCH_SERVERLESS"),
 //					OpensearchServerlessConfiguration: &bedrock.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs{
+//						CollectionArn:   pulumi.String("arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf"),
+//						VectorIndexName: pulumi.String("bedrock-knowledge-base-default-index"),
 //						FieldMapping: &bedrock.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs{
 //							VectorField:   pulumi.String("bedrock-knowledge-base-default-vector"),
 //							TextField:     pulumi.String("AMAZON_BEDROCK_TEXT_CHUNK"),
 //							MetadataField: pulumi.String("AMAZON_BEDROCK_METADATA"),
 //						},
-//						CollectionArn:   pulumi.String("arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf"),
-//						VectorIndexName: pulumi.String("bedrock-knowledge-base-default-index"),
 //					},
-//					Type: pulumi.String("OPENSEARCH_SERVERLESS"),
 //				},
-//				Name:    pulumi.String("example"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -292,26 +292,26 @@ import (
 //				return err
 //			}
 //			_, err = bedrock.NewAgentKnowledgeBase(ctx, "example", &bedrock.AgentKnowledgeBaseArgs{
+//				Name:    pulumi.String("example-s3vectors-kb"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				KnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs{
 //					VectorKnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs{
+//						EmbeddingModelArn: pulumi.String("arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0"),
 //						EmbeddingModelConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs{
 //							BedrockEmbeddingModelConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs{
 //								Dimensions:        pulumi.Int(256),
 //								EmbeddingDataType: pulumi.String("FLOAT32"),
 //							},
 //						},
-//						EmbeddingModelArn: pulumi.String("arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0"),
 //					},
 //					Type: pulumi.String("VECTOR"),
 //				},
 //				StorageConfiguration: &bedrock.AgentKnowledgeBaseStorageConfigurationArgs{
+//					Type: pulumi.String("S3_VECTORS"),
 //					S3VectorsConfiguration: &bedrock.AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs{
 //						IndexArn: exampleVectorsIndex.IndexArn,
 //					},
-//					Type: pulumi.String("S3_VECTORS"),
 //				},
-//				Name:    pulumi.String("example-s3vectors-kb"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -337,14 +337,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentKnowledgeBase(ctx, "example", &bedrock.AgentKnowledgeBaseArgs{
+//				Name:    pulumi.String("example-managed-kb"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				KnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs{
+//					Type: pulumi.String("MANAGED"),
 //					ManagedKnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgs{
 //						EmbeddingModelType: pulumi.String("MANAGED"),
 //					},
-//					Type: pulumi.String("MANAGED"),
 //				},
-//				Name:    pulumi.String("example-managed-kb"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -370,20 +370,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentKnowledgeBase(ctx, "example", &bedrock.AgentKnowledgeBaseArgs{
+//				Name:    pulumi.String("example-managed-multilingual-kb"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				KnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs{
+//					Type: pulumi.String("MANAGED"),
 //					ManagedKnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgs{
+//						EmbeddingModelType: pulumi.String("CUSTOM"),
+//						EmbeddingModelArn:  pulumi.String("arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-multilingual-v3"),
 //						EmbeddingModelConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs{
 //							BedrockEmbeddingModelConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs{
 //								Dimensions: pulumi.Int(1024),
 //							},
 //						},
-//						EmbeddingModelType: pulumi.String("CUSTOM"),
-//						EmbeddingModelArn:  pulumi.String("arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-multilingual-v3"),
 //					},
-//					Type: pulumi.String("MANAGED"),
 //				},
-//				Name:    pulumi.String("example-managed-multilingual-kb"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err

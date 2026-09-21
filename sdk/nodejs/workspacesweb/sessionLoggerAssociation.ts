@@ -22,11 +22,11 @@ import * as utilities from "../utilities";
  * });
  * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
+ *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["workspaces-web.amazonaws.com"],
  *         }],
- *         effect: "Allow",
  *         actions: ["s3:PutObject"],
  *         resources: [pulumi.interpolate`${exampleBucket.arn}/*`],
  *     }],
@@ -36,6 +36,7 @@ import * as utilities from "../utilities";
  *     policy: example.json,
  * });
  * const exampleSessionLogger = new aws.workspacesweb.SessionLogger("example", {
+ *     displayName: "example",
  *     eventFilter: {
  *         all: {}[0],
  *     },
@@ -46,7 +47,6 @@ import * as utilities from "../utilities";
  *             logFileFormat: "Json",
  *         },
  *     },
- *     displayName: "example",
  * }, {
  *     dependsOn: [exampleBucketPolicy],
  * });

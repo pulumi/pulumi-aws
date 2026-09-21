@@ -40,15 +40,8 @@ import (
 //			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Conditions: []iam.GetPolicyDocumentStatementCondition{
-//							{
-//								Test:     "IpAddress",
-//								Variable: "aws:SourceIp",
-//								Values: []string{
-//									"192.0.2.0/32",
-//								},
-//							},
-//						},
+//						Sid:    pulumi.StringRef("search_only"),
+//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "*",
@@ -57,11 +50,18 @@ import (
 //								},
 //							},
 //						},
-//						Sid:    pulumi.StringRef("search_only"),
-//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"cloudsearch:search",
 //							"cloudsearch:document",
+//						},
+//						Conditions: []iam.GetPolicyDocumentStatementCondition{
+//							{
+//								Test:     "IpAddress",
+//								Variable: "aws:SourceIp",
+//								Values: []string{
+//									"192.0.2.0/32",
+//								},
+//							},
 //						},
 //					},
 //				},

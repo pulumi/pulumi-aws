@@ -26,8 +26,13 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.CatalogTableOptimizer("example", new()
     ///     {
+    ///         CatalogId = "123456789012",
+    ///         DatabaseName = "example_database",
+    ///         TableName = "example_table",
     ///         Configuration = new Aws.Glue.Inputs.CatalogTableOptimizerConfigurationArgs
     ///         {
+    ///             RoleArn = "arn:aws:iam::123456789012:role/example-role",
+    ///             Enabled = true,
     ///             CompactionConfiguration = new Aws.Glue.Inputs.CatalogTableOptimizerConfigurationCompactionConfigurationArgs
     ///             {
     ///                 IcebergConfiguration = new Aws.Glue.Inputs.CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs
@@ -37,12 +42,7 @@ namespace Pulumi.Aws.Glue
     ///                     DeleteFileThreshold = 1,
     ///                 },
     ///             },
-    ///             RoleArn = "arn:aws:iam::123456789012:role/example-role",
-    ///             Enabled = true,
     ///         },
-    ///         CatalogId = "123456789012",
-    ///         DatabaseName = "example_database",
-    ///         TableName = "example_table",
     ///         Type = "compaction",
     ///     });
     /// 
@@ -61,8 +61,13 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.CatalogTableOptimizer("example", new()
     ///     {
+    ///         CatalogId = "123456789012",
+    ///         DatabaseName = "example_database",
+    ///         TableName = "example_table",
     ///         Configuration = new Aws.Glue.Inputs.CatalogTableOptimizerConfigurationArgs
     ///         {
+    ///             RoleArn = "arn:aws:iam::123456789012:role/example-role",
+    ///             Enabled = true,
     ///             RetentionConfiguration = new Aws.Glue.Inputs.CatalogTableOptimizerConfigurationRetentionConfigurationArgs
     ///             {
     ///                 IcebergConfiguration = new Aws.Glue.Inputs.CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs
@@ -72,12 +77,7 @@ namespace Pulumi.Aws.Glue
     ///                     CleanExpiredFiles = true,
     ///                 },
     ///             },
-    ///             RoleArn = "arn:aws:iam::123456789012:role/example-role",
-    ///             Enabled = true,
     ///         },
-    ///         CatalogId = "123456789012",
-    ///         DatabaseName = "example_database",
-    ///         TableName = "example_table",
     ///         Type = "retention",
     ///     });
     /// 
@@ -96,8 +96,13 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.CatalogTableOptimizer("example", new()
     ///     {
+    ///         CatalogId = "123456789012",
+    ///         DatabaseName = "example_database",
+    ///         TableName = "example_table",
     ///         Configuration = new Aws.Glue.Inputs.CatalogTableOptimizerConfigurationArgs
     ///         {
+    ///             RoleArn = "arn:aws:iam::123456789012:role/example-role",
+    ///             Enabled = true,
     ///             OrphanFileDeletionConfiguration = new Aws.Glue.Inputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs
     ///             {
     ///                 IcebergConfiguration = new Aws.Glue.Inputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs
@@ -106,12 +111,7 @@ namespace Pulumi.Aws.Glue
     ///                     Location = "s3://example-bucket/example_table/",
     ///                 },
     ///             },
-    ///             RoleArn = "arn:aws:iam::123456789012:role/example-role",
-    ///             Enabled = true,
     ///         },
-    ///         CatalogId = "123456789012",
-    ///         DatabaseName = "example_database",
-    ///         TableName = "example_table",
     ///         Type = "orphan_file_deletion",
     ///     });
     /// 

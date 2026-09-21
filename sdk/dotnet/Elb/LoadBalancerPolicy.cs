@@ -25,6 +25,11 @@ namespace Pulumi.Aws.Elb
     /// {
     ///     var wu_tang = new Aws.Elb.LoadBalancer("wu-tang", new()
     ///     {
+    ///         Name = "wu-tang",
+    ///         AvailabilityZones = new[]
+    ///         {
+    ///             "us-east-1a",
+    ///         },
     ///         Listeners = new[]
     ///         {
     ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
@@ -36,11 +41,6 @@ namespace Pulumi.Aws.Elb
     ///                 SslCertificateId = "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
     ///             },
     ///         },
-    ///         Name = "wu-tang",
-    ///         AvailabilityZones = new[]
-    ///         {
-    ///             "us-east-1a",
-    ///         },
     ///         Tags = 
     ///         {
     ///             { "Name", "wu-tang" },
@@ -49,6 +49,9 @@ namespace Pulumi.Aws.Elb
     /// 
     ///     var wu_tang_ca_pubkey_policy = new Aws.Elb.LoadBalancerPolicy("wu-tang-ca-pubkey-policy", new()
     ///     {
+    ///         LoadBalancerName = wu_tang.Name,
+    ///         PolicyName = "wu-tang-ca-pubkey-policy",
+    ///         PolicyTypeName = "PublicKeyPolicyType",
     ///         PolicyAttributes = new[]
     ///         {
     ///             new Aws.Elb.Inputs.LoadBalancerPolicyPolicyAttributeArgs
@@ -60,13 +63,13 @@ namespace Pulumi.Aws.Elb
     ///                 }).Apply(invoke =&gt; invoke.Result),
     ///             },
     ///         },
-    ///         LoadBalancerName = wu_tang.Name,
-    ///         PolicyName = "wu-tang-ca-pubkey-policy",
-    ///         PolicyTypeName = "PublicKeyPolicyType",
     ///     });
     /// 
     ///     var wu_tang_root_ca_backend_auth_policy = new Aws.Elb.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy", new()
     ///     {
+    ///         LoadBalancerName = wu_tang.Name,
+    ///         PolicyName = "wu-tang-root-ca-backend-auth-policy",
+    ///         PolicyTypeName = "BackendServerAuthenticationPolicyType",
     ///         PolicyAttributes = new[]
     ///         {
     ///             new Aws.Elb.Inputs.LoadBalancerPolicyPolicyAttributeArgs
@@ -75,13 +78,13 @@ namespace Pulumi.Aws.Elb
     ///                 Value = wu_tang_root_ca_pubkey_policy.PolicyName,
     ///             },
     ///         },
-    ///         LoadBalancerName = wu_tang.Name,
-    ///         PolicyName = "wu-tang-root-ca-backend-auth-policy",
-    ///         PolicyTypeName = "BackendServerAuthenticationPolicyType",
     ///     });
     /// 
     ///     var wu_tang_ssl = new Aws.Elb.LoadBalancerPolicy("wu-tang-ssl", new()
     ///     {
+    ///         LoadBalancerName = wu_tang.Name,
+    ///         PolicyName = "wu-tang-ssl",
+    ///         PolicyTypeName = "SSLNegotiationPolicyType",
     ///         PolicyAttributes = new[]
     ///         {
     ///             new Aws.Elb.Inputs.LoadBalancerPolicyPolicyAttributeArgs
@@ -95,13 +98,13 @@ namespace Pulumi.Aws.Elb
     ///                 Value = "true",
     ///             },
     ///         },
-    ///         LoadBalancerName = wu_tang.Name,
-    ///         PolicyName = "wu-tang-ssl",
-    ///         PolicyTypeName = "SSLNegotiationPolicyType",
     ///     });
     /// 
     ///     var wu_tang_ssl_tls_1_1 = new Aws.Elb.LoadBalancerPolicy("wu-tang-ssl-tls-1-1", new()
     ///     {
+    ///         LoadBalancerName = wu_tang.Name,
+    ///         PolicyName = "wu-tang-ssl",
+    ///         PolicyTypeName = "SSLNegotiationPolicyType",
     ///         PolicyAttributes = new[]
     ///         {
     ///             new Aws.Elb.Inputs.LoadBalancerPolicyPolicyAttributeArgs
@@ -110,9 +113,6 @@ namespace Pulumi.Aws.Elb
     ///                 Value = "ELBSecurityPolicy-TLS-1-1-2017-01",
     ///             },
     ///         },
-    ///         LoadBalancerName = wu_tang.Name,
-    ///         PolicyName = "wu-tang-ssl",
-    ///         PolicyTypeName = "SSLNegotiationPolicyType",
     ///     });
     /// 
     ///     var wu_tang_backend_auth_policies_443 = new Aws.Elb.LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443", new()

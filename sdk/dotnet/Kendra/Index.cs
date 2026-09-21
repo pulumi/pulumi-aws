@@ -51,14 +51,14 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Index("example", new()
     ///     {
+    ///         Name = "example",
+    ///         Edition = "DEVELOPER_EDITION",
+    ///         RoleArn = @this.Arn,
     ///         CapacityUnits = new Aws.Kendra.Inputs.IndexCapacityUnitsArgs
     ///         {
     ///             QueryCapacityUnits = 2,
     ///             StorageCapacityUnits = 2,
     ///         },
-    ///         Name = "example",
-    ///         Edition = "DEVELOPER_EDITION",
-    ///         RoleArn = @this.Arn,
     ///     });
     /// 
     /// });
@@ -76,12 +76,12 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Index("example", new()
     ///     {
+    ///         Name = "example",
+    ///         RoleArn = thisAwsIamRole.Arn,
     ///         ServerSideEncryptionConfiguration = new Aws.Kendra.Inputs.IndexServerSideEncryptionConfigurationArgs
     ///         {
     ///             KmsKeyId = @this.Arn,
     ///         },
-    ///         Name = "example",
-    ///         RoleArn = thisAwsIamRole.Arn,
     ///     });
     /// 
     /// });
@@ -99,12 +99,12 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Index("example", new()
     ///     {
+    ///         Name = "example",
+    ///         RoleArn = @this.Arn,
     ///         UserGroupResolutionConfiguration = new Aws.Kendra.Inputs.IndexUserGroupResolutionConfigurationArgs
     ///         {
     ///             UserGroupResolutionMode = "AWS_SSO",
     ///         },
-    ///         Name = "example",
-    ///         RoleArn = @this.Arn,
     ///     });
     /// 
     /// });
@@ -126,10 +126,14 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Index("example", new()
     ///     {
+    ///         Name = "example",
+    ///         RoleArn = @this.Arn,
     ///         DocumentMetadataConfigurationUpdates = new[]
     ///         {
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
     ///             {
+    ///                 Name = "_authors",
+    ///                 Type = "STRING_LIST_VALUE",
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
     ///                     Displayable = false,
@@ -141,11 +145,11 @@ namespace Pulumi.Aws.Kendra
     ///                 {
     ///                     Importance = 1,
     ///                 },
-    ///                 Name = "_authors",
-    ///                 Type = "STRING_LIST_VALUE",
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
     ///             {
+    ///                 Name = "_category",
+    ///                 Type = "STRING_VALUE",
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
     ///                     Displayable = false,
@@ -158,11 +162,11 @@ namespace Pulumi.Aws.Kendra
     ///                     Importance = 1,
     ///                     ValuesImportanceMap = null,
     ///                 },
-    ///                 Name = "_category",
-    ///                 Type = "STRING_VALUE",
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
     ///             {
+    ///                 Name = "_created_at",
+    ///                 Type = "DATE_VALUE",
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
     ///                     Displayable = false,
@@ -177,11 +181,11 @@ namespace Pulumi.Aws.Kendra
     ///                     Duration = "25920000s",
     ///                     RankOrder = "ASCENDING",
     ///                 },
-    ///                 Name = "_created_at",
-    ///                 Type = "DATE_VALUE",
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
     ///             {
+    ///                 Name = "_data_source_id",
+    ///                 Type = "STRING_VALUE",
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
     ///                     Displayable = false,
@@ -194,11 +198,11 @@ namespace Pulumi.Aws.Kendra
     ///                     Importance = 1,
     ///                     ValuesImportanceMap = null,
     ///                 },
-    ///                 Name = "_data_source_id",
-    ///                 Type = "STRING_VALUE",
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
     ///             {
+    ///                 Name = "_document_title",
+    ///                 Type = "STRING_VALUE",
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
     ///                     Displayable = true,
@@ -211,11 +215,11 @@ namespace Pulumi.Aws.Kendra
     ///                     Importance = 2,
     ///                     ValuesImportanceMap = null,
     ///                 },
-    ///                 Name = "_document_title",
-    ///                 Type = "STRING_VALUE",
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
     ///             {
+    ///                 Name = "_excerpt_page_number",
+    ///                 Type = "LONG_VALUE",
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
     ///                     Displayable = false,
@@ -228,28 +232,11 @@ namespace Pulumi.Aws.Kendra
     ///                     Importance = 2,
     ///                     RankOrder = "ASCENDING",
     ///                 },
-    ///                 Name = "_excerpt_page_number",
-    ///                 Type = "LONG_VALUE",
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
     ///             {
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
-    ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
-    ///                 {
-    ///                     Importance = 1,
-    ///                     ValuesImportanceMap = null,
-    ///                 },
     ///                 Name = "_faq_id",
     ///                 Type = "STRING_VALUE",
-    ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
-    ///             {
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
     ///                     Displayable = false,
@@ -262,11 +249,11 @@ namespace Pulumi.Aws.Kendra
     ///                     Importance = 1,
     ///                     ValuesImportanceMap = null,
     ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
     ///                 Name = "_file_type",
     ///                 Type = "STRING_VALUE",
-    ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
-    ///             {
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
     ///                     Displayable = false,
@@ -279,11 +266,28 @@ namespace Pulumi.Aws.Kendra
     ///                     Importance = 1,
     ///                     ValuesImportanceMap = null,
     ///                 },
-    ///                 Name = "_language_code",
-    ///                 Type = "STRING_VALUE",
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
     ///             {
+    ///                 Name = "_language_code",
+    ///                 Type = "STRING_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 1,
+    ///                     ValuesImportanceMap = null,
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_last_updated_at",
+    ///                 Type = "DATE_VALUE",
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
     ///                     Displayable = false,
@@ -298,11 +302,11 @@ namespace Pulumi.Aws.Kendra
     ///                     Duration = "25920000s",
     ///                     RankOrder = "ASCENDING",
     ///                 },
-    ///                 Name = "_last_updated_at",
-    ///                 Type = "DATE_VALUE",
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
     ///             {
+    ///                 Name = "_source_uri",
+    ///                 Type = "STRING_VALUE",
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
     ///                     Displayable = true,
@@ -315,28 +319,11 @@ namespace Pulumi.Aws.Kendra
     ///                     Importance = 1,
     ///                     ValuesImportanceMap = null,
     ///                 },
-    ///                 Name = "_source_uri",
-    ///                 Type = "STRING_VALUE",
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
     ///             {
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
-    ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
-    ///                 {
-    ///                     Importance = 1,
-    ///                     ValuesImportanceMap = null,
-    ///                 },
     ///                 Name = "_tenant_id",
     ///                 Type = "STRING_VALUE",
-    ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
-    ///             {
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
     ///                     Displayable = false,
@@ -349,11 +336,28 @@ namespace Pulumi.Aws.Kendra
     ///                     Importance = 1,
     ///                     ValuesImportanceMap = null,
     ///                 },
-    ///                 Name = "_version",
-    ///                 Type = "STRING_VALUE",
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
     ///             {
+    ///                 Name = "_version",
+    ///                 Type = "STRING_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 1,
+    ///                     ValuesImportanceMap = null,
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_view_count",
+    ///                 Type = "LONG_VALUE",
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
     ///                     Displayable = false,
@@ -366,12 +370,8 @@ namespace Pulumi.Aws.Kendra
     ///                     Importance = 1,
     ///                     RankOrder = "ASCENDING",
     ///                 },
-    ///                 Name = "_view_count",
-    ///                 Type = "LONG_VALUE",
     ///             },
     ///         },
-    ///         Name = "example",
-    ///         RoleArn = @this.Arn,
     ///     });
     /// 
     /// });
@@ -391,43 +391,30 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Index("example", new()
     ///     {
+    ///         Name = "example",
+    ///         RoleArn = @this.Arn,
     ///         DocumentMetadataConfigurationUpdates = new[]
     ///         {
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
     ///             {
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
-    ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = false,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
-    ///                 {
-    ///                     Importance = 1,
-    ///                 },
     ///                 Name = "_authors",
     ///                 Type = "STRING_LIST_VALUE",
-    ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
-    ///             {
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
     ///                     Displayable = false,
     ///                     Facetable = false,
     ///                     Searchable = false,
-    ///                     Sortable = true,
+    ///                     Sortable = false,
     ///                 },
     ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
     ///                 {
     ///                     Importance = 1,
-    ///                     ValuesImportanceMap = null,
     ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
     ///                 Name = "_category",
     ///                 Type = "STRING_VALUE",
-    ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
-    ///             {
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
     ///                     Displayable = false,
@@ -437,16 +424,14 @@ namespace Pulumi.Aws.Kendra
     ///                 },
     ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
     ///                 {
-    ///                     Freshness = false,
     ///                     Importance = 1,
-    ///                     Duration = "25920000s",
-    ///                     RankOrder = "ASCENDING",
+    ///                     ValuesImportanceMap = null,
     ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
     ///                 Name = "_created_at",
     ///                 Type = "DATE_VALUE",
-    ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
-    ///             {
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
     ///                     Displayable = false,
@@ -456,31 +441,50 @@ namespace Pulumi.Aws.Kendra
     ///                 },
     ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
     ///                 {
+    ///                     Freshness = false,
     ///                     Importance = 1,
-    ///                     ValuesImportanceMap = null,
+    ///                     Duration = "25920000s",
+    ///                     RankOrder = "ASCENDING",
     ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
     ///                 Name = "_data_source_id",
     ///                 Type = "STRING_VALUE",
-    ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
-    ///             {
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
-    ///                     Displayable = true,
+    ///                     Displayable = false,
     ///                     Facetable = false,
-    ///                     Searchable = true,
+    ///                     Searchable = false,
     ///                     Sortable = true,
     ///                 },
     ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
     ///                 {
-    ///                     Importance = 2,
+    ///                     Importance = 1,
     ///                     ValuesImportanceMap = null,
     ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
     ///                 Name = "_document_title",
     ///                 Type = "STRING_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = true,
+    ///                     Facetable = false,
+    ///                     Searchable = true,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 2,
+    ///                     ValuesImportanceMap = null,
+    ///                 },
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
     ///             {
+    ///                 Name = "_excerpt_page_number",
+    ///                 Type = "LONG_VALUE",
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
     ///                     Displayable = false,
@@ -493,28 +497,11 @@ namespace Pulumi.Aws.Kendra
     ///                     Importance = 2,
     ///                     RankOrder = "ASCENDING",
     ///                 },
-    ///                 Name = "_excerpt_page_number",
-    ///                 Type = "LONG_VALUE",
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
     ///             {
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
-    ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
-    ///                 {
-    ///                     Importance = 1,
-    ///                     ValuesImportanceMap = null,
-    ///                 },
     ///                 Name = "_faq_id",
     ///                 Type = "STRING_VALUE",
-    ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
-    ///             {
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
     ///                     Displayable = false,
@@ -527,11 +514,11 @@ namespace Pulumi.Aws.Kendra
     ///                     Importance = 1,
     ///                     ValuesImportanceMap = null,
     ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
     ///                 Name = "_file_type",
     ///                 Type = "STRING_VALUE",
-    ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
-    ///             {
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
     ///                     Displayable = false,
@@ -544,11 +531,11 @@ namespace Pulumi.Aws.Kendra
     ///                     Importance = 1,
     ///                     ValuesImportanceMap = null,
     ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
     ///                 Name = "_language_code",
     ///                 Type = "STRING_VALUE",
-    ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
-    ///             {
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
     ///                     Displayable = false,
@@ -558,50 +545,50 @@ namespace Pulumi.Aws.Kendra
     ///                 },
     ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
     ///                 {
-    ///                     Freshness = false,
     ///                     Importance = 1,
-    ///                     Duration = "25920000s",
-    ///                     RankOrder = "ASCENDING",
+    ///                     ValuesImportanceMap = null,
     ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
     ///                 Name = "_last_updated_at",
     ///                 Type = "DATE_VALUE",
-    ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
-    ///             {
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
-    ///                     Displayable = true,
+    ///                     Displayable = false,
     ///                     Facetable = false,
     ///                     Searchable = false,
-    ///                     Sortable = false,
+    ///                     Sortable = true,
     ///                 },
     ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
     ///                 {
+    ///                     Freshness = false,
     ///                     Importance = 1,
-    ///                     ValuesImportanceMap = null,
+    ///                     Duration = "25920000s",
+    ///                     RankOrder = "ASCENDING",
     ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
     ///                 Name = "_source_uri",
     ///                 Type = "STRING_VALUE",
-    ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
-    ///             {
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
-    ///                     Displayable = false,
+    ///                     Displayable = true,
     ///                     Facetable = false,
     ///                     Searchable = false,
-    ///                     Sortable = true,
+    ///                     Sortable = false,
     ///                 },
     ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
     ///                 {
     ///                     Importance = 1,
     ///                     ValuesImportanceMap = null,
     ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
     ///                 Name = "_tenant_id",
     ///                 Type = "STRING_VALUE",
-    ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
-    ///             {
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
     ///                     Displayable = false,
@@ -614,11 +601,28 @@ namespace Pulumi.Aws.Kendra
     ///                     Importance = 1,
     ///                     ValuesImportanceMap = null,
     ///                 },
-    ///                 Name = "_version",
-    ///                 Type = "STRING_VALUE",
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
     ///             {
+    ///                 Name = "_version",
+    ///                 Type = "STRING_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 1,
+    ///                     ValuesImportanceMap = null,
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_view_count",
+    ///                 Type = "LONG_VALUE",
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
     ///                     Displayable = false,
@@ -631,11 +635,11 @@ namespace Pulumi.Aws.Kendra
     ///                     Importance = 1,
     ///                     RankOrder = "ASCENDING",
     ///                 },
-    ///                 Name = "_view_count",
-    ///                 Type = "LONG_VALUE",
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
     ///             {
+    ///                 Name = "example-string-value",
+    ///                 Type = "STRING_VALUE",
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
     ///                     Displayable = true,
@@ -648,11 +652,11 @@ namespace Pulumi.Aws.Kendra
     ///                     Importance = 1,
     ///                     ValuesImportanceMap = null,
     ///                 },
-    ///                 Name = "example-string-value",
-    ///                 Type = "STRING_VALUE",
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
     ///             {
+    ///                 Name = "example-long-value",
+    ///                 Type = "LONG_VALUE",
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
     ///                     Displayable = true,
@@ -665,11 +669,11 @@ namespace Pulumi.Aws.Kendra
     ///                     Importance = 1,
     ///                     RankOrder = "ASCENDING",
     ///                 },
-    ///                 Name = "example-long-value",
-    ///                 Type = "LONG_VALUE",
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
     ///             {
+    ///                 Name = "example-string-list-value",
+    ///                 Type = "STRING_LIST_VALUE",
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
     ///                     Displayable = true,
@@ -681,11 +685,11 @@ namespace Pulumi.Aws.Kendra
     ///                 {
     ///                     Importance = 1,
     ///                 },
-    ///                 Name = "example-string-list-value",
-    ///                 Type = "STRING_LIST_VALUE",
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
     ///             {
+    ///                 Name = "example-date-value",
+    ///                 Type = "DATE_VALUE",
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
     ///                 {
     ///                     Displayable = true,
@@ -700,12 +704,8 @@ namespace Pulumi.Aws.Kendra
     ///                     Duration = "25920000s",
     ///                     RankOrder = "ASCENDING",
     ///                 },
-    ///                 Name = "example-date-value",
-    ///                 Type = "DATE_VALUE",
     ///             },
     ///         },
-    ///         Name = "example",
-    ///         RoleArn = @this.Arn,
     ///     });
     /// 
     /// });
@@ -723,6 +723,8 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Index("example", new()
     ///     {
+    ///         Name = "example",
+    ///         RoleArn = @this.Arn,
     ///         UserTokenConfigurations = new Aws.Kendra.Inputs.IndexUserTokenConfigurationsArgs
     ///         {
     ///             JsonTokenTypeConfiguration = new Aws.Kendra.Inputs.IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs
@@ -731,8 +733,6 @@ namespace Pulumi.Aws.Kendra
     ///                 UserNameAttributeField = "username",
     ///             },
     ///         },
-    ///         Name = "example",
-    ///         RoleArn = @this.Arn,
     ///     });
     /// 
     /// });

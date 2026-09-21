@@ -26,18 +26,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// {
     ///     var example = new Aws.ApiGatewayV2.RoutingRule("example", new()
     ///     {
-    ///         Actions = new[]
-    ///         {
-    ///             new Aws.ApiGatewayV2.Inputs.RoutingRuleActionArgs
-    ///             {
-    ///                 InvokeApi = new Aws.ApiGatewayV2.Inputs.RoutingRuleActionInvokeApiArgs
-    ///                 {
-    ///                     ApiId = "example-api-id",
-    ///                     Stage = "example-stage",
-    ///                     StripBasePath = true,
-    ///                 },
-    ///             },
-    ///         },
+    ///         DomainName = "test.example.com",
     ///         Conditions = new[]
     ///         {
     ///             new Aws.ApiGatewayV2.Inputs.RoutingRuleConditionArgs
@@ -60,7 +49,18 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///                 },
     ///             },
     ///         },
-    ///         DomainName = "test.example.com",
+    ///         Actions = new[]
+    ///         {
+    ///             new Aws.ApiGatewayV2.Inputs.RoutingRuleActionArgs
+    ///             {
+    ///                 InvokeApi = new Aws.ApiGatewayV2.Inputs.RoutingRuleActionInvokeApiArgs
+    ///                 {
+    ///                     ApiId = "example-api-id",
+    ///                     Stage = "example-stage",
+    ///                     StripBasePath = true,
+    ///                 },
+    ///             },
+    ///         },
     ///         Priority = 1,
     ///     });
     /// 

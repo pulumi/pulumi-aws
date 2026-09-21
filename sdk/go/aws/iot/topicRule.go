@@ -43,13 +43,11 @@ import (
 //				return err
 //			}
 //			_, err = iot.NewTopicRule(ctx, "rule", &iot.TopicRuleArgs{
-//				ErrorAction: &iot.TopicRuleErrorActionArgs{
-//					Sns: &iot.TopicRuleErrorActionSnsArgs{
-//						MessageFormat: pulumi.String("RAW"),
-//						RoleArn:       pulumi.Any(role.Arn),
-//						TargetArn:     myerrortopic.Arn,
-//					},
-//				},
+//				Name:        pulumi.String("MyRule"),
+//				Description: pulumi.String("Example rule"),
+//				Enabled:     pulumi.Bool(true),
+//				Sql:         pulumi.String("SELECT * FROM 'topic/test'"),
+//				SqlVersion:  pulumi.String("2016-03-23"),
 //				Sns: iot.TopicRuleSnsArray{
 //					&iot.TopicRuleSnsArgs{
 //						MessageFormat: pulumi.String("RAW"),
@@ -57,11 +55,13 @@ import (
 //						TargetArn:     mytopic.Arn,
 //					},
 //				},
-//				Name:        pulumi.String("MyRule"),
-//				Description: pulumi.String("Example rule"),
-//				Enabled:     pulumi.Bool(true),
-//				Sql:         pulumi.String("SELECT * FROM 'topic/test'"),
-//				SqlVersion:  pulumi.String("2016-03-23"),
+//				ErrorAction: &iot.TopicRuleErrorActionArgs{
+//					Sns: &iot.TopicRuleErrorActionSnsArgs{
+//						MessageFormat: pulumi.String("RAW"),
+//						RoleArn:       pulumi.Any(role.Arn),
+//						TargetArn:     myerrortopic.Arn,
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -69,6 +69,7 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
+//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -77,7 +78,6 @@ import (
 //								},
 //							},
 //						},
-//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},

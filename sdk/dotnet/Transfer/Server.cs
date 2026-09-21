@@ -69,6 +69,7 @@ namespace Pulumi.Aws.Transfer
     /// {
     ///     var example = new Aws.Transfer.Server("example", new()
     ///     {
+    ///         EndpointType = "VPC",
     ///         EndpointDetails = new Aws.Transfer.Inputs.ServerEndpointDetailsArgs
     ///         {
     ///             AddressAllocationIds = new[]
@@ -81,7 +82,6 @@ namespace Pulumi.Aws.Transfer
     ///             },
     ///             VpcId = exampleAwsVpc.Id,
     ///         },
-    ///         EndpointType = "VPC",
     ///     });
     /// 
     /// });
@@ -137,6 +137,7 @@ namespace Pulumi.Aws.Transfer
     /// {
     ///     var example = new Aws.Transfer.Server("example", new()
     ///     {
+    ///         EndpointType = "VPC",
     ///         EndpointDetails = new Aws.Transfer.Inputs.ServerEndpointDetailsArgs
     ///         {
     ///             SubnetIds = new[]
@@ -145,7 +146,6 @@ namespace Pulumi.Aws.Transfer
     ///             },
     ///             VpcId = exampleAwsVpc.Id,
     ///         },
-    ///         EndpointType = "VPC",
     ///         Protocols = new[]
     ///         {
     ///             "FTP",
@@ -180,6 +180,7 @@ namespace Pulumi.Aws.Transfer
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -191,7 +192,6 @@ namespace Pulumi.Aws.Transfer
     ///                         },
     ///                     },
     ///                 },
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",

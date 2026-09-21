@@ -182,7 +182,7 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: pulumi.Input[Optional[_builtins.str]] = None,
-                 cors_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketCorsConfigurationV2CorsRuleArgs', 'BucketCorsConfigurationV2CorsRuleArgsDict']]]]] = None,
+                 cors_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketCorsConfigurationV2CorsRuleArgs', 'BucketCorsConfigurationV2CorsRuleArgsDict', 'outputs.BucketCorsConfigurationV2CorsRule']]]]] = None,
                  expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -201,6 +201,7 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="mybucket")
         example_bucket_cors_configuration = aws.s3.BucketCorsConfiguration("example",
+            bucket=example.id,
             cors_rules=[
                 {
                     "allowed_headers": ["*"],
@@ -216,8 +217,7 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
                     "allowed_methods": ["GET"],
                     "allowed_origins": ["*"],
                 },
-            ],
-            bucket=example.id)
+            ])
         ```
 
         ## Import
@@ -253,7 +253,7 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketCorsConfigurationV2CorsRuleArgs', 'BucketCorsConfigurationV2CorsRuleArgsDict']]]] cors_rules: Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketCorsConfigurationV2CorsRuleArgs', 'BucketCorsConfigurationV2CorsRuleArgsDict', 'outputs.BucketCorsConfigurationV2CorsRule']]]] cors_rules: Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -278,6 +278,7 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="mybucket")
         example_bucket_cors_configuration = aws.s3.BucketCorsConfiguration("example",
+            bucket=example.id,
             cors_rules=[
                 {
                     "allowed_headers": ["*"],
@@ -293,8 +294,7 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
                     "allowed_methods": ["GET"],
                     "allowed_origins": ["*"],
                 },
-            ],
-            bucket=example.id)
+            ])
         ```
 
         ## Import
@@ -343,7 +343,7 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: pulumi.Input[Optional[_builtins.str]] = None,
-                 cors_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketCorsConfigurationV2CorsRuleArgs', 'BucketCorsConfigurationV2CorsRuleArgsDict']]]]] = None,
+                 cors_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketCorsConfigurationV2CorsRuleArgs', 'BucketCorsConfigurationV2CorsRuleArgsDict', 'outputs.BucketCorsConfigurationV2CorsRule']]]]] = None,
                  expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -377,7 +377,7 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             bucket: pulumi.Input[Optional[_builtins.str]] = None,
-            cors_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketCorsConfigurationV2CorsRuleArgs', 'BucketCorsConfigurationV2CorsRuleArgsDict']]]]] = None,
+            cors_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketCorsConfigurationV2CorsRuleArgs', 'BucketCorsConfigurationV2CorsRuleArgsDict', 'outputs.BucketCorsConfigurationV2CorsRule']]]]] = None,
             expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'BucketCorsConfigurationV2':
         """
@@ -388,7 +388,7 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketCorsConfigurationV2CorsRuleArgs', 'BucketCorsConfigurationV2CorsRuleArgsDict']]]] cors_rules: Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketCorsConfigurationV2CorsRuleArgs', 'BucketCorsConfigurationV2CorsRuleArgsDict', 'outputs.BucketCorsConfigurationV2CorsRule']]]] cors_rules: Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """

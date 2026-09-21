@@ -51,6 +51,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new User("example", UserArgs.builder()
+ *             .instanceId(exampleAwsConnectInstance.id())
+ *             .name("example")
+ *             .password("Password123")
+ *             .routingProfileId(exampleAwsConnectRoutingProfile.routingProfileId())
+ *             .securityProfileIds(exampleAwsConnectSecurityProfile.securityProfileId())
  *             .identityInfo(UserIdentityInfoArgs.builder()
  *                 .firstName("example")
  *                 .lastName("example2")
@@ -59,11 +64,6 @@ import javax.annotation.Nullable;
  *                 .afterContactWorkTimeLimit(0)
  *                 .phoneType("SOFT_PHONE")
  *                 .build())
- *             .instanceId(exampleAwsConnectInstance.id())
- *             .name("example")
- *             .password("Password123")
- *             .routingProfileId(exampleAwsConnectRoutingProfile.routingProfileId())
- *             .securityProfileIds(exampleAwsConnectSecurityProfile.securityProfileId())
  *             .build());
  * 
  *     }
@@ -98,6 +98,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new User("example", UserArgs.builder()
+ *             .instanceId(exampleAwsConnectInstance.id())
+ *             .name("example")
+ *             .password("Password123")
+ *             .routingProfileId(exampleAwsConnectRoutingProfile.routingProfileId())
+ *             .hierarchyGroupId(exampleAwsConnectUserHierarchyGroup.hierarchyGroupId())
+ *             .securityProfileIds(exampleAwsConnectSecurityProfile.securityProfileId())
  *             .identityInfo(UserIdentityInfoArgs.builder()
  *                 .firstName("example")
  *                 .lastName("example2")
@@ -106,12 +112,6 @@ import javax.annotation.Nullable;
  *                 .afterContactWorkTimeLimit(0)
  *                 .phoneType("SOFT_PHONE")
  *                 .build())
- *             .instanceId(exampleAwsConnectInstance.id())
- *             .name("example")
- *             .password("Password123")
- *             .routingProfileId(exampleAwsConnectRoutingProfile.routingProfileId())
- *             .hierarchyGroupId(exampleAwsConnectUserHierarchyGroup.hierarchyGroupId())
- *             .securityProfileIds(exampleAwsConnectSecurityProfile.securityProfileId())
  *             .build());
  * 
  *     }
@@ -146,6 +146,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) }{{@code
  *         var example = new User("example", UserArgs.builder()
+ *             .instanceId(exampleAwsConnectInstance.id())
+ *             .name("example")
+ *             .password("Password123")
+ *             .routingProfileId(exampleAwsConnectRoutingProfile.routingProfileId())
+ *             .securityProfileIds(exampleAwsConnectSecurityProfile.securityProfileId())
  *             .identityInfo(UserIdentityInfoArgs.builder()
  *                 .email("example}{@literal @}{@code example.com")
  *                 .firstName("example")
@@ -156,11 +161,6 @@ import javax.annotation.Nullable;
  *                 .afterContactWorkTimeLimit(0)
  *                 .phoneType("SOFT_PHONE")
  *                 .build())
- *             .instanceId(exampleAwsConnectInstance.id())
- *             .name("example")
- *             .password("Password123")
- *             .routingProfileId(exampleAwsConnectRoutingProfile.routingProfileId())
- *             .securityProfileIds(exampleAwsConnectSecurityProfile.securityProfileId())
  *             .build());
  * 
  *     }}{@code
@@ -194,15 +194,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new User("example", UserArgs.builder()
- *             .phoneConfig(UserPhoneConfigArgs.builder()
- *                 .afterContactWorkTimeLimit(0)
- *                 .phoneType("SOFT_PHONE")
- *                 .build())
  *             .instanceId(exampleAwsConnectInstance.id())
  *             .name("example")
  *             .password("Password123")
  *             .routingProfileId(exampleAwsConnectRoutingProfile.routingProfileId())
  *             .securityProfileIds(exampleAwsConnectSecurityProfile.securityProfileId())
+ *             .phoneConfig(UserPhoneConfigArgs.builder()
+ *                 .afterContactWorkTimeLimit(0)
+ *                 .phoneType("SOFT_PHONE")
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -236,12 +236,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new User("example", UserArgs.builder()
- *             .phoneConfig(UserPhoneConfigArgs.builder()
- *                 .afterContactWorkTimeLimit(0)
- *                 .autoAccept(false)
- *                 .deskPhoneNumber("+112345678912")
- *                 .phoneType("DESK_PHONE")
- *                 .build())
  *             .instanceId(exampleAwsConnectInstance.id())
  *             .name("example")
  *             .password("Password123")
@@ -249,6 +243,12 @@ import javax.annotation.Nullable;
  *             .securityProfileIds(            
  *                 exampleAwsConnectSecurityProfile.securityProfileId(),
  *                 example2.securityProfileId())
+ *             .phoneConfig(UserPhoneConfigArgs.builder()
+ *                 .afterContactWorkTimeLimit(0)
+ *                 .autoAccept(false)
+ *                 .deskPhoneNumber("+112345678912")
+ *                 .phoneType("DESK_PHONE")
+ *                 .build())
  *             .build());
  * 
  *     }

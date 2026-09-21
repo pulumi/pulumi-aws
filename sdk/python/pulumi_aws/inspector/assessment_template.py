@@ -296,7 +296,7 @@ class AssessmentTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  duration: pulumi.Input[Optional[_builtins.int]] = None,
-                 event_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssessmentTemplateEventSubscriptionArgs', 'AssessmentTemplateEventSubscriptionArgsDict']]]]] = None,
+                 event_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssessmentTemplateEventSubscriptionArgs', 'AssessmentTemplateEventSubscriptionArgsDict', 'outputs.AssessmentTemplateEventSubscription']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  rules_package_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -313,10 +313,6 @@ class AssessmentTemplate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.inspector.AssessmentTemplate("example",
-            event_subscriptions=[{
-                "event": "ASSESSMENT_RUN_COMPLETED",
-                "topic_arn": example_aws_sns_topic["arn"],
-            }],
             name="example",
             target_arn=example_aws_inspector_assessment_target["arn"],
             duration=3600,
@@ -325,7 +321,11 @@ class AssessmentTemplate(pulumi.CustomResource):
                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD",
-            ])
+            ],
+            event_subscriptions=[{
+                "event": "ASSESSMENT_RUN_COMPLETED",
+                "topic_arn": example_aws_sns_topic["arn"],
+            }])
         ```
 
         ## Import
@@ -346,7 +346,7 @@ class AssessmentTemplate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] duration: The duration of the inspector run.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AssessmentTemplateEventSubscriptionArgs', 'AssessmentTemplateEventSubscriptionArgsDict']]]] event_subscriptions: A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AssessmentTemplateEventSubscriptionArgs', 'AssessmentTemplateEventSubscriptionArgsDict', 'outputs.AssessmentTemplateEventSubscription']]]] event_subscriptions: A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
         :param pulumi.Input[_builtins.str] name: The name of the assessment template.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rules_package_arns: The rules to be used during the run.
@@ -369,10 +369,6 @@ class AssessmentTemplate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.inspector.AssessmentTemplate("example",
-            event_subscriptions=[{
-                "event": "ASSESSMENT_RUN_COMPLETED",
-                "topic_arn": example_aws_sns_topic["arn"],
-            }],
             name="example",
             target_arn=example_aws_inspector_assessment_target["arn"],
             duration=3600,
@@ -381,7 +377,11 @@ class AssessmentTemplate(pulumi.CustomResource):
                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD",
-            ])
+            ],
+            event_subscriptions=[{
+                "event": "ASSESSMENT_RUN_COMPLETED",
+                "topic_arn": example_aws_sns_topic["arn"],
+            }])
         ```
 
         ## Import
@@ -415,7 +415,7 @@ class AssessmentTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  duration: pulumi.Input[Optional[_builtins.int]] = None,
-                 event_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssessmentTemplateEventSubscriptionArgs', 'AssessmentTemplateEventSubscriptionArgsDict']]]]] = None,
+                 event_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssessmentTemplateEventSubscriptionArgs', 'AssessmentTemplateEventSubscriptionArgsDict', 'outputs.AssessmentTemplateEventSubscription']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  rules_package_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -457,7 +457,7 @@ class AssessmentTemplate(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             duration: pulumi.Input[Optional[_builtins.int]] = None,
-            event_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssessmentTemplateEventSubscriptionArgs', 'AssessmentTemplateEventSubscriptionArgsDict']]]]] = None,
+            event_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssessmentTemplateEventSubscriptionArgs', 'AssessmentTemplateEventSubscriptionArgsDict', 'outputs.AssessmentTemplateEventSubscription']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             rules_package_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -473,7 +473,7 @@ class AssessmentTemplate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The template assessment ARN.
         :param pulumi.Input[_builtins.int] duration: The duration of the inspector run.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AssessmentTemplateEventSubscriptionArgs', 'AssessmentTemplateEventSubscriptionArgsDict']]]] event_subscriptions: A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AssessmentTemplateEventSubscriptionArgs', 'AssessmentTemplateEventSubscriptionArgsDict', 'outputs.AssessmentTemplateEventSubscription']]]] event_subscriptions: A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
         :param pulumi.Input[_builtins.str] name: The name of the assessment template.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rules_package_arns: The rules to be used during the run.

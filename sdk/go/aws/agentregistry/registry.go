@@ -33,10 +33,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := agentregistry.NewRegistry(ctx, "example", &agentregistry.RegistryArgs{
+//				Name: pulumi.String("example-registry"),
 //				DiscoveryConfiguration: &agentregistry.RegistryDiscoveryConfigurationArgs{
 //					AuthorizerType: pulumi.String("AWS_IAM"),
 //				},
-//				Name: pulumi.String("example-registry"),
 //			})
 //			if err != nil {
 //				return err
@@ -62,11 +62,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := agentregistry.NewRegistry(ctx, "example", &agentregistry.RegistryArgs{
+//				Name:        pulumi.String("example-registry"),
+//				Description: pulumi.String("Example agent registry"),
 //				DiscoveryConfiguration: &agentregistry.RegistryDiscoveryConfigurationArgs{
 //					AuthorizerType: pulumi.String("AWS_IAM"),
 //				},
-//				Name:        pulumi.String("example-registry"),
-//				Description: pulumi.String("Example agent registry"),
 //			})
 //			if err != nil {
 //				return err
@@ -92,6 +92,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := agentregistry.NewRegistry(ctx, "example", &agentregistry.RegistryArgs{
+//				Name: pulumi.String("example-registry"),
 //				ApprovalConfiguration: &agentregistry.RegistryApprovalConfigurationArgs{
 //					AutoApprovalRules: pulumi.StringArray{
 //						pulumi.String("APPROVE_ALL"),
@@ -100,7 +101,6 @@ import (
 //				DiscoveryConfiguration: &agentregistry.RegistryDiscoveryConfigurationArgs{
 //					AuthorizerType: pulumi.String("AWS_IAM"),
 //				},
-//				Name: pulumi.String("example-registry"),
 //			})
 //			if err != nil {
 //				return err
@@ -126,21 +126,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := agentregistry.NewRegistry(ctx, "example", &agentregistry.RegistryArgs{
+//				Name: pulumi.String("example-registry"),
 //				DiscoveryConfiguration: &agentregistry.RegistryDiscoveryConfigurationArgs{
+//					AuthorizerType: pulumi.String("CUSTOM_JWT"),
 //					AuthorizerConfiguration: &agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationArgs{
 //						CustomJwtAuthorizer: &agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerArgs{
-//							CustomClaims: agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArray{
-//								&agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs{
-//									AuthorizingClaimMatchValue: &agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs{
-//										ClaimMatchValue: &agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs{
-//											MatchValueString: pulumi.String("authorized-user"),
-//										},
-//										ClaimMatchOperator: pulumi.String("EQUALS"),
-//									},
-//									InboundTokenClaimName:      pulumi.String("sub"),
-//									InboundTokenClaimValueType: pulumi.String("STRING"),
-//								},
-//							},
 //							DiscoveryUrl: pulumi.String("https://example.com/.well-known/openid-configuration"),
 //							AllowedAudiences: pulumi.StringArray{
 //								pulumi.String("https://api.example.com"),
@@ -152,11 +142,21 @@ import (
 //								pulumi.String("read"),
 //								pulumi.String("write"),
 //							},
+//							CustomClaims: agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArray{
+//								&agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs{
+//									InboundTokenClaimName:      pulumi.String("sub"),
+//									InboundTokenClaimValueType: pulumi.String("STRING"),
+//									AuthorizingClaimMatchValue: &agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs{
+//										ClaimMatchOperator: pulumi.String("EQUALS"),
+//										ClaimMatchValue: &agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs{
+//											MatchValueString: pulumi.String("authorized-user"),
+//										},
+//									},
+//								},
+//							},
 //						},
 //					},
-//					AuthorizerType: pulumi.String("CUSTOM_JWT"),
 //				},
-//				Name: pulumi.String("example-registry"),
 //			})
 //			if err != nil {
 //				return err

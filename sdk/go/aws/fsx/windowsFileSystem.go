@@ -69,6 +69,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.NewWindowsFileSystem(ctx, "example", &fsx.WindowsFileSystemArgs{
+//				KmsKeyId:        pulumi.Any(exampleAwsKmsKey.Arn),
+//				StorageCapacity: pulumi.Int(32),
+//				SubnetIds: pulumi.StringArray{
+//					exampleAwsSubnet.Id,
+//				},
+//				ThroughputCapacity: pulumi.Int(32),
 //				SelfManagedActiveDirectory: &fsx.WindowsFileSystemSelfManagedActiveDirectoryArgs{
 //					DnsIps: pulumi.StringArray{
 //						pulumi.String("10.0.0.111"),
@@ -78,12 +84,6 @@ import (
 //					Password:   pulumi.String("avoid-plaintext-passwords"),
 //					Username:   pulumi.String("Admin"),
 //				},
-//				KmsKeyId:        pulumi.Any(exampleAwsKmsKey.Arn),
-//				StorageCapacity: pulumi.Int(32),
-//				SubnetIds: pulumi.StringArray{
-//					exampleAwsSubnet.Id,
-//				},
-//				ThroughputCapacity: pulumi.Int(32),
 //			})
 //			if err != nil {
 //				return err
@@ -109,6 +109,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.NewWindowsFileSystem(ctx, "example", &fsx.WindowsFileSystemArgs{
+//				KmsKeyId:        pulumi.Any(exampleAwsKmsKey.Arn),
+//				StorageCapacity: pulumi.Int(32),
+//				SubnetIds: pulumi.StringArray{
+//					exampleAwsSubnet.Id,
+//				},
+//				ThroughputCapacity: pulumi.Int(32),
 //				SelfManagedActiveDirectory: &fsx.WindowsFileSystemSelfManagedActiveDirectoryArgs{
 //					DnsIps: pulumi.StringArray{
 //						pulumi.String("10.0.0.111"),
@@ -117,12 +123,6 @@ import (
 //					DomainName:                     pulumi.String("corp.example.com"),
 //					DomainJoinServiceAccountSecret: pulumi.Any(exampleAwsSecretsmanagerSecret.Arn),
 //				},
-//				KmsKeyId:        pulumi.Any(exampleAwsKmsKey.Arn),
-//				StorageCapacity: pulumi.Int(32),
-//				SubnetIds: pulumi.StringArray{
-//					exampleAwsSubnet.Id,
-//				},
-//				ThroughputCapacity: pulumi.Int(32),
 //			})
 //			if err != nil {
 //				return err
@@ -159,9 +159,7 @@ import (
 //				SecurityGroupIds: pulumi.StringArray{
 //					exampleAwsSecurityGroup.Id,
 //				},
-//			}, pulumi.IgnoreChanges([]string{
-//				"securityGroupIds",
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

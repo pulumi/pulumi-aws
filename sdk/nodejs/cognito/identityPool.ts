@@ -24,6 +24,9 @@ import * as utilities from "../utilities";
  *     }).then(invoke => invoke.result),
  * });
  * const main = new aws.cognito.IdentityPool("main", {
+ *     identityPoolName: "identity pool",
+ *     allowUnauthenticatedIdentities: false,
+ *     allowClassicFlow: false,
  *     cognitoIdentityProviders: [
  *         {
  *             clientId: "6lhlkkfbfb4q5kpp90urffae",
@@ -36,9 +39,6 @@ import * as utilities from "../utilities";
  *             serverSideTokenCheck: false,
  *         },
  *     ],
- *     identityPoolName: "identity pool",
- *     allowUnauthenticatedIdentities: false,
- *     allowClassicFlow: false,
  *     supportedLoginProviders: {
  *         "graph.facebook.com": "7346241598935552",
  *         "accounts.google.com": "123456789012.apps.googleusercontent.com",

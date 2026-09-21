@@ -1226,7 +1226,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  is_mtls_enabled_vm_cluster: pulumi.Input[Optional[_builtins.bool]] = None,
                  license_model: pulumi.Input[Optional[_builtins.str]] = None,
-                 maintenance_window: pulumi.Input[Optional[Union['CloudAutonomousVmClusterMaintenanceWindowArgs', 'CloudAutonomousVmClusterMaintenanceWindowArgsDict']]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['CloudAutonomousVmClusterMaintenanceWindowArgs', 'CloudAutonomousVmClusterMaintenanceWindowArgsDict', 'outputs.CloudAutonomousVmClusterMaintenanceWindow']]] = None,
                  memory_per_oracle_compute_unit_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
                  odb_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  odb_network_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1235,7 +1235,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
                  scan_listener_port_tls: pulumi.Input[Optional[_builtins.int]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  time_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['CloudAutonomousVmClusterTimeoutsArgs', 'CloudAutonomousVmClusterTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CloudAutonomousVmClusterTimeoutsArgs', 'CloudAutonomousVmClusterTimeoutsArgsDict', 'outputs.CloudAutonomousVmClusterTimeouts']]] = None,
                  total_container_databases: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
@@ -1252,9 +1252,6 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         avmc_with_minimum_parameters = aws.odb.CloudAutonomousVmCluster("avmc_with_minimum_parameters",
-            maintenance_window={
-                "preference": "NO_PREFERENCE",
-            },
             cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
             odb_network_id="<aws_odb_network_id>",
             display_name="my_autonomous_vm_cluster",
@@ -1265,8 +1262,27 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
             license_model="LICENSE_INCLUDED",
             db_servers=["<my_db_server_id>"],
             scan_listener_port_tls=8561,
-            scan_listener_port_non_tls=1024)
+            scan_listener_port_non_tls=1024,
+            maintenance_window={
+                "preference": "NO_PREFERENCE",
+            })
         avmc_with_all_params = aws.odb.CloudAutonomousVmCluster("avmc_with_all_params",
+            description="my first avmc",
+            time_zone="UTC",
+            cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
+            odb_network_id="<aws_odb_network_id>",
+            display_name="my_autonomous_vm_cluster",
+            autonomous_data_storage_size_in_tbs=float(5),
+            memory_per_oracle_compute_unit_in_gbs=2,
+            total_container_databases=1,
+            cpu_core_count_per_node=40,
+            license_model="LICENSE_INCLUDED",
+            db_servers=[
+                "<my_db_server_1>",
+                "<my_db_server_2>",
+            ],
+            scan_listener_port_tls=8561,
+            scan_listener_port_non_tls=1024,
             maintenance_window={
                 "days_of_weeks": [
                     {
@@ -1301,22 +1317,6 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
                     4,
                 ],
             },
-            description="my first avmc",
-            time_zone="UTC",
-            cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
-            odb_network_id="<aws_odb_network_id>",
-            display_name="my_autonomous_vm_cluster",
-            autonomous_data_storage_size_in_tbs=float(5),
-            memory_per_oracle_compute_unit_in_gbs=2,
-            total_container_databases=1,
-            cpu_core_count_per_node=40,
-            license_model="LICENSE_INCLUDED",
-            db_servers=[
-                "<my_db_server_1>",
-                "<my_db_server_2>",
-            ],
-            scan_listener_port_tls=8561,
-            scan_listener_port_non_tls=1024,
             tags={
                 "env": "dev",
             })
@@ -1342,7 +1342,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: Display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.bool] is_mtls_enabled_vm_cluster: Whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] license_model: License model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
-        :param pulumi.Input[Union['CloudAutonomousVmClusterMaintenanceWindowArgs', 'CloudAutonomousVmClusterMaintenanceWindowArgsDict']] maintenance_window: Maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+        :param pulumi.Input[Union['CloudAutonomousVmClusterMaintenanceWindowArgs', 'CloudAutonomousVmClusterMaintenanceWindowArgsDict', 'outputs.CloudAutonomousVmClusterMaintenanceWindow']] maintenance_window: Maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.int] memory_per_oracle_compute_unit_in_gbs: Amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] odb_network_arn: ARN of the ODB network associated with this Autonomous VM Cluster. Changing this will force Terraform to create a new resource. Either the combination of `cloud_exadata_infrastructure_id` and `odb_network_id` or `cloud_exadata_infrastructure_arn` and `odb_network_arn` must be used.
         :param pulumi.Input[_builtins.str] odb_network_id: Unique identifier of the ODB network associated with this Autonomous VM Cluster. Changing this will force Terraform to create a new resource. Changing this will create a new resource. Either the combination of `cloud_exadata_infrastructure_id` and `odb_network_id` or `cloud_exadata_infrastructure_arn` and `odb_network_arn` must be used.
@@ -1375,9 +1375,6 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         avmc_with_minimum_parameters = aws.odb.CloudAutonomousVmCluster("avmc_with_minimum_parameters",
-            maintenance_window={
-                "preference": "NO_PREFERENCE",
-            },
             cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
             odb_network_id="<aws_odb_network_id>",
             display_name="my_autonomous_vm_cluster",
@@ -1388,8 +1385,27 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
             license_model="LICENSE_INCLUDED",
             db_servers=["<my_db_server_id>"],
             scan_listener_port_tls=8561,
-            scan_listener_port_non_tls=1024)
+            scan_listener_port_non_tls=1024,
+            maintenance_window={
+                "preference": "NO_PREFERENCE",
+            })
         avmc_with_all_params = aws.odb.CloudAutonomousVmCluster("avmc_with_all_params",
+            description="my first avmc",
+            time_zone="UTC",
+            cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
+            odb_network_id="<aws_odb_network_id>",
+            display_name="my_autonomous_vm_cluster",
+            autonomous_data_storage_size_in_tbs=float(5),
+            memory_per_oracle_compute_unit_in_gbs=2,
+            total_container_databases=1,
+            cpu_core_count_per_node=40,
+            license_model="LICENSE_INCLUDED",
+            db_servers=[
+                "<my_db_server_1>",
+                "<my_db_server_2>",
+            ],
+            scan_listener_port_tls=8561,
+            scan_listener_port_non_tls=1024,
             maintenance_window={
                 "days_of_weeks": [
                     {
@@ -1424,22 +1440,6 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
                     4,
                 ],
             },
-            description="my first avmc",
-            time_zone="UTC",
-            cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
-            odb_network_id="<aws_odb_network_id>",
-            display_name="my_autonomous_vm_cluster",
-            autonomous_data_storage_size_in_tbs=float(5),
-            memory_per_oracle_compute_unit_in_gbs=2,
-            total_container_databases=1,
-            cpu_core_count_per_node=40,
-            license_model="LICENSE_INCLUDED",
-            db_servers=[
-                "<my_db_server_1>",
-                "<my_db_server_2>",
-            ],
-            scan_listener_port_tls=8561,
-            scan_listener_port_non_tls=1024,
             tags={
                 "env": "dev",
             })
@@ -1478,7 +1478,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  is_mtls_enabled_vm_cluster: pulumi.Input[Optional[_builtins.bool]] = None,
                  license_model: pulumi.Input[Optional[_builtins.str]] = None,
-                 maintenance_window: pulumi.Input[Optional[Union['CloudAutonomousVmClusterMaintenanceWindowArgs', 'CloudAutonomousVmClusterMaintenanceWindowArgsDict']]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['CloudAutonomousVmClusterMaintenanceWindowArgs', 'CloudAutonomousVmClusterMaintenanceWindowArgsDict', 'outputs.CloudAutonomousVmClusterMaintenanceWindow']]] = None,
                  memory_per_oracle_compute_unit_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
                  odb_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  odb_network_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1487,7 +1487,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
                  scan_listener_port_tls: pulumi.Input[Optional[_builtins.int]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  time_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['CloudAutonomousVmClusterTimeoutsArgs', 'CloudAutonomousVmClusterTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CloudAutonomousVmClusterTimeoutsArgs', 'CloudAutonomousVmClusterTimeoutsArgsDict', 'outputs.CloudAutonomousVmClusterTimeouts']]] = None,
                  total_container_databases: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1603,7 +1603,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
             hostname: pulumi.Input[Optional[_builtins.str]] = None,
             is_mtls_enabled_vm_cluster: pulumi.Input[Optional[_builtins.bool]] = None,
             license_model: pulumi.Input[Optional[_builtins.str]] = None,
-            maintenance_window: pulumi.Input[Optional[Union['CloudAutonomousVmClusterMaintenanceWindowArgs', 'CloudAutonomousVmClusterMaintenanceWindowArgsDict']]] = None,
+            maintenance_window: pulumi.Input[Optional[Union['CloudAutonomousVmClusterMaintenanceWindowArgs', 'CloudAutonomousVmClusterMaintenanceWindowArgsDict', 'outputs.CloudAutonomousVmClusterMaintenanceWindow']]] = None,
             max_acds_lowest_scaled_value: pulumi.Input[Optional[_builtins.int]] = None,
             memory_per_oracle_compute_unit_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
             memory_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1632,7 +1632,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
             time_database_ssl_certificate_expires: pulumi.Input[Optional[_builtins.str]] = None,
             time_ords_certificate_expires: pulumi.Input[Optional[_builtins.str]] = None,
             time_zone: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['CloudAutonomousVmClusterTimeoutsArgs', 'CloudAutonomousVmClusterTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['CloudAutonomousVmClusterTimeoutsArgs', 'CloudAutonomousVmClusterTimeoutsArgsDict', 'outputs.CloudAutonomousVmClusterTimeouts']]] = None,
             total_container_databases: pulumi.Input[Optional[_builtins.int]] = None) -> 'CloudAutonomousVmCluster':
         """
         Get an existing CloudAutonomousVmCluster resource's state with the given name, id, and optional extra
@@ -1664,7 +1664,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] hostname: Hostname of the Autonomous VM cluster.
         :param pulumi.Input[_builtins.bool] is_mtls_enabled_vm_cluster: Whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] license_model: License model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
-        :param pulumi.Input[Union['CloudAutonomousVmClusterMaintenanceWindowArgs', 'CloudAutonomousVmClusterMaintenanceWindowArgsDict']] maintenance_window: Maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+        :param pulumi.Input[Union['CloudAutonomousVmClusterMaintenanceWindowArgs', 'CloudAutonomousVmClusterMaintenanceWindowArgsDict', 'outputs.CloudAutonomousVmClusterMaintenanceWindow']] maintenance_window: Maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.int] max_acds_lowest_scaled_value: Minimum value to which you can scale down the maximum number of Autonomous CDBs.
         :param pulumi.Input[_builtins.int] memory_per_oracle_compute_unit_in_gbs: Amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.int] memory_size_in_gbs: Total amount of memory allocated to the Autonomous VM cluster, in gigabytes(GB).

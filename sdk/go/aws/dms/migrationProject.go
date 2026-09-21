@@ -33,6 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dms.NewMigrationProject(ctx, "example", &dms.MigrationProjectArgs{
+//				InstanceProfileArn: pulumi.Any(exampleAwsDmsInstanceProfile.Arn),
 //				SourceDataProviderDescriptors: dms.MigrationProjectSourceDataProviderDescriptorArray{
 //					&dms.MigrationProjectSourceDataProviderDescriptorArgs{
 //						DataProviderArn: pulumi.Any(source.Arn),
@@ -43,7 +44,6 @@ import (
 //						DataProviderArn: pulumi.Any(target.Arn),
 //					},
 //				},
-//				InstanceProfileArn: pulumi.Any(exampleAwsDmsInstanceProfile.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -69,10 +69,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dms.NewMigrationProject(ctx, "example", &dms.MigrationProjectArgs{
-//				SchemaConversionApplicationAttributes: &dms.MigrationProjectSchemaConversionApplicationAttributesArgs{
-//					S3BucketPath:    pulumi.String("s3://example-bucket"),
-//					S3BucketRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				},
+//				Name:               pulumi.String("example"),
+//				Description:        pulumi.String("Example migration project"),
+//				InstanceProfileArn: pulumi.Any(exampleAwsDmsInstanceProfile.Arn),
 //				SourceDataProviderDescriptors: dms.MigrationProjectSourceDataProviderDescriptorArray{
 //					&dms.MigrationProjectSourceDataProviderDescriptorArgs{
 //						DataProviderArn:             pulumi.Any(source.Arn),
@@ -87,9 +86,10 @@ import (
 //						SecretsManagerSecretId:      pulumi.Any(targetAwsSecretsmanagerSecret.Arn),
 //					},
 //				},
-//				Name:               pulumi.String("example"),
-//				Description:        pulumi.String("Example migration project"),
-//				InstanceProfileArn: pulumi.Any(exampleAwsDmsInstanceProfile.Arn),
+//				SchemaConversionApplicationAttributes: &dms.MigrationProjectSchemaConversionApplicationAttributesArgs{
+//					S3BucketPath:    pulumi.String("s3://example-bucket"),
+//					S3BucketRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				},
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("example"),
 //				},

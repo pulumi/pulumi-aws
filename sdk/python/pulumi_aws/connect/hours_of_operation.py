@@ -311,7 +311,7 @@ class HoursOfOperation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HoursOfOperationConfigArgs', 'HoursOfOperationConfigArgsDict']]]]] = None,
+                 configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HoursOfOperationConfigArgs', 'HoursOfOperationConfigArgsDict', 'outputs.HoursOfOperationConfig']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -330,8 +330,13 @@ class HoursOfOperation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.connect.HoursOfOperation("test",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="Office Hours",
+            description="Monday office hours",
+            time_zone="EST",
             configs=[
                 {
+                    "day": "MONDAY",
                     "end_time": {
                         "hours": 23,
                         "minutes": 8,
@@ -340,9 +345,9 @@ class HoursOfOperation(pulumi.CustomResource):
                         "hours": 8,
                         "minutes": 0,
                     },
-                    "day": "MONDAY",
                 },
                 {
+                    "day": "TUESDAY",
                     "end_time": {
                         "hours": 21,
                         "minutes": 0,
@@ -351,13 +356,8 @@ class HoursOfOperation(pulumi.CustomResource):
                         "hours": 9,
                         "minutes": 0,
                     },
-                    "day": "TUESDAY",
                 },
             ],
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            name="Office Hours",
-            description="Monday office hours",
-            time_zone="EST",
             tags={
                 "Name": "Example Hours of Operation",
             })
@@ -374,7 +374,7 @@ class HoursOfOperation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationConfigArgs', 'HoursOfOperationConfigArgsDict']]]] configs: One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationConfigArgs', 'HoursOfOperationConfigArgsDict', 'outputs.HoursOfOperationConfig']]]] configs: One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
         :param pulumi.Input[_builtins.str] description: Specifies the description of the Hours of Operation.
         :param pulumi.Input[_builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Hours of Operation.
@@ -399,8 +399,13 @@ class HoursOfOperation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.connect.HoursOfOperation("test",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="Office Hours",
+            description="Monday office hours",
+            time_zone="EST",
             configs=[
                 {
+                    "day": "MONDAY",
                     "end_time": {
                         "hours": 23,
                         "minutes": 8,
@@ -409,9 +414,9 @@ class HoursOfOperation(pulumi.CustomResource):
                         "hours": 8,
                         "minutes": 0,
                     },
-                    "day": "MONDAY",
                 },
                 {
+                    "day": "TUESDAY",
                     "end_time": {
                         "hours": 21,
                         "minutes": 0,
@@ -420,13 +425,8 @@ class HoursOfOperation(pulumi.CustomResource):
                         "hours": 9,
                         "minutes": 0,
                     },
-                    "day": "TUESDAY",
                 },
             ],
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            name="Office Hours",
-            description="Monday office hours",
-            time_zone="EST",
             tags={
                 "Name": "Example Hours of Operation",
             })
@@ -456,7 +456,7 @@ class HoursOfOperation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HoursOfOperationConfigArgs', 'HoursOfOperationConfigArgsDict']]]]] = None,
+                 configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HoursOfOperationConfigArgs', 'HoursOfOperationConfigArgsDict', 'outputs.HoursOfOperationConfig']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -499,7 +499,7 @@ class HoursOfOperation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HoursOfOperationConfigArgs', 'HoursOfOperationConfigArgsDict']]]]] = None,
+            configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HoursOfOperationConfigArgs', 'HoursOfOperationConfigArgsDict', 'outputs.HoursOfOperationConfig']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             hours_of_operation_id: pulumi.Input[Optional[_builtins.str]] = None,
             instance_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -516,7 +516,7 @@ class HoursOfOperation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Hours of Operation.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationConfigArgs', 'HoursOfOperationConfigArgsDict']]]] configs: One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationConfigArgs', 'HoursOfOperationConfigArgsDict', 'outputs.HoursOfOperationConfig']]]] configs: One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
         :param pulumi.Input[_builtins.str] description: Specifies the description of the Hours of Operation.
         :param pulumi.Input[_builtins.str] hours_of_operation_id: The identifier for the hours of operation.
         :param pulumi.Input[_builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.

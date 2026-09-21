@@ -99,7 +99,7 @@ class AwaitableGetNatGatewaysResult(GetNatGatewaysResult):
             vpc_id=self.vpc_id)
 
 
-def get_nat_gateways(filters: Optional[Sequence[Union['GetNatGatewaysFilterArgs', 'GetNatGatewaysFilterArgsDict']]] = None,
+def get_nat_gateways(filters: Optional[Sequence[Union['GetNatGatewaysFilterArgs', 'GetNatGatewaysFilterArgsDict', 'outputs.GetNatGatewaysFilterResult']]] = None,
                      region: Optional[_builtins.str] = None,
                      tags: Optional[Mapping[str, _builtins.str]] = None,
                      vpc_id: Optional[_builtins.str] = None,
@@ -115,16 +115,16 @@ def get_nat_gateways(filters: Optional[Sequence[Union['GetNatGatewaysFilterArgs'
     import pulumi
     import pulumi_aws as aws
 
-    ngws = aws.ec2.get_nat_gateways(filters=[{
+    ngws = aws.ec2.get_nat_gateways(vpc_id=vpc_id,
+        filters=[{
             "name": "state",
             "values": ["available"],
-        }],
-        vpc_id=vpc_id)
+        }])
     ngw = [aws.ec2.get_nat_gateway(id=ngws.ids[__index]) for __index in len(ngws.ids).apply(lambda length: range(length))]
     ```
 
 
-    :param Sequence[Union['GetNatGatewaysFilterArgs', 'GetNatGatewaysFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetNatGatewaysFilterArgs', 'GetNatGatewaysFilterArgsDict', 'outputs.GetNatGatewaysFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired NAT Gateways.
@@ -145,7 +145,7 @@ def get_nat_gateways(filters: Optional[Sequence[Union['GetNatGatewaysFilterArgs'
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_nat_gateways_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetNatGatewaysFilterArgs', 'GetNatGatewaysFilterArgsDict']]]]] = None,
+def get_nat_gateways_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetNatGatewaysFilterArgs', 'GetNatGatewaysFilterArgsDict', 'outputs.GetNatGatewaysFilterResult']]]]] = None,
                             region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                             vpc_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -161,16 +161,16 @@ def get_nat_gateways_output(filters: pulumi.Input[Optional[Optional[Sequence[Uni
     import pulumi
     import pulumi_aws as aws
 
-    ngws = aws.ec2.get_nat_gateways(filters=[{
+    ngws = aws.ec2.get_nat_gateways(vpc_id=vpc_id,
+        filters=[{
             "name": "state",
             "values": ["available"],
-        }],
-        vpc_id=vpc_id)
+        }])
     ngw = [aws.ec2.get_nat_gateway(id=ngws.ids[__index]) for __index in len(ngws.ids).apply(lambda length: range(length))]
     ```
 
 
-    :param Sequence[Union['GetNatGatewaysFilterArgs', 'GetNatGatewaysFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetNatGatewaysFilterArgs', 'GetNatGatewaysFilterArgsDict', 'outputs.GetNatGatewaysFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired NAT Gateways.

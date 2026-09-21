@@ -267,7 +267,7 @@ class PrivateGraphEndpoint(pulumi.CustomResource):
                  graph_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['PrivateGraphEndpointTimeoutsArgs', 'PrivateGraphEndpointTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['PrivateGraphEndpointTimeoutsArgs', 'PrivateGraphEndpointTimeoutsArgsDict', 'outputs.PrivateGraphEndpointTimeouts']]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -309,15 +309,15 @@ class PrivateGraphEndpoint(pulumi.CustomResource):
             })
         # Security Group for Neptune Graph
         example_security_group = aws.ec2.SecurityGroup("example",
+            name_prefix="neptune-graph-sg",
+            description="Security group for Neptune Graph",
+            vpc_id=example.id,
             ingress=[{
                 "from_port": 8182,
                 "to_port": 8182,
                 "protocol": "tcp",
                 "cidr_blocks": ["10.0.0.0/16"],
             }],
-            name_prefix="neptune-graph-sg",
-            description="Security group for Neptune Graph",
-            vpc_id=example.id,
             tags={
                 "Name": "neptune-graph-sg",
             })
@@ -411,15 +411,15 @@ class PrivateGraphEndpoint(pulumi.CustomResource):
             })
         # Security Group for Neptune Graph
         example_security_group = aws.ec2.SecurityGroup("example",
+            name_prefix="neptune-graph-sg",
+            description="Security group for Neptune Graph",
+            vpc_id=example.id,
             ingress=[{
                 "from_port": 8182,
                 "to_port": 8182,
                 "protocol": "tcp",
                 "cidr_blocks": ["10.0.0.0/16"],
             }],
-            name_prefix="neptune-graph-sg",
-            description="Security group for Neptune Graph",
-            vpc_id=example.id,
             tags={
                 "Name": "neptune-graph-sg",
             })
@@ -477,7 +477,7 @@ class PrivateGraphEndpoint(pulumi.CustomResource):
                  graph_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['PrivateGraphEndpointTimeoutsArgs', 'PrivateGraphEndpointTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['PrivateGraphEndpointTimeoutsArgs', 'PrivateGraphEndpointTimeoutsArgsDict', 'outputs.PrivateGraphEndpointTimeouts']]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -515,7 +515,7 @@ class PrivateGraphEndpoint(pulumi.CustomResource):
             private_graph_endpoint_identifier: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['PrivateGraphEndpointTimeoutsArgs', 'PrivateGraphEndpointTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['PrivateGraphEndpointTimeoutsArgs', 'PrivateGraphEndpointTimeoutsArgsDict', 'outputs.PrivateGraphEndpointTimeouts']]] = None,
             vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
             vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
             vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'PrivateGraphEndpoint':

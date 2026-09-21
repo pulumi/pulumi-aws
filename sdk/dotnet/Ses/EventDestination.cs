@@ -26,6 +26,14 @@ namespace Pulumi.Aws.Ses
     /// {
     ///     var cloudwatch = new Aws.Ses.EventDestination("cloudwatch", new()
     ///     {
+    ///         Name = "event-destination-cloudwatch",
+    ///         ConfigurationSetName = example.Name,
+    ///         Enabled = true,
+    ///         MatchingTypes = new[]
+    ///         {
+    ///             "bounce",
+    ///             "send",
+    ///         },
     ///         CloudwatchDestinations = new[]
     ///         {
     ///             new Aws.Ses.Inputs.EventDestinationCloudwatchDestinationArgs
@@ -34,14 +42,6 @@ namespace Pulumi.Aws.Ses
     ///                 DimensionName = "dimension",
     ///                 ValueSource = "emailHeader",
     ///             },
-    ///         },
-    ///         Name = "event-destination-cloudwatch",
-    ///         ConfigurationSetName = example.Name,
-    ///         Enabled = true,
-    ///         MatchingTypes = new[]
-    ///         {
-    ///             "bounce",
-    ///             "send",
     ///         },
     ///     });
     /// 
@@ -60,11 +60,6 @@ namespace Pulumi.Aws.Ses
     /// {
     ///     var kinesis = new Aws.Ses.EventDestination("kinesis", new()
     ///     {
-    ///         KinesisDestination = new Aws.Ses.Inputs.EventDestinationKinesisDestinationArgs
-    ///         {
-    ///             StreamArn = example.Arn,
-    ///             RoleArn = exampleAwsIamRole.Arn,
-    ///         },
     ///         Name = "event-destination-kinesis",
     ///         ConfigurationSetName = exampleAwsSesConfigurationSet.Name,
     ///         Enabled = true,
@@ -72,6 +67,11 @@ namespace Pulumi.Aws.Ses
     ///         {
     ///             "bounce",
     ///             "send",
+    ///         },
+    ///         KinesisDestination = new Aws.Ses.Inputs.EventDestinationKinesisDestinationArgs
+    ///         {
+    ///             StreamArn = exampleAwsKinesisFirehoseDeliveryStream.Arn,
+    ///             RoleArn = example.Arn,
     ///         },
     ///     });
     /// 
@@ -90,10 +90,6 @@ namespace Pulumi.Aws.Ses
     /// {
     ///     var sns = new Aws.Ses.EventDestination("sns", new()
     ///     {
-    ///         SnsDestination = new Aws.Ses.Inputs.EventDestinationSnsDestinationArgs
-    ///         {
-    ///             TopicArn = example.Arn,
-    ///         },
     ///         Name = "event-destination-sns",
     ///         ConfigurationSetName = exampleAwsSesConfigurationSet.Name,
     ///         Enabled = true,
@@ -101,6 +97,10 @@ namespace Pulumi.Aws.Ses
     ///         {
     ///             "bounce",
     ///             "send",
+    ///         },
+    ///         SnsDestination = new Aws.Ses.Inputs.EventDestinationSnsDestinationArgs
+    ///         {
+    ///             TopicArn = example.Arn,
     ///         },
     ///     });
     /// 

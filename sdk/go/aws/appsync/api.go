@@ -31,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appsync.NewApi(ctx, "example", &appsync.ApiArgs{
+//				Name: pulumi.String("example-event-api"),
 //				EventConfig: &appsync.ApiEventConfigArgs{
 //					AuthProviders: appsync.ApiEventConfigAuthProviderArray{
 //						&appsync.ApiEventConfigAuthProviderArgs{
@@ -53,7 +54,6 @@ import (
 //						},
 //					},
 //				},
-//				Name: pulumi.String("example-event-api"),
 //			})
 //			if err != nil {
 //				return err
@@ -91,14 +91,15 @@ import (
 //				return err
 //			}
 //			_, err = appsync.NewApi(ctx, "example", &appsync.ApiArgs{
+//				Name: pulumi.String("example-event-api"),
 //				EventConfig: &appsync.ApiEventConfigArgs{
 //					AuthProviders: appsync.ApiEventConfigAuthProviderArray{
 //						&appsync.ApiEventConfigAuthProviderArgs{
+//							AuthType: pulumi.String("AMAZON_COGNITO_USER_POOLS"),
 //							CognitoConfig: &appsync.ApiEventConfigAuthProviderCognitoConfigArgs{
 //								UserPoolId: example.ID().ToIDOutput().ToStringOutput(),
 //								AwsRegion:  pulumi.String(current.Region),
 //							},
-//							AuthType: pulumi.String("AMAZON_COGNITO_USER_POOLS"),
 //						},
 //					},
 //					ConnectionAuthModes: appsync.ApiEventConfigConnectionAuthModeArray{
@@ -117,7 +118,6 @@ import (
 //						},
 //					},
 //				},
-//				Name: pulumi.String("example-event-api"),
 //			})
 //			if err != nil {
 //				return err
@@ -143,14 +143,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appsync.NewApi(ctx, "example", &appsync.ApiArgs{
+//				Name: pulumi.String("example-event-api"),
 //				EventConfig: &appsync.ApiEventConfigArgs{
 //					AuthProviders: appsync.ApiEventConfigAuthProviderArray{
 //						&appsync.ApiEventConfigAuthProviderArgs{
+//							AuthType: pulumi.String("AWS_LAMBDA"),
 //							LambdaAuthorizerConfig: &appsync.ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs{
 //								AuthorizerUri:                pulumi.Any(exampleAwsLambdaFunction.Arn),
 //								AuthorizerResultTtlInSeconds: pulumi.Int(300),
 //							},
-//							AuthType: pulumi.String("AWS_LAMBDA"),
 //						},
 //					},
 //					ConnectionAuthModes: appsync.ApiEventConfigConnectionAuthModeArray{
@@ -169,7 +170,6 @@ import (
 //						},
 //					},
 //				},
-//				Name: pulumi.String("example-event-api"),
 //			})
 //			if err != nil {
 //				return err

@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.accountaccess.getEntitlements({
+ *     applicationArn: exampleAwsAccountaccessApplication.arn,
  *     filter: {
  *         principalRole: {
  *             principal: {
@@ -28,7 +29,6 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
- *     applicationArn: exampleAwsAccountaccessApplication.arn,
  * });
  * ```
  *
@@ -39,12 +39,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.accountaccess.getEntitlements({
+ *     applicationArn: exampleAwsAccountaccessApplication.arn,
  *     filter: {
  *         principalRole: {
  *             accountId: "123456789012",
  *         },
  *     },
- *     applicationArn: exampleAwsAccountaccessApplication.arn,
  * });
  * ```
  */
@@ -101,6 +101,7 @@ export interface GetEntitlementsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.accountaccess.getEntitlements({
+ *     applicationArn: exampleAwsAccountaccessApplication.arn,
  *     filter: {
  *         principalRole: {
  *             principal: {
@@ -110,7 +111,6 @@ export interface GetEntitlementsResult {
  *             },
  *         },
  *     },
- *     applicationArn: exampleAwsAccountaccessApplication.arn,
  * });
  * ```
  *
@@ -121,12 +121,12 @@ export interface GetEntitlementsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.accountaccess.getEntitlements({
+ *     applicationArn: exampleAwsAccountaccessApplication.arn,
  *     filter: {
  *         principalRole: {
  *             accountId: "123456789012",
  *         },
  *     },
- *     applicationArn: exampleAwsAccountaccessApplication.arn,
  * });
  * ```
  */

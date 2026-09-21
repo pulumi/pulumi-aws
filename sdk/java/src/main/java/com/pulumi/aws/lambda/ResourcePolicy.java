@@ -34,8 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
  * import com.pulumi.aws.lambda.ResourcePolicy;
  * import com.pulumi.aws.lambda.ResourcePolicyArgs;
  * import java.util.ArrayList;
@@ -56,19 +56,19 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .sid("AllowInvokeFromS3")
+ *                 .effect("Allow")
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("Service")
+ *                     .identifiers("s3.amazonaws.com")
+ *                     .build())
+ *                 .actions("lambda:InvokeFunction")
+ *                 .resources(exampleAwsLambdaFunction.arn())
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("StringEquals")
  *                     .variable("aws:SourceAccount")
  *                     .values(current.accountId())
  *                     .build())
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("s3.amazonaws.com")
- *                     .build())
- *                 .sid("AllowInvokeFromS3")
- *                 .effect("Allow")
- *                 .actions("lambda:InvokeFunction")
- *                 .resources(exampleAwsLambdaFunction.arn())
  *                 .build())
  *             .build());
  * 
@@ -114,31 +114,31 @@ import javax.annotation.Nullable;
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .sid("AllowCrossAccountInvoke")
+ *                     .effect("Allow")
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type("AWS")
  *                         .identifiers(                        
  *                             "123456789012",
  *                             "210987654321")
  *                         .build())
- *                     .sid("AllowCrossAccountInvoke")
- *                     .effect("Allow")
  *                     .actions("lambda:InvokeFunction")
  *                     .resources(exampleAwsLambdaFunction.arn())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .sid("AllowOrganizationInvoke")
+ *                     .effect("Allow")
+ *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                         .type("AWS")
+ *                         .identifiers("*")
+ *                         .build())
+ *                     .actions("lambda:InvokeFunction")
+ *                     .resources(exampleAwsLambdaFunction.arn())
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test("StringEquals")
  *                         .variable("aws:PrincipalOrgID")
  *                         .values("o-1234567890")
  *                         .build())
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type("AWS")
- *                         .identifiers("*")
- *                         .build())
- *                     .sid("AllowOrganizationInvoke")
- *                     .effect("Allow")
- *                     .actions("lambda:InvokeFunction")
- *                     .resources(exampleAwsLambdaFunction.arn())
  *                     .build())
  *             .build());
  * 

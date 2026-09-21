@@ -91,6 +91,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) }{{@code
  *         var example = new UserPool("example", UserPoolArgs.builder()
+ *             .name("mypool")
  *             .schemas(            
  *                 UserPoolSchemaArgs.builder()
  *                     .name("example")
@@ -100,15 +101,14 @@ import javax.annotation.Nullable;
  *                     .developerOnlyAttribute(false)
  *                     .build(),
  *                 UserPoolSchemaArgs.builder()
- *                     .stringAttributeConstraints(UserPoolSchemaStringAttributeConstraintsArgs.builder()
- *                         .build())
  *                     .name("foo")
  *                     .attributeDataType("String")
  *                     .mutable(false)
  *                     .required(false)
  *                     .developerOnlyAttribute(false)
+ *                     .stringAttributeConstraints(UserPoolSchemaStringAttributeConstraintsArgs.builder()
+ *                         .build())
  *                     .build())
- *             .name("mypool")
  *             .build());
  * 
  *         var exampleUser = new User("exampleUser", UserArgs.builder()

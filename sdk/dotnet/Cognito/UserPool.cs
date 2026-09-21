@@ -44,6 +44,8 @@ namespace Pulumi.Aws.Cognito
     /// {
     ///     var example = new Aws.Cognito.UserPool("example", new()
     ///     {
+    ///         MfaConfiguration = "ON",
+    ///         SmsAuthenticationMessage = "Your code is {####}",
     ///         SmsConfiguration = new Aws.Cognito.Inputs.UserPoolSmsConfigurationArgs
     ///         {
     ///             ExternalId = "example",
@@ -54,8 +56,6 @@ namespace Pulumi.Aws.Cognito
     ///         {
     ///             Enabled = true,
     ///         },
-    ///         MfaConfiguration = "ON",
-    ///         SmsAuthenticationMessage = "Your code is {####}",
     ///     });
     /// 
     /// });
@@ -73,6 +73,7 @@ namespace Pulumi.Aws.Cognito
     /// {
     ///     var test = new Aws.Cognito.UserPool("test", new()
     ///     {
+    ///         Name = "mypool",
     ///         AccountRecoverySetting = new Aws.Cognito.Inputs.UserPoolAccountRecoverySettingArgs
     ///         {
     ///             RecoveryMechanisms = new[]
@@ -89,7 +90,6 @@ namespace Pulumi.Aws.Cognito
     ///                 },
     ///             },
     ///         },
-    ///         Name = "mypool",
     ///     });
     /// 
     /// });

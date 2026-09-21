@@ -19,24 +19,20 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.dynamodb.Table("example", {
- *     pointInTimeRecovery: {
- *         enabled: true,
- *     },
- *     attributes: [{
- *         name: "example",
- *         type: "S",
- *     }],
  *     name: "dynamodb-table-example",
  *     readCapacity: 1,
  *     writeCapacity: 1,
  *     hashKey: "example",
+ *     attributes: [{
+ *         name: "example",
+ *         type: "S",
+ *     }],
+ *     pointInTimeRecovery: {
+ *         enabled: true,
+ *     },
  * });
  * const exampleNamespace = new aws.redshiftserverless.Namespace("example", {namespaceName: "redshift-example"});
  * const exampleWorkgroup = new aws.redshiftserverless.Workgroup("example", {
- *     configParameters: [{
- *         parameterKey: "enable_case_sensitive_identifier",
- *         parameterValue: "true",
- *     }],
  *     namespaceName: exampleNamespace.namespaceName,
  *     workgroupName: "example-workgroup",
  *     baseCapacity: 8,
@@ -46,6 +42,10 @@ import * as utilities from "../utilities";
  *         example2.id,
  *         example3.id,
  *     ],
+ *     configParameters: [{
+ *         parameterKey: "enable_case_sensitive_identifier",
+ *         parameterValue: "true",
+ *     }],
  * });
  * const exampleIntegration = new aws.redshift.Integration("example", {
  *     integrationName: "example",

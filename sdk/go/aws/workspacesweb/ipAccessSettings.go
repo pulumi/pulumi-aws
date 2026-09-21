@@ -31,12 +31,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := workspacesweb.NewIpAccessSettings(ctx, "example", &workspacesweb.IpAccessSettingsArgs{
+//				DisplayName: pulumi.String("example"),
 //				IpRules: workspacesweb.IpAccessSettingsIpRuleArray{
 //					&workspacesweb.IpAccessSettingsIpRuleArgs{
 //						IpRange: pulumi.String("10.0.0.0/16"),
 //					},
 //				},
-//				DisplayName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -62,6 +62,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := workspacesweb.NewIpAccessSettings(ctx, "example", &workspacesweb.IpAccessSettingsArgs{
+//				DisplayName: pulumi.String("example"),
+//				Description: pulumi.String("Example IP access settings"),
 //				IpRules: workspacesweb.IpAccessSettingsIpRuleArray{
 //					&workspacesweb.IpAccessSettingsIpRuleArgs{
 //						IpRange:     pulumi.String("10.0.0.0/16"),
@@ -72,8 +74,6 @@ import (
 //						Description: pulumi.String("Branch office"),
 //					},
 //				},
-//				DisplayName: pulumi.String("example"),
-//				Description: pulumi.String("Example IP access settings"),
 //			})
 //			if err != nil {
 //				return err
@@ -107,6 +107,12 @@ import (
 //				return err
 //			}
 //			_, err = workspacesweb.NewIpAccessSettings(ctx, "example", &workspacesweb.IpAccessSettingsArgs{
+//				DisplayName:        pulumi.String("example"),
+//				Description:        pulumi.String("Example IP access settings"),
+//				CustomerManagedKey: example.Arn,
+//				AdditionalEncryptionContext: pulumi.StringMap{
+//					"Environment": pulumi.String("Production"),
+//				},
 //				IpRules: workspacesweb.IpAccessSettingsIpRuleArray{
 //					&workspacesweb.IpAccessSettingsIpRuleArgs{
 //						IpRange:     pulumi.String("10.0.0.0/16"),
@@ -116,12 +122,6 @@ import (
 //						IpRange:     pulumi.String("192.168.0.0/24"),
 //						Description: pulumi.String("Branch office"),
 //					},
-//				},
-//				DisplayName:        pulumi.String("example"),
-//				Description:        pulumi.String("Example IP access settings"),
-//				CustomerManagedKey: example.Arn,
-//				AdditionalEncryptionContext: pulumi.StringMap{
-//					"Environment": pulumi.String("Production"),
 //				},
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example-ip-access-settings"),

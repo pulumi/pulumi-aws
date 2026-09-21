@@ -816,26 +816,26 @@ class Crawler(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerCatalogTargetArgs', 'CrawlerCatalogTargetArgsDict']]]]] = None,
+                 catalog_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerCatalogTargetArgs', 'CrawlerCatalogTargetArgsDict', 'outputs.CrawlerCatalogTarget']]]]] = None,
                  classifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  configuration: pulumi.Input[Optional[_builtins.str]] = None,
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 delta_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerDeltaTargetArgs', 'CrawlerDeltaTargetArgsDict']]]]] = None,
+                 delta_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerDeltaTargetArgs', 'CrawlerDeltaTargetArgsDict', 'outputs.CrawlerDeltaTarget']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 dynamodb_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerDynamodbTargetArgs', 'CrawlerDynamodbTargetArgsDict']]]]] = None,
-                 hudi_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerHudiTargetArgs', 'CrawlerHudiTargetArgsDict']]]]] = None,
-                 iceberg_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerIcebergTargetArgs', 'CrawlerIcebergTargetArgsDict']]]]] = None,
-                 jdbc_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerJdbcTargetArgs', 'CrawlerJdbcTargetArgsDict']]]]] = None,
-                 lake_formation_configuration: pulumi.Input[Optional[Union['CrawlerLakeFormationConfigurationArgs', 'CrawlerLakeFormationConfigurationArgsDict']]] = None,
-                 lineage_configuration: pulumi.Input[Optional[Union['CrawlerLineageConfigurationArgs', 'CrawlerLineageConfigurationArgsDict']]] = None,
-                 mongodb_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerMongodbTargetArgs', 'CrawlerMongodbTargetArgsDict']]]]] = None,
+                 dynamodb_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerDynamodbTargetArgs', 'CrawlerDynamodbTargetArgsDict', 'outputs.CrawlerDynamodbTarget']]]]] = None,
+                 hudi_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerHudiTargetArgs', 'CrawlerHudiTargetArgsDict', 'outputs.CrawlerHudiTarget']]]]] = None,
+                 iceberg_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerIcebergTargetArgs', 'CrawlerIcebergTargetArgsDict', 'outputs.CrawlerIcebergTarget']]]]] = None,
+                 jdbc_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerJdbcTargetArgs', 'CrawlerJdbcTargetArgsDict', 'outputs.CrawlerJdbcTarget']]]]] = None,
+                 lake_formation_configuration: pulumi.Input[Optional[Union['CrawlerLakeFormationConfigurationArgs', 'CrawlerLakeFormationConfigurationArgsDict', 'outputs.CrawlerLakeFormationConfiguration']]] = None,
+                 lineage_configuration: pulumi.Input[Optional[Union['CrawlerLineageConfigurationArgs', 'CrawlerLineageConfigurationArgsDict', 'outputs.CrawlerLineageConfiguration']]] = None,
+                 mongodb_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerMongodbTargetArgs', 'CrawlerMongodbTargetArgsDict', 'outputs.CrawlerMongodbTarget']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 recrawl_policy: pulumi.Input[Optional[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict']]] = None,
+                 recrawl_policy: pulumi.Input[Optional[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict', 'outputs.CrawlerRecrawlPolicy']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerS3TargetArgs', 'CrawlerS3TargetArgsDict']]]]] = None,
+                 s3_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerS3TargetArgs', 'CrawlerS3TargetArgsDict', 'outputs.CrawlerS3Target']]]]] = None,
                  schedule: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_change_policy: pulumi.Input[Optional[Union['CrawlerSchemaChangePolicyArgs', 'CrawlerSchemaChangePolicyArgsDict']]] = None,
+                 schema_change_policy: pulumi.Input[Optional[Union['CrawlerSchemaChangePolicyArgs', 'CrawlerSchemaChangePolicyArgsDict', 'outputs.CrawlerSchemaChangePolicy']]] = None,
                  security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
                  table_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -852,12 +852,12 @@ class Crawler(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
-            dynamodb_targets=[{
-                "path": "table-name",
-            }],
             database_name=example_aws_glue_catalog_database["name"],
             name="example",
-            role=example_aws_iam_role["arn"])
+            role=example_aws_iam_role["arn"],
+            dynamodb_targets=[{
+                "path": "table-name",
+            }])
         ```
 
         ### JDBC Target Example
@@ -867,13 +867,13 @@ class Crawler(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
+            database_name=example_aws_glue_catalog_database["name"],
+            name="example",
+            role=example_aws_iam_role["arn"],
             jdbc_targets=[{
                 "connection_name": example_aws_glue_connection["name"],
                 "path": "database-name/%",
-            }],
-            database_name=example_aws_glue_catalog_database["name"],
-            name="example",
-            role=example_aws_iam_role["arn"])
+            }])
         ```
 
         ### S3 Target Example
@@ -883,12 +883,12 @@ class Crawler(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
-            s3_targets=[{
-                "path": f"s3://{example_aws_s3_bucket['bucket']}",
-            }],
             database_name=example_aws_glue_catalog_database["name"],
             name="example",
-            role=example_aws_iam_role["arn"])
+            role=example_aws_iam_role["arn"],
+            s3_targets=[{
+                "path": f"s3://{example_aws_s3_bucket['bucket']}",
+            }])
         ```
 
         ### Catalog Target Example
@@ -898,16 +898,16 @@ class Crawler(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
-            schema_change_policy={
-                "delete_behavior": "LOG",
-            },
+            database_name=example_aws_glue_catalog_database["name"],
+            name="example",
+            role=example_aws_iam_role["arn"],
             catalog_targets=[{
                 "database_name": example_aws_glue_catalog_database["name"],
                 "tables": [example_aws_glue_catalog_table["name"]],
             }],
-            database_name=example_aws_glue_catalog_database["name"],
-            name="example",
-            role=example_aws_iam_role["arn"],
+            schema_change_policy={
+                "delete_behavior": "LOG",
+            },
             configuration=\"\"\"{
           \\"Version\\":1.0,
           \\"Grouping\\": {
@@ -924,13 +924,13 @@ class Crawler(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
+            database_name=example_aws_glue_catalog_database["name"],
+            name="example",
+            role=example_aws_iam_role["arn"],
             mongodb_targets=[{
                 "connection_name": example_aws_glue_connection["name"],
                 "path": "database-name/%",
-            }],
-            database_name=example_aws_glue_catalog_database["name"],
-            name="example",
-            role=example_aws_iam_role["arn"])
+            }])
         ```
 
         ### Configuration Settings Example
@@ -941,9 +941,6 @@ class Crawler(pulumi.CustomResource):
         import pulumi_aws as aws
 
         events_crawler = aws.glue.Crawler("events_crawler",
-            s3_targets=[{
-                "path": f"s3://{data_lake_bucket['bucket']}",
-            }],
             database_name=glue_database["name"],
             schedule="cron(0 1 * * ? *)",
             name=f"events_crawler_{environment_name}",
@@ -959,7 +956,10 @@ class Crawler(pulumi.CustomResource):
                     },
                 },
                 "Version": 1,
-            }))
+            }),
+            s3_targets=[{
+                "path": f"s3://{data_lake_bucket['bucket']}",
+            }])
         ```
 
         ## Import
@@ -973,26 +973,26 @@ class Crawler(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerCatalogTargetArgs', 'CrawlerCatalogTargetArgsDict']]]] catalog_targets: List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerCatalogTargetArgs', 'CrawlerCatalogTargetArgsDict', 'outputs.CrawlerCatalogTarget']]]] catalog_targets: List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] classifiers: List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
         :param pulumi.Input[_builtins.str] configuration: JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
         :param pulumi.Input[_builtins.str] database_name: Glue database where results are written.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerDeltaTargetArgs', 'CrawlerDeltaTargetArgsDict']]]] delta_targets: List of nested Delta Lake target arguments. See Delta Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerDeltaTargetArgs', 'CrawlerDeltaTargetArgsDict', 'outputs.CrawlerDeltaTarget']]]] delta_targets: List of nested Delta Lake target arguments. See Delta Target below.
         :param pulumi.Input[_builtins.str] description: Description of the crawler.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerDynamodbTargetArgs', 'CrawlerDynamodbTargetArgsDict']]]] dynamodb_targets: List of nested DynamoDB target arguments. See Dynamodb Target below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerHudiTargetArgs', 'CrawlerHudiTargetArgsDict']]]] hudi_targets: List of nested Hudi target arguments. See Iceberg Target below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerIcebergTargetArgs', 'CrawlerIcebergTargetArgsDict']]]] iceberg_targets: List of nested Iceberg target arguments. See Iceberg Target below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerJdbcTargetArgs', 'CrawlerJdbcTargetArgsDict']]]] jdbc_targets: List of nested JDBC target arguments. See JDBC Target below.
-        :param pulumi.Input[Union['CrawlerLakeFormationConfigurationArgs', 'CrawlerLakeFormationConfigurationArgsDict']] lake_formation_configuration: Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
-        :param pulumi.Input[Union['CrawlerLineageConfigurationArgs', 'CrawlerLineageConfigurationArgsDict']] lineage_configuration: Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerMongodbTargetArgs', 'CrawlerMongodbTargetArgsDict']]]] mongodb_targets: List of nested MongoDB target arguments. See MongoDB Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerDynamodbTargetArgs', 'CrawlerDynamodbTargetArgsDict', 'outputs.CrawlerDynamodbTarget']]]] dynamodb_targets: List of nested DynamoDB target arguments. See Dynamodb Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerHudiTargetArgs', 'CrawlerHudiTargetArgsDict', 'outputs.CrawlerHudiTarget']]]] hudi_targets: List of nested Hudi target arguments. See Iceberg Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerIcebergTargetArgs', 'CrawlerIcebergTargetArgsDict', 'outputs.CrawlerIcebergTarget']]]] iceberg_targets: List of nested Iceberg target arguments. See Iceberg Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerJdbcTargetArgs', 'CrawlerJdbcTargetArgsDict', 'outputs.CrawlerJdbcTarget']]]] jdbc_targets: List of nested JDBC target arguments. See JDBC Target below.
+        :param pulumi.Input[Union['CrawlerLakeFormationConfigurationArgs', 'CrawlerLakeFormationConfigurationArgsDict', 'outputs.CrawlerLakeFormationConfiguration']] lake_formation_configuration: Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+        :param pulumi.Input[Union['CrawlerLineageConfigurationArgs', 'CrawlerLineageConfigurationArgsDict', 'outputs.CrawlerLineageConfiguration']] lineage_configuration: Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerMongodbTargetArgs', 'CrawlerMongodbTargetArgsDict', 'outputs.CrawlerMongodbTarget']]]] mongodb_targets: List of nested MongoDB target arguments. See MongoDB Target below.
         :param pulumi.Input[_builtins.str] name: Name of the crawler.
-        :param pulumi.Input[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict']] recrawl_policy: A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
+        :param pulumi.Input[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict', 'outputs.CrawlerRecrawlPolicy']] recrawl_policy: A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role: The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerS3TargetArgs', 'CrawlerS3TargetArgsDict']]]] s3_targets: List of nested Amazon S3 target arguments. See S3 Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerS3TargetArgs', 'CrawlerS3TargetArgsDict', 'outputs.CrawlerS3Target']]]] s3_targets: List of nested Amazon S3 target arguments. See S3 Target below.
         :param pulumi.Input[_builtins.str] schedule: A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
-        :param pulumi.Input[Union['CrawlerSchemaChangePolicyArgs', 'CrawlerSchemaChangePolicyArgsDict']] schema_change_policy: Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
+        :param pulumi.Input[Union['CrawlerSchemaChangePolicyArgs', 'CrawlerSchemaChangePolicyArgsDict', 'outputs.CrawlerSchemaChangePolicy']] schema_change_policy: Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
         :param pulumi.Input[_builtins.str] security_configuration: The name of Security Configuration to be used by the crawler
         :param pulumi.Input[_builtins.str] table_prefix: The table prefix used for catalog tables that are created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1017,12 +1017,12 @@ class Crawler(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
-            dynamodb_targets=[{
-                "path": "table-name",
-            }],
             database_name=example_aws_glue_catalog_database["name"],
             name="example",
-            role=example_aws_iam_role["arn"])
+            role=example_aws_iam_role["arn"],
+            dynamodb_targets=[{
+                "path": "table-name",
+            }])
         ```
 
         ### JDBC Target Example
@@ -1032,13 +1032,13 @@ class Crawler(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
+            database_name=example_aws_glue_catalog_database["name"],
+            name="example",
+            role=example_aws_iam_role["arn"],
             jdbc_targets=[{
                 "connection_name": example_aws_glue_connection["name"],
                 "path": "database-name/%",
-            }],
-            database_name=example_aws_glue_catalog_database["name"],
-            name="example",
-            role=example_aws_iam_role["arn"])
+            }])
         ```
 
         ### S3 Target Example
@@ -1048,12 +1048,12 @@ class Crawler(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
-            s3_targets=[{
-                "path": f"s3://{example_aws_s3_bucket['bucket']}",
-            }],
             database_name=example_aws_glue_catalog_database["name"],
             name="example",
-            role=example_aws_iam_role["arn"])
+            role=example_aws_iam_role["arn"],
+            s3_targets=[{
+                "path": f"s3://{example_aws_s3_bucket['bucket']}",
+            }])
         ```
 
         ### Catalog Target Example
@@ -1063,16 +1063,16 @@ class Crawler(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
-            schema_change_policy={
-                "delete_behavior": "LOG",
-            },
+            database_name=example_aws_glue_catalog_database["name"],
+            name="example",
+            role=example_aws_iam_role["arn"],
             catalog_targets=[{
                 "database_name": example_aws_glue_catalog_database["name"],
                 "tables": [example_aws_glue_catalog_table["name"]],
             }],
-            database_name=example_aws_glue_catalog_database["name"],
-            name="example",
-            role=example_aws_iam_role["arn"],
+            schema_change_policy={
+                "delete_behavior": "LOG",
+            },
             configuration=\"\"\"{
           \\"Version\\":1.0,
           \\"Grouping\\": {
@@ -1089,13 +1089,13 @@ class Crawler(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
+            database_name=example_aws_glue_catalog_database["name"],
+            name="example",
+            role=example_aws_iam_role["arn"],
             mongodb_targets=[{
                 "connection_name": example_aws_glue_connection["name"],
                 "path": "database-name/%",
-            }],
-            database_name=example_aws_glue_catalog_database["name"],
-            name="example",
-            role=example_aws_iam_role["arn"])
+            }])
         ```
 
         ### Configuration Settings Example
@@ -1106,9 +1106,6 @@ class Crawler(pulumi.CustomResource):
         import pulumi_aws as aws
 
         events_crawler = aws.glue.Crawler("events_crawler",
-            s3_targets=[{
-                "path": f"s3://{data_lake_bucket['bucket']}",
-            }],
             database_name=glue_database["name"],
             schedule="cron(0 1 * * ? *)",
             name=f"events_crawler_{environment_name}",
@@ -1124,7 +1121,10 @@ class Crawler(pulumi.CustomResource):
                     },
                 },
                 "Version": 1,
-            }))
+            }),
+            s3_targets=[{
+                "path": f"s3://{data_lake_bucket['bucket']}",
+            }])
         ```
 
         ## Import
@@ -1151,26 +1151,26 @@ class Crawler(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerCatalogTargetArgs', 'CrawlerCatalogTargetArgsDict']]]]] = None,
+                 catalog_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerCatalogTargetArgs', 'CrawlerCatalogTargetArgsDict', 'outputs.CrawlerCatalogTarget']]]]] = None,
                  classifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  configuration: pulumi.Input[Optional[_builtins.str]] = None,
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 delta_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerDeltaTargetArgs', 'CrawlerDeltaTargetArgsDict']]]]] = None,
+                 delta_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerDeltaTargetArgs', 'CrawlerDeltaTargetArgsDict', 'outputs.CrawlerDeltaTarget']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 dynamodb_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerDynamodbTargetArgs', 'CrawlerDynamodbTargetArgsDict']]]]] = None,
-                 hudi_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerHudiTargetArgs', 'CrawlerHudiTargetArgsDict']]]]] = None,
-                 iceberg_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerIcebergTargetArgs', 'CrawlerIcebergTargetArgsDict']]]]] = None,
-                 jdbc_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerJdbcTargetArgs', 'CrawlerJdbcTargetArgsDict']]]]] = None,
-                 lake_formation_configuration: pulumi.Input[Optional[Union['CrawlerLakeFormationConfigurationArgs', 'CrawlerLakeFormationConfigurationArgsDict']]] = None,
-                 lineage_configuration: pulumi.Input[Optional[Union['CrawlerLineageConfigurationArgs', 'CrawlerLineageConfigurationArgsDict']]] = None,
-                 mongodb_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerMongodbTargetArgs', 'CrawlerMongodbTargetArgsDict']]]]] = None,
+                 dynamodb_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerDynamodbTargetArgs', 'CrawlerDynamodbTargetArgsDict', 'outputs.CrawlerDynamodbTarget']]]]] = None,
+                 hudi_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerHudiTargetArgs', 'CrawlerHudiTargetArgsDict', 'outputs.CrawlerHudiTarget']]]]] = None,
+                 iceberg_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerIcebergTargetArgs', 'CrawlerIcebergTargetArgsDict', 'outputs.CrawlerIcebergTarget']]]]] = None,
+                 jdbc_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerJdbcTargetArgs', 'CrawlerJdbcTargetArgsDict', 'outputs.CrawlerJdbcTarget']]]]] = None,
+                 lake_formation_configuration: pulumi.Input[Optional[Union['CrawlerLakeFormationConfigurationArgs', 'CrawlerLakeFormationConfigurationArgsDict', 'outputs.CrawlerLakeFormationConfiguration']]] = None,
+                 lineage_configuration: pulumi.Input[Optional[Union['CrawlerLineageConfigurationArgs', 'CrawlerLineageConfigurationArgsDict', 'outputs.CrawlerLineageConfiguration']]] = None,
+                 mongodb_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerMongodbTargetArgs', 'CrawlerMongodbTargetArgsDict', 'outputs.CrawlerMongodbTarget']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 recrawl_policy: pulumi.Input[Optional[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict']]] = None,
+                 recrawl_policy: pulumi.Input[Optional[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict', 'outputs.CrawlerRecrawlPolicy']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerS3TargetArgs', 'CrawlerS3TargetArgsDict']]]]] = None,
+                 s3_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerS3TargetArgs', 'CrawlerS3TargetArgsDict', 'outputs.CrawlerS3Target']]]]] = None,
                  schedule: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_change_policy: pulumi.Input[Optional[Union['CrawlerSchemaChangePolicyArgs', 'CrawlerSchemaChangePolicyArgsDict']]] = None,
+                 schema_change_policy: pulumi.Input[Optional[Union['CrawlerSchemaChangePolicyArgs', 'CrawlerSchemaChangePolicyArgsDict', 'outputs.CrawlerSchemaChangePolicy']]] = None,
                  security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
                  table_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -1223,26 +1223,26 @@ class Crawler(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            catalog_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerCatalogTargetArgs', 'CrawlerCatalogTargetArgsDict']]]]] = None,
+            catalog_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerCatalogTargetArgs', 'CrawlerCatalogTargetArgsDict', 'outputs.CrawlerCatalogTarget']]]]] = None,
             classifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             configuration: pulumi.Input[Optional[_builtins.str]] = None,
             database_name: pulumi.Input[Optional[_builtins.str]] = None,
-            delta_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerDeltaTargetArgs', 'CrawlerDeltaTargetArgsDict']]]]] = None,
+            delta_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerDeltaTargetArgs', 'CrawlerDeltaTargetArgsDict', 'outputs.CrawlerDeltaTarget']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            dynamodb_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerDynamodbTargetArgs', 'CrawlerDynamodbTargetArgsDict']]]]] = None,
-            hudi_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerHudiTargetArgs', 'CrawlerHudiTargetArgsDict']]]]] = None,
-            iceberg_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerIcebergTargetArgs', 'CrawlerIcebergTargetArgsDict']]]]] = None,
-            jdbc_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerJdbcTargetArgs', 'CrawlerJdbcTargetArgsDict']]]]] = None,
-            lake_formation_configuration: pulumi.Input[Optional[Union['CrawlerLakeFormationConfigurationArgs', 'CrawlerLakeFormationConfigurationArgsDict']]] = None,
-            lineage_configuration: pulumi.Input[Optional[Union['CrawlerLineageConfigurationArgs', 'CrawlerLineageConfigurationArgsDict']]] = None,
-            mongodb_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerMongodbTargetArgs', 'CrawlerMongodbTargetArgsDict']]]]] = None,
+            dynamodb_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerDynamodbTargetArgs', 'CrawlerDynamodbTargetArgsDict', 'outputs.CrawlerDynamodbTarget']]]]] = None,
+            hudi_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerHudiTargetArgs', 'CrawlerHudiTargetArgsDict', 'outputs.CrawlerHudiTarget']]]]] = None,
+            iceberg_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerIcebergTargetArgs', 'CrawlerIcebergTargetArgsDict', 'outputs.CrawlerIcebergTarget']]]]] = None,
+            jdbc_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerJdbcTargetArgs', 'CrawlerJdbcTargetArgsDict', 'outputs.CrawlerJdbcTarget']]]]] = None,
+            lake_formation_configuration: pulumi.Input[Optional[Union['CrawlerLakeFormationConfigurationArgs', 'CrawlerLakeFormationConfigurationArgsDict', 'outputs.CrawlerLakeFormationConfiguration']]] = None,
+            lineage_configuration: pulumi.Input[Optional[Union['CrawlerLineageConfigurationArgs', 'CrawlerLineageConfigurationArgsDict', 'outputs.CrawlerLineageConfiguration']]] = None,
+            mongodb_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerMongodbTargetArgs', 'CrawlerMongodbTargetArgsDict', 'outputs.CrawlerMongodbTarget']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            recrawl_policy: pulumi.Input[Optional[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict']]] = None,
+            recrawl_policy: pulumi.Input[Optional[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict', 'outputs.CrawlerRecrawlPolicy']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             role: pulumi.Input[Optional[_builtins.str]] = None,
-            s3_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerS3TargetArgs', 'CrawlerS3TargetArgsDict']]]]] = None,
+            s3_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrawlerS3TargetArgs', 'CrawlerS3TargetArgsDict', 'outputs.CrawlerS3Target']]]]] = None,
             schedule: pulumi.Input[Optional[_builtins.str]] = None,
-            schema_change_policy: pulumi.Input[Optional[Union['CrawlerSchemaChangePolicyArgs', 'CrawlerSchemaChangePolicyArgsDict']]] = None,
+            schema_change_policy: pulumi.Input[Optional[Union['CrawlerSchemaChangePolicyArgs', 'CrawlerSchemaChangePolicyArgsDict', 'outputs.CrawlerSchemaChangePolicy']]] = None,
             security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
             table_prefix: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -1255,26 +1255,26 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The ARN of the crawler
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerCatalogTargetArgs', 'CrawlerCatalogTargetArgsDict']]]] catalog_targets: List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerCatalogTargetArgs', 'CrawlerCatalogTargetArgsDict', 'outputs.CrawlerCatalogTarget']]]] catalog_targets: List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] classifiers: List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
         :param pulumi.Input[_builtins.str] configuration: JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
         :param pulumi.Input[_builtins.str] database_name: Glue database where results are written.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerDeltaTargetArgs', 'CrawlerDeltaTargetArgsDict']]]] delta_targets: List of nested Delta Lake target arguments. See Delta Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerDeltaTargetArgs', 'CrawlerDeltaTargetArgsDict', 'outputs.CrawlerDeltaTarget']]]] delta_targets: List of nested Delta Lake target arguments. See Delta Target below.
         :param pulumi.Input[_builtins.str] description: Description of the crawler.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerDynamodbTargetArgs', 'CrawlerDynamodbTargetArgsDict']]]] dynamodb_targets: List of nested DynamoDB target arguments. See Dynamodb Target below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerHudiTargetArgs', 'CrawlerHudiTargetArgsDict']]]] hudi_targets: List of nested Hudi target arguments. See Iceberg Target below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerIcebergTargetArgs', 'CrawlerIcebergTargetArgsDict']]]] iceberg_targets: List of nested Iceberg target arguments. See Iceberg Target below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerJdbcTargetArgs', 'CrawlerJdbcTargetArgsDict']]]] jdbc_targets: List of nested JDBC target arguments. See JDBC Target below.
-        :param pulumi.Input[Union['CrawlerLakeFormationConfigurationArgs', 'CrawlerLakeFormationConfigurationArgsDict']] lake_formation_configuration: Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
-        :param pulumi.Input[Union['CrawlerLineageConfigurationArgs', 'CrawlerLineageConfigurationArgsDict']] lineage_configuration: Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerMongodbTargetArgs', 'CrawlerMongodbTargetArgsDict']]]] mongodb_targets: List of nested MongoDB target arguments. See MongoDB Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerDynamodbTargetArgs', 'CrawlerDynamodbTargetArgsDict', 'outputs.CrawlerDynamodbTarget']]]] dynamodb_targets: List of nested DynamoDB target arguments. See Dynamodb Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerHudiTargetArgs', 'CrawlerHudiTargetArgsDict', 'outputs.CrawlerHudiTarget']]]] hudi_targets: List of nested Hudi target arguments. See Iceberg Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerIcebergTargetArgs', 'CrawlerIcebergTargetArgsDict', 'outputs.CrawlerIcebergTarget']]]] iceberg_targets: List of nested Iceberg target arguments. See Iceberg Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerJdbcTargetArgs', 'CrawlerJdbcTargetArgsDict', 'outputs.CrawlerJdbcTarget']]]] jdbc_targets: List of nested JDBC target arguments. See JDBC Target below.
+        :param pulumi.Input[Union['CrawlerLakeFormationConfigurationArgs', 'CrawlerLakeFormationConfigurationArgsDict', 'outputs.CrawlerLakeFormationConfiguration']] lake_formation_configuration: Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+        :param pulumi.Input[Union['CrawlerLineageConfigurationArgs', 'CrawlerLineageConfigurationArgsDict', 'outputs.CrawlerLineageConfiguration']] lineage_configuration: Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerMongodbTargetArgs', 'CrawlerMongodbTargetArgsDict', 'outputs.CrawlerMongodbTarget']]]] mongodb_targets: List of nested MongoDB target arguments. See MongoDB Target below.
         :param pulumi.Input[_builtins.str] name: Name of the crawler.
-        :param pulumi.Input[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict']] recrawl_policy: A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
+        :param pulumi.Input[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict', 'outputs.CrawlerRecrawlPolicy']] recrawl_policy: A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role: The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerS3TargetArgs', 'CrawlerS3TargetArgsDict']]]] s3_targets: List of nested Amazon S3 target arguments. See S3 Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerS3TargetArgs', 'CrawlerS3TargetArgsDict', 'outputs.CrawlerS3Target']]]] s3_targets: List of nested Amazon S3 target arguments. See S3 Target below.
         :param pulumi.Input[_builtins.str] schedule: A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
-        :param pulumi.Input[Union['CrawlerSchemaChangePolicyArgs', 'CrawlerSchemaChangePolicyArgsDict']] schema_change_policy: Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
+        :param pulumi.Input[Union['CrawlerSchemaChangePolicyArgs', 'CrawlerSchemaChangePolicyArgsDict', 'outputs.CrawlerSchemaChangePolicy']] schema_change_policy: Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
         :param pulumi.Input[_builtins.str] security_configuration: The name of Security Configuration to be used by the crawler
         :param pulumi.Input[_builtins.str] table_prefix: The table prefix used for catalog tables that are created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

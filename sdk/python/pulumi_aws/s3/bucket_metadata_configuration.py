@@ -210,9 +210,9 @@ class BucketMetadataConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: pulumi.Input[Optional[_builtins.str]] = None,
                  expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadata_configuration: pulumi.Input[Optional[Union['BucketMetadataConfigurationMetadataConfigurationArgs', 'BucketMetadataConfigurationMetadataConfigurationArgsDict']]] = None,
+                 metadata_configuration: pulumi.Input[Optional[Union['BucketMetadataConfigurationMetadataConfigurationArgs', 'BucketMetadataConfigurationMetadataConfigurationArgsDict', 'outputs.BucketMetadataConfigurationMetadataConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['BucketMetadataConfigurationTimeoutsArgs', 'BucketMetadataConfigurationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['BucketMetadataConfigurationTimeoutsArgs', 'BucketMetadataConfigurationTimeoutsArgsDict', 'outputs.BucketMetadataConfigurationTimeouts']]] = None,
                  __props__=None):
         """
         Manages Amazon S3 Metadata for a bucket.
@@ -226,6 +226,7 @@ class BucketMetadataConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketMetadataConfiguration("example",
+            bucket=example_aws_s3_bucket["bucket"],
             metadata_configuration={
                 "inventory_table_configuration": {
                     "configuration_state": "ENABLED",
@@ -236,8 +237,7 @@ class BucketMetadataConfiguration(pulumi.CustomResource):
                         "expiration": "ENABLED",
                     },
                 },
-            },
-            bucket=example_aws_s3_bucket["bucket"])
+            })
         ```
 
         ## Import
@@ -264,7 +264,7 @@ class BucketMetadataConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: General purpose bucket that you want to create the metadata configuration for.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[Union['BucketMetadataConfigurationMetadataConfigurationArgs', 'BucketMetadataConfigurationMetadataConfigurationArgsDict']] metadata_configuration: Metadata configuration. See `metadata_configuration` Block for details.
+        :param pulumi.Input[Union['BucketMetadataConfigurationMetadataConfigurationArgs', 'BucketMetadataConfigurationMetadataConfigurationArgsDict', 'outputs.BucketMetadataConfigurationMetadataConfiguration']] metadata_configuration: Metadata configuration. See `metadata_configuration` Block for details.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -287,6 +287,7 @@ class BucketMetadataConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketMetadataConfiguration("example",
+            bucket=example_aws_s3_bucket["bucket"],
             metadata_configuration={
                 "inventory_table_configuration": {
                     "configuration_state": "ENABLED",
@@ -297,8 +298,7 @@ class BucketMetadataConfiguration(pulumi.CustomResource):
                         "expiration": "ENABLED",
                     },
                 },
-            },
-            bucket=example_aws_s3_bucket["bucket"])
+            })
         ```
 
         ## Import
@@ -338,9 +338,9 @@ class BucketMetadataConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: pulumi.Input[Optional[_builtins.str]] = None,
                  expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadata_configuration: pulumi.Input[Optional[Union['BucketMetadataConfigurationMetadataConfigurationArgs', 'BucketMetadataConfigurationMetadataConfigurationArgsDict']]] = None,
+                 metadata_configuration: pulumi.Input[Optional[Union['BucketMetadataConfigurationMetadataConfigurationArgs', 'BucketMetadataConfigurationMetadataConfigurationArgsDict', 'outputs.BucketMetadataConfigurationMetadataConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['BucketMetadataConfigurationTimeoutsArgs', 'BucketMetadataConfigurationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['BucketMetadataConfigurationTimeoutsArgs', 'BucketMetadataConfigurationTimeoutsArgsDict', 'outputs.BucketMetadataConfigurationTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -371,9 +371,9 @@ class BucketMetadataConfiguration(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             bucket: pulumi.Input[Optional[_builtins.str]] = None,
             expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
-            metadata_configuration: pulumi.Input[Optional[Union['BucketMetadataConfigurationMetadataConfigurationArgs', 'BucketMetadataConfigurationMetadataConfigurationArgsDict']]] = None,
+            metadata_configuration: pulumi.Input[Optional[Union['BucketMetadataConfigurationMetadataConfigurationArgs', 'BucketMetadataConfigurationMetadataConfigurationArgsDict', 'outputs.BucketMetadataConfigurationMetadataConfiguration']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['BucketMetadataConfigurationTimeoutsArgs', 'BucketMetadataConfigurationTimeoutsArgsDict']]] = None) -> 'BucketMetadataConfiguration':
+            timeouts: pulumi.Input[Optional[Union['BucketMetadataConfigurationTimeoutsArgs', 'BucketMetadataConfigurationTimeoutsArgsDict', 'outputs.BucketMetadataConfigurationTimeouts']]] = None) -> 'BucketMetadataConfiguration':
         """
         Get an existing BucketMetadataConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -383,7 +383,7 @@ class BucketMetadataConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: General purpose bucket that you want to create the metadata configuration for.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[Union['BucketMetadataConfigurationMetadataConfigurationArgs', 'BucketMetadataConfigurationMetadataConfigurationArgsDict']] metadata_configuration: Metadata configuration. See `metadata_configuration` Block for details.
+        :param pulumi.Input[Union['BucketMetadataConfigurationMetadataConfigurationArgs', 'BucketMetadataConfigurationMetadataConfigurationArgsDict', 'outputs.BucketMetadataConfigurationMetadataConfiguration']] metadata_configuration: Metadata configuration. See `metadata_configuration` Block for details.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

@@ -388,6 +388,7 @@ class Application(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_group = aws.resourcegroups.Group("example",
+            name="example",
             resource_query={
                 "query": json.dumps({
                     "ResourceTypeFilters": ["AWS::EC2::Instance"],
@@ -396,8 +397,7 @@ class Application(pulumi.CustomResource):
                         "Values": ["Test"],
                     }],
                 }),
-            },
-            name="example")
+            })
         example = aws.applicationinsights.Application("example", resource_group_name=example_group.name)
         ```
 
@@ -441,6 +441,7 @@ class Application(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_group = aws.resourcegroups.Group("example",
+            name="example",
             resource_query={
                 "query": json.dumps({
                     "ResourceTypeFilters": ["AWS::EC2::Instance"],
@@ -449,8 +450,7 @@ class Application(pulumi.CustomResource):
                         "Values": ["Test"],
                     }],
                 }),
-            },
-            name="example")
+            })
         example = aws.applicationinsights.Application("example", resource_group_name=example_group.name)
         ```
 

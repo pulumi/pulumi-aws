@@ -203,7 +203,7 @@ class HumanTaskUI(pulumi.CustomResource):
                  human_task_ui_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ui_template: pulumi.Input[Optional[Union['HumanTaskUIUiTemplateArgs', 'HumanTaskUIUiTemplateArgsDict']]] = None,
+                 ui_template: pulumi.Input[Optional[Union['HumanTaskUIUiTemplateArgs', 'HumanTaskUIUiTemplateArgsDict', 'outputs.HumanTaskUIUiTemplate']]] = None,
                  __props__=None):
         """
         Provides a SageMaker AI Human Task UI resource.
@@ -216,10 +216,10 @@ class HumanTaskUI(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.sagemaker.HumanTaskUI("example",
+            human_task_ui_name="example",
             ui_template={
                 "content": std.file(input="sagemaker-human-task-ui-template.html").result,
-            },
-            human_task_ui_name="example")
+            })
         ```
 
         ## Import
@@ -236,7 +236,7 @@ class HumanTaskUI(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] human_task_ui_name: The name of the Human Task UI.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['HumanTaskUIUiTemplateArgs', 'HumanTaskUIUiTemplateArgsDict']] ui_template: The Liquid template for the worker user interface. See UI Template below.
+        :param pulumi.Input[Union['HumanTaskUIUiTemplateArgs', 'HumanTaskUIUiTemplateArgsDict', 'outputs.HumanTaskUIUiTemplate']] ui_template: The Liquid template for the worker user interface. See UI Template below.
         """
         ...
     @overload
@@ -255,10 +255,10 @@ class HumanTaskUI(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.sagemaker.HumanTaskUI("example",
+            human_task_ui_name="example",
             ui_template={
                 "content": std.file(input="sagemaker-human-task-ui-template.html").result,
-            },
-            human_task_ui_name="example")
+            })
         ```
 
         ## Import
@@ -288,7 +288,7 @@ class HumanTaskUI(pulumi.CustomResource):
                  human_task_ui_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ui_template: pulumi.Input[Optional[Union['HumanTaskUIUiTemplateArgs', 'HumanTaskUIUiTemplateArgsDict']]] = None,
+                 ui_template: pulumi.Input[Optional[Union['HumanTaskUIUiTemplateArgs', 'HumanTaskUIUiTemplateArgsDict', 'outputs.HumanTaskUIUiTemplate']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -323,7 +323,7 @@ class HumanTaskUI(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            ui_template: pulumi.Input[Optional[Union['HumanTaskUIUiTemplateArgs', 'HumanTaskUIUiTemplateArgsDict']]] = None) -> 'HumanTaskUI':
+            ui_template: pulumi.Input[Optional[Union['HumanTaskUIUiTemplateArgs', 'HumanTaskUIUiTemplateArgsDict', 'outputs.HumanTaskUIUiTemplate']]] = None) -> 'HumanTaskUI':
         """
         Get an existing HumanTaskUI resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -336,7 +336,7 @@ class HumanTaskUI(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['HumanTaskUIUiTemplateArgs', 'HumanTaskUIUiTemplateArgsDict']] ui_template: The Liquid template for the worker user interface. See UI Template below.
+        :param pulumi.Input[Union['HumanTaskUIUiTemplateArgs', 'HumanTaskUIUiTemplateArgsDict', 'outputs.HumanTaskUIUiTemplate']] ui_template: The Liquid template for the worker user interface. See UI Template below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

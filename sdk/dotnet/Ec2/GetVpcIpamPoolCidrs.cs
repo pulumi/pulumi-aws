@@ -71,6 +71,7 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var c = Aws.Ec2.GetVpcIpamPoolCidrs.Invoke(new()
         ///     {
+        ///         IpamPoolId = "ipam-pool-123",
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetVpcIpamPoolCidrsFilterInputArgs
@@ -82,7 +83,6 @@ namespace Pulumi.Aws.Ec2
         ///                 },
         ///             },
         ///         },
-        ///         IpamPoolId = "ipam-pool-123",
         ///     });
         /// 
         ///     var mycidrs = .Where(cidr =&gt; cidr.State == "provisioned").Select(cidr =&gt; 
@@ -92,14 +92,14 @@ namespace Pulumi.Aws.Ec2
         /// 
         ///     var pls = new Aws.Ec2.ManagedPrefixList("pls", new()
         ///     {
-        ///         Entries = mycidrs.Select(entry =&gt; 
+        ///         Entries = mycidrs.Select((v, k) =&gt; new { Key = k, Value = v }).Apply(entries =&gt; entries.Select(entry =&gt; 
         ///         {
-        ///             return new Aws.Ec2.Inputs.ManagedPrefixListEntryArgs
+        ///             return 
         ///             {
-        ///                 Cidr = entry,
-        ///                 Description = entry,
+        ///                 { "cidr", entry.Value },
+        ///                 { "description", entry.Value },
         ///             };
-        ///         }).ToList(),
+        ///         }).ToList()),
         ///         Name = $"IPAM Pool ({test.Id}) Cidrs",
         ///         AddressFamily = "IPv4",
         ///         MaxEntries = mycidrs.Length,
@@ -171,6 +171,7 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var c = Aws.Ec2.GetVpcIpamPoolCidrs.Invoke(new()
         ///     {
+        ///         IpamPoolId = "ipam-pool-123",
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetVpcIpamPoolCidrsFilterInputArgs
@@ -182,7 +183,6 @@ namespace Pulumi.Aws.Ec2
         ///                 },
         ///             },
         ///         },
-        ///         IpamPoolId = "ipam-pool-123",
         ///     });
         /// 
         ///     var mycidrs = .Where(cidr =&gt; cidr.State == "provisioned").Select(cidr =&gt; 
@@ -192,14 +192,14 @@ namespace Pulumi.Aws.Ec2
         /// 
         ///     var pls = new Aws.Ec2.ManagedPrefixList("pls", new()
         ///     {
-        ///         Entries = mycidrs.Select(entry =&gt; 
+        ///         Entries = mycidrs.Select((v, k) =&gt; new { Key = k, Value = v }).Apply(entries =&gt; entries.Select(entry =&gt; 
         ///         {
-        ///             return new Aws.Ec2.Inputs.ManagedPrefixListEntryArgs
+        ///             return 
         ///             {
-        ///                 Cidr = entry,
-        ///                 Description = entry,
+        ///                 { "cidr", entry.Value },
+        ///                 { "description", entry.Value },
         ///             };
-        ///         }).ToList(),
+        ///         }).ToList()),
         ///         Name = $"IPAM Pool ({test.Id}) Cidrs",
         ///         AddressFamily = "IPv4",
         ///         MaxEntries = mycidrs.Length,
@@ -271,6 +271,7 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var c = Aws.Ec2.GetVpcIpamPoolCidrs.Invoke(new()
         ///     {
+        ///         IpamPoolId = "ipam-pool-123",
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetVpcIpamPoolCidrsFilterInputArgs
@@ -282,7 +283,6 @@ namespace Pulumi.Aws.Ec2
         ///                 },
         ///             },
         ///         },
-        ///         IpamPoolId = "ipam-pool-123",
         ///     });
         /// 
         ///     var mycidrs = .Where(cidr =&gt; cidr.State == "provisioned").Select(cidr =&gt; 
@@ -292,14 +292,14 @@ namespace Pulumi.Aws.Ec2
         /// 
         ///     var pls = new Aws.Ec2.ManagedPrefixList("pls", new()
         ///     {
-        ///         Entries = mycidrs.Select(entry =&gt; 
+        ///         Entries = mycidrs.Select((v, k) =&gt; new { Key = k, Value = v }).Apply(entries =&gt; entries.Select(entry =&gt; 
         ///         {
-        ///             return new Aws.Ec2.Inputs.ManagedPrefixListEntryArgs
+        ///             return 
         ///             {
-        ///                 Cidr = entry,
-        ///                 Description = entry,
+        ///                 { "cidr", entry.Value },
+        ///                 { "description", entry.Value },
         ///             };
-        ///         }).ToList(),
+        ///         }).ToList()),
         ///         Name = $"IPAM Pool ({test.Id}) Cidrs",
         ///         AddressFamily = "IPv4",
         ///         MaxEntries = mycidrs.Length,

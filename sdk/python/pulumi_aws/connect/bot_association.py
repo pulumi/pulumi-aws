@@ -137,7 +137,7 @@ class BotAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 lex_bot: pulumi.Input[Optional[Union['BotAssociationLexBotArgs', 'BotAssociationLexBotArgsDict']]] = None,
+                 lex_bot: pulumi.Input[Optional[Union['BotAssociationLexBotArgs', 'BotAssociationLexBotArgsDict', 'outputs.BotAssociationLexBot']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -155,11 +155,11 @@ class BotAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.BotAssociation("example",
+            instance_id=example_aws_connect_instance["id"],
             lex_bot={
                 "lex_region": "us-west-2",
                 "name": "Test",
-            },
-            instance_id=example_aws_connect_instance["id"])
+            })
         ```
 
         ### Including a sample Lex bot
@@ -170,11 +170,11 @@ class BotAssociation(pulumi.CustomResource):
 
         current = aws.get_region()
         example = aws.lex.Intent("example",
+            create_version=True,
+            name="connect_lex_intent",
             fulfillment_activity={
                 "type": "ReturnIntent",
             },
-            create_version=True,
-            name="connect_lex_intent",
             sample_utterances=["I would like to pick up flowers."])
         example_bot = aws.lex.Bot("example",
             abort_statement={
@@ -184,11 +184,11 @@ class BotAssociation(pulumi.CustomResource):
                 }],
             },
             clarification_prompt={
+                "max_attempts": 2,
                 "messages": [{
                     "content": "I didn't understand you, what would you like to do?",
                     "content_type": "PlainText",
                 }],
-                "max_attempts": 2,
             },
             intents=[{
                 "intent_name": example.name,
@@ -198,11 +198,11 @@ class BotAssociation(pulumi.CustomResource):
             name="connect_lex_bot",
             process_behavior="BUILD")
         example_bot_association = aws.connect.BotAssociation("example",
+            instance_id=example_aws_connect_instance["id"],
             lex_bot={
                 "lex_region": current.region,
                 "name": example_bot.name,
-            },
-            instance_id=example_aws_connect_instance["id"])
+            })
         ```
 
         ## Import
@@ -217,7 +217,7 @@ class BotAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-        :param pulumi.Input[Union['BotAssociationLexBotArgs', 'BotAssociationLexBotArgsDict']] lex_bot: Configuration information of an Amazon Lex (V1) bot. Detailed below.
+        :param pulumi.Input[Union['BotAssociationLexBotArgs', 'BotAssociationLexBotArgsDict', 'outputs.BotAssociationLexBot']] lex_bot: Configuration information of an Amazon Lex (V1) bot. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -241,11 +241,11 @@ class BotAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.BotAssociation("example",
+            instance_id=example_aws_connect_instance["id"],
             lex_bot={
                 "lex_region": "us-west-2",
                 "name": "Test",
-            },
-            instance_id=example_aws_connect_instance["id"])
+            })
         ```
 
         ### Including a sample Lex bot
@@ -256,11 +256,11 @@ class BotAssociation(pulumi.CustomResource):
 
         current = aws.get_region()
         example = aws.lex.Intent("example",
+            create_version=True,
+            name="connect_lex_intent",
             fulfillment_activity={
                 "type": "ReturnIntent",
             },
-            create_version=True,
-            name="connect_lex_intent",
             sample_utterances=["I would like to pick up flowers."])
         example_bot = aws.lex.Bot("example",
             abort_statement={
@@ -270,11 +270,11 @@ class BotAssociation(pulumi.CustomResource):
                 }],
             },
             clarification_prompt={
+                "max_attempts": 2,
                 "messages": [{
                     "content": "I didn't understand you, what would you like to do?",
                     "content_type": "PlainText",
                 }],
-                "max_attempts": 2,
             },
             intents=[{
                 "intent_name": example.name,
@@ -284,11 +284,11 @@ class BotAssociation(pulumi.CustomResource):
             name="connect_lex_bot",
             process_behavior="BUILD")
         example_bot_association = aws.connect.BotAssociation("example",
+            instance_id=example_aws_connect_instance["id"],
             lex_bot={
                 "lex_region": current.region,
                 "name": example_bot.name,
-            },
-            instance_id=example_aws_connect_instance["id"])
+            })
         ```
 
         ## Import
@@ -316,7 +316,7 @@ class BotAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 lex_bot: pulumi.Input[Optional[Union['BotAssociationLexBotArgs', 'BotAssociationLexBotArgsDict']]] = None,
+                 lex_bot: pulumi.Input[Optional[Union['BotAssociationLexBotArgs', 'BotAssociationLexBotArgsDict', 'outputs.BotAssociationLexBot']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -345,7 +345,7 @@ class BotAssociation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             instance_id: pulumi.Input[Optional[_builtins.str]] = None,
-            lex_bot: pulumi.Input[Optional[Union['BotAssociationLexBotArgs', 'BotAssociationLexBotArgsDict']]] = None,
+            lex_bot: pulumi.Input[Optional[Union['BotAssociationLexBotArgs', 'BotAssociationLexBotArgsDict', 'outputs.BotAssociationLexBot']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'BotAssociation':
         """
         Get an existing BotAssociation resource's state with the given name, id, and optional extra
@@ -355,7 +355,7 @@ class BotAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-        :param pulumi.Input[Union['BotAssociationLexBotArgs', 'BotAssociationLexBotArgsDict']] lex_bot: Configuration information of an Amazon Lex (V1) bot. Detailed below.
+        :param pulumi.Input[Union['BotAssociationLexBotArgs', 'BotAssociationLexBotArgsDict', 'outputs.BotAssociationLexBot']] lex_bot: Configuration information of an Amazon Lex (V1) bot. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

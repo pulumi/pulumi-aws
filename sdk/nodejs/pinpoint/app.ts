@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.pinpoint.App("example", {
+ *     name: "test-app",
  *     limits: {
  *         maximumDuration: 600,
  *     },
@@ -26,7 +27,6 @@ import * as utilities from "../utilities";
  *         start: "00:00",
  *         end: "06:00",
  *     },
- *     name: "test-app",
  * });
  * ```
  *

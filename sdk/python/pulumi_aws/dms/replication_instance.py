@@ -719,7 +719,7 @@ class ReplicationInstance(pulumi.CustomResource):
                  availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  dns_name_servers: pulumi.Input[Optional[_builtins.str]] = None,
                  engine_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 kerberos_authentication_settings: pulumi.Input[Optional[Union['ReplicationInstanceKerberosAuthenticationSettingsArgs', 'ReplicationInstanceKerberosAuthenticationSettingsArgsDict']]] = None,
+                 kerberos_authentication_settings: pulumi.Input[Optional[Union['ReplicationInstanceKerberosAuthenticationSettingsArgs', 'ReplicationInstanceKerberosAuthenticationSettingsArgsDict', 'outputs.ReplicationInstanceKerberosAuthenticationSettings']]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  multi_az: pulumi.Input[Optional[_builtins.bool]] = None,
                  network_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -750,11 +750,11 @@ class ReplicationInstance(pulumi.CustomResource):
         #  * dms-cloudwatch-logs-role
         #  * dms-access-for-endpoint
         dms_assume_role = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "identifiers": ["dms.amazonaws.com"],
                 "type": "Service",
             }],
-            "actions": ["sts:AssumeRole"],
         }])
         dms_access_for_endpoint = aws.iam.Role("dms-access-for-endpoint",
             assume_role_policy=dms_assume_role.json,
@@ -817,7 +817,7 @@ class ReplicationInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] availability_zone: The EC2 Availability Zone that the replication instance will be created in.
         :param pulumi.Input[_builtins.str] dns_name_servers: A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
         :param pulumi.Input[_builtins.str] engine_version: The engine version number of the replication instance.
-        :param pulumi.Input[Union['ReplicationInstanceKerberosAuthenticationSettingsArgs', 'ReplicationInstanceKerberosAuthenticationSettingsArgsDict']] kerberos_authentication_settings: Configuration block for settings required for Kerberos authentication. See below.
+        :param pulumi.Input[Union['ReplicationInstanceKerberosAuthenticationSettingsArgs', 'ReplicationInstanceKerberosAuthenticationSettingsArgsDict', 'outputs.ReplicationInstanceKerberosAuthenticationSettings']] kerberos_authentication_settings: Configuration block for settings required for Kerberos authentication. See below.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[_builtins.bool] multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
         :param pulumi.Input[_builtins.str] network_type: The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
@@ -854,11 +854,11 @@ class ReplicationInstance(pulumi.CustomResource):
         #  * dms-cloudwatch-logs-role
         #  * dms-access-for-endpoint
         dms_assume_role = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "identifiers": ["dms.amazonaws.com"],
                 "type": "Service",
             }],
-            "actions": ["sts:AssumeRole"],
         }])
         dms_access_for_endpoint = aws.iam.Role("dms-access-for-endpoint",
             assume_role_policy=dms_assume_role.json,
@@ -934,7 +934,7 @@ class ReplicationInstance(pulumi.CustomResource):
                  availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  dns_name_servers: pulumi.Input[Optional[_builtins.str]] = None,
                  engine_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 kerberos_authentication_settings: pulumi.Input[Optional[Union['ReplicationInstanceKerberosAuthenticationSettingsArgs', 'ReplicationInstanceKerberosAuthenticationSettingsArgsDict']]] = None,
+                 kerberos_authentication_settings: pulumi.Input[Optional[Union['ReplicationInstanceKerberosAuthenticationSettingsArgs', 'ReplicationInstanceKerberosAuthenticationSettingsArgsDict', 'outputs.ReplicationInstanceKerberosAuthenticationSettings']]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  multi_az: pulumi.Input[Optional[_builtins.bool]] = None,
                  network_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -999,7 +999,7 @@ class ReplicationInstance(pulumi.CustomResource):
             availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
             dns_name_servers: pulumi.Input[Optional[_builtins.str]] = None,
             engine_version: pulumi.Input[Optional[_builtins.str]] = None,
-            kerberos_authentication_settings: pulumi.Input[Optional[Union['ReplicationInstanceKerberosAuthenticationSettingsArgs', 'ReplicationInstanceKerberosAuthenticationSettingsArgsDict']]] = None,
+            kerberos_authentication_settings: pulumi.Input[Optional[Union['ReplicationInstanceKerberosAuthenticationSettingsArgs', 'ReplicationInstanceKerberosAuthenticationSettingsArgsDict', 'outputs.ReplicationInstanceKerberosAuthenticationSettings']]] = None,
             kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
             multi_az: pulumi.Input[Optional[_builtins.bool]] = None,
             network_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1029,7 +1029,7 @@ class ReplicationInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] availability_zone: The EC2 Availability Zone that the replication instance will be created in.
         :param pulumi.Input[_builtins.str] dns_name_servers: A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
         :param pulumi.Input[_builtins.str] engine_version: The engine version number of the replication instance.
-        :param pulumi.Input[Union['ReplicationInstanceKerberosAuthenticationSettingsArgs', 'ReplicationInstanceKerberosAuthenticationSettingsArgsDict']] kerberos_authentication_settings: Configuration block for settings required for Kerberos authentication. See below.
+        :param pulumi.Input[Union['ReplicationInstanceKerberosAuthenticationSettingsArgs', 'ReplicationInstanceKerberosAuthenticationSettingsArgsDict', 'outputs.ReplicationInstanceKerberosAuthenticationSettings']] kerberos_authentication_settings: Configuration block for settings required for Kerberos authentication. See below.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[_builtins.bool] multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
         :param pulumi.Input[_builtins.str] network_type: The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.

@@ -31,6 +31,7 @@ namespace Pulumi.Aws.WorkSpacesWeb
     /// 
     ///     var exampleIpAccessSettings = new Aws.WorkSpacesWeb.IpAccessSettings("example", new()
     ///     {
+    ///         DisplayName = "example",
     ///         IpRules = new[]
     ///         {
     ///             new Aws.WorkSpacesWeb.Inputs.IpAccessSettingsIpRuleArgs
@@ -38,7 +39,6 @@ namespace Pulumi.Aws.WorkSpacesWeb
     ///                 IpRange = "10.0.0.0/16",
     ///             },
     ///         },
-    ///         DisplayName = "example",
     ///     });
     /// 
     ///     var exampleIpAccessSettingsAssociation = new Aws.WorkSpacesWeb.IpAccessSettingsAssociation("example", new()

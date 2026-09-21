@@ -28,11 +28,11 @@ namespace Pulumi.Aws.AgentRegistry
     /// {
     ///     var example = new Aws.AgentRegistry.Registry("example", new()
     ///     {
+    ///         Name = "example-registry",
     ///         DiscoveryConfiguration = new Aws.AgentRegistry.Inputs.RegistryDiscoveryConfigurationArgs
     ///         {
     ///             AuthorizerType = "AWS_IAM",
     ///         },
-    ///         Name = "example-registry",
     ///     });
     /// 
     /// });
@@ -50,12 +50,12 @@ namespace Pulumi.Aws.AgentRegistry
     /// {
     ///     var example = new Aws.AgentRegistry.Registry("example", new()
     ///     {
+    ///         Name = "example-registry",
+    ///         Description = "Example agent registry",
     ///         DiscoveryConfiguration = new Aws.AgentRegistry.Inputs.RegistryDiscoveryConfigurationArgs
     ///         {
     ///             AuthorizerType = "AWS_IAM",
     ///         },
-    ///         Name = "example-registry",
-    ///         Description = "Example agent registry",
     ///     });
     /// 
     /// });
@@ -73,6 +73,7 @@ namespace Pulumi.Aws.AgentRegistry
     /// {
     ///     var example = new Aws.AgentRegistry.Registry("example", new()
     ///     {
+    ///         Name = "example-registry",
     ///         ApprovalConfiguration = new Aws.AgentRegistry.Inputs.RegistryApprovalConfigurationArgs
     ///         {
     ///             AutoApprovalRules = new[]
@@ -84,7 +85,6 @@ namespace Pulumi.Aws.AgentRegistry
     ///         {
     ///             AuthorizerType = "AWS_IAM",
     ///         },
-    ///         Name = "example-registry",
     ///     });
     /// 
     /// });
@@ -102,28 +102,14 @@ namespace Pulumi.Aws.AgentRegistry
     /// {
     ///     var example = new Aws.AgentRegistry.Registry("example", new()
     ///     {
+    ///         Name = "example-registry",
     ///         DiscoveryConfiguration = new Aws.AgentRegistry.Inputs.RegistryDiscoveryConfigurationArgs
     ///         {
+    ///             AuthorizerType = "CUSTOM_JWT",
     ///             AuthorizerConfiguration = new Aws.AgentRegistry.Inputs.RegistryDiscoveryConfigurationAuthorizerConfigurationArgs
     ///             {
     ///                 CustomJwtAuthorizer = new Aws.AgentRegistry.Inputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerArgs
     ///                 {
-    ///                     CustomClaims = new[]
-    ///                     {
-    ///                         new Aws.AgentRegistry.Inputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs
-    ///                         {
-    ///                             AuthorizingClaimMatchValue = new Aws.AgentRegistry.Inputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs
-    ///                             {
-    ///                                 ClaimMatchValue = new Aws.AgentRegistry.Inputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs
-    ///                                 {
-    ///                                     MatchValueString = "authorized-user",
-    ///                                 },
-    ///                                 ClaimMatchOperator = "EQUALS",
-    ///                             },
-    ///                             InboundTokenClaimName = "sub",
-    ///                             InboundTokenClaimValueType = "STRING",
-    ///                         },
-    ///                     },
     ///                     DiscoveryUrl = "https://example.com/.well-known/openid-configuration",
     ///                     AllowedAudiences = new[]
     ///                     {
@@ -138,11 +124,25 @@ namespace Pulumi.Aws.AgentRegistry
     ///                         "read",
     ///                         "write",
     ///                     },
+    ///                     CustomClaims = new[]
+    ///                     {
+    ///                         new Aws.AgentRegistry.Inputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs
+    ///                         {
+    ///                             InboundTokenClaimName = "sub",
+    ///                             InboundTokenClaimValueType = "STRING",
+    ///                             AuthorizingClaimMatchValue = new Aws.AgentRegistry.Inputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs
+    ///                             {
+    ///                                 ClaimMatchOperator = "EQUALS",
+    ///                                 ClaimMatchValue = new Aws.AgentRegistry.Inputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs
+    ///                                 {
+    ///                                     MatchValueString = "authorized-user",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
-    ///             AuthorizerType = "CUSTOM_JWT",
     ///         },
-    ///         Name = "example-registry",
     ///     });
     /// 
     /// });

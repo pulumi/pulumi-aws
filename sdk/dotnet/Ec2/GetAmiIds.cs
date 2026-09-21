@@ -26,6 +26,10 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var ubuntu = Aws.Ec2.GetAmiIds.Invoke(new()
         ///     {
+        ///         Owners = new[]
+        ///         {
+        ///             "099720109477",
+        ///         },
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetAmiIdsFilterInputArgs
@@ -36,10 +40,6 @@ namespace Pulumi.Aws.Ec2
         ///                     "ubuntu/images/ubuntu-*-*-amd64-server-*",
         ///                 },
         ///             },
-        ///         },
-        ///         Owners = new[]
-        ///         {
-        ///             "099720109477",
         ///         },
         ///     });
         /// 
@@ -64,6 +64,10 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var ubuntu = Aws.Ec2.GetAmiIds.Invoke(new()
         ///     {
+        ///         Owners = new[]
+        ///         {
+        ///             "099720109477",
+        ///         },
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetAmiIdsFilterInputArgs
@@ -74,10 +78,6 @@ namespace Pulumi.Aws.Ec2
         ///                     "ubuntu/images/ubuntu-*-*-amd64-server-*",
         ///                 },
         ///             },
-        ///         },
-        ///         Owners = new[]
-        ///         {
-        ///             "099720109477",
         ///         },
         ///     });
         /// 
@@ -102,6 +102,10 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var ubuntu = Aws.Ec2.GetAmiIds.Invoke(new()
         ///     {
+        ///         Owners = new[]
+        ///         {
+        ///             "099720109477",
+        ///         },
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetAmiIdsFilterInputArgs
@@ -112,10 +116,6 @@ namespace Pulumi.Aws.Ec2
         ///                     "ubuntu/images/ubuntu-*-*-amd64-server-*",
         ///                 },
         ///             },
-        ///         },
-        ///         Owners = new[]
-        ///         {
-        ///             "099720109477",
         ///         },
         ///     });
         /// 

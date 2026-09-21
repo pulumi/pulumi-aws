@@ -541,18 +541,18 @@ class Index(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_units: pulumi.Input[Optional[Union['IndexCapacityUnitsArgs', 'IndexCapacityUnitsArgsDict']]] = None,
+                 capacity_units: pulumi.Input[Optional[Union['IndexCapacityUnitsArgs', 'IndexCapacityUnitsArgsDict', 'outputs.IndexCapacityUnits']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 document_metadata_configuration_updates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationUpdateArgs', 'IndexDocumentMetadataConfigurationUpdateArgsDict']]]]] = None,
+                 document_metadata_configuration_updates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationUpdateArgs', 'IndexDocumentMetadataConfigurationUpdateArgsDict', 'outputs.IndexDocumentMetadataConfigurationUpdate']]]]] = None,
                  edition: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_side_encryption_configuration: pulumi.Input[Optional[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict']]] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict', 'outputs.IndexServerSideEncryptionConfiguration']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  user_context_policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 user_group_resolution_configuration: pulumi.Input[Optional[Union['IndexUserGroupResolutionConfigurationArgs', 'IndexUserGroupResolutionConfigurationArgsDict']]] = None,
-                 user_token_configurations: pulumi.Input[Optional[Union['IndexUserTokenConfigurationsArgs', 'IndexUserTokenConfigurationsArgsDict']]] = None,
+                 user_group_resolution_configuration: pulumi.Input[Optional[Union['IndexUserGroupResolutionConfigurationArgs', 'IndexUserGroupResolutionConfigurationArgsDict', 'outputs.IndexUserGroupResolutionConfiguration']]] = None,
+                 user_token_configurations: pulumi.Input[Optional[Union['IndexUserTokenConfigurationsArgs', 'IndexUserTokenConfigurationsArgsDict', 'outputs.IndexUserTokenConfigurations']]] = None,
                  __props__=None):
         """
         Provides an Amazon Kendra Index resource.
@@ -582,13 +582,13 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
+            name="example",
+            edition="DEVELOPER_EDITION",
+            role_arn=this["arn"],
             capacity_units={
                 "query_capacity_units": 2,
                 "storage_capacity_units": 2,
-            },
-            name="example",
-            edition="DEVELOPER_EDITION",
-            role_arn=this["arn"])
+            })
         ```
 
         ### With server side encryption configuration
@@ -598,11 +598,11 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
+            name="example",
+            role_arn=this_aws_iam_role["arn"],
             server_side_encryption_configuration={
                 "kms_key_id": this["arn"],
-            },
-            name="example",
-            role_arn=this_aws_iam_role["arn"])
+            })
         ```
 
         ### With user group resolution configuration
@@ -612,11 +612,11 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
+            name="example",
+            role_arn=this["arn"],
             user_group_resolution_configuration={
                 "user_group_resolution_mode": "AWS_SSO",
-            },
-            name="example",
-            role_arn=this["arn"])
+            })
         ```
 
         ### With Document Metadata Configuration Updates
@@ -630,8 +630,12 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
+            name="example",
+            role_arn=this["arn"],
             document_metadata_configuration_updates=[
                 {
+                    "name": "_authors",
+                    "type": "STRING_LIST_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -641,10 +645,10 @@ class Index(pulumi.CustomResource):
                     "relevance": {
                         "importance": 1,
                     },
-                    "name": "_authors",
-                    "type": "STRING_LIST_VALUE",
                 },
                 {
+                    "name": "_category",
+                    "type": "STRING_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -655,10 +659,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                    "name": "_category",
-                    "type": "STRING_VALUE",
                 },
                 {
+                    "name": "_created_at",
+                    "type": "DATE_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -671,10 +675,10 @@ class Index(pulumi.CustomResource):
                         "duration": "25920000s",
                         "rank_order": "ASCENDING",
                     },
-                    "name": "_created_at",
-                    "type": "DATE_VALUE",
                 },
                 {
+                    "name": "_data_source_id",
+                    "type": "STRING_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -685,10 +689,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                    "name": "_data_source_id",
-                    "type": "STRING_VALUE",
                 },
                 {
+                    "name": "_document_title",
+                    "type": "STRING_VALUE",
                     "search": {
                         "displayable": True,
                         "facetable": False,
@@ -699,10 +703,10 @@ class Index(pulumi.CustomResource):
                         "importance": 2,
                         "values_importance_map": {},
                     },
-                    "name": "_document_title",
-                    "type": "STRING_VALUE",
                 },
                 {
+                    "name": "_excerpt_page_number",
+                    "type": "LONG_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -713,24 +717,10 @@ class Index(pulumi.CustomResource):
                         "importance": 2,
                         "rank_order": "ASCENDING",
                     },
-                    "name": "_excerpt_page_number",
-                    "type": "LONG_VALUE",
                 },
                 {
-                    "search": {
-                        "displayable": False,
-                        "facetable": False,
-                        "searchable": False,
-                        "sortable": True,
-                    },
-                    "relevance": {
-                        "importance": 1,
-                        "values_importance_map": {},
-                    },
                     "name": "_faq_id",
                     "type": "STRING_VALUE",
-                },
-                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -741,10 +731,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
+                },
+                {
                     "name": "_file_type",
                     "type": "STRING_VALUE",
-                },
-                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -755,10 +745,24 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                    "name": "_language_code",
-                    "type": "STRING_VALUE",
                 },
                 {
+                    "name": "_language_code",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "values_importance_map": {},
+                    },
+                },
+                {
+                    "name": "_last_updated_at",
+                    "type": "DATE_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -771,10 +775,10 @@ class Index(pulumi.CustomResource):
                         "duration": "25920000s",
                         "rank_order": "ASCENDING",
                     },
-                    "name": "_last_updated_at",
-                    "type": "DATE_VALUE",
                 },
                 {
+                    "name": "_source_uri",
+                    "type": "STRING_VALUE",
                     "search": {
                         "displayable": True,
                         "facetable": False,
@@ -785,24 +789,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                    "name": "_source_uri",
-                    "type": "STRING_VALUE",
                 },
                 {
-                    "search": {
-                        "displayable": False,
-                        "facetable": False,
-                        "searchable": False,
-                        "sortable": True,
-                    },
-                    "relevance": {
-                        "importance": 1,
-                        "values_importance_map": {},
-                    },
                     "name": "_tenant_id",
                     "type": "STRING_VALUE",
-                },
-                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -813,10 +803,24 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                    "name": "_version",
-                    "type": "STRING_VALUE",
                 },
                 {
+                    "name": "_version",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "values_importance_map": {},
+                    },
+                },
+                {
+                    "name": "_view_count",
+                    "type": "LONG_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -827,12 +831,8 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "rank_order": "ASCENDING",
                     },
-                    "name": "_view_count",
-                    "type": "LONG_VALUE",
                 },
-            ],
-            name="example",
-            role_arn=this["arn"])
+            ])
         ```
 
         ### Appending additional elements
@@ -844,35 +844,25 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
+            name="example",
+            role_arn=this["arn"],
             document_metadata_configuration_updates=[
                 {
-                    "search": {
-                        "displayable": False,
-                        "facetable": False,
-                        "searchable": False,
-                        "sortable": False,
-                    },
-                    "relevance": {
-                        "importance": 1,
-                    },
                     "name": "_authors",
                     "type": "STRING_LIST_VALUE",
-                },
-                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
                         "searchable": False,
-                        "sortable": True,
+                        "sortable": False,
                     },
                     "relevance": {
                         "importance": 1,
-                        "values_importance_map": {},
                     },
+                },
+                {
                     "name": "_category",
                     "type": "STRING_VALUE",
-                },
-                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -880,15 +870,13 @@ class Index(pulumi.CustomResource):
                         "sortable": True,
                     },
                     "relevance": {
-                        "freshness": False,
                         "importance": 1,
-                        "duration": "25920000s",
-                        "rank_order": "ASCENDING",
+                        "values_importance_map": {},
                     },
+                },
+                {
                     "name": "_created_at",
                     "type": "DATE_VALUE",
-                },
-                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -896,27 +884,43 @@ class Index(pulumi.CustomResource):
                         "sortable": True,
                     },
                     "relevance": {
+                        "freshness": False,
                         "importance": 1,
-                        "values_importance_map": {},
+                        "duration": "25920000s",
+                        "rank_order": "ASCENDING",
                     },
+                },
+                {
                     "name": "_data_source_id",
                     "type": "STRING_VALUE",
-                },
-                {
                     "search": {
-                        "displayable": True,
+                        "displayable": False,
                         "facetable": False,
-                        "searchable": True,
+                        "searchable": False,
                         "sortable": True,
                     },
                     "relevance": {
-                        "importance": 2,
+                        "importance": 1,
                         "values_importance_map": {},
                     },
+                },
+                {
                     "name": "_document_title",
                     "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": True,
+                        "facetable": False,
+                        "searchable": True,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 2,
+                        "values_importance_map": {},
+                    },
                 },
                 {
+                    "name": "_excerpt_page_number",
+                    "type": "LONG_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -927,24 +931,10 @@ class Index(pulumi.CustomResource):
                         "importance": 2,
                         "rank_order": "ASCENDING",
                     },
-                    "name": "_excerpt_page_number",
-                    "type": "LONG_VALUE",
                 },
                 {
-                    "search": {
-                        "displayable": False,
-                        "facetable": False,
-                        "searchable": False,
-                        "sortable": True,
-                    },
-                    "relevance": {
-                        "importance": 1,
-                        "values_importance_map": {},
-                    },
                     "name": "_faq_id",
                     "type": "STRING_VALUE",
-                },
-                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -955,10 +945,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
+                },
+                {
                     "name": "_file_type",
                     "type": "STRING_VALUE",
-                },
-                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -969,10 +959,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
+                },
+                {
                     "name": "_language_code",
                     "type": "STRING_VALUE",
-                },
-                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -980,43 +970,43 @@ class Index(pulumi.CustomResource):
                         "sortable": True,
                     },
                     "relevance": {
-                        "freshness": False,
                         "importance": 1,
-                        "duration": "25920000s",
-                        "rank_order": "ASCENDING",
+                        "values_importance_map": {},
                     },
+                },
+                {
                     "name": "_last_updated_at",
                     "type": "DATE_VALUE",
-                },
-                {
                     "search": {
-                        "displayable": True,
+                        "displayable": False,
                         "facetable": False,
                         "searchable": False,
-                        "sortable": False,
+                        "sortable": True,
                     },
                     "relevance": {
+                        "freshness": False,
                         "importance": 1,
-                        "values_importance_map": {},
+                        "duration": "25920000s",
+                        "rank_order": "ASCENDING",
                     },
+                },
+                {
                     "name": "_source_uri",
                     "type": "STRING_VALUE",
-                },
-                {
                     "search": {
-                        "displayable": False,
+                        "displayable": True,
                         "facetable": False,
                         "searchable": False,
-                        "sortable": True,
+                        "sortable": False,
                     },
                     "relevance": {
                         "importance": 1,
                         "values_importance_map": {},
                     },
+                },
+                {
                     "name": "_tenant_id",
                     "type": "STRING_VALUE",
-                },
-                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1027,10 +1017,24 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                    "name": "_version",
-                    "type": "STRING_VALUE",
                 },
                 {
+                    "name": "_version",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "values_importance_map": {},
+                    },
+                },
+                {
+                    "name": "_view_count",
+                    "type": "LONG_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1041,10 +1045,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "rank_order": "ASCENDING",
                     },
-                    "name": "_view_count",
-                    "type": "LONG_VALUE",
                 },
                 {
+                    "name": "example-string-value",
+                    "type": "STRING_VALUE",
                     "search": {
                         "displayable": True,
                         "facetable": True,
@@ -1055,10 +1059,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                    "name": "example-string-value",
-                    "type": "STRING_VALUE",
                 },
                 {
+                    "name": "example-long-value",
+                    "type": "LONG_VALUE",
                     "search": {
                         "displayable": True,
                         "facetable": True,
@@ -1069,10 +1073,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "rank_order": "ASCENDING",
                     },
-                    "name": "example-long-value",
-                    "type": "LONG_VALUE",
                 },
                 {
+                    "name": "example-string-list-value",
+                    "type": "STRING_LIST_VALUE",
                     "search": {
                         "displayable": True,
                         "facetable": True,
@@ -1082,10 +1086,10 @@ class Index(pulumi.CustomResource):
                     "relevance": {
                         "importance": 1,
                     },
-                    "name": "example-string-list-value",
-                    "type": "STRING_LIST_VALUE",
                 },
                 {
+                    "name": "example-date-value",
+                    "type": "DATE_VALUE",
                     "search": {
                         "displayable": True,
                         "facetable": True,
@@ -1098,12 +1102,8 @@ class Index(pulumi.CustomResource):
                         "duration": "25920000s",
                         "rank_order": "ASCENDING",
                     },
-                    "name": "example-date-value",
-                    "type": "DATE_VALUE",
                 },
-            ],
-            name="example",
-            role_arn=this["arn"])
+            ])
         ```
 
         ### With JSON token type configuration
@@ -1113,14 +1113,14 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
+            name="example",
+            role_arn=this["arn"],
             user_token_configurations={
                 "json_token_type_configuration": {
                     "group_attribute_field": "groups",
                     "user_name_attribute_field": "username",
                 },
-            },
-            name="example",
-            role_arn=this["arn"])
+            })
         ```
 
         ## Import
@@ -1134,19 +1134,19 @@ class Index(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['IndexCapacityUnitsArgs', 'IndexCapacityUnitsArgsDict']] capacity_units: A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
+        :param pulumi.Input[Union['IndexCapacityUnitsArgs', 'IndexCapacityUnitsArgsDict', 'outputs.IndexCapacityUnits']] capacity_units: A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         :param pulumi.Input[_builtins.str] description: The description of the Index.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationUpdateArgs', 'IndexDocumentMetadataConfigurationUpdateArgsDict']]]] document_metadata_configuration_updates: One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationUpdateArgs', 'IndexDocumentMetadataConfigurationUpdateArgsDict', 'outputs.IndexDocumentMetadataConfigurationUpdate']]]] document_metadata_configuration_updates: One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
         :param pulumi.Input[_builtins.str] edition: The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Index.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
-        :param pulumi.Input[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
+        :param pulumi.Input[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict', 'outputs.IndexServerSideEncryptionConfiguration']] server_side_encryption_configuration: A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the Index. If configured with a provider
                `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] user_context_policy: The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
-        :param pulumi.Input[Union['IndexUserGroupResolutionConfigurationArgs', 'IndexUserGroupResolutionConfigurationArgsDict']] user_group_resolution_configuration: A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
-        :param pulumi.Input[Union['IndexUserTokenConfigurationsArgs', 'IndexUserTokenConfigurationsArgsDict']] user_token_configurations: A block that specifies the user token configuration. Detailed below.
+        :param pulumi.Input[Union['IndexUserGroupResolutionConfigurationArgs', 'IndexUserGroupResolutionConfigurationArgsDict', 'outputs.IndexUserGroupResolutionConfiguration']] user_group_resolution_configuration: A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
+        :param pulumi.Input[Union['IndexUserTokenConfigurationsArgs', 'IndexUserTokenConfigurationsArgsDict', 'outputs.IndexUserTokenConfigurations']] user_token_configurations: A block that specifies the user token configuration. Detailed below.
         """
         ...
     @overload
@@ -1182,13 +1182,13 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
+            name="example",
+            edition="DEVELOPER_EDITION",
+            role_arn=this["arn"],
             capacity_units={
                 "query_capacity_units": 2,
                 "storage_capacity_units": 2,
-            },
-            name="example",
-            edition="DEVELOPER_EDITION",
-            role_arn=this["arn"])
+            })
         ```
 
         ### With server side encryption configuration
@@ -1198,11 +1198,11 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
+            name="example",
+            role_arn=this_aws_iam_role["arn"],
             server_side_encryption_configuration={
                 "kms_key_id": this["arn"],
-            },
-            name="example",
-            role_arn=this_aws_iam_role["arn"])
+            })
         ```
 
         ### With user group resolution configuration
@@ -1212,11 +1212,11 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
+            name="example",
+            role_arn=this["arn"],
             user_group_resolution_configuration={
                 "user_group_resolution_mode": "AWS_SSO",
-            },
-            name="example",
-            role_arn=this["arn"])
+            })
         ```
 
         ### With Document Metadata Configuration Updates
@@ -1230,8 +1230,12 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
+            name="example",
+            role_arn=this["arn"],
             document_metadata_configuration_updates=[
                 {
+                    "name": "_authors",
+                    "type": "STRING_LIST_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1241,10 +1245,10 @@ class Index(pulumi.CustomResource):
                     "relevance": {
                         "importance": 1,
                     },
-                    "name": "_authors",
-                    "type": "STRING_LIST_VALUE",
                 },
                 {
+                    "name": "_category",
+                    "type": "STRING_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1255,10 +1259,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                    "name": "_category",
-                    "type": "STRING_VALUE",
                 },
                 {
+                    "name": "_created_at",
+                    "type": "DATE_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1271,10 +1275,10 @@ class Index(pulumi.CustomResource):
                         "duration": "25920000s",
                         "rank_order": "ASCENDING",
                     },
-                    "name": "_created_at",
-                    "type": "DATE_VALUE",
                 },
                 {
+                    "name": "_data_source_id",
+                    "type": "STRING_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1285,10 +1289,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                    "name": "_data_source_id",
-                    "type": "STRING_VALUE",
                 },
                 {
+                    "name": "_document_title",
+                    "type": "STRING_VALUE",
                     "search": {
                         "displayable": True,
                         "facetable": False,
@@ -1299,10 +1303,10 @@ class Index(pulumi.CustomResource):
                         "importance": 2,
                         "values_importance_map": {},
                     },
-                    "name": "_document_title",
-                    "type": "STRING_VALUE",
                 },
                 {
+                    "name": "_excerpt_page_number",
+                    "type": "LONG_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1313,24 +1317,10 @@ class Index(pulumi.CustomResource):
                         "importance": 2,
                         "rank_order": "ASCENDING",
                     },
-                    "name": "_excerpt_page_number",
-                    "type": "LONG_VALUE",
                 },
                 {
-                    "search": {
-                        "displayable": False,
-                        "facetable": False,
-                        "searchable": False,
-                        "sortable": True,
-                    },
-                    "relevance": {
-                        "importance": 1,
-                        "values_importance_map": {},
-                    },
                     "name": "_faq_id",
                     "type": "STRING_VALUE",
-                },
-                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1341,10 +1331,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
+                },
+                {
                     "name": "_file_type",
                     "type": "STRING_VALUE",
-                },
-                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1355,10 +1345,24 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                    "name": "_language_code",
-                    "type": "STRING_VALUE",
                 },
                 {
+                    "name": "_language_code",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "values_importance_map": {},
+                    },
+                },
+                {
+                    "name": "_last_updated_at",
+                    "type": "DATE_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1371,10 +1375,10 @@ class Index(pulumi.CustomResource):
                         "duration": "25920000s",
                         "rank_order": "ASCENDING",
                     },
-                    "name": "_last_updated_at",
-                    "type": "DATE_VALUE",
                 },
                 {
+                    "name": "_source_uri",
+                    "type": "STRING_VALUE",
                     "search": {
                         "displayable": True,
                         "facetable": False,
@@ -1385,24 +1389,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                    "name": "_source_uri",
-                    "type": "STRING_VALUE",
                 },
                 {
-                    "search": {
-                        "displayable": False,
-                        "facetable": False,
-                        "searchable": False,
-                        "sortable": True,
-                    },
-                    "relevance": {
-                        "importance": 1,
-                        "values_importance_map": {},
-                    },
                     "name": "_tenant_id",
                     "type": "STRING_VALUE",
-                },
-                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1413,10 +1403,24 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                    "name": "_version",
-                    "type": "STRING_VALUE",
                 },
                 {
+                    "name": "_version",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "values_importance_map": {},
+                    },
+                },
+                {
+                    "name": "_view_count",
+                    "type": "LONG_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1427,12 +1431,8 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "rank_order": "ASCENDING",
                     },
-                    "name": "_view_count",
-                    "type": "LONG_VALUE",
                 },
-            ],
-            name="example",
-            role_arn=this["arn"])
+            ])
         ```
 
         ### Appending additional elements
@@ -1444,35 +1444,25 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
+            name="example",
+            role_arn=this["arn"],
             document_metadata_configuration_updates=[
                 {
-                    "search": {
-                        "displayable": False,
-                        "facetable": False,
-                        "searchable": False,
-                        "sortable": False,
-                    },
-                    "relevance": {
-                        "importance": 1,
-                    },
                     "name": "_authors",
                     "type": "STRING_LIST_VALUE",
-                },
-                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
                         "searchable": False,
-                        "sortable": True,
+                        "sortable": False,
                     },
                     "relevance": {
                         "importance": 1,
-                        "values_importance_map": {},
                     },
+                },
+                {
                     "name": "_category",
                     "type": "STRING_VALUE",
-                },
-                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1480,15 +1470,13 @@ class Index(pulumi.CustomResource):
                         "sortable": True,
                     },
                     "relevance": {
-                        "freshness": False,
                         "importance": 1,
-                        "duration": "25920000s",
-                        "rank_order": "ASCENDING",
+                        "values_importance_map": {},
                     },
+                },
+                {
                     "name": "_created_at",
                     "type": "DATE_VALUE",
-                },
-                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1496,27 +1484,43 @@ class Index(pulumi.CustomResource):
                         "sortable": True,
                     },
                     "relevance": {
+                        "freshness": False,
                         "importance": 1,
-                        "values_importance_map": {},
+                        "duration": "25920000s",
+                        "rank_order": "ASCENDING",
                     },
+                },
+                {
                     "name": "_data_source_id",
                     "type": "STRING_VALUE",
-                },
-                {
                     "search": {
-                        "displayable": True,
+                        "displayable": False,
                         "facetable": False,
-                        "searchable": True,
+                        "searchable": False,
                         "sortable": True,
                     },
                     "relevance": {
-                        "importance": 2,
+                        "importance": 1,
                         "values_importance_map": {},
                     },
+                },
+                {
                     "name": "_document_title",
                     "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": True,
+                        "facetable": False,
+                        "searchable": True,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 2,
+                        "values_importance_map": {},
+                    },
                 },
                 {
+                    "name": "_excerpt_page_number",
+                    "type": "LONG_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1527,24 +1531,10 @@ class Index(pulumi.CustomResource):
                         "importance": 2,
                         "rank_order": "ASCENDING",
                     },
-                    "name": "_excerpt_page_number",
-                    "type": "LONG_VALUE",
                 },
                 {
-                    "search": {
-                        "displayable": False,
-                        "facetable": False,
-                        "searchable": False,
-                        "sortable": True,
-                    },
-                    "relevance": {
-                        "importance": 1,
-                        "values_importance_map": {},
-                    },
                     "name": "_faq_id",
                     "type": "STRING_VALUE",
-                },
-                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1555,10 +1545,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
+                },
+                {
                     "name": "_file_type",
                     "type": "STRING_VALUE",
-                },
-                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1569,10 +1559,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
+                },
+                {
                     "name": "_language_code",
                     "type": "STRING_VALUE",
-                },
-                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1580,43 +1570,43 @@ class Index(pulumi.CustomResource):
                         "sortable": True,
                     },
                     "relevance": {
-                        "freshness": False,
                         "importance": 1,
-                        "duration": "25920000s",
-                        "rank_order": "ASCENDING",
+                        "values_importance_map": {},
                     },
+                },
+                {
                     "name": "_last_updated_at",
                     "type": "DATE_VALUE",
-                },
-                {
                     "search": {
-                        "displayable": True,
+                        "displayable": False,
                         "facetable": False,
                         "searchable": False,
-                        "sortable": False,
+                        "sortable": True,
                     },
                     "relevance": {
+                        "freshness": False,
                         "importance": 1,
-                        "values_importance_map": {},
+                        "duration": "25920000s",
+                        "rank_order": "ASCENDING",
                     },
+                },
+                {
                     "name": "_source_uri",
                     "type": "STRING_VALUE",
-                },
-                {
                     "search": {
-                        "displayable": False,
+                        "displayable": True,
                         "facetable": False,
                         "searchable": False,
-                        "sortable": True,
+                        "sortable": False,
                     },
                     "relevance": {
                         "importance": 1,
                         "values_importance_map": {},
                     },
+                },
+                {
                     "name": "_tenant_id",
                     "type": "STRING_VALUE",
-                },
-                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1627,10 +1617,24 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                    "name": "_version",
-                    "type": "STRING_VALUE",
                 },
                 {
+                    "name": "_version",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "values_importance_map": {},
+                    },
+                },
+                {
+                    "name": "_view_count",
+                    "type": "LONG_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1641,10 +1645,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "rank_order": "ASCENDING",
                     },
-                    "name": "_view_count",
-                    "type": "LONG_VALUE",
                 },
                 {
+                    "name": "example-string-value",
+                    "type": "STRING_VALUE",
                     "search": {
                         "displayable": True,
                         "facetable": True,
@@ -1655,10 +1659,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                    "name": "example-string-value",
-                    "type": "STRING_VALUE",
                 },
                 {
+                    "name": "example-long-value",
+                    "type": "LONG_VALUE",
                     "search": {
                         "displayable": True,
                         "facetable": True,
@@ -1669,10 +1673,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "rank_order": "ASCENDING",
                     },
-                    "name": "example-long-value",
-                    "type": "LONG_VALUE",
                 },
                 {
+                    "name": "example-string-list-value",
+                    "type": "STRING_LIST_VALUE",
                     "search": {
                         "displayable": True,
                         "facetable": True,
@@ -1682,10 +1686,10 @@ class Index(pulumi.CustomResource):
                     "relevance": {
                         "importance": 1,
                     },
-                    "name": "example-string-list-value",
-                    "type": "STRING_LIST_VALUE",
                 },
                 {
+                    "name": "example-date-value",
+                    "type": "DATE_VALUE",
                     "search": {
                         "displayable": True,
                         "facetable": True,
@@ -1698,12 +1702,8 @@ class Index(pulumi.CustomResource):
                         "duration": "25920000s",
                         "rank_order": "ASCENDING",
                     },
-                    "name": "example-date-value",
-                    "type": "DATE_VALUE",
                 },
-            ],
-            name="example",
-            role_arn=this["arn"])
+            ])
         ```
 
         ### With JSON token type configuration
@@ -1713,14 +1713,14 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
+            name="example",
+            role_arn=this["arn"],
             user_token_configurations={
                 "json_token_type_configuration": {
                     "group_attribute_field": "groups",
                     "user_name_attribute_field": "username",
                 },
-            },
-            name="example",
-            role_arn=this["arn"])
+            })
         ```
 
         ## Import
@@ -1747,18 +1747,18 @@ class Index(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_units: pulumi.Input[Optional[Union['IndexCapacityUnitsArgs', 'IndexCapacityUnitsArgsDict']]] = None,
+                 capacity_units: pulumi.Input[Optional[Union['IndexCapacityUnitsArgs', 'IndexCapacityUnitsArgsDict', 'outputs.IndexCapacityUnits']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 document_metadata_configuration_updates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationUpdateArgs', 'IndexDocumentMetadataConfigurationUpdateArgsDict']]]]] = None,
+                 document_metadata_configuration_updates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationUpdateArgs', 'IndexDocumentMetadataConfigurationUpdateArgsDict', 'outputs.IndexDocumentMetadataConfigurationUpdate']]]]] = None,
                  edition: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_side_encryption_configuration: pulumi.Input[Optional[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict']]] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict', 'outputs.IndexServerSideEncryptionConfiguration']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  user_context_policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 user_group_resolution_configuration: pulumi.Input[Optional[Union['IndexUserGroupResolutionConfigurationArgs', 'IndexUserGroupResolutionConfigurationArgsDict']]] = None,
-                 user_token_configurations: pulumi.Input[Optional[Union['IndexUserTokenConfigurationsArgs', 'IndexUserTokenConfigurationsArgsDict']]] = None,
+                 user_group_resolution_configuration: pulumi.Input[Optional[Union['IndexUserGroupResolutionConfigurationArgs', 'IndexUserGroupResolutionConfigurationArgsDict', 'outputs.IndexUserGroupResolutionConfiguration']]] = None,
+                 user_token_configurations: pulumi.Input[Optional[Union['IndexUserTokenConfigurationsArgs', 'IndexUserTokenConfigurationsArgsDict', 'outputs.IndexUserTokenConfigurations']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1800,24 +1800,24 @@ class Index(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            capacity_units: pulumi.Input[Optional[Union['IndexCapacityUnitsArgs', 'IndexCapacityUnitsArgsDict']]] = None,
+            capacity_units: pulumi.Input[Optional[Union['IndexCapacityUnitsArgs', 'IndexCapacityUnitsArgsDict', 'outputs.IndexCapacityUnits']]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            document_metadata_configuration_updates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationUpdateArgs', 'IndexDocumentMetadataConfigurationUpdateArgsDict']]]]] = None,
+            document_metadata_configuration_updates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationUpdateArgs', 'IndexDocumentMetadataConfigurationUpdateArgsDict', 'outputs.IndexDocumentMetadataConfigurationUpdate']]]]] = None,
             edition: pulumi.Input[Optional[_builtins.str]] = None,
             error_message: pulumi.Input[Optional[_builtins.str]] = None,
-            index_statistics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexIndexStatisticArgs', 'IndexIndexStatisticArgsDict']]]]] = None,
+            index_statistics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexIndexStatisticArgs', 'IndexIndexStatisticArgsDict', 'outputs.IndexIndexStatistic']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            server_side_encryption_configuration: pulumi.Input[Optional[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict']]] = None,
+            server_side_encryption_configuration: pulumi.Input[Optional[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict', 'outputs.IndexServerSideEncryptionConfiguration']]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             updated_at: pulumi.Input[Optional[_builtins.str]] = None,
             user_context_policy: pulumi.Input[Optional[_builtins.str]] = None,
-            user_group_resolution_configuration: pulumi.Input[Optional[Union['IndexUserGroupResolutionConfigurationArgs', 'IndexUserGroupResolutionConfigurationArgsDict']]] = None,
-            user_token_configurations: pulumi.Input[Optional[Union['IndexUserTokenConfigurationsArgs', 'IndexUserTokenConfigurationsArgsDict']]] = None) -> 'Index':
+            user_group_resolution_configuration: pulumi.Input[Optional[Union['IndexUserGroupResolutionConfigurationArgs', 'IndexUserGroupResolutionConfigurationArgsDict', 'outputs.IndexUserGroupResolutionConfiguration']]] = None,
+            user_token_configurations: pulumi.Input[Optional[Union['IndexUserTokenConfigurationsArgs', 'IndexUserTokenConfigurationsArgsDict', 'outputs.IndexUserTokenConfigurations']]] = None) -> 'Index':
         """
         Get an existing Index resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1826,25 +1826,25 @@ class Index(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Index.
-        :param pulumi.Input[Union['IndexCapacityUnitsArgs', 'IndexCapacityUnitsArgsDict']] capacity_units: A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
+        :param pulumi.Input[Union['IndexCapacityUnitsArgs', 'IndexCapacityUnitsArgsDict', 'outputs.IndexCapacityUnits']] capacity_units: A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         :param pulumi.Input[_builtins.str] created_at: The Unix datetime that the index was created.
         :param pulumi.Input[_builtins.str] description: The description of the Index.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationUpdateArgs', 'IndexDocumentMetadataConfigurationUpdateArgsDict']]]] document_metadata_configuration_updates: One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationUpdateArgs', 'IndexDocumentMetadataConfigurationUpdateArgsDict', 'outputs.IndexDocumentMetadataConfigurationUpdate']]]] document_metadata_configuration_updates: One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
         :param pulumi.Input[_builtins.str] edition: The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
         :param pulumi.Input[_builtins.str] error_message: When the Status field value is `FAILED`, this contains a message that explains why.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IndexIndexStatisticArgs', 'IndexIndexStatisticArgsDict']]]] index_statistics: A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IndexIndexStatisticArgs', 'IndexIndexStatisticArgsDict', 'outputs.IndexIndexStatistic']]]] index_statistics: A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Index.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
-        :param pulumi.Input[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
+        :param pulumi.Input[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict', 'outputs.IndexServerSideEncryptionConfiguration']] server_side_encryption_configuration: A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
         :param pulumi.Input[_builtins.str] status: The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the Index. If configured with a provider
                `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] updated_at: The Unix datetime that the index was last updated.
         :param pulumi.Input[_builtins.str] user_context_policy: The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
-        :param pulumi.Input[Union['IndexUserGroupResolutionConfigurationArgs', 'IndexUserGroupResolutionConfigurationArgsDict']] user_group_resolution_configuration: A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
-        :param pulumi.Input[Union['IndexUserTokenConfigurationsArgs', 'IndexUserTokenConfigurationsArgsDict']] user_token_configurations: A block that specifies the user token configuration. Detailed below.
+        :param pulumi.Input[Union['IndexUserGroupResolutionConfigurationArgs', 'IndexUserGroupResolutionConfigurationArgsDict', 'outputs.IndexUserGroupResolutionConfiguration']] user_group_resolution_configuration: A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
+        :param pulumi.Input[Union['IndexUserTokenConfigurationsArgs', 'IndexUserTokenConfigurationsArgsDict', 'outputs.IndexUserTokenConfigurations']] user_token_configurations: A block that specifies the user token configuration. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

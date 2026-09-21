@@ -30,20 +30,6 @@ namespace Pulumi.Aws.LightSail
     /// {
     ///     var example = new Aws.LightSail.ContainerServiceDeploymentVersion("example", new()
     ///     {
-    ///         PublicEndpoint = new Aws.LightSail.Inputs.ContainerServiceDeploymentVersionPublicEndpointArgs
-    ///         {
-    ///             HealthCheck = new Aws.LightSail.Inputs.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs
-    ///             {
-    ///                 HealthyThreshold = 2,
-    ///                 UnhealthyThreshold = 2,
-    ///                 TimeoutSeconds = 2,
-    ///                 IntervalSeconds = 5,
-    ///                 Path = "/",
-    ///                 SuccessCodes = "200-499",
-    ///             },
-    ///             ContainerName = "hello-world",
-    ///             ContainerPort = 80,
-    ///         },
     ///         Containers = new[]
     ///         {
     ///             new Aws.LightSail.Inputs.ContainerServiceDeploymentVersionContainerArgs
@@ -59,6 +45,20 @@ namespace Pulumi.Aws.LightSail
     ///                 {
     ///                     { "80", "HTTP" },
     ///                 },
+    ///             },
+    ///         },
+    ///         PublicEndpoint = new Aws.LightSail.Inputs.ContainerServiceDeploymentVersionPublicEndpointArgs
+    ///         {
+    ///             ContainerName = "hello-world",
+    ///             ContainerPort = 80,
+    ///             HealthCheck = new Aws.LightSail.Inputs.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs
+    ///             {
+    ///                 HealthyThreshold = 2,
+    ///                 UnhealthyThreshold = 2,
+    ///                 TimeoutSeconds = 2,
+    ///                 IntervalSeconds = 5,
+    ///                 Path = "/",
+    ///                 SuccessCodes = "200-499",
     ///             },
     ///         },
     ///         ServiceName = exampleAwsLightsailContainerService.Name,

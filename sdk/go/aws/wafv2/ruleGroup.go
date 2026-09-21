@@ -31,13 +31,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := wafv2.NewRuleGroup(ctx, "example", &wafv2.RuleGroupArgs{
-//				VisibilityConfig: &wafv2.RuleGroupVisibilityConfigArgs{
-//					CloudwatchMetricsEnabled: pulumi.Bool(false),
-//					MetricName:               pulumi.String("friendly-metric-name"),
-//					SampledRequestsEnabled:   pulumi.Bool(false),
-//				},
+//				Name:     pulumi.String("example-rule"),
+//				Scope:    pulumi.String("REGIONAL"),
+//				Capacity: pulumi.Int(2),
 //				Rules: wafv2.RuleGroupRuleArray{
 //					&wafv2.RuleGroupRuleArgs{
+//						Name:     pulumi.String("rule-1"),
+//						Priority: pulumi.Int(1),
 //						Action: &wafv2.RuleGroupRuleActionArgs{
 //							Allow: &wafv2.RuleGroupRuleActionAllowArgs{},
 //						},
@@ -54,13 +54,13 @@ import (
 //							MetricName:               pulumi.String("friendly-rule-metric-name"),
 //							SampledRequestsEnabled:   pulumi.Bool(false),
 //						},
-//						Name:     pulumi.String("rule-1"),
-//						Priority: pulumi.Int(1),
 //					},
 //				},
-//				Name:     pulumi.String("example-rule"),
-//				Scope:    pulumi.String("REGIONAL"),
-//				Capacity: pulumi.Int(2),
+//				VisibilityConfig: &wafv2.RuleGroupVisibilityConfigArgs{
+//					CloudwatchMetricsEnabled: pulumi.Bool(false),
+//					MetricName:               pulumi.String("friendly-metric-name"),
+//					SampledRequestsEnabled:   pulumi.Bool(false),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -98,34 +98,26 @@ import (
 //				return err
 //			}
 //			testRegexPatternSet, err := wafv2.NewRegexPatternSet(ctx, "test", &wafv2.RegexPatternSetArgs{
+//				Name:  pulumi.String("test"),
+//				Scope: pulumi.String("REGIONAL"),
 //				RegularExpressions: wafv2.RegexPatternSetRegularExpressionArray{
 //					&wafv2.RegexPatternSetRegularExpressionArgs{
 //						RegexString: pulumi.String("one"),
 //					},
 //				},
-//				Name:  pulumi.String("test"),
-//				Scope: pulumi.String("REGIONAL"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = wafv2.NewRuleGroup(ctx, "example", &wafv2.RuleGroupArgs{
-//				VisibilityConfig: &wafv2.RuleGroupVisibilityConfigArgs{
-//					CloudwatchMetricsEnabled: pulumi.Bool(false),
-//					MetricName:               pulumi.String("friendly-metric-name"),
-//					SampledRequestsEnabled:   pulumi.Bool(false),
-//				},
-//				CaptchaConfig: []map[string][]map[string]int{
-//					{
-//						"immunityTimeProperty": []map[string]int{
-//							{
-//								"immunityTime": 120,
-//							},
-//						},
-//					},
-//				},
+//				Name:        pulumi.String("complex-example"),
+//				Description: pulumi.String("An rule group containing all statements"),
+//				Scope:       pulumi.String("REGIONAL"),
+//				Capacity:    pulumi.Int(500),
 //				Rules: wafv2.RuleGroupRuleArray{
 //					&wafv2.RuleGroupRuleArgs{
+//						Name:     pulumi.String("rule-1"),
+//						Priority: pulumi.Int(1),
 //						Action: &wafv2.RuleGroupRuleActionArgs{
 //							Block: &wafv2.RuleGroupRuleActionBlockArgs{},
 //						},
@@ -144,6 +136,8 @@ import (
 //												},
 //												&wafv2.RuleGroupRuleStatementArgs{
 //													ByteMatchStatement: &wafv2.RuleGroupRuleStatementByteMatchStatementArgs{
+//														PositionalConstraint: pulumi.String("CONTAINS"),
+//														SearchString:         pulumi.String("word"),
 //														FieldToMatch: &wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchArgs{
 //															AllQueryArguments: &wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs{},
 //														},
@@ -157,8 +151,6 @@ import (
 //																Type:     pulumi.String("LOWERCASE"),
 //															},
 //														},
-//														PositionalConstraint: pulumi.String("CONTAINS"),
-//														SearchString:         pulumi.String("word"),
 //													},
 //												},
 //											},
@@ -172,10 +164,10 @@ import (
 //							MetricName:               pulumi.String("rule-1"),
 //							SampledRequestsEnabled:   pulumi.Bool(false),
 //						},
-//						Name:     pulumi.String("rule-1"),
-//						Priority: pulumi.Int(1),
 //					},
 //					&wafv2.RuleGroupRuleArgs{
+//						Name:     pulumi.String("rule-2"),
+//						Priority: pulumi.Int(2),
 //						Action: &wafv2.RuleGroupRuleActionArgs{
 //							Count: &wafv2.RuleGroupRuleActionCountArgs{},
 //						},
@@ -184,6 +176,7 @@ import (
 //								Statements: wafv2.RuleGroupRuleStatementArray{
 //									&wafv2.RuleGroupRuleStatementArgs{
 //										RegexMatchStatement: &wafv2.RuleGroupRuleStatementRegexMatchStatementArgs{
+//											RegexString: pulumi.String("a-z?"),
 //											FieldToMatch: &wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs{
 //												SingleHeader: &wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderArgs{
 //													Name: pulumi.String("user-agent"),
@@ -195,7 +188,6 @@ import (
 //													Type:     pulumi.String("NONE"),
 //												},
 //											},
-//											RegexString: pulumi.String("a-z?"),
 //										},
 //									},
 //									&wafv2.RuleGroupRuleStatementArgs{
@@ -245,15 +237,17 @@ import (
 //								ImmunityTime: pulumi.Int(240),
 //							},
 //						},
-//						Name:     pulumi.String("rule-2"),
-//						Priority: pulumi.Int(2),
 //					},
 //					&wafv2.RuleGroupRuleArgs{
+//						Name:     pulumi.String("rule-3"),
+//						Priority: pulumi.Int(3),
 //						Action: &wafv2.RuleGroupRuleActionArgs{
 //							Block: &wafv2.RuleGroupRuleActionBlockArgs{},
 //						},
 //						Statement: &wafv2.RuleGroupRuleStatementArgs{
 //							SizeConstraintStatement: &wafv2.RuleGroupRuleStatementSizeConstraintStatementArgs{
+//								ComparisonOperator: pulumi.String("GT"),
+//								Size:               pulumi.Int(100),
 //								FieldToMatch: &wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs{
 //									SingleQueryArgument: &wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs{
 //										Name: pulumi.String("username"),
@@ -265,8 +259,6 @@ import (
 //										Type:     pulumi.String("NONE"),
 //									},
 //								},
-//								ComparisonOperator: pulumi.String("GT"),
-//								Size:               pulumi.Int(100),
 //							},
 //						},
 //						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
@@ -274,10 +266,10 @@ import (
 //							MetricName:               pulumi.String("rule-3"),
 //							SampledRequestsEnabled:   pulumi.Bool(false),
 //						},
-//						Name:     pulumi.String("rule-3"),
-//						Priority: pulumi.Int(3),
 //					},
 //					&wafv2.RuleGroupRuleArgs{
+//						Name:     pulumi.String("rule-4"),
+//						Priority: pulumi.Int(4),
 //						Action: &wafv2.RuleGroupRuleActionArgs{
 //							Block: &wafv2.RuleGroupRuleActionBlockArgs{},
 //						},
@@ -291,6 +283,7 @@ import (
 //									},
 //									&wafv2.RuleGroupRuleStatementArgs{
 //										RegexPatternSetReferenceStatement: &wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs{
+//											Arn: testRegexPatternSet.Arn,
 //											FieldToMatch: &wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs{
 //												SingleHeader: &wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs{
 //													Name: pulumi.String("referer"),
@@ -302,7 +295,6 @@ import (
 //													Type:     pulumi.String("NONE"),
 //												},
 //											},
-//											Arn: testRegexPatternSet.Arn,
 //										},
 //									},
 //								},
@@ -313,14 +305,22 @@ import (
 //							MetricName:               pulumi.String("rule-4"),
 //							SampledRequestsEnabled:   pulumi.Bool(false),
 //						},
-//						Name:     pulumi.String("rule-4"),
-//						Priority: pulumi.Int(4),
 //					},
 //				},
-//				Name:        pulumi.String("complex-example"),
-//				Description: pulumi.String("An rule group containing all statements"),
-//				Scope:       pulumi.String("REGIONAL"),
-//				Capacity:    pulumi.Int(500),
+//				VisibilityConfig: &wafv2.RuleGroupVisibilityConfigArgs{
+//					CloudwatchMetricsEnabled: pulumi.Bool(false),
+//					MetricName:               pulumi.String("friendly-metric-name"),
+//					SampledRequestsEnabled:   pulumi.Bool(false),
+//				},
+//				CaptchaConfig: []map[string][]map[string]int{
+//					{
+//						"immunityTimeProperty": []map[string]int{
+//							{
+//								"immunityTime": 120,
+//							},
+//						},
+//					},
+//				},
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example-and-statement"),
 //					"Code": pulumi.String("123456"),
@@ -385,15 +385,15 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = wafv2.NewRuleGroup(ctx, "example", &wafv2.RuleGroupArgs{
+//				Name:      pulumi.String("example-rule-group"),
+//				Scope:     pulumi.String("REGIONAL"),
+//				Capacity:  pulumi.Int(100),
+//				RulesJson: pulumi.String(json0),
 //				VisibilityConfig: &wafv2.RuleGroupVisibilityConfigArgs{
 //					CloudwatchMetricsEnabled: pulumi.Bool(false),
 //					MetricName:               pulumi.String("friendly-metric-name"),
 //					SampledRequestsEnabled:   pulumi.Bool(false),
 //				},
-//				Name:      pulumi.String("example-rule-group"),
-//				Scope:     pulumi.String("REGIONAL"),
-//				Capacity:  pulumi.Int(100),
-//				RulesJson: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

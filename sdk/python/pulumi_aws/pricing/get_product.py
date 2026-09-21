@@ -81,7 +81,7 @@ class AwaitableGetProductResult(GetProductResult):
             service_code=self.service_code)
 
 
-def get_product(filters: Optional[Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict']]] = None,
+def get_product(filters: Optional[Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict', 'outputs.GetProductFilterResult']]] = None,
                 service_code: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductResult:
     """
@@ -94,7 +94,8 @@ def get_product(filters: Optional[Sequence[Union['GetProductFilterArgs', 'GetPro
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.pricing.get_product(filters=[
+    example = aws.pricing.get_product(service_code="AmazonEC2",
+        filters=[
             {
                 "field": "instanceType",
                 "value": "c5.xlarge",
@@ -123,15 +124,15 @@ def get_product(filters: Optional[Sequence[Union['GetProductFilterArgs', 'GetPro
                 "field": "capacitystatus",
                 "value": "Used",
             },
-        ],
-        service_code="AmazonEC2")
+        ])
     ```
 
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.pricing.get_product(filters=[
+    example = aws.pricing.get_product(service_code="AmazonRedshift",
+        filters=[
             {
                 "field": "instanceType",
                 "value": "ds1.xlarge",
@@ -140,12 +141,11 @@ def get_product(filters: Optional[Sequence[Union['GetProductFilterArgs', 'GetPro
                 "field": "location",
                 "value": "US East (N. Virginia)",
             },
-        ],
-        service_code="AmazonRedshift")
+        ])
     ```
 
 
-    :param Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict']] filters: List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
+    :param Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict', 'outputs.GetProductFilterResult']] filters: List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
     :param _builtins.str service_code: Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
     """
     __args__ = dict()
@@ -159,7 +159,7 @@ def get_product(filters: Optional[Sequence[Union['GetProductFilterArgs', 'GetPro
         id=pulumi.get(__ret__, 'id'),
         result=pulumi.get(__ret__, 'result'),
         service_code=pulumi.get(__ret__, 'service_code'))
-def get_product_output(filters: pulumi.Input[Optional[Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict']]]] = None,
+def get_product_output(filters: pulumi.Input[Optional[Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict', 'outputs.GetProductFilterResult']]]] = None,
                        service_code: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProductResult]:
     """
@@ -172,7 +172,8 @@ def get_product_output(filters: pulumi.Input[Optional[Sequence[Union['GetProduct
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.pricing.get_product(filters=[
+    example = aws.pricing.get_product(service_code="AmazonEC2",
+        filters=[
             {
                 "field": "instanceType",
                 "value": "c5.xlarge",
@@ -201,15 +202,15 @@ def get_product_output(filters: pulumi.Input[Optional[Sequence[Union['GetProduct
                 "field": "capacitystatus",
                 "value": "Used",
             },
-        ],
-        service_code="AmazonEC2")
+        ])
     ```
 
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.pricing.get_product(filters=[
+    example = aws.pricing.get_product(service_code="AmazonRedshift",
+        filters=[
             {
                 "field": "instanceType",
                 "value": "ds1.xlarge",
@@ -218,12 +219,11 @@ def get_product_output(filters: pulumi.Input[Optional[Sequence[Union['GetProduct
                 "field": "location",
                 "value": "US East (N. Virginia)",
             },
-        ],
-        service_code="AmazonRedshift")
+        ])
     ```
 
 
-    :param Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict']] filters: List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
+    :param Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict', 'outputs.GetProductFilterResult']] filters: List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
     :param _builtins.str service_code: Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
     """
     __args__ = dict()

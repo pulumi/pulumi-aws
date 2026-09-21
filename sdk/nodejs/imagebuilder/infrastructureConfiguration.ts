@@ -17,12 +17,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.imagebuilder.InfrastructureConfiguration("example", {
- *     logging: {
- *         s3Logs: {
- *             s3BucketName: exampleAwsS3Bucket.bucket,
- *             s3KeyPrefix: "logs",
- *         },
- *     },
  *     description: "example description",
  *     instanceProfileName: exampleAwsIamInstanceProfile.name,
  *     instanceTypes: [
@@ -35,6 +29,12 @@ import * as utilities from "../utilities";
  *     snsTopicArn: exampleAwsSnsTopic.arn,
  *     subnetId: main.id,
  *     terminateInstanceOnFailure: true,
+ *     logging: {
+ *         s3Logs: {
+ *             s3BucketName: exampleAwsS3Bucket.bucket,
+ *             s3KeyPrefix: "logs",
+ *         },
+ *     },
  *     tags: {
  *         foo: "bar",
  *     },

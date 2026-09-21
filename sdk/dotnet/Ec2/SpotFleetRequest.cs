@@ -31,6 +31,11 @@ namespace Pulumi.Aws.Ec2
     ///     // Request a Spot fleet
     ///     var cheapCompute = new Aws.Ec2.SpotFleetRequest("cheap_compute", new()
     ///     {
+    ///         IamFleetRole = "arn:aws:iam::12345678:role/spot-fleet",
+    ///         SpotPrice = "0.03",
+    ///         AllocationStrategy = "diversified",
+    ///         TargetCapacity = 6,
+    ///         ValidUntil = "2019-11-04T20:44:20Z",
     ///         LaunchSpecifications = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationArgs
@@ -43,14 +48,6 @@ namespace Pulumi.Aws.Ec2
     ///             },
     ///             new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationArgs
     ///             {
-    ///                 RootBlockDevices = new[]
-    ///                 {
-    ///                     new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs
-    ///                     {
-    ///                         VolumeSize = 300,
-    ///                         VolumeType = "gp2",
-    ///                     },
-    ///                 },
     ///                 InstanceType = "m4.4xlarge",
     ///                 Ami = "ami-5678",
     ///                 KeyName = "my-key",
@@ -59,17 +56,20 @@ namespace Pulumi.Aws.Ec2
     ///                 AvailabilityZone = "us-west-1a",
     ///                 SubnetId = "subnet-1234",
     ///                 WeightedCapacity = "35",
+    ///                 RootBlockDevices = new[]
+    ///                 {
+    ///                     new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs
+    ///                     {
+    ///                         VolumeSize = 300,
+    ///                         VolumeType = "gp2",
+    ///                     },
+    ///                 },
     ///                 Tags = 
     ///                 {
     ///                     { "Name", "spot-fleet-example" },
     ///                 },
     ///             },
     ///         },
-    ///         IamFleetRole = "arn:aws:iam::12345678:role/spot-fleet",
-    ///         SpotPrice = "0.03",
-    ///         AllocationStrategy = "diversified",
-    ///         TargetCapacity = 6,
-    ///         ValidUntil = "2019-11-04T20:44:20Z",
     ///     });
     /// 
     /// });
@@ -95,6 +95,10 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var fooSpotFleetRequest = new Aws.Ec2.SpotFleetRequest("foo", new()
     ///     {
+    ///         IamFleetRole = "arn:aws:iam::12345678:role/spot-fleet",
+    ///         SpotPrice = "0.005",
+    ///         TargetCapacity = 2,
+    ///         ValidUntil = "2019-11-04T20:44:20Z",
     ///         LaunchTemplateConfigs = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigArgs
@@ -106,10 +110,6 @@ namespace Pulumi.Aws.Ec2
     ///                 },
     ///             },
     ///         },
-    ///         IamFleetRole = "arn:aws:iam::12345678:role/spot-fleet",
-    ///         SpotPrice = "0.005",
-    ///         TargetCapacity = 2,
-    ///         ValidUntil = "2019-11-04T20:44:20Z",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -136,6 +136,10 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var foo = new Aws.Ec2.SpotFleetRequest("foo", new()
     ///     {
+    ///         IamFleetRole = "arn:aws:iam::12345678:role/spot-fleet",
+    ///         SpotPrice = "0.005",
+    ///         TargetCapacity = 2,
+    ///         ValidUntil = "2019-11-04T20:44:20Z",
     ///         LaunchSpecifications = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationArgs
@@ -153,10 +157,6 @@ namespace Pulumi.Aws.Ec2
     ///                 AvailabilityZone = "us-west-2a",
     ///             },
     ///         },
-    ///         IamFleetRole = "arn:aws:iam::12345678:role/spot-fleet",
-    ///         SpotPrice = "0.005",
-    ///         TargetCapacity = 2,
-    ///         ValidUntil = "2019-11-04T20:44:20Z",
     ///     });
     /// 
     /// });
@@ -182,10 +182,14 @@ namespace Pulumi.Aws.Ec2
     ///             {
     ///                 { "subnetId", s[1] },
     ///             };
-    ///         }).ToList().Select(entry =&gt; 
+    ///         }).ToList().Select((v, k) =&gt; new { Key = k, Value = v }).Select(entry =&gt; 
     ///         {
     ///             return new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationArgs
     ///             {
+    ///                 Ami = "ami-1234",
+    ///                 InstanceType = "m4.4xlarge",
+    ///                 SubnetId = entry.Value.SubnetId,
+    ///                 VpcSecurityGroupIds = "sg-123456",
     ///                 RootBlockDevices = new[]
     ///                 {
     ///                     new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs
@@ -195,10 +199,6 @@ namespace Pulumi.Aws.Ec2
     ///                         DeleteOnTermination = true,
     ///                     },
     ///                 },
-    ///                 Ami = "ami-1234",
-    ///                 InstanceType = "m4.4xlarge",
-    ///                 SubnetId = entry.SubnetId,
-    ///                 VpcSecurityGroupIds = "sg-123456",
     ///                 Tags = 
     ///                 {
     ///                     { "Name", "Spot Node" },
@@ -253,6 +253,10 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var fooSpotFleetRequest = new Aws.Ec2.SpotFleetRequest("foo", new()
     ///     {
+    ///         IamFleetRole = "arn:aws:iam::12345678:role/spot-fleet",
+    ///         SpotPrice = "0.005",
+    ///         TargetCapacity = 2,
+    ///         ValidUntil = "2019-11-04T20:44:20Z",
     ///         LaunchTemplateConfigs = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigArgs
@@ -279,10 +283,6 @@ namespace Pulumi.Aws.Ec2
     ///                 },
     ///             },
     ///         },
-    ///         IamFleetRole = "arn:aws:iam::12345678:role/spot-fleet",
-    ///         SpotPrice = "0.005",
-    ///         TargetCapacity = 2,
-    ///         ValidUntil = "2019-11-04T20:44:20Z",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

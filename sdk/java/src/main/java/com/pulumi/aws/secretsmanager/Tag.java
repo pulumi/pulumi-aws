@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.secretsmanager.SecretArgs;
  * import com.pulumi.aws.secretsmanager.Tag;
  * import com.pulumi.aws.secretsmanager.TagArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -49,9 +48,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new Secret("test", SecretArgs.builder()
  *             .name("example-secret")
- *             .build(), CustomResourceOptions.builder()
- *                 .ignoreChanges("tags")
- *                 .build());
+ *             .build());
  * 
  *         var testTag = new Tag("testTag", TagArgs.builder()
  *             .secretId(test.id())

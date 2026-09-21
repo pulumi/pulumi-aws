@@ -62,6 +62,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testWorkgroup = new Workgroup("testWorkgroup", WorkgroupArgs.builder()
+ *             .name("example")
  *             .configuration(WorkgroupConfigurationArgs.builder()
  *                 .resultConfiguration(WorkgroupConfigurationResultConfigurationArgs.builder()
  *                     .encryptionConfiguration(WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs.builder()
@@ -70,7 +71,6 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .name("example")
  *             .build());
  * 
  *         var hogeDatabase = new Database("hogeDatabase", DatabaseArgs.builder()

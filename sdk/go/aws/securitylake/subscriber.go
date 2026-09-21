@@ -33,10 +33,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := securitylake.NewSubscriber(ctx, "example", &securitylake.SubscriberArgs{
-//				SubscriberIdentity: &securitylake.SubscriberSubscriberIdentityArgs{
-//					ExternalId: pulumi.String("example"),
-//					Principal:  pulumi.String("1234567890"),
-//				},
+//				SubscriberName: pulumi.String("example-name"),
+//				AccessType:     pulumi.String("S3"),
 //				Sources: securitylake.SubscriberSourceArray{
 //					&securitylake.SubscriberSourceArgs{
 //						AwsLogSourceResource: &securitylake.SubscriberSourceAwsLogSourceResourceArgs{
@@ -45,8 +43,10 @@ import (
 //						},
 //					},
 //				},
-//				SubscriberName: pulumi.String("example-name"),
-//				AccessType:     pulumi.String("S3"),
+//				SubscriberIdentity: &securitylake.SubscriberSubscriberIdentityArgs{
+//					ExternalId: pulumi.String("example"),
+//					Principal:  pulumi.String("1234567890"),
+//				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAwsSecuritylakeDataLake,
 //			}))
@@ -74,10 +74,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := securitylake.NewSubscriber(ctx, "example", &securitylake.SubscriberArgs{
-//				SubscriberIdentity: &securitylake.SubscriberSubscriberIdentityArgs{
-//					ExternalId: pulumi.String("example"),
-//					Principal:  pulumi.String("1234567890"),
-//				},
+//				SubscriberName: pulumi.String("example-name"),
+//				AccessType:     pulumi.String("S3"),
 //				Sources: securitylake.SubscriberSourceArray{
 //					&securitylake.SubscriberSourceArgs{
 //						AwsLogSourceResource: &securitylake.SubscriberSourceAwsLogSourceResourceArgs{
@@ -92,8 +90,10 @@ import (
 //						},
 //					},
 //				},
-//				SubscriberName: pulumi.String("example-name"),
-//				AccessType:     pulumi.String("S3"),
+//				SubscriberIdentity: &securitylake.SubscriberSubscriberIdentityArgs{
+//					ExternalId: pulumi.String("example"),
+//					Principal:  pulumi.String("1234567890"),
+//				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAwsSecuritylakeDataLake,
 //			}))

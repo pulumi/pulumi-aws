@@ -50,6 +50,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PolicyGrant("example", PolicyGrantArgs.builder()
+ *             .domainIdentifier(exampleAwsDatazoneDomain.id())
+ *             .entityIdentifier(exampleAwsDatazoneDomain.rootDomainUnitId())
+ *             .entityType("DOMAIN_UNIT")
+ *             .policyType("CREATE_DOMAIN_UNIT")
  *             .detail(PolicyGrantDetailArgs.builder()
  *                 .createDomainUnit(PolicyGrantDetailCreateDomainUnitArgs.builder()
  *                     .build())
@@ -60,10 +64,6 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .domainIdentifier(exampleAwsDatazoneDomain.id())
- *             .entityIdentifier(exampleAwsDatazoneDomain.rootDomainUnitId())
- *             .entityType("DOMAIN_UNIT")
- *             .policyType("CREATE_DOMAIN_UNIT")
  *             .build());
  * 
  *     }
@@ -101,6 +101,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PolicyGrant("example", PolicyGrantArgs.builder()
+ *             .domainIdentifier(exampleAwsDatazoneDomain.id())
+ *             .entityIdentifier(exampleAwsDatazoneDomain.rootDomainUnitId())
+ *             .entityType("DOMAIN_UNIT")
+ *             .policyType("CREATE_DOMAIN_UNIT")
  *             .detail(PolicyGrantDetailArgs.builder()
  *                 .createDomainUnit(PolicyGrantDetailCreateDomainUnitArgs.builder()
  *                     .includeChildDomainUnits(true)
@@ -112,10 +116,6 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .domainIdentifier(exampleAwsDatazoneDomain.id())
- *             .entityIdentifier(exampleAwsDatazoneDomain.rootDomainUnitId())
- *             .entityType("DOMAIN_UNIT")
- *             .policyType("CREATE_DOMAIN_UNIT")
  *             .build());
  * 
  *     }
@@ -152,6 +152,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PolicyGrant("example", PolicyGrantArgs.builder()
+ *             .domainIdentifier(exampleAwsDatazoneDomain.id())
+ *             .entityIdentifier(exampleAwsDatazoneDomain.rootDomainUnitId())
+ *             .entityType("DOMAIN_UNIT")
+ *             .policyType("CREATE_GLOSSARY")
  *             .detail(PolicyGrantDetailArgs.builder()
  *                 .createGlossary(PolicyGrantDetailCreateGlossaryArgs.builder()
  *                     .build())
@@ -162,10 +166,6 @@ import javax.annotation.Nullable;
  *                     .projectIdentifier(exampleAwsDatazoneProject.id())
  *                     .build())
  *                 .build())
- *             .domainIdentifier(exampleAwsDatazoneDomain.id())
- *             .entityIdentifier(exampleAwsDatazoneDomain.rootDomainUnitId())
- *             .entityType("DOMAIN_UNIT")
- *             .policyType("CREATE_GLOSSARY")
  *             .build());
  * 
  *     }

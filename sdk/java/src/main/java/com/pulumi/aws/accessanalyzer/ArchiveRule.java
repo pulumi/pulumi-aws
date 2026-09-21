@@ -46,6 +46,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ArchiveRule("example", ArchiveRuleArgs.builder()
+ *             .analyzerName("example-analyzer")
+ *             .ruleName("example-rule")
  *             .filters(            
  *                 ArchiveRuleFilterArgs.builder()
  *                     .criteria("condition.aws:UserId")
@@ -59,8 +61,6 @@ import javax.annotation.Nullable;
  *                     .criteria("isPublic")
  *                     .eqs("false")
  *                     .build())
- *             .analyzerName("example-analyzer")
- *             .ruleName("example-rule")
  *             .build());
  * 
  *     }

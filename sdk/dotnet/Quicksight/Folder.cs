@@ -45,6 +45,8 @@ namespace Pulumi.Aws.Quicksight
     /// {
     ///     var example = new Aws.Quicksight.Folder("example", new()
     ///     {
+    ///         FolderId = "example-id",
+    ///         Name = "example-name",
     ///         Permissions = new[]
     ///         {
     ///             new Aws.Quicksight.Inputs.FolderPermissionArgs
@@ -63,8 +65,6 @@ namespace Pulumi.Aws.Quicksight
     ///                 Principal = exampleAwsQuicksightUser.Arn,
     ///             },
     ///         },
-    ///         FolderId = "example-id",
-    ///         Name = "example-name",
     ///     });
     /// 
     /// });

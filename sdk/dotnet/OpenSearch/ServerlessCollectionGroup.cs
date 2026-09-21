@@ -28,6 +28,9 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var example = new Aws.OpenSearch.ServerlessCollectionGroup("example", new()
     ///     {
+    ///         Name = "example-group",
+    ///         Description = "Shared compute for production collections",
+    ///         StandbyReplicas = "ENABLED",
     ///         CapacityLimits = new[]
     ///         {
     ///             new Aws.OpenSearch.Inputs.ServerlessCollectionGroupCapacityLimitArgs
@@ -38,9 +41,6 @@ namespace Pulumi.Aws.OpenSearch
     ///                 MaxSearchCapacityInOcu = 16,
     ///             },
     ///         },
-    ///         Name = "example-group",
-    ///         Description = "Shared compute for production collections",
-    ///         StandbyReplicas = "ENABLED",
     ///     });
     /// 
     /// });

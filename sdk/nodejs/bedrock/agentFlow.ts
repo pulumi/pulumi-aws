@@ -31,35 +31,39 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentFlow("example", {
+ *     name: "example",
+ *     executionRoleArn: exampleAwsIamRole.arn,
  *     definition: {
  *         connections: [
  *             {
+ *                 name: "FlowInputNodeFlowInputNode0ToPrompt_1PromptsNode0",
+ *                 source: "FlowInputNode",
+ *                 target: "Prompt_1",
+ *                 type: "Data",
  *                 configuration: {
  *                     data: {
  *                         sourceOutput: "document",
  *                         targetInput: "topic",
  *                     },
  *                 },
- *                 name: "FlowInputNodeFlowInputNode0ToPrompt_1PromptsNode0",
- *                 source: "FlowInputNode",
- *                 target: "Prompt_1",
- *                 type: "Data",
  *             },
  *             {
+ *                 name: "Prompt_1PromptsNode0ToFlowOutputNodeFlowOutputNode0",
+ *                 source: "Prompt_1",
+ *                 target: "FlowOutputNode",
+ *                 type: "Data",
  *                 configuration: {
  *                     data: {
  *                         sourceOutput: "modelCompletion",
  *                         targetInput: "document",
  *                     },
  *                 },
- *                 name: "Prompt_1PromptsNode0ToFlowOutputNodeFlowOutputNode0",
- *                 source: "Prompt_1",
- *                 target: "FlowOutputNode",
- *                 type: "Data",
  *             },
  *         ],
  *         nodes: [
  *             {
+ *                 name: "FlowInputNode",
+ *                 type: "Input",
  *                 configuration: {
  *                     input: {},
  *                 },
@@ -67,14 +71,16 @@ import * as utilities from "../utilities";
  *                     name: "document",
  *                     type: "String",
  *                 }],
- *                 name: "FlowInputNode",
- *                 type: "Input",
  *             },
  *             {
+ *                 name: "Prompt_1",
+ *                 type: "Prompt",
  *                 configuration: {
  *                     prompt: {
  *                         sourceConfiguration: {
  *                             inline: {
+ *                                 modelId: "amazon.titan-text-express-v1",
+ *                                 templateType: "TEXT",
  *                                 inferenceConfiguration: {
  *                                     text: {
  *                                         maxTokens: 2048,
@@ -85,14 +91,12 @@ import * as utilities from "../utilities";
  *                                 },
  *                                 templateConfiguration: {
  *                                     text: {
+ *                                         text: "Write a paragraph about {{topic}}.",
  *                                         inputVariables: [{
  *                                             name: "topic",
  *                                         }],
- *                                         text: "Write a paragraph about {{topic}}.",
  *                                     },
  *                                 },
- *                                 modelId: "amazon.titan-text-express-v1",
- *                                 templateType: "TEXT",
  *                             },
  *                         },
  *                     },
@@ -106,10 +110,10 @@ import * as utilities from "../utilities";
  *                     name: "modelCompletion",
  *                     type: "String",
  *                 }],
- *                 name: "Prompt_1",
- *                 type: "Prompt",
  *             },
  *             {
+ *                 name: "FlowOutputNode",
+ *                 type: "Output",
  *                 configuration: {
  *                     output: {},
  *                 },
@@ -118,13 +122,9 @@ import * as utilities from "../utilities";
  *                     name: "document",
  *                     type: "String",
  *                 }],
- *                 name: "FlowOutputNode",
- *                 type: "Output",
  *             },
  *         ],
  *     },
- *     name: "example",
- *     executionRoleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *

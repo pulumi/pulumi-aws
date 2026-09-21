@@ -79,7 +79,7 @@ class AwaitableGetBotAssociationResult(GetBotAssociationResult):
 
 
 def get_bot_association(instance_id: Optional[_builtins.str] = None,
-                        lex_bot: Optional[Union['GetBotAssociationLexBotArgs', 'GetBotAssociationLexBotArgsDict']] = None,
+                        lex_bot: Optional[Union['GetBotAssociationLexBotArgs', 'GetBotAssociationLexBotArgsDict', 'outputs.GetBotAssociationLexBotResult']] = None,
                         region: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBotAssociationResult:
     """
@@ -93,15 +93,15 @@ def get_bot_association(instance_id: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.connect.get_bot_association(lex_bot={
+    example = aws.connect.get_bot_association(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        lex_bot={
             "name": "Test",
-        },
-        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
+        })
     ```
 
 
     :param _builtins.str instance_id: Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-    :param Union['GetBotAssociationLexBotArgs', 'GetBotAssociationLexBotArgsDict'] lex_bot: Configuration information of an Amazon Lex (V1) bot. Detailed below.
+    :param Union['GetBotAssociationLexBotArgs', 'GetBotAssociationLexBotArgsDict', 'outputs.GetBotAssociationLexBotResult'] lex_bot: Configuration information of an Amazon Lex (V1) bot. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -117,7 +117,7 @@ def get_bot_association(instance_id: Optional[_builtins.str] = None,
         lex_bot=pulumi.get(__ret__, 'lex_bot'),
         region=pulumi.get(__ret__, 'region'))
 def get_bot_association_output(instance_id: pulumi.Input[Optional[_builtins.str]] = None,
-                               lex_bot: pulumi.Input[Optional[Union['GetBotAssociationLexBotArgs', 'GetBotAssociationLexBotArgsDict']]] = None,
+                               lex_bot: pulumi.Input[Optional[Union['GetBotAssociationLexBotArgs', 'GetBotAssociationLexBotArgsDict', 'outputs.GetBotAssociationLexBotResult']]] = None,
                                region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBotAssociationResult]:
     """
@@ -131,15 +131,15 @@ def get_bot_association_output(instance_id: pulumi.Input[Optional[_builtins.str]
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.connect.get_bot_association(lex_bot={
+    example = aws.connect.get_bot_association(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        lex_bot={
             "name": "Test",
-        },
-        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
+        })
     ```
 
 
     :param _builtins.str instance_id: Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-    :param Union['GetBotAssociationLexBotArgs', 'GetBotAssociationLexBotArgsDict'] lex_bot: Configuration information of an Amazon Lex (V1) bot. Detailed below.
+    :param Union['GetBotAssociationLexBotArgs', 'GetBotAssociationLexBotArgsDict', 'outputs.GetBotAssociationLexBotResult'] lex_bot: Configuration information of an Amazon Lex (V1) bot. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

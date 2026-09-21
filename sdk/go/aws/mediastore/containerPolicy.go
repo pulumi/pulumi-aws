@@ -53,15 +53,8 @@ import (
 //			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
-//							&iam.GetPolicyDocumentStatementConditionArgs{
-//								Test:     pulumi.String("Bool"),
-//								Variable: pulumi.String("aws:SecureTransport"),
-//								Values: pulumi.StringArray{
-//									pulumi.String("true"),
-//								},
-//							},
-//						},
+//						Sid:    pulumi.String("MediaStoreFullAccess"),
+//						Effect: pulumi.String("Allow"),
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("AWS"),
@@ -70,8 +63,6 @@ import (
 //								},
 //							},
 //						},
-//						Sid:    pulumi.String("MediaStoreFullAccess"),
-//						Effect: pulumi.String("Allow"),
 //						Actions: pulumi.StringArray{
 //							pulumi.String("mediastore:*"),
 //						},
@@ -79,6 +70,15 @@ import (
 //							exampleContainer.Name.ApplyT(func(name string) (string, error) {
 //								return fmt.Sprintf("arn:aws:mediastore:%v:%v:container/%v/*", current.Region, currentGetCallerIdentity.AccountId, name), nil
 //							}).(pulumi.StringOutput),
+//						},
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("Bool"),
+//								Variable: pulumi.String("aws:SecureTransport"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("true"),
+//								},
+//							},
 //						},
 //					},
 //				},

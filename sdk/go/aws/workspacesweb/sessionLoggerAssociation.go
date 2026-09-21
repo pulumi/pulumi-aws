@@ -50,6 +50,7 @@ import (
 //			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("Service"),
@@ -58,7 +59,6 @@ import (
 //								},
 //							},
 //						},
-//						Effect: pulumi.String("Allow"),
 //						Actions: pulumi.StringArray{
 //							pulumi.String("s3:PutObject"),
 //						},
@@ -78,6 +78,7 @@ import (
 //				return err
 //			}
 //			exampleSessionLogger, err := workspacesweb.NewSessionLogger(ctx, "example", &workspacesweb.SessionLoggerArgs{
+//				DisplayName: pulumi.String("example"),
 //				EventFilter: &workspacesweb.SessionLoggerEventFilterArgs{
 //					All: map[string]interface{}{}[0],
 //				},
@@ -88,7 +89,6 @@ import (
 //						LogFileFormat:   pulumi.String("Json"),
 //					},
 //				},
-//				DisplayName: pulumi.String("example"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleBucketPolicy,
 //			}))

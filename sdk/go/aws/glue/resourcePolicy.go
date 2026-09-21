@@ -47,6 +47,12 @@ import (
 //			glue_example_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
+//						Actions: []string{
+//							"glue:CreateTable",
+//						},
+//						Resources: []string{
+//							fmt.Sprintf("arn:%v:glue:%v:%v:*", currentGetPartition.Partition, currentGetRegion.Region, current.AccountId),
+//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Identifiers: []string{
@@ -54,12 +60,6 @@ import (
 //								},
 //								Type: "AWS",
 //							},
-//						},
-//						Actions: []string{
-//							"glue:CreateTable",
-//						},
-//						Resources: []string{
-//							fmt.Sprintf("arn:%v:glue:%v:%v:*", currentGetPartition.Partition, currentGetRegion.Region, current.AccountId),
 //						},
 //					},
 //				},

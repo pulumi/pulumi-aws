@@ -50,6 +50,7 @@ namespace Pulumi.Aws.Lambda
     ///     // Code signing configuration with enforcement
     ///     var example = new Aws.Lambda.CodeSigningConfig("example", new()
     ///     {
+    ///         Description = "Code signing configuration for Lambda functions",
     ///         AllowedPublishers = new Aws.Lambda.Inputs.CodeSigningConfigAllowedPublishersArgs
     ///         {
     ///             SigningProfileVersionArns = new[]
@@ -62,7 +63,6 @@ namespace Pulumi.Aws.Lambda
     ///         {
     ///             UntrustedArtifactOnDeployment = "Enforce",
     ///         },
-    ///         Description = "Code signing configuration for Lambda functions",
     ///         Tags = 
     ///         {
     ///             { "Environment", "production" },
@@ -85,6 +85,7 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.CodeSigningConfig("example", new()
     ///     {
+    ///         Description = "Development code signing configuration",
     ///         AllowedPublishers = new Aws.Lambda.Inputs.CodeSigningConfigAllowedPublishersArgs
     ///         {
     ///             SigningProfileVersionArns = new[]
@@ -96,7 +97,6 @@ namespace Pulumi.Aws.Lambda
     ///         {
     ///             UntrustedArtifactOnDeployment = "Warn",
     ///         },
-    ///         Description = "Development code signing configuration",
     ///         Tags = 
     ///         {
     ///             { "Environment", "development" },
@@ -120,6 +120,7 @@ namespace Pulumi.Aws.Lambda
     ///     // Production signing configuration
     ///     var prod = new Aws.Lambda.CodeSigningConfig("prod", new()
     ///     {
+    ///         Description = "Production code signing configuration with strict enforcement",
     ///         AllowedPublishers = new Aws.Lambda.Inputs.CodeSigningConfigAllowedPublishersArgs
     ///         {
     ///             SigningProfileVersionArns = new[]
@@ -131,7 +132,6 @@ namespace Pulumi.Aws.Lambda
     ///         {
     ///             UntrustedArtifactOnDeployment = "Enforce",
     ///         },
-    ///         Description = "Production code signing configuration with strict enforcement",
     ///         Tags = 
     ///         {
     ///             { "Environment", "production" },
@@ -142,6 +142,7 @@ namespace Pulumi.Aws.Lambda
     ///     // Development signing configuration
     ///     var dev = new Aws.Lambda.CodeSigningConfig("dev", new()
     ///     {
+    ///         Description = "Development code signing configuration with warnings",
     ///         AllowedPublishers = new Aws.Lambda.Inputs.CodeSigningConfigAllowedPublishersArgs
     ///         {
     ///             SigningProfileVersionArns = new[]
@@ -154,7 +155,6 @@ namespace Pulumi.Aws.Lambda
     ///         {
     ///             UntrustedArtifactOnDeployment = "Warn",
     ///         },
-    ///         Description = "Development code signing configuration with warnings",
     ///         Tags = 
     ///         {
     ///             { "Environment", "development" },

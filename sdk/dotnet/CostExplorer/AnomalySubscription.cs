@@ -33,6 +33,20 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     ///     var testAnomalySubscription = new Aws.CostExplorer.AnomalySubscription("test", new()
     ///     {
+    ///         Name = "DAILYSUBSCRIPTION",
+    ///         Frequency = "DAILY",
+    ///         MonitorArnLists = new[]
+    ///         {
+    ///             test.Arn,
+    ///         },
+    ///         Subscribers = new[]
+    ///         {
+    ///             new Aws.CostExplorer.Inputs.AnomalySubscriptionSubscriberArgs
+    ///             {
+    ///                 Type = "EMAIL",
+    ///                 Address = "abc@example.com",
+    ///             },
+    ///         },
     ///         ThresholdExpression = new Aws.CostExplorer.Inputs.AnomalySubscriptionThresholdExpressionArgs
     ///         {
     ///             Dimension = new Aws.CostExplorer.Inputs.AnomalySubscriptionThresholdExpressionDimensionArgs
@@ -47,20 +61,6 @@ namespace Pulumi.Aws.CostExplorer
     ///                     "100",
     ///                 },
     ///             },
-    ///         },
-    ///         Subscribers = new[]
-    ///         {
-    ///             new Aws.CostExplorer.Inputs.AnomalySubscriptionSubscriberArgs
-    ///             {
-    ///                 Type = "EMAIL",
-    ///                 Address = "abc@example.com",
-    ///             },
-    ///         },
-    ///         Name = "DAILYSUBSCRIPTION",
-    ///         Frequency = "DAILY",
-    ///         MonitorArnLists = new[]
-    ///         {
-    ///             test.Arn,
     ///         },
     ///     });
     /// 
@@ -81,6 +81,20 @@ namespace Pulumi.Aws.CostExplorer
     /// {
     ///     var test = new Aws.CostExplorer.AnomalySubscription("test", new()
     ///     {
+    ///         Name = "AWSServiceMonitor",
+    ///         Frequency = "DAILY",
+    ///         MonitorArnLists = new[]
+    ///         {
+    ///             testAwsCeAnomalyMonitor.Arn,
+    ///         },
+    ///         Subscribers = new[]
+    ///         {
+    ///             new Aws.CostExplorer.Inputs.AnomalySubscriptionSubscriberArgs
+    ///             {
+    ///                 Type = "EMAIL",
+    ///                 Address = "abc@example.com",
+    ///             },
+    ///         },
     ///         ThresholdExpression = new Aws.CostExplorer.Inputs.AnomalySubscriptionThresholdExpressionArgs
     ///         {
     ///             Dimension = new Aws.CostExplorer.Inputs.AnomalySubscriptionThresholdExpressionDimensionArgs
@@ -95,20 +109,6 @@ namespace Pulumi.Aws.CostExplorer
     ///                     "100",
     ///                 },
     ///             },
-    ///         },
-    ///         Subscribers = new[]
-    ///         {
-    ///             new Aws.CostExplorer.Inputs.AnomalySubscriptionSubscriberArgs
-    ///             {
-    ///                 Type = "EMAIL",
-    ///                 Address = "abc@example.com",
-    ///             },
-    ///         },
-    ///         Name = "AWSServiceMonitor",
-    ///         Frequency = "DAILY",
-    ///         MonitorArnLists = new[]
-    ///         {
-    ///             testAwsCeAnomalyMonitor.Arn,
     ///         },
     ///     });
     /// 
@@ -127,6 +127,20 @@ namespace Pulumi.Aws.CostExplorer
     /// {
     ///     var test = new Aws.CostExplorer.AnomalySubscription("test", new()
     ///     {
+    ///         Name = "AWSServiceMonitor",
+    ///         Frequency = "DAILY",
+    ///         MonitorArnLists = new[]
+    ///         {
+    ///             testAwsCeAnomalyMonitor.Arn,
+    ///         },
+    ///         Subscribers = new[]
+    ///         {
+    ///             new Aws.CostExplorer.Inputs.AnomalySubscriptionSubscriberArgs
+    ///             {
+    ///                 Type = "EMAIL",
+    ///                 Address = "abc@example.com",
+    ///             },
+    ///         },
     ///         ThresholdExpression = new Aws.CostExplorer.Inputs.AnomalySubscriptionThresholdExpressionArgs
     ///         {
     ///             Ands = new[]
@@ -163,20 +177,6 @@ namespace Pulumi.Aws.CostExplorer
     ///                 },
     ///             },
     ///         },
-    ///         Subscribers = new[]
-    ///         {
-    ///             new Aws.CostExplorer.Inputs.AnomalySubscriptionSubscriberArgs
-    ///             {
-    ///                 Type = "EMAIL",
-    ///                 Address = "abc@example.com",
-    ///             },
-    ///         },
-    ///         Name = "AWSServiceMonitor",
-    ///         Frequency = "DAILY",
-    ///         MonitorArnLists = new[]
-    ///         {
-    ///             testAwsCeAnomalyMonitor.Arn,
-    ///         },
     ///     });
     /// 
     /// });
@@ -199,10 +199,17 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     ///     var snsTopicPolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
+    ///         PolicyId = "__default_policy_ID",
     ///         Statements = new[]
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Sid = "AWSAnomalyDetectionSNSPublishingPermissions",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "SNS:Publish",
+    ///                 },
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -214,12 +221,6 @@ namespace Pulumi.Aws.CostExplorer
     ///                         },
     ///                     },
     ///                 },
-    ///                 Sid = "AWSAnomalyDetectionSNSPublishingPermissions",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "SNS:Publish",
-    ///                 },
-    ///                 Effect = "Allow",
     ///                 Resources = new[]
     ///                 {
     ///                     costAnomalyUpdates.Arn,
@@ -227,29 +228,6 @@ namespace Pulumi.Aws.CostExplorer
     ///             },
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "StringEquals",
-    ///                         Variable = "AWS:SourceOwner",
-    ///                         Values = new[]
-    ///                         {
-    ///                             accountId,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "*",
-    ///                         },
-    ///                     },
-    ///                 },
     ///                 Sid = "__default_statement_ID",
     ///                 Actions = new[]
     ///                 {
@@ -263,14 +241,36 @@ namespace Pulumi.Aws.CostExplorer
     ///                     "SNS:DeleteTopic",
     ///                     "SNS:AddPermission",
     ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = "AWS:SourceOwner",
+    ///                         Values = new[]
+    ///                         {
+    ///                             accountId,
+    ///                         },
+    ///                     },
+    ///                 },
     ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "AWS",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                     },
+    ///                 },
     ///                 Resources = new[]
     ///                 {
     ///                     costAnomalyUpdates.Arn,
     ///                 },
     ///             },
     ///         },
-    ///         PolicyId = "__default_policy_ID",
     ///     });
     /// 
     ///     var @default = new Aws.Sns.TopicPolicy("default", new()
@@ -288,6 +288,12 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     ///     var realtimeSubscription = new Aws.CostExplorer.AnomalySubscription("realtime_subscription", new()
     ///     {
+    ///         Name = "RealtimeAnomalySubscription",
+    ///         Frequency = "IMMEDIATE",
+    ///         MonitorArnLists = new[]
+    ///         {
+    ///             anomalyMonitor.Arn,
+    ///         },
     ///         Subscribers = new[]
     ///         {
     ///             new Aws.CostExplorer.Inputs.AnomalySubscriptionSubscriberArgs
@@ -295,12 +301,6 @@ namespace Pulumi.Aws.CostExplorer
     ///                 Type = "SNS",
     ///                 Address = costAnomalyUpdates.Arn,
     ///             },
-    ///         },
-    ///         Name = "RealtimeAnomalySubscription",
-    ///         Frequency = "IMMEDIATE",
-    ///         MonitorArnLists = new[]
-    ///         {
-    ///             anomalyMonitor.Arn,
     ///         },
     ///     }, new CustomResourceOptions
     ///     {

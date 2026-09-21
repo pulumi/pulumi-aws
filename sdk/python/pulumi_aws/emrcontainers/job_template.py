@@ -233,7 +233,7 @@ class JobTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 job_template_data: pulumi.Input[Optional[Union['JobTemplateJobTemplateDataArgs', 'JobTemplateJobTemplateDataArgsDict']]] = None,
+                 job_template_data: pulumi.Input[Optional[Union['JobTemplateJobTemplateDataArgs', 'JobTemplateJobTemplateDataArgsDict', 'outputs.JobTemplateJobTemplateData']]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -252,13 +252,13 @@ class JobTemplate(pulumi.CustomResource):
 
         example = aws.emrcontainers.JobTemplate("example",
             job_template_data={
+                "execution_role_arn": example_aws_iam_role["arn"],
+                "release_label": "emr-6.10.0-latest",
                 "job_driver": {
                     "spark_sql_job_driver": {
                         "entry_point": "default",
                     },
                 },
-                "execution_role_arn": example_aws_iam_role["arn"],
-                "release_label": "emr-6.10.0-latest",
             },
             name="example")
         ```
@@ -274,7 +274,7 @@ class JobTemplate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['JobTemplateJobTemplateDataArgs', 'JobTemplateJobTemplateDataArgsDict']] job_template_data: The job template data which holds values of StartJobRun API request.
+        :param pulumi.Input[Union['JobTemplateJobTemplateDataArgs', 'JobTemplateJobTemplateDataArgsDict', 'outputs.JobTemplateJobTemplateData']] job_template_data: The job template data which holds values of StartJobRun API request.
         :param pulumi.Input[_builtins.str] kms_key_arn: The KMS key ARN used to encrypt the job template.
         :param pulumi.Input[_builtins.str] name: The specified name of the job template.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -299,13 +299,13 @@ class JobTemplate(pulumi.CustomResource):
 
         example = aws.emrcontainers.JobTemplate("example",
             job_template_data={
+                "execution_role_arn": example_aws_iam_role["arn"],
+                "release_label": "emr-6.10.0-latest",
                 "job_driver": {
                     "spark_sql_job_driver": {
                         "entry_point": "default",
                     },
                 },
-                "execution_role_arn": example_aws_iam_role["arn"],
-                "release_label": "emr-6.10.0-latest",
             },
             name="example")
         ```
@@ -334,7 +334,7 @@ class JobTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 job_template_data: pulumi.Input[Optional[Union['JobTemplateJobTemplateDataArgs', 'JobTemplateJobTemplateDataArgsDict']]] = None,
+                 job_template_data: pulumi.Input[Optional[Union['JobTemplateJobTemplateDataArgs', 'JobTemplateJobTemplateDataArgsDict', 'outputs.JobTemplateJobTemplateData']]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -368,7 +368,7 @@ class JobTemplate(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            job_template_data: pulumi.Input[Optional[Union['JobTemplateJobTemplateDataArgs', 'JobTemplateJobTemplateDataArgsDict']]] = None,
+            job_template_data: pulumi.Input[Optional[Union['JobTemplateJobTemplateDataArgs', 'JobTemplateJobTemplateDataArgsDict', 'outputs.JobTemplateJobTemplateData']]] = None,
             kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -382,7 +382,7 @@ class JobTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the job template.
-        :param pulumi.Input[Union['JobTemplateJobTemplateDataArgs', 'JobTemplateJobTemplateDataArgsDict']] job_template_data: The job template data which holds values of StartJobRun API request.
+        :param pulumi.Input[Union['JobTemplateJobTemplateDataArgs', 'JobTemplateJobTemplateDataArgsDict', 'outputs.JobTemplateJobTemplateData']] job_template_data: The job template data which holds values of StartJobRun API request.
         :param pulumi.Input[_builtins.str] kms_key_arn: The KMS key ARN used to encrypt the job template.
         :param pulumi.Input[_builtins.str] name: The specified name of the job template.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

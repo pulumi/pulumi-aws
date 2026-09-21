@@ -142,6 +142,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewDocument(ctx, "test", &ssm.DocumentArgs{
+//				Name:         pulumi.String("test_document"),
+//				DocumentType: pulumi.String("Package"),
 //				AttachmentsSources: ssm.DocumentAttachmentsSourceArray{
 //					&ssm.DocumentAttachmentsSourceArgs{
 //						Key: pulumi.String("SourceUrl"),
@@ -150,11 +152,7 @@ import (
 //						},
 //					},
 //				},
-//				Name:         pulumi.String("test_document"),
-//				DocumentType: pulumi.String("Package"),
-//			}, pulumi.IgnoreChanges([]string{
-//				"attachmentsSources",
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

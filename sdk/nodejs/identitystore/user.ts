@@ -24,6 +24,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.identitystore.User("example", {
+ *     identityStoreId: exampleAwsSsoadminInstances.identityStoreIds[0],
+ *     displayName: "John Doe",
+ *     userName: "johndoe",
  *     name: {
  *         givenName: "John",
  *         familyName: "Doe",
@@ -31,9 +34,6 @@ import * as utilities from "../utilities";
  *     emails: {
  *         value: "john@example.com",
  *     },
- *     identityStoreId: exampleAwsSsoadminInstances.identityStoreIds[0],
- *     displayName: "John Doe",
- *     userName: "johndoe",
  * });
  * ```
  *

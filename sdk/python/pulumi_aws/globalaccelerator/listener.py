@@ -185,7 +185,7 @@ class Listener(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accelerator_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  client_affinity: pulumi.Input[Optional[_builtins.str]] = None,
-                 port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict']]]]] = None,
+                 port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict', 'outputs.ListenerPortRange']]]]] = None,
                  protocol: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -198,22 +198,22 @@ class Listener(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.globalaccelerator.Accelerator("example",
+            name="Example",
+            ip_address_type="IPV4",
+            enabled=True,
             attributes={
                 "flow_logs_enabled": True,
                 "flow_logs_s3_bucket": "example-bucket",
                 "flow_logs_s3_prefix": "flow-logs/",
-            },
-            name="Example",
-            ip_address_type="IPV4",
-            enabled=True)
+            })
         example_listener = aws.globalaccelerator.Listener("example",
+            accelerator_arn=example.arn,
+            client_affinity="SOURCE_IP",
+            protocol="TCP",
             port_ranges=[{
                 "from_port": 80,
                 "to_port": 80,
-            }],
-            accelerator_arn=example.arn,
-            client_affinity="SOURCE_IP",
-            protocol="TCP")
+            }])
         ```
 
         ## Import
@@ -235,7 +235,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accelerator_arn: ARN of your accelerator.
         :param pulumi.Input[_builtins.str] client_affinity: Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict']]]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict', 'outputs.ListenerPortRange']]]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
         :param pulumi.Input[_builtins.str] protocol: The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
         """
         ...
@@ -254,22 +254,22 @@ class Listener(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.globalaccelerator.Accelerator("example",
+            name="Example",
+            ip_address_type="IPV4",
+            enabled=True,
             attributes={
                 "flow_logs_enabled": True,
                 "flow_logs_s3_bucket": "example-bucket",
                 "flow_logs_s3_prefix": "flow-logs/",
-            },
-            name="Example",
-            ip_address_type="IPV4",
-            enabled=True)
+            })
         example_listener = aws.globalaccelerator.Listener("example",
+            accelerator_arn=example.arn,
+            client_affinity="SOURCE_IP",
+            protocol="TCP",
             port_ranges=[{
                 "from_port": 80,
                 "to_port": 80,
-            }],
-            accelerator_arn=example.arn,
-            client_affinity="SOURCE_IP",
-            protocol="TCP")
+            }])
         ```
 
         ## Import
@@ -304,7 +304,7 @@ class Listener(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accelerator_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  client_affinity: pulumi.Input[Optional[_builtins.str]] = None,
-                 port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict']]]]] = None,
+                 port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict', 'outputs.ListenerPortRange']]]]] = None,
                  protocol: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -339,7 +339,7 @@ class Listener(pulumi.CustomResource):
             accelerator_arn: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             client_affinity: pulumi.Input[Optional[_builtins.str]] = None,
-            port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict']]]]] = None,
+            port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict', 'outputs.ListenerPortRange']]]]] = None,
             protocol: pulumi.Input[Optional[_builtins.str]] = None) -> 'Listener':
         """
         Get an existing Listener resource's state with the given name, id, and optional extra
@@ -351,7 +351,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] accelerator_arn: ARN of your accelerator.
         :param pulumi.Input[_builtins.str] arn: ARN of the listener.
         :param pulumi.Input[_builtins.str] client_affinity: Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict']]]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict', 'outputs.ListenerPortRange']]]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
         :param pulumi.Input[_builtins.str] protocol: The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

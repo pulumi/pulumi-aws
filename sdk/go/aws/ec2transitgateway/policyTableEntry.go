@@ -59,20 +59,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2transitgateway.NewPolicyTableEntry(ctx, "example", &ec2transitgateway.PolicyTableEntryArgs{
+//				TransitGatewayPolicyTableId: pulumi.Any(exampleAwsEc2TransitGatewayPolicyTable.Id),
+//				PolicyRuleNumber:            pulumi.String("200"),
+//				TargetRouteTableId:          pulumi.Any(exampleAwsEc2TransitGatewayRouteTable.Id),
 //				PolicyRule: &ec2transitgateway.PolicyTableEntryPolicyRuleArgs{
-//					Metadata: &ec2transitgateway.PolicyTableEntryPolicyRuleMetadataArgs{
-//						Key:   pulumi.String("test"),
-//						Value: pulumi.String("test"),
-//					},
 //					SourceCidrBlock:      pulumi.String("10.0.1.0/24"),
 //					SourcePortRange:      pulumi.String("*"),
 //					DestinationCidrBlock: pulumi.String("10.0.2.0/24"),
 //					DestinationPortRange: pulumi.String("443"),
 //					Protocol:             pulumi.String("6"),
+//					Metadata: &ec2transitgateway.PolicyTableEntryPolicyRuleMetadataArgs{
+//						Key:   pulumi.String("test"),
+//						Value: pulumi.String("test"),
+//					},
 //				},
-//				TransitGatewayPolicyTableId: pulumi.Any(exampleAwsEc2TransitGatewayPolicyTable.Id),
-//				PolicyRuleNumber:            pulumi.String("200"),
-//				TargetRouteTableId:          pulumi.Any(exampleAwsEc2TransitGatewayRouteTable.Id),
 //			})
 //			if err != nil {
 //				return err

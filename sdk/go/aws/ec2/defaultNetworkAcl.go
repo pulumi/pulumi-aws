@@ -47,16 +47,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewDefaultNetworkAcl(ctx, "default", &ec2.DefaultNetworkAclArgs{
-//				Egress: ec2.DefaultNetworkAclEgressArray{
-//					&ec2.DefaultNetworkAclEgressArgs{
-//						Protocol:  pulumi.String("-1"),
-//						RuleNo:    pulumi.Int(100),
-//						Action:    pulumi.String("allow"),
-//						CidrBlock: pulumi.String("0.0.0.0/0"),
-//						FromPort:  pulumi.Int(0),
-//						ToPort:    pulumi.Int(0),
-//					},
-//				},
+//				DefaultNetworkAclId: mainvpc.DefaultNetworkAclId,
 //				Ingress: ec2.DefaultNetworkAclIngressArray{
 //					&ec2.DefaultNetworkAclIngressArgs{
 //						Protocol:  pulumi.String("-1"),
@@ -67,7 +58,16 @@ import (
 //						ToPort:    pulumi.Int(0),
 //					},
 //				},
-//				DefaultNetworkAclId: mainvpc.DefaultNetworkAclId,
+//				Egress: ec2.DefaultNetworkAclEgressArray{
+//					&ec2.DefaultNetworkAclEgressArgs{
+//						Protocol:  pulumi.String("-1"),
+//						RuleNo:    pulumi.Int(100),
+//						Action:    pulumi.String("allow"),
+//						CidrBlock: pulumi.String("0.0.0.0/0"),
+//						FromPort:  pulumi.Int(0),
+//						ToPort:    pulumi.Int(0),
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -101,6 +101,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewDefaultNetworkAcl(ctx, "default", &ec2.DefaultNetworkAclArgs{
+//				DefaultNetworkAclId: mainvpc.DefaultNetworkAclId,
 //				Ingress: ec2.DefaultNetworkAclIngressArray{
 //					&ec2.DefaultNetworkAclIngressArgs{
 //						Protocol:  pulumi.String("-1"),
@@ -111,7 +112,6 @@ import (
 //						ToPort:    pulumi.Int(0),
 //					},
 //				},
-//				DefaultNetworkAclId: mainvpc.DefaultNetworkAclId,
 //			})
 //			if err != nil {
 //				return err
@@ -178,9 +178,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewDefaultNetworkAcl(ctx, "default", nil, pulumi.IgnoreChanges([]string{
-//				"subnetIds",
-//			}))
+//			_, err := ec2.NewDefaultNetworkAcl(ctx, "default", nil)
 //			if err != nil {
 //				return err
 //			}

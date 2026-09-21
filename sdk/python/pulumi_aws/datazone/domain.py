@@ -456,10 +456,10 @@ class Domain(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  service_role: pulumi.Input[Optional[_builtins.str]] = None,
-                 single_sign_on: pulumi.Input[Optional[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict']]] = None,
+                 single_sign_on: pulumi.Input[Optional[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict', 'outputs.DomainSingleSignOn']]] = None,
                  skip_deletion_check: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['DomainTimeoutsArgs', 'DomainTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DomainTimeoutsArgs', 'DomainTimeoutsArgsDict', 'outputs.DomainTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS DataZone Domain.
@@ -529,6 +529,15 @@ class Domain(pulumi.CustomResource):
         current = aws.get_caller_identity()
         # IAM role for Domain Execution
         assume_role_domain_execution = aws.iam.get_policy_document(statements=[{
+            "actions": [
+                "sts:AssumeRole",
+                "sts:TagSession",
+                "sts:SetContext",
+            ],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["datazone.amazonaws.com"],
+            }],
             "conditions": [
                 {
                     "test": "StringEquals",
@@ -541,15 +550,6 @@ class Domain(pulumi.CustomResource):
                     "variable": "aws:TagKeys",
                 },
             ],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["datazone.amazonaws.com"],
-            }],
-            "actions": [
-                "sts:AssumeRole",
-                "sts:TagSession",
-                "sts:SetContext",
-            ],
         }])
         domain_execution = aws.iam.Role("domain_execution",
             assume_role_policy=assume_role_domain_execution.json,
@@ -560,16 +560,16 @@ class Domain(pulumi.CustomResource):
             role=domain_execution.name)
         # IAM role for Domain Service
         assume_role_domain_service = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["datazone.amazonaws.com"],
+            }],
             "conditions": [{
                 "test": "StringEquals",
                 "values": [current.account_id],
                 "variable": "aws:SourceAccount",
             }],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["datazone.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
         }])
         domain_service = aws.iam.Role("domain_service",
             assume_role_policy=assume_role_domain_service.json,
@@ -617,7 +617,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the Domain.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] service_role: ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
-        :param pulumi.Input[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict']] single_sign_on: Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
+        :param pulumi.Input[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict', 'outputs.DomainSingleSignOn']] single_sign_on: Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
         :param pulumi.Input[_builtins.bool] skip_deletion_check: Whether to skip the deletion check for the Domain.
         """
         ...
@@ -694,6 +694,15 @@ class Domain(pulumi.CustomResource):
         current = aws.get_caller_identity()
         # IAM role for Domain Execution
         assume_role_domain_execution = aws.iam.get_policy_document(statements=[{
+            "actions": [
+                "sts:AssumeRole",
+                "sts:TagSession",
+                "sts:SetContext",
+            ],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["datazone.amazonaws.com"],
+            }],
             "conditions": [
                 {
                     "test": "StringEquals",
@@ -706,15 +715,6 @@ class Domain(pulumi.CustomResource):
                     "variable": "aws:TagKeys",
                 },
             ],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["datazone.amazonaws.com"],
-            }],
-            "actions": [
-                "sts:AssumeRole",
-                "sts:TagSession",
-                "sts:SetContext",
-            ],
         }])
         domain_execution = aws.iam.Role("domain_execution",
             assume_role_policy=assume_role_domain_execution.json,
@@ -725,16 +725,16 @@ class Domain(pulumi.CustomResource):
             role=domain_execution.name)
         # IAM role for Domain Service
         assume_role_domain_service = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["datazone.amazonaws.com"],
+            }],
             "conditions": [{
                 "test": "StringEquals",
                 "values": [current.account_id],
                 "variable": "aws:SourceAccount",
             }],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["datazone.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
         }])
         domain_service = aws.iam.Role("domain_service",
             assume_role_policy=assume_role_domain_service.json,
@@ -793,10 +793,10 @@ class Domain(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  service_role: pulumi.Input[Optional[_builtins.str]] = None,
-                 single_sign_on: pulumi.Input[Optional[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict']]] = None,
+                 single_sign_on: pulumi.Input[Optional[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict', 'outputs.DomainSingleSignOn']]] = None,
                  skip_deletion_check: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['DomainTimeoutsArgs', 'DomainTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DomainTimeoutsArgs', 'DomainTimeoutsArgsDict', 'outputs.DomainTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -843,11 +843,11 @@ class Domain(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             root_domain_unit_id: pulumi.Input[Optional[_builtins.str]] = None,
             service_role: pulumi.Input[Optional[_builtins.str]] = None,
-            single_sign_on: pulumi.Input[Optional[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict']]] = None,
+            single_sign_on: pulumi.Input[Optional[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict', 'outputs.DomainSingleSignOn']]] = None,
             skip_deletion_check: pulumi.Input[Optional[_builtins.bool]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['DomainTimeoutsArgs', 'DomainTimeoutsArgsDict']]] = None) -> 'Domain':
+            timeouts: pulumi.Input[Optional[Union['DomainTimeoutsArgs', 'DomainTimeoutsArgsDict', 'outputs.DomainTimeouts']]] = None) -> 'Domain':
         """
         Get an existing Domain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -867,7 +867,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] root_domain_unit_id: ID of the root domain unit.
         :param pulumi.Input[_builtins.str] service_role: ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
-        :param pulumi.Input[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict']] single_sign_on: Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
+        :param pulumi.Input[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict', 'outputs.DomainSingleSignOn']] single_sign_on: Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
         :param pulumi.Input[_builtins.bool] skip_deletion_check: Whether to skip the deletion check for the Domain.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

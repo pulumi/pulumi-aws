@@ -59,6 +59,13 @@ import (
 //			route53_query_logging_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
+//						Actions: []string{
+//							"logs:CreateLogStream",
+//							"logs:PutLogEvents",
+//						},
+//						Resources: []string{
+//							"arn:aws:logs:*:*:log-group:/aws/route53/*",
+//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Identifiers: []string{
@@ -66,13 +73,6 @@ import (
 //								},
 //								Type: "Service",
 //							},
-//						},
-//						Actions: []string{
-//							"logs:CreateLogStream",
-//							"logs:PutLogEvents",
-//						},
-//						Resources: []string{
-//							"arn:aws:logs:*:*:log-group:/aws/route53/*",
 //						},
 //					},
 //				},

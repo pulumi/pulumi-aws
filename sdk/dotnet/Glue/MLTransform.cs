@@ -29,31 +29,28 @@ namespace Pulumi.Aws.Glue
     /// 
     ///     var testCatalogTable = new Aws.Glue.CatalogTable("test", new()
     ///     {
+    ///         Name = "example",
+    ///         DatabaseName = testCatalogDatabase.Name,
+    ///         Owner = "my_owner",
+    ///         Retention = 1,
+    ///         TableType = "VIRTUAL_VIEW",
+    ///         ViewExpandedText = "view_expanded_text_1",
+    ///         ViewOriginalText = "view_original_text_1",
     ///         StorageDescriptor = new Aws.Glue.Inputs.CatalogTableStorageDescriptorArgs
     ///         {
-    ///             SerDeInfo = new Aws.Glue.Inputs.CatalogTableStorageDescriptorSerDeInfoArgs
+    ///             BucketColumns = new[]
     ///             {
-    ///                 Name = "ser_de_name",
-    ///                 Parameters = 
-    ///                 {
-    ///                     { "param1", "param_val_1" },
-    ///                 },
-    ///                 SerializationLibrary = "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
+    ///                 "bucket_column_1",
     ///             },
-    ///             SkewedInfo = new Aws.Glue.Inputs.CatalogTableStorageDescriptorSkewedInfoArgs
+    ///             Compressed = false,
+    ///             InputFormat = "SequenceFileInputFormat",
+    ///             Location = "my_location",
+    ///             NumberOfBuckets = 1,
+    ///             OutputFormat = "SequenceFileInputFormat",
+    ///             StoredAsSubDirectories = false,
+    ///             Parameters = 
     ///             {
-    ///                 SkewedColumnNames = new[]
-    ///                 {
-    ///                     "my_column_1",
-    ///                 },
-    ///                 SkewedColumnValueLocationMaps = 
-    ///                 {
-    ///                     { "my_column_1", "my_column_1_val_loc_map" },
-    ///                 },
-    ///                 SkewedColumnValues = new[]
-    ///                 {
-    ///                     "skewed_val_1",
-    ///                 },
+    ///                 { "param1", "param1_val" },
     ///             },
     ///             Columns = new[]
     ///             {
@@ -70,6 +67,15 @@ namespace Pulumi.Aws.Glue
     ///                     Comment = "my_column2_comment",
     ///                 },
     ///             },
+    ///             SerDeInfo = new Aws.Glue.Inputs.CatalogTableStorageDescriptorSerDeInfoArgs
+    ///             {
+    ///                 Name = "ser_de_name",
+    ///                 Parameters = 
+    ///                 {
+    ///                     { "param1", "param_val_1" },
+    ///                 },
+    ///                 SerializationLibrary = "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
+    ///             },
     ///             SortColumns = new[]
     ///             {
     ///                 new Aws.Glue.Inputs.CatalogTableStorageDescriptorSortColumnArgs
@@ -78,19 +84,20 @@ namespace Pulumi.Aws.Glue
     ///                     SortOrder = 1,
     ///                 },
     ///             },
-    ///             BucketColumns = new[]
+    ///             SkewedInfo = new Aws.Glue.Inputs.CatalogTableStorageDescriptorSkewedInfoArgs
     ///             {
-    ///                 "bucket_column_1",
-    ///             },
-    ///             Compressed = false,
-    ///             InputFormat = "SequenceFileInputFormat",
-    ///             Location = "my_location",
-    ///             NumberOfBuckets = 1,
-    ///             OutputFormat = "SequenceFileInputFormat",
-    ///             StoredAsSubDirectories = false,
-    ///             Parameters = 
-    ///             {
-    ///                 { "param1", "param1_val" },
+    ///                 SkewedColumnNames = new[]
+    ///                 {
+    ///                     "my_column_1",
+    ///                 },
+    ///                 SkewedColumnValueLocationMaps = 
+    ///                 {
+    ///                     { "my_column_1", "my_column_1_val_loc_map" },
+    ///                 },
+    ///                 SkewedColumnValues = new[]
+    ///                 {
+    ///                     "skewed_val_1",
+    ///                 },
     ///             },
     ///         },
     ///         PartitionKeys = new[]
@@ -108,13 +115,6 @@ namespace Pulumi.Aws.Glue
     ///                 Comment = "my_column_2_comment",
     ///             },
     ///         },
-    ///         Name = "example",
-    ///         DatabaseName = testCatalogDatabase.Name,
-    ///         Owner = "my_owner",
-    ///         Retention = 1,
-    ///         TableType = "VIRTUAL_VIEW",
-    ///         ViewExpandedText = "view_expanded_text_1",
-    ///         ViewOriginalText = "view_original_text_1",
     ///         Parameters = 
     ///         {
     ///             { "param1", "param1_val" },
@@ -123,14 +123,8 @@ namespace Pulumi.Aws.Glue
     /// 
     ///     var test = new Aws.Glue.MLTransform("test", new()
     ///     {
-    ///         Parameters = new Aws.Glue.Inputs.MLTransformParametersArgs
-    ///         {
-    ///             FindMatchesParameters = new Aws.Glue.Inputs.MLTransformParametersFindMatchesParametersArgs
-    ///             {
-    ///                 PrimaryKeyColumnName = "my_column_1",
-    ///             },
-    ///             TransformType = "FIND_MATCHES",
-    ///         },
+    ///         Name = "example",
+    ///         RoleArn = testAwsIamRole.Arn,
     ///         InputRecordTables = new[]
     ///         {
     ///             new Aws.Glue.Inputs.MLTransformInputRecordTableArgs
@@ -139,8 +133,14 @@ namespace Pulumi.Aws.Glue
     ///                 TableName = testCatalogTable.Name,
     ///             },
     ///         },
-    ///         Name = "example",
-    ///         RoleArn = testAwsIamRole.Arn,
+    ///         Parameters = new Aws.Glue.Inputs.MLTransformParametersArgs
+    ///         {
+    ///             TransformType = "FIND_MATCHES",
+    ///             FindMatchesParameters = new Aws.Glue.Inputs.MLTransformParametersFindMatchesParametersArgs
+    ///             {
+    ///                 PrimaryKeyColumnName = "my_column_1",
+    ///             },
+    ///         },
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

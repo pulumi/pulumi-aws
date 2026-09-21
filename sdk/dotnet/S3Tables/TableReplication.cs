@@ -26,6 +26,8 @@ namespace Pulumi.Aws.S3Tables
     /// {
     ///     var example = new Aws.S3Tables.TableReplication("example", new()
     ///     {
+    ///         TableArn = exampleAwsS3tablesTable.Arn,
+    ///         Role = exampleAwsIamRole.Arn,
     ///         Rule = new Aws.S3Tables.Inputs.TableReplicationRuleArgs
     ///         {
     ///             Destinations = new[]
@@ -36,8 +38,6 @@ namespace Pulumi.Aws.S3Tables
     ///                 },
     ///             },
     ///         },
-    ///         TableArn = exampleAwsS3tablesTable.Arn,
-    ///         Role = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });

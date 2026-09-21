@@ -641,20 +641,20 @@ class DataSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 column_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetColumnGroupArgs', 'DataSetColumnGroupArgsDict']]]]] = None,
-                 column_level_permission_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetColumnLevelPermissionRuleArgs', 'DataSetColumnLevelPermissionRuleArgsDict']]]]] = None,
+                 column_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetColumnGroupArgs', 'DataSetColumnGroupArgsDict', 'outputs.DataSetColumnGroup']]]]] = None,
+                 column_level_permission_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetColumnLevelPermissionRuleArgs', 'DataSetColumnLevelPermissionRuleArgsDict', 'outputs.DataSetColumnLevelPermissionRule']]]]] = None,
                  data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 data_set_usage_configuration: pulumi.Input[Optional[Union['DataSetDataSetUsageConfigurationArgs', 'DataSetDataSetUsageConfigurationArgsDict']]] = None,
-                 field_folders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetFieldFolderArgs', 'DataSetFieldFolderArgsDict']]]]] = None,
+                 data_set_usage_configuration: pulumi.Input[Optional[Union['DataSetDataSetUsageConfigurationArgs', 'DataSetDataSetUsageConfigurationArgsDict', 'outputs.DataSetDataSetUsageConfiguration']]] = None,
+                 field_folders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetFieldFolderArgs', 'DataSetFieldFolderArgsDict', 'outputs.DataSetFieldFolder']]]]] = None,
                  import_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 logical_table_maps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetLogicalTableMapArgs', 'DataSetLogicalTableMapArgsDict']]]]] = None,
+                 logical_table_maps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetLogicalTableMapArgs', 'DataSetLogicalTableMapArgsDict', 'outputs.DataSetLogicalTableMap']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetPermissionArgs', 'DataSetPermissionArgsDict']]]]] = None,
-                 physical_table_maps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetPhysicalTableMapArgs', 'DataSetPhysicalTableMapArgsDict']]]]] = None,
-                 refresh_properties: pulumi.Input[Optional[Union['DataSetRefreshPropertiesArgs', 'DataSetRefreshPropertiesArgsDict']]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetPermissionArgs', 'DataSetPermissionArgsDict', 'outputs.DataSetPermission']]]]] = None,
+                 physical_table_maps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetPhysicalTableMapArgs', 'DataSetPhysicalTableMapArgsDict', 'outputs.DataSetPhysicalTableMap']]]]] = None,
+                 refresh_properties: pulumi.Input[Optional[Union['DataSetRefreshPropertiesArgs', 'DataSetRefreshPropertiesArgsDict', 'outputs.DataSetRefreshProperties']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 row_level_permission_data_set: pulumi.Input[Optional[Union['DataSetRowLevelPermissionDataSetArgs', 'DataSetRowLevelPermissionDataSetArgsDict']]] = None,
-                 row_level_permission_tag_configuration: pulumi.Input[Optional[Union['DataSetRowLevelPermissionTagConfigurationArgs', 'DataSetRowLevelPermissionTagConfigurationArgsDict']]] = None,
+                 row_level_permission_data_set: pulumi.Input[Optional[Union['DataSetRowLevelPermissionDataSetArgs', 'DataSetRowLevelPermissionDataSetArgsDict', 'outputs.DataSetRowLevelPermissionDataSet']]] = None,
+                 row_level_permission_tag_configuration: pulumi.Input[Optional[Union['DataSetRowLevelPermissionTagConfigurationArgs', 'DataSetRowLevelPermissionTagConfigurationArgsDict', 'outputs.DataSetRowLevelPermissionTagConfiguration']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  use_as: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -670,22 +670,22 @@ class DataSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
+            data_set_id="example-id",
+            name="example-name",
+            import_mode="SPICE",
             physical_table_maps=[{
+                "physical_table_map_id": "example-id",
                 "s3_source": {
-                    "upload_settings": {
-                        "format": "JSON",
-                    },
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
                     "input_columns": [{
                         "name": "Column1",
                         "type": "STRING",
                     }],
-                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "upload_settings": {
+                        "format": "JSON",
+                    },
                 },
-                "physical_table_map_id": "example-id",
-            }],
-            data_set_id="example-id",
-            name="example-name",
-            import_mode="SPICE")
+            }])
         ```
 
         ### With use_as
@@ -695,23 +695,23 @@ class DataSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
+            data_set_id="example-id",
+            name="example-name",
+            import_mode="SPICE",
+            use_as="RLS_RULES",
             physical_table_maps=[{
+                "physical_table_map_id": "example-id",
                 "s3_source": {
-                    "upload_settings": {
-                        "format": "JSON",
-                    },
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
                     "input_columns": [{
                         "name": "UserName",
                         "type": "STRING",
                     }],
-                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "upload_settings": {
+                        "format": "JSON",
+                    },
                 },
-                "physical_table_map_id": "example-id",
-            }],
-            data_set_id="example-id",
-            name="example-name",
-            import_mode="SPICE",
-            use_as="RLS_RULES")
+            }])
         ```
 
         ### With Column Level Permission Rules
@@ -721,26 +721,26 @@ class DataSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
-            column_level_permission_rules=[{
-                "column_names": ["Column1"],
-                "principals": [example_aws_quicksight_user["arn"]],
-            }],
+            data_set_id="example-id",
+            name="example-name",
+            import_mode="SPICE",
             physical_table_maps=[{
+                "physical_table_map_id": "example-id",
                 "s3_source": {
-                    "upload_settings": {
-                        "format": "JSON",
-                    },
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
                     "input_columns": [{
                         "name": "Column1",
                         "type": "STRING",
                     }],
-                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "upload_settings": {
+                        "format": "JSON",
+                    },
                 },
-                "physical_table_map_id": "example-id",
             }],
-            data_set_id="example-id",
-            name="example-name",
-            import_mode="SPICE")
+            column_level_permission_rules=[{
+                "column_names": ["Column1"],
+                "principals": [example_aws_quicksight_user["arn"]],
+            }])
         ```
 
         ### With Field Folders
@@ -750,27 +750,27 @@ class DataSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
-            field_folders=[{
-                "field_folders_id": "example-id",
-                "columns": ["Column1"],
-                "description": "example description",
-            }],
+            data_set_id="example-id",
+            name="example-name",
+            import_mode="SPICE",
             physical_table_maps=[{
+                "physical_table_map_id": "example-id",
                 "s3_source": {
-                    "upload_settings": {
-                        "format": "JSON",
-                    },
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
                     "input_columns": [{
                         "name": "Column1",
                         "type": "STRING",
                     }],
-                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "upload_settings": {
+                        "format": "JSON",
+                    },
                 },
-                "physical_table_map_id": "example-id",
             }],
-            data_set_id="example-id",
-            name="example-name",
-            import_mode="SPICE")
+            field_folders=[{
+                "field_folders_id": "example-id",
+                "columns": ["Column1"],
+                "description": "example description",
+            }])
         ```
 
         ### With Permissions
@@ -780,6 +780,22 @@ class DataSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
+            data_set_id="example-id",
+            name="example-name",
+            import_mode="SPICE",
+            physical_table_maps=[{
+                "physical_table_map_id": "example-id",
+                "s3_source": {
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "input_columns": [{
+                        "name": "Column1",
+                        "type": "STRING",
+                    }],
+                    "upload_settings": {
+                        "format": "JSON",
+                    },
+                },
+            }],
             permissions=[{
                 "actions": [
                     "quicksight:DescribeDataSet",
@@ -789,23 +805,7 @@ class DataSet(pulumi.CustomResource):
                     "quicksight:ListIngestions",
                 ],
                 "principal": example_aws_quicksight_user["arn"],
-            }],
-            physical_table_maps=[{
-                "s3_source": {
-                    "upload_settings": {
-                        "format": "JSON",
-                    },
-                    "input_columns": [{
-                        "name": "Column1",
-                        "type": "STRING",
-                    }],
-                    "data_source_arn": example_aws_quicksight_data_source["arn"],
-                },
-                "physical_table_map_id": "example-id",
-            }],
-            data_set_id="example-id",
-            name="example-name",
-            import_mode="SPICE")
+            }])
         ```
 
         ### With Row Level Permission Tag Configuration
@@ -815,31 +815,31 @@ class DataSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
+            data_set_id="example-id",
+            name="example-name",
+            import_mode="SPICE",
+            physical_table_maps=[{
+                "physical_table_map_id": "example-id",
+                "s3_source": {
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "input_columns": [{
+                        "name": "Column1",
+                        "type": "STRING",
+                    }],
+                    "upload_settings": {
+                        "format": "JSON",
+                    },
+                },
+            }],
             row_level_permission_tag_configuration={
+                "status": "ENABLED",
                 "tag_rules": [{
                     "column_name": "Column1",
                     "tag_key": "tagkey",
                     "match_all_value": "*",
                     "tag_multi_value_delimiter": ",",
                 }],
-                "status": "ENABLED",
-            },
-            physical_table_maps=[{
-                "s3_source": {
-                    "upload_settings": {
-                        "format": "JSON",
-                    },
-                    "input_columns": [{
-                        "name": "Column1",
-                        "type": "STRING",
-                    }],
-                    "data_source_arn": example_aws_quicksight_data_source["arn"],
-                },
-                "physical_table_map_id": "example-id",
-            }],
-            data_set_id="example-id",
-            name="example-name",
-            import_mode="SPICE")
+            })
         ```
 
         ## Import
@@ -854,22 +854,22 @@ class DataSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnGroupArgs', 'DataSetColumnGroupArgsDict']]]] column_groups: Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnLevelPermissionRuleArgs', 'DataSetColumnLevelPermissionRuleArgsDict']]]] column_level_permission_rules: A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnGroupArgs', 'DataSetColumnGroupArgsDict', 'outputs.DataSetColumnGroup']]]] column_groups: Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnLevelPermissionRuleArgs', 'DataSetColumnLevelPermissionRuleArgsDict', 'outputs.DataSetColumnLevelPermissionRule']]]] column_level_permission_rules: A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
         :param pulumi.Input[_builtins.str] data_set_id: Identifier for the data set.
-        :param pulumi.Input[Union['DataSetDataSetUsageConfigurationArgs', 'DataSetDataSetUsageConfigurationArgsDict']] data_set_usage_configuration: The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetFieldFolderArgs', 'DataSetFieldFolderArgsDict']]]] field_folders: The folder that contains fields and nested subfolders for your dataset. See field_folders.
+        :param pulumi.Input[Union['DataSetDataSetUsageConfigurationArgs', 'DataSetDataSetUsageConfigurationArgsDict', 'outputs.DataSetDataSetUsageConfiguration']] data_set_usage_configuration: The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetFieldFolderArgs', 'DataSetFieldFolderArgsDict', 'outputs.DataSetFieldFolder']]]] field_folders: The folder that contains fields and nested subfolders for your dataset. See field_folders.
         :param pulumi.Input[_builtins.str] import_mode: Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetLogicalTableMapArgs', 'DataSetLogicalTableMapArgsDict']]]] logical_table_maps: Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetLogicalTableMapArgs', 'DataSetLogicalTableMapArgsDict', 'outputs.DataSetLogicalTableMap']]]] logical_table_maps: Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
         :param pulumi.Input[_builtins.str] name: Display name for the dataset.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetPermissionArgs', 'DataSetPermissionArgsDict']]]] permissions: A set of resource permissions on the data source. Maximum of 64 items. See permissions.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetPhysicalTableMapArgs', 'DataSetPhysicalTableMapArgsDict']]]] physical_table_maps: Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-        :param pulumi.Input[Union['DataSetRefreshPropertiesArgs', 'DataSetRefreshPropertiesArgsDict']] refresh_properties: The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetPermissionArgs', 'DataSetPermissionArgsDict', 'outputs.DataSetPermission']]]] permissions: A set of resource permissions on the data source. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetPhysicalTableMapArgs', 'DataSetPhysicalTableMapArgsDict', 'outputs.DataSetPhysicalTableMap']]]] physical_table_maps: Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+        :param pulumi.Input[Union['DataSetRefreshPropertiesArgs', 'DataSetRefreshPropertiesArgsDict', 'outputs.DataSetRefreshProperties']] refresh_properties: The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DataSetRowLevelPermissionDataSetArgs', 'DataSetRowLevelPermissionDataSetArgsDict']] row_level_permission_data_set: The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
-        :param pulumi.Input[Union['DataSetRowLevelPermissionTagConfigurationArgs', 'DataSetRowLevelPermissionTagConfigurationArgsDict']] row_level_permission_tag_configuration: The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
+        :param pulumi.Input[Union['DataSetRowLevelPermissionDataSetArgs', 'DataSetRowLevelPermissionDataSetArgsDict', 'outputs.DataSetRowLevelPermissionDataSet']] row_level_permission_data_set: The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
+        :param pulumi.Input[Union['DataSetRowLevelPermissionTagConfigurationArgs', 'DataSetRowLevelPermissionTagConfigurationArgsDict', 'outputs.DataSetRowLevelPermissionTagConfiguration']] row_level_permission_tag_configuration: The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] use_as: Specifies the purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
         """
@@ -891,22 +891,22 @@ class DataSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
+            data_set_id="example-id",
+            name="example-name",
+            import_mode="SPICE",
             physical_table_maps=[{
+                "physical_table_map_id": "example-id",
                 "s3_source": {
-                    "upload_settings": {
-                        "format": "JSON",
-                    },
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
                     "input_columns": [{
                         "name": "Column1",
                         "type": "STRING",
                     }],
-                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "upload_settings": {
+                        "format": "JSON",
+                    },
                 },
-                "physical_table_map_id": "example-id",
-            }],
-            data_set_id="example-id",
-            name="example-name",
-            import_mode="SPICE")
+            }])
         ```
 
         ### With use_as
@@ -916,23 +916,23 @@ class DataSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
+            data_set_id="example-id",
+            name="example-name",
+            import_mode="SPICE",
+            use_as="RLS_RULES",
             physical_table_maps=[{
+                "physical_table_map_id": "example-id",
                 "s3_source": {
-                    "upload_settings": {
-                        "format": "JSON",
-                    },
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
                     "input_columns": [{
                         "name": "UserName",
                         "type": "STRING",
                     }],
-                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "upload_settings": {
+                        "format": "JSON",
+                    },
                 },
-                "physical_table_map_id": "example-id",
-            }],
-            data_set_id="example-id",
-            name="example-name",
-            import_mode="SPICE",
-            use_as="RLS_RULES")
+            }])
         ```
 
         ### With Column Level Permission Rules
@@ -942,26 +942,26 @@ class DataSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
-            column_level_permission_rules=[{
-                "column_names": ["Column1"],
-                "principals": [example_aws_quicksight_user["arn"]],
-            }],
+            data_set_id="example-id",
+            name="example-name",
+            import_mode="SPICE",
             physical_table_maps=[{
+                "physical_table_map_id": "example-id",
                 "s3_source": {
-                    "upload_settings": {
-                        "format": "JSON",
-                    },
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
                     "input_columns": [{
                         "name": "Column1",
                         "type": "STRING",
                     }],
-                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "upload_settings": {
+                        "format": "JSON",
+                    },
                 },
-                "physical_table_map_id": "example-id",
             }],
-            data_set_id="example-id",
-            name="example-name",
-            import_mode="SPICE")
+            column_level_permission_rules=[{
+                "column_names": ["Column1"],
+                "principals": [example_aws_quicksight_user["arn"]],
+            }])
         ```
 
         ### With Field Folders
@@ -971,27 +971,27 @@ class DataSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
-            field_folders=[{
-                "field_folders_id": "example-id",
-                "columns": ["Column1"],
-                "description": "example description",
-            }],
+            data_set_id="example-id",
+            name="example-name",
+            import_mode="SPICE",
             physical_table_maps=[{
+                "physical_table_map_id": "example-id",
                 "s3_source": {
-                    "upload_settings": {
-                        "format": "JSON",
-                    },
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
                     "input_columns": [{
                         "name": "Column1",
                         "type": "STRING",
                     }],
-                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "upload_settings": {
+                        "format": "JSON",
+                    },
                 },
-                "physical_table_map_id": "example-id",
             }],
-            data_set_id="example-id",
-            name="example-name",
-            import_mode="SPICE")
+            field_folders=[{
+                "field_folders_id": "example-id",
+                "columns": ["Column1"],
+                "description": "example description",
+            }])
         ```
 
         ### With Permissions
@@ -1001,6 +1001,22 @@ class DataSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
+            data_set_id="example-id",
+            name="example-name",
+            import_mode="SPICE",
+            physical_table_maps=[{
+                "physical_table_map_id": "example-id",
+                "s3_source": {
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "input_columns": [{
+                        "name": "Column1",
+                        "type": "STRING",
+                    }],
+                    "upload_settings": {
+                        "format": "JSON",
+                    },
+                },
+            }],
             permissions=[{
                 "actions": [
                     "quicksight:DescribeDataSet",
@@ -1010,23 +1026,7 @@ class DataSet(pulumi.CustomResource):
                     "quicksight:ListIngestions",
                 ],
                 "principal": example_aws_quicksight_user["arn"],
-            }],
-            physical_table_maps=[{
-                "s3_source": {
-                    "upload_settings": {
-                        "format": "JSON",
-                    },
-                    "input_columns": [{
-                        "name": "Column1",
-                        "type": "STRING",
-                    }],
-                    "data_source_arn": example_aws_quicksight_data_source["arn"],
-                },
-                "physical_table_map_id": "example-id",
-            }],
-            data_set_id="example-id",
-            name="example-name",
-            import_mode="SPICE")
+            }])
         ```
 
         ### With Row Level Permission Tag Configuration
@@ -1036,31 +1036,31 @@ class DataSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
+            data_set_id="example-id",
+            name="example-name",
+            import_mode="SPICE",
+            physical_table_maps=[{
+                "physical_table_map_id": "example-id",
+                "s3_source": {
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "input_columns": [{
+                        "name": "Column1",
+                        "type": "STRING",
+                    }],
+                    "upload_settings": {
+                        "format": "JSON",
+                    },
+                },
+            }],
             row_level_permission_tag_configuration={
+                "status": "ENABLED",
                 "tag_rules": [{
                     "column_name": "Column1",
                     "tag_key": "tagkey",
                     "match_all_value": "*",
                     "tag_multi_value_delimiter": ",",
                 }],
-                "status": "ENABLED",
-            },
-            physical_table_maps=[{
-                "s3_source": {
-                    "upload_settings": {
-                        "format": "JSON",
-                    },
-                    "input_columns": [{
-                        "name": "Column1",
-                        "type": "STRING",
-                    }],
-                    "data_source_arn": example_aws_quicksight_data_source["arn"],
-                },
-                "physical_table_map_id": "example-id",
-            }],
-            data_set_id="example-id",
-            name="example-name",
-            import_mode="SPICE")
+            })
         ```
 
         ## Import
@@ -1088,20 +1088,20 @@ class DataSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 column_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetColumnGroupArgs', 'DataSetColumnGroupArgsDict']]]]] = None,
-                 column_level_permission_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetColumnLevelPermissionRuleArgs', 'DataSetColumnLevelPermissionRuleArgsDict']]]]] = None,
+                 column_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetColumnGroupArgs', 'DataSetColumnGroupArgsDict', 'outputs.DataSetColumnGroup']]]]] = None,
+                 column_level_permission_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetColumnLevelPermissionRuleArgs', 'DataSetColumnLevelPermissionRuleArgsDict', 'outputs.DataSetColumnLevelPermissionRule']]]]] = None,
                  data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 data_set_usage_configuration: pulumi.Input[Optional[Union['DataSetDataSetUsageConfigurationArgs', 'DataSetDataSetUsageConfigurationArgsDict']]] = None,
-                 field_folders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetFieldFolderArgs', 'DataSetFieldFolderArgsDict']]]]] = None,
+                 data_set_usage_configuration: pulumi.Input[Optional[Union['DataSetDataSetUsageConfigurationArgs', 'DataSetDataSetUsageConfigurationArgsDict', 'outputs.DataSetDataSetUsageConfiguration']]] = None,
+                 field_folders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetFieldFolderArgs', 'DataSetFieldFolderArgsDict', 'outputs.DataSetFieldFolder']]]]] = None,
                  import_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 logical_table_maps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetLogicalTableMapArgs', 'DataSetLogicalTableMapArgsDict']]]]] = None,
+                 logical_table_maps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetLogicalTableMapArgs', 'DataSetLogicalTableMapArgsDict', 'outputs.DataSetLogicalTableMap']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetPermissionArgs', 'DataSetPermissionArgsDict']]]]] = None,
-                 physical_table_maps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetPhysicalTableMapArgs', 'DataSetPhysicalTableMapArgsDict']]]]] = None,
-                 refresh_properties: pulumi.Input[Optional[Union['DataSetRefreshPropertiesArgs', 'DataSetRefreshPropertiesArgsDict']]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetPermissionArgs', 'DataSetPermissionArgsDict', 'outputs.DataSetPermission']]]]] = None,
+                 physical_table_maps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetPhysicalTableMapArgs', 'DataSetPhysicalTableMapArgsDict', 'outputs.DataSetPhysicalTableMap']]]]] = None,
+                 refresh_properties: pulumi.Input[Optional[Union['DataSetRefreshPropertiesArgs', 'DataSetRefreshPropertiesArgsDict', 'outputs.DataSetRefreshProperties']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 row_level_permission_data_set: pulumi.Input[Optional[Union['DataSetRowLevelPermissionDataSetArgs', 'DataSetRowLevelPermissionDataSetArgsDict']]] = None,
-                 row_level_permission_tag_configuration: pulumi.Input[Optional[Union['DataSetRowLevelPermissionTagConfigurationArgs', 'DataSetRowLevelPermissionTagConfigurationArgsDict']]] = None,
+                 row_level_permission_data_set: pulumi.Input[Optional[Union['DataSetRowLevelPermissionDataSetArgs', 'DataSetRowLevelPermissionDataSetArgsDict', 'outputs.DataSetRowLevelPermissionDataSet']]] = None,
+                 row_level_permission_tag_configuration: pulumi.Input[Optional[Union['DataSetRowLevelPermissionTagConfigurationArgs', 'DataSetRowLevelPermissionTagConfigurationArgsDict', 'outputs.DataSetRowLevelPermissionTagConfiguration']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  use_as: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -1149,21 +1149,21 @@ class DataSet(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-            column_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetColumnGroupArgs', 'DataSetColumnGroupArgsDict']]]]] = None,
-            column_level_permission_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetColumnLevelPermissionRuleArgs', 'DataSetColumnLevelPermissionRuleArgsDict']]]]] = None,
+            column_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetColumnGroupArgs', 'DataSetColumnGroupArgsDict', 'outputs.DataSetColumnGroup']]]]] = None,
+            column_level_permission_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetColumnLevelPermissionRuleArgs', 'DataSetColumnLevelPermissionRuleArgsDict', 'outputs.DataSetColumnLevelPermissionRule']]]]] = None,
             data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
-            data_set_usage_configuration: pulumi.Input[Optional[Union['DataSetDataSetUsageConfigurationArgs', 'DataSetDataSetUsageConfigurationArgsDict']]] = None,
-            field_folders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetFieldFolderArgs', 'DataSetFieldFolderArgsDict']]]]] = None,
+            data_set_usage_configuration: pulumi.Input[Optional[Union['DataSetDataSetUsageConfigurationArgs', 'DataSetDataSetUsageConfigurationArgsDict', 'outputs.DataSetDataSetUsageConfiguration']]] = None,
+            field_folders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetFieldFolderArgs', 'DataSetFieldFolderArgsDict', 'outputs.DataSetFieldFolder']]]]] = None,
             import_mode: pulumi.Input[Optional[_builtins.str]] = None,
-            logical_table_maps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetLogicalTableMapArgs', 'DataSetLogicalTableMapArgsDict']]]]] = None,
+            logical_table_maps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetLogicalTableMapArgs', 'DataSetLogicalTableMapArgsDict', 'outputs.DataSetLogicalTableMap']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            output_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetOutputColumnArgs', 'DataSetOutputColumnArgsDict']]]]] = None,
-            permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetPermissionArgs', 'DataSetPermissionArgsDict']]]]] = None,
-            physical_table_maps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetPhysicalTableMapArgs', 'DataSetPhysicalTableMapArgsDict']]]]] = None,
-            refresh_properties: pulumi.Input[Optional[Union['DataSetRefreshPropertiesArgs', 'DataSetRefreshPropertiesArgsDict']]] = None,
+            output_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetOutputColumnArgs', 'DataSetOutputColumnArgsDict', 'outputs.DataSetOutputColumn']]]]] = None,
+            permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetPermissionArgs', 'DataSetPermissionArgsDict', 'outputs.DataSetPermission']]]]] = None,
+            physical_table_maps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSetPhysicalTableMapArgs', 'DataSetPhysicalTableMapArgsDict', 'outputs.DataSetPhysicalTableMap']]]]] = None,
+            refresh_properties: pulumi.Input[Optional[Union['DataSetRefreshPropertiesArgs', 'DataSetRefreshPropertiesArgsDict', 'outputs.DataSetRefreshProperties']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            row_level_permission_data_set: pulumi.Input[Optional[Union['DataSetRowLevelPermissionDataSetArgs', 'DataSetRowLevelPermissionDataSetArgsDict']]] = None,
-            row_level_permission_tag_configuration: pulumi.Input[Optional[Union['DataSetRowLevelPermissionTagConfigurationArgs', 'DataSetRowLevelPermissionTagConfigurationArgsDict']]] = None,
+            row_level_permission_data_set: pulumi.Input[Optional[Union['DataSetRowLevelPermissionDataSetArgs', 'DataSetRowLevelPermissionDataSetArgsDict', 'outputs.DataSetRowLevelPermissionDataSet']]] = None,
+            row_level_permission_tag_configuration: pulumi.Input[Optional[Union['DataSetRowLevelPermissionTagConfigurationArgs', 'DataSetRowLevelPermissionTagConfigurationArgsDict', 'outputs.DataSetRowLevelPermissionTagConfiguration']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             use_as: pulumi.Input[Optional[_builtins.str]] = None) -> 'DataSet':
@@ -1176,23 +1176,23 @@ class DataSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the data set.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnGroupArgs', 'DataSetColumnGroupArgsDict']]]] column_groups: Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnLevelPermissionRuleArgs', 'DataSetColumnLevelPermissionRuleArgsDict']]]] column_level_permission_rules: A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnGroupArgs', 'DataSetColumnGroupArgsDict', 'outputs.DataSetColumnGroup']]]] column_groups: Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnLevelPermissionRuleArgs', 'DataSetColumnLevelPermissionRuleArgsDict', 'outputs.DataSetColumnLevelPermissionRule']]]] column_level_permission_rules: A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
         :param pulumi.Input[_builtins.str] data_set_id: Identifier for the data set.
-        :param pulumi.Input[Union['DataSetDataSetUsageConfigurationArgs', 'DataSetDataSetUsageConfigurationArgsDict']] data_set_usage_configuration: The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetFieldFolderArgs', 'DataSetFieldFolderArgsDict']]]] field_folders: The folder that contains fields and nested subfolders for your dataset. See field_folders.
+        :param pulumi.Input[Union['DataSetDataSetUsageConfigurationArgs', 'DataSetDataSetUsageConfigurationArgsDict', 'outputs.DataSetDataSetUsageConfiguration']] data_set_usage_configuration: The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetFieldFolderArgs', 'DataSetFieldFolderArgsDict', 'outputs.DataSetFieldFolder']]]] field_folders: The folder that contains fields and nested subfolders for your dataset. See field_folders.
         :param pulumi.Input[_builtins.str] import_mode: Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetLogicalTableMapArgs', 'DataSetLogicalTableMapArgsDict']]]] logical_table_maps: Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetLogicalTableMapArgs', 'DataSetLogicalTableMapArgsDict', 'outputs.DataSetLogicalTableMap']]]] logical_table_maps: Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
         :param pulumi.Input[_builtins.str] name: Display name for the dataset.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetOutputColumnArgs', 'DataSetOutputColumnArgsDict']]]] output_columns: The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `output_columns` Block below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetPermissionArgs', 'DataSetPermissionArgsDict']]]] permissions: A set of resource permissions on the data source. Maximum of 64 items. See permissions.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetPhysicalTableMapArgs', 'DataSetPhysicalTableMapArgsDict']]]] physical_table_maps: Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-        :param pulumi.Input[Union['DataSetRefreshPropertiesArgs', 'DataSetRefreshPropertiesArgsDict']] refresh_properties: The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetOutputColumnArgs', 'DataSetOutputColumnArgsDict', 'outputs.DataSetOutputColumn']]]] output_columns: The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `output_columns` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetPermissionArgs', 'DataSetPermissionArgsDict', 'outputs.DataSetPermission']]]] permissions: A set of resource permissions on the data source. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetPhysicalTableMapArgs', 'DataSetPhysicalTableMapArgsDict', 'outputs.DataSetPhysicalTableMap']]]] physical_table_maps: Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+        :param pulumi.Input[Union['DataSetRefreshPropertiesArgs', 'DataSetRefreshPropertiesArgsDict', 'outputs.DataSetRefreshProperties']] refresh_properties: The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DataSetRowLevelPermissionDataSetArgs', 'DataSetRowLevelPermissionDataSetArgsDict']] row_level_permission_data_set: The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
-        :param pulumi.Input[Union['DataSetRowLevelPermissionTagConfigurationArgs', 'DataSetRowLevelPermissionTagConfigurationArgsDict']] row_level_permission_tag_configuration: The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
+        :param pulumi.Input[Union['DataSetRowLevelPermissionDataSetArgs', 'DataSetRowLevelPermissionDataSetArgsDict', 'outputs.DataSetRowLevelPermissionDataSet']] row_level_permission_data_set: The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
+        :param pulumi.Input[Union['DataSetRowLevelPermissionTagConfigurationArgs', 'DataSetRowLevelPermissionTagConfigurationArgsDict', 'outputs.DataSetRowLevelPermissionTagConfiguration']] row_level_permission_tag_configuration: The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] use_as: Specifies the purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.

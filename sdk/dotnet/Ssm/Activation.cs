@@ -28,6 +28,7 @@ namespace Pulumi.Aws.Ssm
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -39,7 +40,6 @@ namespace Pulumi.Aws.Ssm
     ///                         },
     ///                     },
     ///                 },
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",

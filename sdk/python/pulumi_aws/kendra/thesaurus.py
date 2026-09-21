@@ -312,7 +312,7 @@ class Thesaurus(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_s3_path: pulumi.Input[Optional[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict']]] = None,
+                 source_s3_path: pulumi.Input[Optional[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict', 'outputs.ThesaurusSourceS3Path']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -325,13 +325,13 @@ class Thesaurus(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Thesaurus("example",
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
+            role_arn=example_aws_iam_role["arn"],
             source_s3_path={
                 "bucket": example_aws_s3_bucket["id"],
                 "key": example_aws_s3_object["key"],
             },
-            index_id=example_aws_kendra_index["id"],
-            name="Example",
-            role_arn=example_aws_iam_role["arn"],
             tags={
                 "Name": "Example Kendra Thesaurus",
             })
@@ -352,7 +352,7 @@ class Thesaurus(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name for the thesaurus.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
         :param pulumi.Input[_builtins.str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-        :param pulumi.Input[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict']] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
+        :param pulumi.Input[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict', 'outputs.ThesaurusSourceS3Path']] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
         """
         ...
     @overload
@@ -370,13 +370,13 @@ class Thesaurus(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Thesaurus("example",
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
+            role_arn=example_aws_iam_role["arn"],
             source_s3_path={
                 "bucket": example_aws_s3_bucket["id"],
                 "key": example_aws_s3_object["key"],
             },
-            index_id=example_aws_kendra_index["id"],
-            name="Example",
-            role_arn=example_aws_iam_role["arn"],
             tags={
                 "Name": "Example Kendra Thesaurus",
             })
@@ -411,7 +411,7 @@ class Thesaurus(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_s3_path: pulumi.Input[Optional[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict']]] = None,
+                 source_s3_path: pulumi.Input[Optional[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict', 'outputs.ThesaurusSourceS3Path']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -455,7 +455,7 @@ class Thesaurus(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            source_s3_path: pulumi.Input[Optional[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict']]] = None,
+            source_s3_path: pulumi.Input[Optional[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict', 'outputs.ThesaurusSourceS3Path']]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -472,7 +472,7 @@ class Thesaurus(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name for the thesaurus.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
         :param pulumi.Input[_builtins.str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-        :param pulumi.Input[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict']] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
+        :param pulumi.Input[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict', 'outputs.ThesaurusSourceS3Path']] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
         :param pulumi.Input[_builtins.str] status: The current status of the thesaurus.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

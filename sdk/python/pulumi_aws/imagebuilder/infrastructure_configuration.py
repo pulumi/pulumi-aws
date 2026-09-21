@@ -594,13 +594,13 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_metadata_options: pulumi.Input[Optional[Union['InfrastructureConfigurationInstanceMetadataOptionsArgs', 'InfrastructureConfigurationInstanceMetadataOptionsArgsDict']]] = None,
+                 instance_metadata_options: pulumi.Input[Optional[Union['InfrastructureConfigurationInstanceMetadataOptionsArgs', 'InfrastructureConfigurationInstanceMetadataOptionsArgsDict', 'outputs.InfrastructureConfigurationInstanceMetadataOptions']]] = None,
                  instance_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  key_pair: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging: pulumi.Input[Optional[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict']]] = None,
+                 logging: pulumi.Input[Optional[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict', 'outputs.InfrastructureConfigurationLogging']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 placement: pulumi.Input[Optional[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']]] = None,
+                 placement: pulumi.Input[Optional[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict', 'outputs.InfrastructureConfigurationPlacement']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -619,12 +619,6 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.imagebuilder.InfrastructureConfiguration("example",
-            logging={
-                "s3_logs": {
-                    "s3_bucket_name": example_aws_s3_bucket["bucket"],
-                    "s3_key_prefix": "logs",
-                },
-            },
             description="example description",
             instance_profile_name=example_aws_iam_instance_profile["name"],
             instance_types=[
@@ -637,6 +631,12 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             sns_topic_arn=example_aws_sns_topic["arn"],
             subnet_id=main["id"],
             terminate_instance_on_failure=True,
+            logging={
+                "s3_logs": {
+                    "s3_bucket_name": example_aws_s3_bucket["bucket"],
+                    "s3_key_prefix": "logs",
+                },
+            },
             tags={
                 "foo": "bar",
             })
@@ -660,15 +660,15 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description for the configuration.
-        :param pulumi.Input[Union['InfrastructureConfigurationInstanceMetadataOptionsArgs', 'InfrastructureConfigurationInstanceMetadataOptionsArgsDict']] instance_metadata_options: Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
+        :param pulumi.Input[Union['InfrastructureConfigurationInstanceMetadataOptionsArgs', 'InfrastructureConfigurationInstanceMetadataOptionsArgsDict', 'outputs.InfrastructureConfigurationInstanceMetadataOptions']] instance_metadata_options: Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
         :param pulumi.Input[_builtins.str] instance_profile_name: Name of IAM Instance Profile.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] instance_types: Set of EC2 Instance Types.
         :param pulumi.Input[_builtins.str] key_pair: Name of EC2 Key Pair.
-        :param pulumi.Input[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict']] logging: Configuration block with logging settings. Detailed below.
+        :param pulumi.Input[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict', 'outputs.InfrastructureConfigurationLogging']] logging: Configuration block with logging settings. Detailed below.
         :param pulumi.Input[_builtins.str] name: Name for the configuration.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']] placement: Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+        :param pulumi.Input[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict', 'outputs.InfrastructureConfigurationPlacement']] placement: Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] resource_tags: Key-value map of resource tags to assign to infrastructure created by the configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Set of EC2 Security Group identifiers.
@@ -693,12 +693,6 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.imagebuilder.InfrastructureConfiguration("example",
-            logging={
-                "s3_logs": {
-                    "s3_bucket_name": example_aws_s3_bucket["bucket"],
-                    "s3_key_prefix": "logs",
-                },
-            },
             description="example description",
             instance_profile_name=example_aws_iam_instance_profile["name"],
             instance_types=[
@@ -711,6 +705,12 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             sns_topic_arn=example_aws_sns_topic["arn"],
             subnet_id=main["id"],
             terminate_instance_on_failure=True,
+            logging={
+                "s3_logs": {
+                    "s3_bucket_name": example_aws_s3_bucket["bucket"],
+                    "s3_key_prefix": "logs",
+                },
+            },
             tags={
                 "foo": "bar",
             })
@@ -747,13 +747,13 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_metadata_options: pulumi.Input[Optional[Union['InfrastructureConfigurationInstanceMetadataOptionsArgs', 'InfrastructureConfigurationInstanceMetadataOptionsArgsDict']]] = None,
+                 instance_metadata_options: pulumi.Input[Optional[Union['InfrastructureConfigurationInstanceMetadataOptionsArgs', 'InfrastructureConfigurationInstanceMetadataOptionsArgsDict', 'outputs.InfrastructureConfigurationInstanceMetadataOptions']]] = None,
                  instance_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  key_pair: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging: pulumi.Input[Optional[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict']]] = None,
+                 logging: pulumi.Input[Optional[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict', 'outputs.InfrastructureConfigurationLogging']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 placement: pulumi.Input[Optional[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']]] = None,
+                 placement: pulumi.Input[Optional[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict', 'outputs.InfrastructureConfigurationPlacement']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -805,13 +805,13 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             date_created: pulumi.Input[Optional[_builtins.str]] = None,
             date_updated: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            instance_metadata_options: pulumi.Input[Optional[Union['InfrastructureConfigurationInstanceMetadataOptionsArgs', 'InfrastructureConfigurationInstanceMetadataOptionsArgsDict']]] = None,
+            instance_metadata_options: pulumi.Input[Optional[Union['InfrastructureConfigurationInstanceMetadataOptionsArgs', 'InfrastructureConfigurationInstanceMetadataOptionsArgsDict', 'outputs.InfrastructureConfigurationInstanceMetadataOptions']]] = None,
             instance_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
             instance_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             key_pair: pulumi.Input[Optional[_builtins.str]] = None,
-            logging: pulumi.Input[Optional[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict']]] = None,
+            logging: pulumi.Input[Optional[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict', 'outputs.InfrastructureConfigurationLogging']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            placement: pulumi.Input[Optional[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']]] = None,
+            placement: pulumi.Input[Optional[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict', 'outputs.InfrastructureConfigurationPlacement']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -831,15 +831,15 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] date_created: Date when the configuration was created.
         :param pulumi.Input[_builtins.str] date_updated: Date when the configuration was updated.
         :param pulumi.Input[_builtins.str] description: Description for the configuration.
-        :param pulumi.Input[Union['InfrastructureConfigurationInstanceMetadataOptionsArgs', 'InfrastructureConfigurationInstanceMetadataOptionsArgsDict']] instance_metadata_options: Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
+        :param pulumi.Input[Union['InfrastructureConfigurationInstanceMetadataOptionsArgs', 'InfrastructureConfigurationInstanceMetadataOptionsArgsDict', 'outputs.InfrastructureConfigurationInstanceMetadataOptions']] instance_metadata_options: Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
         :param pulumi.Input[_builtins.str] instance_profile_name: Name of IAM Instance Profile.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] instance_types: Set of EC2 Instance Types.
         :param pulumi.Input[_builtins.str] key_pair: Name of EC2 Key Pair.
-        :param pulumi.Input[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict']] logging: Configuration block with logging settings. Detailed below.
+        :param pulumi.Input[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict', 'outputs.InfrastructureConfigurationLogging']] logging: Configuration block with logging settings. Detailed below.
         :param pulumi.Input[_builtins.str] name: Name for the configuration.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']] placement: Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+        :param pulumi.Input[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict', 'outputs.InfrastructureConfigurationPlacement']] placement: Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] resource_tags: Key-value map of resource tags to assign to infrastructure created by the configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Set of EC2 Security Group identifiers.

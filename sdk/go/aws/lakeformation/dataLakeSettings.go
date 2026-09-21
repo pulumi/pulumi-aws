@@ -61,6 +61,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.NewDataLakeSettings(ctx, "example", &lakeformation.DataLakeSettingsArgs{
+//				Admins: pulumi.StringArray{
+//					test.Arn,
+//					testAwsIamRole.Arn,
+//				},
 //				CreateDatabaseDefaultPermissions: lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArray{
 //					&lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArgs{
 //						Permissions: pulumi.StringArray{
@@ -78,10 +82,6 @@ import (
 //						},
 //						Principal: pulumi.Any(testAwsIamRole.Arn),
 //					},
-//				},
-//				Admins: pulumi.StringArray{
-//					test.Arn,
-//					testAwsIamRole.Arn,
 //				},
 //			})
 //			if err != nil {
@@ -108,6 +108,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.NewDataLakeSettings(ctx, "example", &lakeformation.DataLakeSettingsArgs{
+//				Admins: pulumi.StringArray{
+//					test.Arn,
+//					testAwsIamRole.Arn,
+//				},
 //				CreateDatabaseDefaultPermissions: lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArray{
 //					&lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArgs{
 //						Permissions: pulumi.StringArray{
@@ -125,10 +129,6 @@ import (
 //						},
 //						Principal: pulumi.Any(testAwsIamRole.Arn),
 //					},
-//				},
-//				Admins: pulumi.StringArray{
-//					test.Arn,
-//					testAwsIamRole.Arn,
 //				},
 //				AllowExternalDataFiltering: pulumi.Bool(true),
 //				ExternalDataFilteringAllowLists: pulumi.StringArray{

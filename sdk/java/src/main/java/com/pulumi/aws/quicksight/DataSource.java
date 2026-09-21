@@ -54,6 +54,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new DataSource("default", DataSourceArgs.builder()
+ *             .dataSourceId("example-id")
+ *             .name("My Cool Data in S3")
  *             .parameters(DataSourceParametersArgs.builder()
  *                 .s3(DataSourceParametersS3Args.builder()
  *                     .manifestFileLocation(DataSourceParametersS3ManifestFileLocationArgs.builder()
@@ -62,8 +64,6 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .dataSourceId("example-id")
- *             .name("My Cool Data in S3")
  *             .type("S3")
  *             .build());
  * 
@@ -192,6 +192,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDataSource = new DataSource("exampleDataSource", DataSourceArgs.builder()
+ *             .dataSourceId("example-id")
+ *             .name("manifest in S3")
  *             .parameters(DataSourceParametersArgs.builder()
  *                 .s3(DataSourceParametersS3Args.builder()
  *                     .manifestFileLocation(DataSourceParametersS3ManifestFileLocationArgs.builder()
@@ -201,8 +203,6 @@ import javax.annotation.Nullable;
  *                     .roleArn(exampleRole.arn())
  *                     .build())
  *                 .build())
- *             .dataSourceId("example-id")
- *             .name("manifest in S3")
  *             .type("S3")
  *             .build());
  * 

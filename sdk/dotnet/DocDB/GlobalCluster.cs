@@ -94,15 +94,7 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DocDB.Cluster("example", new()
-    ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         IgnoreChanges =
-    ///         {
-    ///             "globalClusterIdentifier",
-    ///         },
-    ///     });
+    ///     var example = new Aws.DocDB.Cluster("example");
     /// 
     ///     var exampleGlobalCluster = new Aws.DocDB.GlobalCluster("example", new()
     ///     {
@@ -131,15 +123,7 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DocDB.GlobalCluster("example", new()
-    ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         IgnoreChanges =
-    ///         {
-    ///             "sourceDbClusterIdentifier",
-    ///         },
-    ///     });
+    ///     var example = new Aws.DocDB.GlobalCluster("example");
     /// 
     /// });
     /// ```

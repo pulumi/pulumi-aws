@@ -48,8 +48,11 @@ namespace Pulumi.Aws.Fsx
     /// {
     ///     var test = new Aws.Fsx.OntapStorageVirtualMachine("test", new()
     ///     {
+    ///         FileSystemId = testAwsFsxOntapFileSystem.Id,
+    ///         Name = "mysvm",
     ///         ActiveDirectoryConfiguration = new Aws.Fsx.Inputs.OntapStorageVirtualMachineActiveDirectoryConfigurationArgs
     ///         {
+    ///             NetbiosName = "mysvm",
     ///             SelfManagedActiveDirectoryConfiguration = new Aws.Fsx.Inputs.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs
     ///             {
     ///                 DnsIps = new[]
@@ -61,10 +64,7 @@ namespace Pulumi.Aws.Fsx
     ///                 Password = "avoid-plaintext-passwords",
     ///                 Username = "Admin",
     ///             },
-    ///             NetbiosName = "mysvm",
     ///         },
-    ///         FileSystemId = testAwsFsxOntapFileSystem.Id,
-    ///         Name = "mysvm",
     ///     });
     /// 
     /// });
@@ -91,12 +91,6 @@ namespace Pulumi.Aws.Fsx
     ///     var example = new Aws.Fsx.OntapStorageVirtualMachine("example", new()
     ///     {
     ///         SvmAdminPassword = "avoid-plaintext-passwords",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         IgnoreChanges =
-    ///         {
-    ///             "svmAdminPassword",
-    ///         },
     ///     });
     /// 
     /// });

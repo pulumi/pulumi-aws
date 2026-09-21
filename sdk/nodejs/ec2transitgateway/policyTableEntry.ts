@@ -32,20 +32,20 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2transitgateway.PolicyTableEntry("example", {
+ *     transitGatewayPolicyTableId: exampleAwsEc2TransitGatewayPolicyTable.id,
+ *     policyRuleNumber: "200",
+ *     targetRouteTableId: exampleAwsEc2TransitGatewayRouteTable.id,
  *     policyRule: {
- *         metadata: {
- *             key: "test",
- *             value: "test",
- *         },
  *         sourceCidrBlock: "10.0.1.0/24",
  *         sourcePortRange: "*",
  *         destinationCidrBlock: "10.0.2.0/24",
  *         destinationPortRange: "443",
  *         protocol: "6",
+ *         metadata: {
+ *             key: "test",
+ *             value: "test",
+ *         },
  *     },
- *     transitGatewayPolicyTableId: exampleAwsEc2TransitGatewayPolicyTable.id,
- *     policyRuleNumber: "200",
- *     targetRouteTableId: exampleAwsEc2TransitGatewayRouteTable.id,
  * });
  * ```
  *

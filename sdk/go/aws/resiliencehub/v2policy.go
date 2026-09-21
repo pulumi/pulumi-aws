@@ -32,10 +32,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := resiliencehub.NewV2Policy(ctx, "example", &resiliencehub.V2PolicyArgs{
+//				Name: pulumi.String("example-policy"),
 //				AvailabilitySlo: &resiliencehub.V2PolicyAvailabilitySloArgs{
 //					Target: pulumi.Float64(99.9),
 //				},
-//				Name: pulumi.String("example-policy"),
 //			})
 //			if err != nil {
 //				return err
@@ -61,6 +61,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := resiliencehub.NewV2Policy(ctx, "example", &resiliencehub.V2PolicyArgs{
+//				Name:        pulumi.String("example-policy"),
+//				Description: pulumi.String("Policy with multi-AZ and data recovery targets"),
 //				AvailabilitySlo: &resiliencehub.V2PolicyAvailabilitySloArgs{
 //					Target: pulumi.Float64(99.99),
 //				},
@@ -72,8 +74,6 @@ import (
 //					RpoInMinutes:             pulumi.Int(5),
 //					RtoInMinutes:             pulumi.Int(10),
 //				},
-//				Name:        pulumi.String("example-policy"),
-//				Description: pulumi.String("Policy with multi-AZ and data recovery targets"),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("production"),
 //				},
@@ -102,6 +102,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := resiliencehub.NewV2Policy(ctx, "example", &resiliencehub.V2PolicyArgs{
+//				Name: pulumi.String("example-multi-region-policy"),
 //				AvailabilitySlo: &resiliencehub.V2PolicyAvailabilitySloArgs{
 //					Target: pulumi.Float64(99.95),
 //				},
@@ -110,7 +111,6 @@ import (
 //					RpoInMinutes:             pulumi.Int(15),
 //					RtoInMinutes:             pulumi.Int(30),
 //				},
-//				Name: pulumi.String("example-multi-region-policy"),
 //			})
 //			if err != nil {
 //				return err

@@ -19,6 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datazone.Environment("example", {
+ *     name: "example",
+ *     blueprintIdentifier: test.environmentBlueprintId,
+ *     profileIdentifier: testAwsDatazoneEnvironmentProfile.id,
+ *     projectIdentifier: testAwsDatazoneProject.id,
+ *     domainIdentifier: testAwsDatazoneDomain.id,
  *     userParameters: [
  *         {
  *             name: "consumerGlueDbName",
@@ -33,11 +38,6 @@ import * as utilities from "../utilities";
  *             value: "workgroup",
  *         },
  *     ],
- *     name: "example",
- *     blueprintIdentifier: test.environmentBlueprintId,
- *     profileIdentifier: testAwsDatazoneEnvironmentProfile.id,
- *     projectIdentifier: testAwsDatazoneProject.id,
- *     domainIdentifier: testAwsDatazoneDomain.id,
  * });
  * ```
  *

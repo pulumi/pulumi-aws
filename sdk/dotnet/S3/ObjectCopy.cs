@@ -24,6 +24,9 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var test = new Aws.S3.ObjectCopy("test", new()
     ///     {
+    ///         Bucket = "destination_bucket",
+    ///         Key = "destination_key",
+    ///         Source = "source_bucket/source_key",
     ///         Grants = new[]
     ///         {
     ///             new Aws.S3.Inputs.ObjectCopyGrantArgs
@@ -36,9 +39,6 @@ namespace Pulumi.Aws.S3
     ///                 },
     ///             },
     ///         },
-    ///         Bucket = "destination_bucket",
-    ///         Key = "destination_key",
-    ///         Source = "source_bucket/source_key",
     ///     });
     /// 
     /// });
@@ -59,6 +59,9 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var test = new Aws.S3.ObjectCopy("test", new()
     ///     {
+    ///         Bucket = "destination_bucket",
+    ///         Key = "destination_key",
+    ///         Source = "source_bucket/source_key",
     ///         OverrideProvider = new Aws.S3.Inputs.ObjectCopyOverrideProviderArgs
     ///         {
     ///             DefaultTags = new Aws.S3.Inputs.ObjectCopyOverrideProviderDefaultTagsArgs
@@ -66,9 +69,6 @@ namespace Pulumi.Aws.S3
     ///                 Tags = null,
     ///             },
     ///         },
-    ///         Bucket = "destination_bucket",
-    ///         Key = "destination_key",
-    ///         Source = "source_bucket/source_key",
     ///     });
     /// 
     /// });

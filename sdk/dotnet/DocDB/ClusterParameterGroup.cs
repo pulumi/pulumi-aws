@@ -24,6 +24,9 @@ namespace Pulumi.Aws.DocDB
     /// {
     ///     var example = new Aws.DocDB.ClusterParameterGroup("example", new()
     ///     {
+    ///         Family = "docdb3.6",
+    ///         Name = "example",
+    ///         Description = "docdb cluster parameter group",
     ///         Parameters = new[]
     ///         {
     ///             new Aws.DocDB.Inputs.ClusterParameterGroupParameterArgs
@@ -32,9 +35,6 @@ namespace Pulumi.Aws.DocDB
     ///                 Value = "enabled",
     ///             },
     ///         },
-    ///         Family = "docdb3.6",
-    ///         Name = "example",
-    ///         Description = "docdb cluster parameter group",
     ///     });
     /// 
     /// });

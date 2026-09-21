@@ -26,6 +26,7 @@ namespace Pulumi.Aws.ElasticSearch
     /// {
     ///     var foo = new Aws.ElasticSearch.VpcEndpoint("foo", new()
     ///     {
+    ///         DomainArn = domain1.Arn,
     ///         VpcOptions = new Aws.ElasticSearch.Inputs.VpcEndpointVpcOptionsArgs
     ///         {
     ///             SecurityGroupIds = new[]
@@ -39,7 +40,6 @@ namespace Pulumi.Aws.ElasticSearch
     ///                 test2AwsSubnet.Id,
     ///             },
     ///         },
-    ///         DomainArn = domain1.Arn,
     ///     });
     /// 
     /// });

@@ -24,6 +24,12 @@ namespace Pulumi.Aws.DynamoDB
     /// {
     ///     var exampleTable = new Aws.DynamoDB.Table("example", new()
     ///     {
+    ///         Name = "example",
+    ///         BillingMode = "PROVISIONED",
+    ///         ReadCapacity = 20,
+    ///         WriteCapacity = 20,
+    ///         HashKey = "UserId",
+    ///         RangeKey = "GameTitle",
     ///         Attributes = new[]
     ///         {
     ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
@@ -37,16 +43,12 @@ namespace Pulumi.Aws.DynamoDB
     ///                 Type = "S",
     ///             },
     ///         },
-    ///         Name = "example",
-    ///         BillingMode = "PROVISIONED",
-    ///         ReadCapacity = 20,
-    ///         WriteCapacity = 20,
-    ///         HashKey = "UserId",
-    ///         RangeKey = "GameTitle",
     ///     });
     /// 
     ///     var example = new Aws.DynamoDB.GlobalSecondaryIndex("example", new()
     ///     {
+    ///         TableName = exampleTable.Name,
+    ///         IndexName = "GameTitleIndex",
     ///         Projection = new Aws.DynamoDB.Inputs.GlobalSecondaryIndexProjectionArgs
     ///         {
     ///             ProjectionType = "INCLUDE",
@@ -69,8 +71,6 @@ namespace Pulumi.Aws.DynamoDB
     ///                 KeyType = "HASH",
     ///             },
     ///         },
-    ///         TableName = exampleTable.Name,
-    ///         IndexName = "GameTitleIndex",
     ///     });
     /// 
     /// });
@@ -94,24 +94,10 @@ namespace Pulumi.Aws.DynamoDB
     /// {
     ///     var example = new Aws.DynamoDB.Table("example", new()
     ///     {
-    ///         Attributes = new[]
-    ///         {
-    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
-    ///             {
-    ///                 Name = "example-key",
-    ///                 Type = "S",
-    ///             },
-    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
-    ///             {
-    ///                 Name = "example-gsi-key-1",
-    ///                 Type = "S",
-    ///             },
-    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
-    ///             {
-    ///                 Name = "example-gsi-key-2",
-    ///                 Type = "S",
-    ///             },
-    ///         },
+    ///         Name = "example-table",
+    ///         HashKey = "example-key",
+    ///         ReadCapacity = 1,
+    ///         WriteCapacity = 1,
     ///         GlobalSecondaryIndexes = new[]
     ///         {
     ///             new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexArgs
@@ -131,10 +117,24 @@ namespace Pulumi.Aws.DynamoDB
     ///                 WriteCapacity = 1,
     ///             },
     ///         },
-    ///         Name = "example-table",
-    ///         HashKey = "example-key",
-    ///         ReadCapacity = 1,
-    ///         WriteCapacity = 1,
+    ///         Attributes = new[]
+    ///         {
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             {
+    ///                 Name = "example-key",
+    ///                 Type = "S",
+    ///             },
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             {
+    ///                 Name = "example-gsi-key-1",
+    ///                 Type = "S",
+    ///             },
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             {
+    ///                 Name = "example-gsi-key-2",
+    ///                 Type = "S",
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });

@@ -171,7 +171,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_enable: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_enable_standards: pulumi.Input[Optional[_builtins.str]] = None,
-                 organization_configuration: pulumi.Input[Optional[Union['OrganizationConfigurationOrganizationConfigurationArgs', 'OrganizationConfigurationOrganizationConfigurationArgsDict']]] = None,
+                 organization_configuration: pulumi.Input[Optional[Union['OrganizationConfigurationOrganizationConfigurationArgs', 'OrganizationConfigurationOrganizationConfigurationArgsDict', 'outputs.OrganizationConfigurationOrganizationConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -212,11 +212,11 @@ class OrganizationConfiguration(pulumi.CustomResource):
         example_finding_aggregator = aws.securityhub.FindingAggregator("example", linking_mode="ALL_REGIONS",
         opts = pulumi.ResourceOptions(depends_on=[example]))
         example_organization_configuration = aws.securityhub.OrganizationConfiguration("example",
+            auto_enable=False,
+            auto_enable_standards="NONE",
             organization_configuration={
                 "configuration_type": "CENTRAL",
             },
-            auto_enable=False,
-            auto_enable_standards="NONE",
             opts = pulumi.ResourceOptions(depends_on=[example_finding_aggregator]))
         ```
 
@@ -233,7 +233,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_enable: Whether to automatically enable Security Hub for new accounts in the organization.
         :param pulumi.Input[_builtins.str] auto_enable_standards: Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
-        :param pulumi.Input[Union['OrganizationConfigurationOrganizationConfigurationArgs', 'OrganizationConfigurationOrganizationConfigurationArgsDict']] organization_configuration: Provides information about the way an organization is configured in Security Hub.
+        :param pulumi.Input[Union['OrganizationConfigurationOrganizationConfigurationArgs', 'OrganizationConfigurationOrganizationConfigurationArgsDict', 'outputs.OrganizationConfigurationOrganizationConfiguration']] organization_configuration: Provides information about the way an organization is configured in Security Hub.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -280,11 +280,11 @@ class OrganizationConfiguration(pulumi.CustomResource):
         example_finding_aggregator = aws.securityhub.FindingAggregator("example", linking_mode="ALL_REGIONS",
         opts = pulumi.ResourceOptions(depends_on=[example]))
         example_organization_configuration = aws.securityhub.OrganizationConfiguration("example",
+            auto_enable=False,
+            auto_enable_standards="NONE",
             organization_configuration={
                 "configuration_type": "CENTRAL",
             },
-            auto_enable=False,
-            auto_enable_standards="NONE",
             opts = pulumi.ResourceOptions(depends_on=[example_finding_aggregator]))
         ```
 
@@ -314,7 +314,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_enable: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_enable_standards: pulumi.Input[Optional[_builtins.str]] = None,
-                 organization_configuration: pulumi.Input[Optional[Union['OrganizationConfigurationOrganizationConfigurationArgs', 'OrganizationConfigurationOrganizationConfigurationArgsDict']]] = None,
+                 organization_configuration: pulumi.Input[Optional[Union['OrganizationConfigurationOrganizationConfigurationArgs', 'OrganizationConfigurationOrganizationConfigurationArgsDict', 'outputs.OrganizationConfigurationOrganizationConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -343,7 +343,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_enable: pulumi.Input[Optional[_builtins.bool]] = None,
             auto_enable_standards: pulumi.Input[Optional[_builtins.str]] = None,
-            organization_configuration: pulumi.Input[Optional[Union['OrganizationConfigurationOrganizationConfigurationArgs', 'OrganizationConfigurationOrganizationConfigurationArgsDict']]] = None,
+            organization_configuration: pulumi.Input[Optional[Union['OrganizationConfigurationOrganizationConfigurationArgs', 'OrganizationConfigurationOrganizationConfigurationArgsDict', 'outputs.OrganizationConfigurationOrganizationConfiguration']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'OrganizationConfiguration':
         """
         Get an existing OrganizationConfiguration resource's state with the given name, id, and optional extra
@@ -354,7 +354,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_enable: Whether to automatically enable Security Hub for new accounts in the organization.
         :param pulumi.Input[_builtins.str] auto_enable_standards: Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
-        :param pulumi.Input[Union['OrganizationConfigurationOrganizationConfigurationArgs', 'OrganizationConfigurationOrganizationConfigurationArgsDict']] organization_configuration: Provides information about the way an organization is configured in Security Hub.
+        :param pulumi.Input[Union['OrganizationConfigurationOrganizationConfigurationArgs', 'OrganizationConfigurationOrganizationConfigurationArgsDict', 'outputs.OrganizationConfigurationOrganizationConfiguration']] organization_configuration: Provides information about the way an organization is configured in Security Hub.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

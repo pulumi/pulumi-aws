@@ -1031,27 +1031,27 @@ class Distribution(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  anycast_ip_list_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 cache_tag_config: pulumi.Input[Optional[Union['DistributionCacheTagConfigArgs', 'DistributionCacheTagConfigArgsDict']]] = None,
+                 cache_tag_config: pulumi.Input[Optional[Union['DistributionCacheTagConfigArgs', 'DistributionCacheTagConfigArgsDict', 'outputs.DistributionCacheTagConfig']]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
-                 connection_function_association: pulumi.Input[Optional[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict']]] = None,
+                 connection_function_association: pulumi.Input[Optional[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict', 'outputs.DistributionConnectionFunctionAssociation']]] = None,
                  continuous_deployment_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 custom_error_responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict']]]]] = None,
-                 default_cache_behavior: pulumi.Input[Optional[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']]] = None,
+                 custom_error_responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict', 'outputs.DistributionCustomErrorResponse']]]]] = None,
+                 default_cache_behavior: pulumi.Input[Optional[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict', 'outputs.DistributionDefaultCacheBehavior']]] = None,
                  default_root_object: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  http_version: pulumi.Input[Optional[_builtins.str]] = None,
                  is_ipv6_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 logging_config: pulumi.Input[Optional[Union['DistributionLoggingConfigArgs', 'DistributionLoggingConfigArgsDict']]] = None,
-                 ordered_cache_behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOrderedCacheBehaviorArgs', 'DistributionOrderedCacheBehaviorArgsDict']]]]] = None,
-                 origin_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOriginGroupArgs', 'DistributionOriginGroupArgsDict']]]]] = None,
-                 origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']]]]] = None,
+                 logging_config: pulumi.Input[Optional[Union['DistributionLoggingConfigArgs', 'DistributionLoggingConfigArgsDict', 'outputs.DistributionLoggingConfig']]] = None,
+                 ordered_cache_behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOrderedCacheBehaviorArgs', 'DistributionOrderedCacheBehaviorArgsDict', 'outputs.DistributionOrderedCacheBehavior']]]]] = None,
+                 origin_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOriginGroupArgs', 'DistributionOriginGroupArgsDict', 'outputs.DistributionOriginGroup']]]]] = None,
+                 origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict', 'outputs.DistributionOrigin']]]]] = None,
                  price_class: pulumi.Input[Optional[_builtins.str]] = None,
-                 restrictions: pulumi.Input[Optional[Union['DistributionRestrictionsArgs', 'DistributionRestrictionsArgsDict']]] = None,
+                 restrictions: pulumi.Input[Optional[Union['DistributionRestrictionsArgs', 'DistributionRestrictionsArgsDict', 'outputs.DistributionRestrictions']]] = None,
                  retain_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
                  staging: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 viewer_certificate: pulumi.Input[Optional[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict']]] = None,
-                 viewer_mtls_config: pulumi.Input[Optional[Union['DistributionViewerMtlsConfigArgs', 'DistributionViewerMtlsConfigArgsDict']]] = None,
+                 viewer_certificate: pulumi.Input[Optional[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict', 'outputs.DistributionViewerCertificate']]] = None,
+                 viewer_mtls_config: pulumi.Input[Optional[Union['DistributionViewerMtlsConfigArgs', 'DistributionViewerMtlsConfigArgsDict', 'outputs.DistributionViewerMtlsConfig']]] = None,
                  wait_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
                  web_acl_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -1089,13 +1089,20 @@ class Distribution(pulumi.CustomResource):
             signing_behavior="always",
             signing_protocol="sigv4")
         s3_distribution = aws.cloudfront.Distribution("s3_distribution",
+            origins=[{
+                "domain_name": b.bucket_regional_domain_name,
+                "origin_access_control_id": default.id,
+                "origin_id": s3_origin_id,
+            }],
+            enabled=True,
+            is_ipv6_enabled=True,
+            comment="Some comment",
+            default_root_object="index.html",
+            aliases=[
+                f"mysite.{my_domain}",
+                f"yoursite.{my_domain}",
+            ],
             default_cache_behavior={
-                "forwarded_values": {
-                    "cookies": {
-                        "forward": "none",
-                    },
-                    "query_string": False,
-                },
                 "allowed_methods": [
                     "DELETE",
                     "GET",
@@ -1110,35 +1117,19 @@ class Distribution(pulumi.CustomResource):
                     "HEAD",
                 ],
                 "target_origin_id": s3_origin_id,
+                "forwarded_values": {
+                    "query_string": False,
+                    "cookies": {
+                        "forward": "none",
+                    },
+                },
                 "viewer_protocol_policy": "allow-all",
                 "min_ttl": 0,
                 "default_ttl": 3600,
                 "max_ttl": 86400,
             },
-            restrictions={
-                "geo_restriction": {
-                    "restriction_type": "whitelist",
-                    "locations": [
-                        "US",
-                        "CA",
-                        "GB",
-                        "DE",
-                    ],
-                },
-            },
-            viewer_certificate={
-                "acm_certificate_arn": my_domain_get_certificate.arn,
-                "ssl_support_method": "sni-only",
-            },
             ordered_cache_behaviors=[
                 {
-                    "forwarded_values": {
-                        "cookies": {
-                            "forward": "none",
-                        },
-                        "query_string": False,
-                        "headers": ["Origin"],
-                    },
                     "path_pattern": "/content/immutable/*",
                     "allowed_methods": [
                         "GET",
@@ -1151,6 +1142,13 @@ class Distribution(pulumi.CustomResource):
                         "OPTIONS",
                     ],
                     "target_origin_id": s3_origin_id,
+                    "forwarded_values": {
+                        "query_string": False,
+                        "headers": ["Origin"],
+                        "cookies": {
+                            "forward": "none",
+                        },
+                    },
                     "min_ttl": 0,
                     "default_ttl": 86400,
                     "max_ttl": 31536000,
@@ -1158,12 +1156,6 @@ class Distribution(pulumi.CustomResource):
                     "viewer_protocol_policy": "redirect-to-https",
                 },
                 {
-                    "forwarded_values": {
-                        "cookies": {
-                            "forward": "none",
-                        },
-                        "query_string": False,
-                    },
                     "path_pattern": "/content/*",
                     "allowed_methods": [
                         "GET",
@@ -1175,6 +1167,12 @@ class Distribution(pulumi.CustomResource):
                         "HEAD",
                     ],
                     "target_origin_id": s3_origin_id,
+                    "forwarded_values": {
+                        "query_string": False,
+                        "cookies": {
+                            "forward": "none",
+                        },
+                    },
                     "min_ttl": 0,
                     "default_ttl": 3600,
                     "max_ttl": 86400,
@@ -1182,41 +1180,43 @@ class Distribution(pulumi.CustomResource):
                     "viewer_protocol_policy": "redirect-to-https",
                 },
             ],
-            origins=[{
-                "domain_name": b.bucket_regional_domain_name,
-                "origin_access_control_id": default.id,
-                "origin_id": s3_origin_id,
-            }],
-            enabled=True,
-            is_ipv6_enabled=True,
-            comment="Some comment",
-            default_root_object="index.html",
-            aliases=[
-                f"mysite.{my_domain}",
-                f"yoursite.{my_domain}",
-            ],
             price_class="PriceClass_200",
+            restrictions={
+                "geo_restriction": {
+                    "restriction_type": "whitelist",
+                    "locations": [
+                        "US",
+                        "CA",
+                        "GB",
+                        "DE",
+                    ],
+                },
+            },
             tags={
                 "Environment": "production",
+            },
+            viewer_certificate={
+                "acm_certificate_arn": my_domain_get_certificate.arn,
+                "ssl_support_method": "sni-only",
             })
         # See https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
         origin_bucket_policy = aws.iam.get_policy_document_output(statements=[{
-            "conditions": [{
-                "test": "StringEquals",
-                "variable": "AWS:SourceArn",
-                "values": [s3_distribution.arn],
-            }],
+            "sid": "AllowCloudFrontServicePrincipalReadWrite",
+            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["cloudfront.amazonaws.com"],
             }],
-            "sid": "AllowCloudFrontServicePrincipalReadWrite",
-            "effect": "Allow",
             "actions": [
                 "s3:GetObject",
                 "s3:PutObject",
             ],
             "resources": [b.arn.apply(lambda arn: f"{arn}/*")],
+            "conditions": [{
+                "test": "StringEquals",
+                "variable": "AWS:SourceArn",
+                "values": [s3_distribution.arn],
+            }],
         }])
         b_bucket_policy = aws.s3.BucketPolicy("b",
             bucket=b.bucket,
@@ -1227,14 +1227,14 @@ class Distribution(pulumi.CustomResource):
         def create_cloudfront(range_body):
             for cloudfront_range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
                 cloudfront.append(aws.route53.Record(f"cloudfront-{cloudfront_range['key']}",
+                    zone_id=my_domain_get_zone.zone_id,
+                    name=cloudfront_range["value"],
+                    type=aws.route53.RecordType.A,
                     aliases=[{
                         "name": s3_distribution.domain_name,
                         "zone_id": s3_distribution.hosted_zone_id,
                         "evaluate_target_health": False,
-                    }],
-                    zone_id=my_domain_get_zone.zone_id,
-                    name=cloudfront_range["value"],
-                    type=aws.route53.RecordType.A))
+                    }]))
 
         s3_distribution.aliases.apply(create_cloudfront)
         ```
@@ -1248,10 +1248,8 @@ class Distribution(pulumi.CustomResource):
         import pulumi_aws as aws
 
         s3_distribution = aws.cloudfront.Distribution("s3_distribution",
-            default_cache_behavior={
-                "target_origin_id": "groupS3",
-            },
             origin_groups=[{
+                "origin_id": "groupS3",
                 "failover_criteria": {
                     "status_codes": [
                         403,
@@ -1268,24 +1266,26 @@ class Distribution(pulumi.CustomResource):
                         "origin_id": "failoverS3",
                     },
                 ],
-                "origin_id": "groupS3",
             }],
             origins=[
                 {
-                    "s3_origin_config": {
-                        "origin_access_identity": default["cloudfrontAccessIdentityPath"],
-                    },
                     "domain_name": primary["bucketRegionalDomainName"],
                     "origin_id": "primaryS3",
-                },
-                {
                     "s3_origin_config": {
                         "origin_access_identity": default["cloudfrontAccessIdentityPath"],
                     },
+                },
+                {
                     "domain_name": failover["bucketRegionalDomainName"],
                     "origin_id": "failoverS3",
+                    "s3_origin_config": {
+                        "origin_access_identity": default["cloudfrontAccessIdentityPath"],
+                    },
                 },
-            ])
+            ],
+            default_cache_behavior={
+                "target_origin_id": "groupS3",
+            })
         ```
 
         ### With Managed Caching Policy
@@ -1298,6 +1298,17 @@ class Distribution(pulumi.CustomResource):
 
         s3_origin_id = "myS3Origin"
         s3_distribution = aws.cloudfront.Distribution("s3_distribution",
+            origins=[{
+                "domain_name": primary["bucketRegionalDomainName"],
+                "origin_id": "myS3Origin",
+                "s3_origin_config": {
+                    "origin_access_identity": default["cloudfrontAccessIdentityPath"],
+                },
+            }],
+            enabled=True,
+            is_ipv6_enabled=True,
+            comment="Some comment",
+            default_root_object="index.html",
             default_cache_behavior={
                 "cache_policy_id": "4135ea2d-6df8-44a3-9df3-4b5a84be39ad",
                 "allowed_methods": [
@@ -1325,18 +1336,7 @@ class Distribution(pulumi.CustomResource):
             },
             viewer_certificate={
                 "cloudfront_default_certificate": True,
-            },
-            origins=[{
-                "s3_origin_config": {
-                    "origin_access_identity": default["cloudfrontAccessIdentityPath"],
-                },
-                "domain_name": primary["bucketRegionalDomainName"],
-                "origin_id": "myS3Origin",
-            }],
-            enabled=True,
-            is_ipv6_enabled=True,
-            comment="Some comment",
-            default_root_object="index.html")
+            })
         ```
 
         ### With V2 logging to S3
@@ -1357,19 +1357,19 @@ class Distribution(pulumi.CustomResource):
             bucket="testbucket",
             force_destroy=True)
         example_log_delivery_destination = aws.cloudwatch.LogDeliveryDestination("example",
-            delivery_destination_configuration={
-                "destination_resource_arn": example_bucket.arn.apply(lambda arn: f"{arn}/prefix"),
-            },
             region="us-east-1",
             name="s3-destination",
-            output_format="parquet")
+            output_format="parquet",
+            delivery_destination_configuration={
+                "destination_resource_arn": example_bucket.arn.apply(lambda arn: f"{arn}/prefix"),
+            })
         example_log_delivery = aws.cloudwatch.LogDelivery("example",
-            s3_delivery_configurations=[{
-                "suffix_path": "/123456678910/{DistributionId}/{yyyy}/{MM}/{dd}/{HH}",
-            }],
             region="us-east-1",
             delivery_source_name=example_log_delivery_source.name,
-            delivery_destination_arn=example_log_delivery_destination.arn)
+            delivery_destination_arn=example_log_delivery_destination.arn,
+            s3_delivery_configurations=[{
+                "suffix_path": "/123456678910/{DistributionId}/{yyyy}/{MM}/{dd}/{HH}",
+            }])
         ```
 
         ### With V2 logging to Data Firehose
@@ -1392,12 +1392,12 @@ class Distribution(pulumi.CustomResource):
             log_type="ACCESS_LOGS",
             resource_arn=example.arn)
         example_log_delivery_destination = aws.cloudwatch.LogDeliveryDestination("example",
-            delivery_destination_configuration={
-                "destination_resource_arn": cloudfront_logs.arn,
-            },
             region="us-east-1",
             name="firehose-destination",
-            output_format="json")
+            output_format="json",
+            delivery_destination_configuration={
+                "destination_resource_arn": cloudfront_logs.arn,
+            })
         example_log_delivery = aws.cloudwatch.LogDelivery("example",
             region="us-east-1",
             delivery_source_name=example_log_delivery_source.name,
@@ -1419,12 +1419,12 @@ class Distribution(pulumi.CustomResource):
                 "id": example.id,
             },
             viewer_mtls_config={
+                "mode": "verify",
                 "trust_store_config": {
                     "trust_store_id": example_trust_store.id,
                     "advertise_trust_store_ca_names": True,
                     "ignore_certificate_expiry": False,
                 },
-                "mode": "verify",
             })
         ```
 
@@ -1451,27 +1451,27 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aliases: Extra CNAMEs (alternate domain names), if any, for this distribution.
         :param pulumi.Input[_builtins.str] anycast_ip_list_id: ID of the Anycast static IP list that is associated with the distribution.
-        :param pulumi.Input[Union['DistributionCacheTagConfigArgs', 'DistributionCacheTagConfigArgsDict']] cache_tag_config: Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+        :param pulumi.Input[Union['DistributionCacheTagConfigArgs', 'DistributionCacheTagConfigArgsDict', 'outputs.DistributionCacheTagConfig']] cache_tag_config: Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
         :param pulumi.Input[_builtins.str] comment: Any comments you want to include about the distribution.
-        :param pulumi.Input[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict']] connection_function_association: A connection function association configuration block (maximum one).
+        :param pulumi.Input[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict', 'outputs.DistributionConnectionFunctionAssociation']] connection_function_association: A connection function association configuration block (maximum one).
         :param pulumi.Input[_builtins.str] continuous_deployment_policy_id: Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict']]]] custom_error_responses: One or more custom error response elements (multiples allowed).
-        :param pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']] default_cache_behavior: Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict', 'outputs.DistributionCustomErrorResponse']]]] custom_error_responses: One or more custom error response elements (multiples allowed).
+        :param pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict', 'outputs.DistributionDefaultCacheBehavior']] default_cache_behavior: Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
         :param pulumi.Input[_builtins.str] default_root_object: Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
         :param pulumi.Input[_builtins.bool] enabled: Whether the distribution is enabled to accept end user requests for content.
         :param pulumi.Input[_builtins.str] http_version: Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
         :param pulumi.Input[_builtins.bool] is_ipv6_enabled: Whether the IPv6 is enabled for the distribution.
-        :param pulumi.Input[Union['DistributionLoggingConfigArgs', 'DistributionLoggingConfigArgsDict']] logging_config: The logging configuration that controls how logs are written to your distribution (maximum one). AWS provides two versions of access logs for CloudFront: Legacy and v2. This argument configures legacy version standard logs.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionOrderedCacheBehaviorArgs', 'DistributionOrderedCacheBehaviorArgsDict']]]] ordered_cache_behaviors: Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionOriginGroupArgs', 'DistributionOriginGroupArgsDict']]]] origin_groups: One or more origin_group for this distribution (multiples allowed).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']]]] origins: One or more origins for this distribution (multiples allowed).
+        :param pulumi.Input[Union['DistributionLoggingConfigArgs', 'DistributionLoggingConfigArgsDict', 'outputs.DistributionLoggingConfig']] logging_config: The logging configuration that controls how logs are written to your distribution (maximum one). AWS provides two versions of access logs for CloudFront: Legacy and v2. This argument configures legacy version standard logs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionOrderedCacheBehaviorArgs', 'DistributionOrderedCacheBehaviorArgsDict', 'outputs.DistributionOrderedCacheBehavior']]]] ordered_cache_behaviors: Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionOriginGroupArgs', 'DistributionOriginGroupArgsDict', 'outputs.DistributionOriginGroup']]]] origin_groups: One or more origin_group for this distribution (multiples allowed).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict', 'outputs.DistributionOrigin']]]] origins: One or more origins for this distribution (multiples allowed).
         :param pulumi.Input[_builtins.str] price_class: Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
-        :param pulumi.Input[Union['DistributionRestrictionsArgs', 'DistributionRestrictionsArgsDict']] restrictions: The restriction configuration for this distribution (maximum one).
+        :param pulumi.Input[Union['DistributionRestrictionsArgs', 'DistributionRestrictionsArgsDict', 'outputs.DistributionRestrictions']] restrictions: The restriction configuration for this distribution (maximum one).
         :param pulumi.Input[_builtins.bool] retain_on_delete: Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
         :param pulumi.Input[_builtins.bool] staging: A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict']] viewer_certificate: The SSL configuration for this distribution (maximum one).
-        :param pulumi.Input[Union['DistributionViewerMtlsConfigArgs', 'DistributionViewerMtlsConfigArgsDict']] viewer_mtls_config: The viewer mTLS configuration for this distribution (maximum one).
+        :param pulumi.Input[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict', 'outputs.DistributionViewerCertificate']] viewer_certificate: The SSL configuration for this distribution (maximum one).
+        :param pulumi.Input[Union['DistributionViewerMtlsConfigArgs', 'DistributionViewerMtlsConfigArgsDict', 'outputs.DistributionViewerMtlsConfig']] viewer_mtls_config: The viewer mTLS configuration for this distribution (maximum one).
         :param pulumi.Input[_builtins.bool] wait_for_deployment: If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
         :param pulumi.Input[_builtins.str] web_acl_id: Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
         """
@@ -1515,13 +1515,20 @@ class Distribution(pulumi.CustomResource):
             signing_behavior="always",
             signing_protocol="sigv4")
         s3_distribution = aws.cloudfront.Distribution("s3_distribution",
+            origins=[{
+                "domain_name": b.bucket_regional_domain_name,
+                "origin_access_control_id": default.id,
+                "origin_id": s3_origin_id,
+            }],
+            enabled=True,
+            is_ipv6_enabled=True,
+            comment="Some comment",
+            default_root_object="index.html",
+            aliases=[
+                f"mysite.{my_domain}",
+                f"yoursite.{my_domain}",
+            ],
             default_cache_behavior={
-                "forwarded_values": {
-                    "cookies": {
-                        "forward": "none",
-                    },
-                    "query_string": False,
-                },
                 "allowed_methods": [
                     "DELETE",
                     "GET",
@@ -1536,35 +1543,19 @@ class Distribution(pulumi.CustomResource):
                     "HEAD",
                 ],
                 "target_origin_id": s3_origin_id,
+                "forwarded_values": {
+                    "query_string": False,
+                    "cookies": {
+                        "forward": "none",
+                    },
+                },
                 "viewer_protocol_policy": "allow-all",
                 "min_ttl": 0,
                 "default_ttl": 3600,
                 "max_ttl": 86400,
             },
-            restrictions={
-                "geo_restriction": {
-                    "restriction_type": "whitelist",
-                    "locations": [
-                        "US",
-                        "CA",
-                        "GB",
-                        "DE",
-                    ],
-                },
-            },
-            viewer_certificate={
-                "acm_certificate_arn": my_domain_get_certificate.arn,
-                "ssl_support_method": "sni-only",
-            },
             ordered_cache_behaviors=[
                 {
-                    "forwarded_values": {
-                        "cookies": {
-                            "forward": "none",
-                        },
-                        "query_string": False,
-                        "headers": ["Origin"],
-                    },
                     "path_pattern": "/content/immutable/*",
                     "allowed_methods": [
                         "GET",
@@ -1577,6 +1568,13 @@ class Distribution(pulumi.CustomResource):
                         "OPTIONS",
                     ],
                     "target_origin_id": s3_origin_id,
+                    "forwarded_values": {
+                        "query_string": False,
+                        "headers": ["Origin"],
+                        "cookies": {
+                            "forward": "none",
+                        },
+                    },
                     "min_ttl": 0,
                     "default_ttl": 86400,
                     "max_ttl": 31536000,
@@ -1584,12 +1582,6 @@ class Distribution(pulumi.CustomResource):
                     "viewer_protocol_policy": "redirect-to-https",
                 },
                 {
-                    "forwarded_values": {
-                        "cookies": {
-                            "forward": "none",
-                        },
-                        "query_string": False,
-                    },
                     "path_pattern": "/content/*",
                     "allowed_methods": [
                         "GET",
@@ -1601,6 +1593,12 @@ class Distribution(pulumi.CustomResource):
                         "HEAD",
                     ],
                     "target_origin_id": s3_origin_id,
+                    "forwarded_values": {
+                        "query_string": False,
+                        "cookies": {
+                            "forward": "none",
+                        },
+                    },
                     "min_ttl": 0,
                     "default_ttl": 3600,
                     "max_ttl": 86400,
@@ -1608,41 +1606,43 @@ class Distribution(pulumi.CustomResource):
                     "viewer_protocol_policy": "redirect-to-https",
                 },
             ],
-            origins=[{
-                "domain_name": b.bucket_regional_domain_name,
-                "origin_access_control_id": default.id,
-                "origin_id": s3_origin_id,
-            }],
-            enabled=True,
-            is_ipv6_enabled=True,
-            comment="Some comment",
-            default_root_object="index.html",
-            aliases=[
-                f"mysite.{my_domain}",
-                f"yoursite.{my_domain}",
-            ],
             price_class="PriceClass_200",
+            restrictions={
+                "geo_restriction": {
+                    "restriction_type": "whitelist",
+                    "locations": [
+                        "US",
+                        "CA",
+                        "GB",
+                        "DE",
+                    ],
+                },
+            },
             tags={
                 "Environment": "production",
+            },
+            viewer_certificate={
+                "acm_certificate_arn": my_domain_get_certificate.arn,
+                "ssl_support_method": "sni-only",
             })
         # See https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
         origin_bucket_policy = aws.iam.get_policy_document_output(statements=[{
-            "conditions": [{
-                "test": "StringEquals",
-                "variable": "AWS:SourceArn",
-                "values": [s3_distribution.arn],
-            }],
+            "sid": "AllowCloudFrontServicePrincipalReadWrite",
+            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["cloudfront.amazonaws.com"],
             }],
-            "sid": "AllowCloudFrontServicePrincipalReadWrite",
-            "effect": "Allow",
             "actions": [
                 "s3:GetObject",
                 "s3:PutObject",
             ],
             "resources": [b.arn.apply(lambda arn: f"{arn}/*")],
+            "conditions": [{
+                "test": "StringEquals",
+                "variable": "AWS:SourceArn",
+                "values": [s3_distribution.arn],
+            }],
         }])
         b_bucket_policy = aws.s3.BucketPolicy("b",
             bucket=b.bucket,
@@ -1653,14 +1653,14 @@ class Distribution(pulumi.CustomResource):
         def create_cloudfront(range_body):
             for cloudfront_range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
                 cloudfront.append(aws.route53.Record(f"cloudfront-{cloudfront_range['key']}",
+                    zone_id=my_domain_get_zone.zone_id,
+                    name=cloudfront_range["value"],
+                    type=aws.route53.RecordType.A,
                     aliases=[{
                         "name": s3_distribution.domain_name,
                         "zone_id": s3_distribution.hosted_zone_id,
                         "evaluate_target_health": False,
-                    }],
-                    zone_id=my_domain_get_zone.zone_id,
-                    name=cloudfront_range["value"],
-                    type=aws.route53.RecordType.A))
+                    }]))
 
         s3_distribution.aliases.apply(create_cloudfront)
         ```
@@ -1674,10 +1674,8 @@ class Distribution(pulumi.CustomResource):
         import pulumi_aws as aws
 
         s3_distribution = aws.cloudfront.Distribution("s3_distribution",
-            default_cache_behavior={
-                "target_origin_id": "groupS3",
-            },
             origin_groups=[{
+                "origin_id": "groupS3",
                 "failover_criteria": {
                     "status_codes": [
                         403,
@@ -1694,24 +1692,26 @@ class Distribution(pulumi.CustomResource):
                         "origin_id": "failoverS3",
                     },
                 ],
-                "origin_id": "groupS3",
             }],
             origins=[
                 {
-                    "s3_origin_config": {
-                        "origin_access_identity": default["cloudfrontAccessIdentityPath"],
-                    },
                     "domain_name": primary["bucketRegionalDomainName"],
                     "origin_id": "primaryS3",
-                },
-                {
                     "s3_origin_config": {
                         "origin_access_identity": default["cloudfrontAccessIdentityPath"],
                     },
+                },
+                {
                     "domain_name": failover["bucketRegionalDomainName"],
                     "origin_id": "failoverS3",
+                    "s3_origin_config": {
+                        "origin_access_identity": default["cloudfrontAccessIdentityPath"],
+                    },
                 },
-            ])
+            ],
+            default_cache_behavior={
+                "target_origin_id": "groupS3",
+            })
         ```
 
         ### With Managed Caching Policy
@@ -1724,6 +1724,17 @@ class Distribution(pulumi.CustomResource):
 
         s3_origin_id = "myS3Origin"
         s3_distribution = aws.cloudfront.Distribution("s3_distribution",
+            origins=[{
+                "domain_name": primary["bucketRegionalDomainName"],
+                "origin_id": "myS3Origin",
+                "s3_origin_config": {
+                    "origin_access_identity": default["cloudfrontAccessIdentityPath"],
+                },
+            }],
+            enabled=True,
+            is_ipv6_enabled=True,
+            comment="Some comment",
+            default_root_object="index.html",
             default_cache_behavior={
                 "cache_policy_id": "4135ea2d-6df8-44a3-9df3-4b5a84be39ad",
                 "allowed_methods": [
@@ -1751,18 +1762,7 @@ class Distribution(pulumi.CustomResource):
             },
             viewer_certificate={
                 "cloudfront_default_certificate": True,
-            },
-            origins=[{
-                "s3_origin_config": {
-                    "origin_access_identity": default["cloudfrontAccessIdentityPath"],
-                },
-                "domain_name": primary["bucketRegionalDomainName"],
-                "origin_id": "myS3Origin",
-            }],
-            enabled=True,
-            is_ipv6_enabled=True,
-            comment="Some comment",
-            default_root_object="index.html")
+            })
         ```
 
         ### With V2 logging to S3
@@ -1783,19 +1783,19 @@ class Distribution(pulumi.CustomResource):
             bucket="testbucket",
             force_destroy=True)
         example_log_delivery_destination = aws.cloudwatch.LogDeliveryDestination("example",
-            delivery_destination_configuration={
-                "destination_resource_arn": example_bucket.arn.apply(lambda arn: f"{arn}/prefix"),
-            },
             region="us-east-1",
             name="s3-destination",
-            output_format="parquet")
+            output_format="parquet",
+            delivery_destination_configuration={
+                "destination_resource_arn": example_bucket.arn.apply(lambda arn: f"{arn}/prefix"),
+            })
         example_log_delivery = aws.cloudwatch.LogDelivery("example",
-            s3_delivery_configurations=[{
-                "suffix_path": "/123456678910/{DistributionId}/{yyyy}/{MM}/{dd}/{HH}",
-            }],
             region="us-east-1",
             delivery_source_name=example_log_delivery_source.name,
-            delivery_destination_arn=example_log_delivery_destination.arn)
+            delivery_destination_arn=example_log_delivery_destination.arn,
+            s3_delivery_configurations=[{
+                "suffix_path": "/123456678910/{DistributionId}/{yyyy}/{MM}/{dd}/{HH}",
+            }])
         ```
 
         ### With V2 logging to Data Firehose
@@ -1818,12 +1818,12 @@ class Distribution(pulumi.CustomResource):
             log_type="ACCESS_LOGS",
             resource_arn=example.arn)
         example_log_delivery_destination = aws.cloudwatch.LogDeliveryDestination("example",
-            delivery_destination_configuration={
-                "destination_resource_arn": cloudfront_logs.arn,
-            },
             region="us-east-1",
             name="firehose-destination",
-            output_format="json")
+            output_format="json",
+            delivery_destination_configuration={
+                "destination_resource_arn": cloudfront_logs.arn,
+            })
         example_log_delivery = aws.cloudwatch.LogDelivery("example",
             region="us-east-1",
             delivery_source_name=example_log_delivery_source.name,
@@ -1845,12 +1845,12 @@ class Distribution(pulumi.CustomResource):
                 "id": example.id,
             },
             viewer_mtls_config={
+                "mode": "verify",
                 "trust_store_config": {
                     "trust_store_id": example_trust_store.id,
                     "advertise_trust_store_ca_names": True,
                     "ignore_certificate_expiry": False,
                 },
-                "mode": "verify",
             })
         ```
 
@@ -1890,27 +1890,27 @@ class Distribution(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  anycast_ip_list_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 cache_tag_config: pulumi.Input[Optional[Union['DistributionCacheTagConfigArgs', 'DistributionCacheTagConfigArgsDict']]] = None,
+                 cache_tag_config: pulumi.Input[Optional[Union['DistributionCacheTagConfigArgs', 'DistributionCacheTagConfigArgsDict', 'outputs.DistributionCacheTagConfig']]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
-                 connection_function_association: pulumi.Input[Optional[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict']]] = None,
+                 connection_function_association: pulumi.Input[Optional[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict', 'outputs.DistributionConnectionFunctionAssociation']]] = None,
                  continuous_deployment_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 custom_error_responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict']]]]] = None,
-                 default_cache_behavior: pulumi.Input[Optional[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']]] = None,
+                 custom_error_responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict', 'outputs.DistributionCustomErrorResponse']]]]] = None,
+                 default_cache_behavior: pulumi.Input[Optional[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict', 'outputs.DistributionDefaultCacheBehavior']]] = None,
                  default_root_object: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  http_version: pulumi.Input[Optional[_builtins.str]] = None,
                  is_ipv6_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 logging_config: pulumi.Input[Optional[Union['DistributionLoggingConfigArgs', 'DistributionLoggingConfigArgsDict']]] = None,
-                 ordered_cache_behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOrderedCacheBehaviorArgs', 'DistributionOrderedCacheBehaviorArgsDict']]]]] = None,
-                 origin_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOriginGroupArgs', 'DistributionOriginGroupArgsDict']]]]] = None,
-                 origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']]]]] = None,
+                 logging_config: pulumi.Input[Optional[Union['DistributionLoggingConfigArgs', 'DistributionLoggingConfigArgsDict', 'outputs.DistributionLoggingConfig']]] = None,
+                 ordered_cache_behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOrderedCacheBehaviorArgs', 'DistributionOrderedCacheBehaviorArgsDict', 'outputs.DistributionOrderedCacheBehavior']]]]] = None,
+                 origin_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOriginGroupArgs', 'DistributionOriginGroupArgsDict', 'outputs.DistributionOriginGroup']]]]] = None,
+                 origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict', 'outputs.DistributionOrigin']]]]] = None,
                  price_class: pulumi.Input[Optional[_builtins.str]] = None,
-                 restrictions: pulumi.Input[Optional[Union['DistributionRestrictionsArgs', 'DistributionRestrictionsArgsDict']]] = None,
+                 restrictions: pulumi.Input[Optional[Union['DistributionRestrictionsArgs', 'DistributionRestrictionsArgsDict', 'outputs.DistributionRestrictions']]] = None,
                  retain_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
                  staging: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 viewer_certificate: pulumi.Input[Optional[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict']]] = None,
-                 viewer_mtls_config: pulumi.Input[Optional[Union['DistributionViewerMtlsConfigArgs', 'DistributionViewerMtlsConfigArgsDict']]] = None,
+                 viewer_certificate: pulumi.Input[Optional[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict', 'outputs.DistributionViewerCertificate']]] = None,
+                 viewer_mtls_config: pulumi.Input[Optional[Union['DistributionViewerMtlsConfigArgs', 'DistributionViewerMtlsConfigArgsDict', 'outputs.DistributionViewerMtlsConfig']]] = None,
                  wait_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
                  web_acl_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -1982,13 +1982,13 @@ class Distribution(pulumi.CustomResource):
             aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             anycast_ip_list_id: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            cache_tag_config: pulumi.Input[Optional[Union['DistributionCacheTagConfigArgs', 'DistributionCacheTagConfigArgsDict']]] = None,
+            cache_tag_config: pulumi.Input[Optional[Union['DistributionCacheTagConfigArgs', 'DistributionCacheTagConfigArgsDict', 'outputs.DistributionCacheTagConfig']]] = None,
             caller_reference: pulumi.Input[Optional[_builtins.str]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
-            connection_function_association: pulumi.Input[Optional[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict']]] = None,
+            connection_function_association: pulumi.Input[Optional[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict', 'outputs.DistributionConnectionFunctionAssociation']]] = None,
             continuous_deployment_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
-            custom_error_responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict']]]]] = None,
-            default_cache_behavior: pulumi.Input[Optional[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']]] = None,
+            custom_error_responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict', 'outputs.DistributionCustomErrorResponse']]]]] = None,
+            default_cache_behavior: pulumi.Input[Optional[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict', 'outputs.DistributionDefaultCacheBehavior']]] = None,
             default_root_object: pulumi.Input[Optional[_builtins.str]] = None,
             domain_name: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1998,22 +1998,22 @@ class Distribution(pulumi.CustomResource):
             in_progress_validation_batches: pulumi.Input[Optional[_builtins.int]] = None,
             is_ipv6_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             last_modified_time: pulumi.Input[Optional[_builtins.str]] = None,
-            logging_config: pulumi.Input[Optional[Union['DistributionLoggingConfigArgs', 'DistributionLoggingConfigArgsDict']]] = None,
+            logging_config: pulumi.Input[Optional[Union['DistributionLoggingConfigArgs', 'DistributionLoggingConfigArgsDict', 'outputs.DistributionLoggingConfig']]] = None,
             logging_v1_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            ordered_cache_behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOrderedCacheBehaviorArgs', 'DistributionOrderedCacheBehaviorArgsDict']]]]] = None,
-            origin_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOriginGroupArgs', 'DistributionOriginGroupArgsDict']]]]] = None,
-            origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']]]]] = None,
+            ordered_cache_behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOrderedCacheBehaviorArgs', 'DistributionOrderedCacheBehaviorArgsDict', 'outputs.DistributionOrderedCacheBehavior']]]]] = None,
+            origin_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOriginGroupArgs', 'DistributionOriginGroupArgsDict', 'outputs.DistributionOriginGroup']]]]] = None,
+            origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict', 'outputs.DistributionOrigin']]]]] = None,
             price_class: pulumi.Input[Optional[_builtins.str]] = None,
-            restrictions: pulumi.Input[Optional[Union['DistributionRestrictionsArgs', 'DistributionRestrictionsArgsDict']]] = None,
+            restrictions: pulumi.Input[Optional[Union['DistributionRestrictionsArgs', 'DistributionRestrictionsArgsDict', 'outputs.DistributionRestrictions']]] = None,
             retain_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
             staging: pulumi.Input[Optional[_builtins.bool]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            trusted_key_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTrustedKeyGroupArgs', 'DistributionTrustedKeyGroupArgsDict']]]]] = None,
-            trusted_signers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTrustedSignerArgs', 'DistributionTrustedSignerArgsDict']]]]] = None,
-            viewer_certificate: pulumi.Input[Optional[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict']]] = None,
-            viewer_mtls_config: pulumi.Input[Optional[Union['DistributionViewerMtlsConfigArgs', 'DistributionViewerMtlsConfigArgsDict']]] = None,
+            trusted_key_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTrustedKeyGroupArgs', 'DistributionTrustedKeyGroupArgsDict', 'outputs.DistributionTrustedKeyGroup']]]]] = None,
+            trusted_signers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTrustedSignerArgs', 'DistributionTrustedSignerArgsDict', 'outputs.DistributionTrustedSigner']]]]] = None,
+            viewer_certificate: pulumi.Input[Optional[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict', 'outputs.DistributionViewerCertificate']]] = None,
+            viewer_mtls_config: pulumi.Input[Optional[Union['DistributionViewerMtlsConfigArgs', 'DistributionViewerMtlsConfigArgsDict', 'outputs.DistributionViewerMtlsConfig']]] = None,
             wait_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
             web_acl_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Distribution':
         """
@@ -2026,13 +2026,13 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aliases: Extra CNAMEs (alternate domain names), if any, for this distribution.
         :param pulumi.Input[_builtins.str] anycast_ip_list_id: ID of the Anycast static IP list that is associated with the distribution.
         :param pulumi.Input[_builtins.str] arn: ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
-        :param pulumi.Input[Union['DistributionCacheTagConfigArgs', 'DistributionCacheTagConfigArgsDict']] cache_tag_config: Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+        :param pulumi.Input[Union['DistributionCacheTagConfigArgs', 'DistributionCacheTagConfigArgsDict', 'outputs.DistributionCacheTagConfig']] cache_tag_config: Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
         :param pulumi.Input[_builtins.str] caller_reference: Internal value used by CloudFront to allow future updates to the distribution configuration.
         :param pulumi.Input[_builtins.str] comment: Any comments you want to include about the distribution.
-        :param pulumi.Input[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict']] connection_function_association: A connection function association configuration block (maximum one).
+        :param pulumi.Input[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict', 'outputs.DistributionConnectionFunctionAssociation']] connection_function_association: A connection function association configuration block (maximum one).
         :param pulumi.Input[_builtins.str] continuous_deployment_policy_id: Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict']]]] custom_error_responses: One or more custom error response elements (multiples allowed).
-        :param pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']] default_cache_behavior: Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict', 'outputs.DistributionCustomErrorResponse']]]] custom_error_responses: One or more custom error response elements (multiples allowed).
+        :param pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict', 'outputs.DistributionDefaultCacheBehavior']] default_cache_behavior: Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
         :param pulumi.Input[_builtins.str] default_root_object: Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
         :param pulumi.Input[_builtins.str] domain_name: Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
         :param pulumi.Input[_builtins.bool] enabled: Whether the distribution is enabled to accept end user requests for content.
@@ -2042,22 +2042,22 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] in_progress_validation_batches: Number of invalidation batches currently in progress.
         :param pulumi.Input[_builtins.bool] is_ipv6_enabled: Whether the IPv6 is enabled for the distribution.
         :param pulumi.Input[_builtins.str] last_modified_time: Date and time the distribution was last modified.
-        :param pulumi.Input[Union['DistributionLoggingConfigArgs', 'DistributionLoggingConfigArgsDict']] logging_config: The logging configuration that controls how logs are written to your distribution (maximum one). AWS provides two versions of access logs for CloudFront: Legacy and v2. This argument configures legacy version standard logs.
+        :param pulumi.Input[Union['DistributionLoggingConfigArgs', 'DistributionLoggingConfigArgsDict', 'outputs.DistributionLoggingConfig']] logging_config: The logging configuration that controls how logs are written to your distribution (maximum one). AWS provides two versions of access logs for CloudFront: Legacy and v2. This argument configures legacy version standard logs.
         :param pulumi.Input[_builtins.bool] logging_v1_enabled: Whether V1 logging is enabled for the distribution.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionOrderedCacheBehaviorArgs', 'DistributionOrderedCacheBehaviorArgsDict']]]] ordered_cache_behaviors: Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionOriginGroupArgs', 'DistributionOriginGroupArgsDict']]]] origin_groups: One or more origin_group for this distribution (multiples allowed).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']]]] origins: One or more origins for this distribution (multiples allowed).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionOrderedCacheBehaviorArgs', 'DistributionOrderedCacheBehaviorArgsDict', 'outputs.DistributionOrderedCacheBehavior']]]] ordered_cache_behaviors: Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionOriginGroupArgs', 'DistributionOriginGroupArgsDict', 'outputs.DistributionOriginGroup']]]] origin_groups: One or more origin_group for this distribution (multiples allowed).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict', 'outputs.DistributionOrigin']]]] origins: One or more origins for this distribution (multiples allowed).
         :param pulumi.Input[_builtins.str] price_class: Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
-        :param pulumi.Input[Union['DistributionRestrictionsArgs', 'DistributionRestrictionsArgsDict']] restrictions: The restriction configuration for this distribution (maximum one).
+        :param pulumi.Input[Union['DistributionRestrictionsArgs', 'DistributionRestrictionsArgsDict', 'outputs.DistributionRestrictions']] restrictions: The restriction configuration for this distribution (maximum one).
         :param pulumi.Input[_builtins.bool] retain_on_delete: Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
         :param pulumi.Input[_builtins.bool] staging: A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
         :param pulumi.Input[_builtins.str] status: Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionTrustedKeyGroupArgs', 'DistributionTrustedKeyGroupArgsDict']]]] trusted_key_groups: List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionTrustedSignerArgs', 'DistributionTrustedSignerArgsDict']]]] trusted_signers: List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
-        :param pulumi.Input[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict']] viewer_certificate: The SSL configuration for this distribution (maximum one).
-        :param pulumi.Input[Union['DistributionViewerMtlsConfigArgs', 'DistributionViewerMtlsConfigArgsDict']] viewer_mtls_config: The viewer mTLS configuration for this distribution (maximum one).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionTrustedKeyGroupArgs', 'DistributionTrustedKeyGroupArgsDict', 'outputs.DistributionTrustedKeyGroup']]]] trusted_key_groups: List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionTrustedSignerArgs', 'DistributionTrustedSignerArgsDict', 'outputs.DistributionTrustedSigner']]]] trusted_signers: List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
+        :param pulumi.Input[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict', 'outputs.DistributionViewerCertificate']] viewer_certificate: The SSL configuration for this distribution (maximum one).
+        :param pulumi.Input[Union['DistributionViewerMtlsConfigArgs', 'DistributionViewerMtlsConfigArgsDict', 'outputs.DistributionViewerMtlsConfig']] viewer_mtls_config: The viewer mTLS configuration for this distribution (maximum one).
         :param pulumi.Input[_builtins.bool] wait_for_deployment: If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
         :param pulumi.Input[_builtins.str] web_acl_id: Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
         """

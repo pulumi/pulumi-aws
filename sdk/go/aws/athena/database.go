@@ -72,9 +72,7 @@ import (
 //			_, err := athena.NewDatabase(ctx, "example", &athena.DatabaseArgs{
 //				Name:   pulumi.String("database_name"),
 //				Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
-//			}, pulumi.IgnoreChanges([]string{
-//				"bucket",
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

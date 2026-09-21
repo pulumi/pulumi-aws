@@ -158,8 +158,7 @@ class UserGroupAssociation(pulumi.CustomResource):
         example = aws.elasticache.UserGroup("example",
             engine="REDIS",
             user_group_id="userGroupId",
-            user_ids=[default.user_id],
-            opts = pulumi.ResourceOptions(ignore_changes=["userIds"]))
+            user_ids=[default.user_id])
         example_user = aws.elasticache.User("example",
             user_id="exampleUserID",
             user_name="exampleuser",
@@ -212,8 +211,7 @@ class UserGroupAssociation(pulumi.CustomResource):
         example = aws.elasticache.UserGroup("example",
             engine="REDIS",
             user_group_id="userGroupId",
-            user_ids=[default.user_id],
-            opts = pulumi.ResourceOptions(ignore_changes=["userIds"]))
+            user_ids=[default.user_id])
         example_user = aws.elasticache.User("example",
             user_id="exampleUserID",
             user_name="exampleuser",

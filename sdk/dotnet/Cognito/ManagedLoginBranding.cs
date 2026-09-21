@@ -48,6 +48,8 @@ namespace Pulumi.Aws.Cognito
     /// {
     ///     var client = new Aws.Cognito.ManagedLoginBranding("client", new()
     ///     {
+    ///         ClientId = example.Id,
+    ///         UserPoolId = exampleAwsCognitoUserPool.Id,
     ///         Assets = new[]
     ///         {
     ///             new Aws.Cognito.Inputs.ManagedLoginBrandingAssetArgs
@@ -61,8 +63,6 @@ namespace Pulumi.Aws.Cognito
     ///                 Extension = "SVG",
     ///             },
     ///         },
-    ///         ClientId = example.Id,
-    ///         UserPoolId = exampleAwsCognitoUserPool.Id,
     ///         Settings = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///         }),

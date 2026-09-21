@@ -25,6 +25,8 @@ namespace Pulumi.Aws.Lex
     /// {
     ///     var flowerTypes = new Aws.Lex.SlotType("flower_types", new()
     ///     {
+    ///         CreateVersion = true,
+    ///         Description = "Types of flowers to order",
     ///         EnumerationValues = new[]
     ///         {
     ///             new Aws.Lex.Inputs.SlotTypeEnumerationValueArgs
@@ -46,8 +48,6 @@ namespace Pulumi.Aws.Lex
     ///                 Value = "tulips",
     ///             },
     ///         },
-    ///         CreateVersion = true,
-    ///         Description = "Types of flowers to order",
     ///         Name = "FlowerTypes",
     ///         ValueSelectionStrategy = "ORIGINAL_VALUE",
     ///     });

@@ -421,7 +421,7 @@ class GlobalCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.docdb.Cluster("example", opts = pulumi.ResourceOptions(ignore_changes=["globalClusterIdentifier"]))
+        example = aws.docdb.Cluster("example")
         example_global_cluster = aws.docdb.GlobalCluster("example",
             global_cluster_identifier="example",
             source_db_cluster_identifier=example.arn)
@@ -441,7 +441,7 @@ class GlobalCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.docdb.GlobalCluster("example", opts = pulumi.ResourceOptions(ignore_changes=["sourceDbClusterIdentifier"]))
+        example = aws.docdb.GlobalCluster("example")
         ```
 
 
@@ -514,7 +514,7 @@ class GlobalCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.docdb.Cluster("example", opts = pulumi.ResourceOptions(ignore_changes=["globalClusterIdentifier"]))
+        example = aws.docdb.Cluster("example")
         example_global_cluster = aws.docdb.GlobalCluster("example",
             global_cluster_identifier="example",
             source_db_cluster_identifier=example.arn)
@@ -534,7 +534,7 @@ class GlobalCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.docdb.GlobalCluster("example", opts = pulumi.ResourceOptions(ignore_changes=["sourceDbClusterIdentifier"]))
+        example = aws.docdb.GlobalCluster("example")
         ```
 
 
@@ -600,7 +600,7 @@ class GlobalCluster(pulumi.CustomResource):
             engine: pulumi.Input[Optional[_builtins.str]] = None,
             engine_version: pulumi.Input[Optional[_builtins.str]] = None,
             global_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-            global_cluster_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalClusterGlobalClusterMemberArgs', 'GlobalClusterGlobalClusterMemberArgsDict']]]]] = None,
+            global_cluster_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalClusterGlobalClusterMemberArgs', 'GlobalClusterGlobalClusterMemberArgsDict', 'outputs.GlobalClusterGlobalClusterMember']]]]] = None,
             global_cluster_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             source_db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
@@ -620,7 +620,7 @@ class GlobalCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] engine_version: Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
                * **NOTE:** Upgrading major versions is not supported.
         :param pulumi.Input[_builtins.str] global_cluster_identifier: The global cluster identifier.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalClusterGlobalClusterMemberArgs', 'GlobalClusterGlobalClusterMemberArgsDict']]]] global_cluster_members: Set of objects containing Global Cluster members.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalClusterGlobalClusterMemberArgs', 'GlobalClusterGlobalClusterMemberArgsDict', 'outputs.GlobalClusterGlobalClusterMember']]]] global_cluster_members: Set of objects containing Global Cluster members.
         :param pulumi.Input[_builtins.str] global_cluster_resource_id: AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] source_db_cluster_identifier: ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.

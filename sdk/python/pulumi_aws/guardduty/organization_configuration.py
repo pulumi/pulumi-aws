@@ -189,7 +189,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_enable_organization_members: pulumi.Input[Optional[_builtins.str]] = None,
-                 datasources: pulumi.Input[Optional[Union['OrganizationConfigurationDatasourcesArgs', 'OrganizationConfigurationDatasourcesArgsDict']]] = None,
+                 datasources: pulumi.Input[Optional[Union['OrganizationConfigurationDatasourcesArgs', 'OrganizationConfigurationDatasourcesArgsDict', 'outputs.OrganizationConfigurationDatasources']]] = None,
                  detector_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -206,6 +206,8 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
         example = aws.guardduty.Detector("example", enable=True)
         example_organization_configuration = aws.guardduty.OrganizationConfiguration("example",
+            auto_enable_organization_members="ALL",
+            detector_id=example.id,
             datasources={
                 "s3_logs": {
                     "auto_enable": True,
@@ -222,9 +224,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
                         },
                     },
                 },
-            },
-            auto_enable_organization_members="ALL",
-            detector_id=example.id)
+            })
         ```
 
         ## Import
@@ -240,7 +240,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auto_enable_organization_members: Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
                Valid values are `ALL`, `NEW`, `NONE`.
-        :param pulumi.Input[Union['OrganizationConfigurationDatasourcesArgs', 'OrganizationConfigurationDatasourcesArgsDict']] datasources: Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
+        :param pulumi.Input[Union['OrganizationConfigurationDatasourcesArgs', 'OrganizationConfigurationDatasourcesArgsDict', 'outputs.OrganizationConfigurationDatasources']] datasources: Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
                
                > **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
         :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty account.
@@ -265,6 +265,8 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
         example = aws.guardduty.Detector("example", enable=True)
         example_organization_configuration = aws.guardduty.OrganizationConfiguration("example",
+            auto_enable_organization_members="ALL",
+            detector_id=example.id,
             datasources={
                 "s3_logs": {
                     "auto_enable": True,
@@ -281,9 +283,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
                         },
                     },
                 },
-            },
-            auto_enable_organization_members="ALL",
-            detector_id=example.id)
+            })
         ```
 
         ## Import
@@ -311,7 +311,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_enable_organization_members: pulumi.Input[Optional[_builtins.str]] = None,
-                 datasources: pulumi.Input[Optional[Union['OrganizationConfigurationDatasourcesArgs', 'OrganizationConfigurationDatasourcesArgsDict']]] = None,
+                 datasources: pulumi.Input[Optional[Union['OrganizationConfigurationDatasourcesArgs', 'OrganizationConfigurationDatasourcesArgsDict', 'outputs.OrganizationConfigurationDatasources']]] = None,
                  detector_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -342,7 +342,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_enable_organization_members: pulumi.Input[Optional[_builtins.str]] = None,
-            datasources: pulumi.Input[Optional[Union['OrganizationConfigurationDatasourcesArgs', 'OrganizationConfigurationDatasourcesArgsDict']]] = None,
+            datasources: pulumi.Input[Optional[Union['OrganizationConfigurationDatasourcesArgs', 'OrganizationConfigurationDatasourcesArgsDict', 'outputs.OrganizationConfigurationDatasources']]] = None,
             detector_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'OrganizationConfiguration':
         """
@@ -354,7 +354,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auto_enable_organization_members: Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
                Valid values are `ALL`, `NEW`, `NONE`.
-        :param pulumi.Input[Union['OrganizationConfigurationDatasourcesArgs', 'OrganizationConfigurationDatasourcesArgsDict']] datasources: Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
+        :param pulumi.Input[Union['OrganizationConfigurationDatasourcesArgs', 'OrganizationConfigurationDatasourcesArgsDict', 'outputs.OrganizationConfigurationDatasources']] datasources: Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
                
                > **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
         :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty account.

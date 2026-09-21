@@ -29,10 +29,13 @@ namespace Pulumi.Aws.DataPipeline
     /// 
     ///     var example = new Aws.DataPipeline.PipelineDefinition("example", new()
     ///     {
+    ///         PipelineId = @default.Id,
     ///         PipelineObjects = new[]
     ///         {
     ///             new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectArgs
     ///             {
+    ///                 Id = "Default",
+    ///                 Name = "Default",
     ///                 Fields = new[]
     ///                 {
     ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
@@ -41,11 +44,11 @@ namespace Pulumi.Aws.DataPipeline
     ///                         StringValue = "workerGroup",
     ///                     },
     ///                 },
-    ///                 Id = "Default",
-    ///                 Name = "Default",
     ///             },
     ///             new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectArgs
     ///             {
+    ///                 Id = "Schedule",
+    ///                 Name = "Schedule",
     ///                 Fields = new[]
     ///                 {
     ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
@@ -69,11 +72,11 @@ namespace Pulumi.Aws.DataPipeline
     ///                         StringValue = "2012-12-21T18:00:00",
     ///                     },
     ///                 },
-    ///                 Id = "Schedule",
-    ///                 Name = "Schedule",
     ///             },
     ///             new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectArgs
     ///             {
+    ///                 Id = "SayHello",
+    ///                 Name = "SayHello",
     ///                 Fields = new[]
     ///                 {
     ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
@@ -97,11 +100,8 @@ namespace Pulumi.Aws.DataPipeline
     ///                         StringValue = "Schedule",
     ///                     },
     ///                 },
-    ///                 Id = "SayHello",
-    ///                 Name = "SayHello",
     ///             },
     ///         },
-    ///         PipelineId = @default.Id,
     ///     });
     /// 
     /// });

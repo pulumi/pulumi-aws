@@ -302,8 +302,8 @@ class InstanceFleet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_type_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict']]]]] = None,
-                 launch_specifications: pulumi.Input[Optional[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict']]] = None,
+                 instance_type_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict', 'outputs.InstanceFleetInstanceTypeConfig']]]]] = None,
+                 launch_specifications: pulumi.Input[Optional[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict', 'outputs.InstanceFleetLaunchSpecifications']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  target_on_demand_capacity: pulumi.Input[Optional[_builtins.int]] = None,
@@ -324,6 +324,29 @@ class InstanceFleet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         task = aws.emr.InstanceFleet("task",
+            cluster_id=cluster["id"],
+            instance_type_configs=[
+                {
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
+                    "ebs_configs": [{
+                        "size": 100,
+                        "type": "gp2",
+                        "volumes_per_instance": 1,
+                    }],
+                    "instance_type": "m4.xlarge",
+                    "weighted_capacity": 1,
+                },
+                {
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
+                    "ebs_configs": [{
+                        "size": 100,
+                        "type": "gp2",
+                        "volumes_per_instance": 1,
+                    }],
+                    "instance_type": "m4.2xlarge",
+                    "weighted_capacity": 2,
+                },
+            ],
             launch_specifications={
                 "spot_specifications": [{
                     "allocation_strategy": "capacity-optimized",
@@ -332,29 +355,6 @@ class InstanceFleet(pulumi.CustomResource):
                     "timeout_duration_minutes": 10,
                 }],
             },
-            instance_type_configs=[
-                {
-                    "ebs_configs": [{
-                        "size": 100,
-                        "type": "gp2",
-                        "volumes_per_instance": 1,
-                    }],
-                    "bid_price_as_percentage_of_on_demand_price": float(100),
-                    "instance_type": "m4.xlarge",
-                    "weighted_capacity": 1,
-                },
-                {
-                    "ebs_configs": [{
-                        "size": 100,
-                        "type": "gp2",
-                        "volumes_per_instance": 1,
-                    }],
-                    "bid_price_as_percentage_of_on_demand_price": float(100),
-                    "instance_type": "m4.2xlarge",
-                    "weighted_capacity": 2,
-                },
-            ],
-            cluster_id=cluster["id"],
             name="task fleet",
             target_on_demand_capacity=1,
             target_spot_capacity=1)
@@ -372,8 +372,8 @@ class InstanceFleet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict']]]] instance_type_configs: Configuration block for instance fleet
-        :param pulumi.Input[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict']] launch_specifications: Configuration block for launch specification
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict', 'outputs.InstanceFleetInstanceTypeConfig']]]] instance_type_configs: Configuration block for instance fleet
+        :param pulumi.Input[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict', 'outputs.InstanceFleetLaunchSpecifications']] launch_specifications: Configuration block for launch specification
         :param pulumi.Input[_builtins.str] name: Friendly name given to the instance fleet.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] target_on_demand_capacity: The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
@@ -400,6 +400,29 @@ class InstanceFleet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         task = aws.emr.InstanceFleet("task",
+            cluster_id=cluster["id"],
+            instance_type_configs=[
+                {
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
+                    "ebs_configs": [{
+                        "size": 100,
+                        "type": "gp2",
+                        "volumes_per_instance": 1,
+                    }],
+                    "instance_type": "m4.xlarge",
+                    "weighted_capacity": 1,
+                },
+                {
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
+                    "ebs_configs": [{
+                        "size": 100,
+                        "type": "gp2",
+                        "volumes_per_instance": 1,
+                    }],
+                    "instance_type": "m4.2xlarge",
+                    "weighted_capacity": 2,
+                },
+            ],
             launch_specifications={
                 "spot_specifications": [{
                     "allocation_strategy": "capacity-optimized",
@@ -408,29 +431,6 @@ class InstanceFleet(pulumi.CustomResource):
                     "timeout_duration_minutes": 10,
                 }],
             },
-            instance_type_configs=[
-                {
-                    "ebs_configs": [{
-                        "size": 100,
-                        "type": "gp2",
-                        "volumes_per_instance": 1,
-                    }],
-                    "bid_price_as_percentage_of_on_demand_price": float(100),
-                    "instance_type": "m4.xlarge",
-                    "weighted_capacity": 1,
-                },
-                {
-                    "ebs_configs": [{
-                        "size": 100,
-                        "type": "gp2",
-                        "volumes_per_instance": 1,
-                    }],
-                    "bid_price_as_percentage_of_on_demand_price": float(100),
-                    "instance_type": "m4.2xlarge",
-                    "weighted_capacity": 2,
-                },
-            ],
-            cluster_id=cluster["id"],
             name="task fleet",
             target_on_demand_capacity=1,
             target_spot_capacity=1)
@@ -461,8 +461,8 @@ class InstanceFleet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_type_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict']]]]] = None,
-                 launch_specifications: pulumi.Input[Optional[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict']]] = None,
+                 instance_type_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict', 'outputs.InstanceFleetInstanceTypeConfig']]]]] = None,
+                 launch_specifications: pulumi.Input[Optional[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict', 'outputs.InstanceFleetLaunchSpecifications']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  target_on_demand_capacity: pulumi.Input[Optional[_builtins.int]] = None,
@@ -498,8 +498,8 @@ class InstanceFleet(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
-            instance_type_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict']]]]] = None,
-            launch_specifications: pulumi.Input[Optional[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict']]] = None,
+            instance_type_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict', 'outputs.InstanceFleetInstanceTypeConfig']]]]] = None,
+            launch_specifications: pulumi.Input[Optional[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict', 'outputs.InstanceFleetLaunchSpecifications']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             provisioned_on_demand_capacity: pulumi.Input[Optional[_builtins.int]] = None,
             provisioned_spot_capacity: pulumi.Input[Optional[_builtins.int]] = None,
@@ -514,8 +514,8 @@ class InstanceFleet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict']]]] instance_type_configs: Configuration block for instance fleet
-        :param pulumi.Input[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict']] launch_specifications: Configuration block for launch specification
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict', 'outputs.InstanceFleetInstanceTypeConfig']]]] instance_type_configs: Configuration block for instance fleet
+        :param pulumi.Input[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict', 'outputs.InstanceFleetLaunchSpecifications']] launch_specifications: Configuration block for launch specification
         :param pulumi.Input[_builtins.str] name: Friendly name given to the instance fleet.
         :param pulumi.Input[_builtins.int] provisioned_on_demand_capacity: The number of On-Demand units that have been provisioned for the instance
                fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.

@@ -33,6 +33,11 @@ namespace Pulumi.Aws.CloudFront
     ///     {
     ///         VpcOriginEndpointConfig = new Aws.CloudFront.Inputs.VpcOriginVpcOriginEndpointConfigArgs
     ///         {
+    ///             Name = "example-vpc-origin",
+    ///             Arn = @this.Arn,
+    ///             HttpPort = 8080,
+    ///             HttpsPort = 8443,
+    ///             OriginProtocolPolicy = "https-only",
     ///             OriginSslProtocols = new Aws.CloudFront.Inputs.VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs
     ///             {
     ///                 Items = new[]
@@ -41,11 +46,6 @@ namespace Pulumi.Aws.CloudFront
     ///                 },
     ///                 Quantity = 1,
     ///             },
-    ///             Name = "example-vpc-origin",
-    ///             Arn = @this.Arn,
-    ///             HttpPort = 8080,
-    ///             HttpsPort = 8443,
-    ///             OriginProtocolPolicy = "https-only",
     ///         },
     ///     });
     /// 

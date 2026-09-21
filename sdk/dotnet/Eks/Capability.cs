@@ -26,6 +26,11 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Eks.Capability("example", new()
     ///     {
+    ///         ClusterName = exampleAwsEksCluster.Name,
+    ///         CapabilityName = "argocd",
+    ///         Type = "ARGOCD",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         DeletePropagationPolicy = "RETAIN",
     ///         Configuration = new Aws.Eks.Inputs.CapabilityConfigurationArgs
     ///         {
     ///             ArgoCd = new Aws.Eks.Inputs.CapabilityConfigurationArgoCdArgs
@@ -37,11 +42,6 @@ namespace Pulumi.Aws.Eks
     ///                 Namespace = "argocd",
     ///             },
     ///         },
-    ///         ClusterName = exampleAwsEksCluster.Name,
-    ///         CapabilityName = "argocd",
-    ///         Type = "ARGOCD",
-    ///         RoleArn = exampleAwsIamRole.Arn,
-    ///         DeletePropagationPolicy = "RETAIN",
     ///         Tags = 
     ///         {
     ///             { "Name", "example-capability" },
@@ -86,11 +86,11 @@ namespace Pulumi.Aws.Eks
     /// 
     ///     var ackLogDeliveryDestination = new Aws.CloudWatch.LogDeliveryDestination("ack", new()
     ///     {
+    ///         Name = "eks-capability-ack-logs",
     ///         DeliveryDestinationConfiguration = new Aws.CloudWatch.Inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs
     ///         {
     ///             DestinationResourceArn = ack.Arn,
     ///         },
-    ///         Name = "eks-capability-ack-logs",
     ///     });
     /// 
     ///     var ackLogDelivery = new Aws.CloudWatch.LogDelivery("ack", new()

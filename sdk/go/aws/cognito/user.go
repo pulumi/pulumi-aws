@@ -64,6 +64,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
+//				Name: pulumi.String("mypool"),
 //				Schemas: cognito.UserPoolSchemaArray{
 //					&cognito.UserPoolSchemaArgs{
 //						Name:                   pulumi.String("example"),
@@ -73,15 +74,14 @@ import (
 //						DeveloperOnlyAttribute: pulumi.Bool(false),
 //					},
 //					&cognito.UserPoolSchemaArgs{
-//						StringAttributeConstraints: &cognito.UserPoolSchemaStringAttributeConstraintsArgs{},
 //						Name:                       pulumi.String("foo"),
 //						AttributeDataType:          pulumi.String("String"),
 //						Mutable:                    pulumi.Bool(false),
 //						Required:                   pulumi.Bool(false),
 //						DeveloperOnlyAttribute:     pulumi.Bool(false),
+//						StringAttributeConstraints: &cognito.UserPoolSchemaStringAttributeConstraintsArgs{},
 //					},
 //				},
-//				Name: pulumi.String("mypool"),
 //			})
 //			if err != nil {
 //				return err

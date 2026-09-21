@@ -26,6 +26,7 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var foo = new Aws.OpenSearch.VpcEndpoint("foo", new()
     ///     {
+    ///         DomainArn = domain1.Arn,
     ///         VpcOptions = new Aws.OpenSearch.Inputs.VpcEndpointVpcOptionsArgs
     ///         {
     ///             SecurityGroupIds = new[]
@@ -39,7 +40,6 @@ namespace Pulumi.Aws.OpenSearch
     ///                 test2AwsSubnet.Id,
     ///             },
     ///         },
-    ///         DomainArn = domain1.Arn,
     ///     });
     /// 
     /// });

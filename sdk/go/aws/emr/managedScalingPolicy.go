@@ -29,19 +29,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			sample, err := emr.NewCluster(ctx, "sample", &emr.ClusterArgs{
+//				Name:         pulumi.String("emr-sample-cluster"),
+//				ReleaseLabel: pulumi.String("emr-5.30.0"),
 //				MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
 //					InstanceType: pulumi.String("m4.large"),
 //				},
 //				CoreInstanceGroup: &emr.ClusterCoreInstanceGroupArgs{
 //					InstanceType: pulumi.String("c4.large"),
 //				},
-//				Name:         pulumi.String("emr-sample-cluster"),
-//				ReleaseLabel: pulumi.String("emr-5.30.0"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = emr.NewManagedScalingPolicy(ctx, "samplepolicy", &emr.ManagedScalingPolicyArgs{
+//				ClusterId: sample.ID().ToIDOutput().ToStringOutput(),
 //				ComputeLimits: emr.ManagedScalingPolicyComputeLimitArray{
 //					&emr.ManagedScalingPolicyComputeLimitArgs{
 //						UnitType:                     pulumi.String("Instances"),
@@ -51,7 +52,6 @@ import (
 //						MaximumCoreCapacityUnits:     pulumi.Int(10),
 //					},
 //				},
-//				ClusterId: sample.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

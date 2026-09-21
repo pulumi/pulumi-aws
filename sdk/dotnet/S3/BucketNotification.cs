@@ -39,18 +39,7 @@ namespace Pulumi.Aws.S3
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "ArnLike",
-    ///                         Variable = "aws:SourceArn",
-    ///                         Values = new[]
-    ///                         {
-    ///                             bucket.Arn,
-    ///                         },
-    ///                     },
-    ///                 },
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -62,7 +51,6 @@ namespace Pulumi.Aws.S3
     ///                         },
     ///                     },
     ///                 },
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "SNS:Publish",
@@ -70,6 +58,18 @@ namespace Pulumi.Aws.S3
     ///                 Resources = new[]
     ///                 {
     ///                     "arn:aws:sns:*:*:s3-event-notification-topic",
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "ArnLike",
+    ///                         Variable = "aws:SourceArn",
+    ///                         Values = new[]
+    ///                         {
+    ///                             bucket.Arn,
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
     ///         },
@@ -83,6 +83,7 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var bucketNotification = new Aws.S3.BucketNotification("bucket_notification", new()
     ///     {
+    ///         Bucket = bucket.Id,
     ///         Topics = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketNotificationTopicArgs
@@ -95,7 +96,6 @@ namespace Pulumi.Aws.S3
     ///                 FilterSuffix = ".log",
     ///             },
     ///         },
-    ///         Bucket = bucket.Id,
     ///     });
     /// 
     /// });
@@ -122,18 +122,7 @@ namespace Pulumi.Aws.S3
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "ArnEquals",
-    ///                         Variable = "aws:SourceArn",
-    ///                         Values = new[]
-    ///                         {
-    ///                             bucket.Arn,
-    ///                         },
-    ///                     },
-    ///                 },
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -145,7 +134,6 @@ namespace Pulumi.Aws.S3
     ///                         },
     ///                     },
     ///                 },
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sqs:SendMessage",
@@ -153,6 +141,18 @@ namespace Pulumi.Aws.S3
     ///                 Resources = new[]
     ///                 {
     ///                     "arn:aws:sqs:*:*:s3-event-notification-queue",
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "ArnEquals",
+    ///                         Variable = "aws:SourceArn",
+    ///                         Values = new[]
+    ///                         {
+    ///                             bucket.Arn,
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
     ///         },
@@ -166,6 +166,7 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var bucketNotification = new Aws.S3.BucketNotification("bucket_notification", new()
     ///     {
+    ///         Bucket = bucket.Id,
     ///         Queues = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketNotificationQueueArgs
@@ -178,7 +179,6 @@ namespace Pulumi.Aws.S3
     ///                 FilterSuffix = ".log",
     ///             },
     ///         },
-    ///         Bucket = bucket.Id,
     ///     });
     /// 
     /// });
@@ -200,6 +200,7 @@ namespace Pulumi.Aws.S3
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -211,7 +212,6 @@ namespace Pulumi.Aws.S3
     ///                         },
     ///                     },
     ///                 },
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -251,6 +251,7 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var bucketNotification = new Aws.S3.BucketNotification("bucket_notification", new()
     ///     {
+    ///         Bucket = bucket.Id,
     ///         LambdaFunctions = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketNotificationLambdaFunctionArgs
@@ -264,7 +265,6 @@ namespace Pulumi.Aws.S3
     ///                 FilterSuffix = ".log",
     ///             },
     ///         },
-    ///         Bucket = bucket.Id,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -292,6 +292,7 @@ namespace Pulumi.Aws.S3
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -303,7 +304,6 @@ namespace Pulumi.Aws.S3
     ///                         },
     ///                     },
     ///                 },
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -360,6 +360,7 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var bucketNotification = new Aws.S3.BucketNotification("bucket_notification", new()
     ///     {
+    ///         Bucket = bucket.Id,
     ///         LambdaFunctions = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketNotificationLambdaFunctionArgs
@@ -383,7 +384,6 @@ namespace Pulumi.Aws.S3
     ///                 FilterSuffix = ".log",
     ///             },
     ///         },
-    ///         Bucket = bucket.Id,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -417,18 +417,7 @@ namespace Pulumi.Aws.S3
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "ArnEquals",
-    ///                         Variable = "aws:SourceArn",
-    ///                         Values = new[]
-    ///                         {
-    ///                             bucket.Arn,
-    ///                         },
-    ///                     },
-    ///                 },
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -440,7 +429,6 @@ namespace Pulumi.Aws.S3
     ///                         },
     ///                     },
     ///                 },
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sqs:SendMessage",
@@ -448,6 +436,18 @@ namespace Pulumi.Aws.S3
     ///                 Resources = new[]
     ///                 {
     ///                     "arn:aws:sqs:*:*:s3-event-notification-queue",
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "ArnEquals",
+    ///                         Variable = "aws:SourceArn",
+    ///                         Values = new[]
+    ///                         {
+    ///                             bucket.Arn,
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
     ///         },
@@ -461,6 +461,7 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var bucketNotification = new Aws.S3.BucketNotification("bucket_notification", new()
     ///     {
+    ///         Bucket = bucket.Id,
     ///         Queues = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketNotificationQueueArgs
@@ -484,7 +485,6 @@ namespace Pulumi.Aws.S3
     ///                 FilterPrefix = "videos/",
     ///             },
     ///         },
-    ///         Bucket = bucket.Id,
     ///     });
     /// 
     /// });

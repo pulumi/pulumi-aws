@@ -70,6 +70,8 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketMetric(ctx, "example-filtered", &s3.BucketMetricArgs{
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Name:   pulumi.String("ImportantBlueDocuments"),
 //				Filter: &s3.BucketMetricFilterArgs{
 //					Prefix: pulumi.String("documents/"),
 //					Tags: pulumi.StringMap{
@@ -77,8 +79,6 @@ import (
 //						"class":    pulumi.String("blue"),
 //					},
 //				},
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
-//				Name:   pulumi.String("ImportantBlueDocuments"),
 //			})
 //			if err != nil {
 //				return err
@@ -117,6 +117,8 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketMetric(ctx, "example-filtered", &s3.BucketMetricArgs{
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Name:   pulumi.String("ImportantBlueDocuments"),
 //				Filter: &s3.BucketMetricFilterArgs{
 //					AccessPoint: example_access_point.Arn,
 //					Tags: pulumi.StringMap{
@@ -124,8 +126,6 @@ import (
 //						"class":    pulumi.String("blue"),
 //					},
 //				},
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
-//				Name:   pulumi.String("ImportantBlueDocuments"),
 //			})
 //			if err != nil {
 //				return err
@@ -158,10 +158,10 @@ import (
 //				return err
 //			}
 //			example, err := s3.NewDirectoryBucket(ctx, "example", &s3.DirectoryBucketArgs{
+//				Bucket: pulumi.String("example--zoneId--x-s3"),
 //				Location: &s3.DirectoryBucketLocationArgs{
 //					Name: pulumi.String(available.ZoneIds[0]),
 //				},
-//				Bucket: pulumi.String("example--zoneId--x-s3"),
 //			})
 //			if err != nil {
 //				return err
@@ -174,12 +174,12 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketMetric(ctx, "example-bucket-metric", &s3.BucketMetricArgs{
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Name:   pulumi.String("ExampleBucketMetricForDirectoryBuckets"),
 //				Filter: &s3.BucketMetricFilterArgs{
 //					AccessPoint: example_access_point.Arn,
 //					Prefix:      pulumi.String("documents/"),
 //				},
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
-//				Name:   pulumi.String("ExampleBucketMetricForDirectoryBuckets"),
 //			})
 //			if err != nil {
 //				return err

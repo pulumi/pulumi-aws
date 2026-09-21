@@ -37,6 +37,7 @@ namespace Pulumi.Aws.Msk
     /// {
     ///     var exampleCluster = new Aws.Msk.Cluster("example", new()
     ///     {
+    ///         ClusterName = "example",
     ///         ClientAuthentication = new Aws.Msk.Inputs.ClusterClientAuthenticationArgs
     ///         {
     ///             Sasl = new Aws.Msk.Inputs.ClusterClientAuthenticationSaslArgs
@@ -44,7 +45,6 @@ namespace Pulumi.Aws.Msk
     ///                 Scram = true,
     ///             },
     ///         },
-    ///         ClusterName = "example",
     ///     });
     /// 
     ///     var exampleKey = new Aws.Kms.Key("example", new()
@@ -89,6 +89,8 @@ namespace Pulumi.Aws.Msk
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Sid = "AWSKafkaResourcePolicy",
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -100,8 +102,6 @@ namespace Pulumi.Aws.Msk
     ///                         },
     ///                     },
     ///                 },
-    ///                 Sid = "AWSKafkaResourcePolicy",
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "secretsmanager:getSecretValue",

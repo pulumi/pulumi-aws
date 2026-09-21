@@ -28,6 +28,9 @@ namespace Pulumi.Aws.LB
         /// 
         ///     var www = new Aws.Route53.Record("www", new()
         ///     {
+        ///         ZoneId = primary.ZoneId,
+        ///         Name = "example.com",
+        ///         Type = Aws.Route53.RecordType.A,
         ///         Aliases = new[]
         ///         {
         ///             new Aws.Route53.Inputs.RecordAliasArgs
@@ -37,9 +40,6 @@ namespace Pulumi.Aws.LB
         ///                 EvaluateTargetHealth = true,
         ///             },
         ///         },
-        ///         ZoneId = primary.ZoneId,
-        ///         Name = "example.com",
-        ///         Type = Aws.Route53.RecordType.A,
         ///     });
         /// 
         /// });
@@ -65,6 +65,9 @@ namespace Pulumi.Aws.LB
         /// 
         ///     var www = new Aws.Route53.Record("www", new()
         ///     {
+        ///         ZoneId = primary.ZoneId,
+        ///         Name = "example.com",
+        ///         Type = Aws.Route53.RecordType.A,
         ///         Aliases = new[]
         ///         {
         ///             new Aws.Route53.Inputs.RecordAliasArgs
@@ -74,9 +77,6 @@ namespace Pulumi.Aws.LB
         ///                 EvaluateTargetHealth = true,
         ///             },
         ///         },
-        ///         ZoneId = primary.ZoneId,
-        ///         Name = "example.com",
-        ///         Type = Aws.Route53.RecordType.A,
         ///     });
         /// 
         /// });
@@ -102,6 +102,9 @@ namespace Pulumi.Aws.LB
         /// 
         ///     var www = new Aws.Route53.Record("www", new()
         ///     {
+        ///         ZoneId = primary.ZoneId,
+        ///         Name = "example.com",
+        ///         Type = Aws.Route53.RecordType.A,
         ///         Aliases = new[]
         ///         {
         ///             new Aws.Route53.Inputs.RecordAliasArgs
@@ -111,9 +114,6 @@ namespace Pulumi.Aws.LB
         ///                 EvaluateTargetHealth = true,
         ///             },
         ///         },
-        ///         ZoneId = primary.ZoneId,
-        ///         Name = "example.com",
-        ///         Type = Aws.Route53.RecordType.A,
         ///     });
         /// 
         /// });

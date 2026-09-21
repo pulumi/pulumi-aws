@@ -90,15 +90,7 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Neptune.Cluster("example", new()
-    ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         IgnoreChanges =
-    ///         {
-    ///             "globalClusterIdentifier",
-    ///         },
-    ///     });
+    ///     var example = new Aws.Neptune.Cluster("example");
     /// 
     ///     var exampleGlobalCluster = new Aws.Neptune.GlobalCluster("example", new()
     ///     {
@@ -127,15 +119,7 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Neptune.GlobalCluster("example", new()
-    ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         IgnoreChanges =
-    ///         {
-    ///             "sourceDbClusterIdentifier",
-    ///         },
-    ///     });
+    ///     var example = new Aws.Neptune.GlobalCluster("example");
     /// 
     /// });
     /// ```

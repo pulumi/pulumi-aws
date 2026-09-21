@@ -221,7 +221,7 @@ class IpGroup(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpGroupRuleArgs', 'IpGroupRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpGroupRuleArgs', 'IpGroupRuleArgsDict', 'outputs.IpGroupRule']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -234,6 +234,8 @@ class IpGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         contractors = aws.workspaces.IpGroup("contractors",
+            name="Contractors",
+            description="Contractors IP access control group",
             rules=[
                 {
                     "source": "150.24.14.0/24",
@@ -247,9 +249,7 @@ class IpGroup(pulumi.CustomResource):
                     "source": "44.98.100.0/24",
                     "description": "STL",
                 },
-            ],
-            name="Contractors",
-            description="Contractors IP access control group")
+            ])
         ```
 
         ## Import
@@ -266,7 +266,7 @@ class IpGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the IP group.
         :param pulumi.Input[_builtins.str] name: The name of the IP group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IpGroupRuleArgs', 'IpGroupRuleArgsDict']]]] rules: One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpGroupRuleArgs', 'IpGroupRuleArgsDict', 'outputs.IpGroupRule']]]] rules: One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -285,6 +285,8 @@ class IpGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         contractors = aws.workspaces.IpGroup("contractors",
+            name="Contractors",
+            description="Contractors IP access control group",
             rules=[
                 {
                     "source": "150.24.14.0/24",
@@ -298,9 +300,7 @@ class IpGroup(pulumi.CustomResource):
                     "source": "44.98.100.0/24",
                     "description": "STL",
                 },
-            ],
-            name="Contractors",
-            description="Contractors IP access control group")
+            ])
         ```
 
         ## Import
@@ -330,7 +330,7 @@ class IpGroup(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpGroupRuleArgs', 'IpGroupRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpGroupRuleArgs', 'IpGroupRuleArgsDict', 'outputs.IpGroupRule']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -360,7 +360,7 @@ class IpGroup(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpGroupRuleArgs', 'IpGroupRuleArgsDict']]]]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpGroupRuleArgs', 'IpGroupRuleArgsDict', 'outputs.IpGroupRule']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'IpGroup':
         """
@@ -373,7 +373,7 @@ class IpGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the IP group.
         :param pulumi.Input[_builtins.str] name: The name of the IP group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IpGroupRuleArgs', 'IpGroupRuleArgsDict']]]] rules: One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpGroupRuleArgs', 'IpGroupRuleArgsDict', 'outputs.IpGroupRule']]]] rules: One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

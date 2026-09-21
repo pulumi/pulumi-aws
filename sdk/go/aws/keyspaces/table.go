@@ -31,6 +31,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := keyspaces.NewTable(ctx, "example", &keyspaces.TableArgs{
+//				KeyspaceName: pulumi.Any(exampleAwsKeyspacesKeyspace.Name),
+//				TableName:    pulumi.String("my_table"),
 //				SchemaDefinition: &keyspaces.TableSchemaDefinitionArgs{
 //					Columns: keyspaces.TableSchemaDefinitionColumnArray{
 //						&keyspaces.TableSchemaDefinitionColumnArgs{
@@ -44,8 +46,6 @@ import (
 //						},
 //					},
 //				},
-//				KeyspaceName: pulumi.Any(exampleAwsKeyspacesKeyspace.Name),
-//				TableName:    pulumi.String("my_table"),
 //			})
 //			if err != nil {
 //				return err

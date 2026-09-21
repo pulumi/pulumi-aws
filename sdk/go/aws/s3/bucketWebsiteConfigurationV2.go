@@ -33,6 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewBucketWebsiteConfiguration(ctx, "example", &s3.BucketWebsiteConfigurationArgs{
+//				Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
 //				IndexDocument: &s3.BucketWebsiteConfigurationIndexDocumentArgs{
 //					Suffix: pulumi.String("index.html"),
 //				},
@@ -49,7 +50,6 @@ import (
 //						},
 //					},
 //				},
-//				Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -75,13 +75,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewBucketWebsiteConfiguration(ctx, "example", &s3.BucketWebsiteConfigurationArgs{
+//				Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
 //				IndexDocument: &s3.BucketWebsiteConfigurationIndexDocumentArgs{
 //					Suffix: pulumi.String("index.html"),
 //				},
 //				ErrorDocument: &s3.BucketWebsiteConfigurationErrorDocumentArgs{
 //					Key: pulumi.String("error.html"),
 //				},
-//				Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
 //				RoutingRuleDetails: pulumi.String(`[{
 //	    \"Condition\": {
 //	        \"KeyPrefixEquals\": \"docs/\"

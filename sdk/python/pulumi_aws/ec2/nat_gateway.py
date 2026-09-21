@@ -568,7 +568,7 @@ class NatGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
                  availability_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 availability_zone_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NatGatewayAvailabilityZoneAddressArgs', 'NatGatewayAvailabilityZoneAddressArgsDict']]]]] = None,
+                 availability_zone_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NatGatewayAvailabilityZoneAddressArgs', 'NatGatewayAvailabilityZoneAddressArgsDict', 'outputs.NatGatewayAvailabilityZoneAddress']]]]] = None,
                  connectivity_type: pulumi.Input[Optional[_builtins.str]] = None,
                  private_ip: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -665,6 +665,8 @@ class NatGateway(pulumi.CustomResource):
         for example_eip_range in [{"value": i} for i in range(0, 3)]:
             example_eip.append(aws.ec2.Eip(f"example-{example_eip_range['value']}", domain="vpc"))
         example_nat_gateway = aws.ec2.NatGateway("example",
+            vpc_id=example.id,
+            availability_mode="regional",
             availability_zone_addresses=[
                 {
                     "allocation_ids": [example_eip[0].id],
@@ -677,9 +679,7 @@ class NatGateway(pulumi.CustomResource):
                     ],
                     "availability_zone": available.names[1],
                 },
-            ],
-            vpc_id=example.id,
-            availability_mode="regional")
+            ])
         ```
 
         ## Import
@@ -706,7 +706,7 @@ class NatGateway(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allocation_id: The Allocation ID of the Elastic IP address for the NAT Gateway. Required when `connectivity_type` is set to `public` and `availability_mode` is set to `zonal`. When `availability_mode` is set to `regional`, this must not be set; instead, use the `availability_zone_address` block to specify EIPs for each AZ.
         :param pulumi.Input[_builtins.str] availability_mode: Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway. Valid values are `zonal` and `regional`. Defaults to `zonal`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NatGatewayAvailabilityZoneAddressArgs', 'NatGatewayAvailabilityZoneAddressArgsDict']]]] availability_zone_addresses: Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway. When not specified, the regional NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface (auto mode). When specified, auto-expansion is disabled (manual mode). See `availability_zone_address` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NatGatewayAvailabilityZoneAddressArgs', 'NatGatewayAvailabilityZoneAddressArgsDict', 'outputs.NatGatewayAvailabilityZoneAddress']]]] availability_zone_addresses: Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway. When not specified, the regional NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface (auto mode). When specified, auto-expansion is disabled (manual mode). See `availability_zone_address` below for details.
         :param pulumi.Input[_builtins.str] connectivity_type: Connectivity type for the NAT Gateway. Valid values are `private` and `public`. When `availability_mode` is set to `regional`, this must be set to `public`. Defaults to `public`.
         :param pulumi.Input[_builtins.str] private_ip: The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -809,6 +809,8 @@ class NatGateway(pulumi.CustomResource):
         for example_eip_range in [{"value": i} for i in range(0, 3)]:
             example_eip.append(aws.ec2.Eip(f"example-{example_eip_range['value']}", domain="vpc"))
         example_nat_gateway = aws.ec2.NatGateway("example",
+            vpc_id=example.id,
+            availability_mode="regional",
             availability_zone_addresses=[
                 {
                     "allocation_ids": [example_eip[0].id],
@@ -821,9 +823,7 @@ class NatGateway(pulumi.CustomResource):
                     ],
                     "availability_zone": available.names[1],
                 },
-            ],
-            vpc_id=example.id,
-            availability_mode="regional")
+            ])
         ```
 
         ## Import
@@ -863,7 +863,7 @@ class NatGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
                  availability_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 availability_zone_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NatGatewayAvailabilityZoneAddressArgs', 'NatGatewayAvailabilityZoneAddressArgsDict']]]]] = None,
+                 availability_zone_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NatGatewayAvailabilityZoneAddressArgs', 'NatGatewayAvailabilityZoneAddressArgsDict', 'outputs.NatGatewayAvailabilityZoneAddress']]]]] = None,
                  connectivity_type: pulumi.Input[Optional[_builtins.str]] = None,
                  private_ip: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -918,13 +918,13 @@ class NatGateway(pulumi.CustomResource):
             auto_provision_zones: pulumi.Input[Optional[_builtins.str]] = None,
             auto_scaling_ips: pulumi.Input[Optional[_builtins.str]] = None,
             availability_mode: pulumi.Input[Optional[_builtins.str]] = None,
-            availability_zone_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NatGatewayAvailabilityZoneAddressArgs', 'NatGatewayAvailabilityZoneAddressArgsDict']]]]] = None,
+            availability_zone_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NatGatewayAvailabilityZoneAddressArgs', 'NatGatewayAvailabilityZoneAddressArgsDict', 'outputs.NatGatewayAvailabilityZoneAddress']]]]] = None,
             connectivity_type: pulumi.Input[Optional[_builtins.str]] = None,
             network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
             private_ip: pulumi.Input[Optional[_builtins.str]] = None,
             public_ip: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            regional_nat_gateway_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NatGatewayRegionalNatGatewayAddressArgs', 'NatGatewayRegionalNatGatewayAddressArgsDict']]]]] = None,
+            regional_nat_gateway_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NatGatewayRegionalNatGatewayAddressArgs', 'NatGatewayRegionalNatGatewayAddressArgsDict', 'outputs.NatGatewayRegionalNatGatewayAddress']]]]] = None,
             regional_nat_gateway_auto_mode: pulumi.Input[Optional[_builtins.str]] = None,
             route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
             secondary_allocation_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -946,13 +946,13 @@ class NatGateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] auto_provision_zones: (regional NAT gateways only) Indicates whether AWS automatically manages AZ coverage.
         :param pulumi.Input[_builtins.str] auto_scaling_ips: (regional NAT gateways only) Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
         :param pulumi.Input[_builtins.str] availability_mode: Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway. Valid values are `zonal` and `regional`. Defaults to `zonal`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NatGatewayAvailabilityZoneAddressArgs', 'NatGatewayAvailabilityZoneAddressArgsDict']]]] availability_zone_addresses: Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway. When not specified, the regional NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface (auto mode). When specified, auto-expansion is disabled (manual mode). See `availability_zone_address` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NatGatewayAvailabilityZoneAddressArgs', 'NatGatewayAvailabilityZoneAddressArgsDict', 'outputs.NatGatewayAvailabilityZoneAddress']]]] availability_zone_addresses: Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway. When not specified, the regional NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface (auto mode). When specified, auto-expansion is disabled (manual mode). See `availability_zone_address` below for details.
         :param pulumi.Input[_builtins.str] connectivity_type: Connectivity type for the NAT Gateway. Valid values are `private` and `public`. When `availability_mode` is set to `regional`, this must be set to `public`. Defaults to `public`.
         :param pulumi.Input[_builtins.str] network_interface_id: ID of the network interface.
         :param pulumi.Input[_builtins.str] private_ip: The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
         :param pulumi.Input[_builtins.str] public_ip: Public IP address.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NatGatewayRegionalNatGatewayAddressArgs', 'NatGatewayRegionalNatGatewayAddressArgsDict']]]] regional_nat_gateway_addresses: (regional NAT gateways only) Repeatable blocks for information about the IP addresses and network interface associated with the regional NAT gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NatGatewayRegionalNatGatewayAddressArgs', 'NatGatewayRegionalNatGatewayAddressArgsDict', 'outputs.NatGatewayRegionalNatGatewayAddress']]]] regional_nat_gateway_addresses: (regional NAT gateways only) Repeatable blocks for information about the IP addresses and network interface associated with the regional NAT gateway.
         :param pulumi.Input[_builtins.str] route_table_id: (regional NAT gateways only) ID of the automatically created route table.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_allocation_ids: A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
         :param pulumi.Input[_builtins.int] secondary_private_ip_address_count: The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.

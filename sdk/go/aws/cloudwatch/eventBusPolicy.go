@@ -38,14 +38,6 @@ import (
 //			test, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "AWS",
-//								Identifiers: []string{
-//									"123456789012",
-//								},
-//							},
-//						},
 //						Sid:    pulumi.StringRef("DevAccountAccess"),
 //						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
@@ -53,6 +45,14 @@ import (
 //						},
 //						Resources: []string{
 //							"arn:aws:events:eu-west-1:123456789012:event-bus/default",
+//						},
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "AWS",
+//								Identifiers: []string{
+//									"123456789012",
+//								},
+//							},
 //						},
 //					},
 //				},
@@ -91,23 +91,6 @@ import (
 //			test, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Conditions: []iam.GetPolicyDocumentStatementCondition{
-//							{
-//								Test:     "StringEquals",
-//								Variable: "aws:PrincipalOrgID",
-//								Values: pulumi.StringArray{
-//									example.Id,
-//								},
-//							},
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "AWS",
-//								Identifiers: []string{
-//									"*",
-//								},
-//							},
-//						},
 //						Sid:    pulumi.StringRef("OrganizationAccess"),
 //						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
@@ -119,6 +102,23 @@ import (
 //						Resources: []string{
 //							"arn:aws:events:eu-west-1:123456789012:rule/*",
 //							"arn:aws:events:eu-west-1:123456789012:event-bus/default",
+//						},
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "AWS",
+//								Identifiers: []string{
+//									"*",
+//								},
+//							},
+//						},
+//						Conditions: []iam.GetPolicyDocumentStatementCondition{
+//							{
+//								Test:     "StringEquals",
+//								Variable: "aws:PrincipalOrgID",
+//								Values: pulumi.StringArray{
+//									example.Id,
+//								},
+//							},
 //						},
 //					},
 //				},
@@ -157,14 +157,6 @@ import (
 //			test, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "AWS",
-//								Identifiers: []string{
-//									"123456789012",
-//								},
-//							},
-//						},
 //						Sid:    pulumi.StringRef("DevAccountAccess"),
 //						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
@@ -173,25 +165,16 @@ import (
 //						Resources: []string{
 //							"arn:aws:events:eu-west-1:123456789012:event-bus/default",
 //						},
-//					},
-//					{
-//						Conditions: []iam.GetPolicyDocumentStatementCondition{
-//							{
-//								Test:     "StringEquals",
-//								Variable: "aws:PrincipalOrgID",
-//								Values: pulumi.StringArray{
-//									example.Id,
-//								},
-//							},
-//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "AWS",
 //								Identifiers: []string{
-//									"*",
+//									"123456789012",
 //								},
 //							},
 //						},
+//					},
+//					{
 //						Sid:    pulumi.StringRef("OrganizationAccess"),
 //						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
@@ -203,6 +186,23 @@ import (
 //						Resources: []string{
 //							"arn:aws:events:eu-west-1:123456789012:rule/*",
 //							"arn:aws:events:eu-west-1:123456789012:event-bus/default",
+//						},
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "AWS",
+//								Identifiers: []string{
+//									"*",
+//								},
+//							},
+//						},
+//						Conditions: []iam.GetPolicyDocumentStatementCondition{
+//							{
+//								Test:     "StringEquals",
+//								Variable: "aws:PrincipalOrgID",
+//								Values: pulumi.StringArray{
+//									example.Id,
+//								},
+//							},
 //						},
 //					},
 //				},

@@ -233,10 +233,10 @@ class TelemetryRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['TelemetryRuleRuleArgs', 'TelemetryRuleRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['TelemetryRuleRuleArgs', 'TelemetryRuleRuleArgsDict', 'outputs.TelemetryRuleRule']]] = None,
                  rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['TelemetryRuleTimeoutsArgs', 'TelemetryRuleTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TelemetryRuleTimeoutsArgs', 'TelemetryRuleTimeoutsArgsDict', 'outputs.TelemetryRuleTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS CloudWatch Observability Admin Telemetry Rule.
@@ -255,11 +255,11 @@ class TelemetryRule(pulumi.CustomResource):
 
         example = aws.observabilityadmin.TelemetryEvaluation("example")
         example_telemetry_rule = aws.observabilityadmin.TelemetryRule("example",
+            rule_name="example-telemetry-rule",
             rule={
                 "telemetry_type": "Logs",
                 "resource_type": "AWS::EC2::VPC",
             },
-            rule_name="example-telemetry-rule",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -271,23 +271,23 @@ class TelemetryRule(pulumi.CustomResource):
 
         example = aws.observabilityadmin.TelemetryEvaluation("example")
         example_telemetry_rule = aws.observabilityadmin.TelemetryRule("example",
+            rule_name="vpc-flow-logs-rule",
             rule={
-                "destination_configuration": {
-                    "vpc_flow_log_parameters": {
-                        "traffic_type": "ALL",
-                        "max_aggregation_interval": 60,
-                    },
-                    "destination_type": "cloud-watch-logs",
-                    "destination_pattern": "/aws/vpcflowlogs/<resourceId>",
-                    "retention_in_days": 30,
-                },
                 "telemetry_type": "Logs",
                 "resource_type": "AWS::EC2::VPC",
                 "telemetry_source_types": ["VPC_FLOW_LOGS"],
                 "all_regions": True,
                 "allow_field_updates": True,
+                "destination_configuration": {
+                    "destination_type": "cloud-watch-logs",
+                    "destination_pattern": "/aws/vpcflowlogs/<resourceId>",
+                    "retention_in_days": 30,
+                    "vpc_flow_log_parameters": {
+                        "traffic_type": "ALL",
+                        "max_aggregation_interval": 60,
+                    },
+                },
             },
-            rule_name="vpc-flow-logs-rule",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -299,6 +299,7 @@ class TelemetryRule(pulumi.CustomResource):
 
         example = aws.observabilityadmin.TelemetryEvaluation("example")
         example_telemetry_rule = aws.observabilityadmin.TelemetryRule("example",
+            rule_name="multi-region-rule",
             rule={
                 "telemetry_type": "Logs",
                 "resource_type": "AWS::EKS::Cluster",
@@ -308,7 +309,6 @@ class TelemetryRule(pulumi.CustomResource):
                     "eu-west-1",
                 ],
             },
-            rule_name="multi-region-rule",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -320,37 +320,37 @@ class TelemetryRule(pulumi.CustomResource):
 
         example = aws.observabilityadmin.TelemetryEvaluation("example")
         example_telemetry_rule = aws.observabilityadmin.TelemetryRule("example",
+            rule_name="waf-logs-rule",
             rule={
+                "telemetry_type": "Logs",
+                "resource_type": "AWS::WAFv2::WebACL",
                 "destination_configuration": {
+                    "destination_type": "cloud-watch-logs",
+                    "destination_pattern": "aws-waf-logs-<resourceId>",
+                    "retention_in_days": 30,
                     "waf_logging_parameters": {
+                        "log_type": "WAF_LOGS",
                         "logging_filter": {
+                            "default_behavior": "KEEP",
                             "filters": [{
+                                "behavior": "DROP",
+                                "requirement": "MEETS_ANY",
                                 "conditions": [{
                                     "action_condition": {
                                         "action": "ALLOW",
                                     },
                                 }],
-                                "behavior": "DROP",
-                                "requirement": "MEETS_ANY",
                             }],
-                            "default_behavior": "KEEP",
                         },
                         "redacted_fields": [{
+                            "query_string": "",
                             "single_header": {
                                 "name": "authorization",
                             },
-                            "query_string": "",
                         }],
-                        "log_type": "WAF_LOGS",
                     },
-                    "destination_type": "cloud-watch-logs",
-                    "destination_pattern": "aws-waf-logs-<resourceId>",
-                    "retention_in_days": 30,
                 },
-                "telemetry_type": "Logs",
-                "resource_type": "AWS::WAFv2::WebACL",
             },
-            rule_name="waf-logs-rule",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -362,11 +362,11 @@ class TelemetryRule(pulumi.CustomResource):
 
         example = aws.observabilityadmin.TelemetryEvaluation("example")
         example_telemetry_rule = aws.observabilityadmin.TelemetryRule("example",
+            rule_name="tagged-rule",
             rule={
                 "telemetry_type": "Logs",
                 "resource_type": "AWS::EC2::VPC",
             },
-            rule_name="tagged-rule",
             tags={
                 "Environment": "production",
                 "Purpose": "monitoring",
@@ -397,7 +397,7 @@ class TelemetryRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['TelemetryRuleRuleArgs', 'TelemetryRuleRuleArgsDict']] rule: Configuration block for the telemetry rule. See `rule` below.
+        :param pulumi.Input[Union['TelemetryRuleRuleArgs', 'TelemetryRuleRuleArgsDict', 'outputs.TelemetryRuleRule']] rule: Configuration block for the telemetry rule. See `rule` below.
         :param pulumi.Input[_builtins.str] rule_name: Name of the telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
                
                The following arguments are optional:
@@ -426,11 +426,11 @@ class TelemetryRule(pulumi.CustomResource):
 
         example = aws.observabilityadmin.TelemetryEvaluation("example")
         example_telemetry_rule = aws.observabilityadmin.TelemetryRule("example",
+            rule_name="example-telemetry-rule",
             rule={
                 "telemetry_type": "Logs",
                 "resource_type": "AWS::EC2::VPC",
             },
-            rule_name="example-telemetry-rule",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -442,23 +442,23 @@ class TelemetryRule(pulumi.CustomResource):
 
         example = aws.observabilityadmin.TelemetryEvaluation("example")
         example_telemetry_rule = aws.observabilityadmin.TelemetryRule("example",
+            rule_name="vpc-flow-logs-rule",
             rule={
-                "destination_configuration": {
-                    "vpc_flow_log_parameters": {
-                        "traffic_type": "ALL",
-                        "max_aggregation_interval": 60,
-                    },
-                    "destination_type": "cloud-watch-logs",
-                    "destination_pattern": "/aws/vpcflowlogs/<resourceId>",
-                    "retention_in_days": 30,
-                },
                 "telemetry_type": "Logs",
                 "resource_type": "AWS::EC2::VPC",
                 "telemetry_source_types": ["VPC_FLOW_LOGS"],
                 "all_regions": True,
                 "allow_field_updates": True,
+                "destination_configuration": {
+                    "destination_type": "cloud-watch-logs",
+                    "destination_pattern": "/aws/vpcflowlogs/<resourceId>",
+                    "retention_in_days": 30,
+                    "vpc_flow_log_parameters": {
+                        "traffic_type": "ALL",
+                        "max_aggregation_interval": 60,
+                    },
+                },
             },
-            rule_name="vpc-flow-logs-rule",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -470,6 +470,7 @@ class TelemetryRule(pulumi.CustomResource):
 
         example = aws.observabilityadmin.TelemetryEvaluation("example")
         example_telemetry_rule = aws.observabilityadmin.TelemetryRule("example",
+            rule_name="multi-region-rule",
             rule={
                 "telemetry_type": "Logs",
                 "resource_type": "AWS::EKS::Cluster",
@@ -479,7 +480,6 @@ class TelemetryRule(pulumi.CustomResource):
                     "eu-west-1",
                 ],
             },
-            rule_name="multi-region-rule",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -491,37 +491,37 @@ class TelemetryRule(pulumi.CustomResource):
 
         example = aws.observabilityadmin.TelemetryEvaluation("example")
         example_telemetry_rule = aws.observabilityadmin.TelemetryRule("example",
+            rule_name="waf-logs-rule",
             rule={
+                "telemetry_type": "Logs",
+                "resource_type": "AWS::WAFv2::WebACL",
                 "destination_configuration": {
+                    "destination_type": "cloud-watch-logs",
+                    "destination_pattern": "aws-waf-logs-<resourceId>",
+                    "retention_in_days": 30,
                     "waf_logging_parameters": {
+                        "log_type": "WAF_LOGS",
                         "logging_filter": {
+                            "default_behavior": "KEEP",
                             "filters": [{
+                                "behavior": "DROP",
+                                "requirement": "MEETS_ANY",
                                 "conditions": [{
                                     "action_condition": {
                                         "action": "ALLOW",
                                     },
                                 }],
-                                "behavior": "DROP",
-                                "requirement": "MEETS_ANY",
                             }],
-                            "default_behavior": "KEEP",
                         },
                         "redacted_fields": [{
+                            "query_string": "",
                             "single_header": {
                                 "name": "authorization",
                             },
-                            "query_string": "",
                         }],
-                        "log_type": "WAF_LOGS",
                     },
-                    "destination_type": "cloud-watch-logs",
-                    "destination_pattern": "aws-waf-logs-<resourceId>",
-                    "retention_in_days": 30,
                 },
-                "telemetry_type": "Logs",
-                "resource_type": "AWS::WAFv2::WebACL",
             },
-            rule_name="waf-logs-rule",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -533,11 +533,11 @@ class TelemetryRule(pulumi.CustomResource):
 
         example = aws.observabilityadmin.TelemetryEvaluation("example")
         example_telemetry_rule = aws.observabilityadmin.TelemetryRule("example",
+            rule_name="tagged-rule",
             rule={
                 "telemetry_type": "Logs",
                 "resource_type": "AWS::EC2::VPC",
             },
-            rule_name="tagged-rule",
             tags={
                 "Environment": "production",
                 "Purpose": "monitoring",
@@ -581,10 +581,10 @@ class TelemetryRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['TelemetryRuleRuleArgs', 'TelemetryRuleRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['TelemetryRuleRuleArgs', 'TelemetryRuleRuleArgsDict', 'outputs.TelemetryRuleRule']]] = None,
                  rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['TelemetryRuleTimeoutsArgs', 'TelemetryRuleTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TelemetryRuleTimeoutsArgs', 'TelemetryRuleTimeoutsArgsDict', 'outputs.TelemetryRuleTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -616,12 +616,12 @@ class TelemetryRule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            rule: pulumi.Input[Optional[Union['TelemetryRuleRuleArgs', 'TelemetryRuleRuleArgsDict']]] = None,
+            rule: pulumi.Input[Optional[Union['TelemetryRuleRuleArgs', 'TelemetryRuleRuleArgsDict', 'outputs.TelemetryRuleRule']]] = None,
             rule_arn: pulumi.Input[Optional[_builtins.str]] = None,
             rule_name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['TelemetryRuleTimeoutsArgs', 'TelemetryRuleTimeoutsArgsDict']]] = None) -> 'TelemetryRule':
+            timeouts: pulumi.Input[Optional[Union['TelemetryRuleTimeoutsArgs', 'TelemetryRuleTimeoutsArgsDict', 'outputs.TelemetryRuleTimeouts']]] = None) -> 'TelemetryRule':
         """
         Get an existing TelemetryRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -630,7 +630,7 @@ class TelemetryRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['TelemetryRuleRuleArgs', 'TelemetryRuleRuleArgsDict']] rule: Configuration block for the telemetry rule. See `rule` below.
+        :param pulumi.Input[Union['TelemetryRuleRuleArgs', 'TelemetryRuleRuleArgsDict', 'outputs.TelemetryRuleRule']] rule: Configuration block for the telemetry rule. See `rule` below.
         :param pulumi.Input[_builtins.str] rule_arn: ARN of the telemetry rule.
         :param pulumi.Input[_builtins.str] rule_name: Name of the telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
                

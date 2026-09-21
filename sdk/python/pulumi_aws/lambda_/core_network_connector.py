@@ -216,11 +216,11 @@ class CoreNetworkConnector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['CoreNetworkConnectorConfigurationArgs', 'CoreNetworkConnectorConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['CoreNetworkConnectorConfigurationArgs', 'CoreNetworkConnectorConfigurationArgsDict', 'outputs.CoreNetworkConnectorConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  operator_role: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['CoreNetworkConnectorTimeoutsArgs', 'CoreNetworkConnectorTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CoreNetworkConnectorTimeoutsArgs', 'CoreNetworkConnectorTimeoutsArgsDict', 'outputs.CoreNetworkConnectorTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS Lambda Network Connector. A network connector provisions elastic network interfaces (ENIs) in the subnets you specify, routing outbound traffic from [Lambda MicroVMs](https://docs.aws.amazon.com/lambda/latest/dg/microvms-networking.html) through your VPC — for example to reach private resources, or to give MicroVM traffic a stable source IP by exiting through your NAT gateway.
@@ -247,6 +247,8 @@ class CoreNetworkConnector(pulumi.CustomResource):
                 }],
             }))
         example = aws.lambda_.CoreNetworkConnector("example",
+            name="example",
+            operator_role=example_role.arn,
             configuration={
                 "vpc_egress_configuration": {
                     "associated_compute_resource_types": ["MicroVm"],
@@ -254,9 +256,7 @@ class CoreNetworkConnector(pulumi.CustomResource):
                     "subnet_ids": [__item["id"] for __item in example_aws_subnet],
                     "security_group_ids": [example_aws_security_group["id"]],
                 },
-            },
-            name="example",
-            operator_role=example_role.arn)
+            })
         example_role_policy = aws.iam.RolePolicy("example",
             name="example-network-connector-operator",
             role=example_role.id,
@@ -305,7 +305,7 @@ class CoreNetworkConnector(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CoreNetworkConnectorConfigurationArgs', 'CoreNetworkConnectorConfigurationArgsDict']] configuration: Network configuration of the connector. See `configuration` Block below.
+        :param pulumi.Input[Union['CoreNetworkConnectorConfigurationArgs', 'CoreNetworkConnectorConfigurationArgsDict', 'outputs.CoreNetworkConnectorConfiguration']] configuration: Network configuration of the connector. See `configuration` Block below.
         :param pulumi.Input[_builtins.str] name: Name of the network connector, unique within the account and Region. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] operator_role: ARN of the IAM role that the network connector service assumes to manage elastic network interfaces in your VPC.
                
@@ -343,6 +343,8 @@ class CoreNetworkConnector(pulumi.CustomResource):
                 }],
             }))
         example = aws.lambda_.CoreNetworkConnector("example",
+            name="example",
+            operator_role=example_role.arn,
             configuration={
                 "vpc_egress_configuration": {
                     "associated_compute_resource_types": ["MicroVm"],
@@ -350,9 +352,7 @@ class CoreNetworkConnector(pulumi.CustomResource):
                     "subnet_ids": [__item["id"] for __item in example_aws_subnet],
                     "security_group_ids": [example_aws_security_group["id"]],
                 },
-            },
-            name="example",
-            operator_role=example_role.arn)
+            })
         example_role_policy = aws.iam.RolePolicy("example",
             name="example-network-connector-operator",
             role=example_role.id,
@@ -414,11 +414,11 @@ class CoreNetworkConnector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['CoreNetworkConnectorConfigurationArgs', 'CoreNetworkConnectorConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['CoreNetworkConnectorConfigurationArgs', 'CoreNetworkConnectorConfigurationArgsDict', 'outputs.CoreNetworkConnectorConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  operator_role: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['CoreNetworkConnectorTimeoutsArgs', 'CoreNetworkConnectorTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CoreNetworkConnectorTimeoutsArgs', 'CoreNetworkConnectorTimeoutsArgsDict', 'outputs.CoreNetworkConnectorTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -449,11 +449,11 @@ class CoreNetworkConnector(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            configuration: pulumi.Input[Optional[Union['CoreNetworkConnectorConfigurationArgs', 'CoreNetworkConnectorConfigurationArgsDict']]] = None,
+            configuration: pulumi.Input[Optional[Union['CoreNetworkConnectorConfigurationArgs', 'CoreNetworkConnectorConfigurationArgsDict', 'outputs.CoreNetworkConnectorConfiguration']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             operator_role: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['CoreNetworkConnectorTimeoutsArgs', 'CoreNetworkConnectorTimeoutsArgsDict']]] = None) -> 'CoreNetworkConnector':
+            timeouts: pulumi.Input[Optional[Union['CoreNetworkConnectorTimeoutsArgs', 'CoreNetworkConnectorTimeoutsArgsDict', 'outputs.CoreNetworkConnectorTimeouts']]] = None) -> 'CoreNetworkConnector':
         """
         Get an existing CoreNetworkConnector resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -462,7 +462,7 @@ class CoreNetworkConnector(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the network connector.
-        :param pulumi.Input[Union['CoreNetworkConnectorConfigurationArgs', 'CoreNetworkConnectorConfigurationArgsDict']] configuration: Network configuration of the connector. See `configuration` Block below.
+        :param pulumi.Input[Union['CoreNetworkConnectorConfigurationArgs', 'CoreNetworkConnectorConfigurationArgsDict', 'outputs.CoreNetworkConnectorConfiguration']] configuration: Network configuration of the connector. See `configuration` Block below.
         :param pulumi.Input[_builtins.str] name: Name of the network connector, unique within the account and Region. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] operator_role: ARN of the IAM role that the network connector service assumes to manage elastic network interfaces in your VPC.
                

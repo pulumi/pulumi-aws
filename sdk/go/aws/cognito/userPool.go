@@ -56,6 +56,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
+//				MfaConfiguration:         pulumi.String("ON"),
+//				SmsAuthenticationMessage: pulumi.String("Your code is {####}"),
 //				SmsConfiguration: &cognito.UserPoolSmsConfigurationArgs{
 //					ExternalId:   pulumi.String("example"),
 //					SnsCallerArn: pulumi.Any(exampleAwsIamRole.Arn),
@@ -64,8 +66,6 @@ import (
 //				SoftwareTokenMfaConfiguration: &cognito.UserPoolSoftwareTokenMfaConfigurationArgs{
 //					Enabled: pulumi.Bool(true),
 //				},
-//				MfaConfiguration:         pulumi.String("ON"),
-//				SmsAuthenticationMessage: pulumi.String("Your code is {####}"),
 //			})
 //			if err != nil {
 //				return err
@@ -91,6 +91,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cognito.NewUserPool(ctx, "test", &cognito.UserPoolArgs{
+//				Name: pulumi.String("mypool"),
 //				AccountRecoverySetting: &cognito.UserPoolAccountRecoverySettingArgs{
 //					RecoveryMechanisms: cognito.UserPoolAccountRecoverySettingRecoveryMechanismArray{
 //						&cognito.UserPoolAccountRecoverySettingRecoveryMechanismArgs{
@@ -103,7 +104,6 @@ import (
 //						},
 //					},
 //				},
-//				Name: pulumi.String("mypool"),
 //			})
 //			if err != nil {
 //				return err

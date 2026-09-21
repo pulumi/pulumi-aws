@@ -49,6 +49,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Application("example", ApplicationArgs.builder()
+ *             .name("Example")
+ *             .engineType("bluage")
  *             .definition(ApplicationDefinitionArgs.builder()
  *                 .content("""
  * {
@@ -78,8 +80,6 @@ import javax.annotation.Nullable;
  * 
  * ", s3_source))
  *                 .build())
- *             .name("Example")
- *             .engineType("bluage")
  *             .build());
  * 
  *     }

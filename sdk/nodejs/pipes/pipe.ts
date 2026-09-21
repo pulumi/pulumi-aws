@@ -88,6 +88,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.pipes.Pipe("example", {
+ *     name: "example-pipe",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     source: source.arn,
+ *     target: target.arn,
+ *     enrichment: exampleAwsCloudwatchEventApiDestination.arn,
  *     enrichmentParameters: {
  *         httpParameters: {
  *             pathParameterValues: "example-path-param",
@@ -101,11 +106,6 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
- *     name: "example-pipe",
- *     roleArn: exampleAwsIamRole.arn,
- *     source: source.arn,
- *     target: target.arn,
- *     enrichment: exampleAwsCloudwatchEventApiDestination.arn,
  * });
  * ```
  *
@@ -116,6 +116,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.pipes.Pipe("example", {
+ *     name: "example-pipe",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     source: source.arn,
+ *     target: target.arn,
  *     sourceParameters: {
  *         filterCriteria: {
  *             filters: [{
@@ -125,10 +129,6 @@ import * as utilities from "../utilities";
  *             }],
  *         },
  *     },
- *     name: "example-pipe",
- *     roleArn: exampleAwsIamRole.arn,
- *     source: source.arn,
- *     target: target.arn,
  * });
  * ```
  *
@@ -140,17 +140,17 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.cloudwatch.LogGroup("example", {name: "example-pipe-target"});
  * const examplePipe = new aws.pipes.Pipe("example", {
- *     logConfiguration: {
- *         cloudwatchLogsLogDestination: {
- *             logGroupArn: targetAwsCloudwatchLogGroup.arn,
- *         },
- *         includeExecutionDatas: ["ALL"],
- *         level: "INFO",
- *     },
  *     name: "example-pipe",
  *     roleArn: exampleAwsIamRole.arn,
  *     source: sourceAwsSqsQueue.arn,
  *     target: targetAwsSqsQueue.arn,
+ *     logConfiguration: {
+ *         includeExecutionDatas: ["ALL"],
+ *         level: "INFO",
+ *         cloudwatchLogsLogDestination: {
+ *             logGroupArn: targetAwsCloudwatchLogGroup.arn,
+ *         },
+ *     },
  * }, {
  *     dependsOn: [
  *         source,
@@ -166,6 +166,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.pipes.Pipe("example", {
+ *     name: "example-pipe",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     source: source.arn,
+ *     target: target.arn,
  *     sourceParameters: {
  *         sqsQueueParameters: {
  *             batchSize: 1,
@@ -178,10 +182,6 @@ import * as utilities from "../utilities";
  *             messageGroupId: "example-group",
  *         },
  *     },
- *     name: "example-pipe",
- *     roleArn: exampleAwsIamRole.arn,
- *     source: source.arn,
- *     target: target.arn,
  * });
  * ```
  *

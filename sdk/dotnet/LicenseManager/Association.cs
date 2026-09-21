@@ -26,6 +26,11 @@ namespace Pulumi.Aws.LicenseManager
     /// {
     ///     var example = Aws.Ec2.GetAmi.Invoke(new()
     ///     {
+    ///         MostRecent = true,
+    ///         Owners = new[]
+    ///         {
+    ///             "amazon",
+    ///         },
     ///         Filters = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
@@ -36,11 +41,6 @@ namespace Pulumi.Aws.LicenseManager
     ///                     "amzn-ami-vpc-nat*",
     ///                 },
     ///             },
-    ///         },
-    ///         MostRecent = true,
-    ///         Owners = new[]
-    ///         {
-    ///             "amazon",
     ///         },
     ///     });
     /// 

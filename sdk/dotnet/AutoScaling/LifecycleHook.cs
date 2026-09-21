@@ -37,15 +37,6 @@ namespace Pulumi.Aws.AutoScaling
     /// {
     ///     var foobar = new Aws.AutoScaling.Group("foobar", new()
     ///     {
-    ///         Tags = new[]
-    ///         {
-    ///             new Aws.AutoScaling.Inputs.GroupTagArgs
-    ///             {
-    ///                 Key = "Foo",
-    ///                 Value = "foo-bar",
-    ///                 PropagateAtLaunch = true,
-    ///             },
-    ///         },
     ///         AvailabilityZones = new[]
     ///         {
     ///             "us-west-2a",
@@ -55,6 +46,15 @@ namespace Pulumi.Aws.AutoScaling
     ///         TerminationPolicies = new[]
     ///         {
     ///             "OldestInstance",
+    ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             new Aws.AutoScaling.Inputs.GroupTagArgs
+    ///             {
+    ///                 Key = "Foo",
+    ///                 Value = "foo-bar",
+    ///                 PropagateAtLaunch = true,
+    ///             },
     ///         },
     ///     });
     /// 

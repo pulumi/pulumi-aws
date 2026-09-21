@@ -26,6 +26,7 @@ namespace Pulumi.Aws.AppSync
     /// {
     ///     var example = new Aws.AppSync.Api("example", new()
     ///     {
+    ///         Name = "example-event-api",
     ///         EventConfig = new Aws.AppSync.Inputs.ApiEventConfigArgs
     ///         {
     ///             AuthProviders = new[]
@@ -57,7 +58,6 @@ namespace Pulumi.Aws.AppSync
     ///                 },
     ///             },
     ///         },
-    ///         Name = "example-event-api",
     ///     });
     /// 
     /// });
@@ -82,18 +82,19 @@ namespace Pulumi.Aws.AppSync
     /// 
     ///     var exampleApi = new Aws.AppSync.Api("example", new()
     ///     {
+    ///         Name = "example-event-api",
     ///         EventConfig = new Aws.AppSync.Inputs.ApiEventConfigArgs
     ///         {
     ///             AuthProviders = new[]
     ///             {
     ///                 new Aws.AppSync.Inputs.ApiEventConfigAuthProviderArgs
     ///                 {
+    ///                     AuthType = "AMAZON_COGNITO_USER_POOLS",
     ///                     CognitoConfig = new Aws.AppSync.Inputs.ApiEventConfigAuthProviderCognitoConfigArgs
     ///                     {
     ///                         UserPoolId = example.Id,
     ///                         AwsRegion = current.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///                     },
-    ///                     AuthType = "AMAZON_COGNITO_USER_POOLS",
     ///                 },
     ///             },
     ///             ConnectionAuthModes = new[]
@@ -118,7 +119,6 @@ namespace Pulumi.Aws.AppSync
     ///                 },
     ///             },
     ///         },
-    ///         Name = "example-event-api",
     ///     });
     /// 
     /// });
@@ -136,18 +136,19 @@ namespace Pulumi.Aws.AppSync
     /// {
     ///     var example = new Aws.AppSync.Api("example", new()
     ///     {
+    ///         Name = "example-event-api",
     ///         EventConfig = new Aws.AppSync.Inputs.ApiEventConfigArgs
     ///         {
     ///             AuthProviders = new[]
     ///             {
     ///                 new Aws.AppSync.Inputs.ApiEventConfigAuthProviderArgs
     ///                 {
+    ///                     AuthType = "AWS_LAMBDA",
     ///                     LambdaAuthorizerConfig = new Aws.AppSync.Inputs.ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs
     ///                     {
     ///                         AuthorizerUri = exampleAwsLambdaFunction.Arn,
     ///                         AuthorizerResultTtlInSeconds = 300,
     ///                     },
-    ///                     AuthType = "AWS_LAMBDA",
     ///                 },
     ///             },
     ///             ConnectionAuthModes = new[]
@@ -172,7 +173,6 @@ namespace Pulumi.Aws.AppSync
     ///                 },
     ///             },
     ///         },
-    ///         Name = "example-event-api",
     ///     });
     /// 
     /// });

@@ -37,6 +37,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codebuild.NewWebhook(ctx, "example", &codebuild.WebhookArgs{
+//				ProjectName: pulumi.Any(exampleAwsCodebuildProject.Name),
+//				BuildType:   pulumi.String("BUILD"),
 //				FilterGroups: codebuild.WebhookFilterGroupArray{
 //					&codebuild.WebhookFilterGroupArgs{
 //						Filters: codebuild.WebhookFilterGroupFilterArray{
@@ -51,8 +53,6 @@ import (
 //						},
 //					},
 //				},
-//				ProjectName: pulumi.Any(exampleAwsCodebuildProject.Name),
-//				BuildType:   pulumi.String("BUILD"),
 //			})
 //			if err != nil {
 //				return err
@@ -89,6 +89,12 @@ import (
 //				return err
 //			}
 //			_, err = github.NewRepositoryWebhook(ctx, "example", &github.RepositoryWebhookArgs{
+//				Active: pulumi.Bool(true),
+//				Events: pulumi.StringArray{
+//					pulumi.String("push"),
+//				},
+//				Name:       "example",
+//				Repository: pulumi.Any(exampleGithubRepository.Name),
 //				Configuration: github.RepositoryWebhookConfigurationArgs{
 //					map[string]interface{}{
 //						"url":         example.PayloadUrl,
@@ -97,12 +103,6 @@ import (
 //						"insecureSsl": false,
 //					},
 //				},
-//				Active: pulumi.Bool(true),
-//				Events: pulumi.StringArray{
-//					pulumi.String("push"),
-//				},
-//				Name:       "example",
-//				Repository: pulumi.Any(exampleGithubRepository.Name),
 //			})
 //			if err != nil {
 //				return err
@@ -131,6 +131,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codebuild.NewWebhook(ctx, "example", &codebuild.WebhookArgs{
+//				ProjectName: pulumi.Any(exampleAwsCodebuildProject.Name),
+//				BuildType:   pulumi.String("BUILD"),
 //				FilterGroups: codebuild.WebhookFilterGroupArray{
 //					&codebuild.WebhookFilterGroupArgs{
 //						Filters: codebuild.WebhookFilterGroupFilterArray{
@@ -141,8 +143,6 @@ import (
 //						},
 //					},
 //				},
-//				ProjectName: pulumi.Any(exampleAwsCodebuildProject.Name),
-//				BuildType:   pulumi.String("BUILD"),
 //			})
 //			if err != nil {
 //				return err

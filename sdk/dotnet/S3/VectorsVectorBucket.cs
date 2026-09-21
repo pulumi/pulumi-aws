@@ -44,6 +44,7 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.VectorsVectorBucket("example", new()
     ///     {
+    ///         VectorBucketName = "example-bucket",
     ///         EncryptionConfigurations = new[]
     ///         {
     ///             new Aws.S3.Inputs.VectorsVectorBucketEncryptionConfigurationArgs
@@ -52,7 +53,6 @@ namespace Pulumi.Aws.S3
     ///                 KmsKeyArn = exampleAwsKmsKey.Arn,
     ///             },
     ///         },
-    ///         VectorBucketName = "example-bucket",
     ///     });
     /// 
     /// });

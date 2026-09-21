@@ -203,8 +203,8 @@ class PipelineEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  pipeline_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['PipelineEndpointTimeoutsArgs', 'PipelineEndpointTimeoutsArgsDict']]] = None,
-                 vpc_options: pulumi.Input[Optional[Union['PipelineEndpointVpcOptionsArgs', 'PipelineEndpointVpcOptionsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['PipelineEndpointTimeoutsArgs', 'PipelineEndpointTimeoutsArgsDict', 'outputs.PipelineEndpointTimeouts']]] = None,
+                 vpc_options: pulumi.Input[Optional[Union['PipelineEndpointVpcOptionsArgs', 'PipelineEndpointVpcOptionsArgsDict', 'outputs.PipelineEndpointVpcOptions']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS OpenSearch Ingestion Pipeline Endpoint.
@@ -218,11 +218,11 @@ class PipelineEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearchingest.PipelineEndpoint("example",
+            pipeline_arn=example_aws_osis_pipeline["pipelineArn"],
             vpc_options={
                 "security_group_ids": [example_aws_security_group["id"]],
                 "subnet_ids": [example_aws_subnet["id"]],
-            },
-            pipeline_arn=example_aws_osis_pipeline["pipelineArn"])
+            })
         ```
 
         ## Import
@@ -249,7 +249,7 @@ class PipelineEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] pipeline_arn: ARN of the pipeline to create the endpoint for.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['PipelineEndpointVpcOptionsArgs', 'PipelineEndpointVpcOptionsArgsDict']] vpc_options: VPC options for the pipeline endpoint. See `vpc_options` Block below.
+        :param pulumi.Input[Union['PipelineEndpointVpcOptionsArgs', 'PipelineEndpointVpcOptionsArgsDict', 'outputs.PipelineEndpointVpcOptions']] vpc_options: VPC options for the pipeline endpoint. See `vpc_options` Block below.
                
                The following arguments are optional:
         """
@@ -271,11 +271,11 @@ class PipelineEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearchingest.PipelineEndpoint("example",
+            pipeline_arn=example_aws_osis_pipeline["pipelineArn"],
             vpc_options={
                 "security_group_ids": [example_aws_security_group["id"]],
                 "subnet_ids": [example_aws_subnet["id"]],
-            },
-            pipeline_arn=example_aws_osis_pipeline["pipelineArn"])
+            })
         ```
 
         ## Import
@@ -315,8 +315,8 @@ class PipelineEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  pipeline_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['PipelineEndpointTimeoutsArgs', 'PipelineEndpointTimeoutsArgsDict']]] = None,
-                 vpc_options: pulumi.Input[Optional[Union['PipelineEndpointVpcOptionsArgs', 'PipelineEndpointVpcOptionsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['PipelineEndpointTimeoutsArgs', 'PipelineEndpointTimeoutsArgsDict', 'outputs.PipelineEndpointTimeouts']]] = None,
+                 vpc_options: pulumi.Input[Optional[Union['PipelineEndpointVpcOptionsArgs', 'PipelineEndpointVpcOptionsArgsDict', 'outputs.PipelineEndpointVpcOptions']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -347,9 +347,9 @@ class PipelineEndpoint(pulumi.CustomResource):
             pipeline_arn: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['PipelineEndpointTimeoutsArgs', 'PipelineEndpointTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['PipelineEndpointTimeoutsArgs', 'PipelineEndpointTimeoutsArgsDict', 'outputs.PipelineEndpointTimeouts']]] = None,
             vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
-            vpc_options: pulumi.Input[Optional[Union['PipelineEndpointVpcOptionsArgs', 'PipelineEndpointVpcOptionsArgsDict']]] = None) -> 'PipelineEndpoint':
+            vpc_options: pulumi.Input[Optional[Union['PipelineEndpointVpcOptionsArgs', 'PipelineEndpointVpcOptionsArgsDict', 'outputs.PipelineEndpointVpcOptions']]] = None) -> 'PipelineEndpoint':
         """
         Get an existing PipelineEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -361,7 +361,7 @@ class PipelineEndpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] status: Status of the endpoint.
         :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC. Derived from `subnet_ids`.
-        :param pulumi.Input[Union['PipelineEndpointVpcOptionsArgs', 'PipelineEndpointVpcOptionsArgsDict']] vpc_options: VPC options for the pipeline endpoint. See `vpc_options` Block below.
+        :param pulumi.Input[Union['PipelineEndpointVpcOptionsArgs', 'PipelineEndpointVpcOptionsArgsDict', 'outputs.PipelineEndpointVpcOptions']] vpc_options: VPC options for the pipeline endpoint. See `vpc_options` Block below.
                
                The following arguments are optional:
         """

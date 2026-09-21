@@ -36,6 +36,8 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var @default = new Aws.Rds.ParameterGroup("default", new()
     ///     {
+    ///         Name = "rds-pg",
+    ///         Family = "mysql5.6",
     ///         Parameters = new[]
     ///         {
     ///             new Aws.Rds.Inputs.ParameterGroupParameterArgs
@@ -49,8 +51,6 @@ namespace Pulumi.Aws.Rds
     ///                 Value = "utf8",
     ///             },
     ///         },
-    ///         Name = "rds-pg",
-    ///         Family = "mysql5.6",
     ///     });
     /// 
     /// });
@@ -75,6 +75,8 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var test = new Aws.Rds.ParameterGroup("test", new()
     ///     {
+    ///         Name = "random-test-parameter",
+    ///         Family = "mysql5.7",
     ///         Parameters = new[]
     ///         {
     ///             new Aws.Rds.Inputs.ParameterGroupParameterArgs
@@ -83,8 +85,6 @@ namespace Pulumi.Aws.Rds
     ///                 Value = "0",
     ///             },
     ///         },
-    ///         Name = "random-test-parameter",
-    ///         Family = "mysql5.7",
     ///     });
     /// 
     /// });
@@ -125,6 +125,8 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var test = new Aws.Rds.ParameterGroup("test", new()
     ///     {
+    ///         Name = "random-test-parameter",
+    ///         Family = "mysql5.7",
     ///         Parameters = new[]
     ///         {
     ///             new Aws.Rds.Inputs.ParameterGroupParameterArgs
@@ -133,8 +135,6 @@ namespace Pulumi.Aws.Rds
     ///                 Value = "1",
     ///             },
     ///         },
-    ///         Name = "random-test-parameter",
-    ///         Family = "mysql5.7",
     ///     });
     /// 
     /// });
@@ -154,6 +154,8 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var test = new Aws.Rds.ParameterGroup("test", new()
     ///     {
+    ///         Name = "random-test-parameter",
+    ///         Family = "mysql5.7",
     ///         Parameters = new[]
     ///         {
     ///             new Aws.Rds.Inputs.ParameterGroupParameterArgs
@@ -163,8 +165,6 @@ namespace Pulumi.Aws.Rds
     ///                 Value = "0",
     ///             },
     ///         },
-    ///         Name = "random-test-parameter",
-    ///         Family = "mysql5.7",
     ///     });
     /// 
     /// });

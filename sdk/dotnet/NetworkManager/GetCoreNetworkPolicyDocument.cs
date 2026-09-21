@@ -32,53 +32,15 @@ namespace Pulumi.Aws.NetworkManager
         /// {
         ///     var test = Aws.NetworkManager.GetCoreNetworkPolicyDocument.Invoke(new()
         ///     {
-        ///         AttachmentPolicies = new[]
-        ///         {
-        ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyInputArgs
-        ///             {
-        ///                 Action = new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionInputArgs
-        ///                 {
-        ///                     AssociationMethod = "constant",
-        ///                     Segment = "shared",
-        ///                 },
-        ///                 Conditions = new[]
-        ///                 {
-        ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionInputArgs
-        ///                     {
-        ///                         Type = "tag-value",
-        ///                         Operator = "equals",
-        ///                         Key = "segment",
-        ///                         Value = "shared",
-        ///                     },
-        ///                 },
-        ///                 RuleNumber = 100,
-        ///                 ConditionLogic = "or",
-        ///             },
-        ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyInputArgs
-        ///             {
-        ///                 Action = new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionInputArgs
-        ///                 {
-        ///                     AssociationMethod = "constant",
-        ///                     Segment = "prod",
-        ///                 },
-        ///                 Conditions = new[]
-        ///                 {
-        ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionInputArgs
-        ///                     {
-        ///                         Type = "tag-value",
-        ///                         Operator = "equals",
-        ///                         Key = "segment",
-        ///                         Value = "prod",
-        ///                     },
-        ///                 },
-        ///                 RuleNumber = 200,
-        ///                 ConditionLogic = "or",
-        ///             },
-        ///         },
         ///         CoreNetworkConfigurations = new[]
         ///         {
         ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationInputArgs
         ///             {
+        ///                 VpnEcmpSupport = false,
+        ///                 AsnRanges = new[]
+        ///                 {
+        ///                     "64512-64555",
+        ///                 },
         ///                 EdgeLocations = new[]
         ///                 {
         ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInputArgs
@@ -91,24 +53,6 @@ namespace Pulumi.Aws.NetworkManager
         ///                         Location = "eu-central-1",
         ///                         Asn = "64513",
         ///                     },
-        ///                 },
-        ///                 VpnEcmpSupport = false,
-        ///                 AsnRanges = new[]
-        ///                 {
-        ///                     "64512-64555",
-        ///                 },
-        ///             },
-        ///         },
-        ///         SegmentActions = new[]
-        ///         {
-        ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentActionInputArgs
-        ///             {
-        ///                 Action = "share",
-        ///                 Mode = "attachment-route",
-        ///                 Segment = "shared",
-        ///                 ShareWiths = new[]
-        ///                 {
-        ///                     "*",
         ///                 },
         ///             },
         ///         },
@@ -125,6 +69,62 @@ namespace Pulumi.Aws.NetworkManager
         ///                 Name = "prod",
         ///                 Description = "Segment for prod services",
         ///                 RequireAttachmentAcceptance = true,
+        ///             },
+        ///         },
+        ///         SegmentActions = new[]
+        ///         {
+        ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentActionInputArgs
+        ///             {
+        ///                 Action = "share",
+        ///                 Mode = "attachment-route",
+        ///                 Segment = "shared",
+        ///                 ShareWiths = new[]
+        ///                 {
+        ///                     "*",
+        ///                 },
+        ///             },
+        ///         },
+        ///         AttachmentPolicies = new[]
+        ///         {
+        ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyInputArgs
+        ///             {
+        ///                 RuleNumber = 100,
+        ///                 ConditionLogic = "or",
+        ///                 Conditions = new[]
+        ///                 {
+        ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionInputArgs
+        ///                     {
+        ///                         Type = "tag-value",
+        ///                         Operator = "equals",
+        ///                         Key = "segment",
+        ///                         Value = "shared",
+        ///                     },
+        ///                 },
+        ///                 Action = new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionInputArgs
+        ///                 {
+        ///                     AssociationMethod = "constant",
+        ///                     Segment = "shared",
+        ///                 },
+        ///             },
+        ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyInputArgs
+        ///             {
+        ///                 RuleNumber = 200,
+        ///                 ConditionLogic = "or",
+        ///                 Conditions = new[]
+        ///                 {
+        ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionInputArgs
+        ///                     {
+        ///                         Type = "tag-value",
+        ///                         Operator = "equals",
+        ///                         Key = "segment",
+        ///                         Value = "prod",
+        ///                     },
+        ///                 },
+        ///                 Action = new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionInputArgs
+        ///                 {
+        ///                     AssociationMethod = "constant",
+        ///                     Segment = "prod",
+        ///                 },
         ///             },
         ///         },
         ///     });
@@ -234,53 +234,15 @@ namespace Pulumi.Aws.NetworkManager
         /// {
         ///     var test = Aws.NetworkManager.GetCoreNetworkPolicyDocument.Invoke(new()
         ///     {
-        ///         AttachmentPolicies = new[]
-        ///         {
-        ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyInputArgs
-        ///             {
-        ///                 Action = new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionInputArgs
-        ///                 {
-        ///                     AssociationMethod = "constant",
-        ///                     Segment = "shared",
-        ///                 },
-        ///                 Conditions = new[]
-        ///                 {
-        ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionInputArgs
-        ///                     {
-        ///                         Type = "tag-value",
-        ///                         Operator = "equals",
-        ///                         Key = "segment",
-        ///                         Value = "shared",
-        ///                     },
-        ///                 },
-        ///                 RuleNumber = 100,
-        ///                 ConditionLogic = "or",
-        ///             },
-        ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyInputArgs
-        ///             {
-        ///                 Action = new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionInputArgs
-        ///                 {
-        ///                     AssociationMethod = "constant",
-        ///                     Segment = "prod",
-        ///                 },
-        ///                 Conditions = new[]
-        ///                 {
-        ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionInputArgs
-        ///                     {
-        ///                         Type = "tag-value",
-        ///                         Operator = "equals",
-        ///                         Key = "segment",
-        ///                         Value = "prod",
-        ///                     },
-        ///                 },
-        ///                 RuleNumber = 200,
-        ///                 ConditionLogic = "or",
-        ///             },
-        ///         },
         ///         CoreNetworkConfigurations = new[]
         ///         {
         ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationInputArgs
         ///             {
+        ///                 VpnEcmpSupport = false,
+        ///                 AsnRanges = new[]
+        ///                 {
+        ///                     "64512-64555",
+        ///                 },
         ///                 EdgeLocations = new[]
         ///                 {
         ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInputArgs
@@ -293,24 +255,6 @@ namespace Pulumi.Aws.NetworkManager
         ///                         Location = "eu-central-1",
         ///                         Asn = "64513",
         ///                     },
-        ///                 },
-        ///                 VpnEcmpSupport = false,
-        ///                 AsnRanges = new[]
-        ///                 {
-        ///                     "64512-64555",
-        ///                 },
-        ///             },
-        ///         },
-        ///         SegmentActions = new[]
-        ///         {
-        ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentActionInputArgs
-        ///             {
-        ///                 Action = "share",
-        ///                 Mode = "attachment-route",
-        ///                 Segment = "shared",
-        ///                 ShareWiths = new[]
-        ///                 {
-        ///                     "*",
         ///                 },
         ///             },
         ///         },
@@ -327,6 +271,62 @@ namespace Pulumi.Aws.NetworkManager
         ///                 Name = "prod",
         ///                 Description = "Segment for prod services",
         ///                 RequireAttachmentAcceptance = true,
+        ///             },
+        ///         },
+        ///         SegmentActions = new[]
+        ///         {
+        ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentActionInputArgs
+        ///             {
+        ///                 Action = "share",
+        ///                 Mode = "attachment-route",
+        ///                 Segment = "shared",
+        ///                 ShareWiths = new[]
+        ///                 {
+        ///                     "*",
+        ///                 },
+        ///             },
+        ///         },
+        ///         AttachmentPolicies = new[]
+        ///         {
+        ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyInputArgs
+        ///             {
+        ///                 RuleNumber = 100,
+        ///                 ConditionLogic = "or",
+        ///                 Conditions = new[]
+        ///                 {
+        ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionInputArgs
+        ///                     {
+        ///                         Type = "tag-value",
+        ///                         Operator = "equals",
+        ///                         Key = "segment",
+        ///                         Value = "shared",
+        ///                     },
+        ///                 },
+        ///                 Action = new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionInputArgs
+        ///                 {
+        ///                     AssociationMethod = "constant",
+        ///                     Segment = "shared",
+        ///                 },
+        ///             },
+        ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyInputArgs
+        ///             {
+        ///                 RuleNumber = 200,
+        ///                 ConditionLogic = "or",
+        ///                 Conditions = new[]
+        ///                 {
+        ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionInputArgs
+        ///                     {
+        ///                         Type = "tag-value",
+        ///                         Operator = "equals",
+        ///                         Key = "segment",
+        ///                         Value = "prod",
+        ///                     },
+        ///                 },
+        ///                 Action = new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionInputArgs
+        ///                 {
+        ///                     AssociationMethod = "constant",
+        ///                     Segment = "prod",
+        ///                 },
         ///             },
         ///         },
         ///     });
@@ -436,53 +436,15 @@ namespace Pulumi.Aws.NetworkManager
         /// {
         ///     var test = Aws.NetworkManager.GetCoreNetworkPolicyDocument.Invoke(new()
         ///     {
-        ///         AttachmentPolicies = new[]
-        ///         {
-        ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyInputArgs
-        ///             {
-        ///                 Action = new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionInputArgs
-        ///                 {
-        ///                     AssociationMethod = "constant",
-        ///                     Segment = "shared",
-        ///                 },
-        ///                 Conditions = new[]
-        ///                 {
-        ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionInputArgs
-        ///                     {
-        ///                         Type = "tag-value",
-        ///                         Operator = "equals",
-        ///                         Key = "segment",
-        ///                         Value = "shared",
-        ///                     },
-        ///                 },
-        ///                 RuleNumber = 100,
-        ///                 ConditionLogic = "or",
-        ///             },
-        ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyInputArgs
-        ///             {
-        ///                 Action = new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionInputArgs
-        ///                 {
-        ///                     AssociationMethod = "constant",
-        ///                     Segment = "prod",
-        ///                 },
-        ///                 Conditions = new[]
-        ///                 {
-        ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionInputArgs
-        ///                     {
-        ///                         Type = "tag-value",
-        ///                         Operator = "equals",
-        ///                         Key = "segment",
-        ///                         Value = "prod",
-        ///                     },
-        ///                 },
-        ///                 RuleNumber = 200,
-        ///                 ConditionLogic = "or",
-        ///             },
-        ///         },
         ///         CoreNetworkConfigurations = new[]
         ///         {
         ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationInputArgs
         ///             {
+        ///                 VpnEcmpSupport = false,
+        ///                 AsnRanges = new[]
+        ///                 {
+        ///                     "64512-64555",
+        ///                 },
         ///                 EdgeLocations = new[]
         ///                 {
         ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInputArgs
@@ -495,24 +457,6 @@ namespace Pulumi.Aws.NetworkManager
         ///                         Location = "eu-central-1",
         ///                         Asn = "64513",
         ///                     },
-        ///                 },
-        ///                 VpnEcmpSupport = false,
-        ///                 AsnRanges = new[]
-        ///                 {
-        ///                     "64512-64555",
-        ///                 },
-        ///             },
-        ///         },
-        ///         SegmentActions = new[]
-        ///         {
-        ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentActionInputArgs
-        ///             {
-        ///                 Action = "share",
-        ///                 Mode = "attachment-route",
-        ///                 Segment = "shared",
-        ///                 ShareWiths = new[]
-        ///                 {
-        ///                     "*",
         ///                 },
         ///             },
         ///         },
@@ -529,6 +473,62 @@ namespace Pulumi.Aws.NetworkManager
         ///                 Name = "prod",
         ///                 Description = "Segment for prod services",
         ///                 RequireAttachmentAcceptance = true,
+        ///             },
+        ///         },
+        ///         SegmentActions = new[]
+        ///         {
+        ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentActionInputArgs
+        ///             {
+        ///                 Action = "share",
+        ///                 Mode = "attachment-route",
+        ///                 Segment = "shared",
+        ///                 ShareWiths = new[]
+        ///                 {
+        ///                     "*",
+        ///                 },
+        ///             },
+        ///         },
+        ///         AttachmentPolicies = new[]
+        ///         {
+        ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyInputArgs
+        ///             {
+        ///                 RuleNumber = 100,
+        ///                 ConditionLogic = "or",
+        ///                 Conditions = new[]
+        ///                 {
+        ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionInputArgs
+        ///                     {
+        ///                         Type = "tag-value",
+        ///                         Operator = "equals",
+        ///                         Key = "segment",
+        ///                         Value = "shared",
+        ///                     },
+        ///                 },
+        ///                 Action = new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionInputArgs
+        ///                 {
+        ///                     AssociationMethod = "constant",
+        ///                     Segment = "shared",
+        ///                 },
+        ///             },
+        ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyInputArgs
+        ///             {
+        ///                 RuleNumber = 200,
+        ///                 ConditionLogic = "or",
+        ///                 Conditions = new[]
+        ///                 {
+        ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionInputArgs
+        ///                     {
+        ///                         Type = "tag-value",
+        ///                         Operator = "equals",
+        ///                         Key = "segment",
+        ///                         Value = "prod",
+        ///                     },
+        ///                 },
+        ///                 Action = new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionInputArgs
+        ///                 {
+        ///                     AssociationMethod = "constant",
+        ///                     Segment = "prod",
+        ///                 },
         ///             },
         ///         },
         ///     });

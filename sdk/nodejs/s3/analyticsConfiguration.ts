@@ -23,6 +23,8 @@ import * as utilities from "../utilities";
  * const example = new aws.s3.Bucket("example", {bucket: "example"});
  * const analytics = new aws.s3.Bucket("analytics", {bucket: "analytics-destination"});
  * const example_entire_bucket = new aws.s3.AnalyticsConfiguration("example-entire-bucket", {
+ *     bucket: example.id,
+ *     name: "EntireBucket",
  *     storageClassAnalysis: {
  *         dataExport: {
  *             destination: {
@@ -32,8 +34,6 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
- *     bucket: example.id,
- *     name: "EntireBucket",
  * });
  * ```
  *
@@ -45,6 +45,8 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.s3.Bucket("example", {bucket: "example"});
  * const example_filtered = new aws.s3.AnalyticsConfiguration("example-filtered", {
+ *     bucket: example.id,
+ *     name: "ImportantBlueDocuments",
  *     filter: {
  *         prefix: "documents/",
  *         tags: {
@@ -52,8 +54,6 @@ import * as utilities from "../utilities";
  *             "class": "blue",
  *         },
  *     },
- *     bucket: example.id,
- *     name: "ImportantBlueDocuments",
  * });
  * ```
  *

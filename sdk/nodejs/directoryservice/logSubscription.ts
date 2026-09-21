@@ -19,14 +19,14 @@ import * as utilities from "../utilities";
  * });
  * const ad_log_policy = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         principals: [{
- *             identifiers: ["ds.amazonaws.com"],
- *             type: "Service",
- *         }],
  *         actions: [
  *             "logs:CreateLogStream",
  *             "logs:PutLogEvents",
  *         ],
+ *         principals: [{
+ *             identifiers: ["ds.amazonaws.com"],
+ *             type: "Service",
+ *         }],
  *         resources: [pulumi.interpolate`${example.arn}:*`],
  *         effect: "Allow",
  *     }],

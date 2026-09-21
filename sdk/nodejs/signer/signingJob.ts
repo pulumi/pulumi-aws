@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  *
  * const testSp = new aws.signer.SigningProfile("test_sp", {platformId: "AWSLambda-SHA384-ECDSA"});
  * const buildSigningJob = new aws.signer.SigningJob("build_signing_job", {
+ *     profileName: testSp.name,
  *     source: {
  *         s3: {
  *             bucket: "s3-bucket-name",
@@ -31,7 +32,6 @@ import * as utilities from "../utilities";
  *             prefix: "signed/",
  *         },
  *     },
- *     profileName: testSp.name,
  *     ignoreSigningJobFailure: true,
  * });
  * ```

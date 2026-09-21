@@ -27,6 +27,7 @@ namespace Pulumi.Aws.Lex
     ///     {
     ///         ConfirmationPrompt = new Aws.Lex.Inputs.IntentConfirmationPromptArgs
     ///         {
+    ///             MaxAttempts = 2,
     ///             Messages = new[]
     ///             {
     ///                 new Aws.Lex.Inputs.IntentConfirmationPromptMessageArgs
@@ -35,8 +36,10 @@ namespace Pulumi.Aws.Lex
     ///                     ContentType = "PlainText",
     ///                 },
     ///             },
-    ///             MaxAttempts = 2,
     ///         },
+    ///         CreateVersion = false,
+    ///         Name = "OrderFlowers",
+    ///         Description = "Intent to order a bouquet of flowers for pick up",
     ///         FulfillmentActivity = new Aws.Lex.Inputs.IntentFulfillmentActivityArgs
     ///         {
     ///             Type = "ReturnIntent",
@@ -52,22 +55,15 @@ namespace Pulumi.Aws.Lex
     ///                 },
     ///             },
     ///         },
+    ///         SampleUtterances = new[]
+    ///         {
+    ///             "I would like to order some flowers",
+    ///             "I would like to pick up flowers",
+    ///         },
     ///         Slots = new[]
     ///         {
     ///             new Aws.Lex.Inputs.IntentSlotArgs
     ///             {
-    ///                 ValueElicitationPrompt = new Aws.Lex.Inputs.IntentSlotValueElicitationPromptArgs
-    ///                 {
-    ///                     Messages = new[]
-    ///                     {
-    ///                         new Aws.Lex.Inputs.IntentSlotValueElicitationPromptMessageArgs
-    ///                         {
-    ///                             Content = "What type of flowers would you like to order?",
-    ///                             ContentType = "PlainText",
-    ///                         },
-    ///                     },
-    ///                     MaxAttempts = 2,
-    ///                 },
     ///                 Description = "The type of flowers to pick up",
     ///                 Name = "FlowerType",
     ///                 Priority = 1,
@@ -78,21 +74,21 @@ namespace Pulumi.Aws.Lex
     ///                 SlotConstraint = "Required",
     ///                 SlotType = "FlowerTypes",
     ///                 SlotTypeVersion = "$$LATEST",
-    ///             },
-    ///             new Aws.Lex.Inputs.IntentSlotArgs
-    ///             {
     ///                 ValueElicitationPrompt = new Aws.Lex.Inputs.IntentSlotValueElicitationPromptArgs
     ///                 {
+    ///                     MaxAttempts = 2,
     ///                     Messages = new[]
     ///                     {
     ///                         new Aws.Lex.Inputs.IntentSlotValueElicitationPromptMessageArgs
     ///                         {
-    ///                             Content = "What day do you want the {FlowerType} to be picked up?",
+    ///                             Content = "What type of flowers would you like to order?",
     ///                             ContentType = "PlainText",
     ///                         },
     ///                     },
-    ///                     MaxAttempts = 2,
     ///                 },
+    ///             },
+    ///             new Aws.Lex.Inputs.IntentSlotArgs
+    ///             {
     ///                 Description = "The date to pick up the flowers",
     ///                 Name = "PickupDate",
     ///                 Priority = 2,
@@ -103,21 +99,21 @@ namespace Pulumi.Aws.Lex
     ///                 SlotConstraint = "Required",
     ///                 SlotType = "AMAZON.DATE",
     ///                 SlotTypeVersion = "$$LATEST",
-    ///             },
-    ///             new Aws.Lex.Inputs.IntentSlotArgs
-    ///             {
     ///                 ValueElicitationPrompt = new Aws.Lex.Inputs.IntentSlotValueElicitationPromptArgs
     ///                 {
+    ///                     MaxAttempts = 2,
     ///                     Messages = new[]
     ///                     {
     ///                         new Aws.Lex.Inputs.IntentSlotValueElicitationPromptMessageArgs
     ///                         {
-    ///                             Content = "Pick up the {FlowerType} at what time on {PickupDate}?",
+    ///                             Content = "What day do you want the {FlowerType} to be picked up?",
     ///                             ContentType = "PlainText",
     ///                         },
     ///                     },
-    ///                     MaxAttempts = 2,
     ///                 },
+    ///             },
+    ///             new Aws.Lex.Inputs.IntentSlotArgs
+    ///             {
     ///                 Description = "The time to pick up the flowers",
     ///                 Name = "PickupTime",
     ///                 Priority = 3,
@@ -128,15 +124,19 @@ namespace Pulumi.Aws.Lex
     ///                 SlotConstraint = "Required",
     ///                 SlotType = "AMAZON.TIME",
     ///                 SlotTypeVersion = "$$LATEST",
+    ///                 ValueElicitationPrompt = new Aws.Lex.Inputs.IntentSlotValueElicitationPromptArgs
+    ///                 {
+    ///                     MaxAttempts = 2,
+    ///                     Messages = new[]
+    ///                     {
+    ///                         new Aws.Lex.Inputs.IntentSlotValueElicitationPromptMessageArgs
+    ///                         {
+    ///                             Content = "Pick up the {FlowerType} at what time on {PickupDate}?",
+    ///                             ContentType = "PlainText",
+    ///                         },
+    ///                     },
+    ///                 },
     ///             },
-    ///         },
-    ///         CreateVersion = false,
-    ///         Name = "OrderFlowers",
-    ///         Description = "Intent to order a bouquet of flowers for pick up",
-    ///         SampleUtterances = new[]
-    ///         {
-    ///             "I would like to order some flowers",
-    ///             "I would like to pick up flowers",
     ///         },
     ///     });
     /// 

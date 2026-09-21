@@ -130,8 +130,8 @@ class DataCellsFilter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 table_data: pulumi.Input[Optional[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict']]] = None,
-                 timeouts: pulumi.Input[Optional[Union['DataCellsFilterTimeoutsArgs', 'DataCellsFilterTimeoutsArgsDict']]] = None,
+                 table_data: pulumi.Input[Optional[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict', 'outputs.DataCellsFilterTableData']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DataCellsFilterTimeoutsArgs', 'DataCellsFilterTimeoutsArgsDict', 'outputs.DataCellsFilterTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Lake Formation Data Cells Filter.
@@ -145,14 +145,14 @@ class DataCellsFilter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lakeformation.DataCellsFilter("example", table_data={
-            "row_filter": {
-                "filter_expression": "my_column='example'",
-            },
             "database_name": example_aws_glue_catalog_database["name"],
             "name": "example",
             "table_catalog_id": current["accountId"],
             "table_name": example_aws_glue_catalog_table["name"],
             "column_names": ["my_column"],
+            "row_filter": {
+                "filter_expression": "my_column='example'",
+            },
         })
         ```
 
@@ -165,6 +165,10 @@ class DataCellsFilter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         excluded_columns = aws.lakeformation.DataCellsFilter("excluded_columns", table_data={
+            "database_name": example["name"],
+            "name": "exclude-pii",
+            "table_catalog_id": current["accountId"],
+            "table_name": example_aws_glue_catalog_table["name"],
             "column_wildcard": {
                 "excluded_column_names": [
                     "ssn",
@@ -174,10 +178,6 @@ class DataCellsFilter(pulumi.CustomResource):
             "row_filter": {
                 "all_rows_wildcard": {},
             },
-            "database_name": example["name"],
-            "name": "exclude-pii",
-            "table_catalog_id": current["accountId"],
-            "table_name": example_aws_glue_catalog_table["name"],
         })
         ```
 
@@ -188,6 +188,10 @@ class DataCellsFilter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         row_and_column = aws.lakeformation.DataCellsFilter("row_and_column", table_data={
+            "database_name": example["name"],
+            "name": "marketing-filtered",
+            "table_catalog_id": current["accountId"],
+            "table_name": example_aws_glue_catalog_table["name"],
             "column_wildcard": {
                 "excluded_column_names": [
                     "salary",
@@ -197,10 +201,6 @@ class DataCellsFilter(pulumi.CustomResource):
             "row_filter": {
                 "filter_expression": "department = 'Marketing'",
             },
-            "database_name": example["name"],
-            "name": "marketing-filtered",
-            "table_catalog_id": current["accountId"],
-            "table_name": example_aws_glue_catalog_table["name"],
         })
         ```
 
@@ -213,16 +213,16 @@ class DataCellsFilter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         row_only = aws.lakeformation.DataCellsFilter("row_only", table_data={
+            "database_name": example["name"],
+            "name": "regional-filter",
+            "table_catalog_id": current["accountId"],
+            "table_name": example_aws_glue_catalog_table["name"],
             "column_wildcard": {
                 "excluded_column_names": [],
             },
             "row_filter": {
                 "filter_expression": "region = 'US-WEST'",
             },
-            "database_name": example["name"],
-            "name": "regional-filter",
-            "table_catalog_id": current["accountId"],
-            "table_name": example_aws_glue_catalog_table["name"],
         })
         ```
 
@@ -238,7 +238,7 @@ class DataCellsFilter(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict']] table_data: Information about the data cells filter. See Table Data below for details.
+        :param pulumi.Input[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict', 'outputs.DataCellsFilterTableData']] table_data: Information about the data cells filter. See Table Data below for details.
         """
         ...
     @overload
@@ -258,14 +258,14 @@ class DataCellsFilter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lakeformation.DataCellsFilter("example", table_data={
-            "row_filter": {
-                "filter_expression": "my_column='example'",
-            },
             "database_name": example_aws_glue_catalog_database["name"],
             "name": "example",
             "table_catalog_id": current["accountId"],
             "table_name": example_aws_glue_catalog_table["name"],
             "column_names": ["my_column"],
+            "row_filter": {
+                "filter_expression": "my_column='example'",
+            },
         })
         ```
 
@@ -278,6 +278,10 @@ class DataCellsFilter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         excluded_columns = aws.lakeformation.DataCellsFilter("excluded_columns", table_data={
+            "database_name": example["name"],
+            "name": "exclude-pii",
+            "table_catalog_id": current["accountId"],
+            "table_name": example_aws_glue_catalog_table["name"],
             "column_wildcard": {
                 "excluded_column_names": [
                     "ssn",
@@ -287,10 +291,6 @@ class DataCellsFilter(pulumi.CustomResource):
             "row_filter": {
                 "all_rows_wildcard": {},
             },
-            "database_name": example["name"],
-            "name": "exclude-pii",
-            "table_catalog_id": current["accountId"],
-            "table_name": example_aws_glue_catalog_table["name"],
         })
         ```
 
@@ -301,6 +301,10 @@ class DataCellsFilter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         row_and_column = aws.lakeformation.DataCellsFilter("row_and_column", table_data={
+            "database_name": example["name"],
+            "name": "marketing-filtered",
+            "table_catalog_id": current["accountId"],
+            "table_name": example_aws_glue_catalog_table["name"],
             "column_wildcard": {
                 "excluded_column_names": [
                     "salary",
@@ -310,10 +314,6 @@ class DataCellsFilter(pulumi.CustomResource):
             "row_filter": {
                 "filter_expression": "department = 'Marketing'",
             },
-            "database_name": example["name"],
-            "name": "marketing-filtered",
-            "table_catalog_id": current["accountId"],
-            "table_name": example_aws_glue_catalog_table["name"],
         })
         ```
 
@@ -326,16 +326,16 @@ class DataCellsFilter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         row_only = aws.lakeformation.DataCellsFilter("row_only", table_data={
+            "database_name": example["name"],
+            "name": "regional-filter",
+            "table_catalog_id": current["accountId"],
+            "table_name": example_aws_glue_catalog_table["name"],
             "column_wildcard": {
                 "excluded_column_names": [],
             },
             "row_filter": {
                 "filter_expression": "region = 'US-WEST'",
             },
-            "database_name": example["name"],
-            "name": "regional-filter",
-            "table_catalog_id": current["accountId"],
-            "table_name": example_aws_glue_catalog_table["name"],
         })
         ```
 
@@ -364,8 +364,8 @@ class DataCellsFilter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 table_data: pulumi.Input[Optional[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict']]] = None,
-                 timeouts: pulumi.Input[Optional[Union['DataCellsFilterTimeoutsArgs', 'DataCellsFilterTimeoutsArgsDict']]] = None,
+                 table_data: pulumi.Input[Optional[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict', 'outputs.DataCellsFilterTableData']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DataCellsFilterTimeoutsArgs', 'DataCellsFilterTimeoutsArgsDict', 'outputs.DataCellsFilterTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -391,8 +391,8 @@ class DataCellsFilter(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            table_data: pulumi.Input[Optional[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict']]] = None,
-            timeouts: pulumi.Input[Optional[Union['DataCellsFilterTimeoutsArgs', 'DataCellsFilterTimeoutsArgsDict']]] = None) -> 'DataCellsFilter':
+            table_data: pulumi.Input[Optional[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict', 'outputs.DataCellsFilterTableData']]] = None,
+            timeouts: pulumi.Input[Optional[Union['DataCellsFilterTimeoutsArgs', 'DataCellsFilterTimeoutsArgsDict', 'outputs.DataCellsFilterTimeouts']]] = None) -> 'DataCellsFilter':
         """
         Get an existing DataCellsFilter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -401,7 +401,7 @@ class DataCellsFilter(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict']] table_data: Information about the data cells filter. See Table Data below for details.
+        :param pulumi.Input[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict', 'outputs.DataCellsFilterTableData']] table_data: Information about the data cells filter. See Table Data below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

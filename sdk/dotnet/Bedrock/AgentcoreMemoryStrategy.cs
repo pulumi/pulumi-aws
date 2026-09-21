@@ -132,8 +132,18 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var customSemantic = new Aws.Bedrock.AgentcoreMemoryStrategy("custom_semantic", new()
     ///     {
+    ///         Name = "custom-semantic-strategy",
+    ///         MemoryId = example.Id,
+    ///         MemoryExecutionRoleArn = example.MemoryExecutionRoleArn,
+    ///         Type = "CUSTOM",
+    ///         Description = "Custom semantic processing strategy",
+    ///         NamespaceTemplates = new[]
+    ///         {
+    ///             "{sessionId}",
+    ///         },
     ///         Configuration = new Aws.Bedrock.Inputs.AgentcoreMemoryStrategyConfigurationArgs
     ///         {
+    ///             Type = "SEMANTIC_OVERRIDE",
     ///             Consolidation = new Aws.Bedrock.Inputs.AgentcoreMemoryStrategyConfigurationConsolidationArgs
     ///             {
     ///                 AppendToPrompt = "Focus on extracting key semantic relationships and concepts",
@@ -144,16 +154,6 @@ namespace Pulumi.Aws.Bedrock
     ///                 AppendToPrompt = "Extract and categorize semantic information",
     ///                 ModelId = "anthropic.claude-3-haiku-20240307-v1:0",
     ///             },
-    ///             Type = "SEMANTIC_OVERRIDE",
-    ///         },
-    ///         Name = "custom-semantic-strategy",
-    ///         MemoryId = example.Id,
-    ///         MemoryExecutionRoleArn = example.MemoryExecutionRoleArn,
-    ///         Type = "CUSTOM",
-    ///         Description = "Custom semantic processing strategy",
-    ///         NamespaceTemplates = new[]
-    ///         {
-    ///             "{sessionId}",
     ///         },
     ///     });
     /// 
@@ -172,15 +172,6 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var customSummary = new Aws.Bedrock.AgentcoreMemoryStrategy("custom_summary", new()
     ///     {
-    ///         Configuration = new Aws.Bedrock.Inputs.AgentcoreMemoryStrategyConfigurationArgs
-    ///         {
-    ///             Consolidation = new Aws.Bedrock.Inputs.AgentcoreMemoryStrategyConfigurationConsolidationArgs
-    ///             {
-    ///                 AppendToPrompt = "Create concise summaries while preserving key details",
-    ///                 ModelId = "anthropic.claude-3-sonnet-20240229-v1:0",
-    ///             },
-    ///             Type = "SUMMARY_OVERRIDE",
-    ///         },
     ///         Name = "custom-summary-strategy",
     ///         MemoryId = example.Id,
     ///         Type = "CUSTOM",
@@ -188,6 +179,15 @@ namespace Pulumi.Aws.Bedrock
     ///         NamespaceTemplates = new[]
     ///         {
     ///             "summaries",
+    ///         },
+    ///         Configuration = new Aws.Bedrock.Inputs.AgentcoreMemoryStrategyConfigurationArgs
+    ///         {
+    ///             Type = "SUMMARY_OVERRIDE",
+    ///             Consolidation = new Aws.Bedrock.Inputs.AgentcoreMemoryStrategyConfigurationConsolidationArgs
+    ///             {
+    ///                 AppendToPrompt = "Create concise summaries while preserving key details",
+    ///                 ModelId = "anthropic.claude-3-sonnet-20240229-v1:0",
+    ///             },
     ///         },
     ///     });
     /// 
@@ -206,8 +206,17 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var customUserPref = new Aws.Bedrock.AgentcoreMemoryStrategy("custom_user_pref", new()
     ///     {
+    ///         Name = "custom-user-preference-strategy",
+    ///         MemoryId = example.Id,
+    ///         Type = "CUSTOM",
+    ///         Description = "Custom user preference tracking strategy",
+    ///         NamespaceTemplates = new[]
+    ///         {
+    ///             "user_prefs",
+    ///         },
     ///         Configuration = new Aws.Bedrock.Inputs.AgentcoreMemoryStrategyConfigurationArgs
     ///         {
+    ///             Type = "USER_PREFERENCE_OVERRIDE",
     ///             Consolidation = new Aws.Bedrock.Inputs.AgentcoreMemoryStrategyConfigurationConsolidationArgs
     ///             {
     ///                 AppendToPrompt = "Consolidate user preferences and behavioral patterns",
@@ -218,15 +227,6 @@ namespace Pulumi.Aws.Bedrock
     ///                 AppendToPrompt = "Extract user preferences and interaction patterns",
     ///                 ModelId = "anthropic.claude-3-haiku-20240307-v1:0",
     ///             },
-    ///             Type = "USER_PREFERENCE_OVERRIDE",
-    ///         },
-    ///         Name = "custom-user-preference-strategy",
-    ///         MemoryId = example.Id,
-    ///         Type = "CUSTOM",
-    ///         Description = "Custom user preference tracking strategy",
-    ///         NamespaceTemplates = new[]
-    ///         {
-    ///             "user_prefs",
     ///         },
     ///     });
     /// 
@@ -245,8 +245,18 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var customEpisodic = new Aws.Bedrock.AgentcoreMemoryStrategy("custom_episodic", new()
     ///     {
+    ///         Name = "custom-episodic-strategy",
+    ///         MemoryId = example.Id,
+    ///         MemoryExecutionRoleArn = example.MemoryExecutionRoleArn,
+    ///         Type = "CUSTOM",
+    ///         Description = "Custom episodic processing strategy",
+    ///         NamespaceTemplates = new[]
+    ///         {
+    ///             "/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}",
+    ///         },
     ///         Configuration = new Aws.Bedrock.Inputs.AgentcoreMemoryStrategyConfigurationArgs
     ///         {
+    ///             Type = "EPISODIC_OVERRIDE",
     ///             Consolidation = new Aws.Bedrock.Inputs.AgentcoreMemoryStrategyConfigurationConsolidationArgs
     ///             {
     ///                 AppendToPrompt = "Consolidate episodic memories into coherent narratives",
@@ -257,16 +267,6 @@ namespace Pulumi.Aws.Bedrock
     ///                 AppendToPrompt = "Extract key events and episodes from interactions",
     ///                 ModelId = "anthropic.claude-3-haiku-20240307-v1:0",
     ///             },
-    ///             Type = "EPISODIC_OVERRIDE",
-    ///         },
-    ///         Name = "custom-episodic-strategy",
-    ///         MemoryId = example.Id,
-    ///         MemoryExecutionRoleArn = example.MemoryExecutionRoleArn,
-    ///         Type = "CUSTOM",
-    ///         Description = "Custom episodic processing strategy",
-    ///         NamespaceTemplates = new[]
-    ///         {
-    ///             "/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}",
     ///         },
     ///     });
     /// 
@@ -285,20 +285,19 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var selfManaged = new Aws.Bedrock.AgentcoreMemoryStrategy("self_managed", new()
     ///     {
+    ///         Name = "self-managed-strategy",
+    ///         MemoryId = exampleAwsBedrockagentcoreMemory.Id,
+    ///         MemoryExecutionRoleArn = exampleAwsBedrockagentcoreMemory.MemoryExecutionRoleArn,
+    ///         Type = "CUSTOM",
+    ///         Description = "Self-managed processing strategy",
     ///         Configuration = new Aws.Bedrock.Inputs.AgentcoreMemoryStrategyConfigurationArgs
     ///         {
+    ///             Type = "SELF_MANAGED",
     ///             SelfManaged = new[]
     ///             {
     ///                 
     ///                 {
-    ///                     { "invocationConfiguration", new[]
-    ///                     {
-    ///                         
-    ///                         {
-    ///                             { "topicArn", example.Arn },
-    ///                             { "payloadDeliveryBucketName", exampleAwsS3Bucket.Bucket },
-    ///                         },
-    ///                     } },
+    ///                     { "historicalContextWindowSize", 10 },
     ///                     { "triggerConditions", new[]
     ///                     {
     ///                         
@@ -312,16 +311,17 @@ namespace Pulumi.Aws.Bedrock
     ///                             } },
     ///                         },
     ///                     } },
-    ///                     { "historicalContextWindowSize", 10 },
+    ///                     { "invocationConfiguration", new[]
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "topicArn", exampleAwsSnsTopic.Arn },
+    ///                             { "payloadDeliveryBucketName", example.Bucket },
+    ///                         },
+    ///                     } },
     ///                 },
     ///             },
-    ///             Type = "SELF_MANAGED",
     ///         },
-    ///         Name = "self-managed-strategy",
-    ///         MemoryId = exampleAwsBedrockagentcoreMemory.Id,
-    ///         MemoryExecutionRoleArn = exampleAwsBedrockagentcoreMemory.MemoryExecutionRoleArn,
-    ///         Type = "CUSTOM",
-    ///         Description = "Self-managed processing strategy",
     ///     });
     /// 
     /// });
@@ -339,15 +339,17 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var selfManaged = new Aws.Bedrock.AgentcoreMemoryStrategy("self_managed", new()
     ///     {
+    ///         Name = "self-managed-strategy",
+    ///         MemoryId = exampleAwsBedrockagentcoreMemory.Id,
+    ///         MemoryExecutionRoleArn = exampleAwsBedrockagentcoreMemory.MemoryExecutionRoleArn,
+    ///         Type = "CUSTOM",
+    ///         Description = "Self-managed processing strategy",
     ///         Configuration = new Aws.Bedrock.Inputs.AgentcoreMemoryStrategyConfigurationArgs
     ///         {
+    ///             Type = "SELF_MANAGED",
     ///             SelfManagedConfiguration = new Aws.Bedrock.Inputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs
     ///             {
-    ///                 InvocationConfiguration = new Aws.Bedrock.Inputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationArgs
-    ///                 {
-    ///                     TopicArn = example.Arn,
-    ///                     PayloadDeliveryBucketName = exampleAwsS3Bucket.Bucket,
-    ///                 },
+    ///                 HistoricalContextWindowSize = 10,
     ///                 TriggerCondition = new[]
     ///                 {
     ///                     
@@ -361,15 +363,13 @@ namespace Pulumi.Aws.Bedrock
     ///                         } },
     ///                     },
     ///                 },
-    ///                 HistoricalContextWindowSize = 10,
+    ///                 InvocationConfiguration = new Aws.Bedrock.Inputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationArgs
+    ///                 {
+    ///                     TopicArn = exampleAwsSnsTopic.Arn,
+    ///                     PayloadDeliveryBucketName = example.Bucket,
+    ///                 },
     ///             },
-    ///             Type = "SELF_MANAGED",
     ///         },
-    ///         Name = "self-managed-strategy",
-    ///         MemoryId = exampleAwsBedrockagentcoreMemory.Id,
-    ///         MemoryExecutionRoleArn = exampleAwsBedrockagentcoreMemory.MemoryExecutionRoleArn,
-    ///         Type = "CUSTOM",
-    ///         Description = "Self-managed processing strategy",
     ///     });
     /// 
     /// });

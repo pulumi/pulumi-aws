@@ -24,6 +24,8 @@ namespace Pulumi.Aws.DynamoDB
     /// {
     ///     var example = new Aws.DynamoDB.Table("example", new()
     ///     {
+    ///         Name = "orders",
+    ///         HashKey = "id",
     ///         Attributes = new[]
     ///         {
     ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
@@ -32,8 +34,6 @@ namespace Pulumi.Aws.DynamoDB
     ///                 Type = "S",
     ///             },
     ///         },
-    ///         Name = "orders",
-    ///         HashKey = "id",
     ///     });
     /// 
     ///     var exampleStream = new Aws.Kinesis.Stream("example", new()

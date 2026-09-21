@@ -55,10 +55,6 @@ namespace Pulumi.Aws.M2
     /// {
     ///     var test = new Aws.M2.Environment("test", new()
     ///     {
-    ///         HighAvailabilityConfig = new Aws.M2.Inputs.EnvironmentHighAvailabilityConfigArgs
-    ///         {
-    ///             DesiredCapacity = 2,
-    ///         },
     ///         Name = "test-env",
     ///         EngineType = "bluage",
     ///         InstanceType = "M2.m5.large",
@@ -70,6 +66,10 @@ namespace Pulumi.Aws.M2
     ///         {
     ///             "subnet-01234567890abcdef",
     ///             "subnet-01234567890abcdea",
+    ///         },
+    ///         HighAvailabilityConfig = new Aws.M2.Inputs.EnvironmentHighAvailabilityConfigArgs
+    ///         {
+    ///             DesiredCapacity = 2,
     ///         },
     ///     });
     /// 
@@ -88,14 +88,6 @@ namespace Pulumi.Aws.M2
     /// {
     ///     var test = new Aws.M2.Environment("test", new()
     ///     {
-    ///         StorageConfiguration = new Aws.M2.Inputs.EnvironmentStorageConfigurationArgs
-    ///         {
-    ///             Efs = new Aws.M2.Inputs.EnvironmentStorageConfigurationEfsArgs
-    ///             {
-    ///                 FileSystemId = "fs-01234567890abcdef",
-    ///                 MountPoint = "/m2/mount/example",
-    ///             },
-    ///         },
     ///         Name = "test-env",
     ///         EngineType = "bluage",
     ///         InstanceType = "M2.m5.large",
@@ -107,6 +99,14 @@ namespace Pulumi.Aws.M2
     ///         {
     ///             "subnet-01234567890abcdef",
     ///             "subnet-01234567890abcdea",
+    ///         },
+    ///         StorageConfiguration = new Aws.M2.Inputs.EnvironmentStorageConfigurationArgs
+    ///         {
+    ///             Efs = new Aws.M2.Inputs.EnvironmentStorageConfigurationEfsArgs
+    ///             {
+    ///                 FileSystemId = "fs-01234567890abcdef",
+    ///                 MountPoint = "/m2/mount/example",
+    ///             },
     ///         },
     ///     });
     /// 
@@ -125,14 +125,6 @@ namespace Pulumi.Aws.M2
     /// {
     ///     var test = new Aws.M2.Environment("test", new()
     ///     {
-    ///         StorageConfiguration = new Aws.M2.Inputs.EnvironmentStorageConfigurationArgs
-    ///         {
-    ///             Fsx = new Aws.M2.Inputs.EnvironmentStorageConfigurationFsxArgs
-    ///             {
-    ///                 FileSystemId = "fs-01234567890abcdef",
-    ///                 MountPoint = "/m2/mount/example",
-    ///             },
-    ///         },
     ///         Name = "test-env",
     ///         EngineType = "bluage",
     ///         InstanceType = "M2.m5.large",
@@ -144,6 +136,14 @@ namespace Pulumi.Aws.M2
     ///         {
     ///             "subnet-01234567890abcdef",
     ///             "subnet-01234567890abcdea",
+    ///         },
+    ///         StorageConfiguration = new Aws.M2.Inputs.EnvironmentStorageConfigurationArgs
+    ///         {
+    ///             Fsx = new Aws.M2.Inputs.EnvironmentStorageConfigurationFsxArgs
+    ///             {
+    ///                 FileSystemId = "fs-01234567890abcdef",
+    ///                 MountPoint = "/m2/mount/example",
+    ///             },
     ///         },
     ///     });
     /// 

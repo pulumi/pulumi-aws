@@ -201,7 +201,7 @@ class PartitionIndex(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 partition_index: pulumi.Input[Optional[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict']]] = None,
+                 partition_index: pulumi.Input[Optional[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict', 'outputs.PartitionIndexPartitionIndex']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -214,20 +214,23 @@ class PartitionIndex(pulumi.CustomResource):
 
         example = aws.glue.CatalogDatabase("example", name="example")
         example_catalog_table = aws.glue.CatalogTable("example",
+            name="example",
+            database_name=example.name,
+            owner="my_owner",
+            retention=1,
+            table_type="VIRTUAL_VIEW",
+            view_expanded_text="view_expanded_text_1",
+            view_original_text="view_original_text_1",
             storage_descriptor={
-                "ser_de_info": {
-                    "name": "ser_de_name",
-                    "parameters": {
-                        "param1": "param_val_1",
-                    },
-                    "serialization_library": "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
-                },
-                "skewed_info": {
-                    "skewed_column_names": ["my_column_1"],
-                    "skewed_column_value_location_maps": {
-                        "my_column_1": "my_column_1_val_loc_map",
-                    },
-                    "skewed_column_values": ["skewed_val_1"],
+                "bucket_columns": ["bucket_column_1"],
+                "compressed": False,
+                "input_format": "SequenceFileInputFormat",
+                "location": "my_location",
+                "number_of_buckets": 1,
+                "output_format": "SequenceFileInputFormat",
+                "stored_as_sub_directories": False,
+                "parameters": {
+                    "param1": "param1_val",
                 },
                 "columns": [
                     {
@@ -241,19 +244,23 @@ class PartitionIndex(pulumi.CustomResource):
                         "comment": "my_column2_comment",
                     },
                 ],
+                "ser_de_info": {
+                    "name": "ser_de_name",
+                    "parameters": {
+                        "param1": "param_val_1",
+                    },
+                    "serialization_library": "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
+                },
                 "sort_columns": [{
                     "column": "my_column_1",
                     "sort_order": 1,
                 }],
-                "bucket_columns": ["bucket_column_1"],
-                "compressed": False,
-                "input_format": "SequenceFileInputFormat",
-                "location": "my_location",
-                "number_of_buckets": 1,
-                "output_format": "SequenceFileInputFormat",
-                "stored_as_sub_directories": False,
-                "parameters": {
-                    "param1": "param1_val",
+                "skewed_info": {
+                    "skewed_column_names": ["my_column_1"],
+                    "skewed_column_value_location_maps": {
+                        "my_column_1": "my_column_1_val_loc_map",
+                    },
+                    "skewed_column_values": ["skewed_val_1"],
                 },
             },
             partition_keys=[
@@ -268,26 +275,19 @@ class PartitionIndex(pulumi.CustomResource):
                     "comment": "my_column_2_comment",
                 },
             ],
-            name="example",
-            database_name=example.name,
-            owner="my_owner",
-            retention=1,
-            table_type="VIRTUAL_VIEW",
-            view_expanded_text="view_expanded_text_1",
-            view_original_text="view_original_text_1",
             parameters={
                 "param1": "param1_val",
             })
         example_partition_index = aws.glue.PartitionIndex("example",
+            database_name=example.name,
+            table_name=example_catalog_table.name,
             partition_index={
                 "index_name": "example",
                 "keys": [
                     "my_column_1",
                     "my_column_2",
                 ],
-            },
-            database_name=example.name,
-            table_name=example_catalog_table.name)
+            })
         ```
 
         ## Import
@@ -303,7 +303,7 @@ class PartitionIndex(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: The catalog ID where the table resides.
         :param pulumi.Input[_builtins.str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-        :param pulumi.Input[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict']] partition_index: Configuration block for a partition index. See `partition_index` below.
+        :param pulumi.Input[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict', 'outputs.PartitionIndexPartitionIndex']] partition_index: Configuration block for a partition index. See `partition_index` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] table_name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         """
@@ -322,20 +322,23 @@ class PartitionIndex(pulumi.CustomResource):
 
         example = aws.glue.CatalogDatabase("example", name="example")
         example_catalog_table = aws.glue.CatalogTable("example",
+            name="example",
+            database_name=example.name,
+            owner="my_owner",
+            retention=1,
+            table_type="VIRTUAL_VIEW",
+            view_expanded_text="view_expanded_text_1",
+            view_original_text="view_original_text_1",
             storage_descriptor={
-                "ser_de_info": {
-                    "name": "ser_de_name",
-                    "parameters": {
-                        "param1": "param_val_1",
-                    },
-                    "serialization_library": "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
-                },
-                "skewed_info": {
-                    "skewed_column_names": ["my_column_1"],
-                    "skewed_column_value_location_maps": {
-                        "my_column_1": "my_column_1_val_loc_map",
-                    },
-                    "skewed_column_values": ["skewed_val_1"],
+                "bucket_columns": ["bucket_column_1"],
+                "compressed": False,
+                "input_format": "SequenceFileInputFormat",
+                "location": "my_location",
+                "number_of_buckets": 1,
+                "output_format": "SequenceFileInputFormat",
+                "stored_as_sub_directories": False,
+                "parameters": {
+                    "param1": "param1_val",
                 },
                 "columns": [
                     {
@@ -349,19 +352,23 @@ class PartitionIndex(pulumi.CustomResource):
                         "comment": "my_column2_comment",
                     },
                 ],
+                "ser_de_info": {
+                    "name": "ser_de_name",
+                    "parameters": {
+                        "param1": "param_val_1",
+                    },
+                    "serialization_library": "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
+                },
                 "sort_columns": [{
                     "column": "my_column_1",
                     "sort_order": 1,
                 }],
-                "bucket_columns": ["bucket_column_1"],
-                "compressed": False,
-                "input_format": "SequenceFileInputFormat",
-                "location": "my_location",
-                "number_of_buckets": 1,
-                "output_format": "SequenceFileInputFormat",
-                "stored_as_sub_directories": False,
-                "parameters": {
-                    "param1": "param1_val",
+                "skewed_info": {
+                    "skewed_column_names": ["my_column_1"],
+                    "skewed_column_value_location_maps": {
+                        "my_column_1": "my_column_1_val_loc_map",
+                    },
+                    "skewed_column_values": ["skewed_val_1"],
                 },
             },
             partition_keys=[
@@ -376,26 +383,19 @@ class PartitionIndex(pulumi.CustomResource):
                     "comment": "my_column_2_comment",
                 },
             ],
-            name="example",
-            database_name=example.name,
-            owner="my_owner",
-            retention=1,
-            table_type="VIRTUAL_VIEW",
-            view_expanded_text="view_expanded_text_1",
-            view_original_text="view_original_text_1",
             parameters={
                 "param1": "param1_val",
             })
         example_partition_index = aws.glue.PartitionIndex("example",
+            database_name=example.name,
+            table_name=example_catalog_table.name,
             partition_index={
                 "index_name": "example",
                 "keys": [
                     "my_column_1",
                     "my_column_2",
                 ],
-            },
-            database_name=example.name,
-            table_name=example_catalog_table.name)
+            })
         ```
 
         ## Import
@@ -424,7 +424,7 @@ class PartitionIndex(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 partition_index: pulumi.Input[Optional[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict']]] = None,
+                 partition_index: pulumi.Input[Optional[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict', 'outputs.PartitionIndexPartitionIndex']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -459,7 +459,7 @@ class PartitionIndex(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
             database_name: pulumi.Input[Optional[_builtins.str]] = None,
-            partition_index: pulumi.Input[Optional[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict']]] = None,
+            partition_index: pulumi.Input[Optional[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict', 'outputs.PartitionIndexPartitionIndex']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             table_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'PartitionIndex':
         """
@@ -471,7 +471,7 @@ class PartitionIndex(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: The catalog ID where the table resides.
         :param pulumi.Input[_builtins.str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-        :param pulumi.Input[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict']] partition_index: Configuration block for a partition index. See `partition_index` below.
+        :param pulumi.Input[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict', 'outputs.PartitionIndexPartitionIndex']] partition_index: Configuration block for a partition index. See `partition_index` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] table_name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         """

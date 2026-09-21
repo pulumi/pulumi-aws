@@ -297,7 +297,7 @@ class ManagedPrefixList(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_family: pulumi.Input[Optional[_builtins.str]] = None,
-                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedPrefixListEntryArgs', 'ManagedPrefixListEntryArgsDict']]]]] = None,
+                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedPrefixListEntryArgs', 'ManagedPrefixListEntryArgsDict', 'outputs.ManagedPrefixListEntry']]]]] = None,
                  max_entries: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -327,6 +327,9 @@ class ManagedPrefixList(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.ManagedPrefixList("example",
+            name="All VPC CIDR-s",
+            address_family="IPv4",
+            max_entries=5,
             entries=[
                 {
                     "cidr": example_aws_vpc["cidrBlock"],
@@ -337,9 +340,6 @@ class ManagedPrefixList(pulumi.CustomResource):
                     "description": "Secondary",
                 },
             ],
-            name="All VPC CIDR-s",
-            address_family="IPv4",
-            max_entries=5,
             tags={
                 "Env": "live",
             })
@@ -357,7 +357,7 @@ class ManagedPrefixList(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] address_family: Address family (`IPv4` or `IPv6`) of this prefix list.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedPrefixListEntryArgs', 'ManagedPrefixListEntryArgsDict']]]] entries: Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedPrefixListEntryArgs', 'ManagedPrefixListEntryArgsDict', 'outputs.ManagedPrefixListEntry']]]] entries: Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
         :param pulumi.Input[_builtins.int] max_entries: Maximum number of entries that this prefix list can contain.
         :param pulumi.Input[_builtins.str] name: Name of this resource. The name must not start with `com.amazonaws`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -393,6 +393,9 @@ class ManagedPrefixList(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.ManagedPrefixList("example",
+            name="All VPC CIDR-s",
+            address_family="IPv4",
+            max_entries=5,
             entries=[
                 {
                     "cidr": example_aws_vpc["cidrBlock"],
@@ -403,9 +406,6 @@ class ManagedPrefixList(pulumi.CustomResource):
                     "description": "Secondary",
                 },
             ],
-            name="All VPC CIDR-s",
-            address_family="IPv4",
-            max_entries=5,
             tags={
                 "Env": "live",
             })
@@ -436,7 +436,7 @@ class ManagedPrefixList(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_family: pulumi.Input[Optional[_builtins.str]] = None,
-                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedPrefixListEntryArgs', 'ManagedPrefixListEntryArgsDict']]]]] = None,
+                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedPrefixListEntryArgs', 'ManagedPrefixListEntryArgsDict', 'outputs.ManagedPrefixListEntry']]]]] = None,
                  max_entries: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -476,7 +476,7 @@ class ManagedPrefixList(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             address_family: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedPrefixListEntryArgs', 'ManagedPrefixListEntryArgsDict']]]]] = None,
+            entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedPrefixListEntryArgs', 'ManagedPrefixListEntryArgsDict', 'outputs.ManagedPrefixListEntry']]]]] = None,
             max_entries: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             owner_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -493,7 +493,7 @@ class ManagedPrefixList(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] address_family: Address family (`IPv4` or `IPv6`) of this prefix list.
         :param pulumi.Input[_builtins.str] arn: ARN of the prefix list.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedPrefixListEntryArgs', 'ManagedPrefixListEntryArgsDict']]]] entries: Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedPrefixListEntryArgs', 'ManagedPrefixListEntryArgsDict', 'outputs.ManagedPrefixListEntry']]]] entries: Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
         :param pulumi.Input[_builtins.int] max_entries: Maximum number of entries that this prefix list can contain.
         :param pulumi.Input[_builtins.str] name: Name of this resource. The name must not start with `com.amazonaws`.
         :param pulumi.Input[_builtins.str] owner_id: ID of the AWS account that owns this prefix list.

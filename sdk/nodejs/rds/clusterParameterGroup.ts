@@ -20,6 +20,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.rds.ClusterParameterGroup("default", {
+ *     name: "rds-cluster-pg",
+ *     family: "aurora5.6",
+ *     description: "RDS default cluster parameter group",
  *     parameters: [
  *         {
  *             name: "character_set_server",
@@ -30,9 +33,6 @@ import * as utilities from "../utilities";
  *             value: "utf8",
  *         },
  *     ],
- *     name: "rds-cluster-pg",
- *     family: "aurora5.6",
- *     description: "RDS default cluster parameter group",
  * });
  * ```
  *

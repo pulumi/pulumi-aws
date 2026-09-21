@@ -612,6 +612,7 @@ public final class AccountaccessFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AccountaccessFunctions.getEntitlements(GetEntitlementsArgs.builder()
+     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
      *             .filter(GetEntitlementsFilterArgs.builder()
      *                 .principalRole(GetEntitlementsFilterPrincipalRoleArgs.builder()
      *                     .principal(GetEntitlementsFilterPrincipalRolePrincipalArgs.builder()
@@ -621,7 +622,6 @@ public final class AccountaccessFunctions {
      *                         .build())
      *                     .build())
      *                 .build())
-     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
      *             .build());
      * 
      *     }
@@ -656,12 +656,12 @@ public final class AccountaccessFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AccountaccessFunctions.getEntitlements(GetEntitlementsArgs.builder()
+     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
      *             .filter(GetEntitlementsFilterArgs.builder()
      *                 .principalRole(GetEntitlementsFilterPrincipalRoleArgs.builder()
      *                     .accountId("123456789012")
      *                     .build())
      *                 .build())
-     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
      *             .build());
      * 
      *     }
@@ -707,6 +707,7 @@ public final class AccountaccessFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AccountaccessFunctions.getEntitlements(GetEntitlementsArgs.builder()
+     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
      *             .filter(GetEntitlementsFilterArgs.builder()
      *                 .principalRole(GetEntitlementsFilterPrincipalRoleArgs.builder()
      *                     .principal(GetEntitlementsFilterPrincipalRolePrincipalArgs.builder()
@@ -716,7 +717,6 @@ public final class AccountaccessFunctions {
      *                         .build())
      *                     .build())
      *                 .build())
-     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
      *             .build());
      * 
      *     }
@@ -751,12 +751,12 @@ public final class AccountaccessFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AccountaccessFunctions.getEntitlements(GetEntitlementsArgs.builder()
+     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
      *             .filter(GetEntitlementsFilterArgs.builder()
      *                 .principalRole(GetEntitlementsFilterPrincipalRoleArgs.builder()
      *                     .accountId("123456789012")
      *                     .build())
      *                 .build())
-     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
      *             .build());
      * 
      *     }
@@ -802,6 +802,7 @@ public final class AccountaccessFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AccountaccessFunctions.getEntitlements(GetEntitlementsArgs.builder()
+     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
      *             .filter(GetEntitlementsFilterArgs.builder()
      *                 .principalRole(GetEntitlementsFilterPrincipalRoleArgs.builder()
      *                     .principal(GetEntitlementsFilterPrincipalRolePrincipalArgs.builder()
@@ -811,7 +812,6 @@ public final class AccountaccessFunctions {
      *                         .build())
      *                     .build())
      *                 .build())
-     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
      *             .build());
      * 
      *     }
@@ -846,12 +846,12 @@ public final class AccountaccessFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AccountaccessFunctions.getEntitlements(GetEntitlementsArgs.builder()
+     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
      *             .filter(GetEntitlementsFilterArgs.builder()
      *                 .principalRole(GetEntitlementsFilterPrincipalRoleArgs.builder()
      *                     .accountId("123456789012")
      *                     .build())
      *                 .build())
-     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
      *             .build());
      * 
      *     }
@@ -897,6 +897,7 @@ public final class AccountaccessFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AccountaccessFunctions.getEntitlements(GetEntitlementsArgs.builder()
+     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
      *             .filter(GetEntitlementsFilterArgs.builder()
      *                 .principalRole(GetEntitlementsFilterPrincipalRoleArgs.builder()
      *                     .principal(GetEntitlementsFilterPrincipalRolePrincipalArgs.builder()
@@ -906,7 +907,6 @@ public final class AccountaccessFunctions {
      *                         .build())
      *                     .build())
      *                 .build())
-     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
      *             .build());
      * 
      *     }
@@ -941,12 +941,12 @@ public final class AccountaccessFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AccountaccessFunctions.getEntitlements(GetEntitlementsArgs.builder()
+     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
      *             .filter(GetEntitlementsFilterArgs.builder()
      *                 .principalRole(GetEntitlementsFilterPrincipalRoleArgs.builder()
      *                     .accountId("123456789012")
      *                     .build())
      *                 .build())
-     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
      *             .build());
      * 
      *     }
@@ -992,6 +992,7 @@ public final class AccountaccessFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AccountaccessFunctions.getEntitlements(GetEntitlementsArgs.builder()
+     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
      *             .filter(GetEntitlementsFilterArgs.builder()
      *                 .principalRole(GetEntitlementsFilterPrincipalRoleArgs.builder()
      *                     .principal(GetEntitlementsFilterPrincipalRolePrincipalArgs.builder()
@@ -1001,7 +1002,6 @@ public final class AccountaccessFunctions {
      *                         .build())
      *                     .build())
      *                 .build())
-     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
      *             .build());
      * 
      *     }
@@ -1036,12 +1036,12 @@ public final class AccountaccessFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AccountaccessFunctions.getEntitlements(GetEntitlementsArgs.builder()
+     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
      *             .filter(GetEntitlementsFilterArgs.builder()
      *                 .principalRole(GetEntitlementsFilterPrincipalRoleArgs.builder()
      *                     .accountId("123456789012")
      *                     .build())
      *                 .build())
-     *             .applicationArn(exampleAwsAccountaccessApplication.arn())
      *             .build());
      * 
      *     }

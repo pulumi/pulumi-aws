@@ -366,15 +366,15 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attachments_configuration: pulumi.Input[Optional[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict']]] = None,
+                 attachments_configuration: pulumi.Input[Optional[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict', 'outputs.ApplicationAttachmentsConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict', 'outputs.ApplicationEncryptionConfiguration']]] = None,
                  iam_service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_center_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict', 'outputs.ApplicationTimeouts']]] = None,
                  __props__=None):
         """
         Provides a Q Business Application resource.
@@ -386,12 +386,12 @@ class Application(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.qbusiness.Application("example",
-            attachments_configuration={
-                "attachments_control_mode": "ENABLED",
-            },
             display_name="example-app",
             iam_service_role_arn=example_aws_iam_role["arn"],
-            identity_center_instance_arn=example_aws_ssoadmin_instances["arns"][0])
+            identity_center_instance_arn=example_aws_ssoadmin_instances["arns"][0],
+            attachments_configuration={
+                "attachments_control_mode": "ENABLED",
+            })
         ```
 
         ## Import
@@ -405,10 +405,10 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict']] attachments_configuration: Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
+        :param pulumi.Input[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict', 'outputs.ApplicationAttachmentsConfiguration']] attachments_configuration: Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the Amazon Q application.
         :param pulumi.Input[_builtins.str] display_name: Name of the Amazon Q application.
-        :param pulumi.Input[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict']] encryption_configuration: Information about encryption configuration. See `encryption_configuration` below.
+        :param pulumi.Input[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict', 'outputs.ApplicationEncryptionConfiguration']] encryption_configuration: Information about encryption configuration. See `encryption_configuration` below.
         :param pulumi.Input[_builtins.str] iam_service_role_arn: ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
         :param pulumi.Input[_builtins.str] identity_center_instance_arn: ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
                
@@ -431,12 +431,12 @@ class Application(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.qbusiness.Application("example",
-            attachments_configuration={
-                "attachments_control_mode": "ENABLED",
-            },
             display_name="example-app",
             iam_service_role_arn=example_aws_iam_role["arn"],
-            identity_center_instance_arn=example_aws_ssoadmin_instances["arns"][0])
+            identity_center_instance_arn=example_aws_ssoadmin_instances["arns"][0],
+            attachments_configuration={
+                "attachments_control_mode": "ENABLED",
+            })
         ```
 
         ## Import
@@ -463,15 +463,15 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attachments_configuration: pulumi.Input[Optional[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict']]] = None,
+                 attachments_configuration: pulumi.Input[Optional[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict', 'outputs.ApplicationAttachmentsConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict', 'outputs.ApplicationEncryptionConfiguration']]] = None,
                  iam_service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_center_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict', 'outputs.ApplicationTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -512,17 +512,17 @@ class Application(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            attachments_configuration: pulumi.Input[Optional[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict']]] = None,
+            attachments_configuration: pulumi.Input[Optional[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict', 'outputs.ApplicationAttachmentsConfiguration']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            encryption_configuration: pulumi.Input[Optional[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict']]] = None,
+            encryption_configuration: pulumi.Input[Optional[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict', 'outputs.ApplicationEncryptionConfiguration']]] = None,
             iam_service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             identity_center_application_arn: pulumi.Input[Optional[_builtins.str]] = None,
             identity_center_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None) -> 'Application':
+            timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict', 'outputs.ApplicationTimeouts']]] = None) -> 'Application':
         """
         Get an existing Application resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -531,10 +531,10 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Q Business application.
-        :param pulumi.Input[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict']] attachments_configuration: Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
+        :param pulumi.Input[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict', 'outputs.ApplicationAttachmentsConfiguration']] attachments_configuration: Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the Amazon Q application.
         :param pulumi.Input[_builtins.str] display_name: Name of the Amazon Q application.
-        :param pulumi.Input[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict']] encryption_configuration: Information about encryption configuration. See `encryption_configuration` below.
+        :param pulumi.Input[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict', 'outputs.ApplicationEncryptionConfiguration']] encryption_configuration: Information about encryption configuration. See `encryption_configuration` below.
         :param pulumi.Input[_builtins.str] iam_service_role_arn: ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
         :param pulumi.Input[_builtins.str] identity_center_application_arn: ARN of the AWS IAM Identity Center application attached to your Amazon Q Business application.
         :param pulumi.Input[_builtins.str] identity_center_instance_arn: ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.

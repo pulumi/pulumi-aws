@@ -303,7 +303,7 @@ class Link(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bandwidth: pulumi.Input[Optional[Union['LinkBandwidthArgs', 'LinkBandwidthArgsDict']]] = None,
+                 bandwidth: pulumi.Input[Optional[Union['LinkBandwidthArgs', 'LinkBandwidthArgsDict', 'outputs.LinkBandwidth']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  provider_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -321,12 +321,12 @@ class Link(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkmanager.Link("example",
+            global_network_id=example_aws_networkmanager_global_network["id"],
+            site_id=example_aws_networkmanager_site["id"],
             bandwidth={
                 "upload_speed": 10,
                 "download_speed": 50,
             },
-            global_network_id=example_aws_networkmanager_global_network["id"],
-            site_id=example_aws_networkmanager_site["id"],
             provider_name="MegaCorp")
         ```
 
@@ -341,7 +341,7 @@ class Link(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['LinkBandwidthArgs', 'LinkBandwidthArgsDict']] bandwidth: Upload speed and download speed in Mbps. See below.
+        :param pulumi.Input[Union['LinkBandwidthArgs', 'LinkBandwidthArgsDict', 'outputs.LinkBandwidth']] bandwidth: Upload speed and download speed in Mbps. See below.
         :param pulumi.Input[_builtins.str] description: Description of the link.
         :param pulumi.Input[_builtins.str] global_network_id: ID of the global network.
         :param pulumi.Input[_builtins.str] provider_name: Provider of the link.
@@ -367,12 +367,12 @@ class Link(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkmanager.Link("example",
+            global_network_id=example_aws_networkmanager_global_network["id"],
+            site_id=example_aws_networkmanager_site["id"],
             bandwidth={
                 "upload_speed": 10,
                 "download_speed": 50,
             },
-            global_network_id=example_aws_networkmanager_global_network["id"],
-            site_id=example_aws_networkmanager_site["id"],
             provider_name="MegaCorp")
         ```
 
@@ -400,7 +400,7 @@ class Link(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bandwidth: pulumi.Input[Optional[Union['LinkBandwidthArgs', 'LinkBandwidthArgsDict']]] = None,
+                 bandwidth: pulumi.Input[Optional[Union['LinkBandwidthArgs', 'LinkBandwidthArgsDict', 'outputs.LinkBandwidth']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  provider_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -442,7 +442,7 @@ class Link(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            bandwidth: pulumi.Input[Optional[Union['LinkBandwidthArgs', 'LinkBandwidthArgsDict']]] = None,
+            bandwidth: pulumi.Input[Optional[Union['LinkBandwidthArgs', 'LinkBandwidthArgsDict', 'outputs.LinkBandwidth']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
             provider_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -458,7 +458,7 @@ class Link(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: Link ARN.
-        :param pulumi.Input[Union['LinkBandwidthArgs', 'LinkBandwidthArgsDict']] bandwidth: Upload speed and download speed in Mbps. See below.
+        :param pulumi.Input[Union['LinkBandwidthArgs', 'LinkBandwidthArgsDict', 'outputs.LinkBandwidth']] bandwidth: Upload speed and download speed in Mbps. See below.
         :param pulumi.Input[_builtins.str] description: Description of the link.
         :param pulumi.Input[_builtins.str] global_network_id: ID of the global network.
         :param pulumi.Input[_builtins.str] provider_name: Provider of the link.

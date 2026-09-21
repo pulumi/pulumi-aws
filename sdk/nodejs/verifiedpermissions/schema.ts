@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.verifiedpermissions.Schema("example", {
+ *     policyStoreId: exampleAwsVerifiedpermissionsPolicyStore.policyStoreId,
  *     definition: {
  *         value: JSON.stringify({
  *             Namespace: {
@@ -27,7 +28,6 @@ import * as utilities from "../utilities";
  *             },
  *         }),
  *     },
- *     policyStoreId: exampleAwsVerifiedpermissionsPolicyStore.policyStoreId,
  * });
  * ```
  *

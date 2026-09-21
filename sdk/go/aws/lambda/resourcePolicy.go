@@ -41,15 +41,8 @@ import (
 //			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Conditions: []iam.GetPolicyDocumentStatementCondition{
-//							{
-//								Test:     "StringEquals",
-//								Variable: "aws:SourceAccount",
-//								Values: pulumi.StringArray{
-//									current.AccountId,
-//								},
-//							},
-//						},
+//						Sid:    pulumi.StringRef("AllowInvokeFromS3"),
+//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -58,13 +51,20 @@ import (
 //								},
 //							},
 //						},
-//						Sid:    pulumi.StringRef("AllowInvokeFromS3"),
-//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"lambda:InvokeFunction",
 //						},
 //						Resources: pulumi.StringArray{
 //							exampleAwsLambdaFunction.Arn,
+//						},
+//						Conditions: []iam.GetPolicyDocumentStatementCondition{
+//							{
+//								Test:     "StringEquals",
+//								Variable: "aws:SourceAccount",
+//								Values: pulumi.StringArray{
+//									current.AccountId,
+//								},
+//							},
 //						},
 //					},
 //				},
@@ -103,6 +103,8 @@ import (
 //			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
+//						Sid:    pulumi.StringRef("AllowCrossAccountInvoke"),
+//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "AWS",
@@ -112,8 +114,6 @@ import (
 //								},
 //							},
 //						},
-//						Sid:    pulumi.StringRef("AllowCrossAccountInvoke"),
-//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"lambda:InvokeFunction",
 //						},
@@ -122,15 +122,8 @@ import (
 //						},
 //					},
 //					{
-//						Conditions: []iam.GetPolicyDocumentStatementCondition{
-//							{
-//								Test:     "StringEquals",
-//								Variable: "aws:PrincipalOrgID",
-//								Values: []string{
-//									"o-1234567890",
-//								},
-//							},
-//						},
+//						Sid:    pulumi.StringRef("AllowOrganizationInvoke"),
+//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "AWS",
@@ -139,13 +132,20 @@ import (
 //								},
 //							},
 //						},
-//						Sid:    pulumi.StringRef("AllowOrganizationInvoke"),
-//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"lambda:InvokeFunction",
 //						},
 //						Resources: pulumi.StringArray{
 //							exampleAwsLambdaFunction.Arn,
+//						},
+//						Conditions: []iam.GetPolicyDocumentStatementCondition{
+//							{
+//								Test:     "StringEquals",
+//								Variable: "aws:PrincipalOrgID",
+//								Values: []string{
+//									"o-1234567890",
+//								},
+//							},
 //						},
 //					},
 //				},

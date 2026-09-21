@@ -26,6 +26,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// {
         ///     var example = Aws.ImageBuilder.GetComponents.Invoke(new()
         ///     {
+        ///         Owner = "Self",
         ///         Filters = new[]
         ///         {
         ///             new Aws.ImageBuilder.Inputs.GetComponentsFilterInputArgs
@@ -37,7 +38,6 @@ namespace Pulumi.Aws.ImageBuilder
         ///                 },
         ///             },
         ///         },
-        ///         Owner = "Self",
         ///     });
         /// 
         /// });
@@ -61,6 +61,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// {
         ///     var example = Aws.ImageBuilder.GetComponents.Invoke(new()
         ///     {
+        ///         Owner = "Self",
         ///         Filters = new[]
         ///         {
         ///             new Aws.ImageBuilder.Inputs.GetComponentsFilterInputArgs
@@ -72,7 +73,6 @@ namespace Pulumi.Aws.ImageBuilder
         ///                 },
         ///             },
         ///         },
-        ///         Owner = "Self",
         ///     });
         /// 
         /// });
@@ -96,6 +96,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// {
         ///     var example = Aws.ImageBuilder.GetComponents.Invoke(new()
         ///     {
+        ///         Owner = "Self",
         ///         Filters = new[]
         ///         {
         ///             new Aws.ImageBuilder.Inputs.GetComponentsFilterInputArgs
@@ -107,7 +108,6 @@ namespace Pulumi.Aws.ImageBuilder
         ///                 },
         ///             },
         ///         },
-        ///         Owner = "Self",
         ///     });
         /// 
         /// });

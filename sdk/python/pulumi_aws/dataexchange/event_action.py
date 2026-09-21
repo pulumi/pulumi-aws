@@ -192,8 +192,8 @@ class EventAction(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: pulumi.Input[Optional[Union['EventActionActionArgs', 'EventActionActionArgsDict']]] = None,
-                 event: pulumi.Input[Optional[Union['EventActionEventArgs', 'EventActionEventArgsDict']]] = None,
+                 action: pulumi.Input[Optional[Union['EventActionActionArgs', 'EventActionActionArgsDict', 'outputs.EventActionAction']]] = None,
+                 event: pulumi.Input[Optional[Union['EventActionEventArgs', 'EventActionEventArgsDict', 'outputs.EventActionEvent']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -236,9 +236,9 @@ class EventAction(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['EventActionActionArgs', 'EventActionActionArgsDict']] action: Describes the action to take.
+        :param pulumi.Input[Union['EventActionActionArgs', 'EventActionActionArgsDict', 'outputs.EventActionAction']] action: Describes the action to take.
                Described in `action` Configuration Block below.
-        :param pulumi.Input[Union['EventActionEventArgs', 'EventActionEventArgsDict']] event: Describes the event that triggers the `action`.
+        :param pulumi.Input[Union['EventActionEventArgs', 'EventActionEventArgsDict', 'outputs.EventActionEvent']] event: Describes the event that triggers the `action`.
                Described in `event` Configuration Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -301,8 +301,8 @@ class EventAction(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: pulumi.Input[Optional[Union['EventActionActionArgs', 'EventActionActionArgsDict']]] = None,
-                 event: pulumi.Input[Optional[Union['EventActionEventArgs', 'EventActionEventArgsDict']]] = None,
+                 action: pulumi.Input[Optional[Union['EventActionActionArgs', 'EventActionActionArgsDict', 'outputs.EventActionAction']]] = None,
+                 event: pulumi.Input[Optional[Union['EventActionEventArgs', 'EventActionEventArgsDict', 'outputs.EventActionEvent']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -333,10 +333,10 @@ class EventAction(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action: pulumi.Input[Optional[Union['EventActionActionArgs', 'EventActionActionArgsDict']]] = None,
+            action: pulumi.Input[Optional[Union['EventActionActionArgs', 'EventActionActionArgsDict', 'outputs.EventActionAction']]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
-            event: pulumi.Input[Optional[Union['EventActionEventArgs', 'EventActionEventArgsDict']]] = None,
+            event: pulumi.Input[Optional[Union['EventActionEventArgs', 'EventActionEventArgsDict', 'outputs.EventActionEvent']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             updated_at: pulumi.Input[Optional[_builtins.str]] = None) -> 'EventAction':
         """
@@ -346,11 +346,11 @@ class EventAction(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['EventActionActionArgs', 'EventActionActionArgsDict']] action: Describes the action to take.
+        :param pulumi.Input[Union['EventActionActionArgs', 'EventActionActionArgsDict', 'outputs.EventActionAction']] action: Describes the action to take.
                Described in `action` Configuration Block below.
         :param pulumi.Input[_builtins.str] arn: ARN of the event action.
         :param pulumi.Input[_builtins.str] created_at: Date and time when the resource was created.
-        :param pulumi.Input[Union['EventActionEventArgs', 'EventActionEventArgsDict']] event: Describes the event that triggers the `action`.
+        :param pulumi.Input[Union['EventActionEventArgs', 'EventActionEventArgsDict', 'outputs.EventActionEvent']] event: Describes the event that triggers the `action`.
                Described in `event` Configuration Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] updated_at: Data and time when the resource was last updated.

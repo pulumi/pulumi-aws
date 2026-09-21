@@ -276,7 +276,7 @@ class DefaultRouteTable(pulumi.CustomResource):
                  default_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                  propagating_vgws: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultRouteTableRouteArgs', 'DefaultRouteTableRouteArgsDict']]]]] = None,
+                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultRouteTableRouteArgs', 'DefaultRouteTableRouteArgsDict', 'outputs.DefaultRouteTableRoute']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -295,6 +295,7 @@ class DefaultRouteTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.DefaultRouteTable("example",
+            default_route_table_id=example_aws_vpc["defaultRouteTableId"],
             routes=[
                 {
                     "cidr_block": "10.0.1.0/24",
@@ -305,7 +306,6 @@ class DefaultRouteTable(pulumi.CustomResource):
                     "egress_only_gateway_id": example_aws_egress_only_internet_gateway["id"],
                 },
             ],
-            default_route_table_id=example_aws_vpc["defaultRouteTableId"],
             tags={
                 "Name": "example",
             })
@@ -341,7 +341,7 @@ class DefaultRouteTable(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] propagating_vgws: List of virtual gateways for propagation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultRouteTableRouteArgs', 'DefaultRouteTableRouteArgsDict']]]] routes: Set of objects. Detailed below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultRouteTableRouteArgs', 'DefaultRouteTableRouteArgsDict', 'outputs.DefaultRouteTableRoute']]]] routes: Set of objects. Detailed below
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -366,6 +366,7 @@ class DefaultRouteTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.DefaultRouteTable("example",
+            default_route_table_id=example_aws_vpc["defaultRouteTableId"],
             routes=[
                 {
                     "cidr_block": "10.0.1.0/24",
@@ -376,7 +377,6 @@ class DefaultRouteTable(pulumi.CustomResource):
                     "egress_only_gateway_id": example_aws_egress_only_internet_gateway["id"],
                 },
             ],
-            default_route_table_id=example_aws_vpc["defaultRouteTableId"],
             tags={
                 "Name": "example",
             })
@@ -423,7 +423,7 @@ class DefaultRouteTable(pulumi.CustomResource):
                  default_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                  propagating_vgws: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultRouteTableRouteArgs', 'DefaultRouteTableRouteArgsDict']]]]] = None,
+                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultRouteTableRouteArgs', 'DefaultRouteTableRouteArgsDict', 'outputs.DefaultRouteTableRoute']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -460,7 +460,7 @@ class DefaultRouteTable(pulumi.CustomResource):
             owner_id: pulumi.Input[Optional[_builtins.str]] = None,
             propagating_vgws: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultRouteTableRouteArgs', 'DefaultRouteTableRouteArgsDict']]]]] = None,
+            routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultRouteTableRouteArgs', 'DefaultRouteTableRouteArgsDict', 'outputs.DefaultRouteTableRoute']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'DefaultRouteTable':
@@ -478,7 +478,7 @@ class DefaultRouteTable(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] owner_id: ID of the AWS account that owns the route table.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] propagating_vgws: List of virtual gateways for propagation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultRouteTableRouteArgs', 'DefaultRouteTableRouteArgsDict']]]] routes: Set of objects. Detailed below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultRouteTableRouteArgs', 'DefaultRouteTableRouteArgsDict', 'outputs.DefaultRouteTableRoute']]]] routes: Set of objects. Detailed below
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC.

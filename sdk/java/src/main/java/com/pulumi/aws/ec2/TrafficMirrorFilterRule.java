@@ -67,14 +67,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var rulein = new TrafficMirrorFilterRule("rulein", TrafficMirrorFilterRuleArgs.builder()
- *             .destinationPortRange(TrafficMirrorFilterRuleDestinationPortRangeArgs.builder()
- *                 .fromPort(22)
- *                 .toPort(53)
- *                 .build())
- *             .sourcePortRange(TrafficMirrorFilterRuleSourcePortRangeArgs.builder()
- *                 .fromPort(0)
- *                 .toPort(10)
- *                 .build())
  *             .description("test rule")
  *             .trafficMirrorFilterId(filter.id())
  *             .destinationCidrBlock("10.0.0.0/8")
@@ -83,6 +75,14 @@ import javax.annotation.Nullable;
  *             .ruleAction("accept")
  *             .trafficDirection("ingress")
  *             .protocol(6)
+ *             .destinationPortRange(TrafficMirrorFilterRuleDestinationPortRangeArgs.builder()
+ *                 .fromPort(22)
+ *                 .toPort(53)
+ *                 .build())
+ *             .sourcePortRange(TrafficMirrorFilterRuleSourcePortRangeArgs.builder()
+ *                 .fromPort(0)
+ *                 .toPort(10)
+ *                 .build())
  *             .build());
  * 
  *     }

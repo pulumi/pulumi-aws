@@ -206,7 +206,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var customSemantic = new AgentcoreMemoryStrategy("customSemantic", AgentcoreMemoryStrategyArgs.builder()
+ *             .name("custom-semantic-strategy")
+ *             .memoryId(example.id())
+ *             .memoryExecutionRoleArn(example.memoryExecutionRoleArn())
+ *             .type("CUSTOM")
+ *             .description("Custom semantic processing strategy")
+ *             .namespaceTemplates("{sessionId}")
  *             .configuration(AgentcoreMemoryStrategyConfigurationArgs.builder()
+ *                 .type("SEMANTIC_OVERRIDE")
  *                 .consolidation(AgentcoreMemoryStrategyConfigurationConsolidationArgs.builder()
  *                     .appendToPrompt("Focus on extracting key semantic relationships and concepts")
  *                     .modelId("anthropic.claude-3-sonnet-20240229-v1:0")
@@ -215,14 +222,7 @@ import javax.annotation.Nullable;
  *                     .appendToPrompt("Extract and categorize semantic information")
  *                     .modelId("anthropic.claude-3-haiku-20240307-v1:0")
  *                     .build())
- *                 .type("SEMANTIC_OVERRIDE")
  *                 .build())
- *             .name("custom-semantic-strategy")
- *             .memoryId(example.id())
- *             .memoryExecutionRoleArn(example.memoryExecutionRoleArn())
- *             .type("CUSTOM")
- *             .description("Custom semantic processing strategy")
- *             .namespaceTemplates("{sessionId}")
  *             .build());
  * 
  *     }
@@ -257,18 +257,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var customSummary = new AgentcoreMemoryStrategy("customSummary", AgentcoreMemoryStrategyArgs.builder()
- *             .configuration(AgentcoreMemoryStrategyConfigurationArgs.builder()
- *                 .consolidation(AgentcoreMemoryStrategyConfigurationConsolidationArgs.builder()
- *                     .appendToPrompt("Create concise summaries while preserving key details")
- *                     .modelId("anthropic.claude-3-sonnet-20240229-v1:0")
- *                     .build())
- *                 .type("SUMMARY_OVERRIDE")
- *                 .build())
  *             .name("custom-summary-strategy")
  *             .memoryId(example.id())
  *             .type("CUSTOM")
  *             .description("Custom summarization strategy")
  *             .namespaceTemplates("summaries")
+ *             .configuration(AgentcoreMemoryStrategyConfigurationArgs.builder()
+ *                 .type("SUMMARY_OVERRIDE")
+ *                 .consolidation(AgentcoreMemoryStrategyConfigurationConsolidationArgs.builder()
+ *                     .appendToPrompt("Create concise summaries while preserving key details")
+ *                     .modelId("anthropic.claude-3-sonnet-20240229-v1:0")
+ *                     .build())
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -304,7 +304,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var customUserPref = new AgentcoreMemoryStrategy("customUserPref", AgentcoreMemoryStrategyArgs.builder()
+ *             .name("custom-user-preference-strategy")
+ *             .memoryId(example.id())
+ *             .type("CUSTOM")
+ *             .description("Custom user preference tracking strategy")
+ *             .namespaceTemplates("user_prefs")
  *             .configuration(AgentcoreMemoryStrategyConfigurationArgs.builder()
+ *                 .type("USER_PREFERENCE_OVERRIDE")
  *                 .consolidation(AgentcoreMemoryStrategyConfigurationConsolidationArgs.builder()
  *                     .appendToPrompt("Consolidate user preferences and behavioral patterns")
  *                     .modelId("anthropic.claude-3-sonnet-20240229-v1:0")
@@ -313,13 +319,7 @@ import javax.annotation.Nullable;
  *                     .appendToPrompt("Extract user preferences and interaction patterns")
  *                     .modelId("anthropic.claude-3-haiku-20240307-v1:0")
  *                     .build())
- *                 .type("USER_PREFERENCE_OVERRIDE")
  *                 .build())
- *             .name("custom-user-preference-strategy")
- *             .memoryId(example.id())
- *             .type("CUSTOM")
- *             .description("Custom user preference tracking strategy")
- *             .namespaceTemplates("user_prefs")
  *             .build());
  * 
  *     }
@@ -355,7 +355,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var customEpisodic = new AgentcoreMemoryStrategy("customEpisodic", AgentcoreMemoryStrategyArgs.builder()
+ *             .name("custom-episodic-strategy")
+ *             .memoryId(example.id())
+ *             .memoryExecutionRoleArn(example.memoryExecutionRoleArn())
+ *             .type("CUSTOM")
+ *             .description("Custom episodic processing strategy")
+ *             .namespaceTemplates("/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}")
  *             .configuration(AgentcoreMemoryStrategyConfigurationArgs.builder()
+ *                 .type("EPISODIC_OVERRIDE")
  *                 .consolidation(AgentcoreMemoryStrategyConfigurationConsolidationArgs.builder()
  *                     .appendToPrompt("Consolidate episodic memories into coherent narratives")
  *                     .modelId("anthropic.claude-3-sonnet-20240229-v1:0")
@@ -364,14 +371,7 @@ import javax.annotation.Nullable;
  *                     .appendToPrompt("Extract key events and episodes from interactions")
  *                     .modelId("anthropic.claude-3-haiku-20240307-v1:0")
  *                     .build())
- *                 .type("EPISODIC_OVERRIDE")
  *                 .build())
- *             .name("custom-episodic-strategy")
- *             .memoryId(example.id())
- *             .memoryExecutionRoleArn(example.memoryExecutionRoleArn())
- *             .type("CUSTOM")
- *             .description("Custom episodic processing strategy")
- *             .namespaceTemplates("/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}")
  *             .build());
  * 
  *     }
@@ -405,22 +405,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var selfManaged = new AgentcoreMemoryStrategy("selfManaged", AgentcoreMemoryStrategyArgs.builder()
- *             .configuration(AgentcoreMemoryStrategyConfigurationArgs.builder()
- *                 .selfManaged(Arrays.asList(Map.ofEntries(
- *                     Map.entry("invocationConfiguration", Arrays.asList(Map.ofEntries(
- *                         Map.entry("topicArn", example.arn()),
- *                         Map.entry("payloadDeliveryBucketName", exampleAwsS3Bucket.bucket())
- *                     ))),
- *                     Map.entry("triggerConditions", Arrays.asList(Map.of("messageBasedTrigger", Arrays.asList(Map.of("messageCount", 12))))),
- *                     Map.entry("historicalContextWindowSize", 10)
- *                 )))
- *                 .type("SELF_MANAGED")
- *                 .build())
  *             .name("self-managed-strategy")
  *             .memoryId(exampleAwsBedrockagentcoreMemory.id())
  *             .memoryExecutionRoleArn(exampleAwsBedrockagentcoreMemory.memoryExecutionRoleArn())
  *             .type("CUSTOM")
  *             .description("Self-managed processing strategy")
+ *             .configuration(AgentcoreMemoryStrategyConfigurationArgs.builder()
+ *                 .type("SELF_MANAGED")
+ *                 .selfManaged(Arrays.asList(Map.ofEntries(
+ *                     Map.entry("historicalContextWindowSize", 10),
+ *                     Map.entry("triggerConditions", Arrays.asList(Map.of("messageBasedTrigger", Arrays.asList(Map.of("messageCount", 12))))),
+ *                     Map.entry("invocationConfiguration", Arrays.asList(Map.ofEntries(
+ *                         Map.entry("topicArn", exampleAwsSnsTopic.arn()),
+ *                         Map.entry("payloadDeliveryBucketName", example.bucket())
+ *                     )))
+ *                 )))
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -456,22 +456,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var selfManaged = new AgentcoreMemoryStrategy("selfManaged", AgentcoreMemoryStrategyArgs.builder()
- *             .configuration(AgentcoreMemoryStrategyConfigurationArgs.builder()
- *                 .selfManagedConfiguration(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs.builder()
- *                     .invocationConfiguration(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationArgs.builder()
- *                         .topicArn(example.arn())
- *                         .payloadDeliveryBucketName(exampleAwsS3Bucket.bucket())
- *                         .build())
- *                     .triggerCondition(Arrays.asList(Map.of("messageBasedTrigger", Arrays.asList(Map.of("messageCount", 12)))))
- *                     .historicalContextWindowSize(10)
- *                     .build())
- *                 .type("SELF_MANAGED")
- *                 .build())
  *             .name("self-managed-strategy")
  *             .memoryId(exampleAwsBedrockagentcoreMemory.id())
  *             .memoryExecutionRoleArn(exampleAwsBedrockagentcoreMemory.memoryExecutionRoleArn())
  *             .type("CUSTOM")
  *             .description("Self-managed processing strategy")
+ *             .configuration(AgentcoreMemoryStrategyConfigurationArgs.builder()
+ *                 .type("SELF_MANAGED")
+ *                 .selfManagedConfiguration(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs.builder()
+ *                     .historicalContextWindowSize(10)
+ *                     .triggerCondition(Arrays.asList(Map.of("messageBasedTrigger", Arrays.asList(Map.of("messageCount", 12)))))
+ *                     .invocationConfiguration(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationArgs.builder()
+ *                         .topicArn(exampleAwsSnsTopic.arn())
+ *                         .payloadDeliveryBucketName(example.bucket())
+ *                         .build())
+ *                     .build())
+ *                 .build())
  *             .build());
  * 
  *     }

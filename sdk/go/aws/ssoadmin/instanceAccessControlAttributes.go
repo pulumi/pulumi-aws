@@ -33,8 +33,10 @@ import (
 //				return err
 //			}
 //			_, err = ssoadmin.NewInstanceAccessControlAttributes(ctx, "example", &ssoadmin.InstanceAccessControlAttributesArgs{
+//				InstanceArn: pulumi.String(example.Arns[0]),
 //				Attributes: ssoadmin.InstanceAccessControlAttributesAttributeArray{
 //					&ssoadmin.InstanceAccessControlAttributesAttributeArgs{
+//						Key: pulumi.String("name"),
 //						Values: ssoadmin.InstanceAccessControlAttributesAttributeValueArray{
 //							&ssoadmin.InstanceAccessControlAttributesAttributeValueArgs{
 //								Sources: pulumi.StringArray{
@@ -42,9 +44,9 @@ import (
 //								},
 //							},
 //						},
-//						Key: pulumi.String("name"),
 //					},
 //					&ssoadmin.InstanceAccessControlAttributesAttributeArgs{
+//						Key: pulumi.String("last"),
 //						Values: ssoadmin.InstanceAccessControlAttributesAttributeValueArray{
 //							&ssoadmin.InstanceAccessControlAttributesAttributeValueArgs{
 //								Sources: pulumi.StringArray{
@@ -52,10 +54,8 @@ import (
 //								},
 //							},
 //						},
-//						Key: pulumi.String("last"),
 //					},
 //				},
-//				InstanceArn: pulumi.String(example.Arns[0]),
 //			})
 //			if err != nil {
 //				return err

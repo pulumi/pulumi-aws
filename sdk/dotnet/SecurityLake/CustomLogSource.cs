@@ -28,6 +28,12 @@ namespace Pulumi.Aws.SecurityLake
     /// {
     ///     var example = new Aws.SecurityLake.CustomLogSource("example", new()
     ///     {
+    ///         SourceName = "example-name",
+    ///         SourceVersion = "1.0",
+    ///         EventClasses = new[]
+    ///         {
+    ///             "FILE_ACTIVITY",
+    ///         },
     ///         Configuration = new Aws.SecurityLake.Inputs.CustomLogSourceConfigurationArgs
     ///         {
     ///             CrawlerConfiguration = new Aws.SecurityLake.Inputs.CustomLogSourceConfigurationCrawlerConfigurationArgs
@@ -39,12 +45,6 @@ namespace Pulumi.Aws.SecurityLake
     ///                 ExternalId = "example-id",
     ///                 Principal = "123456789012",
     ///             },
-    ///         },
-    ///         SourceName = "example-name",
-    ///         SourceVersion = "1.0",
-    ///         EventClasses = new[]
-    ///         {
-    ///             "FILE_ACTIVITY",
     ///         },
     ///     }, new CustomResourceOptions
     ///     {

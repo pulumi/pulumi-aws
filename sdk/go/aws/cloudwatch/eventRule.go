@@ -67,6 +67,10 @@ import (
 //			snsTopicPolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("SNS:Publish"),
+//						},
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("Service"),
@@ -74,10 +78,6 @@ import (
 //									pulumi.String("events.amazonaws.com"),
 //								},
 //							},
-//						},
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("SNS:Publish"),
 //						},
 //						Resources: pulumi.StringArray{
 //							awsLogins.Arn,

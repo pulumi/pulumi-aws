@@ -814,8 +814,8 @@ class DbCluster(pulumi.CustomResource):
                  db_storage_type: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
                  failover_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 log_delivery_configuration: pulumi.Input[Optional[Union['DbClusterLogDeliveryConfigurationArgs', 'DbClusterLogDeliveryConfigurationArgsDict']]] = None,
-                 maintenance_schedule: pulumi.Input[Optional[Union['DbClusterMaintenanceScheduleArgs', 'DbClusterMaintenanceScheduleArgsDict']]] = None,
+                 log_delivery_configuration: pulumi.Input[Optional[Union['DbClusterLogDeliveryConfigurationArgs', 'DbClusterLogDeliveryConfigurationArgsDict', 'outputs.DbClusterLogDeliveryConfiguration']]] = None,
+                 maintenance_schedule: pulumi.Input[Optional[Union['DbClusterMaintenanceScheduleArgs', 'DbClusterMaintenanceScheduleArgsDict', 'outputs.DbClusterMaintenanceSchedule']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  organization: pulumi.Input[Optional[_builtins.str]] = None,
@@ -824,7 +824,7 @@ class DbCluster(pulumi.CustomResource):
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['DbClusterTimeoutsArgs', 'DbClusterTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DbClusterTimeoutsArgs', 'DbClusterTimeoutsArgsDict', 'outputs.DbClusterTimeouts']]] = None,
                  username: pulumi.Input[Optional[_builtins.str]] = None,
                  vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  vpc_subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -904,23 +904,17 @@ class DbCluster(pulumi.CustomResource):
             bucket="example-s3-bucket",
             force_destroy=True)
         example = aws.iam.get_policy_document_output(statements=[{
+            "actions": ["s3:PutObject"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["timestream-influxdb.amazonaws.com"],
             }],
-            "actions": ["s3:PutObject"],
             "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
         }])
         example_bucket_policy = aws.s3.BucketPolicy("example",
             bucket=example_bucket.id,
             policy=example.json)
         example_db_cluster = aws.timestreaminfluxdb.DbCluster("example",
-            log_delivery_configuration={
-                "s3_configuration": {
-                    "bucket_name": example_bucket.bucket,
-                    "enabled": True,
-                },
-            },
             allocated_storage=20,
             bucket="example-bucket-name",
             db_instance_type="db.influx.medium",
@@ -932,7 +926,13 @@ class DbCluster(pulumi.CustomResource):
                 example2["id"],
             ],
             vpc_security_group_ids=[example_aws_security_group["id"]],
-            name="example-db-cluster")
+            name="example-db-cluster",
+            log_delivery_configuration={
+                "s3_configuration": {
+                    "bucket_name": example_bucket.bucket,
+                    "enabled": True,
+                },
+            })
         ```
 
         ### Usage with InfluxDB V3
@@ -944,10 +944,6 @@ class DbCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.timestreaminfluxdb.DbCluster("example",
-            maintenance_schedule={
-                "preferred_maintenance_window": "Sun:02:00-Sun:06:00",
-                "timezone": "America/New_York",
-            },
             name="example-v3-cluster",
             db_instance_type="db.influx.large",
             db_parameter_group_identifier="InfluxDBV3Core",
@@ -955,7 +951,11 @@ class DbCluster(pulumi.CustomResource):
                 example1["id"],
                 example2["id"],
             ],
-            vpc_security_group_ids=[example_aws_security_group["id"]])
+            vpc_security_group_ids=[example_aws_security_group["id"]],
+            maintenance_schedule={
+                "preferred_maintenance_window": "Sun:02:00-Sun:06:00",
+                "timezone": "America/New_York",
+            })
         ```
 
         ### Cluster Type Requirements
@@ -1013,8 +1013,8 @@ class DbCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] db_storage_type: Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use ` "InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for  `allocated_storage` is 400.
         :param pulumi.Input[_builtins.str] deployment_type: Specifies the type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         :param pulumi.Input[_builtins.str] failover_mode: Specifies the behavior of failure recovery when the primary node of the cluster fails. Valid options are: `"AUTOMATIC"` and `"NO_FAILOVER"`.
-        :param pulumi.Input[Union['DbClusterLogDeliveryConfigurationArgs', 'DbClusterLogDeliveryConfigurationArgsDict']] log_delivery_configuration: Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
-        :param pulumi.Input[Union['DbClusterMaintenanceScheduleArgs', 'DbClusterMaintenanceScheduleArgsDict']] maintenance_schedule: Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        :param pulumi.Input[Union['DbClusterLogDeliveryConfigurationArgs', 'DbClusterLogDeliveryConfigurationArgsDict', 'outputs.DbClusterLogDeliveryConfiguration']] log_delivery_configuration: Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
+        :param pulumi.Input[Union['DbClusterMaintenanceScheduleArgs', 'DbClusterMaintenanceScheduleArgsDict', 'outputs.DbClusterMaintenanceSchedule']] maintenance_schedule: Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         :param pulumi.Input[_builtins.str] name: Name that uniquely identifies the DB cluster when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. Cluster names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
         :param pulumi.Input[_builtins.str] network_type: Specifies whether the network type of the Timestream for InfluxDB cluster is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
         :param pulumi.Input[_builtins.str] organization: Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
@@ -1110,23 +1110,17 @@ class DbCluster(pulumi.CustomResource):
             bucket="example-s3-bucket",
             force_destroy=True)
         example = aws.iam.get_policy_document_output(statements=[{
+            "actions": ["s3:PutObject"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["timestream-influxdb.amazonaws.com"],
             }],
-            "actions": ["s3:PutObject"],
             "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
         }])
         example_bucket_policy = aws.s3.BucketPolicy("example",
             bucket=example_bucket.id,
             policy=example.json)
         example_db_cluster = aws.timestreaminfluxdb.DbCluster("example",
-            log_delivery_configuration={
-                "s3_configuration": {
-                    "bucket_name": example_bucket.bucket,
-                    "enabled": True,
-                },
-            },
             allocated_storage=20,
             bucket="example-bucket-name",
             db_instance_type="db.influx.medium",
@@ -1138,7 +1132,13 @@ class DbCluster(pulumi.CustomResource):
                 example2["id"],
             ],
             vpc_security_group_ids=[example_aws_security_group["id"]],
-            name="example-db-cluster")
+            name="example-db-cluster",
+            log_delivery_configuration={
+                "s3_configuration": {
+                    "bucket_name": example_bucket.bucket,
+                    "enabled": True,
+                },
+            })
         ```
 
         ### Usage with InfluxDB V3
@@ -1150,10 +1150,6 @@ class DbCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.timestreaminfluxdb.DbCluster("example",
-            maintenance_schedule={
-                "preferred_maintenance_window": "Sun:02:00-Sun:06:00",
-                "timezone": "America/New_York",
-            },
             name="example-v3-cluster",
             db_instance_type="db.influx.large",
             db_parameter_group_identifier="InfluxDBV3Core",
@@ -1161,7 +1157,11 @@ class DbCluster(pulumi.CustomResource):
                 example1["id"],
                 example2["id"],
             ],
-            vpc_security_group_ids=[example_aws_security_group["id"]])
+            vpc_security_group_ids=[example_aws_security_group["id"]],
+            maintenance_schedule={
+                "preferred_maintenance_window": "Sun:02:00-Sun:06:00",
+                "timezone": "America/New_York",
+            })
         ```
 
         ### Cluster Type Requirements
@@ -1232,8 +1232,8 @@ class DbCluster(pulumi.CustomResource):
                  db_storage_type: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
                  failover_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 log_delivery_configuration: pulumi.Input[Optional[Union['DbClusterLogDeliveryConfigurationArgs', 'DbClusterLogDeliveryConfigurationArgsDict']]] = None,
-                 maintenance_schedule: pulumi.Input[Optional[Union['DbClusterMaintenanceScheduleArgs', 'DbClusterMaintenanceScheduleArgsDict']]] = None,
+                 log_delivery_configuration: pulumi.Input[Optional[Union['DbClusterLogDeliveryConfigurationArgs', 'DbClusterLogDeliveryConfigurationArgsDict', 'outputs.DbClusterLogDeliveryConfiguration']]] = None,
+                 maintenance_schedule: pulumi.Input[Optional[Union['DbClusterMaintenanceScheduleArgs', 'DbClusterMaintenanceScheduleArgsDict', 'outputs.DbClusterMaintenanceSchedule']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  organization: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1242,7 +1242,7 @@ class DbCluster(pulumi.CustomResource):
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['DbClusterTimeoutsArgs', 'DbClusterTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DbClusterTimeoutsArgs', 'DbClusterTimeoutsArgsDict', 'outputs.DbClusterTimeouts']]] = None,
                  username: pulumi.Input[Optional[_builtins.str]] = None,
                  vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  vpc_subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1311,8 +1311,8 @@ class DbCluster(pulumi.CustomResource):
             engine_type: pulumi.Input[Optional[_builtins.str]] = None,
             failover_mode: pulumi.Input[Optional[_builtins.str]] = None,
             influx_auth_parameters_secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            log_delivery_configuration: pulumi.Input[Optional[Union['DbClusterLogDeliveryConfigurationArgs', 'DbClusterLogDeliveryConfigurationArgsDict']]] = None,
-            maintenance_schedule: pulumi.Input[Optional[Union['DbClusterMaintenanceScheduleArgs', 'DbClusterMaintenanceScheduleArgsDict']]] = None,
+            log_delivery_configuration: pulumi.Input[Optional[Union['DbClusterLogDeliveryConfigurationArgs', 'DbClusterLogDeliveryConfigurationArgsDict', 'outputs.DbClusterLogDeliveryConfiguration']]] = None,
+            maintenance_schedule: pulumi.Input[Optional[Union['DbClusterMaintenanceScheduleArgs', 'DbClusterMaintenanceScheduleArgsDict', 'outputs.DbClusterMaintenanceSchedule']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             network_type: pulumi.Input[Optional[_builtins.str]] = None,
             organization: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1323,7 +1323,7 @@ class DbCluster(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['DbClusterTimeoutsArgs', 'DbClusterTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['DbClusterTimeoutsArgs', 'DbClusterTimeoutsArgsDict', 'outputs.DbClusterTimeouts']]] = None,
             username: pulumi.Input[Optional[_builtins.str]] = None,
             vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             vpc_subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'DbCluster':
@@ -1345,8 +1345,8 @@ class DbCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] engine_type: Database engine type of the DB cluster.
         :param pulumi.Input[_builtins.str] failover_mode: Specifies the behavior of failure recovery when the primary node of the cluster fails. Valid options are: `"AUTOMATIC"` and `"NO_FAILOVER"`.
         :param pulumi.Input[_builtins.str] influx_auth_parameters_secret_arn: ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. For InfluxDB V2 clusters, the secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password. For InfluxDB V3 clusters, the secret contains the InfluxDB admin token.
-        :param pulumi.Input[Union['DbClusterLogDeliveryConfigurationArgs', 'DbClusterLogDeliveryConfigurationArgsDict']] log_delivery_configuration: Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
-        :param pulumi.Input[Union['DbClusterMaintenanceScheduleArgs', 'DbClusterMaintenanceScheduleArgsDict']] maintenance_schedule: Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        :param pulumi.Input[Union['DbClusterLogDeliveryConfigurationArgs', 'DbClusterLogDeliveryConfigurationArgsDict', 'outputs.DbClusterLogDeliveryConfiguration']] log_delivery_configuration: Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
+        :param pulumi.Input[Union['DbClusterMaintenanceScheduleArgs', 'DbClusterMaintenanceScheduleArgsDict', 'outputs.DbClusterMaintenanceSchedule']] maintenance_schedule: Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         :param pulumi.Input[_builtins.str] name: Name that uniquely identifies the DB cluster when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. Cluster names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
         :param pulumi.Input[_builtins.str] network_type: Specifies whether the network type of the Timestream for InfluxDB cluster is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
         :param pulumi.Input[_builtins.str] organization: Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).

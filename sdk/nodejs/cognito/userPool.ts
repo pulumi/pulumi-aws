@@ -28,6 +28,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cognito.UserPool("example", {
+ *     mfaConfiguration: "ON",
+ *     smsAuthenticationMessage: "Your code is {####}",
  *     smsConfiguration: {
  *         externalId: "example",
  *         snsCallerArn: exampleAwsIamRole.arn,
@@ -36,8 +38,6 @@ import * as utilities from "../utilities";
  *     softwareTokenMfaConfiguration: {
  *         enabled: true,
  *     },
- *     mfaConfiguration: "ON",
- *     smsAuthenticationMessage: "Your code is {####}",
  * });
  * ```
  *
@@ -48,6 +48,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.cognito.UserPool("test", {
+ *     name: "mypool",
  *     accountRecoverySetting: {
  *         recoveryMechanisms: [
  *             {
@@ -60,7 +61,6 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     },
- *     name: "mypool",
  * });
  * ```
  *

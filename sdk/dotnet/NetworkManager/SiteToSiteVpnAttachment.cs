@@ -73,33 +73,15 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     ///     var test = Aws.NetworkManager.GetCoreNetworkPolicyDocument.Invoke(new()
     ///     {
-    ///         AttachmentPolicies = new[]
-    ///         {
-    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyInputArgs
-    ///             {
-    ///                 Action = new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionInputArgs
-    ///                 {
-    ///                     AssociationMethod = "constant",
-    ///                     Segment = "shared",
-    ///                 },
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionInputArgs
-    ///                     {
-    ///                         Type = "tag-value",
-    ///                         Operator = "equals",
-    ///                         Key = "segment",
-    ///                         Value = "shared",
-    ///                     },
-    ///                 },
-    ///                 RuleNumber = 1,
-    ///                 ConditionLogic = "or",
-    ///             },
-    ///         },
     ///         CoreNetworkConfigurations = new[]
     ///         {
     ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationInputArgs
     ///             {
+    ///                 VpnEcmpSupport = false,
+    ///                 AsnRanges = new[]
+    ///                 {
+    ///                     "64512-64555",
+    ///                 },
     ///                 EdgeLocations = new[]
     ///                 {
     ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInputArgs
@@ -108,11 +90,15 @@ namespace Pulumi.Aws.NetworkManager
     ///                         Asn = "64512",
     ///                     },
     ///                 },
-    ///                 VpnEcmpSupport = false,
-    ///                 AsnRanges = new[]
-    ///                 {
-    ///                     "64512-64555",
-    ///                 },
+    ///             },
+    ///         },
+    ///         Segments = new[]
+    ///         {
+    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentInputArgs
+    ///             {
+    ///                 Name = "shared",
+    ///                 Description = "SegmentForSharedServices",
+    ///                 RequireAttachmentAcceptance = true,
     ///             },
     ///         },
     ///         SegmentActions = new[]
@@ -128,13 +114,27 @@ namespace Pulumi.Aws.NetworkManager
     ///                 },
     ///             },
     ///         },
-    ///         Segments = new[]
+    ///         AttachmentPolicies = new[]
     ///         {
-    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentInputArgs
+    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyInputArgs
     ///             {
-    ///                 Name = "shared",
-    ///                 Description = "SegmentForSharedServices",
-    ///                 RequireAttachmentAcceptance = true,
+    ///                 RuleNumber = 1,
+    ///                 ConditionLogic = "or",
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionInputArgs
+    ///                     {
+    ///                         Type = "tag-value",
+    ///                         Operator = "equals",
+    ///                         Key = "segment",
+    ///                         Value = "shared",
+    ///                     },
+    ///                 },
+    ///                 Action = new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionInputArgs
+    ///                 {
+    ///                     AssociationMethod = "constant",
+    ///                     Segment = "shared",
+    ///                 },
     ///             },
     ///         },
     ///     });

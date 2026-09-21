@@ -35,15 +35,14 @@ import * as utilities from "../utilities";
  * });
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {name: "/aws/agentcore/my-agent-traces"});
  * const exampleAgentcoreOnlineEvaluationConfig = new aws.bedrock.AgentcoreOnlineEvaluationConfig("example", {
+ *     onlineEvaluationConfigName: "my_evaluation_config",
+ *     description: "Continuous evaluation of agent performance",
+ *     enableOnCreate: true,
+ *     evaluationExecutionRoleArn: example.arn,
  *     dataSourceConfig: {
  *         cloudwatchLogs: {
  *             logGroupNames: [exampleLogGroup.name],
  *             serviceNames: ["my_agent_service"],
- *         },
- *     },
- *     rule: {
- *         samplingConfig: {
- *             samplingPercentage: 10,
  *         },
  *     },
  *     evaluators: [
@@ -54,10 +53,11 @@ import * as utilities from "../utilities";
  *             evaluatorId: "Builtin.GoalSuccessRate",
  *         },
  *     ],
- *     onlineEvaluationConfigName: "my_evaluation_config",
- *     description: "Continuous evaluation of agent performance",
- *     enableOnCreate: true,
- *     evaluationExecutionRoleArn: example.arn,
+ *     rule: {
+ *         samplingConfig: {
+ *             samplingPercentage: 10,
+ *         },
+ *     },
  * });
  * ```
  *
@@ -68,33 +68,33 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const filtered = new aws.bedrock.AgentcoreOnlineEvaluationConfig("filtered", {
+ *     onlineEvaluationConfigName: "filtered_evaluation",
+ *     enableOnCreate: true,
+ *     evaluationExecutionRoleArn: exampleAwsIamRole.arn,
  *     dataSourceConfig: {
  *         cloudwatchLogs: {
  *             logGroupNames: [example.name],
  *             serviceNames: ["my_agent_service"],
  *         },
  *     },
+ *     evaluators: [{
+ *         evaluatorId: "Builtin.Helpfulness",
+ *     }],
  *     rule: {
  *         samplingConfig: {
  *             samplingPercentage: 50,
  *         },
- *         sessionConfig: {
- *             sessionTimeoutMinutes: 30,
- *         },
  *         filters: [{
+ *             key: "environment",
+ *             operator: "Equals",
  *             value: {
  *                 stringValue: "production",
  *             },
- *             key: "environment",
- *             operator: "Equals",
  *         }],
+ *         sessionConfig: {
+ *             sessionTimeoutMinutes: 30,
+ *         },
  *     },
- *     evaluators: [{
- *         evaluatorId: "Builtin.Helpfulness",
- *     }],
- *     onlineEvaluationConfigName: "filtered_evaluation",
- *     enableOnCreate: true,
- *     evaluationExecutionRoleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *

@@ -32,6 +32,11 @@ import * as utilities from "../utilities";
  * const snsTopic = new aws.sns.Topic("sns_topic", {name: "my-sns-topic"});
  * const snsTopicPolicy = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
+ *         effect: "Allow",
+ *         actions: [
+ *             "SNS:Subscribe",
+ *             "SNS:Publish",
+ *         ],
  *         conditions: [{
  *             test: "StringEquals",
  *             variable: "aws:PrincipalOrgID",
@@ -41,11 +46,6 @@ import * as utilities from "../utilities";
  *             type: "AWS",
  *             identifiers: ["*"],
  *         }],
- *         effect: "Allow",
- *         actions: [
- *             "SNS:Subscribe",
- *             "SNS:Publish",
- *         ],
  *         resources: [snsTopic.arn],
  *     }],
  * });
@@ -152,6 +152,11 @@ export interface GetOrganizationResult {
  * const snsTopic = new aws.sns.Topic("sns_topic", {name: "my-sns-topic"});
  * const snsTopicPolicy = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
+ *         effect: "Allow",
+ *         actions: [
+ *             "SNS:Subscribe",
+ *             "SNS:Publish",
+ *         ],
  *         conditions: [{
  *             test: "StringEquals",
  *             variable: "aws:PrincipalOrgID",
@@ -161,11 +166,6 @@ export interface GetOrganizationResult {
  *             type: "AWS",
  *             identifiers: ["*"],
  *         }],
- *         effect: "Allow",
- *         actions: [
- *             "SNS:Subscribe",
- *             "SNS:Publish",
- *         ],
  *         resources: [snsTopic.arn],
  *     }],
  * });

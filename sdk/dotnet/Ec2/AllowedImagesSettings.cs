@@ -32,6 +32,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.AllowedImagesSettings("example", new()
     ///     {
+    ///         State = "enabled",
     ///         ImageCriterions = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.AllowedImagesSettingsImageCriterionArgs
@@ -42,7 +43,6 @@ namespace Pulumi.Aws.Ec2
     ///                 },
     ///             },
     ///         },
-    ///         State = "enabled",
     ///     });
     /// 
     /// });
@@ -60,6 +60,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.AllowedImagesSettings("example", new()
     ///     {
+    ///         State = "audit-mode",
     ///         ImageCriterions = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.AllowedImagesSettingsImageCriterionArgs
@@ -71,7 +72,6 @@ namespace Pulumi.Aws.Ec2
     ///                 },
     ///             },
     ///         },
-    ///         State = "audit-mode",
     ///     });
     /// 
     /// });

@@ -363,7 +363,7 @@ class LandingZone(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            drift_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LandingZoneDriftStatusArgs', 'LandingZoneDriftStatusArgsDict']]]]] = None,
+            drift_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LandingZoneDriftStatusArgs', 'LandingZoneDriftStatusArgsDict', 'outputs.LandingZoneDriftStatus']]]]] = None,
             latest_available_version: pulumi.Input[Optional[_builtins.str]] = None,
             manifest_json: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -379,7 +379,7 @@ class LandingZone(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The ARN of the landing zone.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LandingZoneDriftStatusArgs', 'LandingZoneDriftStatusArgsDict']]]] drift_statuses: The drift status summary of the landing zone.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LandingZoneDriftStatusArgs', 'LandingZoneDriftStatusArgsDict', 'outputs.LandingZoneDriftStatus']]]] drift_statuses: The drift status summary of the landing zone.
         :param pulumi.Input[_builtins.str] latest_available_version: The latest available version of the landing zone.
         :param pulumi.Input[_builtins.str] manifest_json: The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

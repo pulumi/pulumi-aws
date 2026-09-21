@@ -186,7 +186,7 @@ class TableBucketReplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['TableBucketReplicationRuleArgs', 'TableBucketReplicationRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['TableBucketReplicationRuleArgs', 'TableBucketReplicationRuleArgsDict', 'outputs.TableBucketReplicationRule']]] = None,
                  table_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -201,13 +201,13 @@ class TableBucketReplication(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3tables.TableBucketReplication("example",
+            table_bucket_arn=source["arn"],
+            role=example_aws_iam_role["arn"],
             rule={
                 "destinations": [{
                     "destination_table_bucket_arn": target["arn"],
                 }],
-            },
-            table_bucket_arn=source["arn"],
-            role=example_aws_iam_role["arn"])
+            })
         ```
 
         ## Import
@@ -229,7 +229,7 @@ class TableBucketReplication(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role: ARN referencing the IAM role assumed by S3 when replicating tables in this bucket.
-        :param pulumi.Input[Union['TableBucketReplicationRuleArgs', 'TableBucketReplicationRuleArgsDict']] rule: Replication rules. See Rule below for more details.
+        :param pulumi.Input[Union['TableBucketReplicationRuleArgs', 'TableBucketReplicationRuleArgsDict', 'outputs.TableBucketReplicationRule']] rule: Replication rules. See Rule below for more details.
         :param pulumi.Input[_builtins.str] table_bucket_arn: ARN referencing the Table Bucket that owns this replication configuration.
         """
         ...
@@ -250,13 +250,13 @@ class TableBucketReplication(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3tables.TableBucketReplication("example",
+            table_bucket_arn=source["arn"],
+            role=example_aws_iam_role["arn"],
             rule={
                 "destinations": [{
                     "destination_table_bucket_arn": target["arn"],
                 }],
-            },
-            table_bucket_arn=source["arn"],
-            role=example_aws_iam_role["arn"])
+            })
         ```
 
         ## Import
@@ -291,7 +291,7 @@ class TableBucketReplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['TableBucketReplicationRuleArgs', 'TableBucketReplicationRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['TableBucketReplicationRuleArgs', 'TableBucketReplicationRuleArgsDict', 'outputs.TableBucketReplicationRule']]] = None,
                  table_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -323,7 +323,7 @@ class TableBucketReplication(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             role: pulumi.Input[Optional[_builtins.str]] = None,
-            rule: pulumi.Input[Optional[Union['TableBucketReplicationRuleArgs', 'TableBucketReplicationRuleArgsDict']]] = None,
+            rule: pulumi.Input[Optional[Union['TableBucketReplicationRuleArgs', 'TableBucketReplicationRuleArgsDict', 'outputs.TableBucketReplicationRule']]] = None,
             table_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
             version_token: pulumi.Input[Optional[_builtins.str]] = None) -> 'TableBucketReplication':
         """
@@ -335,7 +335,7 @@ class TableBucketReplication(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role: ARN referencing the IAM role assumed by S3 when replicating tables in this bucket.
-        :param pulumi.Input[Union['TableBucketReplicationRuleArgs', 'TableBucketReplicationRuleArgsDict']] rule: Replication rules. See Rule below for more details.
+        :param pulumi.Input[Union['TableBucketReplicationRuleArgs', 'TableBucketReplicationRuleArgsDict', 'outputs.TableBucketReplicationRule']] rule: Replication rules. See Rule below for more details.
         :param pulumi.Input[_builtins.str] table_bucket_arn: ARN referencing the Table Bucket that owns this replication configuration.
         :param pulumi.Input[_builtins.str] version_token: Version token of the replication configuration.
         """

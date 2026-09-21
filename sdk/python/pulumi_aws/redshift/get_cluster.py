@@ -551,14 +551,9 @@ def get_cluster(cluster_identifier: Optional[_builtins.str] = None,
 
     example = aws.redshift.get_cluster(cluster_identifier="example-cluster")
     example_stream = aws.kinesis.FirehoseDeliveryStream("example_stream",
+        name="kinesis-firehose-example-stream",
+        destination="redshift",
         redshift_configuration={
-            "s3_configuration": {
-                "role_arn": firehose_role["arn"],
-                "bucket_arn": bucket["arn"],
-                "buffer_size": 10,
-                "buffer_interval": 400,
-                "compression_format": "GZIP",
-            },
             "role_arn": firehose_role["arn"],
             "cluster_jdbcurl": f"jdbc:redshift://{example.endpoint}/{example.database_name}",
             "username": "exampleuser",
@@ -566,9 +561,14 @@ def get_cluster(cluster_identifier: Optional[_builtins.str] = None,
             "data_table_name": "example-table",
             "copy_options": "delimiter '|'",
             "data_table_columns": "example-col",
-        },
-        name="kinesis-firehose-example-stream",
-        destination="redshift")
+            "s3_configuration": {
+                "role_arn": firehose_role["arn"],
+                "bucket_arn": bucket["arn"],
+                "buffer_size": 10,
+                "buffer_interval": 400,
+                "compression_format": "GZIP",
+            },
+        })
     ```
 
 
@@ -641,14 +641,9 @@ def get_cluster_output(cluster_identifier: pulumi.Input[Optional[_builtins.str]]
 
     example = aws.redshift.get_cluster(cluster_identifier="example-cluster")
     example_stream = aws.kinesis.FirehoseDeliveryStream("example_stream",
+        name="kinesis-firehose-example-stream",
+        destination="redshift",
         redshift_configuration={
-            "s3_configuration": {
-                "role_arn": firehose_role["arn"],
-                "bucket_arn": bucket["arn"],
-                "buffer_size": 10,
-                "buffer_interval": 400,
-                "compression_format": "GZIP",
-            },
             "role_arn": firehose_role["arn"],
             "cluster_jdbcurl": f"jdbc:redshift://{example.endpoint}/{example.database_name}",
             "username": "exampleuser",
@@ -656,9 +651,14 @@ def get_cluster_output(cluster_identifier: pulumi.Input[Optional[_builtins.str]]
             "data_table_name": "example-table",
             "copy_options": "delimiter '|'",
             "data_table_columns": "example-col",
-        },
-        name="kinesis-firehose-example-stream",
-        destination="redshift")
+            "s3_configuration": {
+                "role_arn": firehose_role["arn"],
+                "bucket_arn": bucket["arn"],
+                "buffer_size": 10,
+                "buffer_interval": 400,
+                "compression_format": "GZIP",
+            },
+        })
     ```
 
 

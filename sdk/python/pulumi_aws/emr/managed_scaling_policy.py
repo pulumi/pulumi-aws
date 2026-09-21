@@ -201,7 +201,7 @@ class ManagedScalingPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 compute_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedScalingPolicyComputeLimitArgs', 'ManagedScalingPolicyComputeLimitArgsDict']]]]] = None,
+                 compute_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedScalingPolicyComputeLimitArgs', 'ManagedScalingPolicyComputeLimitArgsDict', 'outputs.ManagedScalingPolicyComputeLimit']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  scaling_strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  utilization_performance_index: pulumi.Input[Optional[_builtins.int]] = None,
@@ -216,23 +216,23 @@ class ManagedScalingPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         sample = aws.emr.Cluster("sample",
+            name="emr-sample-cluster",
+            release_label="emr-5.30.0",
             master_instance_group={
                 "instance_type": "m4.large",
             },
             core_instance_group={
                 "instance_type": "c4.large",
-            },
-            name="emr-sample-cluster",
-            release_label="emr-5.30.0")
+            })
         samplepolicy = aws.emr.ManagedScalingPolicy("samplepolicy",
+            cluster_id=sample.id,
             compute_limits=[{
                 "unit_type": "Instances",
                 "minimum_capacity_units": 2,
                 "maximum_capacity_units": 10,
                 "maximum_ondemand_capacity_units": 2,
                 "maximum_core_capacity_units": 10,
-            }],
-            cluster_id=sample.id)
+            }])
         ```
 
         ## Import
@@ -247,7 +247,7 @@ class ManagedScalingPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_id: ID of the EMR cluster
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedScalingPolicyComputeLimitArgs', 'ManagedScalingPolicyComputeLimitArgsDict']]]] compute_limits: Configuration block with compute limit settings. Described below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedScalingPolicyComputeLimitArgs', 'ManagedScalingPolicyComputeLimitArgsDict', 'outputs.ManagedScalingPolicyComputeLimit']]]] compute_limits: Configuration block with compute limit settings. Described below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] scaling_strategy: Specifies the scaling strategy. When set to `ADVANCED`, the `utilization_performance_index` argument can be used to configure an advanced scaling strategy. An advanced scaling strategy requires Amazon EMR on EC2 version 7.0 or later. Valid values: `ADVANCED`, `DEFAULT`.
         :param pulumi.Input[_builtins.int] utilization_performance_index: Integer value that represents the advanced scaling strategy. Higher values optimize for performance, while lower values optimize for resource conservation. A value of `50` provides a balance between performance and resource conservation. See [the AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/managed-scaling-allocation-strategy-optimized.html#managed-scaling-allocation-strategy-optimized-getting-started) for more details. Required when `scaling_strategy` is set to `ADVANCED`. Valid values: `1`, `25`, `50`, `75`, `100`.
@@ -268,23 +268,23 @@ class ManagedScalingPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         sample = aws.emr.Cluster("sample",
+            name="emr-sample-cluster",
+            release_label="emr-5.30.0",
             master_instance_group={
                 "instance_type": "m4.large",
             },
             core_instance_group={
                 "instance_type": "c4.large",
-            },
-            name="emr-sample-cluster",
-            release_label="emr-5.30.0")
+            })
         samplepolicy = aws.emr.ManagedScalingPolicy("samplepolicy",
+            cluster_id=sample.id,
             compute_limits=[{
                 "unit_type": "Instances",
                 "minimum_capacity_units": 2,
                 "maximum_capacity_units": 10,
                 "maximum_ondemand_capacity_units": 2,
                 "maximum_core_capacity_units": 10,
-            }],
-            cluster_id=sample.id)
+            }])
         ```
 
         ## Import
@@ -312,7 +312,7 @@ class ManagedScalingPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 compute_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedScalingPolicyComputeLimitArgs', 'ManagedScalingPolicyComputeLimitArgsDict']]]]] = None,
+                 compute_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedScalingPolicyComputeLimitArgs', 'ManagedScalingPolicyComputeLimitArgsDict', 'outputs.ManagedScalingPolicyComputeLimit']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  scaling_strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  utilization_performance_index: pulumi.Input[Optional[_builtins.int]] = None,
@@ -345,7 +345,7 @@ class ManagedScalingPolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
-            compute_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedScalingPolicyComputeLimitArgs', 'ManagedScalingPolicyComputeLimitArgsDict']]]]] = None,
+            compute_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedScalingPolicyComputeLimitArgs', 'ManagedScalingPolicyComputeLimitArgsDict', 'outputs.ManagedScalingPolicyComputeLimit']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             scaling_strategy: pulumi.Input[Optional[_builtins.str]] = None,
             utilization_performance_index: pulumi.Input[Optional[_builtins.int]] = None) -> 'ManagedScalingPolicy':
@@ -357,7 +357,7 @@ class ManagedScalingPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_id: ID of the EMR cluster
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedScalingPolicyComputeLimitArgs', 'ManagedScalingPolicyComputeLimitArgsDict']]]] compute_limits: Configuration block with compute limit settings. Described below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedScalingPolicyComputeLimitArgs', 'ManagedScalingPolicyComputeLimitArgsDict', 'outputs.ManagedScalingPolicyComputeLimit']]]] compute_limits: Configuration block with compute limit settings. Described below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] scaling_strategy: Specifies the scaling strategy. When set to `ADVANCED`, the `utilization_performance_index` argument can be used to configure an advanced scaling strategy. An advanced scaling strategy requires Amazon EMR on EC2 version 7.0 or later. Valid values: `ADVANCED`, `DEFAULT`.
         :param pulumi.Input[_builtins.int] utilization_performance_index: Integer value that represents the advanced scaling strategy. Higher values optimize for performance, while lower values optimize for resource conservation. A value of `50` provides a balance between performance and resource conservation. See [the AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/managed-scaling-allocation-strategy-optimized.html#managed-scaling-allocation-strategy-optimized-getting-started) for more details. Required when `scaling_strategy` is set to `ADVANCED`. Valid values: `1`, `25`, `50`, `75`, `100`.

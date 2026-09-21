@@ -28,14 +28,35 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.TlsInspectionConfiguration("example", new()
     ///     {
+    ///         Name = "example",
+    ///         Description = "example",
+    ///         EncryptionConfigurations = new[]
+    ///         {
+    ///             new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationEncryptionConfigurationArgs
+    ///             {
+    ///                 KeyId = "AWS_OWNED_KMS_KEY",
+    ///                 Type = "AWS_OWNED_KMS_KEY",
+    ///             },
+    ///         },
     ///         TlsInspectionConfig = new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs
     ///         {
     ///             ServerCertificateConfiguration = new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs
     ///             {
+    ///                 ServerCertificates = new[]
+    ///                 {
+    ///                     new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs
+    ///                     {
+    ///                         ResourceArn = example1.Arn,
+    ///                     },
+    ///                 },
     ///                 Scopes = new[]
     ///                 {
     ///                     new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs
     ///                     {
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             6,
+    ///                         },
     ///                         DestinationPorts = new[]
     ///                         {
     ///                             new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs
@@ -66,31 +87,10 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                                 AddressDefinition = "0.0.0.0/0",
     ///                             },
     ///                         },
-    ///                         Protocols = new[]
-    ///                         {
-    ///                             6,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 ServerCertificates = new[]
-    ///                 {
-    ///                     new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs
-    ///                     {
-    ///                         ResourceArn = example1.Arn,
     ///                     },
     ///                 },
     ///             },
     ///         },
-    ///         EncryptionConfigurations = new[]
-    ///         {
-    ///             new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationEncryptionConfigurationArgs
-    ///             {
-    ///                 KeyId = "AWS_OWNED_KMS_KEY",
-    ///                 Type = "AWS_OWNED_KMS_KEY",
-    ///             },
-    ///         },
-    ///         Name = "example",
-    ///         Description = "example",
     ///     });
     /// 
     /// });
@@ -108,10 +108,21 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.TlsInspectionConfiguration("example", new()
     ///     {
+    ///         Name = "example",
+    ///         Description = "example",
+    ///         EncryptionConfigurations = new[]
+    ///         {
+    ///             new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationEncryptionConfigurationArgs
+    ///             {
+    ///                 KeyId = "AWS_OWNED_KMS_KEY",
+    ///                 Type = "AWS_OWNED_KMS_KEY",
+    ///             },
+    ///         },
     ///         TlsInspectionConfig = new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs
     ///         {
     ///             ServerCertificateConfiguration = new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs
     ///             {
+    ///                 CertificateAuthorityArn = example1.Arn,
     ///                 CheckCertificateRevocationStatus = new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs
     ///                 {
     ///                     RevokedStatusAction = "REJECT",
@@ -121,6 +132,10 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                 {
     ///                     new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs
     ///                     {
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             6,
+    ///                         },
     ///                         DestinationPorts = new[]
     ///                         {
     ///                             new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs
@@ -151,25 +166,10 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                                 AddressDefinition = "0.0.0.0/0",
     ///                             },
     ///                         },
-    ///                         Protocols = new[]
-    ///                         {
-    ///                             6,
-    ///                         },
     ///                     },
     ///                 },
-    ///                 CertificateAuthorityArn = example1.Arn,
     ///             },
     ///         },
-    ///         EncryptionConfigurations = new[]
-    ///         {
-    ///             new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationEncryptionConfigurationArgs
-    ///             {
-    ///                 KeyId = "AWS_OWNED_KMS_KEY",
-    ///                 Type = "AWS_OWNED_KMS_KEY",
-    ///             },
-    ///         },
-    ///         Name = "example",
-    ///         Description = "example",
     ///     });
     /// 
     /// });
@@ -193,14 +193,35 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     ///     var exampleTlsInspectionConfiguration = new Aws.NetworkFirewall.TlsInspectionConfiguration("example", new()
     ///     {
+    ///         Name = "example",
+    ///         Description = "example",
+    ///         EncryptionConfigurations = new[]
+    ///         {
+    ///             new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationEncryptionConfigurationArgs
+    ///             {
+    ///                 KeyId = example.Arn,
+    ///                 Type = "CUSTOMER_KMS",
+    ///             },
+    ///         },
     ///         TlsInspectionConfig = new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs
     ///         {
     ///             ServerCertificateConfiguration = new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs
     ///             {
+    ///                 ServerCertificates = new[]
+    ///                 {
+    ///                     new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs
+    ///                     {
+    ///                         ResourceArn = example1.Arn,
+    ///                     },
+    ///                 },
     ///                 Scopes = new[]
     ///                 {
     ///                     new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs
     ///                     {
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             6,
+    ///                         },
     ///                         DestinationPorts = new[]
     ///                         {
     ///                             new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs
@@ -231,31 +252,10 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                                 AddressDefinition = "0.0.0.0/0",
     ///                             },
     ///                         },
-    ///                         Protocols = new[]
-    ///                         {
-    ///                             6,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 ServerCertificates = new[]
-    ///                 {
-    ///                     new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs
-    ///                     {
-    ///                         ResourceArn = example1.Arn,
     ///                     },
     ///                 },
     ///             },
     ///         },
-    ///         EncryptionConfigurations = new[]
-    ///         {
-    ///             new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationEncryptionConfigurationArgs
-    ///             {
-    ///                 KeyId = example.Arn,
-    ///                 Type = "CUSTOMER_KMS",
-    ///             },
-    ///         },
-    ///         Name = "example",
-    ///         Description = "example",
     ///     });
     /// 
     /// });
@@ -279,12 +279,23 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     ///     var exampleTlsInspectionConfiguration = new Aws.NetworkFirewall.TlsInspectionConfiguration("example", new()
     ///     {
+    ///         Name = "example",
+    ///         Description = "example",
+    ///         EncryptionConfigurations = new[]
+    ///         {
+    ///             new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationEncryptionConfigurationArgs
+    ///             {
+    ///                 KeyId = example.Arn,
+    ///                 Type = "CUSTOMER_KMS",
+    ///             },
+    ///         },
     ///         TlsInspectionConfig = new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs
     ///         {
     ///             ServerCertificateConfigurations = new[]
     ///             {
     ///                 
     ///                 {
+    ///                     { "certificateAuthorityArn", example1.Arn },
     ///                     { "checkCertificateRevocationStatus", new[]
     ///                     {
     ///                         
@@ -297,12 +308,9 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                     {
     ///                         
     ///                         {
-    ///                             { "destination", new[]
+    ///                             { "protocols", new[]
     ///                             {
-    ///                                 
-    ///                                 {
-    ///                                     { "addressDefinition", "0.0.0.0/0" },
-    ///                                 },
+    ///                                 6,
     ///                             } },
     ///                             { "destinationPorts", new[]
     ///                             {
@@ -312,7 +320,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                                     { "toPort", 443 },
     ///                                 },
     ///                             } },
-    ///                             { "source", new[]
+    ///                             { "destination", new[]
     ///                             {
     ///                                 
     ///                                 {
@@ -327,26 +335,18 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                                     { "toPort", 65535 },
     ///                                 },
     ///                             } },
-    ///                             { "protocols", new[]
+    ///                             { "source", new[]
     ///                             {
-    ///                                 6,
+    ///                                 
+    ///                                 {
+    ///                                     { "addressDefinition", "0.0.0.0/0" },
+    ///                                 },
     ///                             } },
     ///                         },
     ///                     } },
-    ///                     { "certificateAuthorityArn", example1.Arn },
     ///                 },
     ///             },
     ///         },
-    ///         EncryptionConfigurations = new[]
-    ///         {
-    ///             new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationEncryptionConfigurationArgs
-    ///             {
-    ///                 KeyId = example.Arn,
-    ///                 Type = "CUSTOMER_KMS",
-    ///             },
-    ///         },
-    ///         Name = "example",
-    ///         Description = "example",
     ///     });
     /// 
     /// });
@@ -364,19 +364,41 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.TlsInspectionConfiguration("example", new()
     ///     {
+    ///         Name = "example",
+    ///         Description = "example",
+    ///         EncryptionConfigurations = new[]
+    ///         {
+    ///             new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationEncryptionConfigurationArgs
+    ///             {
+    ///                 KeyId = "AWS_OWNED_KMS_KEY",
+    ///                 Type = "AWS_OWNED_KMS_KEY",
+    ///             },
+    ///         },
     ///         TlsInspectionConfig = new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs
     ///         {
     ///             ServerCertificateConfiguration = new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs
     ///             {
+    ///                 CertificateAuthorityArn = example1.Arn,
     ///                 CheckCertificateRevocationStatus = new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs
     ///                 {
     ///                     RevokedStatusAction = "REJECT",
     ///                     UnknownStatusAction = "PASS",
     ///                 },
+    ///                 ServerCertificates = new[]
+    ///                 {
+    ///                     new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs
+    ///                     {
+    ///                         ResourceArn = example2.Arn,
+    ///                     },
+    ///                 },
     ///                 Scopes = new[]
     ///                 {
     ///                     new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs
     ///                     {
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             6,
+    ///                         },
     ///                         DestinationPorts = new[]
     ///                         {
     ///                             new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs
@@ -407,32 +429,10 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                                 AddressDefinition = "0.0.0.0/0",
     ///                             },
     ///                         },
-    ///                         Protocols = new[]
-    ///                         {
-    ///                             6,
-    ///                         },
     ///                     },
     ///                 },
-    ///                 ServerCertificates = new[]
-    ///                 {
-    ///                     new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs
-    ///                     {
-    ///                         ResourceArn = example2.Arn,
-    ///                     },
-    ///                 },
-    ///                 CertificateAuthorityArn = example1.Arn,
     ///             },
     ///         },
-    ///         EncryptionConfigurations = new[]
-    ///         {
-    ///             new Aws.NetworkFirewall.Inputs.TlsInspectionConfigurationEncryptionConfigurationArgs
-    ///             {
-    ///                 KeyId = "AWS_OWNED_KMS_KEY",
-    ///                 Type = "AWS_OWNED_KMS_KEY",
-    ///             },
-    ///         },
-    ///         Name = "example",
-    ///         Description = "example",
     ///     });
     /// 
     /// });

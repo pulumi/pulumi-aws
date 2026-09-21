@@ -42,6 +42,8 @@ import (
 //			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
+//						Sid:    pulumi.StringRef("new policy"),
+//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "AWS",
@@ -50,8 +52,6 @@ import (
 //								},
 //							},
 //						},
-//						Sid:    pulumi.StringRef("new policy"),
-//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"ecr:GetDownloadUrlForLayer",
 //							"ecr:BatchGetImage",

@@ -50,6 +50,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new GatewayRoute("example", GatewayRouteArgs.builder()
+ *             .name("example-gateway-route")
+ *             .meshName("example-service-mesh")
+ *             .virtualGatewayName(exampleAwsAppmeshVirtualGateway.name())
  *             .spec(GatewayRouteSpecArgs.builder()
  *                 .httpRoute(GatewayRouteSpecHttpRouteArgs.builder()
  *                     .action(GatewayRouteSpecHttpRouteActionArgs.builder()
@@ -64,9 +67,6 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .name("example-gateway-route")
- *             .meshName("example-service-mesh")
- *             .virtualGatewayName(exampleAwsAppmeshVirtualGateway.name())
  *             .tags(Map.of("Environment", "test"))
  *             .build());
  * 

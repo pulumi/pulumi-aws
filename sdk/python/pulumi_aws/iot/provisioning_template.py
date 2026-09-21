@@ -379,7 +379,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 pre_provisioning_hook: pulumi.Input[Optional[Union['ProvisioningTemplatePreProvisioningHookArgs', 'ProvisioningTemplatePreProvisioningHookArgsDict']]] = None,
+                 pre_provisioning_hook: pulumi.Input[Optional[Union['ProvisioningTemplatePreProvisioningHookArgs', 'ProvisioningTemplatePreProvisioningHookArgsDict', 'outputs.ProvisioningTemplatePreProvisioningHook']]] = None,
                  provisioning_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -397,11 +397,11 @@ class ProvisioningTemplate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         iot_assume_role_policy = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["iot.amazonaws.com"],
             }],
-            "actions": ["sts:AssumeRole"],
         }])
         iot_fleet_provisioning = aws.iam.Role("iot_fleet_provisioning",
             name="IoTProvisioningServiceRole",
@@ -462,7 +462,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the fleet provisioning template.
         :param pulumi.Input[_builtins.bool] enabled: True to enable the fleet provisioning template, otherwise false.
         :param pulumi.Input[_builtins.str] name: The name of the fleet provisioning template.
-        :param pulumi.Input[Union['ProvisioningTemplatePreProvisioningHookArgs', 'ProvisioningTemplatePreProvisioningHookArgsDict']] pre_provisioning_hook: Creates a pre-provisioning hook template. Details below.
+        :param pulumi.Input[Union['ProvisioningTemplatePreProvisioningHookArgs', 'ProvisioningTemplatePreProvisioningHookArgsDict', 'outputs.ProvisioningTemplatePreProvisioningHook']] pre_provisioning_hook: Creates a pre-provisioning hook template. Details below.
         :param pulumi.Input[_builtins.str] provisioning_role_arn: The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -486,11 +486,11 @@ class ProvisioningTemplate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         iot_assume_role_policy = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["iot.amazonaws.com"],
             }],
-            "actions": ["sts:AssumeRole"],
         }])
         iot_fleet_provisioning = aws.iam.Role("iot_fleet_provisioning",
             name="IoTProvisioningServiceRole",
@@ -564,7 +564,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 pre_provisioning_hook: pulumi.Input[Optional[Union['ProvisioningTemplatePreProvisioningHookArgs', 'ProvisioningTemplatePreProvisioningHookArgsDict']]] = None,
+                 pre_provisioning_hook: pulumi.Input[Optional[Union['ProvisioningTemplatePreProvisioningHookArgs', 'ProvisioningTemplatePreProvisioningHookArgsDict', 'outputs.ProvisioningTemplatePreProvisioningHook']]] = None,
                  provisioning_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -610,7 +610,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            pre_provisioning_hook: pulumi.Input[Optional[Union['ProvisioningTemplatePreProvisioningHookArgs', 'ProvisioningTemplatePreProvisioningHookArgsDict']]] = None,
+            pre_provisioning_hook: pulumi.Input[Optional[Union['ProvisioningTemplatePreProvisioningHookArgs', 'ProvisioningTemplatePreProvisioningHookArgsDict', 'outputs.ProvisioningTemplatePreProvisioningHook']]] = None,
             provisioning_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -629,7 +629,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the fleet provisioning template.
         :param pulumi.Input[_builtins.bool] enabled: True to enable the fleet provisioning template, otherwise false.
         :param pulumi.Input[_builtins.str] name: The name of the fleet provisioning template.
-        :param pulumi.Input[Union['ProvisioningTemplatePreProvisioningHookArgs', 'ProvisioningTemplatePreProvisioningHookArgsDict']] pre_provisioning_hook: Creates a pre-provisioning hook template. Details below.
+        :param pulumi.Input[Union['ProvisioningTemplatePreProvisioningHookArgs', 'ProvisioningTemplatePreProvisioningHookArgsDict', 'outputs.ProvisioningTemplatePreProvisioningHook']] pre_provisioning_hook: Creates a pre-provisioning hook template. Details below.
         :param pulumi.Input[_builtins.str] provisioning_role_arn: The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

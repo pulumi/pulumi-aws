@@ -268,7 +268,7 @@ class AgentAgentKnowledgeBaseAssociation(pulumi.CustomResource):
                  knowledge_base_id: pulumi.Input[Optional[_builtins.str]] = None,
                  knowledge_base_state: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentAgentKnowledgeBaseAssociationTimeoutsArgs', 'AgentAgentKnowledgeBaseAssociationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentAgentKnowledgeBaseAssociationTimeoutsArgs', 'AgentAgentKnowledgeBaseAssociationTimeoutsArgsDict', 'outputs.AgentAgentKnowledgeBaseAssociationTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Agents for Amazon Bedrock Agent Knowledge Base Association.
@@ -362,7 +362,7 @@ class AgentAgentKnowledgeBaseAssociation(pulumi.CustomResource):
                  knowledge_base_id: pulumi.Input[Optional[_builtins.str]] = None,
                  knowledge_base_state: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentAgentKnowledgeBaseAssociationTimeoutsArgs', 'AgentAgentKnowledgeBaseAssociationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentAgentKnowledgeBaseAssociationTimeoutsArgs', 'AgentAgentKnowledgeBaseAssociationTimeoutsArgsDict', 'outputs.AgentAgentKnowledgeBaseAssociationTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -403,7 +403,7 @@ class AgentAgentKnowledgeBaseAssociation(pulumi.CustomResource):
             knowledge_base_id: pulumi.Input[Optional[_builtins.str]] = None,
             knowledge_base_state: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['AgentAgentKnowledgeBaseAssociationTimeoutsArgs', 'AgentAgentKnowledgeBaseAssociationTimeoutsArgsDict']]] = None) -> 'AgentAgentKnowledgeBaseAssociation':
+            timeouts: pulumi.Input[Optional[Union['AgentAgentKnowledgeBaseAssociationTimeoutsArgs', 'AgentAgentKnowledgeBaseAssociationTimeoutsArgsDict', 'outputs.AgentAgentKnowledgeBaseAssociationTimeouts']]] = None) -> 'AgentAgentKnowledgeBaseAssociation':
         """
         Get an existing AgentAgentKnowledgeBaseAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

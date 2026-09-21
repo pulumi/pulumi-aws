@@ -29,6 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewObjectCopy(ctx, "test", &s3.ObjectCopyArgs{
+//				Bucket: pulumi.String("destination_bucket"),
+//				Key:    pulumi.String("destination_key"),
+//				Source: pulumi.String("source_bucket/source_key"),
 //				Grants: s3.ObjectCopyGrantArray{
 //					&s3.ObjectCopyGrantArgs{
 //						Uri:  pulumi.String("http://acs.amazonaws.com/groups/global/AllUsers"),
@@ -38,9 +41,6 @@ import (
 //						},
 //					},
 //				},
-//				Bucket: pulumi.String("destination_bucket"),
-//				Key:    pulumi.String("destination_key"),
-//				Source: pulumi.String("source_bucket/source_key"),
 //			})
 //			if err != nil {
 //				return err
@@ -69,14 +69,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewObjectCopy(ctx, "test", &s3.ObjectCopyArgs{
+//				Bucket: pulumi.String("destination_bucket"),
+//				Key:    pulumi.String("destination_key"),
+//				Source: pulumi.String("source_bucket/source_key"),
 //				OverrideProvider: &s3.ObjectCopyOverrideProviderArgs{
 //					DefaultTags: &s3.ObjectCopyOverrideProviderDefaultTagsArgs{
 //						Tags: pulumi.StringMap{},
 //					},
 //				},
-//				Bucket: pulumi.String("destination_bucket"),
-//				Key:    pulumi.String("destination_key"),
-//				Source: pulumi.String("source_bucket/source_key"),
 //			})
 //			if err != nil {
 //				return err

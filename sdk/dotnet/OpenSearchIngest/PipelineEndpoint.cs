@@ -26,6 +26,7 @@ namespace Pulumi.Aws.OpenSearchIngest
     /// {
     ///     var example = new Aws.OpenSearchIngest.PipelineEndpoint("example", new()
     ///     {
+    ///         PipelineArn = exampleAwsOsisPipeline.PipelineArn,
     ///         VpcOptions = new Aws.OpenSearchIngest.Inputs.PipelineEndpointVpcOptionsArgs
     ///         {
     ///             SecurityGroupIds = new[]
@@ -37,7 +38,6 @@ namespace Pulumi.Aws.OpenSearchIngest
     ///                 exampleAwsSubnet.Id,
     ///             },
     ///         },
-    ///         PipelineArn = exampleAwsOsisPipeline.PipelineArn,
     ///     });
     /// 
     /// });

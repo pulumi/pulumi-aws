@@ -66,9 +66,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := m2.NewEnvironment(ctx, "test", &m2.EnvironmentArgs{
-//				HighAvailabilityConfig: &m2.EnvironmentHighAvailabilityConfigArgs{
-//					DesiredCapacity: pulumi.Int(2),
-//				},
 //				Name:         pulumi.String("test-env"),
 //				EngineType:   pulumi.String("bluage"),
 //				InstanceType: pulumi.String("M2.m5.large"),
@@ -78,6 +75,9 @@ import (
 //				SubnetIds: pulumi.StringArray{
 //					pulumi.String("subnet-01234567890abcdef"),
 //					pulumi.String("subnet-01234567890abcdea"),
+//				},
+//				HighAvailabilityConfig: &m2.EnvironmentHighAvailabilityConfigArgs{
+//					DesiredCapacity: pulumi.Int(2),
 //				},
 //			})
 //			if err != nil {
@@ -104,12 +104,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := m2.NewEnvironment(ctx, "test", &m2.EnvironmentArgs{
-//				StorageConfiguration: &m2.EnvironmentStorageConfigurationArgs{
-//					Efs: &m2.EnvironmentStorageConfigurationEfsArgs{
-//						FileSystemId: pulumi.String("fs-01234567890abcdef"),
-//						MountPoint:   pulumi.String("/m2/mount/example"),
-//					},
-//				},
 //				Name:         pulumi.String("test-env"),
 //				EngineType:   pulumi.String("bluage"),
 //				InstanceType: pulumi.String("M2.m5.large"),
@@ -119,6 +113,12 @@ import (
 //				SubnetIds: pulumi.StringArray{
 //					pulumi.String("subnet-01234567890abcdef"),
 //					pulumi.String("subnet-01234567890abcdea"),
+//				},
+//				StorageConfiguration: &m2.EnvironmentStorageConfigurationArgs{
+//					Efs: &m2.EnvironmentStorageConfigurationEfsArgs{
+//						FileSystemId: pulumi.String("fs-01234567890abcdef"),
+//						MountPoint:   pulumi.String("/m2/mount/example"),
+//					},
 //				},
 //			})
 //			if err != nil {
@@ -145,12 +145,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := m2.NewEnvironment(ctx, "test", &m2.EnvironmentArgs{
-//				StorageConfiguration: &m2.EnvironmentStorageConfigurationArgs{
-//					Fsx: &m2.EnvironmentStorageConfigurationFsxArgs{
-//						FileSystemId: pulumi.String("fs-01234567890abcdef"),
-//						MountPoint:   pulumi.String("/m2/mount/example"),
-//					},
-//				},
 //				Name:         pulumi.String("test-env"),
 //				EngineType:   pulumi.String("bluage"),
 //				InstanceType: pulumi.String("M2.m5.large"),
@@ -160,6 +154,12 @@ import (
 //				SubnetIds: pulumi.StringArray{
 //					pulumi.String("subnet-01234567890abcdef"),
 //					pulumi.String("subnet-01234567890abcdea"),
+//				},
+//				StorageConfiguration: &m2.EnvironmentStorageConfigurationArgs{
+//					Fsx: &m2.EnvironmentStorageConfigurationFsxArgs{
+//						FileSystemId: pulumi.String("fs-01234567890abcdef"),
+//						MountPoint:   pulumi.String("/m2/mount/example"),
+//					},
 //				},
 //			})
 //			if err != nil {

@@ -108,11 +108,11 @@ class AwaitableGetTagsResult(GetTagsResult):
             time_period=self.time_period)
 
 
-def get_tags(filter: Optional[Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict']] = None,
+def get_tags(filter: Optional[Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict', 'outputs.GetTagsFilterResult']] = None,
              search_string: Optional[_builtins.str] = None,
-             sort_bies: Optional[Sequence[Union['GetTagsSortByArgs', 'GetTagsSortByArgsDict']]] = None,
+             sort_bies: Optional[Sequence[Union['GetTagsSortByArgs', 'GetTagsSortByArgsDict', 'outputs.GetTagsSortByResult']]] = None,
              tag_key: Optional[_builtins.str] = None,
-             time_period: Optional[Union['GetTagsTimePeriodArgs', 'GetTagsTimePeriodArgsDict']] = None,
+             time_period: Optional[Union['GetTagsTimePeriodArgs', 'GetTagsTimePeriodArgsDict', 'outputs.GetTagsTimePeriodResult']] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagsResult:
     """
     Provides the available cost allocation tag keys and tag values for a specified period.
@@ -130,11 +130,11 @@ def get_tags(filter: Optional[Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict'
     ```
 
 
-    :param Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict'] filter: Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
+    :param Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict', 'outputs.GetTagsFilterResult'] filter: Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
     :param _builtins.str search_string: Value that you want to search for.
-    :param Sequence[Union['GetTagsSortByArgs', 'GetTagsSortByArgsDict']] sort_bies: Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
+    :param Sequence[Union['GetTagsSortByArgs', 'GetTagsSortByArgsDict', 'outputs.GetTagsSortByResult']] sort_bies: Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
     :param _builtins.str tag_key: Key of the tag that you want to return values for.
-    :param Union['GetTagsTimePeriodArgs', 'GetTagsTimePeriodArgsDict'] time_period: Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
+    :param Union['GetTagsTimePeriodArgs', 'GetTagsTimePeriodArgsDict', 'outputs.GetTagsTimePeriodResult'] time_period: Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
     """
     __args__ = dict()
     __args__['filter'] = filter
@@ -153,11 +153,11 @@ def get_tags(filter: Optional[Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict'
         tag_key=pulumi.get(__ret__, 'tag_key'),
         tags=pulumi.get(__ret__, 'tags'),
         time_period=pulumi.get(__ret__, 'time_period'))
-def get_tags_output(filter: pulumi.Input[Optional[Optional[Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict']]]] = None,
+def get_tags_output(filter: pulumi.Input[Optional[Optional[Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict', 'outputs.GetTagsFilterResult']]]] = None,
                     search_string: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                    sort_bies: pulumi.Input[Optional[Optional[Sequence[Union['GetTagsSortByArgs', 'GetTagsSortByArgsDict']]]]] = None,
+                    sort_bies: pulumi.Input[Optional[Optional[Sequence[Union['GetTagsSortByArgs', 'GetTagsSortByArgsDict', 'outputs.GetTagsSortByResult']]]]] = None,
                     tag_key: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                    time_period: pulumi.Input[Optional[Union['GetTagsTimePeriodArgs', 'GetTagsTimePeriodArgsDict']]] = None,
+                    time_period: pulumi.Input[Optional[Union['GetTagsTimePeriodArgs', 'GetTagsTimePeriodArgsDict', 'outputs.GetTagsTimePeriodResult']]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagsResult]:
     """
     Provides the available cost allocation tag keys and tag values for a specified period.
@@ -175,11 +175,11 @@ def get_tags_output(filter: pulumi.Input[Optional[Optional[Union['GetTagsFilterA
     ```
 
 
-    :param Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict'] filter: Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
+    :param Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict', 'outputs.GetTagsFilterResult'] filter: Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
     :param _builtins.str search_string: Value that you want to search for.
-    :param Sequence[Union['GetTagsSortByArgs', 'GetTagsSortByArgsDict']] sort_bies: Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
+    :param Sequence[Union['GetTagsSortByArgs', 'GetTagsSortByArgsDict', 'outputs.GetTagsSortByResult']] sort_bies: Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
     :param _builtins.str tag_key: Key of the tag that you want to return values for.
-    :param Union['GetTagsTimePeriodArgs', 'GetTagsTimePeriodArgsDict'] time_period: Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
+    :param Union['GetTagsTimePeriodArgs', 'GetTagsTimePeriodArgsDict', 'outputs.GetTagsTimePeriodResult'] time_period: Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
     """
     __args__ = dict()
     __args__['filter'] = filter

@@ -31,7 +31,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewCatalogTableOptimizer(ctx, "example", &glue.CatalogTableOptimizerArgs{
+//				CatalogId:    pulumi.String("123456789012"),
+//				DatabaseName: pulumi.String("example_database"),
+//				TableName:    pulumi.String("example_table"),
 //				Configuration: &glue.CatalogTableOptimizerConfigurationArgs{
+//					RoleArn: pulumi.String("arn:aws:iam::123456789012:role/example-role"),
+//					Enabled: pulumi.Bool(true),
 //					CompactionConfiguration: &glue.CatalogTableOptimizerConfigurationCompactionConfigurationArgs{
 //						IcebergConfiguration: &glue.CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs{
 //							Strategy:            pulumi.String("binpack"),
@@ -39,13 +44,8 @@ import (
 //							DeleteFileThreshold: pulumi.Int(1),
 //						},
 //					},
-//					RoleArn: pulumi.String("arn:aws:iam::123456789012:role/example-role"),
-//					Enabled: pulumi.Bool(true),
 //				},
-//				CatalogId:    pulumi.String("123456789012"),
-//				DatabaseName: pulumi.String("example_database"),
-//				TableName:    pulumi.String("example_table"),
-//				Type:         pulumi.String("compaction"),
+//				Type: pulumi.String("compaction"),
 //			})
 //			if err != nil {
 //				return err
@@ -71,7 +71,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewCatalogTableOptimizer(ctx, "example", &glue.CatalogTableOptimizerArgs{
+//				CatalogId:    pulumi.String("123456789012"),
+//				DatabaseName: pulumi.String("example_database"),
+//				TableName:    pulumi.String("example_table"),
 //				Configuration: &glue.CatalogTableOptimizerConfigurationArgs{
+//					RoleArn: pulumi.String("arn:aws:iam::123456789012:role/example-role"),
+//					Enabled: pulumi.Bool(true),
 //					RetentionConfiguration: &glue.CatalogTableOptimizerConfigurationRetentionConfigurationArgs{
 //						IcebergConfiguration: &glue.CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs{
 //							SnapshotRetentionPeriodInDays: pulumi.Int(7),
@@ -79,13 +84,8 @@ import (
 //							CleanExpiredFiles:             pulumi.Bool(true),
 //						},
 //					},
-//					RoleArn: pulumi.String("arn:aws:iam::123456789012:role/example-role"),
-//					Enabled: pulumi.Bool(true),
 //				},
-//				CatalogId:    pulumi.String("123456789012"),
-//				DatabaseName: pulumi.String("example_database"),
-//				TableName:    pulumi.String("example_table"),
-//				Type:         pulumi.String("retention"),
+//				Type: pulumi.String("retention"),
 //			})
 //			if err != nil {
 //				return err
@@ -111,20 +111,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewCatalogTableOptimizer(ctx, "example", &glue.CatalogTableOptimizerArgs{
+//				CatalogId:    pulumi.String("123456789012"),
+//				DatabaseName: pulumi.String("example_database"),
+//				TableName:    pulumi.String("example_table"),
 //				Configuration: &glue.CatalogTableOptimizerConfigurationArgs{
+//					RoleArn: pulumi.String("arn:aws:iam::123456789012:role/example-role"),
+//					Enabled: pulumi.Bool(true),
 //					OrphanFileDeletionConfiguration: &glue.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs{
 //						IcebergConfiguration: &glue.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs{
 //							OrphanFileRetentionPeriodInDays: pulumi.Int(7),
 //							Location:                        pulumi.String("s3://example-bucket/example_table/"),
 //						},
 //					},
-//					RoleArn: pulumi.String("arn:aws:iam::123456789012:role/example-role"),
-//					Enabled: pulumi.Bool(true),
 //				},
-//				CatalogId:    pulumi.String("123456789012"),
-//				DatabaseName: pulumi.String("example_database"),
-//				TableName:    pulumi.String("example_table"),
-//				Type:         pulumi.String("orphan_file_deletion"),
+//				Type: pulumi.String("orphan_file_deletion"),
 //			})
 //			if err != nil {
 //				return err

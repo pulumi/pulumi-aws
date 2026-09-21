@@ -41,6 +41,7 @@ import (
 //			ec2AssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
+//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -49,7 +50,6 @@ import (
 //								},
 //							},
 //						},
-//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -83,6 +83,7 @@ import (
 //			batchAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
+//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -91,7 +92,6 @@ import (
 //								},
 //							},
 //						},
-//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -116,6 +116,7 @@ import (
 //				return err
 //			}
 //			sample, err := ec2.NewSecurityGroup(ctx, "sample", &ec2.SecurityGroupArgs{
+//				Name: pulumi.String("aws_batch_compute_environment_security_group"),
 //				Egress: ec2.SecurityGroupEgressArray{
 //					&ec2.SecurityGroupEgressArgs{
 //						FromPort: pulumi.Int(0),
@@ -126,7 +127,6 @@ import (
 //						},
 //					},
 //				},
-//				Name: pulumi.String("aws_batch_compute_environment_security_group"),
 //			})
 //			if err != nil {
 //				return err
@@ -152,6 +152,7 @@ import (
 //				return err
 //			}
 //			_, err = batch.NewComputeEnvironment(ctx, "sample", &batch.ComputeEnvironmentArgs{
+//				Name: pulumi.String("sample"),
 //				ComputeResources: &batch.ComputeEnvironmentComputeResourcesArgs{
 //					InstanceRole: ecsInstanceRoleInstanceProfile.Arn,
 //					InstanceTypes: pulumi.StringArray{
@@ -168,7 +169,6 @@ import (
 //					},
 //					Type: pulumi.String("EC2"),
 //				},
-//				Name:        pulumi.String("sample"),
 //				ServiceRole: awsBatchServiceRole.Arn,
 //				Type:        pulumi.String("MANAGED"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
@@ -198,6 +198,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := batch.NewComputeEnvironment(ctx, "sample", &batch.ComputeEnvironmentArgs{
+//				Name: pulumi.String("sample"),
 //				ComputeResources: &batch.ComputeEnvironmentComputeResourcesArgs{
 //					MaxVcpus: pulumi.Int(16),
 //					SecurityGroupIds: pulumi.StringArray{
@@ -208,7 +209,6 @@ import (
 //					},
 //					Type: pulumi.String("FARGATE"),
 //				},
-//				Name:        pulumi.String("sample"),
 //				ServiceRole: pulumi.Any(awsBatchServiceRoleAwsIamRole.Arn),
 //				Type:        pulumi.String("MANAGED"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
@@ -238,6 +238,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := batch.NewComputeEnvironment(ctx, "sample", &batch.ComputeEnvironmentArgs{
+//				Name: pulumi.String("sample"),
 //				ComputeResources: &batch.ComputeEnvironmentComputeResourcesArgs{
 //					AllocationStrategy: pulumi.String("BEST_FIT_PROGRESSIVE"),
 //					InstanceRole:       pulumi.Any(ecsInstance.Arn),
@@ -258,7 +259,6 @@ import (
 //					JobExecutionTimeoutMinutes: pulumi.Int(30),
 //					TerminateJobsOnUpdate:      pulumi.Bool(false),
 //				},
-//				Name: pulumi.String("sample"),
 //				Type: pulumi.String("MANAGED"),
 //			})
 //			if err != nil {

@@ -185,7 +185,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.appautoscaling.Target;
  * import com.pulumi.aws.appautoscaling.TargetArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -205,9 +204,7 @@ import javax.annotation.Nullable;
  *             .resourceId(String.format("service/%s/%s", example.name(),exampleAwsEcsService.name()))
  *             .scalableDimension("ecs:service:DesiredCount")
  *             .serviceNamespace("ecs")
- *             .build(), CustomResourceOptions.builder()
- *                 .ignoreChanges(tagsAll)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

@@ -31,6 +31,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewDaemonTaskDefinition(ctx, "example", &ecs.DaemonTaskDefinitionArgs{
+//				Family: pulumi.String("my-daemon-service"),
+//				Cpu:    pulumi.String("512"),
+//				Memory: pulumi.String("1024"),
 //				ContainerDefinitions: ecs.DaemonTaskDefinitionContainerDefinitionArray{
 //					&ecs.DaemonTaskDefinitionContainerDefinitionArgs{
 //						Name:      pulumi.String("app"),
@@ -40,9 +43,6 @@ import (
 //						Essential: pulumi.Bool(true),
 //					},
 //				},
-//				Family: pulumi.String("my-daemon-service"),
-//				Cpu:    pulumi.String("512"),
-//				Memory: pulumi.String("1024"),
 //			})
 //			if err != nil {
 //				return err
@@ -117,6 +117,11 @@ import (
 //				return err
 //			}
 //			_, err = ecs.NewDaemonTaskDefinition(ctx, "example", &ecs.DaemonTaskDefinitionArgs{
+//				Family:           pulumi.String("my-daemon-service"),
+//				ExecutionRoleArn: taskExecution.Arn,
+//				TaskRoleArn:      task.Arn,
+//				Cpu:              pulumi.String("512"),
+//				Memory:           pulumi.String("1024"),
 //				ContainerDefinitions: ecs.DaemonTaskDefinitionContainerDefinitionArray{
 //					&ecs.DaemonTaskDefinitionContainerDefinitionArgs{
 //						Name:      pulumi.String("app"),
@@ -126,11 +131,6 @@ import (
 //						Essential: pulumi.Bool(true),
 //					},
 //				},
-//				Family:           pulumi.String("my-daemon-service"),
-//				ExecutionRoleArn: taskExecution.Arn,
-//				TaskRoleArn:      task.Arn,
-//				Cpu:              pulumi.String("512"),
-//				Memory:           pulumi.String("1024"),
 //			})
 //			if err != nil {
 //				return err
@@ -156,6 +156,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewDaemonTaskDefinition(ctx, "example", &ecs.DaemonTaskDefinitionArgs{
+//				Family: pulumi.String("my-daemon-service"),
+//				Cpu:    pulumi.String("512"),
+//				Memory: pulumi.String("1024"),
 //				ContainerDefinitions: ecs.DaemonTaskDefinitionContainerDefinitionArray{
 //					&ecs.DaemonTaskDefinitionContainerDefinitionArgs{
 //						Name:      pulumi.String("app"),
@@ -167,25 +170,22 @@ import (
 //				},
 //				Volumes: ecs.DaemonTaskDefinitionVolumeArray{
 //					&ecs.DaemonTaskDefinitionVolumeArgs{
+//						Name: pulumi.String("data-volume"),
 //						Hosts: ecs.DaemonTaskDefinitionVolumeHostArray{
 //							&ecs.DaemonTaskDefinitionVolumeHostArgs{
 //								SourcePath: pulumi.String("/data"),
 //							},
 //						},
-//						Name: pulumi.String("data-volume"),
 //					},
 //					&ecs.DaemonTaskDefinitionVolumeArgs{
+//						Name: pulumi.String("logs-volume"),
 //						Hosts: ecs.DaemonTaskDefinitionVolumeHostArray{
 //							&ecs.DaemonTaskDefinitionVolumeHostArgs{
 //								SourcePath: pulumi.String("/var/log"),
 //							},
 //						},
-//						Name: pulumi.String("logs-volume"),
 //					},
 //				},
-//				Family: pulumi.String("my-daemon-service"),
-//				Cpu:    pulumi.String("512"),
-//				Memory: pulumi.String("1024"),
 //			})
 //			if err != nil {
 //				return err
@@ -211,6 +211,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewDaemonTaskDefinition(ctx, "example", &ecs.DaemonTaskDefinitionArgs{
+//				Family: pulumi.String("my-daemon-service"),
+//				Cpu:    pulumi.String("512"),
+//				Memory: pulumi.String("1024"),
 //				ContainerDefinitions: ecs.DaemonTaskDefinitionContainerDefinitionArray{
 //					&ecs.DaemonTaskDefinitionContainerDefinitionArgs{
 //						Name:      pulumi.String("app"),
@@ -227,9 +230,6 @@ import (
 //						Essential: pulumi.Bool(false),
 //					},
 //				},
-//				Family: pulumi.String("my-daemon-service"),
-//				Cpu:    pulumi.String("512"),
-//				Memory: pulumi.String("1024"),
 //			})
 //			if err != nil {
 //				return err

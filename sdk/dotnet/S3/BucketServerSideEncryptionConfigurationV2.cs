@@ -39,6 +39,7 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var example = new Aws.S3.BucketServerSideEncryptionConfiguration("example", new()
     ///     {
+    ///         Bucket = mybucket.Id,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationRuleArgs
@@ -50,7 +51,6 @@ namespace Pulumi.Aws.S3
     ///                 },
     ///             },
     ///         },
-    ///         Bucket = mybucket.Id,
     ///     });
     /// 
     /// });
@@ -79,6 +79,7 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var example = new Aws.S3.BucketServerSideEncryptionConfiguration("example", new()
     ///     {
+    ///         Bucket = mybucket.Id,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationRuleArgs
@@ -95,7 +96,6 @@ namespace Pulumi.Aws.S3
     ///                 },
     ///             },
     ///         },
-    ///         Bucket = mybucket.Id,
     ///     });
     /// 
     /// });

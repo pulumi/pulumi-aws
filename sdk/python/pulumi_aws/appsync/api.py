@@ -305,7 +305,7 @@ class Api(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_config: pulumi.Input[Optional[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']]] = None,
+                 event_config: pulumi.Input[Optional[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict', 'outputs.ApiEventConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_contact: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -323,6 +323,7 @@ class Api(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appsync.Api("example",
+            name="example-event-api",
             event_config={
                 "auth_providers": [{
                     "auth_type": "API_KEY",
@@ -336,8 +337,7 @@ class Api(pulumi.CustomResource):
                 "default_subscribe_auth_modes": [{
                     "auth_type": "API_KEY",
                 }],
-            },
-            name="example-event-api")
+            })
         ```
 
         ### With Cognito Authentication
@@ -349,13 +349,14 @@ class Api(pulumi.CustomResource):
         example = aws.cognito.UserPool("example", name="example-user-pool")
         current = aws.get_region()
         example_api = aws.appsync.Api("example",
+            name="example-event-api",
             event_config={
                 "auth_providers": [{
+                    "auth_type": "AMAZON_COGNITO_USER_POOLS",
                     "cognito_config": {
                         "user_pool_id": example.id,
                         "aws_region": current.region,
                     },
-                    "auth_type": "AMAZON_COGNITO_USER_POOLS",
                 }],
                 "connection_auth_modes": [{
                     "auth_type": "AMAZON_COGNITO_USER_POOLS",
@@ -366,8 +367,7 @@ class Api(pulumi.CustomResource):
                 "default_subscribe_auth_modes": [{
                     "auth_type": "AMAZON_COGNITO_USER_POOLS",
                 }],
-            },
-            name="example-event-api")
+            })
         ```
 
         ### With Lambda Authorizer
@@ -377,13 +377,14 @@ class Api(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appsync.Api("example",
+            name="example-event-api",
             event_config={
                 "auth_providers": [{
+                    "auth_type": "AWS_LAMBDA",
                     "lambda_authorizer_config": {
                         "authorizer_uri": example_aws_lambda_function["arn"],
                         "authorizer_result_ttl_in_seconds": 300,
                     },
-                    "auth_type": "AWS_LAMBDA",
                 }],
                 "connection_auth_modes": [{
                     "auth_type": "AWS_LAMBDA",
@@ -394,8 +395,7 @@ class Api(pulumi.CustomResource):
                 "default_subscribe_auth_modes": [{
                     "auth_type": "AWS_LAMBDA",
                 }],
-            },
-            name="example-event-api")
+            })
         ```
 
         ## Import
@@ -409,7 +409,7 @@ class Api(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']] event_config: Configuration for the Event API. See `event_config` Block below.
+        :param pulumi.Input[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict', 'outputs.ApiEventConfig']] event_config: Configuration for the Event API. See `event_config` Block below.
         :param pulumi.Input[_builtins.str] name: Name of the Event API.
                
                The following arguments are optional:
@@ -435,6 +435,7 @@ class Api(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appsync.Api("example",
+            name="example-event-api",
             event_config={
                 "auth_providers": [{
                     "auth_type": "API_KEY",
@@ -448,8 +449,7 @@ class Api(pulumi.CustomResource):
                 "default_subscribe_auth_modes": [{
                     "auth_type": "API_KEY",
                 }],
-            },
-            name="example-event-api")
+            })
         ```
 
         ### With Cognito Authentication
@@ -461,13 +461,14 @@ class Api(pulumi.CustomResource):
         example = aws.cognito.UserPool("example", name="example-user-pool")
         current = aws.get_region()
         example_api = aws.appsync.Api("example",
+            name="example-event-api",
             event_config={
                 "auth_providers": [{
+                    "auth_type": "AMAZON_COGNITO_USER_POOLS",
                     "cognito_config": {
                         "user_pool_id": example.id,
                         "aws_region": current.region,
                     },
-                    "auth_type": "AMAZON_COGNITO_USER_POOLS",
                 }],
                 "connection_auth_modes": [{
                     "auth_type": "AMAZON_COGNITO_USER_POOLS",
@@ -478,8 +479,7 @@ class Api(pulumi.CustomResource):
                 "default_subscribe_auth_modes": [{
                     "auth_type": "AMAZON_COGNITO_USER_POOLS",
                 }],
-            },
-            name="example-event-api")
+            })
         ```
 
         ### With Lambda Authorizer
@@ -489,13 +489,14 @@ class Api(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appsync.Api("example",
+            name="example-event-api",
             event_config={
                 "auth_providers": [{
+                    "auth_type": "AWS_LAMBDA",
                     "lambda_authorizer_config": {
                         "authorizer_uri": example_aws_lambda_function["arn"],
                         "authorizer_result_ttl_in_seconds": 300,
                     },
-                    "auth_type": "AWS_LAMBDA",
                 }],
                 "connection_auth_modes": [{
                     "auth_type": "AWS_LAMBDA",
@@ -506,8 +507,7 @@ class Api(pulumi.CustomResource):
                 "default_subscribe_auth_modes": [{
                     "auth_type": "AWS_LAMBDA",
                 }],
-            },
-            name="example-event-api")
+            })
         ```
 
         ## Import
@@ -534,7 +534,7 @@ class Api(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_config: pulumi.Input[Optional[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']]] = None,
+                 event_config: pulumi.Input[Optional[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict', 'outputs.ApiEventConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_contact: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -574,7 +574,7 @@ class Api(pulumi.CustomResource):
             api_arn: pulumi.Input[Optional[_builtins.str]] = None,
             api_id: pulumi.Input[Optional[_builtins.str]] = None,
             dns: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            event_config: pulumi.Input[Optional[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']]] = None,
+            event_config: pulumi.Input[Optional[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict', 'outputs.ApiEventConfig']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             owner_contact: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -592,7 +592,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] api_arn: ARN of the Event API.
         :param pulumi.Input[_builtins.str] api_id: ID of the Event API.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] dns: DNS configuration for the Event API.
-        :param pulumi.Input[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']] event_config: Configuration for the Event API. See `event_config` Block below.
+        :param pulumi.Input[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict', 'outputs.ApiEventConfig']] event_config: Configuration for the Event API. See `event_config` Block below.
         :param pulumi.Input[_builtins.str] name: Name of the Event API.
                
                The following arguments are optional:

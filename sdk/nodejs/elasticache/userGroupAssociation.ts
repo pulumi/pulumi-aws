@@ -26,8 +26,6 @@ import * as utilities from "../utilities";
  *     engine: "REDIS",
  *     userGroupId: "userGroupId",
  *     userIds: [_default.userId],
- * }, {
- *     ignoreChanges: ["userIds"],
  * });
  * const exampleUser = new aws.elasticache.User("example", {
  *     userId: "exampleUserID",

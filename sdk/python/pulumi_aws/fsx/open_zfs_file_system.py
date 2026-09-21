@@ -982,15 +982,15 @@ class OpenZfsFileSystem(pulumi.CustomResource):
                  daily_automatic_backup_start_time: pulumi.Input[Optional[_builtins.str]] = None,
                  delete_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 disk_iops_configuration: pulumi.Input[Optional[Union['OpenZfsFileSystemDiskIopsConfigurationArgs', 'OpenZfsFileSystemDiskIopsConfigurationArgsDict']]] = None,
+                 disk_iops_configuration: pulumi.Input[Optional[Union['OpenZfsFileSystemDiskIopsConfigurationArgs', 'OpenZfsFileSystemDiskIopsConfigurationArgsDict', 'outputs.OpenZfsFileSystemDiskIopsConfiguration']]] = None,
                  endpoint_ip_address_range: pulumi.Input[Optional[_builtins.str]] = None,
                  final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 read_cache_configuration: pulumi.Input[Optional[Union['OpenZfsFileSystemReadCacheConfigurationArgs', 'OpenZfsFileSystemReadCacheConfigurationArgsDict']]] = None,
+                 read_cache_configuration: pulumi.Input[Optional[Union['OpenZfsFileSystemReadCacheConfigurationArgs', 'OpenZfsFileSystemReadCacheConfigurationArgsDict', 'outputs.OpenZfsFileSystemReadCacheConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 root_volume_configuration: pulumi.Input[Optional[Union['OpenZfsFileSystemRootVolumeConfigurationArgs', 'OpenZfsFileSystemRootVolumeConfigurationArgsDict']]] = None,
+                 root_volume_configuration: pulumi.Input[Optional[Union['OpenZfsFileSystemRootVolumeConfigurationArgs', 'OpenZfsFileSystemRootVolumeConfigurationArgsDict', 'outputs.OpenZfsFileSystemRootVolumeConfiguration']]] = None,
                  route_table_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  skip_final_backup: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1032,8 +1032,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.fsx.OpenZfsFileSystem("example", security_group_ids=[example_aws_security_group["id"]],
-        opts = pulumi.ResourceOptions(ignore_changes=["securityGroupIds"]))
+        example = aws.fsx.OpenZfsFileSystem("example", security_group_ids=[example_aws_security_group["id"]])
         ```
 
 
@@ -1046,15 +1045,15 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] daily_automatic_backup_start_time: Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] delete_options: List of delete options, which at present supports only one value that specifies whether to delete all child volumes and snapshots when the file system is deleted. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`.
         :param pulumi.Input[_builtins.str] deployment_type: Filesystem deployment type. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemOpenZFSConfiguration.html#FSx-Type-CreateFileSystemOpenZFSConfiguration-DeploymentType) for a list of valid values.
-        :param pulumi.Input[Union['OpenZfsFileSystemDiskIopsConfigurationArgs', 'OpenZfsFileSystemDiskIopsConfigurationArgsDict']] disk_iops_configuration: SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `disk_iops_configuration` Block for details.
+        :param pulumi.Input[Union['OpenZfsFileSystemDiskIopsConfigurationArgs', 'OpenZfsFileSystemDiskIopsConfigurationArgsDict', 'outputs.OpenZfsFileSystemDiskIopsConfiguration']] disk_iops_configuration: SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `disk_iops_configuration` Block for details.
         :param pulumi.Input[_builtins.str] endpoint_ip_address_range: (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] final_backup_tags: Map of tags to apply to the file system's final backup.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         :param pulumi.Input[_builtins.str] network_type: Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
         :param pulumi.Input[_builtins.str] preferred_subnet_id: (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
-        :param pulumi.Input[Union['OpenZfsFileSystemReadCacheConfigurationArgs', 'OpenZfsFileSystemReadCacheConfigurationArgsDict']] read_cache_configuration: Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storage_type` is set to `INTELLIGENT_TIERING`. See `read_cache_configuration` Block for details.
+        :param pulumi.Input[Union['OpenZfsFileSystemReadCacheConfigurationArgs', 'OpenZfsFileSystemReadCacheConfigurationArgsDict', 'outputs.OpenZfsFileSystemReadCacheConfiguration']] read_cache_configuration: Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storage_type` is set to `INTELLIGENT_TIERING`. See `read_cache_configuration` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['OpenZfsFileSystemRootVolumeConfigurationArgs', 'OpenZfsFileSystemRootVolumeConfigurationArgsDict']] root_volume_configuration: Configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
+        :param pulumi.Input[Union['OpenZfsFileSystemRootVolumeConfigurationArgs', 'OpenZfsFileSystemRootVolumeConfigurationArgsDict', 'outputs.OpenZfsFileSystemRootVolumeConfiguration']] root_volume_configuration: Configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_table_ids: (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input[_builtins.bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
@@ -1104,8 +1103,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.fsx.OpenZfsFileSystem("example", security_group_ids=[example_aws_security_group["id"]],
-        opts = pulumi.ResourceOptions(ignore_changes=["securityGroupIds"]))
+        example = aws.fsx.OpenZfsFileSystem("example", security_group_ids=[example_aws_security_group["id"]])
         ```
 
 
@@ -1131,15 +1129,15 @@ class OpenZfsFileSystem(pulumi.CustomResource):
                  daily_automatic_backup_start_time: pulumi.Input[Optional[_builtins.str]] = None,
                  delete_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 disk_iops_configuration: pulumi.Input[Optional[Union['OpenZfsFileSystemDiskIopsConfigurationArgs', 'OpenZfsFileSystemDiskIopsConfigurationArgsDict']]] = None,
+                 disk_iops_configuration: pulumi.Input[Optional[Union['OpenZfsFileSystemDiskIopsConfigurationArgs', 'OpenZfsFileSystemDiskIopsConfigurationArgsDict', 'outputs.OpenZfsFileSystemDiskIopsConfiguration']]] = None,
                  endpoint_ip_address_range: pulumi.Input[Optional[_builtins.str]] = None,
                  final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 read_cache_configuration: pulumi.Input[Optional[Union['OpenZfsFileSystemReadCacheConfigurationArgs', 'OpenZfsFileSystemReadCacheConfigurationArgsDict']]] = None,
+                 read_cache_configuration: pulumi.Input[Optional[Union['OpenZfsFileSystemReadCacheConfigurationArgs', 'OpenZfsFileSystemReadCacheConfigurationArgsDict', 'outputs.OpenZfsFileSystemReadCacheConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 root_volume_configuration: pulumi.Input[Optional[Union['OpenZfsFileSystemRootVolumeConfigurationArgs', 'OpenZfsFileSystemRootVolumeConfigurationArgsDict']]] = None,
+                 root_volume_configuration: pulumi.Input[Optional[Union['OpenZfsFileSystemRootVolumeConfigurationArgs', 'OpenZfsFileSystemRootVolumeConfigurationArgsDict', 'outputs.OpenZfsFileSystemRootVolumeConfiguration']]] = None,
                  route_table_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  skip_final_backup: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1215,7 +1213,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
             daily_automatic_backup_start_time: pulumi.Input[Optional[_builtins.str]] = None,
             delete_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
-            disk_iops_configuration: pulumi.Input[Optional[Union['OpenZfsFileSystemDiskIopsConfigurationArgs', 'OpenZfsFileSystemDiskIopsConfigurationArgsDict']]] = None,
+            disk_iops_configuration: pulumi.Input[Optional[Union['OpenZfsFileSystemDiskIopsConfigurationArgs', 'OpenZfsFileSystemDiskIopsConfigurationArgsDict', 'outputs.OpenZfsFileSystemDiskIopsConfiguration']]] = None,
             dns_name: pulumi.Input[Optional[_builtins.str]] = None,
             endpoint_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
             endpoint_ip_address_range: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1225,9 +1223,9 @@ class OpenZfsFileSystem(pulumi.CustomResource):
             network_type: pulumi.Input[Optional[_builtins.str]] = None,
             owner_id: pulumi.Input[Optional[_builtins.str]] = None,
             preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
-            read_cache_configuration: pulumi.Input[Optional[Union['OpenZfsFileSystemReadCacheConfigurationArgs', 'OpenZfsFileSystemReadCacheConfigurationArgsDict']]] = None,
+            read_cache_configuration: pulumi.Input[Optional[Union['OpenZfsFileSystemReadCacheConfigurationArgs', 'OpenZfsFileSystemReadCacheConfigurationArgsDict', 'outputs.OpenZfsFileSystemReadCacheConfiguration']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            root_volume_configuration: pulumi.Input[Optional[Union['OpenZfsFileSystemRootVolumeConfigurationArgs', 'OpenZfsFileSystemRootVolumeConfigurationArgsDict']]] = None,
+            root_volume_configuration: pulumi.Input[Optional[Union['OpenZfsFileSystemRootVolumeConfigurationArgs', 'OpenZfsFileSystemRootVolumeConfigurationArgsDict', 'outputs.OpenZfsFileSystemRootVolumeConfiguration']]] = None,
             root_volume_id: pulumi.Input[Optional[_builtins.str]] = None,
             route_table_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1255,7 +1253,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] daily_automatic_backup_start_time: Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] delete_options: List of delete options, which at present supports only one value that specifies whether to delete all child volumes and snapshots when the file system is deleted. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`.
         :param pulumi.Input[_builtins.str] deployment_type: Filesystem deployment type. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemOpenZFSConfiguration.html#FSx-Type-CreateFileSystemOpenZFSConfiguration-DeploymentType) for a list of valid values.
-        :param pulumi.Input[Union['OpenZfsFileSystemDiskIopsConfigurationArgs', 'OpenZfsFileSystemDiskIopsConfigurationArgsDict']] disk_iops_configuration: SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `disk_iops_configuration` Block for details.
+        :param pulumi.Input[Union['OpenZfsFileSystemDiskIopsConfigurationArgs', 'OpenZfsFileSystemDiskIopsConfigurationArgsDict', 'outputs.OpenZfsFileSystemDiskIopsConfiguration']] disk_iops_configuration: SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `disk_iops_configuration` Block for details.
         :param pulumi.Input[_builtins.str] dns_name: DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
         :param pulumi.Input[_builtins.str] endpoint_ip_address: IP address of the endpoint that is used to access data or to manage the file system.
         :param pulumi.Input[_builtins.str] endpoint_ip_address_range: (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
@@ -1265,9 +1263,9 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] network_type: Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
         :param pulumi.Input[_builtins.str] owner_id: AWS account identifier that created the file system.
         :param pulumi.Input[_builtins.str] preferred_subnet_id: (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
-        :param pulumi.Input[Union['OpenZfsFileSystemReadCacheConfigurationArgs', 'OpenZfsFileSystemReadCacheConfigurationArgsDict']] read_cache_configuration: Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storage_type` is set to `INTELLIGENT_TIERING`. See `read_cache_configuration` Block for details.
+        :param pulumi.Input[Union['OpenZfsFileSystemReadCacheConfigurationArgs', 'OpenZfsFileSystemReadCacheConfigurationArgsDict', 'outputs.OpenZfsFileSystemReadCacheConfiguration']] read_cache_configuration: Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storage_type` is set to `INTELLIGENT_TIERING`. See `read_cache_configuration` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['OpenZfsFileSystemRootVolumeConfigurationArgs', 'OpenZfsFileSystemRootVolumeConfigurationArgsDict']] root_volume_configuration: Configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
+        :param pulumi.Input[Union['OpenZfsFileSystemRootVolumeConfigurationArgs', 'OpenZfsFileSystemRootVolumeConfigurationArgsDict', 'outputs.OpenZfsFileSystemRootVolumeConfiguration']] root_volume_configuration: Configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
         :param pulumi.Input[_builtins.str] root_volume_id: Identifier of the root volume, e.g., `fsvol-12345678`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_table_ids: (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.

@@ -19,6 +19,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const bar = new aws.elastictranscoder.Preset("bar", {
+ *     container: "mp4",
+ *     description: "Sample Preset",
+ *     name: "sample_preset",
  *     audio: {
  *         audioPackingMode: "SingleTrack",
  *         bitRate: "96",
@@ -42,13 +45,12 @@ import * as utilities from "../utilities";
  *         paddingPolicy: "Pad",
  *         sizingPolicy: "Fit",
  *     },
- *     thumbnails: {
- *         format: "png",
- *         interval: "120",
- *         maxWidth: "auto",
- *         maxHeight: "auto",
- *         paddingPolicy: "Pad",
- *         sizingPolicy: "Fit",
+ *     videoCodecOptions: {
+ *         Profile: "main",
+ *         Level: "2.2",
+ *         MaxReferenceFrames: "3",
+ *         InterlacedMode: "Progressive",
+ *         ColorSpaceConversionMode: "None",
  *     },
  *     videoWatermarks: [{
  *         id: "Test",
@@ -62,15 +64,13 @@ import * as utilities from "../utilities";
  *         opacity: "55.5",
  *         target: "Content",
  *     }],
- *     container: "mp4",
- *     description: "Sample Preset",
- *     name: "sample_preset",
- *     videoCodecOptions: {
- *         Profile: "main",
- *         Level: "2.2",
- *         MaxReferenceFrames: "3",
- *         InterlacedMode: "Progressive",
- *         ColorSpaceConversionMode: "None",
+ *     thumbnails: {
+ *         format: "png",
+ *         interval: "120",
+ *         maxWidth: "auto",
+ *         maxHeight: "auto",
+ *         paddingPolicy: "Pad",
+ *         sizingPolicy: "Fit",
  *     },
  * });
  * ```

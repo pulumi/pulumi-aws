@@ -383,7 +383,7 @@ class Integration(pulumi.CustomResource):
                  source_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['IntegrationTimeoutsArgs', 'IntegrationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['IntegrationTimeoutsArgs', 'IntegrationTimeoutsArgsDict', 'outputs.IntegrationTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS RDS (Relational Database) zero-ETL integration. You can refer to the [User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.setting-up.html).
@@ -398,10 +398,6 @@ class Integration(pulumi.CustomResource):
 
         example = aws.redshiftserverless.Namespace("example", namespace_name="redshift-example")
         example_workgroup = aws.redshiftserverless.Workgroup("example",
-            config_parameters=[{
-                "parameter_key": "enable_case_sensitive_identifier",
-                "parameter_value": "true",
-            }],
             namespace_name=example.namespace_name,
             workgroup_name="example-workspace",
             base_capacity=8,
@@ -410,12 +406,15 @@ class Integration(pulumi.CustomResource):
                 example1["id"],
                 example2["id"],
                 example3["id"],
-            ])
+            ],
+            config_parameters=[{
+                "parameter_key": "enable_case_sensitive_identifier",
+                "parameter_value": "true",
+            }])
         example_integration = aws.rds.Integration("example",
             integration_name="example",
             source_arn=example_aws_rds_cluster["arn"],
-            target_arn=example.arn,
-            opts = pulumi.ResourceOptions(ignore_changes=["kmsKeyId"]))
+            target_arn=example.arn)
         ```
 
         ### Use own KMS key
@@ -427,20 +426,20 @@ class Integration(pulumi.CustomResource):
         current = aws.get_caller_identity()
         key_policy = aws.iam.get_policy_document(statements=[
             {
+                "actions": ["kms:*"],
+                "resources": ["*"],
                 "principals": [{
                     "type": "AWS",
                     "identifiers": [f"arn:aws:iam::{current.account_id}:root"],
                 }],
-                "actions": ["kms:*"],
-                "resources": ["*"],
             },
             {
+                "actions": ["kms:CreateGrant"],
+                "resources": ["*"],
                 "principals": [{
                     "type": "Service",
                     "identifiers": ["redshift.amazonaws.com"],
                 }],
-                "actions": ["kms:CreateGrant"],
-                "resources": ["*"],
             },
         ])
         example = aws.kms.Key("example",
@@ -503,10 +502,6 @@ class Integration(pulumi.CustomResource):
 
         example = aws.redshiftserverless.Namespace("example", namespace_name="redshift-example")
         example_workgroup = aws.redshiftserverless.Workgroup("example",
-            config_parameters=[{
-                "parameter_key": "enable_case_sensitive_identifier",
-                "parameter_value": "true",
-            }],
             namespace_name=example.namespace_name,
             workgroup_name="example-workspace",
             base_capacity=8,
@@ -515,12 +510,15 @@ class Integration(pulumi.CustomResource):
                 example1["id"],
                 example2["id"],
                 example3["id"],
-            ])
+            ],
+            config_parameters=[{
+                "parameter_key": "enable_case_sensitive_identifier",
+                "parameter_value": "true",
+            }])
         example_integration = aws.rds.Integration("example",
             integration_name="example",
             source_arn=example_aws_rds_cluster["arn"],
-            target_arn=example.arn,
-            opts = pulumi.ResourceOptions(ignore_changes=["kmsKeyId"]))
+            target_arn=example.arn)
         ```
 
         ### Use own KMS key
@@ -532,20 +530,20 @@ class Integration(pulumi.CustomResource):
         current = aws.get_caller_identity()
         key_policy = aws.iam.get_policy_document(statements=[
             {
+                "actions": ["kms:*"],
+                "resources": ["*"],
                 "principals": [{
                     "type": "AWS",
                     "identifiers": [f"arn:aws:iam::{current.account_id}:root"],
                 }],
-                "actions": ["kms:*"],
-                "resources": ["*"],
             },
             {
+                "actions": ["kms:CreateGrant"],
+                "resources": ["*"],
                 "principals": [{
                     "type": "Service",
                     "identifiers": ["redshift.amazonaws.com"],
                 }],
-                "actions": ["kms:CreateGrant"],
-                "resources": ["*"],
             },
         ])
         example = aws.kms.Key("example",
@@ -599,7 +597,7 @@ class Integration(pulumi.CustomResource):
                  source_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['IntegrationTimeoutsArgs', 'IntegrationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['IntegrationTimeoutsArgs', 'IntegrationTimeoutsArgsDict', 'outputs.IntegrationTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -648,7 +646,7 @@ class Integration(pulumi.CustomResource):
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             target_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['IntegrationTimeoutsArgs', 'IntegrationTimeoutsArgsDict']]] = None) -> 'Integration':
+            timeouts: pulumi.Input[Optional[Union['IntegrationTimeoutsArgs', 'IntegrationTimeoutsArgsDict', 'outputs.IntegrationTimeouts']]] = None) -> 'Integration':
         """
         Get an existing Integration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

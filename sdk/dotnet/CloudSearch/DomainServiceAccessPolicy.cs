@@ -35,18 +35,8 @@ namespace Pulumi.Aws.CloudSearch
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "IpAddress",
-    ///                         Variable = "aws:SourceIp",
-    ///                         Values = new[]
-    ///                         {
-    ///                             "192.0.2.0/32",
-    ///                         },
-    ///                     },
-    ///                 },
+    ///                 Sid = "search_only",
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -58,12 +48,22 @@ namespace Pulumi.Aws.CloudSearch
     ///                         },
     ///                     },
     ///                 },
-    ///                 Sid = "search_only",
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "cloudsearch:search",
     ///                     "cloudsearch:document",
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "IpAddress",
+    ///                         Variable = "aws:SourceIp",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "192.0.2.0/32",
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
     ///         },

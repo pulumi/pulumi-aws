@@ -29,6 +29,7 @@ namespace Pulumi.Aws.Signer
     /// 
     ///     var buildSigningJob = new Aws.Signer.SigningJob("build_signing_job", new()
     ///     {
+    ///         ProfileName = testSp.Name,
     ///         Source = new Aws.Signer.Inputs.SigningJobSourceArgs
     ///         {
     ///             S3 = new Aws.Signer.Inputs.SigningJobSourceS3Args
@@ -46,7 +47,6 @@ namespace Pulumi.Aws.Signer
     ///                 Prefix = "signed/",
     ///             },
     ///         },
-    ///         ProfileName = testSp.Name,
     ///         IgnoreSigningJobFailure = true,
     ///     });
     /// 

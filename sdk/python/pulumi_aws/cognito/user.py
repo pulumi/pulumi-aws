@@ -555,6 +555,7 @@ class User(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cognito.UserPool("example",
+            name="mypool",
             schemas=[
                 {
                     "name": "example",
@@ -564,15 +565,14 @@ class User(pulumi.CustomResource):
                     "developer_only_attribute": False,
                 },
                 {
-                    "string_attribute_constraints": {},
                     "name": "foo",
                     "attribute_data_type": "String",
                     "mutable": False,
                     "required": False,
                     "developer_only_attribute": False,
+                    "string_attribute_constraints": {},
                 },
-            ],
-            name="mypool")
+            ])
         example_user = aws.cognito.User("example",
             user_pool_id=example.id,
             username="example",
@@ -642,6 +642,7 @@ class User(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cognito.UserPool("example",
+            name="mypool",
             schemas=[
                 {
                     "name": "example",
@@ -651,15 +652,14 @@ class User(pulumi.CustomResource):
                     "developer_only_attribute": False,
                 },
                 {
-                    "string_attribute_constraints": {},
                     "name": "foo",
                     "attribute_data_type": "String",
                     "mutable": False,
                     "required": False,
                     "developer_only_attribute": False,
+                    "string_attribute_constraints": {},
                 },
-            ],
-            name="mypool")
+            ])
         example_user = aws.cognito.User("example",
             user_pool_id=example.id,
             username="example",

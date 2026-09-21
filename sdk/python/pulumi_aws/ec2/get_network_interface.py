@@ -294,7 +294,7 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
             vpc_id=self.vpc_id)
 
 
-def get_network_interface(filters: Optional[Sequence[Union['GetNetworkInterfaceFilterArgs', 'GetNetworkInterfaceFilterArgsDict']]] = None,
+def get_network_interface(filters: Optional[Sequence[Union['GetNetworkInterfaceFilterArgs', 'GetNetworkInterfaceFilterArgsDict', 'outputs.GetNetworkInterfaceFilterResult']]] = None,
                           id: Optional[_builtins.str] = None,
                           region: Optional[_builtins.str] = None,
                           tags: Optional[Mapping[str, _builtins.str]] = None,
@@ -312,7 +312,7 @@ def get_network_interface(filters: Optional[Sequence[Union['GetNetworkInterfaceF
     ```
 
 
-    :param Sequence[Union['GetNetworkInterfaceFilterArgs', 'GetNetworkInterfaceFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
+    :param Sequence[Union['GetNetworkInterfaceFilterArgs', 'GetNetworkInterfaceFilterArgsDict', 'outputs.GetNetworkInterfaceFilterResult']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
     :param _builtins.str id: Identifier for the network interface.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Any tags assigned to the network interface.
@@ -348,7 +348,7 @@ def get_network_interface(filters: Optional[Sequence[Union['GetNetworkInterfaceF
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_network_interface_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetNetworkInterfaceFilterArgs', 'GetNetworkInterfaceFilterArgsDict']]]]] = None,
+def get_network_interface_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetNetworkInterfaceFilterArgs', 'GetNetworkInterfaceFilterArgsDict', 'outputs.GetNetworkInterfaceFilterResult']]]]] = None,
                                  id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
@@ -366,7 +366,7 @@ def get_network_interface_output(filters: pulumi.Input[Optional[Optional[Sequenc
     ```
 
 
-    :param Sequence[Union['GetNetworkInterfaceFilterArgs', 'GetNetworkInterfaceFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
+    :param Sequence[Union['GetNetworkInterfaceFilterArgs', 'GetNetworkInterfaceFilterArgsDict', 'outputs.GetNetworkInterfaceFilterResult']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
     :param _builtins.str id: Identifier for the network interface.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Any tags assigned to the network interface.

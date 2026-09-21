@@ -40,6 +40,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.NetworkInsightsAccessScope("example", {
+ *     matchPaths: [{
+ *         source: {
+ *             resourceStatement: {
+ *                 resourceTypes: ["AWS::EC2::NetworkInterface"],
+ *             },
+ *         },
+ *     }],
  *     excludePaths: [{
  *         source: {
  *             resourceStatement: {
@@ -51,13 +58,6 @@ import * as utilities from "../utilities";
  *                 resourceTypes: ["AWS::EC2::NatGateway"],
  *             },
  *         }],
- *     }],
- *     matchPaths: [{
- *         source: {
- *             resourceStatement: {
- *                 resourceTypes: ["AWS::EC2::NetworkInterface"],
- *             },
- *         },
  *     }],
  * });
  * ```

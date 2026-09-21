@@ -361,13 +361,13 @@ class Policy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 predictive_scaling_policy_configuration: pulumi.Input[Optional[Union['PolicyPredictiveScalingPolicyConfigurationArgs', 'PolicyPredictiveScalingPolicyConfigurationArgsDict']]] = None,
+                 predictive_scaling_policy_configuration: pulumi.Input[Optional[Union['PolicyPredictiveScalingPolicyConfigurationArgs', 'PolicyPredictiveScalingPolicyConfigurationArgsDict', 'outputs.PolicyPredictiveScalingPolicyConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  scalable_dimension: pulumi.Input[Optional[_builtins.str]] = None,
                  service_namespace: pulumi.Input[Optional[_builtins.str]] = None,
-                 step_scaling_policy_configuration: pulumi.Input[Optional[Union['PolicyStepScalingPolicyConfigurationArgs', 'PolicyStepScalingPolicyConfigurationArgsDict']]] = None,
-                 target_tracking_scaling_policy_configuration: pulumi.Input[Optional[Union['PolicyTargetTrackingScalingPolicyConfigurationArgs', 'PolicyTargetTrackingScalingPolicyConfigurationArgsDict']]] = None,
+                 step_scaling_policy_configuration: pulumi.Input[Optional[Union['PolicyStepScalingPolicyConfigurationArgs', 'PolicyStepScalingPolicyConfigurationArgsDict', 'outputs.PolicyStepScalingPolicyConfiguration']]] = None,
+                 target_tracking_scaling_policy_configuration: pulumi.Input[Optional[Union['PolicyTargetTrackingScalingPolicyConfigurationArgs', 'PolicyTargetTrackingScalingPolicyConfigurationArgsDict', 'outputs.PolicyTargetTrackingScalingPolicyConfiguration']]] = None,
                  __props__=None):
         """
         Provides an Application AutoScaling Policy resource.
@@ -416,13 +416,13 @@ class Policy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the policy. Must be between 1 and 255 characters in length.
         :param pulumi.Input[_builtins.str] policy_type: Policy type. Valid values are `StepScaling`, `TargetTrackingScaling`, and `PredictiveScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html), [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html), and [Predictive Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-predictive-scaling.html) documentation.
-        :param pulumi.Input[Union['PolicyPredictiveScalingPolicyConfigurationArgs', 'PolicyPredictiveScalingPolicyConfigurationArgsDict']] predictive_scaling_policy_configuration: Predictive scaling policy configuration, requires `policy_type = "PredictiveScaling"`. See supported fields below.
+        :param pulumi.Input[Union['PolicyPredictiveScalingPolicyConfigurationArgs', 'PolicyPredictiveScalingPolicyConfigurationArgsDict', 'outputs.PolicyPredictiveScalingPolicyConfiguration']] predictive_scaling_policy_configuration: Predictive scaling policy configuration, requires `policy_type = "PredictiveScaling"`. See supported fields below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_id: Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
         :param pulumi.Input[_builtins.str] scalable_dimension: Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
         :param pulumi.Input[_builtins.str] service_namespace: AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
-        :param pulumi.Input[Union['PolicyStepScalingPolicyConfigurationArgs', 'PolicyStepScalingPolicyConfigurationArgsDict']] step_scaling_policy_configuration: Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
-        :param pulumi.Input[Union['PolicyTargetTrackingScalingPolicyConfigurationArgs', 'PolicyTargetTrackingScalingPolicyConfigurationArgsDict']] target_tracking_scaling_policy_configuration: Target tracking policy configuration, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
+        :param pulumi.Input[Union['PolicyStepScalingPolicyConfigurationArgs', 'PolicyStepScalingPolicyConfigurationArgsDict', 'outputs.PolicyStepScalingPolicyConfiguration']] step_scaling_policy_configuration: Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
+        :param pulumi.Input[Union['PolicyTargetTrackingScalingPolicyConfigurationArgs', 'PolicyTargetTrackingScalingPolicyConfigurationArgsDict', 'outputs.PolicyTargetTrackingScalingPolicyConfiguration']] target_tracking_scaling_policy_configuration: Target tracking policy configuration, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
         """
         ...
     @overload
@@ -490,13 +490,13 @@ class Policy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 predictive_scaling_policy_configuration: pulumi.Input[Optional[Union['PolicyPredictiveScalingPolicyConfigurationArgs', 'PolicyPredictiveScalingPolicyConfigurationArgsDict']]] = None,
+                 predictive_scaling_policy_configuration: pulumi.Input[Optional[Union['PolicyPredictiveScalingPolicyConfigurationArgs', 'PolicyPredictiveScalingPolicyConfigurationArgsDict', 'outputs.PolicyPredictiveScalingPolicyConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  scalable_dimension: pulumi.Input[Optional[_builtins.str]] = None,
                  service_namespace: pulumi.Input[Optional[_builtins.str]] = None,
-                 step_scaling_policy_configuration: pulumi.Input[Optional[Union['PolicyStepScalingPolicyConfigurationArgs', 'PolicyStepScalingPolicyConfigurationArgsDict']]] = None,
-                 target_tracking_scaling_policy_configuration: pulumi.Input[Optional[Union['PolicyTargetTrackingScalingPolicyConfigurationArgs', 'PolicyTargetTrackingScalingPolicyConfigurationArgsDict']]] = None,
+                 step_scaling_policy_configuration: pulumi.Input[Optional[Union['PolicyStepScalingPolicyConfigurationArgs', 'PolicyStepScalingPolicyConfigurationArgsDict', 'outputs.PolicyStepScalingPolicyConfiguration']]] = None,
+                 target_tracking_scaling_policy_configuration: pulumi.Input[Optional[Union['PolicyTargetTrackingScalingPolicyConfigurationArgs', 'PolicyTargetTrackingScalingPolicyConfigurationArgsDict', 'outputs.PolicyTargetTrackingScalingPolicyConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -537,13 +537,13 @@ class Policy(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             policy_type: pulumi.Input[Optional[_builtins.str]] = None,
-            predictive_scaling_policy_configuration: pulumi.Input[Optional[Union['PolicyPredictiveScalingPolicyConfigurationArgs', 'PolicyPredictiveScalingPolicyConfigurationArgsDict']]] = None,
+            predictive_scaling_policy_configuration: pulumi.Input[Optional[Union['PolicyPredictiveScalingPolicyConfigurationArgs', 'PolicyPredictiveScalingPolicyConfigurationArgsDict', 'outputs.PolicyPredictiveScalingPolicyConfiguration']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             resource_id: pulumi.Input[Optional[_builtins.str]] = None,
             scalable_dimension: pulumi.Input[Optional[_builtins.str]] = None,
             service_namespace: pulumi.Input[Optional[_builtins.str]] = None,
-            step_scaling_policy_configuration: pulumi.Input[Optional[Union['PolicyStepScalingPolicyConfigurationArgs', 'PolicyStepScalingPolicyConfigurationArgsDict']]] = None,
-            target_tracking_scaling_policy_configuration: pulumi.Input[Optional[Union['PolicyTargetTrackingScalingPolicyConfigurationArgs', 'PolicyTargetTrackingScalingPolicyConfigurationArgsDict']]] = None) -> 'Policy':
+            step_scaling_policy_configuration: pulumi.Input[Optional[Union['PolicyStepScalingPolicyConfigurationArgs', 'PolicyStepScalingPolicyConfigurationArgsDict', 'outputs.PolicyStepScalingPolicyConfiguration']]] = None,
+            target_tracking_scaling_policy_configuration: pulumi.Input[Optional[Union['PolicyTargetTrackingScalingPolicyConfigurationArgs', 'PolicyTargetTrackingScalingPolicyConfigurationArgsDict', 'outputs.PolicyTargetTrackingScalingPolicyConfiguration']]] = None) -> 'Policy':
         """
         Get an existing Policy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -555,13 +555,13 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to the scaling policy.
         :param pulumi.Input[_builtins.str] name: Name of the policy. Must be between 1 and 255 characters in length.
         :param pulumi.Input[_builtins.str] policy_type: Policy type. Valid values are `StepScaling`, `TargetTrackingScaling`, and `PredictiveScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html), [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html), and [Predictive Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-predictive-scaling.html) documentation.
-        :param pulumi.Input[Union['PolicyPredictiveScalingPolicyConfigurationArgs', 'PolicyPredictiveScalingPolicyConfigurationArgsDict']] predictive_scaling_policy_configuration: Predictive scaling policy configuration, requires `policy_type = "PredictiveScaling"`. See supported fields below.
+        :param pulumi.Input[Union['PolicyPredictiveScalingPolicyConfigurationArgs', 'PolicyPredictiveScalingPolicyConfigurationArgsDict', 'outputs.PolicyPredictiveScalingPolicyConfiguration']] predictive_scaling_policy_configuration: Predictive scaling policy configuration, requires `policy_type = "PredictiveScaling"`. See supported fields below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_id: Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
         :param pulumi.Input[_builtins.str] scalable_dimension: Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
         :param pulumi.Input[_builtins.str] service_namespace: AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
-        :param pulumi.Input[Union['PolicyStepScalingPolicyConfigurationArgs', 'PolicyStepScalingPolicyConfigurationArgsDict']] step_scaling_policy_configuration: Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
-        :param pulumi.Input[Union['PolicyTargetTrackingScalingPolicyConfigurationArgs', 'PolicyTargetTrackingScalingPolicyConfigurationArgsDict']] target_tracking_scaling_policy_configuration: Target tracking policy configuration, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
+        :param pulumi.Input[Union['PolicyStepScalingPolicyConfigurationArgs', 'PolicyStepScalingPolicyConfigurationArgsDict', 'outputs.PolicyStepScalingPolicyConfiguration']] step_scaling_policy_configuration: Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
+        :param pulumi.Input[Union['PolicyTargetTrackingScalingPolicyConfigurationArgs', 'PolicyTargetTrackingScalingPolicyConfigurationArgsDict', 'outputs.PolicyTargetTrackingScalingPolicyConfiguration']] target_tracking_scaling_policy_configuration: Target tracking policy configuration, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

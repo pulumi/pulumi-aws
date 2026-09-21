@@ -55,6 +55,7 @@ namespace Pulumi.Aws.AutoScalingPlans
     /// 
     ///     var exampleScalingPlan = new Aws.AutoScalingPlans.ScalingPlan("example", new()
     ///     {
+    ///         Name = "example-dynamic-cost-optimization",
     ///         ApplicationSource = new Aws.AutoScalingPlans.Inputs.ScalingPlanApplicationSourceArgs
     ///         {
     ///             TagFilters = new[]
@@ -73,17 +74,6 @@ namespace Pulumi.Aws.AutoScalingPlans
     ///         {
     ///             new Aws.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionArgs
     ///             {
-    ///                 TargetTrackingConfigurations = new[]
-    ///                 {
-    ///                     new Aws.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationArgs
-    ///                     {
-    ///                         PredefinedScalingMetricSpecification = new Aws.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs
-    ///                         {
-    ///                             PredefinedScalingMetricType = "ASGAverageCPUUtilization",
-    ///                         },
-    ///                         TargetValue = 70,
-    ///                     },
-    ///                 },
     ///                 MaxCapacity = 3,
     ///                 MinCapacity = 0,
     ///                 ResourceId = Std.Format.Invoke(new()
@@ -96,9 +86,19 @@ namespace Pulumi.Aws.AutoScalingPlans
     ///                 }).Apply(invoke =&gt; invoke.Result),
     ///                 ScalableDimension = "autoscaling:autoScalingGroup:DesiredCapacity",
     ///                 ServiceNamespace = "autoscaling",
+    ///                 TargetTrackingConfigurations = new[]
+    ///                 {
+    ///                     new Aws.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationArgs
+    ///                     {
+    ///                         PredefinedScalingMetricSpecification = new Aws.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs
+    ///                         {
+    ///                             PredefinedScalingMetricType = "ASGAverageCPUUtilization",
+    ///                         },
+    ///                         TargetValue = 70,
+    ///                     },
+    ///                 },
     ///             },
     ///         },
-    ///         Name = "example-dynamic-cost-optimization",
     ///     });
     /// 
     /// });
@@ -140,6 +140,7 @@ namespace Pulumi.Aws.AutoScalingPlans
     /// 
     ///     var exampleScalingPlan = new Aws.AutoScalingPlans.ScalingPlan("example", new()
     ///     {
+    ///         Name = "example-predictive-cost-optimization",
     ///         ApplicationSource = new Aws.AutoScalingPlans.Inputs.ScalingPlanApplicationSourceArgs
     ///         {
     ///             TagFilters = new[]
@@ -158,21 +159,6 @@ namespace Pulumi.Aws.AutoScalingPlans
     ///         {
     ///             new Aws.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionArgs
     ///             {
-    ///                 PredefinedLoadMetricSpecification = new Aws.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs
-    ///                 {
-    ///                     PredefinedLoadMetricType = "ASGTotalCPUUtilization",
-    ///                 },
-    ///                 TargetTrackingConfigurations = new[]
-    ///                 {
-    ///                     new Aws.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationArgs
-    ///                     {
-    ///                         PredefinedScalingMetricSpecification = new Aws.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs
-    ///                         {
-    ///                             PredefinedScalingMetricType = "ASGAverageCPUUtilization",
-    ///                         },
-    ///                         TargetValue = 70,
-    ///                     },
-    ///                 },
     ///                 DisableDynamicScaling = true,
     ///                 MaxCapacity = 3,
     ///                 MinCapacity = 0,
@@ -186,11 +172,25 @@ namespace Pulumi.Aws.AutoScalingPlans
     ///                 }).Apply(invoke =&gt; invoke.Result),
     ///                 ScalableDimension = "autoscaling:autoScalingGroup:DesiredCapacity",
     ///                 ServiceNamespace = "autoscaling",
+    ///                 TargetTrackingConfigurations = new[]
+    ///                 {
+    ///                     new Aws.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationArgs
+    ///                     {
+    ///                         PredefinedScalingMetricSpecification = new Aws.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs
+    ///                         {
+    ///                             PredefinedScalingMetricType = "ASGAverageCPUUtilization",
+    ///                         },
+    ///                         TargetValue = 70,
+    ///                     },
+    ///                 },
     ///                 PredictiveScalingMaxCapacityBehavior = "SetForecastCapacityToMaxCapacity",
     ///                 PredictiveScalingMode = "ForecastAndScale",
+    ///                 PredefinedLoadMetricSpecification = new Aws.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs
+    ///                 {
+    ///                     PredefinedLoadMetricType = "ASGTotalCPUUtilization",
+    ///                 },
     ///             },
     ///         },
-    ///         Name = "example-predictive-cost-optimization",
     ///     });
     /// 
     /// });

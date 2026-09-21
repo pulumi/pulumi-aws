@@ -33,6 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3control.NewBucketLifecycleConfiguration(ctx, "example", &s3control.BucketLifecycleConfigurationArgs{
+//				Bucket: pulumi.Any(exampleAwsS3controlBucket.Arn),
 //				Rules: s3control.BucketLifecycleConfigurationRuleArray{
 //					&s3control.BucketLifecycleConfigurationRuleArgs{
 //						Expiration: &s3control.BucketLifecycleConfigurationRuleExpirationArgs{
@@ -53,7 +54,6 @@ import (
 //						Id: pulumi.String("temp"),
 //					},
 //				},
-//				Bucket: pulumi.Any(exampleAwsS3controlBucket.Arn),
 //			})
 //			if err != nil {
 //				return err

@@ -26,6 +26,7 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.CapacityProvider("example", new()
     ///     {
+    ///         Name = "example",
     ///         VpcConfig = new Aws.Lambda.Inputs.CapacityProviderVpcConfigArgs
     ///         {
     ///             SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
@@ -38,7 +39,6 @@ namespace Pulumi.Aws.Lambda
     ///         {
     ///             CapacityProviderOperatorRoleArn = exampleAwsIamRole.Arn,
     ///         },
-    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -56,6 +56,7 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.CapacityProvider("example", new()
     ///     {
+    ///         Name = "example",
     ///         VpcConfig = new Aws.Lambda.Inputs.CapacityProviderVpcConfigArgs
     ///         {
     ///             SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
@@ -67,21 +68,6 @@ namespace Pulumi.Aws.Lambda
     ///         PermissionsConfig = new Aws.Lambda.Inputs.CapacityProviderPermissionsConfigArgs
     ///         {
     ///             CapacityProviderOperatorRoleArn = exampleAwsIamRole.Arn,
-    ///         },
-    ///         CapacityProviderScalingConfigs = new[]
-    ///         {
-    ///             new Aws.Lambda.Inputs.CapacityProviderCapacityProviderScalingConfigArgs
-    ///             {
-    ///                 ScalingMode = "Manual",
-    ///                 ScalingPolicies = new[]
-    ///                 {
-    ///                     new Aws.Lambda.Inputs.CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs
-    ///                     {
-    ///                         PredefinedMetricType = "LambdaCapacityProviderAverageCPUUtilization",
-    ///                         TargetValue = 50,
-    ///                     },
-    ///                 },
-    ///             },
     ///         },
     ///         InstanceRequirements = new[]
     ///         {
@@ -98,7 +84,21 @@ namespace Pulumi.Aws.Lambda
     ///                 },
     ///             },
     ///         },
-    ///         Name = "example",
+    ///         CapacityProviderScalingConfigs = new[]
+    ///         {
+    ///             new Aws.Lambda.Inputs.CapacityProviderCapacityProviderScalingConfigArgs
+    ///             {
+    ///                 ScalingMode = "Manual",
+    ///                 ScalingPolicies = new[]
+    ///                 {
+    ///                     new Aws.Lambda.Inputs.CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs
+    ///                     {
+    ///                         PredefinedMetricType = "LambdaCapacityProviderAverageCPUUtilization",
+    ///                         TargetValue = 50,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });

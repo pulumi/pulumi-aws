@@ -40,8 +40,6 @@ import * as utilities from "../utilities";
  * const example = new aws.athena.Database("example", {
  *     name: "database_name",
  *     bucket: exampleAwsS3Bucket.id,
- * }, {
- *     ignoreChanges: ["bucket"],
  * });
  * ```
  */

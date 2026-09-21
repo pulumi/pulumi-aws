@@ -110,10 +110,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.neptune.Cluster;
- * import com.pulumi.aws.neptune.ClusterArgs;
  * import com.pulumi.aws.neptune.GlobalCluster;
  * import com.pulumi.aws.neptune.GlobalClusterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -127,9 +125,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster("example", ClusterArgs.Empty, CustomResourceOptions.builder()
- *             .ignoreChanges("globalClusterIdentifier")
- *             .build());
+ *         var example = new Cluster("example");
  * 
  *         var exampleGlobalCluster = new GlobalCluster("exampleGlobalCluster", GlobalClusterArgs.builder()
  *             .globalClusterIdentifier("example")
@@ -159,8 +155,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.neptune.GlobalCluster;
- * import com.pulumi.aws.neptune.GlobalClusterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -174,9 +168,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GlobalCluster("example", GlobalClusterArgs.Empty, CustomResourceOptions.builder()
- *             .ignoreChanges("sourceDbClusterIdentifier")
- *             .build());
+ *         var example = new GlobalCluster("example");
  * 
  *     }
  * }

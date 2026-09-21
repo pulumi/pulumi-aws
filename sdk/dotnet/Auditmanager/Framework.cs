@@ -26,10 +26,12 @@ namespace Pulumi.Aws.Auditmanager
     /// {
     ///     var test = new Aws.Auditmanager.Framework("test", new()
     ///     {
+    ///         Name = "example",
     ///         ControlSets = new[]
     ///         {
     ///             new Aws.Auditmanager.Inputs.FrameworkControlSetArgs
     ///             {
+    ///                 Name = "example",
     ///                 Controls = new[]
     ///                 {
     ///                     new Aws.Auditmanager.Inputs.FrameworkControlSetControlArgs
@@ -41,10 +43,8 @@ namespace Pulumi.Aws.Auditmanager
     ///                         Id = test2.Id,
     ///                     },
     ///                 },
-    ///                 Name = "example",
     ///             },
     ///         },
-    ///         Name = "example",
     ///     });
     /// 
     /// });

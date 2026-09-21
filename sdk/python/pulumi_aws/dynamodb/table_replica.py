@@ -327,16 +327,15 @@ class TableReplica(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dynamodb.Table("example",
-            attributes=[{
-                "name": "BrodoBaggins",
-                "type": "S",
-            }],
             name="TestTable",
             hash_key="BrodoBaggins",
             billing_mode="PAY_PER_REQUEST",
             stream_enabled=True,
             stream_view_type="NEW_AND_OLD_IMAGES",
-            opts = pulumi.ResourceOptions(ignore_changes=["replicas"]))
+            attributes=[{
+                "name": "BrodoBaggins",
+                "type": "S",
+            }])
         example_table_replica = aws.dynamodb.TableReplica("example",
             global_table_arn=example.arn,
             tags={
@@ -390,16 +389,15 @@ class TableReplica(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dynamodb.Table("example",
-            attributes=[{
-                "name": "BrodoBaggins",
-                "type": "S",
-            }],
             name="TestTable",
             hash_key="BrodoBaggins",
             billing_mode="PAY_PER_REQUEST",
             stream_enabled=True,
             stream_view_type="NEW_AND_OLD_IMAGES",
-            opts = pulumi.ResourceOptions(ignore_changes=["replicas"]))
+            attributes=[{
+                "name": "BrodoBaggins",
+                "type": "S",
+            }])
         example_table_replica = aws.dynamodb.TableReplica("example",
             global_table_arn=example.arn,
             tags={

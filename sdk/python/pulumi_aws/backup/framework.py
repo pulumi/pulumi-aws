@@ -281,7 +281,7 @@ class Framework(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 controls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrameworkControlArgs', 'FrameworkControlArgsDict']]]]] = None,
+                 controls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrameworkControlArgs', 'FrameworkControlArgsDict', 'outputs.FrameworkControl']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -299,15 +299,18 @@ class Framework(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.backup.Framework("Example",
+            name="exampleFramework",
+            description="this is an example framework",
             controls=[
                 {
+                    "name": "BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
                     "input_parameters": [{
                         "name": "requiredRetentionDays",
                         "value": "35",
                     }],
-                    "name": "BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
                 },
                 {
+                    "name": "BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
                     "input_parameters": [
                         {
                             "name": "requiredFrequencyUnit",
@@ -322,24 +325,21 @@ class Framework(pulumi.CustomResource):
                             "value": "1",
                         },
                     ],
-                    "name": "BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
                 },
                 {
                     "name": "BACKUP_RECOVERY_POINT_ENCRYPTED",
                 },
                 {
+                    "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
                     "scope": {
                         "compliance_resource_types": ["EBS"],
                     },
-                    "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
                 },
                 {
                     "name": "BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED",
                 },
                 {
-                    "scope": {
-                        "compliance_resource_types": ["EBS"],
-                    },
+                    "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
                     "input_parameters": [
                         {
                             "name": "maxRetentionDays",
@@ -350,12 +350,12 @@ class Framework(pulumi.CustomResource):
                             "value": "1",
                         },
                     ],
-                    "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
-                },
-                {
                     "scope": {
                         "compliance_resource_types": ["EBS"],
                     },
+                },
+                {
+                    "name": "BACKUP_LAST_RECOVERY_POINT_CREATED",
                     "input_parameters": [
                         {
                             "name": "recoveryPointAgeUnit",
@@ -366,11 +366,11 @@ class Framework(pulumi.CustomResource):
                             "value": "1",
                         },
                     ],
-                    "name": "BACKUP_LAST_RECOVERY_POINT_CREATED",
+                    "scope": {
+                        "compliance_resource_types": ["EBS"],
+                    },
                 },
             ],
-            name="exampleFramework",
-            description="this is an example framework",
             tags={
                 "Name": "Example Framework",
             })
@@ -387,7 +387,7 @@ class Framework(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlArgs', 'FrameworkControlArgsDict']]]] controls: One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlArgs', 'FrameworkControlArgsDict', 'outputs.FrameworkControl']]]] controls: One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
         :param pulumi.Input[_builtins.str] description: The description of the framework with a maximum of 1,024 characters
         :param pulumi.Input[_builtins.str] name: The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -411,15 +411,18 @@ class Framework(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.backup.Framework("Example",
+            name="exampleFramework",
+            description="this is an example framework",
             controls=[
                 {
+                    "name": "BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
                     "input_parameters": [{
                         "name": "requiredRetentionDays",
                         "value": "35",
                     }],
-                    "name": "BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
                 },
                 {
+                    "name": "BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
                     "input_parameters": [
                         {
                             "name": "requiredFrequencyUnit",
@@ -434,24 +437,21 @@ class Framework(pulumi.CustomResource):
                             "value": "1",
                         },
                     ],
-                    "name": "BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
                 },
                 {
                     "name": "BACKUP_RECOVERY_POINT_ENCRYPTED",
                 },
                 {
+                    "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
                     "scope": {
                         "compliance_resource_types": ["EBS"],
                     },
-                    "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
                 },
                 {
                     "name": "BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED",
                 },
                 {
-                    "scope": {
-                        "compliance_resource_types": ["EBS"],
-                    },
+                    "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
                     "input_parameters": [
                         {
                             "name": "maxRetentionDays",
@@ -462,12 +462,12 @@ class Framework(pulumi.CustomResource):
                             "value": "1",
                         },
                     ],
-                    "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
-                },
-                {
                     "scope": {
                         "compliance_resource_types": ["EBS"],
                     },
+                },
+                {
+                    "name": "BACKUP_LAST_RECOVERY_POINT_CREATED",
                     "input_parameters": [
                         {
                             "name": "recoveryPointAgeUnit",
@@ -478,11 +478,11 @@ class Framework(pulumi.CustomResource):
                             "value": "1",
                         },
                     ],
-                    "name": "BACKUP_LAST_RECOVERY_POINT_CREATED",
+                    "scope": {
+                        "compliance_resource_types": ["EBS"],
+                    },
                 },
             ],
-            name="exampleFramework",
-            description="this is an example framework",
             tags={
                 "Name": "Example Framework",
             })
@@ -512,7 +512,7 @@ class Framework(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 controls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrameworkControlArgs', 'FrameworkControlArgsDict']]]]] = None,
+                 controls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrameworkControlArgs', 'FrameworkControlArgsDict', 'outputs.FrameworkControl']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -549,7 +549,7 @@ class Framework(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            controls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrameworkControlArgs', 'FrameworkControlArgsDict']]]]] = None,
+            controls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrameworkControlArgs', 'FrameworkControlArgsDict', 'outputs.FrameworkControl']]]]] = None,
             creation_time: pulumi.Input[Optional[_builtins.str]] = None,
             deployment_status: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -566,7 +566,7 @@ class Framework(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The ARN of the backup framework.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlArgs', 'FrameworkControlArgsDict']]]] controls: One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlArgs', 'FrameworkControlArgsDict', 'outputs.FrameworkControl']]]] controls: One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
         :param pulumi.Input[_builtins.str] creation_time: The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
         :param pulumi.Input[_builtins.str] deployment_status: The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
         :param pulumi.Input[_builtins.str] description: The description of the framework with a maximum of 1,024 characters

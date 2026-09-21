@@ -60,6 +60,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleQueryLoggingConfiguration = new QueryLoggingConfiguration("exampleQueryLoggingConfiguration", QueryLoggingConfigurationArgs.builder()
+ *             .workspaceId(example.id())
  *             .destinations(QueryLoggingConfigurationDestinationArgs.builder()
  *                 .cloudwatchLogs(QueryLoggingConfigurationDestinationCloudwatchLogsArgs.builder()
  *                     .logGroupArn(exampleLogGroup.arn().applyValue(_arn -> String.format("%s:*", _arn)))
@@ -68,7 +69,6 @@ import javax.annotation.Nullable;
  *                     .qspThreshold(1000)
  *                     .build())
  *                 .build())
- *             .workspaceId(example.id())
  *             .build());
  * 
  *     }

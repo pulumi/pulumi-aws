@@ -35,6 +35,7 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
+//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -43,7 +44,6 @@ import (
 //								},
 //							},
 //						},
-//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -80,18 +80,9 @@ import (
 //				return err
 //			}
 //			_, err = codedeploy.NewDeploymentGroup(ctx, "example", &codedeploy.DeploymentGroupArgs{
-//				AutoRollbackConfiguration: &codedeploy.DeploymentGroupAutoRollbackConfigurationArgs{
-//					Enabled: pulumi.Bool(true),
-//					Events: pulumi.StringArray{
-//						pulumi.String("DEPLOYMENT_FAILURE"),
-//					},
-//				},
-//				AlarmConfiguration: &codedeploy.DeploymentGroupAlarmConfigurationArgs{
-//					Alarms: pulumi.StringArray{
-//						pulumi.String("my-alarm-name"),
-//					},
-//					Enabled: pulumi.Bool(true),
-//				},
+//				AppName:             exampleApplication.Name,
+//				DeploymentGroupName: pulumi.String("example-group"),
+//				ServiceRoleArn:      example.Arn,
 //				Ec2TagSets: codedeploy.DeploymentGroupEc2TagSetArray{
 //					&codedeploy.DeploymentGroupEc2TagSetArgs{
 //						Ec2TagFilters: codedeploy.DeploymentGroupEc2TagSetEc2TagFilterArray{
@@ -117,9 +108,18 @@ import (
 //						TriggerTargetArn: exampleTopic.Arn,
 //					},
 //				},
-//				AppName:                   exampleApplication.Name,
-//				DeploymentGroupName:       pulumi.String("example-group"),
-//				ServiceRoleArn:            example.Arn,
+//				AutoRollbackConfiguration: &codedeploy.DeploymentGroupAutoRollbackConfigurationArgs{
+//					Enabled: pulumi.Bool(true),
+//					Events: pulumi.StringArray{
+//						pulumi.String("DEPLOYMENT_FAILURE"),
+//					},
+//				},
+//				AlarmConfiguration: &codedeploy.DeploymentGroupAlarmConfigurationArgs{
+//					Alarms: pulumi.StringArray{
+//						pulumi.String("my-alarm-name"),
+//					},
+//					Enabled: pulumi.Bool(true),
+//				},
 //				OutdatedInstancesStrategy: pulumi.String("UPDATE"),
 //			})
 //			if err != nil {
@@ -153,6 +153,10 @@ import (
 //				return err
 //			}
 //			_, err = codedeploy.NewDeploymentGroup(ctx, "example", &codedeploy.DeploymentGroupArgs{
+//				AppName:              example.Name,
+//				DeploymentConfigName: pulumi.String("CodeDeployDefault.ECSAllAtOnce"),
+//				DeploymentGroupName:  pulumi.String("example"),
+//				ServiceRoleArn:       pulumi.Any(exampleAwsIamRole.Arn),
 //				AutoRollbackConfiguration: &codedeploy.DeploymentGroupAutoRollbackConfigurationArgs{
 //					Enabled: pulumi.Bool(true),
 //					Events: pulumi.StringArray{
@@ -193,10 +197,6 @@ import (
 //						},
 //					},
 //				},
-//				AppName:              example.Name,
-//				DeploymentConfigName: pulumi.String("CodeDeployDefault.ECSAllAtOnce"),
-//				DeploymentGroupName:  pulumi.String("example"),
-//				ServiceRoleArn:       pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -228,6 +228,9 @@ import (
 //				return err
 //			}
 //			_, err = codedeploy.NewDeploymentGroup(ctx, "example", &codedeploy.DeploymentGroupArgs{
+//				AppName:             example.Name,
+//				DeploymentGroupName: pulumi.String("example-group"),
+//				ServiceRoleArn:      pulumi.Any(exampleAwsIamRole.Arn),
 //				DeploymentStyle: &codedeploy.DeploymentGroupDeploymentStyleArgs{
 //					DeploymentOption: pulumi.String("WITH_TRAFFIC_CONTROL"),
 //					DeploymentType:   pulumi.String("BLUE_GREEN"),
@@ -251,9 +254,6 @@ import (
 //						Action: pulumi.String("KEEP_ALIVE"),
 //					},
 //				},
-//				AppName:             example.Name,
-//				DeploymentGroupName: pulumi.String("example-group"),
-//				ServiceRoleArn:      pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err

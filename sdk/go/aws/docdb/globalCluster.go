@@ -104,9 +104,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := docdb.NewCluster(ctx, "example", nil, pulumi.IgnoreChanges([]string{
-//				"globalClusterIdentifier",
-//			}))
+//			example, err := docdb.NewCluster(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
@@ -145,9 +143,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := docdb.NewGlobalCluster(ctx, "example", nil, pulumi.IgnoreChanges([]string{
-//				"sourceDbClusterIdentifier",
-//			}))
+//			_, err := docdb.NewGlobalCluster(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}

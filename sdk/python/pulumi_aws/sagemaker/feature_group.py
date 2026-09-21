@@ -415,15 +415,15 @@ class FeatureGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  event_time_feature_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 feature_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureGroupFeatureDefinitionArgs', 'FeatureGroupFeatureDefinitionArgsDict']]]]] = None,
+                 feature_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureGroupFeatureDefinitionArgs', 'FeatureGroupFeatureDefinitionArgsDict', 'outputs.FeatureGroupFeatureDefinition']]]]] = None,
                  feature_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 offline_store_config: pulumi.Input[Optional[Union['FeatureGroupOfflineStoreConfigArgs', 'FeatureGroupOfflineStoreConfigArgsDict']]] = None,
-                 online_store_config: pulumi.Input[Optional[Union['FeatureGroupOnlineStoreConfigArgs', 'FeatureGroupOnlineStoreConfigArgsDict']]] = None,
+                 offline_store_config: pulumi.Input[Optional[Union['FeatureGroupOfflineStoreConfigArgs', 'FeatureGroupOfflineStoreConfigArgsDict', 'outputs.FeatureGroupOfflineStoreConfig']]] = None,
+                 online_store_config: pulumi.Input[Optional[Union['FeatureGroupOnlineStoreConfigArgs', 'FeatureGroupOnlineStoreConfigArgsDict', 'outputs.FeatureGroupOnlineStoreConfig']]] = None,
                  record_identifier_feature_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 throughput_config: pulumi.Input[Optional[Union['FeatureGroupThroughputConfigArgs', 'FeatureGroupThroughputConfigArgsDict']]] = None,
+                 throughput_config: pulumi.Input[Optional[Union['FeatureGroupThroughputConfigArgs', 'FeatureGroupThroughputConfigArgsDict', 'outputs.FeatureGroupThroughputConfig']]] = None,
                  __props__=None):
         """
         Provides a SageMaker AI Feature Group resource.
@@ -437,17 +437,17 @@ class FeatureGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.FeatureGroup("example",
-            online_store_config={
-                "enable_online_store": True,
-            },
+            feature_group_name="example",
+            record_identifier_feature_name="example",
+            event_time_feature_name="example",
+            role_arn=test["arn"],
             feature_definitions=[{
                 "feature_name": "example",
                 "feature_type": "String",
             }],
-            feature_group_name="example",
-            record_identifier_feature_name="example",
-            event_time_feature_name="example",
-            role_arn=test["arn"])
+            online_store_config={
+                "enable_online_store": True,
+            })
         ```
 
         ## Import
@@ -463,10 +463,10 @@ class FeatureGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A free-form description of a Feature Group.
         :param pulumi.Input[_builtins.str] event_time_feature_name: The name of the feature that stores the EventTime of a Record in a Feature Group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FeatureGroupFeatureDefinitionArgs', 'FeatureGroupFeatureDefinitionArgsDict']]]] feature_definitions: A list of Feature names and types. See Feature Definition Below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FeatureGroupFeatureDefinitionArgs', 'FeatureGroupFeatureDefinitionArgsDict', 'outputs.FeatureGroupFeatureDefinition']]]] feature_definitions: A list of Feature names and types. See Feature Definition Below.
         :param pulumi.Input[_builtins.str] feature_group_name: The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
-        :param pulumi.Input[Union['FeatureGroupOfflineStoreConfigArgs', 'FeatureGroupOfflineStoreConfigArgsDict']] offline_store_config: The Offline Feature Store Configuration. See Offline Store Config Below.
-        :param pulumi.Input[Union['FeatureGroupOnlineStoreConfigArgs', 'FeatureGroupOnlineStoreConfigArgsDict']] online_store_config: The Online Feature Store Configuration. See Online Store Config Below.
+        :param pulumi.Input[Union['FeatureGroupOfflineStoreConfigArgs', 'FeatureGroupOfflineStoreConfigArgsDict', 'outputs.FeatureGroupOfflineStoreConfig']] offline_store_config: The Offline Feature Store Configuration. See Offline Store Config Below.
+        :param pulumi.Input[Union['FeatureGroupOnlineStoreConfigArgs', 'FeatureGroupOnlineStoreConfigArgsDict', 'outputs.FeatureGroupOnlineStoreConfig']] online_store_config: The Online Feature Store Configuration. See Online Store Config Below.
         :param pulumi.Input[_builtins.str] record_identifier_feature_name: The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
@@ -490,17 +490,17 @@ class FeatureGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.FeatureGroup("example",
-            online_store_config={
-                "enable_online_store": True,
-            },
+            feature_group_name="example",
+            record_identifier_feature_name="example",
+            event_time_feature_name="example",
+            role_arn=test["arn"],
             feature_definitions=[{
                 "feature_name": "example",
                 "feature_type": "String",
             }],
-            feature_group_name="example",
-            record_identifier_feature_name="example",
-            event_time_feature_name="example",
-            role_arn=test["arn"])
+            online_store_config={
+                "enable_online_store": True,
+            })
         ```
 
         ## Import
@@ -529,15 +529,15 @@ class FeatureGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  event_time_feature_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 feature_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureGroupFeatureDefinitionArgs', 'FeatureGroupFeatureDefinitionArgsDict']]]]] = None,
+                 feature_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureGroupFeatureDefinitionArgs', 'FeatureGroupFeatureDefinitionArgsDict', 'outputs.FeatureGroupFeatureDefinition']]]]] = None,
                  feature_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 offline_store_config: pulumi.Input[Optional[Union['FeatureGroupOfflineStoreConfigArgs', 'FeatureGroupOfflineStoreConfigArgsDict']]] = None,
-                 online_store_config: pulumi.Input[Optional[Union['FeatureGroupOnlineStoreConfigArgs', 'FeatureGroupOnlineStoreConfigArgsDict']]] = None,
+                 offline_store_config: pulumi.Input[Optional[Union['FeatureGroupOfflineStoreConfigArgs', 'FeatureGroupOfflineStoreConfigArgsDict', 'outputs.FeatureGroupOfflineStoreConfig']]] = None,
+                 online_store_config: pulumi.Input[Optional[Union['FeatureGroupOnlineStoreConfigArgs', 'FeatureGroupOnlineStoreConfigArgsDict', 'outputs.FeatureGroupOnlineStoreConfig']]] = None,
                  record_identifier_feature_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 throughput_config: pulumi.Input[Optional[Union['FeatureGroupThroughputConfigArgs', 'FeatureGroupThroughputConfigArgsDict']]] = None,
+                 throughput_config: pulumi.Input[Optional[Union['FeatureGroupThroughputConfigArgs', 'FeatureGroupThroughputConfigArgsDict', 'outputs.FeatureGroupThroughputConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -583,16 +583,16 @@ class FeatureGroup(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             event_time_feature_name: pulumi.Input[Optional[_builtins.str]] = None,
-            feature_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureGroupFeatureDefinitionArgs', 'FeatureGroupFeatureDefinitionArgsDict']]]]] = None,
+            feature_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureGroupFeatureDefinitionArgs', 'FeatureGroupFeatureDefinitionArgsDict', 'outputs.FeatureGroupFeatureDefinition']]]]] = None,
             feature_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            offline_store_config: pulumi.Input[Optional[Union['FeatureGroupOfflineStoreConfigArgs', 'FeatureGroupOfflineStoreConfigArgsDict']]] = None,
-            online_store_config: pulumi.Input[Optional[Union['FeatureGroupOnlineStoreConfigArgs', 'FeatureGroupOnlineStoreConfigArgsDict']]] = None,
+            offline_store_config: pulumi.Input[Optional[Union['FeatureGroupOfflineStoreConfigArgs', 'FeatureGroupOfflineStoreConfigArgsDict', 'outputs.FeatureGroupOfflineStoreConfig']]] = None,
+            online_store_config: pulumi.Input[Optional[Union['FeatureGroupOnlineStoreConfigArgs', 'FeatureGroupOnlineStoreConfigArgsDict', 'outputs.FeatureGroupOnlineStoreConfig']]] = None,
             record_identifier_feature_name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            throughput_config: pulumi.Input[Optional[Union['FeatureGroupThroughputConfigArgs', 'FeatureGroupThroughputConfigArgsDict']]] = None) -> 'FeatureGroup':
+            throughput_config: pulumi.Input[Optional[Union['FeatureGroupThroughputConfigArgs', 'FeatureGroupThroughputConfigArgsDict', 'outputs.FeatureGroupThroughputConfig']]] = None) -> 'FeatureGroup':
         """
         Get an existing FeatureGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -603,10 +603,10 @@ class FeatureGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this feature_group.
         :param pulumi.Input[_builtins.str] description: A free-form description of a Feature Group.
         :param pulumi.Input[_builtins.str] event_time_feature_name: The name of the feature that stores the EventTime of a Record in a Feature Group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FeatureGroupFeatureDefinitionArgs', 'FeatureGroupFeatureDefinitionArgsDict']]]] feature_definitions: A list of Feature names and types. See Feature Definition Below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FeatureGroupFeatureDefinitionArgs', 'FeatureGroupFeatureDefinitionArgsDict', 'outputs.FeatureGroupFeatureDefinition']]]] feature_definitions: A list of Feature names and types. See Feature Definition Below.
         :param pulumi.Input[_builtins.str] feature_group_name: The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
-        :param pulumi.Input[Union['FeatureGroupOfflineStoreConfigArgs', 'FeatureGroupOfflineStoreConfigArgsDict']] offline_store_config: The Offline Feature Store Configuration. See Offline Store Config Below.
-        :param pulumi.Input[Union['FeatureGroupOnlineStoreConfigArgs', 'FeatureGroupOnlineStoreConfigArgsDict']] online_store_config: The Online Feature Store Configuration. See Online Store Config Below.
+        :param pulumi.Input[Union['FeatureGroupOfflineStoreConfigArgs', 'FeatureGroupOfflineStoreConfigArgsDict', 'outputs.FeatureGroupOfflineStoreConfig']] offline_store_config: The Offline Feature Store Configuration. See Offline Store Config Below.
+        :param pulumi.Input[Union['FeatureGroupOnlineStoreConfigArgs', 'FeatureGroupOnlineStoreConfigArgsDict', 'outputs.FeatureGroupOnlineStoreConfig']] online_store_config: The Online Feature Store Configuration. See Online Store Config Below.
         :param pulumi.Input[_builtins.str] record_identifier_feature_name: The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.

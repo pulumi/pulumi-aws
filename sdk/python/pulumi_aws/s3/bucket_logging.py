@@ -275,8 +275,8 @@ class BucketLogging(pulumi.CustomResource):
                  expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  target_bucket: pulumi.Input[Optional[_builtins.str]] = None,
-                 target_grants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketLoggingTargetGrantArgs', 'BucketLoggingTargetGrantArgsDict']]]]] = None,
-                 target_object_key_format: pulumi.Input[Optional[Union['BucketLoggingTargetObjectKeyFormatArgs', 'BucketLoggingTargetObjectKeyFormatArgsDict']]] = None,
+                 target_grants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketLoggingTargetGrantArgs', 'BucketLoggingTargetGrantArgsDict', 'outputs.BucketLoggingTargetGrant']]]]] = None,
+                 target_object_key_format: pulumi.Input[Optional[Union['BucketLoggingTargetObjectKeyFormatArgs', 'BucketLoggingTargetObjectKeyFormatArgsDict', 'outputs.BucketLoggingTargetObjectKeyFormat']]] = None,
                  target_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -299,31 +299,31 @@ class BucketLogging(pulumi.CustomResource):
         current = aws.get_caller_identity()
         logging = aws.s3.Bucket("logging", bucket="access-logging-bucket")
         logging_bucket_policy = aws.iam.get_policy_document_output(statements=[{
-            "conditions": [{
-                "test": "StringEquals",
-                "variable": "aws:SourceAccount",
-                "values": [current.account_id],
-            }],
             "principals": [{
                 "identifiers": ["logging.s3.amazonaws.com"],
                 "type": "Service",
             }],
             "actions": ["s3:PutObject"],
             "resources": [logging.arn.apply(lambda arn: f"{arn}/*")],
+            "conditions": [{
+                "test": "StringEquals",
+                "variable": "aws:SourceAccount",
+                "values": [current.account_id],
+            }],
         }])
         logging_bucket_policy2 = aws.s3.BucketPolicy("logging",
             bucket=logging.bucket,
             policy=logging_bucket_policy.json)
         example = aws.s3.Bucket("example", bucket="example-bucket")
         example_bucket_logging = aws.s3.BucketLogging("example",
+            bucket=example.bucket,
+            target_bucket=logging.bucket,
+            target_prefix="log/",
             target_object_key_format={
                 "partitioned_prefix": {
                     "partition_date_source": "EventTime",
                 },
-            },
-            bucket=example.bucket,
-            target_bucket=logging.bucket,
-            target_prefix="log/")
+            })
         ```
 
         ### Grant permission by using bucket ACL
@@ -384,8 +384,8 @@ class BucketLogging(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] target_bucket: Name of the bucket where you want Amazon S3 to store server access logs.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLoggingTargetGrantArgs', 'BucketLoggingTargetGrantArgsDict']]]] target_grants: Set of configuration blocks with information for granting permissions. See below.
-        :param pulumi.Input[Union['BucketLoggingTargetObjectKeyFormatArgs', 'BucketLoggingTargetObjectKeyFormatArgsDict']] target_object_key_format: Amazon S3 key format for log objects. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLoggingTargetGrantArgs', 'BucketLoggingTargetGrantArgsDict', 'outputs.BucketLoggingTargetGrant']]]] target_grants: Set of configuration blocks with information for granting permissions. See below.
+        :param pulumi.Input[Union['BucketLoggingTargetObjectKeyFormatArgs', 'BucketLoggingTargetObjectKeyFormatArgsDict', 'outputs.BucketLoggingTargetObjectKeyFormat']] target_object_key_format: Amazon S3 key format for log objects. See below.
         :param pulumi.Input[_builtins.str] target_prefix: Prefix for all log object keys.
         """
         ...
@@ -414,31 +414,31 @@ class BucketLogging(pulumi.CustomResource):
         current = aws.get_caller_identity()
         logging = aws.s3.Bucket("logging", bucket="access-logging-bucket")
         logging_bucket_policy = aws.iam.get_policy_document_output(statements=[{
-            "conditions": [{
-                "test": "StringEquals",
-                "variable": "aws:SourceAccount",
-                "values": [current.account_id],
-            }],
             "principals": [{
                 "identifiers": ["logging.s3.amazonaws.com"],
                 "type": "Service",
             }],
             "actions": ["s3:PutObject"],
             "resources": [logging.arn.apply(lambda arn: f"{arn}/*")],
+            "conditions": [{
+                "test": "StringEquals",
+                "variable": "aws:SourceAccount",
+                "values": [current.account_id],
+            }],
         }])
         logging_bucket_policy2 = aws.s3.BucketPolicy("logging",
             bucket=logging.bucket,
             policy=logging_bucket_policy.json)
         example = aws.s3.Bucket("example", bucket="example-bucket")
         example_bucket_logging = aws.s3.BucketLogging("example",
+            bucket=example.bucket,
+            target_bucket=logging.bucket,
+            target_prefix="log/",
             target_object_key_format={
                 "partitioned_prefix": {
                     "partition_date_source": "EventTime",
                 },
-            },
-            bucket=example.bucket,
-            target_bucket=logging.bucket,
-            target_prefix="log/")
+            })
         ```
 
         ### Grant permission by using bucket ACL
@@ -512,8 +512,8 @@ class BucketLogging(pulumi.CustomResource):
                  expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  target_bucket: pulumi.Input[Optional[_builtins.str]] = None,
-                 target_grants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketLoggingTargetGrantArgs', 'BucketLoggingTargetGrantArgsDict']]]]] = None,
-                 target_object_key_format: pulumi.Input[Optional[Union['BucketLoggingTargetObjectKeyFormatArgs', 'BucketLoggingTargetObjectKeyFormatArgsDict']]] = None,
+                 target_grants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketLoggingTargetGrantArgs', 'BucketLoggingTargetGrantArgsDict', 'outputs.BucketLoggingTargetGrant']]]]] = None,
+                 target_object_key_format: pulumi.Input[Optional[Union['BucketLoggingTargetObjectKeyFormatArgs', 'BucketLoggingTargetObjectKeyFormatArgsDict', 'outputs.BucketLoggingTargetObjectKeyFormat']]] = None,
                  target_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -553,8 +553,8 @@ class BucketLogging(pulumi.CustomResource):
             expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             target_bucket: pulumi.Input[Optional[_builtins.str]] = None,
-            target_grants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketLoggingTargetGrantArgs', 'BucketLoggingTargetGrantArgsDict']]]]] = None,
-            target_object_key_format: pulumi.Input[Optional[Union['BucketLoggingTargetObjectKeyFormatArgs', 'BucketLoggingTargetObjectKeyFormatArgsDict']]] = None,
+            target_grants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketLoggingTargetGrantArgs', 'BucketLoggingTargetGrantArgsDict', 'outputs.BucketLoggingTargetGrant']]]]] = None,
+            target_object_key_format: pulumi.Input[Optional[Union['BucketLoggingTargetObjectKeyFormatArgs', 'BucketLoggingTargetObjectKeyFormatArgsDict', 'outputs.BucketLoggingTargetObjectKeyFormat']]] = None,
             target_prefix: pulumi.Input[Optional[_builtins.str]] = None) -> 'BucketLogging':
         """
         Get an existing BucketLogging resource's state with the given name, id, and optional extra
@@ -567,8 +567,8 @@ class BucketLogging(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] target_bucket: Name of the bucket where you want Amazon S3 to store server access logs.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLoggingTargetGrantArgs', 'BucketLoggingTargetGrantArgsDict']]]] target_grants: Set of configuration blocks with information for granting permissions. See below.
-        :param pulumi.Input[Union['BucketLoggingTargetObjectKeyFormatArgs', 'BucketLoggingTargetObjectKeyFormatArgsDict']] target_object_key_format: Amazon S3 key format for log objects. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLoggingTargetGrantArgs', 'BucketLoggingTargetGrantArgsDict', 'outputs.BucketLoggingTargetGrant']]]] target_grants: Set of configuration blocks with information for granting permissions. See below.
+        :param pulumi.Input[Union['BucketLoggingTargetObjectKeyFormatArgs', 'BucketLoggingTargetObjectKeyFormatArgsDict', 'outputs.BucketLoggingTargetObjectKeyFormat']] target_object_key_format: Amazon S3 key format for log objects. See below.
         :param pulumi.Input[_builtins.str] target_prefix: Prefix for all log object keys.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

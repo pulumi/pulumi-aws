@@ -77,10 +77,13 @@ namespace Pulumi.Aws.AccessAnalyzer
     /// {
     ///     var example = new Aws.AccessAnalyzer.Analyzer("example", new()
     ///     {
+    ///         AnalyzerName = "example",
+    ///         Type = "ORGANIZATION_UNUSED_ACCESS",
     ///         Configuration = new Aws.AccessAnalyzer.Inputs.AnalyzerConfigurationArgs
     ///         {
     ///             UnusedAccess = new Aws.AccessAnalyzer.Inputs.AnalyzerConfigurationUnusedAccessArgs
     ///             {
+    ///                 UnusedAccessAge = 180,
     ///                 AnalysisRule = new Aws.AccessAnalyzer.Inputs.AnalyzerConfigurationUnusedAccessAnalysisRuleArgs
     ///                 {
     ///                     Exclusions = new[]
@@ -109,11 +112,8 @@ namespace Pulumi.Aws.AccessAnalyzer
     ///                         },
     ///                     },
     ///                 },
-    ///                 UnusedAccessAge = 180,
     ///             },
     ///         },
-    ///         AnalyzerName = "example",
-    ///         Type = "ORGANIZATION_UNUSED_ACCESS",
     ///     });
     /// 
     /// });
@@ -131,6 +131,8 @@ namespace Pulumi.Aws.AccessAnalyzer
     /// {
     ///     var test = new Aws.AccessAnalyzer.Analyzer("test", new()
     ///     {
+    ///         AnalyzerName = "example",
+    ///         Type = "ORGANIZATION_INTERNAL_ACCESS",
     ///         Configuration = new Aws.AccessAnalyzer.Inputs.AnalyzerConfigurationArgs
     ///         {
     ///             InternalAccess = new Aws.AccessAnalyzer.Inputs.AnalyzerConfigurationInternalAccessArgs
@@ -152,8 +154,6 @@ namespace Pulumi.Aws.AccessAnalyzer
     ///                 },
     ///             },
     ///         },
-    ///         AnalyzerName = "example",
-    ///         Type = "ORGANIZATION_INTERNAL_ACCESS",
     ///     });
     /// 
     /// });
@@ -171,6 +171,8 @@ namespace Pulumi.Aws.AccessAnalyzer
     /// {
     ///     var test = new Aws.AccessAnalyzer.Analyzer("test", new()
     ///     {
+    ///         AnalyzerName = "example",
+    ///         Type = "ORGANIZATION_INTERNAL_ACCESS",
     ///         Configuration = new Aws.AccessAnalyzer.Inputs.AnalyzerConfigurationArgs
     ///         {
     ///             InternalAccess = new Aws.AccessAnalyzer.Inputs.AnalyzerConfigurationInternalAccessArgs
@@ -194,8 +196,6 @@ namespace Pulumi.Aws.AccessAnalyzer
     ///                 },
     ///             },
     ///         },
-    ///         AnalyzerName = "example",
-    ///         Type = "ORGANIZATION_INTERNAL_ACCESS",
     ///     });
     /// 
     /// });

@@ -44,12 +44,6 @@ namespace Pulumi.Aws.ElastiCache
     ///         {
     ///             @default.UserId,
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         IgnoreChanges =
-    ///         {
-    ///             "userIds",
-    ///         },
     ///     });
     /// 
     ///     var exampleUser = new Aws.ElastiCache.User("example", new()

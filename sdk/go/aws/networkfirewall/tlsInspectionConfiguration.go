@@ -33,10 +33,26 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.NewTlsInspectionConfiguration(ctx, "example", &networkfirewall.TlsInspectionConfigurationArgs{
+//				Name:        pulumi.String("example"),
+//				Description: pulumi.String("example"),
+//				EncryptionConfigurations: networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArray{
+//					&networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArgs{
+//						KeyId: pulumi.String("AWS_OWNED_KMS_KEY"),
+//						Type:  pulumi.String("AWS_OWNED_KMS_KEY"),
+//					},
+//				},
 //				TlsInspectionConfiguration: &networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationArgs{
 //					ServerCertificateConfiguration: &networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs{
+//						ServerCertificates: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArray{
+//							&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs{
+//								ResourceArn: pulumi.Any(example1.Arn),
+//							},
+//						},
 //						Scopes: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArray{
 //							&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs{
+//								Protocols: pulumi.IntArray{
+//									pulumi.Int(6),
+//								},
 //								DestinationPorts: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArray{
 //									&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs{
 //										FromPort: pulumi.Int(443),
@@ -59,26 +75,10 @@ import (
 //										AddressDefinition: pulumi.String("0.0.0.0/0"),
 //									},
 //								},
-//								Protocols: pulumi.IntArray{
-//									pulumi.Int(6),
-//								},
-//							},
-//						},
-//						ServerCertificates: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArray{
-//							&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs{
-//								ResourceArn: pulumi.Any(example1.Arn),
 //							},
 //						},
 //					},
 //				},
-//				EncryptionConfigurations: networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArray{
-//					&networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArgs{
-//						KeyId: pulumi.String("AWS_OWNED_KMS_KEY"),
-//						Type:  pulumi.String("AWS_OWNED_KMS_KEY"),
-//					},
-//				},
-//				Name:        pulumi.String("example"),
-//				Description: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -104,14 +104,26 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.NewTlsInspectionConfiguration(ctx, "example", &networkfirewall.TlsInspectionConfigurationArgs{
+//				Name:        pulumi.String("example"),
+//				Description: pulumi.String("example"),
+//				EncryptionConfigurations: networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArray{
+//					&networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArgs{
+//						KeyId: pulumi.String("AWS_OWNED_KMS_KEY"),
+//						Type:  pulumi.String("AWS_OWNED_KMS_KEY"),
+//					},
+//				},
 //				TlsInspectionConfiguration: &networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationArgs{
 //					ServerCertificateConfiguration: &networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs{
+//						CertificateAuthorityArn: pulumi.Any(example1.Arn),
 //						CheckCertificateRevocationStatus: &networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs{
 //							RevokedStatusAction: pulumi.String("REJECT"),
 //							UnknownStatusAction: pulumi.String("PASS"),
 //						},
 //						Scopes: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArray{
 //							&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs{
+//								Protocols: pulumi.IntArray{
+//									pulumi.Int(6),
+//								},
 //								DestinationPorts: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArray{
 //									&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs{
 //										FromPort: pulumi.Int(443),
@@ -134,22 +146,10 @@ import (
 //										AddressDefinition: pulumi.String("0.0.0.0/0"),
 //									},
 //								},
-//								Protocols: pulumi.IntArray{
-//									pulumi.Int(6),
-//								},
 //							},
 //						},
-//						CertificateAuthorityArn: pulumi.Any(example1.Arn),
 //					},
 //				},
-//				EncryptionConfigurations: networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArray{
-//					&networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArgs{
-//						KeyId: pulumi.String("AWS_OWNED_KMS_KEY"),
-//						Type:  pulumi.String("AWS_OWNED_KMS_KEY"),
-//					},
-//				},
-//				Name:        pulumi.String("example"),
-//				Description: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -183,10 +183,26 @@ import (
 //				return err
 //			}
 //			_, err = networkfirewall.NewTlsInspectionConfiguration(ctx, "example", &networkfirewall.TlsInspectionConfigurationArgs{
+//				Name:        pulumi.String("example"),
+//				Description: pulumi.String("example"),
+//				EncryptionConfigurations: networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArray{
+//					&networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArgs{
+//						KeyId: example.Arn,
+//						Type:  pulumi.String("CUSTOMER_KMS"),
+//					},
+//				},
 //				TlsInspectionConfiguration: &networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationArgs{
 //					ServerCertificateConfiguration: &networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs{
+//						ServerCertificates: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArray{
+//							&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs{
+//								ResourceArn: pulumi.Any(example1.Arn),
+//							},
+//						},
 //						Scopes: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArray{
 //							&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs{
+//								Protocols: pulumi.IntArray{
+//									pulumi.Int(6),
+//								},
 //								DestinationPorts: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArray{
 //									&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs{
 //										FromPort: pulumi.Int(443),
@@ -209,26 +225,10 @@ import (
 //										AddressDefinition: pulumi.String("0.0.0.0/0"),
 //									},
 //								},
-//								Protocols: pulumi.IntArray{
-//									pulumi.Int(6),
-//								},
-//							},
-//						},
-//						ServerCertificates: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArray{
-//							&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs{
-//								ResourceArn: pulumi.Any(example1.Arn),
 //							},
 //						},
 //					},
 //				},
-//				EncryptionConfigurations: networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArray{
-//					&networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArgs{
-//						KeyId: example.Arn,
-//						Type:  pulumi.String("CUSTOMER_KMS"),
-//					},
-//				},
-//				Name:        pulumi.String("example"),
-//				Description: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -262,9 +262,18 @@ import (
 //				return err
 //			}
 //			_, err = networkfirewall.NewTlsInspectionConfiguration(ctx, "example", &networkfirewall.TlsInspectionConfigurationArgs{
+//				Name:        pulumi.String("example"),
+//				Description: pulumi.String("example"),
+//				EncryptionConfigurations: networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArray{
+//					&networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArgs{
+//						KeyId: example.Arn,
+//						Type:  pulumi.String("CUSTOMER_KMS"),
+//					},
+//				},
 //				TlsInspectionConfiguration: &networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationArgs{
 //					ServerCertificateConfigurations: []map[string]interface{}{
 //						map[string]interface{}{
+//							"certificateAuthorityArn": example1.Arn,
 //							"checkCertificateRevocationStatus": []map[string]string{
 //								{
 //									"revokedStatusAction": "REJECT",
@@ -273,10 +282,8 @@ import (
 //							},
 //							"scope": []map[string]interface{}{
 //								map[string]interface{}{
-//									"destination": []map[string]string{
-//										{
-//											"addressDefinition": "0.0.0.0/0",
-//										},
+//									"protocols": []int{
+//										6,
 //									},
 //									"destinationPorts": []map[string]int{
 //										{
@@ -284,7 +291,7 @@ import (
 //											"toPort":   443,
 //										},
 //									},
-//									"source": []map[string]string{
+//									"destination": []map[string]string{
 //										{
 //											"addressDefinition": "0.0.0.0/0",
 //										},
@@ -295,23 +302,16 @@ import (
 //											"toPort":   65535,
 //										},
 //									},
-//									"protocols": []int{
-//										6,
+//									"source": []map[string]string{
+//										{
+//											"addressDefinition": "0.0.0.0/0",
+//										},
 //									},
 //								},
 //							},
-//							"certificateAuthorityArn": example1.Arn,
 //						},
 //					},
 //				},
-//				EncryptionConfigurations: networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArray{
-//					&networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArgs{
-//						KeyId: example.Arn,
-//						Type:  pulumi.String("CUSTOMER_KMS"),
-//					},
-//				},
-//				Name:        pulumi.String("example"),
-//				Description: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -337,14 +337,31 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.NewTlsInspectionConfiguration(ctx, "example", &networkfirewall.TlsInspectionConfigurationArgs{
+//				Name:        pulumi.String("example"),
+//				Description: pulumi.String("example"),
+//				EncryptionConfigurations: networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArray{
+//					&networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArgs{
+//						KeyId: pulumi.String("AWS_OWNED_KMS_KEY"),
+//						Type:  pulumi.String("AWS_OWNED_KMS_KEY"),
+//					},
+//				},
 //				TlsInspectionConfiguration: &networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationArgs{
 //					ServerCertificateConfiguration: &networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs{
+//						CertificateAuthorityArn: pulumi.Any(example1.Arn),
 //						CheckCertificateRevocationStatus: &networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs{
 //							RevokedStatusAction: pulumi.String("REJECT"),
 //							UnknownStatusAction: pulumi.String("PASS"),
 //						},
+//						ServerCertificates: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArray{
+//							&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs{
+//								ResourceArn: pulumi.Any(example2.Arn),
+//							},
+//						},
 //						Scopes: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArray{
 //							&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs{
+//								Protocols: pulumi.IntArray{
+//									pulumi.Int(6),
+//								},
 //								DestinationPorts: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArray{
 //									&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs{
 //										FromPort: pulumi.Int(443),
@@ -367,27 +384,10 @@ import (
 //										AddressDefinition: pulumi.String("0.0.0.0/0"),
 //									},
 //								},
-//								Protocols: pulumi.IntArray{
-//									pulumi.Int(6),
-//								},
 //							},
 //						},
-//						ServerCertificates: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArray{
-//							&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs{
-//								ResourceArn: pulumi.Any(example2.Arn),
-//							},
-//						},
-//						CertificateAuthorityArn: pulumi.Any(example1.Arn),
 //					},
 //				},
-//				EncryptionConfigurations: networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArray{
-//					&networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArgs{
-//						KeyId: pulumi.String("AWS_OWNED_KMS_KEY"),
-//						Type:  pulumi.String("AWS_OWNED_KMS_KEY"),
-//					},
-//				},
-//				Name:        pulumi.String("example"),
-//				Description: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

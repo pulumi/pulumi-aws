@@ -44,6 +44,12 @@ import (
 //				return err
 //			}
 //			_, err = workspaces.NewWorkspace(ctx, "example", &workspaces.WorkspaceArgs{
+//				DirectoryId:                 pulumi.Any(exampleAwsWorkspacesDirectory.Id),
+//				BundleId:                    pulumi.String(valueWindows10.Id),
+//				UserName:                    pulumi.String("john.doe"),
+//				RootVolumeEncryptionEnabled: pulumi.Bool(true),
+//				UserVolumeEncryptionEnabled: pulumi.Bool(true),
+//				VolumeEncryptionKey:         pulumi.String(workspaces2.Arn),
 //				WorkspaceProperties: &workspaces.WorkspaceWorkspacePropertiesArgs{
 //					ComputeTypeName:                     pulumi.String("VALUE"),
 //					UserVolumeSizeGib:                   pulumi.Int(10),
@@ -51,12 +57,6 @@ import (
 //					RunningMode:                         pulumi.String("AUTO_STOP"),
 //					RunningModeAutoStopTimeoutInMinutes: pulumi.Int(60),
 //				},
-//				DirectoryId:                 pulumi.Any(exampleAwsWorkspacesDirectory.Id),
-//				BundleId:                    pulumi.String(valueWindows10.Id),
-//				UserName:                    pulumi.String("john.doe"),
-//				RootVolumeEncryptionEnabled: pulumi.Bool(true),
-//				UserVolumeEncryptionEnabled: pulumi.Bool(true),
-//				VolumeEncryptionKey:         pulumi.String(workspaces2.Arn),
 //				Tags: pulumi.StringMap{
 //					"Department": pulumi.String("IT"),
 //				},

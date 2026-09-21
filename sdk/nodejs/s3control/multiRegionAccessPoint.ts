@@ -25,6 +25,7 @@ import * as utilities from "../utilities";
  * const fooBucket = new aws.s3.Bucket("foo_bucket", {bucket: "example-bucket-foo"});
  * const barBucket = new aws.s3.Bucket("bar_bucket", {bucket: "example-bucket-bar"});
  * const example = new aws.s3control.MultiRegionAccessPoint("example", {details: {
+ *     name: "example",
  *     regions: [
  *         {
  *             bucket: fooBucket.id,
@@ -33,7 +34,6 @@ import * as utilities from "../utilities";
  *             bucket: barBucket.id,
  *         },
  *     ],
- *     name: "example",
  * }});
  * ```
  *

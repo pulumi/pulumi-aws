@@ -26,11 +26,11 @@ namespace Pulumi.Aws.SecurityLake
     /// {
     ///     var example = new Aws.SecurityLake.SubscriberNotification("example", new()
     ///     {
+    ///         SubscriberId = exampleAwsSecuritylakeSubscriber.Id,
     ///         Configuration = new Aws.SecurityLake.Inputs.SubscriberNotificationConfigurationArgs
     ///         {
     ///             SqsNotificationConfiguration = null,
     ///         },
-    ///         SubscriberId = exampleAwsSecuritylakeSubscriber.Id,
     ///     });
     /// 
     /// });
@@ -48,6 +48,7 @@ namespace Pulumi.Aws.SecurityLake
     /// {
     ///     var example = new Aws.SecurityLake.SubscriberNotification("example", new()
     ///     {
+    ///         SubscriberId = exampleAwsSecuritylakeSubscriber.Id,
     ///         Configuration = new Aws.SecurityLake.Inputs.SubscriberNotificationConfigurationArgs
     ///         {
     ///             HttpsNotificationConfiguration = new Aws.SecurityLake.Inputs.SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs
@@ -56,7 +57,6 @@ namespace Pulumi.Aws.SecurityLake
     ///                 TargetRoleArn = eventBridge.Arn,
     ///             },
     ///         },
-    ///         SubscriberId = exampleAwsSecuritylakeSubscriber.Id,
     ///     });
     /// 
     /// });

@@ -62,6 +62,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testInventory = new Inventory("testInventory", InventoryArgs.builder()
+ *             .bucket(test.id())
+ *             .name("EntireBucketDaily")
+ *             .includedObjectVersions("All")
  *             .schedule(InventoryScheduleArgs.builder()
  *                 .frequency("Daily")
  *                 .build())
@@ -71,9 +74,6 @@ import javax.annotation.Nullable;
  *                     .bucketArn(inventory.arn())
  *                     .build())
  *                 .build())
- *             .bucket(test.id())
- *             .name("EntireBucketDaily")
- *             .includedObjectVersions("All")
  *             .build());
  * 
  *     }
@@ -120,6 +120,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test_prefix = new Inventory("test-prefix", InventoryArgs.builder()
+ *             .bucket(test.id())
+ *             .name("DocumentsWeekly")
+ *             .includedObjectVersions("All")
  *             .schedule(InventoryScheduleArgs.builder()
  *                 .frequency("Daily")
  *                 .build())
@@ -133,9 +136,6 @@ import javax.annotation.Nullable;
  *                     .prefix("inventory")
  *                     .build())
  *                 .build())
- *             .bucket(test.id())
- *             .name("DocumentsWeekly")
- *             .includedObjectVersions("All")
  *             .build());
  * 
  *     }

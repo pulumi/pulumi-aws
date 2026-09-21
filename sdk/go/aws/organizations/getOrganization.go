@@ -68,6 +68,11 @@ import (
 //			snsTopicPolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("SNS:Subscribe"),
+//							pulumi.String("SNS:Publish"),
+//						},
 //						Conditions: iam.GetPolicyDocumentStatementConditionArray{
 //							&iam.GetPolicyDocumentStatementConditionArgs{
 //								Test:     pulumi.String("StringEquals"),
@@ -84,11 +89,6 @@ import (
 //									pulumi.String("*"),
 //								},
 //							},
-//						},
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("SNS:Subscribe"),
-//							pulumi.String("SNS:Publish"),
 //						},
 //						Resources: pulumi.StringArray{
 //							snsTopic.Arn,

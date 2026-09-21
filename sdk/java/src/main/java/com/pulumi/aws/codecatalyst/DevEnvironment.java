@@ -50,6 +50,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new DevEnvironment("test", DevEnvironmentArgs.builder()
+ *             .alias("devenv")
+ *             .spaceName("myspace")
+ *             .projectName("myproject")
+ *             .instanceType("dev.standard1.small")
  *             .persistentStorage(DevEnvironmentPersistentStorageArgs.builder()
  *                 .size(16)
  *                 .build())
@@ -57,15 +61,11 @@ import javax.annotation.Nullable;
  *                 .name("PyCharm")
  *                 .runtime("public.ecr.aws/jetbrains/py")
  *                 .build())
+ *             .inactivityTimeoutMinutes(40)
  *             .repositories(DevEnvironmentRepositoryArgs.builder()
  *                 .repositoryName("pulumi-provider-aws")
  *                 .branchName("main")
  *                 .build())
- *             .alias("devenv")
- *             .spaceName("myspace")
- *             .projectName("myproject")
- *             .instanceType("dev.standard1.small")
- *             .inactivityTimeoutMinutes(40)
  *             .build());
  * 
  *     }

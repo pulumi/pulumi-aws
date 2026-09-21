@@ -198,7 +198,7 @@ class AwaitableGetAttachmentResult(GetAttachmentResult):
             transit_gateway_owner_id=self.transit_gateway_owner_id)
 
 
-def get_attachment(filters: Optional[Sequence[Union['GetAttachmentFilterArgs', 'GetAttachmentFilterArgsDict']]] = None,
+def get_attachment(filters: Optional[Sequence[Union['GetAttachmentFilterArgs', 'GetAttachmentFilterArgsDict', 'outputs.GetAttachmentFilterResult']]] = None,
                    region: Optional[_builtins.str] = None,
                    tags: Optional[Mapping[str, _builtins.str]] = None,
                    transit_gateway_attachment_id: Optional[_builtins.str] = None,
@@ -225,7 +225,7 @@ def get_attachment(filters: Optional[Sequence[Union['GetAttachmentFilterArgs', '
     ```
 
 
-    :param Sequence[Union['GetAttachmentFilterArgs', 'GetAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetAttachmentFilterArgs', 'GetAttachmentFilterArgsDict', 'outputs.GetAttachmentFilterResult']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Key-value tags for the attachment.
     :param _builtins.str transit_gateway_attachment_id: ID of the attachment.
@@ -253,7 +253,7 @@ def get_attachment(filters: Optional[Sequence[Union['GetAttachmentFilterArgs', '
         transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
         transit_gateway_owner_id=pulumi.get(__ret__, 'transit_gateway_owner_id'))
-def get_attachment_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetAttachmentFilterArgs', 'GetAttachmentFilterArgsDict']]]]] = None,
+def get_attachment_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetAttachmentFilterArgs', 'GetAttachmentFilterArgsDict', 'outputs.GetAttachmentFilterResult']]]]] = None,
                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                           transit_gateway_attachment_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -280,7 +280,7 @@ def get_attachment_output(filters: pulumi.Input[Optional[Optional[Sequence[Union
     ```
 
 
-    :param Sequence[Union['GetAttachmentFilterArgs', 'GetAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetAttachmentFilterArgs', 'GetAttachmentFilterArgsDict', 'outputs.GetAttachmentFilterResult']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Key-value tags for the attachment.
     :param _builtins.str transit_gateway_attachment_id: ID of the attachment.

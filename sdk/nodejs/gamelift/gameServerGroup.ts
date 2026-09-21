@@ -17,9 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.gamelift.GameServerGroup("example", {
- *     launchTemplate: {
- *         id: exampleAwsLaunchTemplate.id,
- *     },
+ *     gameServerGroupName: "example",
  *     instanceDefinitions: [
  *         {
  *             instanceType: "c5.large",
@@ -28,7 +26,9 @@ import * as utilities from "../utilities";
  *             instanceType: "c5a.large",
  *         },
  *     ],
- *     gameServerGroupName: "example",
+ *     launchTemplate: {
+ *         id: exampleAwsLaunchTemplate.id,
+ *     },
  *     maxSize: 1,
  *     minSize: 1,
  *     roleArn: exampleAwsIamRole.arn,
@@ -45,15 +45,14 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.gamelift.GameServerGroup("example", {
  *     autoScalingPolicy: {
+ *         estimatedInstanceWarmup: 60,
  *         targetTrackingConfiguration: {
  *             targetValue: 75,
  *         },
- *         estimatedInstanceWarmup: 60,
  *     },
- *     launchTemplate: {
- *         id: exampleAwsLaunchTemplate.id,
- *         version: "1",
- *     },
+ *     balancingStrategy: "SPOT_ONLY",
+ *     gameServerGroupName: "example",
+ *     gameServerProtectionPolicy: "FULL_PROTECTION",
  *     instanceDefinitions: [
  *         {
  *             instanceType: "c5.large",
@@ -64,9 +63,10 @@ import * as utilities from "../utilities";
  *             weightedCapacity: "2",
  *         },
  *     ],
- *     balancingStrategy: "SPOT_ONLY",
- *     gameServerGroupName: "example",
- *     gameServerProtectionPolicy: "FULL_PROTECTION",
+ *     launchTemplate: {
+ *         id: exampleAwsLaunchTemplate.id,
+ *         version: "1",
+ *     },
  *     maxSize: 1,
  *     minSize: 1,
  *     roleArn: exampleAwsIamRole.arn,
@@ -91,6 +91,7 @@ import * as utilities from "../utilities";
  * const current = aws.getPartition({});
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
+ *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: [
@@ -98,7 +99,6 @@ import * as utilities from "../utilities";
  *                 "gamelift.amazonaws.com",
  *             ],
  *         }],
- *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });

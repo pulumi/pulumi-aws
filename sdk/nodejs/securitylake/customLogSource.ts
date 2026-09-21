@@ -21,6 +21,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.securitylake.CustomLogSource("example", {
+ *     sourceName: "example-name",
+ *     sourceVersion: "1.0",
+ *     eventClasses: ["FILE_ACTIVITY"],
  *     configuration: {
  *         crawlerConfiguration: {
  *             roleArn: customLog.arn,
@@ -30,9 +33,6 @@ import * as utilities from "../utilities";
  *             principal: "123456789012",
  *         },
  *     },
- *     sourceName: "example-name",
- *     sourceVersion: "1.0",
- *     eventClasses: ["FILE_ACTIVITY"],
  * }, {
  *     dependsOn: [exampleAwsSecuritylakeDataLake],
  * });

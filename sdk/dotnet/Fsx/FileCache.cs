@@ -29,6 +29,13 @@ namespace Pulumi.Aws.Fsx
     ///         {
     ///             new Aws.Fsx.Inputs.FileCacheDataRepositoryAssociationArgs
     ///             {
+    ///                 DataRepositoryPath = "nfs://filer.domain.com",
+    ///                 DataRepositorySubdirectories = new[]
+    ///                 {
+    ///                     "test",
+    ///                     "test2",
+    ///                 },
+    ///                 FileCachePath = "/ns1",
     ///                 Nfs = new[]
     ///                 {
     ///                     new Aws.Fsx.Inputs.FileCacheDataRepositoryAssociationNfArgs
@@ -41,19 +48,15 @@ namespace Pulumi.Aws.Fsx
     ///                         Version = "NFS3",
     ///                     },
     ///                 },
-    ///                 DataRepositoryPath = "nfs://filer.domain.com",
-    ///                 DataRepositorySubdirectories = new[]
-    ///                 {
-    ///                     "test",
-    ///                     "test2",
-    ///                 },
-    ///                 FileCachePath = "/ns1",
     ///             },
     ///         },
+    ///         FileCacheType = "LUSTRE",
+    ///         FileCacheTypeVersion = "2.12",
     ///         LustreConfigurations = new[]
     ///         {
     ///             new Aws.Fsx.Inputs.FileCacheLustreConfigurationArgs
     ///             {
+    ///                 DeploymentType = "CACHE_1",
     ///                 MetadataConfigurations = new[]
     ///                 {
     ///                     new Aws.Fsx.Inputs.FileCacheLustreConfigurationMetadataConfigurationArgs
@@ -61,13 +64,10 @@ namespace Pulumi.Aws.Fsx
     ///                         StorageCapacity = 2400,
     ///                     },
     ///                 },
-    ///                 DeploymentType = "CACHE_1",
     ///                 PerUnitStorageThroughput = 1000,
     ///                 WeeklyMaintenanceStartTime = "2:05:00",
     ///             },
     ///         },
-    ///         FileCacheType = "LUSTRE",
-    ///         FileCacheTypeVersion = "2.12",
     ///         SubnetIds = new[]
     ///         {
     ///             test1.Id,

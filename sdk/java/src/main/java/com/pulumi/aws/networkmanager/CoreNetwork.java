@@ -175,11 +175,11 @@ import javax.annotation.Nullable;
  * 
  *         final var base = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
  *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
+ *                 .asnRanges("65022-65534")
  *                 .edgeLocations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
  *                     .location("us-west-2")
  *                     .asn("65500")
  *                     .build())
- *                 .asnRanges("65022-65534")
  *                 .build())
  *             .segments(GetCoreNetworkPolicyDocumentSegmentArgs.builder()
  *                 .name("segment")
@@ -200,20 +200,20 @@ import javax.annotation.Nullable;
  * 
  *         final var example = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
  *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
+ *                 .asnRanges("65022-65534")
  *                 .edgeLocations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
  *                     .location("us-west-2")
  *                     .asn("65500")
  *                     .build())
- *                 .asnRanges("65022-65534")
+ *                 .build())
+ *             .segments(GetCoreNetworkPolicyDocumentSegmentArgs.builder()
+ *                 .name("segment")
  *                 .build())
  *             .segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
  *                 .action("create-route")
  *                 .segment("segment")
  *                 .destinationCidrBlocks("0.0.0.0/0")
  *                 .destinations(exampleVpcAttachment.id())
- *                 .build())
- *             .segments(GetCoreNetworkPolicyDocumentSegmentArgs.builder()
- *                 .name("segment")
  *                 .build())
  *             .build());
  * 
@@ -245,8 +245,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentArgs;
  * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs;
  * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs;
- * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentActionArgs;
  * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentArgs;
+ * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentActionArgs;
  * import com.pulumi.aws.networkmanager.CoreNetworkPolicyAttachment;
  * import com.pulumi.aws.networkmanager.CoreNetworkPolicyAttachmentArgs;
  * import java.util.ArrayList;
@@ -277,19 +277,19 @@ import javax.annotation.Nullable;
  * 
  *         final var example = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
  *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
+ *                 .asnRanges("65022-65534")
  *                 .edgeLocations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
  *                     .location("us-west-2")
  *                     .build())
- *                 .asnRanges("65022-65534")
+ *                 .build())
+ *             .segments(GetCoreNetworkPolicyDocumentSegmentArgs.builder()
+ *                 .name("segment")
  *                 .build())
  *             .segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
  *                 .action("create-route")
  *                 .segment("segment")
  *                 .destinationCidrBlocks("0.0.0.0/0")
  *                 .destinations(exampleVpcAttachment.id())
- *                 .build())
- *             .segments(GetCoreNetworkPolicyDocumentSegmentArgs.builder()
- *                 .name("segment")
  *                 .build())
  *             .build());
  * 
@@ -349,6 +349,7 @@ import javax.annotation.Nullable;
  * 
  *         final var base = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
  *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
+ *                 .asnRanges("65022-65534")
  *                 .edgeLocations(                
  *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
  *                         .location("us-west-2")
@@ -358,7 +359,6 @@ import javax.annotation.Nullable;
  *                         .location("us-east-1")
  *                         .asn("65501")
  *                         .build())
- *                 .asnRanges("65022-65534")
  *                 .build())
  *             .segments(GetCoreNetworkPolicyDocumentSegmentArgs.builder()
  *                 .name("segment")
@@ -385,6 +385,7 @@ import javax.annotation.Nullable;
  * 
  *         final var example = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
  *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
+ *                 .asnRanges("65022-65534")
  *                 .edgeLocations(                
  *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
  *                         .location("us-west-2")
@@ -394,8 +395,14 @@ import javax.annotation.Nullable;
  *                         .location("us-east-1")
  *                         .asn("65501")
  *                         .build())
- *                 .asnRanges("65022-65534")
  *                 .build())
+ *             .segments(            
+ *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
+ *                     .name("segment")
+ *                     .build(),
+ *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
+ *                     .name("segment2")
+ *                     .build())
  *             .segmentActions(            
  *                 GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
  *                     .action("create-route")
@@ -408,13 +415,6 @@ import javax.annotation.Nullable;
  *                     .segment("segment")
  *                     .destinationCidrBlocks("10.1.0.0/16")
  *                     .destinations(exampleUsEast1.id())
- *                     .build())
- *             .segments(            
- *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
- *                     .name("segment")
- *                     .build(),
- *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
- *                     .name("segment2")
  *                     .build())
  *             .build());
  * 
@@ -446,8 +446,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentArgs;
  * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs;
  * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs;
- * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentActionArgs;
  * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentArgs;
+ * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentActionArgs;
  * import com.pulumi.aws.networkmanager.CoreNetworkPolicyAttachment;
  * import com.pulumi.aws.networkmanager.CoreNetworkPolicyAttachmentArgs;
  * import java.util.ArrayList;
@@ -487,6 +487,7 @@ import javax.annotation.Nullable;
  * 
  *         final var example = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
  *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
+ *                 .asnRanges("65022-65534")
  *                 .edgeLocations(                
  *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
  *                         .location("us-west-2")
@@ -494,8 +495,14 @@ import javax.annotation.Nullable;
  *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
  *                         .location("us-east-1")
  *                         .build())
- *                 .asnRanges("65022-65534")
  *                 .build())
+ *             .segments(            
+ *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
+ *                     .name("segment")
+ *                     .build(),
+ *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
+ *                     .name("segment2")
+ *                     .build())
  *             .segmentActions(            
  *                 GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
  *                     .action("create-route")
@@ -508,13 +515,6 @@ import javax.annotation.Nullable;
  *                     .segment("segment")
  *                     .destinationCidrBlocks("10.1.0.0/16")
  *                     .destinations(exampleUsEast1.id())
- *                     .build())
- *             .segments(            
- *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
- *                     .name("segment")
- *                     .build(),
- *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
- *                     .name("segment2")
  *                     .build())
  *             .build());
  * 

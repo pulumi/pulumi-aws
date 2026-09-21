@@ -152,7 +152,7 @@ class SizeConstraintSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 size_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SizeConstraintSetSizeConstraintArgs', 'SizeConstraintSetSizeConstraintArgsDict']]]]] = None,
+                 size_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SizeConstraintSetSizeConstraintArgs', 'SizeConstraintSetSizeConstraintArgsDict', 'outputs.SizeConstraintSetSizeConstraint']]]]] = None,
                  __props__=None):
         """
         Provides a WAF Regional Size Constraint Set Resource for use with Application Load Balancer.
@@ -164,15 +164,15 @@ class SizeConstraintSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         size_constraint_set = aws.wafregional.SizeConstraintSet("size_constraint_set",
+            name="tfsize_constraints",
             size_constraints=[{
-                "field_to_match": {
-                    "type": "BODY",
-                },
                 "text_transformation": "NONE",
                 "comparison_operator": "EQ",
                 "size": 4096,
-            }],
-            name="tfsize_constraints")
+                "field_to_match": {
+                    "type": "BODY",
+                },
+            }])
         ```
 
         ## Import
@@ -188,7 +188,7 @@ class SizeConstraintSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name or description of the Size Constraint Set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SizeConstraintSetSizeConstraintArgs', 'SizeConstraintSetSizeConstraintArgsDict']]]] size_constraints: Specifies the parts of web requests that you want to inspect the size of.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SizeConstraintSetSizeConstraintArgs', 'SizeConstraintSetSizeConstraintArgsDict', 'outputs.SizeConstraintSetSizeConstraint']]]] size_constraints: Specifies the parts of web requests that you want to inspect the size of.
         """
         ...
     @overload
@@ -206,15 +206,15 @@ class SizeConstraintSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         size_constraint_set = aws.wafregional.SizeConstraintSet("size_constraint_set",
+            name="tfsize_constraints",
             size_constraints=[{
-                "field_to_match": {
-                    "type": "BODY",
-                },
                 "text_transformation": "NONE",
                 "comparison_operator": "EQ",
                 "size": 4096,
-            }],
-            name="tfsize_constraints")
+                "field_to_match": {
+                    "type": "BODY",
+                },
+            }])
         ```
 
         ## Import
@@ -243,7 +243,7 @@ class SizeConstraintSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 size_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SizeConstraintSetSizeConstraintArgs', 'SizeConstraintSetSizeConstraintArgsDict']]]]] = None,
+                 size_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SizeConstraintSetSizeConstraintArgs', 'SizeConstraintSetSizeConstraintArgsDict', 'outputs.SizeConstraintSetSizeConstraint']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -270,7 +270,7 @@ class SizeConstraintSet(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            size_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SizeConstraintSetSizeConstraintArgs', 'SizeConstraintSetSizeConstraintArgsDict']]]]] = None) -> 'SizeConstraintSet':
+            size_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SizeConstraintSetSizeConstraintArgs', 'SizeConstraintSetSizeConstraintArgsDict', 'outputs.SizeConstraintSetSizeConstraint']]]]] = None) -> 'SizeConstraintSet':
         """
         Get an existing SizeConstraintSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -280,7 +280,7 @@ class SizeConstraintSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name or description of the Size Constraint Set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SizeConstraintSetSizeConstraintArgs', 'SizeConstraintSetSizeConstraintArgsDict']]]] size_constraints: Specifies the parts of web requests that you want to inspect the size of.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SizeConstraintSetSizeConstraintArgs', 'SizeConstraintSetSizeConstraintArgsDict', 'outputs.SizeConstraintSetSizeConstraint']]]] size_constraints: Specifies the parts of web requests that you want to inspect the size of.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

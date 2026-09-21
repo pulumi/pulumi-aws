@@ -45,6 +45,7 @@ namespace Pulumi.Aws.Transfer
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -56,7 +57,6 @@ namespace Pulumi.Aws.Transfer
     ///                         },
     ///                     },
     ///                 },
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",

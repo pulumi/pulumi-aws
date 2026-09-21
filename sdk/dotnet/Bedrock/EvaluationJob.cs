@@ -28,6 +28,8 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.EvaluationJob("example", new()
     ///     {
+    ///         JobName = "example-job",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         EvaluationConfig = new Aws.Bedrock.Inputs.EvaluationJobEvaluationConfigArgs
     ///         {
     ///             Automated = new Aws.Bedrock.Inputs.EvaluationJobEvaluationConfigAutomatedArgs
@@ -36,11 +38,11 @@ namespace Pulumi.Aws.Bedrock
     ///                 {
     ///                     new Aws.Bedrock.Inputs.EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs
     ///                     {
+    ///                         TaskType = "Generation",
     ///                         Dataset = new Aws.Bedrock.Inputs.EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetArgs
     ///                         {
     ///                             Name = "Builtin.Bold",
     ///                         },
-    ///                         TaskType = "Generation",
     ///                         MetricNames = new[]
     ///                         {
     ///                             "Builtin.Robustness",
@@ -66,8 +68,6 @@ namespace Pulumi.Aws.Bedrock
     ///         {
     ///             S3Uri = $"s3://{exampleAwsS3Bucket.Id}/output/",
     ///         },
-    ///         JobName = "example-job",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });

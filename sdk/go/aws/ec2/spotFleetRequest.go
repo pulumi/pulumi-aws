@@ -36,6 +36,11 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Request a Spot fleet
 //			_, err := ec2.NewSpotFleetRequest(ctx, "cheap_compute", &ec2.SpotFleetRequestArgs{
+//				IamFleetRole:       pulumi.String("arn:aws:iam::12345678:role/spot-fleet"),
+//				SpotPrice:          pulumi.String("0.03"),
+//				AllocationStrategy: pulumi.String("diversified"),
+//				TargetCapacity:     pulumi.Int(6),
+//				ValidUntil:         pulumi.String("2019-11-04T20:44:20Z"),
 //				LaunchSpecifications: ec2.SpotFleetRequestLaunchSpecificationArray{
 //					&ec2.SpotFleetRequestLaunchSpecificationArgs{
 //						InstanceType:          pulumi.String("m4.10xlarge"),
@@ -45,12 +50,6 @@ import (
 //						IamInstanceProfileArn: pulumi.Any(example.Arn),
 //					},
 //					&ec2.SpotFleetRequestLaunchSpecificationArgs{
-//						RootBlockDevices: ec2.SpotFleetRequestLaunchSpecificationRootBlockDeviceArray{
-//							&ec2.SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs{
-//								VolumeSize: pulumi.Int(300),
-//								VolumeType: pulumi.String("gp2"),
-//							},
-//						},
 //						InstanceType:          pulumi.String("m4.4xlarge"),
 //						Ami:                   pulumi.String("ami-5678"),
 //						KeyName:               pulumi.String("my-key"),
@@ -59,16 +58,17 @@ import (
 //						AvailabilityZone:      pulumi.String("us-west-1a"),
 //						SubnetId:              pulumi.String("subnet-1234"),
 //						WeightedCapacity:      pulumi.String("35"),
+//						RootBlockDevices: ec2.SpotFleetRequestLaunchSpecificationRootBlockDeviceArray{
+//							&ec2.SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs{
+//								VolumeSize: pulumi.Int(300),
+//								VolumeType: pulumi.String("gp2"),
+//							},
+//						},
 //						Tags: pulumi.StringMap{
 //							"Name": pulumi.String("spot-fleet-example"),
 //						},
 //					},
 //				},
-//				IamFleetRole:       pulumi.String("arn:aws:iam::12345678:role/spot-fleet"),
-//				SpotPrice:          pulumi.String("0.03"),
-//				AllocationStrategy: pulumi.String("diversified"),
-//				TargetCapacity:     pulumi.Int(6),
-//				ValidUntil:         pulumi.String("2019-11-04T20:44:20Z"),
 //			})
 //			if err != nil {
 //				return err
@@ -103,6 +103,10 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewSpotFleetRequest(ctx, "foo", &ec2.SpotFleetRequestArgs{
+//				IamFleetRole:   pulumi.String("arn:aws:iam::12345678:role/spot-fleet"),
+//				SpotPrice:      pulumi.String("0.005"),
+//				TargetCapacity: pulumi.Int(2),
+//				ValidUntil:     pulumi.String("2019-11-04T20:44:20Z"),
 //				LaunchTemplateConfigs: ec2.SpotFleetRequestLaunchTemplateConfigArray{
 //					&ec2.SpotFleetRequestLaunchTemplateConfigArgs{
 //						LaunchTemplateSpecification: &ec2.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs{
@@ -111,10 +115,6 @@ import (
 //						},
 //					},
 //				},
-//				IamFleetRole:   pulumi.String("arn:aws:iam::12345678:role/spot-fleet"),
-//				SpotPrice:      pulumi.String("0.005"),
-//				TargetCapacity: pulumi.Int(2),
-//				ValidUntil:     pulumi.String("2019-11-04T20:44:20Z"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				test_attach,
 //			}))
@@ -145,6 +145,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewSpotFleetRequest(ctx, "foo", &ec2.SpotFleetRequestArgs{
+//				IamFleetRole:   pulumi.String("arn:aws:iam::12345678:role/spot-fleet"),
+//				SpotPrice:      pulumi.String("0.005"),
+//				TargetCapacity: pulumi.Int(2),
+//				ValidUntil:     pulumi.String("2019-11-04T20:44:20Z"),
 //				LaunchSpecifications: ec2.SpotFleetRequestLaunchSpecificationArray{
 //					&ec2.SpotFleetRequestLaunchSpecificationArgs{
 //						InstanceType:     pulumi.String("m1.small"),
@@ -159,10 +163,6 @@ import (
 //						AvailabilityZone: pulumi.String("us-west-2a"),
 //					},
 //				},
-//				IamFleetRole:   pulumi.String("arn:aws:iam::12345678:role/spot-fleet"),
-//				SpotPrice:      pulumi.String("0.005"),
-//				TargetCapacity: pulumi.Int(2),
-//				ValidUntil:     pulumi.String("2019-11-04T20:44:20Z"),
 //			})
 //			if err != nil {
 //				return err
@@ -212,6 +212,10 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewSpotFleetRequest(ctx, "foo", &ec2.SpotFleetRequestArgs{
+//				IamFleetRole:   pulumi.String("arn:aws:iam::12345678:role/spot-fleet"),
+//				SpotPrice:      pulumi.String("0.005"),
+//				TargetCapacity: pulumi.Int(2),
+//				ValidUntil:     pulumi.String("2019-11-04T20:44:20Z"),
 //				LaunchTemplateConfigs: ec2.SpotFleetRequestLaunchTemplateConfigArray{
 //					&ec2.SpotFleetRequestLaunchTemplateConfigArgs{
 //						LaunchTemplateSpecification: &ec2.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs{
@@ -231,10 +235,6 @@ import (
 //						},
 //					},
 //				},
-//				IamFleetRole:   pulumi.String("arn:aws:iam::12345678:role/spot-fleet"),
-//				SpotPrice:      pulumi.String("0.005"),
-//				TargetCapacity: pulumi.Int(2),
-//				ValidUntil:     pulumi.String("2019-11-04T20:44:20Z"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				test_attach,
 //			}))

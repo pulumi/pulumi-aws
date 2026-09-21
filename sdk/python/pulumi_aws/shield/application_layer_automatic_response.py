@@ -130,7 +130,7 @@ class ApplicationLayerAutomaticResponse(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ApplicationLayerAutomaticResponseTimeoutsArgs', 'ApplicationLayerAutomaticResponseTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ApplicationLayerAutomaticResponseTimeoutsArgs', 'ApplicationLayerAutomaticResponseTimeoutsArgsDict', 'outputs.ApplicationLayerAutomaticResponseTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Shield Application Layer Automatic Response for automatic DDoS mitigation.
@@ -206,7 +206,7 @@ class ApplicationLayerAutomaticResponse(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ApplicationLayerAutomaticResponseTimeoutsArgs', 'ApplicationLayerAutomaticResponseTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ApplicationLayerAutomaticResponseTimeoutsArgs', 'ApplicationLayerAutomaticResponseTimeoutsArgsDict', 'outputs.ApplicationLayerAutomaticResponseTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -235,7 +235,7 @@ class ApplicationLayerAutomaticResponse(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             action: pulumi.Input[Optional[_builtins.str]] = None,
             resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['ApplicationLayerAutomaticResponseTimeoutsArgs', 'ApplicationLayerAutomaticResponseTimeoutsArgsDict']]] = None) -> 'ApplicationLayerAutomaticResponse':
+            timeouts: pulumi.Input[Optional[Union['ApplicationLayerAutomaticResponseTimeoutsArgs', 'ApplicationLayerAutomaticResponseTimeoutsArgsDict', 'outputs.ApplicationLayerAutomaticResponseTimeouts']]] = None) -> 'ApplicationLayerAutomaticResponse':
         """
         Get an existing ApplicationLayerAutomaticResponse resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

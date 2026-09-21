@@ -256,7 +256,7 @@ class Vault(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notification: pulumi.Input[Optional[Union['VaultNotificationArgs', 'VaultNotificationArgsDict']]] = None,
+                 notification: pulumi.Input[Optional[Union['VaultNotificationArgs', 'VaultNotificationArgsDict', 'outputs.VaultNotification']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -273,12 +273,12 @@ class Vault(pulumi.CustomResource):
 
         aws_sns_topic = aws.sns.Topic("aws_sns_topic", name="glacier-sns-topic")
         my_archive = aws.iam.get_policy_document(statements=[{
+            "sid": "add-read-only-perm",
+            "effect": "Allow",
             "principals": [{
                 "type": "*",
                 "identifiers": ["*"],
             }],
-            "sid": "add-read-only-perm",
-            "effect": "Allow",
             "actions": [
                 "glacier:InitiateJob",
                 "glacier:GetJobOutput",
@@ -286,6 +286,7 @@ class Vault(pulumi.CustomResource):
             "resources": ["arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"],
         }])
         my_archive_vault = aws.glacier.Vault("my_archive",
+            name="MyArchive",
             notification={
                 "sns_topic": aws_sns_topic.arn,
                 "events": [
@@ -293,7 +294,6 @@ class Vault(pulumi.CustomResource):
                     "InventoryRetrievalCompleted",
                 ],
             },
-            name="MyArchive",
             access_policy=my_archive.json,
             tags={
                 "Test": "MyArchive",
@@ -314,7 +314,7 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] access_policy: The policy document. This is a JSON formatted string.
                The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
         :param pulumi.Input[_builtins.str] name: The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
-        :param pulumi.Input[Union['VaultNotificationArgs', 'VaultNotificationArgsDict']] notification: The notifications for the Vault. Fields documented below.
+        :param pulumi.Input[Union['VaultNotificationArgs', 'VaultNotificationArgsDict', 'outputs.VaultNotification']] notification: The notifications for the Vault. Fields documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -337,12 +337,12 @@ class Vault(pulumi.CustomResource):
 
         aws_sns_topic = aws.sns.Topic("aws_sns_topic", name="glacier-sns-topic")
         my_archive = aws.iam.get_policy_document(statements=[{
+            "sid": "add-read-only-perm",
+            "effect": "Allow",
             "principals": [{
                 "type": "*",
                 "identifiers": ["*"],
             }],
-            "sid": "add-read-only-perm",
-            "effect": "Allow",
             "actions": [
                 "glacier:InitiateJob",
                 "glacier:GetJobOutput",
@@ -350,6 +350,7 @@ class Vault(pulumi.CustomResource):
             "resources": ["arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"],
         }])
         my_archive_vault = aws.glacier.Vault("my_archive",
+            name="MyArchive",
             notification={
                 "sns_topic": aws_sns_topic.arn,
                 "events": [
@@ -357,7 +358,6 @@ class Vault(pulumi.CustomResource):
                     "InventoryRetrievalCompleted",
                 ],
             },
-            name="MyArchive",
             access_policy=my_archive.json,
             tags={
                 "Test": "MyArchive",
@@ -390,7 +390,7 @@ class Vault(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notification: pulumi.Input[Optional[Union['VaultNotificationArgs', 'VaultNotificationArgsDict']]] = None,
+                 notification: pulumi.Input[Optional[Union['VaultNotificationArgs', 'VaultNotificationArgsDict', 'outputs.VaultNotification']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -424,7 +424,7 @@ class Vault(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            notification: pulumi.Input[Optional[Union['VaultNotificationArgs', 'VaultNotificationArgsDict']]] = None,
+            notification: pulumi.Input[Optional[Union['VaultNotificationArgs', 'VaultNotificationArgsDict', 'outputs.VaultNotification']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Vault':
@@ -440,7 +440,7 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: The ARN of the vault.
         :param pulumi.Input[_builtins.str] location: The URI of the vault that was created.
         :param pulumi.Input[_builtins.str] name: The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
-        :param pulumi.Input[Union['VaultNotificationArgs', 'VaultNotificationArgsDict']] notification: The notifications for the Vault. Fields documented below.
+        :param pulumi.Input[Union['VaultNotificationArgs', 'VaultNotificationArgsDict', 'outputs.VaultNotification']] notification: The notifications for the Vault. Fields documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

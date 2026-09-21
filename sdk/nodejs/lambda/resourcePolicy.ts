@@ -20,19 +20,19 @@ import * as utilities from "../utilities";
  * const current = aws.getCallerIdentity({});
  * const example = current.then(current => aws.iam.getPolicyDocument({
  *     statements: [{
+ *         sid: "AllowInvokeFromS3",
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["s3.amazonaws.com"],
+ *         }],
+ *         actions: ["lambda:InvokeFunction"],
+ *         resources: [exampleAwsLambdaFunction.arn],
  *         conditions: [{
  *             test: "StringEquals",
  *             variable: "aws:SourceAccount",
  *             values: [current.accountId],
  *         }],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["s3.amazonaws.com"],
- *         }],
- *         sid: "AllowInvokeFromS3",
- *         effect: "Allow",
- *         actions: ["lambda:InvokeFunction"],
- *         resources: [exampleAwsLambdaFunction.arn],
  *     }],
  * }));
  * const exampleResourcePolicy = new aws.lambda.ResourcePolicy("example", {
@@ -50,6 +50,8 @@ import * as utilities from "../utilities";
  * const example = aws.iam.getPolicyDocument({
  *     statements: [
  *         {
+ *             sid: "AllowCrossAccountInvoke",
+ *             effect: "Allow",
  *             principals: [{
  *                 type: "AWS",
  *                 identifiers: [
@@ -57,25 +59,23 @@ import * as utilities from "../utilities";
  *                     "210987654321",
  *                 ],
  *             }],
- *             sid: "AllowCrossAccountInvoke",
- *             effect: "Allow",
  *             actions: ["lambda:InvokeFunction"],
  *             resources: [exampleAwsLambdaFunction.arn],
  *         },
  *         {
+ *             sid: "AllowOrganizationInvoke",
+ *             effect: "Allow",
+ *             principals: [{
+ *                 type: "AWS",
+ *                 identifiers: ["*"],
+ *             }],
+ *             actions: ["lambda:InvokeFunction"],
+ *             resources: [exampleAwsLambdaFunction.arn],
  *             conditions: [{
  *                 test: "StringEquals",
  *                 variable: "aws:PrincipalOrgID",
  *                 values: ["o-1234567890"],
  *             }],
- *             principals: [{
- *                 type: "AWS",
- *                 identifiers: ["*"],
- *             }],
- *             sid: "AllowOrganizationInvoke",
- *             effect: "Allow",
- *             actions: ["lambda:InvokeFunction"],
- *             resources: [exampleAwsLambdaFunction.arn],
  *         },
  *     ],
  * });

@@ -58,6 +58,12 @@ namespace Pulumi.Aws.Organizations
         ///         {
         ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
         ///             {
+        ///                 Effect = "Allow",
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "SNS:Subscribe",
+        ///                     "SNS:Publish",
+        ///                 },
         ///                 Conditions = new[]
         ///                 {
         ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -80,12 +86,6 @@ namespace Pulumi.Aws.Organizations
         ///                             "*",
         ///                         },
         ///                     },
-        ///                 },
-        ///                 Effect = "Allow",
-        ///                 Actions = new[]
-        ///                 {
-        ///                     "SNS:Subscribe",
-        ///                     "SNS:Publish",
         ///                 },
         ///                 Resources = new[]
         ///                 {
@@ -154,6 +154,12 @@ namespace Pulumi.Aws.Organizations
         ///         {
         ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
         ///             {
+        ///                 Effect = "Allow",
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "SNS:Subscribe",
+        ///                     "SNS:Publish",
+        ///                 },
         ///                 Conditions = new[]
         ///                 {
         ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -176,12 +182,6 @@ namespace Pulumi.Aws.Organizations
         ///                             "*",
         ///                         },
         ///                     },
-        ///                 },
-        ///                 Effect = "Allow",
-        ///                 Actions = new[]
-        ///                 {
-        ///                     "SNS:Subscribe",
-        ///                     "SNS:Publish",
         ///                 },
         ///                 Resources = new[]
         ///                 {
@@ -250,6 +250,12 @@ namespace Pulumi.Aws.Organizations
         ///         {
         ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
         ///             {
+        ///                 Effect = "Allow",
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "SNS:Subscribe",
+        ///                     "SNS:Publish",
+        ///                 },
         ///                 Conditions = new[]
         ///                 {
         ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -272,12 +278,6 @@ namespace Pulumi.Aws.Organizations
         ///                             "*",
         ///                         },
         ///                     },
-        ///                 },
-        ///                 Effect = "Allow",
-        ///                 Actions = new[]
-        ///                 {
-        ///                     "SNS:Subscribe",
-        ///                     "SNS:Publish",
         ///                 },
         ///                 Resources = new[]
         ///                 {

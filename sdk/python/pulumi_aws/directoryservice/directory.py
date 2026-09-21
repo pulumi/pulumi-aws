@@ -585,7 +585,7 @@ class Directory(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
-                 connect_settings: pulumi.Input[Optional[Union['DirectoryConnectSettingsArgs', 'DirectoryConnectSettingsArgsDict']]] = None,
+                 connect_settings: pulumi.Input[Optional[Union['DirectoryConnectSettingsArgs', 'DirectoryConnectSettingsArgsDict', 'outputs.DirectoryConnectSettings']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  desired_number_of_domain_controllers: pulumi.Input[Optional[_builtins.int]] = None,
                  edition: pulumi.Input[Optional[_builtins.str]] = None,
@@ -598,7 +598,7 @@ class Directory(pulumi.CustomResource):
                  size: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
-                 vpc_settings: pulumi.Input[Optional[Union['DirectoryVpcSettingsArgs', 'DirectoryVpcSettingsArgsDict']]] = None,
+                 vpc_settings: pulumi.Input[Optional[Union['DirectoryVpcSettingsArgs', 'DirectoryVpcSettingsArgsDict', 'outputs.DirectoryVpcSettings']]] = None,
                  __props__=None):
         """
         Provides a Simple or Managed Microsoft directory in AWS Directory Service.
@@ -621,6 +621,9 @@ class Directory(pulumi.CustomResource):
             availability_zone="us-west-2b",
             cidr_block="10.0.2.0/24")
         bar = aws.directoryservice.Directory("bar",
+            name="corp.notexample.com",
+            password="SuperSecretPassw0rd",
+            size="Small",
             vpc_settings={
                 "vpc_id": main.id,
                 "subnet_ids": [
@@ -628,9 +631,6 @@ class Directory(pulumi.CustomResource):
                     bar_subnet.id,
                 ],
             },
-            name="corp.notexample.com",
-            password="SuperSecretPassw0rd",
-            size="Small",
             tags={
                 "Project": "foo",
             })
@@ -652,6 +652,10 @@ class Directory(pulumi.CustomResource):
             availability_zone="us-west-2b",
             cidr_block="10.0.2.0/24")
         bar = aws.directoryservice.Directory("bar",
+            name="corp.notexample.com",
+            password="SuperSecretPassw0rd",
+            edition="Standard",
+            type="MicrosoftAD",
             vpc_settings={
                 "vpc_id": main.id,
                 "subnet_ids": [
@@ -659,10 +663,6 @@ class Directory(pulumi.CustomResource):
                     bar_subnet.id,
                 ],
             },
-            name="corp.notexample.com",
-            password="SuperSecretPassw0rd",
-            edition="Standard",
-            type="MicrosoftAD",
             tags={
                 "Project": "foo",
             })
@@ -684,6 +684,10 @@ class Directory(pulumi.CustomResource):
             availability_zone="us-west-2b",
             cidr_block="10.0.2.0/24")
         connector = aws.directoryservice.Directory("connector",
+            name="corp.notexample.com",
+            password="SuperSecretPassw0rd",
+            size="Small",
+            type="ADConnector",
             connect_settings={
                 "customer_dns_ips": ["A.B.C.D"],
                 "customer_username": "Admin",
@@ -692,11 +696,7 @@ class Directory(pulumi.CustomResource):
                     bar.id,
                 ],
                 "vpc_id": main.id,
-            },
-            name="corp.notexample.com",
-            password="SuperSecretPassw0rd",
-            size="Small",
-            type="ADConnector")
+            })
         ```
 
         ## Import
@@ -711,7 +711,7 @@ class Directory(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
-        :param pulumi.Input[Union['DirectoryConnectSettingsArgs', 'DirectoryConnectSettingsArgsDict']] connect_settings: Connector related information about the directory. Fields documented below.
+        :param pulumi.Input[Union['DirectoryConnectSettingsArgs', 'DirectoryConnectSettingsArgsDict', 'outputs.DirectoryConnectSettings']] connect_settings: Connector related information about the directory. Fields documented below.
         :param pulumi.Input[_builtins.str] description: A textual description for the directory.
         :param pulumi.Input[_builtins.int] desired_number_of_domain_controllers: The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
         :param pulumi.Input[_builtins.str] edition: The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
@@ -724,7 +724,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] size: (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] type: The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
-        :param pulumi.Input[Union['DirectoryVpcSettingsArgs', 'DirectoryVpcSettingsArgsDict']] vpc_settings: VPC related information about the directory. Fields documented below.
+        :param pulumi.Input[Union['DirectoryVpcSettingsArgs', 'DirectoryVpcSettingsArgsDict', 'outputs.DirectoryVpcSettings']] vpc_settings: VPC related information about the directory. Fields documented below.
         """
         ...
     @overload
@@ -753,6 +753,9 @@ class Directory(pulumi.CustomResource):
             availability_zone="us-west-2b",
             cidr_block="10.0.2.0/24")
         bar = aws.directoryservice.Directory("bar",
+            name="corp.notexample.com",
+            password="SuperSecretPassw0rd",
+            size="Small",
             vpc_settings={
                 "vpc_id": main.id,
                 "subnet_ids": [
@@ -760,9 +763,6 @@ class Directory(pulumi.CustomResource):
                     bar_subnet.id,
                 ],
             },
-            name="corp.notexample.com",
-            password="SuperSecretPassw0rd",
-            size="Small",
             tags={
                 "Project": "foo",
             })
@@ -784,6 +784,10 @@ class Directory(pulumi.CustomResource):
             availability_zone="us-west-2b",
             cidr_block="10.0.2.0/24")
         bar = aws.directoryservice.Directory("bar",
+            name="corp.notexample.com",
+            password="SuperSecretPassw0rd",
+            edition="Standard",
+            type="MicrosoftAD",
             vpc_settings={
                 "vpc_id": main.id,
                 "subnet_ids": [
@@ -791,10 +795,6 @@ class Directory(pulumi.CustomResource):
                     bar_subnet.id,
                 ],
             },
-            name="corp.notexample.com",
-            password="SuperSecretPassw0rd",
-            edition="Standard",
-            type="MicrosoftAD",
             tags={
                 "Project": "foo",
             })
@@ -816,6 +816,10 @@ class Directory(pulumi.CustomResource):
             availability_zone="us-west-2b",
             cidr_block="10.0.2.0/24")
         connector = aws.directoryservice.Directory("connector",
+            name="corp.notexample.com",
+            password="SuperSecretPassw0rd",
+            size="Small",
+            type="ADConnector",
             connect_settings={
                 "customer_dns_ips": ["A.B.C.D"],
                 "customer_username": "Admin",
@@ -824,11 +828,7 @@ class Directory(pulumi.CustomResource):
                     bar.id,
                 ],
                 "vpc_id": main.id,
-            },
-            name="corp.notexample.com",
-            password="SuperSecretPassw0rd",
-            size="Small",
-            type="ADConnector")
+            })
         ```
 
         ## Import
@@ -856,7 +856,7 @@ class Directory(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
-                 connect_settings: pulumi.Input[Optional[Union['DirectoryConnectSettingsArgs', 'DirectoryConnectSettingsArgsDict']]] = None,
+                 connect_settings: pulumi.Input[Optional[Union['DirectoryConnectSettingsArgs', 'DirectoryConnectSettingsArgsDict', 'outputs.DirectoryConnectSettings']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  desired_number_of_domain_controllers: pulumi.Input[Optional[_builtins.int]] = None,
                  edition: pulumi.Input[Optional[_builtins.str]] = None,
@@ -869,7 +869,7 @@ class Directory(pulumi.CustomResource):
                  size: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
-                 vpc_settings: pulumi.Input[Optional[Union['DirectoryVpcSettingsArgs', 'DirectoryVpcSettingsArgsDict']]] = None,
+                 vpc_settings: pulumi.Input[Optional[Union['DirectoryVpcSettingsArgs', 'DirectoryVpcSettingsArgsDict', 'outputs.DirectoryVpcSettings']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -916,7 +916,7 @@ class Directory(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             access_url: pulumi.Input[Optional[_builtins.str]] = None,
             alias: pulumi.Input[Optional[_builtins.str]] = None,
-            connect_settings: pulumi.Input[Optional[Union['DirectoryConnectSettingsArgs', 'DirectoryConnectSettingsArgsDict']]] = None,
+            connect_settings: pulumi.Input[Optional[Union['DirectoryConnectSettingsArgs', 'DirectoryConnectSettingsArgsDict', 'outputs.DirectoryConnectSettings']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             desired_number_of_domain_controllers: pulumi.Input[Optional[_builtins.int]] = None,
             dns_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -932,7 +932,7 @@ class Directory(pulumi.CustomResource):
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
-            vpc_settings: pulumi.Input[Optional[Union['DirectoryVpcSettingsArgs', 'DirectoryVpcSettingsArgsDict']]] = None) -> 'Directory':
+            vpc_settings: pulumi.Input[Optional[Union['DirectoryVpcSettingsArgs', 'DirectoryVpcSettingsArgsDict', 'outputs.DirectoryVpcSettings']]] = None) -> 'Directory':
         """
         Get an existing Directory resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -942,7 +942,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_url: The access URL for the directory, such as `http://alias.awsapps.com`.
         :param pulumi.Input[_builtins.str] alias: The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
-        :param pulumi.Input[Union['DirectoryConnectSettingsArgs', 'DirectoryConnectSettingsArgsDict']] connect_settings: Connector related information about the directory. Fields documented below.
+        :param pulumi.Input[Union['DirectoryConnectSettingsArgs', 'DirectoryConnectSettingsArgsDict', 'outputs.DirectoryConnectSettings']] connect_settings: Connector related information about the directory. Fields documented below.
         :param pulumi.Input[_builtins.str] description: A textual description for the directory.
         :param pulumi.Input[_builtins.int] desired_number_of_domain_controllers: The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_ip_addresses: A list of IP addresses of the DNS servers for the directory or connector.
@@ -958,7 +958,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] type: The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
-        :param pulumi.Input[Union['DirectoryVpcSettingsArgs', 'DirectoryVpcSettingsArgsDict']] vpc_settings: VPC related information about the directory. Fields documented below.
+        :param pulumi.Input[Union['DirectoryVpcSettingsArgs', 'DirectoryVpcSettingsArgsDict', 'outputs.DirectoryVpcSettings']] vpc_settings: VPC related information about the directory. Fields documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

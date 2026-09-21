@@ -90,7 +90,7 @@ class AwaitableGetPublicIpv4PoolsResult(GetPublicIpv4PoolsResult):
             tags=self.tags)
 
 
-def get_public_ipv4_pools(filters: Optional[Sequence[Union['GetPublicIpv4PoolsFilterArgs', 'GetPublicIpv4PoolsFilterArgsDict']]] = None,
+def get_public_ipv4_pools(filters: Optional[Sequence[Union['GetPublicIpv4PoolsFilterArgs', 'GetPublicIpv4PoolsFilterArgsDict', 'outputs.GetPublicIpv4PoolsFilterResult']]] = None,
                           region: Optional[_builtins.str] = None,
                           tags: Optional[Mapping[str, _builtins.str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicIpv4PoolsResult:
@@ -122,7 +122,7 @@ def get_public_ipv4_pools(filters: Optional[Sequence[Union['GetPublicIpv4PoolsFi
     ```
 
 
-    :param Sequence[Union['GetPublicIpv4PoolsFilterArgs', 'GetPublicIpv4PoolsFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetPublicIpv4PoolsFilterArgs', 'GetPublicIpv4PoolsFilterArgsDict', 'outputs.GetPublicIpv4PoolsFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired pools.
            
@@ -142,7 +142,7 @@ def get_public_ipv4_pools(filters: Optional[Sequence[Union['GetPublicIpv4PoolsFi
         pool_ids=pulumi.get(__ret__, 'pool_ids'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_public_ipv4_pools_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetPublicIpv4PoolsFilterArgs', 'GetPublicIpv4PoolsFilterArgsDict']]]]] = None,
+def get_public_ipv4_pools_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetPublicIpv4PoolsFilterArgs', 'GetPublicIpv4PoolsFilterArgsDict', 'outputs.GetPublicIpv4PoolsFilterResult']]]]] = None,
                                  region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublicIpv4PoolsResult]:
@@ -174,7 +174,7 @@ def get_public_ipv4_pools_output(filters: pulumi.Input[Optional[Optional[Sequenc
     ```
 
 
-    :param Sequence[Union['GetPublicIpv4PoolsFilterArgs', 'GetPublicIpv4PoolsFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetPublicIpv4PoolsFilterArgs', 'GetPublicIpv4PoolsFilterArgsDict', 'outputs.GetPublicIpv4PoolsFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired pools.
            

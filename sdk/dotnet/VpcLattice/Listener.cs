@@ -31,6 +31,9 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     ///     var exampleListener = new Aws.VpcLattice.Listener("example", new()
     ///     {
+    ///         Name = "example",
+    ///         Protocol = "HTTPS",
+    ///         ServiceIdentifier = example.Id,
     ///         DefaultAction = new Aws.VpcLattice.Inputs.ListenerDefaultActionArgs
     ///         {
     ///             FixedResponse = new Aws.VpcLattice.Inputs.ListenerDefaultActionFixedResponseArgs
@@ -38,9 +41,6 @@ namespace Pulumi.Aws.VpcLattice
     ///                 StatusCode = 404,
     ///             },
     ///         },
-    ///         Name = "example",
-    ///         Protocol = "HTTPS",
-    ///         ServiceIdentifier = example.Id,
     ///     });
     /// 
     /// });
@@ -63,18 +63,21 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     ///     var exampleTargetGroup = new Aws.VpcLattice.TargetGroup("example", new()
     ///     {
+    ///         Name = "example-target-group-1",
+    ///         Type = "INSTANCE",
     ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
     ///         {
     ///             Port = 80,
     ///             Protocol = "HTTP",
     ///             VpcIdentifier = exampleAwsVpc.Id,
     ///         },
-    ///         Name = "example-target-group-1",
-    ///         Type = "INSTANCE",
     ///     });
     /// 
     ///     var exampleListener = new Aws.VpcLattice.Listener("example", new()
     ///     {
+    ///         Name = "example",
+    ///         Protocol = "HTTP",
+    ///         ServiceIdentifier = example.Id,
     ///         DefaultAction = new Aws.VpcLattice.Inputs.ListenerDefaultActionArgs
     ///         {
     ///             Forwards = new[]
@@ -91,9 +94,6 @@ namespace Pulumi.Aws.VpcLattice
     ///                 },
     ///             },
     ///         },
-    ///         Name = "example",
-    ///         Protocol = "HTTP",
-    ///         ServiceIdentifier = example.Id,
     ///     });
     /// 
     /// });
@@ -116,30 +116,33 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     ///     var example1 = new Aws.VpcLattice.TargetGroup("example1", new()
     ///     {
+    ///         Name = "example-target-group-1",
+    ///         Type = "INSTANCE",
     ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
     ///         {
     ///             Port = 80,
     ///             Protocol = "HTTP",
     ///             VpcIdentifier = exampleAwsVpc.Id,
     ///         },
-    ///         Name = "example-target-group-1",
-    ///         Type = "INSTANCE",
     ///     });
     /// 
     ///     var example2 = new Aws.VpcLattice.TargetGroup("example2", new()
     ///     {
+    ///         Name = "example-target-group-2",
+    ///         Type = "INSTANCE",
     ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
     ///         {
     ///             Port = 8080,
     ///             Protocol = "HTTP",
     ///             VpcIdentifier = exampleAwsVpc.Id,
     ///         },
-    ///         Name = "example-target-group-2",
-    ///         Type = "INSTANCE",
     ///     });
     /// 
     ///     var exampleListener = new Aws.VpcLattice.Listener("example", new()
     ///     {
+    ///         Name = "example",
+    ///         Protocol = "HTTP",
+    ///         ServiceIdentifier = example.Id,
     ///         DefaultAction = new Aws.VpcLattice.Inputs.ListenerDefaultActionArgs
     ///         {
     ///             Forwards = new[]
@@ -162,9 +165,6 @@ namespace Pulumi.Aws.VpcLattice
     ///                 },
     ///             },
     ///         },
-    ///         Name = "example",
-    ///         Protocol = "HTTP",
-    ///         ServiceIdentifier = example.Id,
     ///     });
     /// 
     /// });

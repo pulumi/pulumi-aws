@@ -36,12 +36,18 @@ namespace Pulumi.Aws.S3Control
     /// 
     ///     var exampleObjectLambdaAccessPoint = new Aws.S3Control.ObjectLambdaAccessPoint("example", new()
     ///     {
+    ///         Name = "example",
     ///         Configuration = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationArgs
     ///         {
+    ///             SupportingAccessPoint = exampleAccessPoint.Arn,
     ///             TransformationConfigurations = new[]
     ///             {
     ///                 new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs
     ///                 {
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "GetObject",
+    ///                     },
     ///                     ContentTransformation = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs
     ///                     {
     ///                         AwsLambda = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs
@@ -49,15 +55,9 @@ namespace Pulumi.Aws.S3Control
     ///                             FunctionArn = exampleAwsLambdaFunction.Arn,
     ///                         },
     ///                     },
-    ///                     Actions = new[]
-    ///                     {
-    ///                         "GetObject",
-    ///                     },
     ///                 },
     ///             },
-    ///             SupportingAccessPoint = exampleAccessPoint.Arn,
     ///         },
-    ///         Name = "example",
     ///     });
     /// 
     /// });

@@ -33,6 +33,22 @@ namespace Pulumi.Aws.Cognito
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Federated",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "cognito-identity.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRoleWithWebIdentity",
+    ///                 },
     ///                 Conditions = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -53,22 +69,6 @@ namespace Pulumi.Aws.Cognito
     ///                             "authenticated",
     ///                         },
     ///                     },
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Federated",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "cognito-identity.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRoleWithWebIdentity",
     ///                 },
     ///             },
     ///         },

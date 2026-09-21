@@ -1174,7 +1174,7 @@ class CloudVmCluster(pulumi.CustomResource):
                  cloud_exadata_infrastructure_id: pulumi.Input[Optional[_builtins.str]] = None,
                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  cpu_core_count: pulumi.Input[Optional[_builtins.int]] = None,
-                 data_collection_options: pulumi.Input[Optional[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict']]] = None,
+                 data_collection_options: pulumi.Input[Optional[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict', 'outputs.CloudVmClusterDataCollectionOptions']]] = None,
                  data_storage_size_in_tbs: pulumi.Input[Optional[_builtins.float]] = None,
                  db_node_storage_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
                  db_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1191,7 +1191,7 @@ class CloudVmCluster(pulumi.CustomResource):
                  scan_listener_port_tcp: pulumi.Input[Optional[_builtins.int]] = None,
                  ssh_public_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['CloudVmClusterTimeoutsArgs', 'CloudVmClusterTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CloudVmClusterTimeoutsArgs', 'CloudVmClusterTimeoutsArgsDict', 'outputs.CloudVmClusterTimeouts']]] = None,
                  timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -1208,11 +1208,6 @@ class CloudVmCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         with_minimum_parameter = aws.odb.CloudVmCluster("with_minimum_parameter",
-            data_collection_options={
-                "is_diagnostics_events_enabled": False,
-                "is_health_monitoring_enabled": False,
-                "is_incident_logs_enabled": False,
-            },
             display_name="my_vm_cluster",
             cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
             cpu_core_count=6,
@@ -1229,7 +1224,12 @@ class CloudVmCluster(pulumi.CustomResource):
                 "db-server-2",
             ],
             db_node_storage_size_in_gbs=120,
-            memory_size_in_gbs=60)
+            memory_size_in_gbs=60,
+            data_collection_options={
+                "is_diagnostics_events_enabled": False,
+                "is_health_monitoring_enabled": False,
+                "is_incident_logs_enabled": False,
+            })
         ```
 
         ### With Optional Arguments
@@ -1239,11 +1239,6 @@ class CloudVmCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         with_all_parameters = aws.odb.CloudVmCluster("with_all_parameters",
-            data_collection_options={
-                "is_diagnostics_events_enabled": True,
-                "is_health_monitoring_enabled": True,
-                "is_incident_logs_enabled": True,
-            },
             display_name="my_vm_cluster",
             cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
             cpu_core_count=6,
@@ -1266,6 +1261,11 @@ class CloudVmCluster(pulumi.CustomResource):
             scan_listener_port_tcp=1521,
             tags={
                 "env": "dev",
+            },
+            data_collection_options={
+                "is_diagnostics_events_enabled": True,
+                "is_health_monitoring_enabled": True,
+                "is_incident_logs_enabled": True,
             })
         ```
 
@@ -1276,11 +1276,6 @@ class CloudVmCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         gi_version_tag_example = aws.odb.CloudVmCluster("gi_version_tag_example",
-            data_collection_options={
-                "is_diagnostics_events_enabled": True,
-                "is_health_monitoring_enabled": True,
-                "is_incident_logs_enabled": True,
-            },
             display_name="my_vm_cluster",
             cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
             cpu_core_count=6,
@@ -1303,6 +1298,11 @@ class CloudVmCluster(pulumi.CustomResource):
             scan_listener_port_tcp=1521,
             tags={
                 "odb:input_gi_version": "23.0.0.0",
+            },
+            data_collection_options={
+                "is_diagnostics_events_enabled": True,
+                "is_health_monitoring_enabled": True,
+                "is_incident_logs_enabled": True,
             })
         ```
 
@@ -1321,7 +1321,7 @@ class CloudVmCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_id: Unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.int] cpu_core_count: Number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
-        :param pulumi.Input[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict']] data_collection_options: Set of preferences for the various diagnostic collection options for the VM cluster. See `data_collection_options` Block below. Changing this will create a new resource.
+        :param pulumi.Input[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict', 'outputs.CloudVmClusterDataCollectionOptions']] data_collection_options: Set of preferences for the various diagnostic collection options for the VM cluster. See `data_collection_options` Block below. Changing this will create a new resource.
         :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: Size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.int] db_node_storage_size_in_gbs: Amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_servers: List of database servers for the VM cluster. Changing this will create a new resource.
@@ -1362,11 +1362,6 @@ class CloudVmCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         with_minimum_parameter = aws.odb.CloudVmCluster("with_minimum_parameter",
-            data_collection_options={
-                "is_diagnostics_events_enabled": False,
-                "is_health_monitoring_enabled": False,
-                "is_incident_logs_enabled": False,
-            },
             display_name="my_vm_cluster",
             cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
             cpu_core_count=6,
@@ -1383,7 +1378,12 @@ class CloudVmCluster(pulumi.CustomResource):
                 "db-server-2",
             ],
             db_node_storage_size_in_gbs=120,
-            memory_size_in_gbs=60)
+            memory_size_in_gbs=60,
+            data_collection_options={
+                "is_diagnostics_events_enabled": False,
+                "is_health_monitoring_enabled": False,
+                "is_incident_logs_enabled": False,
+            })
         ```
 
         ### With Optional Arguments
@@ -1393,11 +1393,6 @@ class CloudVmCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         with_all_parameters = aws.odb.CloudVmCluster("with_all_parameters",
-            data_collection_options={
-                "is_diagnostics_events_enabled": True,
-                "is_health_monitoring_enabled": True,
-                "is_incident_logs_enabled": True,
-            },
             display_name="my_vm_cluster",
             cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
             cpu_core_count=6,
@@ -1420,6 +1415,11 @@ class CloudVmCluster(pulumi.CustomResource):
             scan_listener_port_tcp=1521,
             tags={
                 "env": "dev",
+            },
+            data_collection_options={
+                "is_diagnostics_events_enabled": True,
+                "is_health_monitoring_enabled": True,
+                "is_incident_logs_enabled": True,
             })
         ```
 
@@ -1430,11 +1430,6 @@ class CloudVmCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         gi_version_tag_example = aws.odb.CloudVmCluster("gi_version_tag_example",
-            data_collection_options={
-                "is_diagnostics_events_enabled": True,
-                "is_health_monitoring_enabled": True,
-                "is_incident_logs_enabled": True,
-            },
             display_name="my_vm_cluster",
             cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
             cpu_core_count=6,
@@ -1457,6 +1452,11 @@ class CloudVmCluster(pulumi.CustomResource):
             scan_listener_port_tcp=1521,
             tags={
                 "odb:input_gi_version": "23.0.0.0",
+            },
+            data_collection_options={
+                "is_diagnostics_events_enabled": True,
+                "is_health_monitoring_enabled": True,
+                "is_incident_logs_enabled": True,
             })
         ```
 
@@ -1488,7 +1488,7 @@ class CloudVmCluster(pulumi.CustomResource):
                  cloud_exadata_infrastructure_id: pulumi.Input[Optional[_builtins.str]] = None,
                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  cpu_core_count: pulumi.Input[Optional[_builtins.int]] = None,
-                 data_collection_options: pulumi.Input[Optional[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict']]] = None,
+                 data_collection_options: pulumi.Input[Optional[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict', 'outputs.CloudVmClusterDataCollectionOptions']]] = None,
                  data_storage_size_in_tbs: pulumi.Input[Optional[_builtins.float]] = None,
                  db_node_storage_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
                  db_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1505,7 +1505,7 @@ class CloudVmCluster(pulumi.CustomResource):
                  scan_listener_port_tcp: pulumi.Input[Optional[_builtins.int]] = None,
                  ssh_public_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['CloudVmClusterTimeoutsArgs', 'CloudVmClusterTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CloudVmClusterTimeoutsArgs', 'CloudVmClusterTimeoutsArgsDict', 'outputs.CloudVmClusterTimeouts']]] = None,
                  timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1597,7 +1597,7 @@ class CloudVmCluster(pulumi.CustomResource):
             compute_model: pulumi.Input[Optional[_builtins.str]] = None,
             cpu_core_count: pulumi.Input[Optional[_builtins.int]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
-            data_collection_options: pulumi.Input[Optional[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict']]] = None,
+            data_collection_options: pulumi.Input[Optional[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict', 'outputs.CloudVmClusterDataCollectionOptions']]] = None,
             data_storage_size_in_tbs: pulumi.Input[Optional[_builtins.float]] = None,
             db_node_storage_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
             db_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1608,7 +1608,7 @@ class CloudVmCluster(pulumi.CustomResource):
             gi_version_computed: pulumi.Input[Optional[_builtins.str]] = None,
             hostname_prefix: pulumi.Input[Optional[_builtins.str]] = None,
             hostname_prefix_computed: pulumi.Input[Optional[_builtins.str]] = None,
-            iorm_config_caches: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudVmClusterIormConfigCacheArgs', 'CloudVmClusterIormConfigCacheArgsDict']]]]] = None,
+            iorm_config_caches: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudVmClusterIormConfigCacheArgs', 'CloudVmClusterIormConfigCacheArgsDict', 'outputs.CloudVmClusterIormConfigCache']]]]] = None,
             is_local_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             is_sparse_diskgroup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             last_update_history_entry_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1635,7 +1635,7 @@ class CloudVmCluster(pulumi.CustomResource):
             system_version: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['CloudVmClusterTimeoutsArgs', 'CloudVmClusterTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['CloudVmClusterTimeoutsArgs', 'CloudVmClusterTimeoutsArgsDict', 'outputs.CloudVmClusterTimeouts']]] = None,
             timezone: pulumi.Input[Optional[_builtins.str]] = None,
             vip_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'CloudVmCluster':
         """
@@ -1652,7 +1652,7 @@ class CloudVmCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] compute_model: Compute model used when the instance is created or cloned — either ECPU or OCPU. ECPU is a virtualized compute unit; OCPU is a physical processor core with hyper-threading.
         :param pulumi.Input[_builtins.int] cpu_core_count: Number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] created_at: Timestamp when the VM cluster was created.
-        :param pulumi.Input[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict']] data_collection_options: Set of preferences for the various diagnostic collection options for the VM cluster. See `data_collection_options` Block below. Changing this will create a new resource.
+        :param pulumi.Input[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict', 'outputs.CloudVmClusterDataCollectionOptions']] data_collection_options: Set of preferences for the various diagnostic collection options for the VM cluster. See `data_collection_options` Block below. Changing this will create a new resource.
         :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: Size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.int] db_node_storage_size_in_gbs: Amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_servers: List of database servers for the VM cluster. Changing this will create a new resource.
@@ -1663,7 +1663,7 @@ class CloudVmCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] gi_version_computed: Complete software version of Oracle Grid Infrastructure (GI).
         :param pulumi.Input[_builtins.str] hostname_prefix: Host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - Maximum length of the combined hostname and domain is 63 characters. - Hostname must be unique within the subnet. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] hostname_prefix_computed: Host name for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - Maximum length of the combined hostname and domain is 63 characters. - Hostname must be unique within the subnet.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterIormConfigCacheArgs', 'CloudVmClusterIormConfigCacheArgsDict']]]] iorm_config_caches: Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster. See `iorm_config_cache` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterIormConfigCacheArgs', 'CloudVmClusterIormConfigCacheArgsDict', 'outputs.CloudVmClusterIormConfigCache']]]] iorm_config_caches: Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster. See `iorm_config_cache` Block below.
         :param pulumi.Input[_builtins.bool] is_local_backup_enabled: Whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.bool] is_sparse_diskgroup_enabled: Whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] last_update_history_entry_id: OCID of the most recent maintenance update history entry.

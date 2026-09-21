@@ -39,8 +39,10 @@ namespace Pulumi.Aws.Kinesis
     /// 
     ///     var testApplication = new Aws.Kinesis.AnalyticsApplication("test_application", new()
     ///     {
+    ///         Name = "kinesis-analytics-application-test",
     ///         Inputs = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsArgs
     ///         {
+    ///             NamePrefix = "test_prefix",
     ///             KinesisStream = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsKinesisStreamArgs
     ///             {
     ///                 ResourceArn = testStream.Arn,
@@ -52,16 +54,6 @@ namespace Pulumi.Aws.Kinesis
     ///             },
     ///             Schema = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsSchemaArgs
     ///             {
-    ///                 RecordFormat = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsSchemaRecordFormatArgs
-    ///                 {
-    ///                     MappingParameters = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs
-    ///                     {
-    ///                         Json = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs
-    ///                         {
-    ///                             RecordRowPath = "$",
-    ///                         },
-    ///                     },
-    ///                 },
     ///                 RecordColumns = new[]
     ///                 {
     ///                     new Aws.Kinesis.Inputs.AnalyticsApplicationInputsSchemaRecordColumnArgs
@@ -72,10 +64,18 @@ namespace Pulumi.Aws.Kinesis
     ///                     },
     ///                 },
     ///                 RecordEncoding = "UTF-8",
+    ///                 RecordFormat = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsSchemaRecordFormatArgs
+    ///                 {
+    ///                     MappingParameters = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs
+    ///                     {
+    ///                         Json = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs
+    ///                         {
+    ///                             RecordRowPath = "$",
+    ///                         },
+    ///                     },
+    ///                 },
     ///             },
-    ///             NamePrefix = "test_prefix",
     ///         },
-    ///         Name = "kinesis-analytics-application-test",
     ///     });
     /// 
     /// });
@@ -110,17 +110,18 @@ namespace Pulumi.Aws.Kinesis
     /// 
     ///     var exampleFirehoseDeliveryStream = new Aws.Kinesis.FirehoseDeliveryStream("example", new()
     ///     {
+    ///         Name = "example-kinesis-delivery-stream",
+    ///         Destination = "extended_s3",
     ///         ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
     ///         {
     ///             BucketArn = exampleAwsS3Bucket.Arn,
     ///             RoleArn = exampleAwsIamRole.Arn,
     ///         },
-    ///         Name = "example-kinesis-delivery-stream",
-    ///         Destination = "extended_s3",
     ///     });
     /// 
     ///     var test = new Aws.Kinesis.AnalyticsApplication("test", new()
     ///     {
+    ///         Name = "example-application",
     ///         CloudwatchLoggingOptions = new Aws.Kinesis.Inputs.AnalyticsApplicationCloudwatchLoggingOptionsArgs
     ///         {
     ///             LogStreamArn = exampleLogStream.Arn,
@@ -128,8 +129,17 @@ namespace Pulumi.Aws.Kinesis
     ///         },
     ///         Inputs = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsArgs
     ///         {
+    ///             NamePrefix = "example_prefix",
     ///             Schema = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsSchemaArgs
     ///             {
+    ///                 RecordColumns = new[]
+    ///                 {
+    ///                     new Aws.Kinesis.Inputs.AnalyticsApplicationInputsSchemaRecordColumnArgs
+    ///                     {
+    ///                         Name = "COLUMN_1",
+    ///                         SqlType = "INTEGER",
+    ///                     },
+    ///                 },
     ///                 RecordFormat = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsSchemaRecordFormatArgs
     ///                 {
     ///                     MappingParameters = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs
@@ -139,14 +149,6 @@ namespace Pulumi.Aws.Kinesis
     ///                             RecordColumnDelimiter = ",",
     ///                             RecordRowDelimiter = "|",
     ///                         },
-    ///                     },
-    ///                 },
-    ///                 RecordColumns = new[]
-    ///                 {
-    ///                     new Aws.Kinesis.Inputs.AnalyticsApplicationInputsSchemaRecordColumnArgs
-    ///                     {
-    ///                         Name = "COLUMN_1",
-    ///                         SqlType = "INTEGER",
     ///                     },
     ///                 },
     ///             },
@@ -162,12 +164,12 @@ namespace Pulumi.Aws.Kinesis
     ///                     StartingPosition = "NOW",
     ///                 },
     ///             },
-    ///             NamePrefix = "example_prefix",
     ///         },
     ///         Outputs = new[]
     ///         {
     ///             new Aws.Kinesis.Inputs.AnalyticsApplicationOutputArgs
     ///             {
+    ///                 Name = "OUTPUT_1",
     ///                 Schema = new Aws.Kinesis.Inputs.AnalyticsApplicationOutputSchemaArgs
     ///                 {
     ///                     RecordFormatType = "CSV",
@@ -177,10 +179,8 @@ namespace Pulumi.Aws.Kinesis
     ///                     ResourceArn = exampleFirehoseDeliveryStream.Arn,
     ///                     RoleArn = exampleAwsIamRole.Arn,
     ///                 },
-    ///                 Name = "OUTPUT_1",
     ///             },
     ///         },
-    ///         Name = "example-application",
     ///         StartApplication = true,
     ///     });
     /// 

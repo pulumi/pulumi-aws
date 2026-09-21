@@ -270,7 +270,7 @@ class AwaitableGetUserResult(GetUserResult):
             user_type=self.user_type)
 
 
-def get_user(alternate_identifier: Optional[Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict']] = None,
+def get_user(alternate_identifier: Optional[Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict', 'outputs.GetUserAlternateIdentifierResult']] = None,
              identity_store_id: Optional[_builtins.str] = None,
              region: Optional[_builtins.str] = None,
              user_id: Optional[_builtins.str] = None,
@@ -285,18 +285,18 @@ def get_user(alternate_identifier: Optional[Union['GetUserAlternateIdentifierArg
     import pulumi_aws as aws
 
     example = aws.ssoadmin.get_instances()
-    example_get_user = aws.identitystore.get_user(alternate_identifier={
+    example_get_user = aws.identitystore.get_user(identity_store_id=example.identity_store_ids[0],
+        alternate_identifier={
             "unique_attribute": {
                 "attribute_path": "UserName",
                 "attribute_value": "ExampleUser",
             },
-        },
-        identity_store_id=example.identity_store_ids[0])
+        })
     pulumi.export("userId", example_get_user.user_id)
     ```
 
 
-    :param Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict'] alternate_identifier: A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
+    :param Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict', 'outputs.GetUserAlternateIdentifierResult'] alternate_identifier: A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
     :param _builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
            
            The following arguments are optional:
@@ -334,7 +334,7 @@ def get_user(alternate_identifier: Optional[Union['GetUserAlternateIdentifierArg
         user_name=pulumi.get(__ret__, 'user_name'),
         user_status=pulumi.get(__ret__, 'user_status'),
         user_type=pulumi.get(__ret__, 'user_type'))
-def get_user_output(alternate_identifier: pulumi.Input[Optional[Optional[Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict']]]] = None,
+def get_user_output(alternate_identifier: pulumi.Input[Optional[Optional[Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict', 'outputs.GetUserAlternateIdentifierResult']]]] = None,
                     identity_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                     region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                     user_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -349,18 +349,18 @@ def get_user_output(alternate_identifier: pulumi.Input[Optional[Optional[Union['
     import pulumi_aws as aws
 
     example = aws.ssoadmin.get_instances()
-    example_get_user = aws.identitystore.get_user(alternate_identifier={
+    example_get_user = aws.identitystore.get_user(identity_store_id=example.identity_store_ids[0],
+        alternate_identifier={
             "unique_attribute": {
                 "attribute_path": "UserName",
                 "attribute_value": "ExampleUser",
             },
-        },
-        identity_store_id=example.identity_store_ids[0])
+        })
     pulumi.export("userId", example_get_user.user_id)
     ```
 
 
-    :param Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict'] alternate_identifier: A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
+    :param Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict', 'outputs.GetUserAlternateIdentifierResult'] alternate_identifier: A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
     :param _builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
            
            The following arguments are optional:

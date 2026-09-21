@@ -32,6 +32,8 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * const example = new aws.lambda.CoreNetworkConnector("example", {
+ *     name: "example",
+ *     operatorRole: exampleRole.arn,
  *     configuration: {
  *         vpcEgressConfiguration: {
  *             associatedComputeResourceTypes: ["MicroVm"],
@@ -40,8 +42,6 @@ import * as utilities from "../utilities";
  *             securityGroupIds: [exampleAwsSecurityGroup.id],
  *         },
  *     },
- *     name: "example",
- *     operatorRole: exampleRole.arn,
  * });
  * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
  *     name: "example-network-connector-operator",

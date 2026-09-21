@@ -26,6 +26,7 @@ namespace Pulumi.Aws.SesV2
     /// {
     ///     var example = new Aws.SesV2.MultiRegionEndpoint("example", new()
     ///     {
+    ///         EndpointName = "example",
     ///         Details = new Aws.SesV2.Inputs.MultiRegionEndpointDetailsArgs
     ///         {
     ///             RoutesDetails = new Aws.SesV2.Inputs.MultiRegionEndpointDetailsRoutesDetailsArgs
@@ -33,7 +34,6 @@ namespace Pulumi.Aws.SesV2
     ///                 Region = "example-alternate-region",
     ///             },
     ///         },
-    ///         EndpointName = "example",
     ///     });
     /// 
     /// });

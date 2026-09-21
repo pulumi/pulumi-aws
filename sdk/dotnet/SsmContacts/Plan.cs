@@ -26,6 +26,7 @@ namespace Pulumi.Aws.SsmContacts
     /// {
     ///     var example = new Aws.SsmContacts.Plan("example", new()
     ///     {
+    ///         ContactId = "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
     ///         Stages = new[]
     ///         {
     ///             new Aws.SsmContacts.Inputs.PlanStageArgs
@@ -33,7 +34,6 @@ namespace Pulumi.Aws.SsmContacts
     ///                 DurationInMinutes = 1,
     ///             },
     ///         },
-    ///         ContactId = "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
     ///     });
     /// 
     /// });
@@ -57,6 +57,7 @@ namespace Pulumi.Aws.SsmContacts
     /// 
     ///     var plan = new Aws.SsmContacts.Plan("plan", new()
     ///     {
+    ///         ContactId = contact.Arn,
     ///         Stages = new[]
     ///         {
     ///             new Aws.SsmContacts.Inputs.PlanStageArgs
@@ -64,7 +65,6 @@ namespace Pulumi.Aws.SsmContacts
     ///                 DurationInMinutes = 1,
     ///             },
     ///         },
-    ///         ContactId = contact.Arn,
     ///     });
     /// 
     /// });
@@ -100,10 +100,12 @@ namespace Pulumi.Aws.SsmContacts
     /// 
     ///     var test = new Aws.SsmContacts.Plan("test", new()
     ///     {
+    ///         ContactId = escalationPlan.Arn,
     ///         Stages = new[]
     ///         {
     ///             new Aws.SsmContacts.Inputs.PlanStageArgs
     ///             {
+    ///                 DurationInMinutes = 0,
     ///                 Targets = new[]
     ///                 {
     ///                     new Aws.SsmContacts.Inputs.PlanStageTargetArgs
@@ -131,10 +133,8 @@ namespace Pulumi.Aws.SsmContacts
     ///                         },
     ///                     },
     ///                 },
-    ///                 DurationInMinutes = 0,
     ///             },
     ///         },
-    ///         ContactId = escalationPlan.Arn,
     ///     });
     /// 
     /// });

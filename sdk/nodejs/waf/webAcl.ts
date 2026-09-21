@@ -19,24 +19,26 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const ipset = new aws.waf.IpSet("ipset", {
+ *     name: "tfIPSet",
  *     ipSetDescriptors: [{
  *         type: "IPV4",
  *         value: "192.0.7.0/24",
  *     }],
- *     name: "tfIPSet",
  * });
  * const wafrule = new aws.waf.Rule("wafrule", {
+ *     name: "tfWAFRule",
+ *     metricName: "tfWAFRule",
  *     predicates: [{
  *         dataId: ipset.id,
  *         negated: false,
  *         type: "IPMatch",
  *     }],
- *     name: "tfWAFRule",
- *     metricName: "tfWAFRule",
  * }, {
  *     dependsOn: [ipset],
  * });
  * const wafAcl = new aws.waf.WebAcl("waf_acl", {
+ *     name: "tfWebACL",
+ *     metricName: "tfWebACL",
  *     defaultAction: {
  *         type: "ALLOW",
  *     },
@@ -48,8 +50,6 @@ import * as utilities from "../utilities";
  *         ruleId: wafrule.id,
  *         type: "REGULAR",
  *     }],
- *     name: "tfWebACL",
- *     metricName: "tfWebACL",
  * }, {
  *     dependsOn: [
  *         ipset,
@@ -67,6 +67,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.waf.WebAcl("example", {loggingConfiguration: {
+ *     logDestination: exampleAwsKinesisFirehoseDeliveryStream.arn,
  *     redactedFields: {
  *         fieldToMatches: [
  *             {
@@ -78,7 +79,6 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     },
- *     logDestination: exampleAwsKinesisFirehoseDeliveryStream.arn,
  * }});
  * ```
  *

@@ -373,13 +373,13 @@ class AgentKnowledgeBase(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 knowledge_base_configuration: pulumi.Input[Optional[Union['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs', 'AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict']]] = None,
+                 knowledge_base_configuration: pulumi.Input[Optional[Union['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs', 'AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict', 'outputs.AgentKnowledgeBaseKnowledgeBaseConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_configuration: pulumi.Input[Optional[Union['AgentKnowledgeBaseStorageConfigurationArgs', 'AgentKnowledgeBaseStorageConfigurationArgsDict']]] = None,
+                 storage_configuration: pulumi.Input[Optional[Union['AgentKnowledgeBaseStorageConfigurationArgs', 'AgentKnowledgeBaseStorageConfigurationArgsDict', 'outputs.AgentKnowledgeBaseStorageConfiguration']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentKnowledgeBaseTimeoutsArgs', 'AgentKnowledgeBaseTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentKnowledgeBaseTimeoutsArgs', 'AgentKnowledgeBaseTimeoutsArgsDict', 'outputs.AgentKnowledgeBaseTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Agents for Amazon Bedrock Knowledge Base.
@@ -393,6 +393,8 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentKnowledgeBase("example",
+            name="example",
+            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
                 "vector_knowledge_base_configuration": {
                     "embedding_model_arn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
@@ -400,19 +402,17 @@ class AgentKnowledgeBase(pulumi.CustomResource):
                 "type": "VECTOR",
             },
             storage_configuration={
+                "type": "OPENSEARCH_SERVERLESS",
                 "opensearch_serverless_configuration": {
+                    "collection_arn": "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
+                    "vector_index_name": "bedrock-knowledge-base-default-index",
                     "field_mapping": {
                         "vector_field": "bedrock-knowledge-base-default-vector",
                         "text_field": "AMAZON_BEDROCK_TEXT_CHUNK",
                         "metadata_field": "AMAZON_BEDROCK_METADATA",
                     },
-                    "collection_arn": "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
-                    "vector_index_name": "bedrock-knowledge-base-default-index",
                 },
-                "type": "OPENSEARCH_SERVERLESS",
-            },
-            name="example",
-            role_arn=example_aws_iam_role["arn"])
+            })
         ```
 
         ### Kendra Knowledge Base
@@ -422,14 +422,14 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         kendra_example = aws.bedrock.AgentKnowledgeBase("kendra_example",
+            name="example-kendra-kb",
+            role_arn=example["arn"],
             knowledge_base_configuration={
+                "type": "KENDRA",
                 "kendra_knowledge_base_configuration": {
                     "kendra_index_arn": "arn:aws:kendra:us-east-1:123456789012:index/example-index-id",
                 },
-                "type": "KENDRA",
-            },
-            name="example-kendra-kb",
-            role_arn=example["arn"])
+            })
         ```
 
         ### Structured Data Store
@@ -439,32 +439,32 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentKnowledgeBase("example",
+            name="example-kb",
+            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
+                "type": "SQL",
                 "sql_knowledge_base_configuration": {
+                    "type": "REDSHIFT",
                     "redshift_configuration": {
                         "query_engine_configuration": {
+                            "type": "PROVISIONED",
                             "provisioned_configuration": {
+                                "cluster_identifier": example_aws_redshift_cluster["clusterIdentifier"],
                                 "auth_configuration": {
                                     "type": "USERNAME",
                                     "database_user": example_aws_redshift_cluster["masterUsername"],
                                 },
-                                "cluster_identifier": example_aws_redshift_cluster["clusterIdentifier"],
                             },
-                            "type": "PROVISIONED",
                         },
                         "storage_configuration": {
+                            "type": "REDSHIFT",
                             "redshift_configuration": {
                                 "database_name": example_aws_redshift_cluster["databaseName"],
                             },
-                            "type": "REDSHIFT",
                         },
                     },
-                    "type": "REDSHIFT",
                 },
-                "type": "SQL",
-            },
-            name="example-kb",
-            role_arn=example_aws_iam_role["arn"])
+            })
         ```
 
         ### OpenSearch Managed Cluster Configuration
@@ -474,6 +474,8 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentKnowledgeBase("example",
+            name="example",
+            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
                 "vector_knowledge_base_configuration": {
                     "embedding_model_arn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
@@ -481,20 +483,18 @@ class AgentKnowledgeBase(pulumi.CustomResource):
                 "type": "VECTOR",
             },
             storage_configuration={
+                "type": "OPENSEARCH_MANAGED_CLUSTER",
                 "opensearch_managed_cluster_configuration": {
+                    "domain_arn": "arn:aws:es:us-west-2:123456789012:domain/example-domain",
+                    "domain_endpoint": "https://search-example-domain.us-west-2.es.amazonaws.com",
+                    "vector_index_name": "example_index",
                     "field_mapping": {
                         "metadata_field": "metadata",
                         "text_field": "chunks",
                         "vector_field": "embedding",
                     },
-                    "domain_arn": "arn:aws:es:us-west-2:123456789012:domain/example-domain",
-                    "domain_endpoint": "https://search-example-domain.us-west-2.es.amazonaws.com",
-                    "vector_index_name": "example_index",
                 },
-                "type": "OPENSEARCH_MANAGED_CLUSTER",
-            },
-            name="example",
-            role_arn=example_aws_iam_role["arn"])
+            })
         ```
 
         ### With Supplemental Data Storage Configuration
@@ -504,10 +504,15 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentKnowledgeBase("example",
+            name="example",
+            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
                 "vector_knowledge_base_configuration": {
+                    "embedding_model_arn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
                     "embedding_model_configuration": {
                         "bedrock_embedding_model_configuration": {
+                            "dimensions": 1024,
+                            "embedding_data_type": "FLOAT32",
                             "audio": {
                                 "segmentation_configuration": {
                                     "fixed_length_duration": 60,
@@ -518,36 +523,31 @@ class AgentKnowledgeBase(pulumi.CustomResource):
                                     "fixed_length_duration": 60,
                                 },
                             },
-                            "dimensions": 1024,
-                            "embedding_data_type": "FLOAT32",
                         },
                     },
                     "supplemental_data_storage_configuration": {
                         "storage_location": {
+                            "type": "S3",
                             "s3Location": {
                                 "uri": "s3://my-bucket/chunk-processor/",
                             },
-                            "type": "S3",
                         },
                     },
-                    "embedding_model_arn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
                 },
                 "type": "VECTOR",
             },
             storage_configuration={
+                "type": "OPENSEARCH_SERVERLESS",
                 "opensearch_serverless_configuration": {
+                    "collection_arn": "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
+                    "vector_index_name": "bedrock-knowledge-base-default-index",
                     "field_mapping": {
                         "vector_field": "bedrock-knowledge-base-default-vector",
                         "text_field": "AMAZON_BEDROCK_TEXT_CHUNK",
                         "metadata_field": "AMAZON_BEDROCK_METADATA",
                     },
-                    "collection_arn": "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
-                    "vector_index_name": "bedrock-knowledge-base-default-index",
                 },
-                "type": "OPENSEARCH_SERVERLESS",
-            },
-            name="example",
-            role_arn=example_aws_iam_role["arn"])
+            })
         ```
 
         ### S3 Vectors Configuration
@@ -564,26 +564,26 @@ class AgentKnowledgeBase(pulumi.CustomResource):
             dimension=256,
             distance_metric="euclidean")
         example_agent_knowledge_base = aws.bedrock.AgentKnowledgeBase("example",
+            name="example-s3vectors-kb",
+            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
                 "vector_knowledge_base_configuration": {
+                    "embedding_model_arn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
                     "embedding_model_configuration": {
                         "bedrock_embedding_model_configuration": {
                             "dimensions": 256,
                             "embedding_data_type": "FLOAT32",
                         },
                     },
-                    "embedding_model_arn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
                 },
                 "type": "VECTOR",
             },
             storage_configuration={
+                "type": "S3_VECTORS",
                 "s3_vectors_configuration": {
                     "index_arn": example_vectors_index.index_arn,
                 },
-                "type": "S3_VECTORS",
-            },
-            name="example-s3vectors-kb",
-            role_arn=example_aws_iam_role["arn"])
+            })
         ```
 
         ### Managed Knowledge Base
@@ -593,14 +593,14 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentKnowledgeBase("example",
+            name="example-managed-kb",
+            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
+                "type": "MANAGED",
                 "managed_knowledge_base_configuration": {
                     "embedding_model_type": "MANAGED",
                 },
-                "type": "MANAGED",
-            },
-            name="example-managed-kb",
-            role_arn=example_aws_iam_role["arn"])
+            })
         ```
 
         ### Managed Knowledge Base with Custom Embedding Model
@@ -610,20 +610,20 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentKnowledgeBase("example",
+            name="example-managed-multilingual-kb",
+            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
+                "type": "MANAGED",
                 "managed_knowledge_base_configuration": {
+                    "embedding_model_type": "CUSTOM",
+                    "embedding_model_arn": "arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-multilingual-v3",
                     "embedding_model_configuration": {
                         "bedrock_embedding_model_configuration": {
                             "dimensions": 1024,
                         },
                     },
-                    "embedding_model_type": "CUSTOM",
-                    "embedding_model_arn": "arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-multilingual-v3",
                 },
-                "type": "MANAGED",
-            },
-            name="example-managed-multilingual-kb",
-            role_arn=example_aws_iam_role["arn"])
+            })
         ```
 
         ## Import
@@ -638,13 +638,13 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the knowledge base.
-        :param pulumi.Input[Union['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs', 'AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict']] knowledge_base_configuration: Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
+        :param pulumi.Input[Union['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs', 'AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict', 'outputs.AgentKnowledgeBaseKnowledgeBaseConfiguration']] knowledge_base_configuration: Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
         :param pulumi.Input[_builtins.str] name: Name of the knowledge base.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role with permissions to invoke API operations on the knowledge base.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['AgentKnowledgeBaseStorageConfigurationArgs', 'AgentKnowledgeBaseStorageConfigurationArgsDict']] storage_configuration: Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+        :param pulumi.Input[Union['AgentKnowledgeBaseStorageConfigurationArgs', 'AgentKnowledgeBaseStorageConfigurationArgsDict', 'outputs.AgentKnowledgeBaseStorageConfiguration']] storage_configuration: Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -665,6 +665,8 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentKnowledgeBase("example",
+            name="example",
+            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
                 "vector_knowledge_base_configuration": {
                     "embedding_model_arn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
@@ -672,19 +674,17 @@ class AgentKnowledgeBase(pulumi.CustomResource):
                 "type": "VECTOR",
             },
             storage_configuration={
+                "type": "OPENSEARCH_SERVERLESS",
                 "opensearch_serverless_configuration": {
+                    "collection_arn": "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
+                    "vector_index_name": "bedrock-knowledge-base-default-index",
                     "field_mapping": {
                         "vector_field": "bedrock-knowledge-base-default-vector",
                         "text_field": "AMAZON_BEDROCK_TEXT_CHUNK",
                         "metadata_field": "AMAZON_BEDROCK_METADATA",
                     },
-                    "collection_arn": "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
-                    "vector_index_name": "bedrock-knowledge-base-default-index",
                 },
-                "type": "OPENSEARCH_SERVERLESS",
-            },
-            name="example",
-            role_arn=example_aws_iam_role["arn"])
+            })
         ```
 
         ### Kendra Knowledge Base
@@ -694,14 +694,14 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         kendra_example = aws.bedrock.AgentKnowledgeBase("kendra_example",
+            name="example-kendra-kb",
+            role_arn=example["arn"],
             knowledge_base_configuration={
+                "type": "KENDRA",
                 "kendra_knowledge_base_configuration": {
                     "kendra_index_arn": "arn:aws:kendra:us-east-1:123456789012:index/example-index-id",
                 },
-                "type": "KENDRA",
-            },
-            name="example-kendra-kb",
-            role_arn=example["arn"])
+            })
         ```
 
         ### Structured Data Store
@@ -711,32 +711,32 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentKnowledgeBase("example",
+            name="example-kb",
+            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
+                "type": "SQL",
                 "sql_knowledge_base_configuration": {
+                    "type": "REDSHIFT",
                     "redshift_configuration": {
                         "query_engine_configuration": {
+                            "type": "PROVISIONED",
                             "provisioned_configuration": {
+                                "cluster_identifier": example_aws_redshift_cluster["clusterIdentifier"],
                                 "auth_configuration": {
                                     "type": "USERNAME",
                                     "database_user": example_aws_redshift_cluster["masterUsername"],
                                 },
-                                "cluster_identifier": example_aws_redshift_cluster["clusterIdentifier"],
                             },
-                            "type": "PROVISIONED",
                         },
                         "storage_configuration": {
+                            "type": "REDSHIFT",
                             "redshift_configuration": {
                                 "database_name": example_aws_redshift_cluster["databaseName"],
                             },
-                            "type": "REDSHIFT",
                         },
                     },
-                    "type": "REDSHIFT",
                 },
-                "type": "SQL",
-            },
-            name="example-kb",
-            role_arn=example_aws_iam_role["arn"])
+            })
         ```
 
         ### OpenSearch Managed Cluster Configuration
@@ -746,6 +746,8 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentKnowledgeBase("example",
+            name="example",
+            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
                 "vector_knowledge_base_configuration": {
                     "embedding_model_arn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
@@ -753,20 +755,18 @@ class AgentKnowledgeBase(pulumi.CustomResource):
                 "type": "VECTOR",
             },
             storage_configuration={
+                "type": "OPENSEARCH_MANAGED_CLUSTER",
                 "opensearch_managed_cluster_configuration": {
+                    "domain_arn": "arn:aws:es:us-west-2:123456789012:domain/example-domain",
+                    "domain_endpoint": "https://search-example-domain.us-west-2.es.amazonaws.com",
+                    "vector_index_name": "example_index",
                     "field_mapping": {
                         "metadata_field": "metadata",
                         "text_field": "chunks",
                         "vector_field": "embedding",
                     },
-                    "domain_arn": "arn:aws:es:us-west-2:123456789012:domain/example-domain",
-                    "domain_endpoint": "https://search-example-domain.us-west-2.es.amazonaws.com",
-                    "vector_index_name": "example_index",
                 },
-                "type": "OPENSEARCH_MANAGED_CLUSTER",
-            },
-            name="example",
-            role_arn=example_aws_iam_role["arn"])
+            })
         ```
 
         ### With Supplemental Data Storage Configuration
@@ -776,10 +776,15 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentKnowledgeBase("example",
+            name="example",
+            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
                 "vector_knowledge_base_configuration": {
+                    "embedding_model_arn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
                     "embedding_model_configuration": {
                         "bedrock_embedding_model_configuration": {
+                            "dimensions": 1024,
+                            "embedding_data_type": "FLOAT32",
                             "audio": {
                                 "segmentation_configuration": {
                                     "fixed_length_duration": 60,
@@ -790,36 +795,31 @@ class AgentKnowledgeBase(pulumi.CustomResource):
                                     "fixed_length_duration": 60,
                                 },
                             },
-                            "dimensions": 1024,
-                            "embedding_data_type": "FLOAT32",
                         },
                     },
                     "supplemental_data_storage_configuration": {
                         "storage_location": {
+                            "type": "S3",
                             "s3Location": {
                                 "uri": "s3://my-bucket/chunk-processor/",
                             },
-                            "type": "S3",
                         },
                     },
-                    "embedding_model_arn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
                 },
                 "type": "VECTOR",
             },
             storage_configuration={
+                "type": "OPENSEARCH_SERVERLESS",
                 "opensearch_serverless_configuration": {
+                    "collection_arn": "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
+                    "vector_index_name": "bedrock-knowledge-base-default-index",
                     "field_mapping": {
                         "vector_field": "bedrock-knowledge-base-default-vector",
                         "text_field": "AMAZON_BEDROCK_TEXT_CHUNK",
                         "metadata_field": "AMAZON_BEDROCK_METADATA",
                     },
-                    "collection_arn": "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
-                    "vector_index_name": "bedrock-knowledge-base-default-index",
                 },
-                "type": "OPENSEARCH_SERVERLESS",
-            },
-            name="example",
-            role_arn=example_aws_iam_role["arn"])
+            })
         ```
 
         ### S3 Vectors Configuration
@@ -836,26 +836,26 @@ class AgentKnowledgeBase(pulumi.CustomResource):
             dimension=256,
             distance_metric="euclidean")
         example_agent_knowledge_base = aws.bedrock.AgentKnowledgeBase("example",
+            name="example-s3vectors-kb",
+            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
                 "vector_knowledge_base_configuration": {
+                    "embedding_model_arn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
                     "embedding_model_configuration": {
                         "bedrock_embedding_model_configuration": {
                             "dimensions": 256,
                             "embedding_data_type": "FLOAT32",
                         },
                     },
-                    "embedding_model_arn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
                 },
                 "type": "VECTOR",
             },
             storage_configuration={
+                "type": "S3_VECTORS",
                 "s3_vectors_configuration": {
                     "index_arn": example_vectors_index.index_arn,
                 },
-                "type": "S3_VECTORS",
-            },
-            name="example-s3vectors-kb",
-            role_arn=example_aws_iam_role["arn"])
+            })
         ```
 
         ### Managed Knowledge Base
@@ -865,14 +865,14 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentKnowledgeBase("example",
+            name="example-managed-kb",
+            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
+                "type": "MANAGED",
                 "managed_knowledge_base_configuration": {
                     "embedding_model_type": "MANAGED",
                 },
-                "type": "MANAGED",
-            },
-            name="example-managed-kb",
-            role_arn=example_aws_iam_role["arn"])
+            })
         ```
 
         ### Managed Knowledge Base with Custom Embedding Model
@@ -882,20 +882,20 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentKnowledgeBase("example",
+            name="example-managed-multilingual-kb",
+            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
+                "type": "MANAGED",
                 "managed_knowledge_base_configuration": {
+                    "embedding_model_type": "CUSTOM",
+                    "embedding_model_arn": "arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-multilingual-v3",
                     "embedding_model_configuration": {
                         "bedrock_embedding_model_configuration": {
                             "dimensions": 1024,
                         },
                     },
-                    "embedding_model_type": "CUSTOM",
-                    "embedding_model_arn": "arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-multilingual-v3",
                 },
-                "type": "MANAGED",
-            },
-            name="example-managed-multilingual-kb",
-            role_arn=example_aws_iam_role["arn"])
+            })
         ```
 
         ## Import
@@ -923,13 +923,13 @@ class AgentKnowledgeBase(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 knowledge_base_configuration: pulumi.Input[Optional[Union['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs', 'AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict']]] = None,
+                 knowledge_base_configuration: pulumi.Input[Optional[Union['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs', 'AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict', 'outputs.AgentKnowledgeBaseKnowledgeBaseConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_configuration: pulumi.Input[Optional[Union['AgentKnowledgeBaseStorageConfigurationArgs', 'AgentKnowledgeBaseStorageConfigurationArgsDict']]] = None,
+                 storage_configuration: pulumi.Input[Optional[Union['AgentKnowledgeBaseStorageConfigurationArgs', 'AgentKnowledgeBaseStorageConfigurationArgsDict', 'outputs.AgentKnowledgeBaseStorageConfiguration']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentKnowledgeBaseTimeoutsArgs', 'AgentKnowledgeBaseTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentKnowledgeBaseTimeoutsArgs', 'AgentKnowledgeBaseTimeoutsArgsDict', 'outputs.AgentKnowledgeBaseTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -970,14 +970,14 @@ class AgentKnowledgeBase(pulumi.CustomResource):
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             failure_reasons: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            knowledge_base_configuration: pulumi.Input[Optional[Union['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs', 'AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict']]] = None,
+            knowledge_base_configuration: pulumi.Input[Optional[Union['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs', 'AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict', 'outputs.AgentKnowledgeBaseKnowledgeBaseConfiguration']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            storage_configuration: pulumi.Input[Optional[Union['AgentKnowledgeBaseStorageConfigurationArgs', 'AgentKnowledgeBaseStorageConfigurationArgsDict']]] = None,
+            storage_configuration: pulumi.Input[Optional[Union['AgentKnowledgeBaseStorageConfigurationArgs', 'AgentKnowledgeBaseStorageConfigurationArgsDict', 'outputs.AgentKnowledgeBaseStorageConfiguration']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['AgentKnowledgeBaseTimeoutsArgs', 'AgentKnowledgeBaseTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentKnowledgeBaseTimeoutsArgs', 'AgentKnowledgeBaseTimeoutsArgsDict', 'outputs.AgentKnowledgeBaseTimeouts']]] = None,
             updated_at: pulumi.Input[Optional[_builtins.str]] = None) -> 'AgentKnowledgeBase':
         """
         Get an existing AgentKnowledgeBase resource's state with the given name, id, and optional extra
@@ -989,13 +989,13 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the knowledge base.
         :param pulumi.Input[_builtins.str] created_at: Time at which the knowledge base was created.
         :param pulumi.Input[_builtins.str] description: Description of the knowledge base.
-        :param pulumi.Input[Union['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs', 'AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict']] knowledge_base_configuration: Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
+        :param pulumi.Input[Union['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs', 'AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict', 'outputs.AgentKnowledgeBaseKnowledgeBaseConfiguration']] knowledge_base_configuration: Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
         :param pulumi.Input[_builtins.str] name: Name of the knowledge base.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role with permissions to invoke API operations on the knowledge base.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['AgentKnowledgeBaseStorageConfigurationArgs', 'AgentKnowledgeBaseStorageConfigurationArgsDict']] storage_configuration: Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+        :param pulumi.Input[Union['AgentKnowledgeBaseStorageConfigurationArgs', 'AgentKnowledgeBaseStorageConfigurationArgsDict', 'outputs.AgentKnowledgeBaseStorageConfiguration']] storage_configuration: Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] updated_at: Time at which the knowledge base was last updated.

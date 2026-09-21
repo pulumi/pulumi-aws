@@ -49,6 +49,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataProvider("example", DataProviderArgs.builder()
+ *             .engine("postgres")
  *             .settings(DataProviderSettingsArgs.builder()
  *                 .postgresqlSettings(DataProviderSettingsPostgresqlSettingsArgs.builder()
  *                     .serverName("example.com")
@@ -57,7 +58,6 @@ import javax.annotation.Nullable;
  *                     .sslMode("none")
  *                     .build())
  *                 .build())
- *             .engine("postgres")
  *             .build());
  * 
  *     }
@@ -92,6 +92,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataProvider("example", DataProviderArgs.builder()
+ *             .name("example-mysql")
+ *             .description("Example MySQL data provider")
+ *             .engine("mysql")
  *             .settings(DataProviderSettingsArgs.builder()
  *                 .mysqlSettings(DataProviderSettingsMysqlSettingsArgs.builder()
  *                     .serverName("mysql.example.com")
@@ -99,9 +102,6 @@ import javax.annotation.Nullable;
  *                     .sslMode("require")
  *                     .build())
  *                 .build())
- *             .name("example-mysql")
- *             .description("Example MySQL data provider")
- *             .engine("mysql")
  *             .tags(Map.of("Environment", "example"))
  *             .build());
  * 

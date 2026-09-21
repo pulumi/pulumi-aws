@@ -27,6 +27,10 @@ namespace Pulumi.Aws.Ebs
         /// {
         ///     var ebsVolumes = Aws.Ebs.GetSnapshotIds.Invoke(new()
         ///     {
+        ///         Owners = new[]
+        ///         {
+        ///             "self",
+        ///         },
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ebs.Inputs.GetSnapshotIdsFilterInputArgs
@@ -45,10 +49,6 @@ namespace Pulumi.Aws.Ebs
         ///                     "Example",
         ///                 },
         ///             },
-        ///         },
-        ///         Owners = new[]
-        ///         {
-        ///             "self",
         ///         },
         ///     });
         /// 
@@ -74,6 +74,10 @@ namespace Pulumi.Aws.Ebs
         /// {
         ///     var ebsVolumes = Aws.Ebs.GetSnapshotIds.Invoke(new()
         ///     {
+        ///         Owners = new[]
+        ///         {
+        ///             "self",
+        ///         },
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ebs.Inputs.GetSnapshotIdsFilterInputArgs
@@ -92,10 +96,6 @@ namespace Pulumi.Aws.Ebs
         ///                     "Example",
         ///                 },
         ///             },
-        ///         },
-        ///         Owners = new[]
-        ///         {
-        ///             "self",
         ///         },
         ///     });
         /// 
@@ -121,6 +121,10 @@ namespace Pulumi.Aws.Ebs
         /// {
         ///     var ebsVolumes = Aws.Ebs.GetSnapshotIds.Invoke(new()
         ///     {
+        ///         Owners = new[]
+        ///         {
+        ///             "self",
+        ///         },
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ebs.Inputs.GetSnapshotIdsFilterInputArgs
@@ -139,10 +143,6 @@ namespace Pulumi.Aws.Ebs
         ///                     "Example",
         ///                 },
         ///             },
-        ///         },
-        ///         Owners = new[]
-        ///         {
-        ///             "self",
         ///         },
         ///     });
         /// 

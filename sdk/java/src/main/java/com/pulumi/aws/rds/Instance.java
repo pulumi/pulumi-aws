@@ -105,8 +105,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.inputs.GetKeyArgs;
  * import com.pulumi.aws.rds.Instance;
  * import com.pulumi.aws.rds.InstanceArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import com.pulumi.resources.CustomTimeouts;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -153,13 +151,7 @@ import javax.annotation.Nullable;
  *             .password("avoid-plaintext-passwords")
  *             .username("test")
  *             .storageEncrypted(true)
- *             .build(), CustomResourceOptions.builder()
- *                 .customTimeouts(CustomTimeouts.builder()
- *                     .create(CustomTimeouts.parseTimeoutString("3h"))
- *                     .delete(CustomTimeouts.parseTimeoutString("3h"))
- *                     .update(CustomTimeouts.parseTimeoutString("3h"))
- *                 .build())
- *                 .build());
+ *             .build());
  * 
  *         var test_replica = new Instance("test-replica", InstanceArgs.builder()
  *             .replicateSourceDb(default_.identifier())
@@ -173,13 +165,7 @@ import javax.annotation.Nullable;
  *             .multiAz(false)
  *             .skipFinalSnapshot(true)
  *             .storageEncrypted(true)
- *             .build(), CustomResourceOptions.builder()
- *                 .customTimeouts(CustomTimeouts.builder()
- *                     .create(CustomTimeouts.parseTimeoutString("3h"))
- *                     .delete(CustomTimeouts.parseTimeoutString("3h"))
- *                     .update(CustomTimeouts.parseTimeoutString("3h"))
- *                 .build())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -201,8 +187,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.inputs.GetKeyArgs;
  * import com.pulumi.aws.rds.Instance;
  * import com.pulumi.aws.rds.InstanceArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import com.pulumi.resources.CustomTimeouts;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -247,13 +231,7 @@ import javax.annotation.Nullable;
  *             .password("avoid-plaintext-passwords")
  *             .storageEncrypted(true)
  *             .username("test")
- *             .build(), CustomResourceOptions.builder()
- *                 .customTimeouts(CustomTimeouts.builder()
- *                     .create(CustomTimeouts.parseTimeoutString("3h"))
- *                     .delete(CustomTimeouts.parseTimeoutString("3h"))
- *                     .update(CustomTimeouts.parseTimeoutString("3h"))
- *                 .build())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -309,6 +287,8 @@ import javax.annotation.Nullable;
  * 
  *         // The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
  *         var exampleParameterGroup = new ParameterGroup("exampleParameterGroup", ParameterGroupArgs.builder()
+ *             .name("db-db2-params")
+ *             .family(default_.parameterGroupFamily())
  *             .parameters(            
  *                 ParameterGroupParameterArgs.builder()
  *                     .applyMethod("immediate")
@@ -320,8 +300,6 @@ import javax.annotation.Nullable;
  *                     .name("rds.ibm_site_id")
  *                     .value("0")
  *                     .build())
- *             .name("db-db2-params")
- *             .family(default_.parameterGroupFamily())
  *             .build());
  * 
  *         // Create the RDS Db2 instance, use the data sources defined to set attributes

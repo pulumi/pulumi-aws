@@ -86,6 +86,14 @@ namespace Pulumi.Aws.LambdaMicroVMs
     /// 
     ///     var exampleImage = new Aws.LambdaMicroVMs.Image("example", new()
     ///     {
+    ///         Name = "example",
+    ///         BaseImageArn = Output.Tuple(current, currentGetRegion).Apply(values =&gt;
+    ///         {
+    ///             var current = values.Item1;
+    ///             var currentGetRegion = values.Item2;
+    ///             return $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:lambda:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:aws:microvm-image:al2023-1";
+    ///         }),
+    ///         BuildRoleArn = example.Arn,
     ///         CodeArtifact = new Aws.LambdaMicroVMs.Inputs.ImageCodeArtifactArgs
     ///         {
     ///             Uri = Output.Tuple(exampleBucket.BucketName, exampleBucketObjectv2.Key).Apply(values =&gt;
@@ -95,14 +103,6 @@ namespace Pulumi.Aws.LambdaMicroVMs
     ///                 return $"s3://{bucket}/{key}";
     ///             }),
     ///         },
-    ///         Name = "example",
-    ///         BaseImageArn = Output.Tuple(current, currentGetRegion).Apply(values =&gt;
-    ///         {
-    ///             var current = values.Item1;
-    ///             var currentGetRegion = values.Item2;
-    ///             return $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:lambda:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:aws:microvm-image:al2023-1";
-    ///         }),
-    ///         BuildRoleArn = example.Arn,
     ///     });
     /// 
     /// });

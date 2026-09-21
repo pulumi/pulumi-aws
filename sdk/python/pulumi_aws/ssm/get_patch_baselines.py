@@ -79,7 +79,7 @@ class AwaitableGetPatchBaselinesResult(GetPatchBaselinesResult):
 
 
 def get_patch_baselines(default_baselines: Optional[_builtins.bool] = None,
-                        filters: Optional[Sequence[Union['GetPatchBaselinesFilterArgs', 'GetPatchBaselinesFilterArgsDict']]] = None,
+                        filters: Optional[Sequence[Union['GetPatchBaselinesFilterArgs', 'GetPatchBaselinesFilterArgsDict', 'outputs.GetPatchBaselinesFilterResult']]] = None,
                         region: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPatchBaselinesResult:
     """
@@ -116,7 +116,7 @@ def get_patch_baselines(default_baselines: Optional[_builtins.bool] = None,
 
 
     :param _builtins.bool default_baselines: Only return baseline identities where `default_baseline` is `true`.
-    :param Sequence[Union['GetPatchBaselinesFilterArgs', 'GetPatchBaselinesFilterArgsDict']] filters: Key-value pairs used to filter the results. See `filter` below.
+    :param Sequence[Union['GetPatchBaselinesFilterArgs', 'GetPatchBaselinesFilterArgsDict', 'outputs.GetPatchBaselinesFilterResult']] filters: Key-value pairs used to filter the results. See `filter` below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -132,7 +132,7 @@ def get_patch_baselines(default_baselines: Optional[_builtins.bool] = None,
         filters=pulumi.get(__ret__, 'filters'),
         region=pulumi.get(__ret__, 'region'))
 def get_patch_baselines_output(default_baselines: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
-                               filters: pulumi.Input[Optional[Optional[Sequence[Union['GetPatchBaselinesFilterArgs', 'GetPatchBaselinesFilterArgsDict']]]]] = None,
+                               filters: pulumi.Input[Optional[Optional[Sequence[Union['GetPatchBaselinesFilterArgs', 'GetPatchBaselinesFilterArgsDict', 'outputs.GetPatchBaselinesFilterResult']]]]] = None,
                                region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPatchBaselinesResult]:
     """
@@ -169,7 +169,7 @@ def get_patch_baselines_output(default_baselines: pulumi.Input[Optional[Optional
 
 
     :param _builtins.bool default_baselines: Only return baseline identities where `default_baseline` is `true`.
-    :param Sequence[Union['GetPatchBaselinesFilterArgs', 'GetPatchBaselinesFilterArgsDict']] filters: Key-value pairs used to filter the results. See `filter` below.
+    :param Sequence[Union['GetPatchBaselinesFilterArgs', 'GetPatchBaselinesFilterArgsDict', 'outputs.GetPatchBaselinesFilterResult']] filters: Key-value pairs used to filter the results. See `filter` below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

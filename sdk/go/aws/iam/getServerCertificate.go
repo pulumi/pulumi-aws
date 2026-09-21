@@ -36,6 +36,7 @@ import (
 //				return err
 //			}
 //			_, err = elb.NewLoadBalancer(ctx, "elb", &elb.LoadBalancerArgs{
+//				Name: pulumi.String("my-domain-elb"),
 //				Listeners: elb.LoadBalancerListenerArray{
 //					&elb.LoadBalancerListenerArgs{
 //						InstancePort:     pulumi.Int(8000),
@@ -45,7 +46,6 @@ import (
 //						SslCertificateId: pulumi.String(my_domain.Arn),
 //					},
 //				},
-//				Name: pulumi.String("my-domain-elb"),
 //			})
 //			if err != nil {
 //				return err

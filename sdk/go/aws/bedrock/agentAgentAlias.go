@@ -49,6 +49,17 @@ import (
 //			exampleAgentTrust, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Identifiers: []string{
+//									"bedrock.amazonaws.com",
+//								},
+//								Type: "Service",
+//							},
+//						},
 //						Conditions: []iam.GetPolicyDocumentStatementCondition{
 //							{
 //								Test: "StringEquals",
@@ -64,17 +75,6 @@ import (
 //								},
 //								Variable: "AWS:SourceArn",
 //							},
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Identifiers: []string{
-//									"bedrock.amazonaws.com",
-//								},
-//								Type: "Service",
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
 //						},
 //					},
 //				},

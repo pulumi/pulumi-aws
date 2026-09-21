@@ -63,17 +63,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LoadBalancer("example", LoadBalancerArgs.builder()
- *             .subnetMappings(            
- *                 LoadBalancerSubnetMappingArgs.builder()
- *                     .subnetId(example1.id())
- *                     .allocationId(example1AwsEip.id())
- *                     .build(),
- *                 LoadBalancerSubnetMappingArgs.builder()
- *                     .subnetId(example2.id())
- *                     .allocationId(example2AwsEip.id())
- *                     .build())
  *             .name("example")
  *             .loadBalancerType("network")
+ *             .subnetMappings(            
+ *                 LoadBalancerSubnetMappingArgs.builder()
+ *                     .subnetId(example1AwsSubnet.id())
+ *                     .allocationId(example1.id())
+ *                     .build(),
+ *                 LoadBalancerSubnetMappingArgs.builder()
+ *                     .subnetId(example2AwsSubnet.id())
+ *                     .allocationId(example2.id())
+ *                     .build())
  *             .build());
  * 
  *     }
@@ -107,6 +107,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LoadBalancer("example", LoadBalancerArgs.builder()
+ *             .name("example")
+ *             .loadBalancerType("network")
  *             .subnetMappings(            
  *                 LoadBalancerSubnetMappingArgs.builder()
  *                     .subnetId(example1.id())
@@ -116,8 +118,6 @@ import javax.annotation.Nullable;
  *                     .subnetId(example2.id())
  *                     .privateIpv4Address("10.0.2.15")
  *                     .build())
- *             .name("example")
- *             .loadBalancerType("network")
  *             .build());
  * 
  *     }

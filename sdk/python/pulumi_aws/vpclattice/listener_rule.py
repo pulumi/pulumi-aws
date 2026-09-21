@@ -349,9 +349,9 @@ class ListenerRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: pulumi.Input[Optional[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict']]] = None,
+                 action: pulumi.Input[Optional[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict', 'outputs.ListenerRuleAction']]] = None,
                  listener_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 match: pulumi.Input[Optional[Union['ListenerRuleMatchArgs', 'ListenerRuleMatchArgsDict']]] = None,
+                 match: pulumi.Input[Optional[Union['ListenerRuleMatchArgs', 'ListenerRuleMatchArgsDict', 'outputs.ListenerRuleMatch']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -368,21 +368,25 @@ class ListenerRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.ListenerRule("example",
+            name="example",
+            listener_identifier=example_aws_vpclattice_listener["listenerId"],
+            service_identifier=example_aws_vpclattice_service["id"],
+            priority=20,
             match={
                 "http_match": {
-                    "path_match": {
-                        "match": {
-                            "prefix": "/example-path",
-                        },
-                        "case_sensitive": True,
-                    },
                     "header_matches": [{
+                        "name": "example-header",
+                        "case_sensitive": False,
                         "match": {
                             "exact": "example-contains",
                         },
-                        "name": "example-header",
-                        "case_sensitive": False,
                     }],
+                    "path_match": {
+                        "case_sensitive": True,
+                        "match": {
+                            "prefix": "/example-path",
+                        },
+                    },
                 },
             },
             action={
@@ -398,11 +402,7 @@ class ListenerRule(pulumi.CustomResource):
                         },
                     ],
                 },
-            },
-            name="example",
-            listener_identifier=example_aws_vpclattice_listener["listenerId"],
-            service_identifier=example_aws_vpclattice_service["id"],
-            priority=20)
+            })
         ```
 
         ### Basic Usage
@@ -412,13 +412,17 @@ class ListenerRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.ListenerRule("example",
+            name="example",
+            listener_identifier=example_aws_vpclattice_listener["listenerId"],
+            service_identifier=example_aws_vpclattice_service["id"],
+            priority=10,
             match={
                 "http_match": {
                     "path_match": {
+                        "case_sensitive": False,
                         "match": {
                             "exact": "/example-path",
                         },
-                        "case_sensitive": False,
                     },
                 },
             },
@@ -426,11 +430,7 @@ class ListenerRule(pulumi.CustomResource):
                 "fixed_response": {
                     "status_code": 404,
                 },
-            },
-            name="example",
-            listener_identifier=example_aws_vpclattice_listener["listenerId"],
-            service_identifier=example_aws_vpclattice_service["id"],
-            priority=10)
+            })
         ```
 
         ## Import
@@ -444,9 +444,9 @@ class ListenerRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict']] action: Action for the listener rule. See `action` Block for details.
+        :param pulumi.Input[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict', 'outputs.ListenerRuleAction']] action: Action for the listener rule. See `action` Block for details.
         :param pulumi.Input[_builtins.str] listener_identifier: ID or ARN of the listener.
-        :param pulumi.Input[Union['ListenerRuleMatchArgs', 'ListenerRuleMatchArgsDict']] match: Rule match. See `match` Block for details.
+        :param pulumi.Input[Union['ListenerRuleMatchArgs', 'ListenerRuleMatchArgsDict', 'outputs.ListenerRuleMatch']] match: Rule match. See `match` Block for details.
         :param pulumi.Input[_builtins.str] name: Name of the rule. Must be unique within the listener. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[_builtins.int] priority: Priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -471,21 +471,25 @@ class ListenerRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.ListenerRule("example",
+            name="example",
+            listener_identifier=example_aws_vpclattice_listener["listenerId"],
+            service_identifier=example_aws_vpclattice_service["id"],
+            priority=20,
             match={
                 "http_match": {
-                    "path_match": {
-                        "match": {
-                            "prefix": "/example-path",
-                        },
-                        "case_sensitive": True,
-                    },
                     "header_matches": [{
+                        "name": "example-header",
+                        "case_sensitive": False,
                         "match": {
                             "exact": "example-contains",
                         },
-                        "name": "example-header",
-                        "case_sensitive": False,
                     }],
+                    "path_match": {
+                        "case_sensitive": True,
+                        "match": {
+                            "prefix": "/example-path",
+                        },
+                    },
                 },
             },
             action={
@@ -501,11 +505,7 @@ class ListenerRule(pulumi.CustomResource):
                         },
                     ],
                 },
-            },
-            name="example",
-            listener_identifier=example_aws_vpclattice_listener["listenerId"],
-            service_identifier=example_aws_vpclattice_service["id"],
-            priority=20)
+            })
         ```
 
         ### Basic Usage
@@ -515,13 +515,17 @@ class ListenerRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.ListenerRule("example",
+            name="example",
+            listener_identifier=example_aws_vpclattice_listener["listenerId"],
+            service_identifier=example_aws_vpclattice_service["id"],
+            priority=10,
             match={
                 "http_match": {
                     "path_match": {
+                        "case_sensitive": False,
                         "match": {
                             "exact": "/example-path",
                         },
-                        "case_sensitive": False,
                     },
                 },
             },
@@ -529,11 +533,7 @@ class ListenerRule(pulumi.CustomResource):
                 "fixed_response": {
                     "status_code": 404,
                 },
-            },
-            name="example",
-            listener_identifier=example_aws_vpclattice_listener["listenerId"],
-            service_identifier=example_aws_vpclattice_service["id"],
-            priority=10)
+            })
         ```
 
         ## Import
@@ -560,9 +560,9 @@ class ListenerRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: pulumi.Input[Optional[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict']]] = None,
+                 action: pulumi.Input[Optional[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict', 'outputs.ListenerRuleAction']]] = None,
                  listener_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 match: pulumi.Input[Optional[Union['ListenerRuleMatchArgs', 'ListenerRuleMatchArgsDict']]] = None,
+                 match: pulumi.Input[Optional[Union['ListenerRuleMatchArgs', 'ListenerRuleMatchArgsDict', 'outputs.ListenerRuleMatch']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -608,10 +608,10 @@ class ListenerRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action: pulumi.Input[Optional[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict']]] = None,
+            action: pulumi.Input[Optional[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict', 'outputs.ListenerRuleAction']]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             listener_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-            match: pulumi.Input[Optional[Union['ListenerRuleMatchArgs', 'ListenerRuleMatchArgsDict']]] = None,
+            match: pulumi.Input[Optional[Union['ListenerRuleMatchArgs', 'ListenerRuleMatchArgsDict', 'outputs.ListenerRuleMatch']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             priority: pulumi.Input[Optional[_builtins.int]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -626,10 +626,10 @@ class ListenerRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict']] action: Action for the listener rule. See `action` Block for details.
+        :param pulumi.Input[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict', 'outputs.ListenerRuleAction']] action: Action for the listener rule. See `action` Block for details.
         :param pulumi.Input[_builtins.str] arn: ARN for the listener rule.
         :param pulumi.Input[_builtins.str] listener_identifier: ID or ARN of the listener.
-        :param pulumi.Input[Union['ListenerRuleMatchArgs', 'ListenerRuleMatchArgsDict']] match: Rule match. See `match` Block for details.
+        :param pulumi.Input[Union['ListenerRuleMatchArgs', 'ListenerRuleMatchArgsDict', 'outputs.ListenerRuleMatch']] match: Rule match. See `match` Block for details.
         :param pulumi.Input[_builtins.str] name: Name of the rule. Must be unique within the listener. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[_builtins.int] priority: Priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

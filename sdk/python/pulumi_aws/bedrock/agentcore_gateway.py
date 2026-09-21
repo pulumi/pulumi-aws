@@ -568,20 +568,20 @@ class AgentcoreGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorizer_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayAuthorizerConfigurationArgs', 'AgentcoreGatewayAuthorizerConfigurationArgsDict']]] = None,
+                 authorizer_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayAuthorizerConfigurationArgs', 'AgentcoreGatewayAuthorizerConfigurationArgsDict', 'outputs.AgentcoreGatewayAuthorizerConfiguration']]] = None,
                  authorizer_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  exception_level: pulumi.Input[Optional[_builtins.str]] = None,
-                 interceptor_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayInterceptorConfigurationArgs', 'AgentcoreGatewayInterceptorConfigurationArgsDict']]]]] = None,
+                 interceptor_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayInterceptorConfigurationArgs', 'AgentcoreGatewayInterceptorConfigurationArgsDict', 'outputs.AgentcoreGatewayInterceptorConfiguration']]]]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 policy_engine_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayPolicyEngineConfigurationArgs', 'AgentcoreGatewayPolicyEngineConfigurationArgsDict']]] = None,
-                 protocol_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayProtocolConfigurationArgs', 'AgentcoreGatewayProtocolConfigurationArgsDict']]] = None,
+                 policy_engine_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayPolicyEngineConfigurationArgs', 'AgentcoreGatewayPolicyEngineConfigurationArgsDict', 'outputs.AgentcoreGatewayPolicyEngineConfiguration']]] = None,
+                 protocol_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayProtocolConfigurationArgs', 'AgentcoreGatewayProtocolConfigurationArgsDict', 'outputs.AgentcoreGatewayProtocolConfiguration']]] = None,
                  protocol_type: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayTimeoutsArgs', 'AgentcoreGatewayTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayTimeoutsArgs', 'AgentcoreGatewayTimeoutsArgsDict', 'outputs.AgentcoreGatewayTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS Bedrock AgentCore Gateway. With Gateway, developers can convert APIs, Lambda functions, and existing services into Model Context Protocol (MCP)-compatible tools.
@@ -595,17 +595,20 @@ class AgentcoreGateway(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["bedrock-agentcore.amazonaws.com"],
             }],
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
         }])
         example = aws.iam.Role("example",
             name="bedrock-agentcore-gateway-role",
             assume_role_policy=assume_role.json)
         example_agentcore_gateway = aws.bedrock.AgentcoreGateway("example",
+            name="example-gateway",
+            role_arn=example.arn,
+            authorizer_type="CUSTOM_JWT",
             authorizer_configuration={
                 "custom_jwt_authorizer": {
                     "discovery_url": "https://accounts.google.com/.well-known/openid-configuration",
@@ -615,9 +618,6 @@ class AgentcoreGateway(pulumi.CustomResource):
                     ],
                 },
             },
-            name="example-gateway",
-            role_arn=example.arn,
-            authorizer_type="CUSTOM_JWT",
             protocol_type="MCP")
         ```
 
@@ -628,6 +628,10 @@ class AgentcoreGateway(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreGateway("example",
+            name="mcp-gateway",
+            description="Gateway for MCP communication",
+            role_arn=example_aws_iam_role["arn"],
+            authorizer_type="CUSTOM_JWT",
             authorizer_configuration={
                 "custom_jwt_authorizer": {
                     "discovery_url": "https://auth.example.com/.well-known/openid-configuration",
@@ -645,6 +649,7 @@ class AgentcoreGateway(pulumi.CustomResource):
                     ],
                 },
             },
+            protocol_type="MCP",
             protocol_configuration={
                 "mcp": {
                     "instructions": "Gateway for handling MCP requests",
@@ -654,12 +659,7 @@ class AgentcoreGateway(pulumi.CustomResource):
                         "2025-06-18",
                     ],
                 },
-            },
-            name="mcp-gateway",
-            description="Gateway for MCP communication",
-            role_arn=example_aws_iam_role["arn"],
-            authorizer_type="CUSTOM_JWT",
-            protocol_type="MCP")
+            })
         ```
 
         ### Gateway with Interceptor Configuration
@@ -675,7 +675,15 @@ class AgentcoreGateway(pulumi.CustomResource):
             handler="index.handler",
             runtime=aws.lambda_.Runtime.PYTHON3D12)
         example = aws.bedrock.AgentcoreGateway("example",
+            name="gateway-with-interceptor",
+            role_arn=example_aws_iam_role["arn"],
+            authorizer_type="AWS_IAM",
+            protocol_type="MCP",
             interceptor_configurations=[{
+                "interception_points": [
+                    "REQUEST",
+                    "RESPONSE",
+                ],
                 "interceptor": {
                     "lambda_": {
                         "arn": interceptor.arn,
@@ -684,15 +692,7 @@ class AgentcoreGateway(pulumi.CustomResource):
                 "input_configuration": {
                     "pass_request_headers": True,
                 },
-                "interception_points": [
-                    "REQUEST",
-                    "RESPONSE",
-                ],
-            }],
-            name="gateway-with-interceptor",
-            role_arn=example_aws_iam_role["arn"],
-            authorizer_type="AWS_IAM",
-            protocol_type="MCP")
+            }])
         ```
 
         ## Import
@@ -706,15 +706,15 @@ class AgentcoreGateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AgentcoreGatewayAuthorizerConfigurationArgs', 'AgentcoreGatewayAuthorizerConfigurationArgsDict']] authorizer_configuration: Configuration for request authorization. Required when `authorizer_type` is set to `CUSTOM_JWT`. See `authorizer_configuration` below.
+        :param pulumi.Input[Union['AgentcoreGatewayAuthorizerConfigurationArgs', 'AgentcoreGatewayAuthorizerConfigurationArgsDict', 'outputs.AgentcoreGatewayAuthorizerConfiguration']] authorizer_configuration: Configuration for request authorization. Required when `authorizer_type` is set to `CUSTOM_JWT`. See `authorizer_configuration` below.
         :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`, `NONE`, `AUTHENTICATE_ONLY`. When set to `CUSTOM_JWT`, `authorizer_configuration` block is required.
         :param pulumi.Input[_builtins.str] description: Description of the gateway.
         :param pulumi.Input[_builtins.str] exception_level: Exception level for the gateway. Valid values: `DEBUG`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreGatewayInterceptorConfigurationArgs', 'AgentcoreGatewayInterceptorConfigurationArgsDict']]]] interceptor_configurations: List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptor_configuration` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreGatewayInterceptorConfigurationArgs', 'AgentcoreGatewayInterceptorConfigurationArgsDict', 'outputs.AgentcoreGatewayInterceptorConfiguration']]]] interceptor_configurations: List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptor_configuration` below.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the gateway data.
         :param pulumi.Input[_builtins.str] name: Name of the gateway.
-        :param pulumi.Input[Union['AgentcoreGatewayPolicyEngineConfigurationArgs', 'AgentcoreGatewayPolicyEngineConfigurationArgsDict']] policy_engine_configuration: Configuration for a policy engine associated with the gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies. See `policy_engine_configuration` below.
-        :param pulumi.Input[Union['AgentcoreGatewayProtocolConfigurationArgs', 'AgentcoreGatewayProtocolConfigurationArgsDict']] protocol_configuration: Protocol-specific configuration for the gateway. See `protocol_configuration` below.
+        :param pulumi.Input[Union['AgentcoreGatewayPolicyEngineConfigurationArgs', 'AgentcoreGatewayPolicyEngineConfigurationArgsDict', 'outputs.AgentcoreGatewayPolicyEngineConfiguration']] policy_engine_configuration: Configuration for a policy engine associated with the gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies. See `policy_engine_configuration` below.
+        :param pulumi.Input[Union['AgentcoreGatewayProtocolConfigurationArgs', 'AgentcoreGatewayProtocolConfigurationArgsDict', 'outputs.AgentcoreGatewayProtocolConfiguration']] protocol_configuration: Protocol-specific configuration for the gateway. See `protocol_configuration` below.
         :param pulumi.Input[_builtins.str] protocol_type: Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that the gateway assumes to access AWS services.
@@ -740,17 +740,20 @@ class AgentcoreGateway(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["bedrock-agentcore.amazonaws.com"],
             }],
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
         }])
         example = aws.iam.Role("example",
             name="bedrock-agentcore-gateway-role",
             assume_role_policy=assume_role.json)
         example_agentcore_gateway = aws.bedrock.AgentcoreGateway("example",
+            name="example-gateway",
+            role_arn=example.arn,
+            authorizer_type="CUSTOM_JWT",
             authorizer_configuration={
                 "custom_jwt_authorizer": {
                     "discovery_url": "https://accounts.google.com/.well-known/openid-configuration",
@@ -760,9 +763,6 @@ class AgentcoreGateway(pulumi.CustomResource):
                     ],
                 },
             },
-            name="example-gateway",
-            role_arn=example.arn,
-            authorizer_type="CUSTOM_JWT",
             protocol_type="MCP")
         ```
 
@@ -773,6 +773,10 @@ class AgentcoreGateway(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreGateway("example",
+            name="mcp-gateway",
+            description="Gateway for MCP communication",
+            role_arn=example_aws_iam_role["arn"],
+            authorizer_type="CUSTOM_JWT",
             authorizer_configuration={
                 "custom_jwt_authorizer": {
                     "discovery_url": "https://auth.example.com/.well-known/openid-configuration",
@@ -790,6 +794,7 @@ class AgentcoreGateway(pulumi.CustomResource):
                     ],
                 },
             },
+            protocol_type="MCP",
             protocol_configuration={
                 "mcp": {
                     "instructions": "Gateway for handling MCP requests",
@@ -799,12 +804,7 @@ class AgentcoreGateway(pulumi.CustomResource):
                         "2025-06-18",
                     ],
                 },
-            },
-            name="mcp-gateway",
-            description="Gateway for MCP communication",
-            role_arn=example_aws_iam_role["arn"],
-            authorizer_type="CUSTOM_JWT",
-            protocol_type="MCP")
+            })
         ```
 
         ### Gateway with Interceptor Configuration
@@ -820,7 +820,15 @@ class AgentcoreGateway(pulumi.CustomResource):
             handler="index.handler",
             runtime=aws.lambda_.Runtime.PYTHON3D12)
         example = aws.bedrock.AgentcoreGateway("example",
+            name="gateway-with-interceptor",
+            role_arn=example_aws_iam_role["arn"],
+            authorizer_type="AWS_IAM",
+            protocol_type="MCP",
             interceptor_configurations=[{
+                "interception_points": [
+                    "REQUEST",
+                    "RESPONSE",
+                ],
                 "interceptor": {
                     "lambda_": {
                         "arn": interceptor.arn,
@@ -829,15 +837,7 @@ class AgentcoreGateway(pulumi.CustomResource):
                 "input_configuration": {
                     "pass_request_headers": True,
                 },
-                "interception_points": [
-                    "REQUEST",
-                    "RESPONSE",
-                ],
-            }],
-            name="gateway-with-interceptor",
-            role_arn=example_aws_iam_role["arn"],
-            authorizer_type="AWS_IAM",
-            protocol_type="MCP")
+            }])
         ```
 
         ## Import
@@ -864,20 +864,20 @@ class AgentcoreGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorizer_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayAuthorizerConfigurationArgs', 'AgentcoreGatewayAuthorizerConfigurationArgsDict']]] = None,
+                 authorizer_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayAuthorizerConfigurationArgs', 'AgentcoreGatewayAuthorizerConfigurationArgsDict', 'outputs.AgentcoreGatewayAuthorizerConfiguration']]] = None,
                  authorizer_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  exception_level: pulumi.Input[Optional[_builtins.str]] = None,
-                 interceptor_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayInterceptorConfigurationArgs', 'AgentcoreGatewayInterceptorConfigurationArgsDict']]]]] = None,
+                 interceptor_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayInterceptorConfigurationArgs', 'AgentcoreGatewayInterceptorConfigurationArgsDict', 'outputs.AgentcoreGatewayInterceptorConfiguration']]]]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 policy_engine_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayPolicyEngineConfigurationArgs', 'AgentcoreGatewayPolicyEngineConfigurationArgsDict']]] = None,
-                 protocol_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayProtocolConfigurationArgs', 'AgentcoreGatewayProtocolConfigurationArgsDict']]] = None,
+                 policy_engine_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayPolicyEngineConfigurationArgs', 'AgentcoreGatewayPolicyEngineConfigurationArgsDict', 'outputs.AgentcoreGatewayPolicyEngineConfiguration']]] = None,
+                 protocol_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayProtocolConfigurationArgs', 'AgentcoreGatewayProtocolConfigurationArgsDict', 'outputs.AgentcoreGatewayProtocolConfiguration']]] = None,
                  protocol_type: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayTimeoutsArgs', 'AgentcoreGatewayTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayTimeoutsArgs', 'AgentcoreGatewayTimeoutsArgsDict', 'outputs.AgentcoreGatewayTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -920,25 +920,25 @@ class AgentcoreGateway(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authorizer_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayAuthorizerConfigurationArgs', 'AgentcoreGatewayAuthorizerConfigurationArgsDict']]] = None,
+            authorizer_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayAuthorizerConfigurationArgs', 'AgentcoreGatewayAuthorizerConfigurationArgsDict', 'outputs.AgentcoreGatewayAuthorizerConfiguration']]] = None,
             authorizer_type: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             exception_level: pulumi.Input[Optional[_builtins.str]] = None,
             gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
             gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
             gateway_url: pulumi.Input[Optional[_builtins.str]] = None,
-            interceptor_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayInterceptorConfigurationArgs', 'AgentcoreGatewayInterceptorConfigurationArgsDict']]]]] = None,
+            interceptor_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayInterceptorConfigurationArgs', 'AgentcoreGatewayInterceptorConfigurationArgsDict', 'outputs.AgentcoreGatewayInterceptorConfiguration']]]]] = None,
             kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            policy_engine_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayPolicyEngineConfigurationArgs', 'AgentcoreGatewayPolicyEngineConfigurationArgsDict']]] = None,
-            protocol_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayProtocolConfigurationArgs', 'AgentcoreGatewayProtocolConfigurationArgsDict']]] = None,
+            policy_engine_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayPolicyEngineConfigurationArgs', 'AgentcoreGatewayPolicyEngineConfigurationArgsDict', 'outputs.AgentcoreGatewayPolicyEngineConfiguration']]] = None,
+            protocol_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayProtocolConfigurationArgs', 'AgentcoreGatewayProtocolConfigurationArgsDict', 'outputs.AgentcoreGatewayProtocolConfiguration']]] = None,
             protocol_type: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayTimeoutsArgs', 'AgentcoreGatewayTimeoutsArgsDict']]] = None,
-            workload_identity_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayWorkloadIdentityDetailArgs', 'AgentcoreGatewayWorkloadIdentityDetailArgsDict']]]]] = None) -> 'AgentcoreGateway':
+            timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayTimeoutsArgs', 'AgentcoreGatewayTimeoutsArgsDict', 'outputs.AgentcoreGatewayTimeouts']]] = None,
+            workload_identity_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayWorkloadIdentityDetailArgs', 'AgentcoreGatewayWorkloadIdentityDetailArgsDict', 'outputs.AgentcoreGatewayWorkloadIdentityDetail']]]]] = None) -> 'AgentcoreGateway':
         """
         Get an existing AgentcoreGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -946,18 +946,18 @@ class AgentcoreGateway(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AgentcoreGatewayAuthorizerConfigurationArgs', 'AgentcoreGatewayAuthorizerConfigurationArgsDict']] authorizer_configuration: Configuration for request authorization. Required when `authorizer_type` is set to `CUSTOM_JWT`. See `authorizer_configuration` below.
+        :param pulumi.Input[Union['AgentcoreGatewayAuthorizerConfigurationArgs', 'AgentcoreGatewayAuthorizerConfigurationArgsDict', 'outputs.AgentcoreGatewayAuthorizerConfiguration']] authorizer_configuration: Configuration for request authorization. Required when `authorizer_type` is set to `CUSTOM_JWT`. See `authorizer_configuration` below.
         :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`, `NONE`, `AUTHENTICATE_ONLY`. When set to `CUSTOM_JWT`, `authorizer_configuration` block is required.
         :param pulumi.Input[_builtins.str] description: Description of the gateway.
         :param pulumi.Input[_builtins.str] exception_level: Exception level for the gateway. Valid values: `DEBUG`.
         :param pulumi.Input[_builtins.str] gateway_arn: ARN of the Gateway.
         :param pulumi.Input[_builtins.str] gateway_id: Unique identifier of the Gateway.
         :param pulumi.Input[_builtins.str] gateway_url: URL endpoint for the gateway.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreGatewayInterceptorConfigurationArgs', 'AgentcoreGatewayInterceptorConfigurationArgsDict']]]] interceptor_configurations: List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptor_configuration` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreGatewayInterceptorConfigurationArgs', 'AgentcoreGatewayInterceptorConfigurationArgsDict', 'outputs.AgentcoreGatewayInterceptorConfiguration']]]] interceptor_configurations: List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptor_configuration` below.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the gateway data.
         :param pulumi.Input[_builtins.str] name: Name of the gateway.
-        :param pulumi.Input[Union['AgentcoreGatewayPolicyEngineConfigurationArgs', 'AgentcoreGatewayPolicyEngineConfigurationArgsDict']] policy_engine_configuration: Configuration for a policy engine associated with the gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies. See `policy_engine_configuration` below.
-        :param pulumi.Input[Union['AgentcoreGatewayProtocolConfigurationArgs', 'AgentcoreGatewayProtocolConfigurationArgsDict']] protocol_configuration: Protocol-specific configuration for the gateway. See `protocol_configuration` below.
+        :param pulumi.Input[Union['AgentcoreGatewayPolicyEngineConfigurationArgs', 'AgentcoreGatewayPolicyEngineConfigurationArgsDict', 'outputs.AgentcoreGatewayPolicyEngineConfiguration']] policy_engine_configuration: Configuration for a policy engine associated with the gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies. See `policy_engine_configuration` below.
+        :param pulumi.Input[Union['AgentcoreGatewayProtocolConfigurationArgs', 'AgentcoreGatewayProtocolConfigurationArgsDict', 'outputs.AgentcoreGatewayProtocolConfiguration']] protocol_configuration: Protocol-specific configuration for the gateway. See `protocol_configuration` below.
         :param pulumi.Input[_builtins.str] protocol_type: Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that the gateway assumes to access AWS services.
@@ -965,7 +965,7 @@ class AgentcoreGateway(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreGatewayWorkloadIdentityDetailArgs', 'AgentcoreGatewayWorkloadIdentityDetailArgsDict']]]] workload_identity_details: Workload identity details for the gateway. See `workload_identity_details` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreGatewayWorkloadIdentityDetailArgs', 'AgentcoreGatewayWorkloadIdentityDetailArgsDict', 'outputs.AgentcoreGatewayWorkloadIdentityDetail']]]] workload_identity_details: Workload identity details for the gateway. See `workload_identity_details` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

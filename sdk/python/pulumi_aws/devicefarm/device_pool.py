@@ -313,7 +313,7 @@ class DevicePool(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DevicePoolRuleArgs', 'DevicePoolRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DevicePoolRuleArgs', 'DevicePoolRuleArgsDict', 'outputs.DevicePoolRule']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -326,13 +326,13 @@ class DevicePool(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.devicefarm.DevicePool("example",
+            name="example",
+            project_arn=example_aws_devicefarm_project["arn"],
             rules=[{
                 "attribute": "OS_VERSION",
                 "operator": "EQUALS",
                 "value": "\\"AVAILABLE\\"",
-            }],
-            name="example",
-            project_arn=example_aws_devicefarm_project["arn"])
+            }])
         ```
 
         ## Import
@@ -357,7 +357,7 @@ class DevicePool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the Device Pool
         :param pulumi.Input[_builtins.str] project_arn: The ARN of the project for the device pool.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DevicePoolRuleArgs', 'DevicePoolRuleArgsDict']]]] rules: The device pool's rules. See Rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DevicePoolRuleArgs', 'DevicePoolRuleArgsDict', 'outputs.DevicePoolRule']]]] rules: The device pool's rules. See Rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -376,13 +376,13 @@ class DevicePool(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.devicefarm.DevicePool("example",
+            name="example",
+            project_arn=example_aws_devicefarm_project["arn"],
             rules=[{
                 "attribute": "OS_VERSION",
                 "operator": "EQUALS",
                 "value": "\\"AVAILABLE\\"",
-            }],
-            name="example",
-            project_arn=example_aws_devicefarm_project["arn"])
+            }])
         ```
 
         ## Import
@@ -420,7 +420,7 @@ class DevicePool(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DevicePoolRuleArgs', 'DevicePoolRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DevicePoolRuleArgs', 'DevicePoolRuleArgsDict', 'outputs.DevicePoolRule']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -461,7 +461,7 @@ class DevicePool(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             project_arn: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DevicePoolRuleArgs', 'DevicePoolRuleArgsDict']]]]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DevicePoolRuleArgs', 'DevicePoolRuleArgsDict', 'outputs.DevicePoolRule']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None) -> 'DevicePool':
@@ -478,7 +478,7 @@ class DevicePool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the Device Pool
         :param pulumi.Input[_builtins.str] project_arn: The ARN of the project for the device pool.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DevicePoolRuleArgs', 'DevicePoolRuleArgsDict']]]] rules: The device pool's rules. See Rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DevicePoolRuleArgs', 'DevicePoolRuleArgsDict', 'outputs.DevicePoolRule']]]] rules: The device pool's rules. See Rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

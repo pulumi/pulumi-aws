@@ -877,7 +877,7 @@ class Server(pulumi.CustomResource):
                  certificate: pulumi.Input[Optional[_builtins.str]] = None,
                  directory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  domain: pulumi.Input[Optional[_builtins.str]] = None,
-                 endpoint_details: pulumi.Input[Optional[Union['ServerEndpointDetailsArgs', 'ServerEndpointDetailsArgsDict']]] = None,
+                 endpoint_details: pulumi.Input[Optional[Union['ServerEndpointDetailsArgs', 'ServerEndpointDetailsArgsDict', 'outputs.ServerEndpointDetails']]] = None,
                  endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
                  force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  function: pulumi.Input[Optional[_builtins.str]] = None,
@@ -888,16 +888,16 @@ class Server(pulumi.CustomResource):
                  logging_role: pulumi.Input[Optional[_builtins.str]] = None,
                  post_authentication_login_banner: pulumi.Input[Optional[_builtins.str]] = None,
                  pre_authentication_login_banner: pulumi.Input[Optional[_builtins.str]] = None,
-                 protocol_details: pulumi.Input[Optional[Union['ServerProtocolDetailsArgs', 'ServerProtocolDetailsArgsDict']]] = None,
+                 protocol_details: pulumi.Input[Optional[Union['ServerProtocolDetailsArgs', 'ServerProtocolDetailsArgsDict', 'outputs.ServerProtocolDetails']]] = None,
                  protocols: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3_storage_options: pulumi.Input[Optional[Union['ServerS3StorageOptionsArgs', 'ServerS3StorageOptionsArgsDict']]] = None,
+                 s3_storage_options: pulumi.Input[Optional[Union['ServerS3StorageOptionsArgs', 'ServerS3StorageOptionsArgsDict', 'outputs.ServerS3StorageOptions']]] = None,
                  security_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sftp_authentication_methods: pulumi.Input[Optional[_builtins.str]] = None,
                  structured_log_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  url: pulumi.Input[Optional[_builtins.str]] = None,
-                 workflow_details: pulumi.Input[Optional[Union['ServerWorkflowDetailsArgs', 'ServerWorkflowDetailsArgsDict']]] = None,
+                 workflow_details: pulumi.Input[Optional[Union['ServerWorkflowDetailsArgs', 'ServerWorkflowDetailsArgsDict', 'outputs.ServerWorkflowDetails']]] = None,
                  __props__=None):
         """
         Provides a AWS Transfer Server resource.
@@ -935,12 +935,12 @@ class Server(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.transfer.Server("example",
+            endpoint_type="VPC",
             endpoint_details={
                 "address_allocation_ids": [example_aws_eip["id"]],
                 "subnet_ids": [example_aws_subnet["id"]],
                 "vpc_id": example_aws_vpc["id"],
-            },
-            endpoint_type="VPC")
+            })
         ```
 
         ### AWS Directory authentication
@@ -972,11 +972,11 @@ class Server(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.transfer.Server("example",
+            endpoint_type="VPC",
             endpoint_details={
                 "subnet_ids": [example_aws_subnet["id"]],
                 "vpc_id": example_aws_vpc["id"],
             },
-            endpoint_type="VPC",
             protocols=[
                 "FTP",
                 "FTPS",
@@ -994,11 +994,11 @@ class Server(pulumi.CustomResource):
 
         transfer = aws.cloudwatch.LogGroup("transfer", name_prefix="transfer_test_")
         transfer_assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["transfer.amazonaws.com"],
             }],
-            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         iam_for_transfer = aws.iam.Role("iam_for_transfer",
@@ -1030,7 +1030,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] certificate: ARN of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
         :param pulumi.Input[_builtins.str] directory_id: Directory service ID of the directory service you want to connect to with an `identity_provider_type` of `AWS_DIRECTORY_SERVICE`.
         :param pulumi.Input[_builtins.str] domain: Domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
-        :param pulumi.Input[Union['ServerEndpointDetailsArgs', 'ServerEndpointDetailsArgsDict']] endpoint_details: VPC endpoint settings that you want to configure for your SFTP server. See `endpoint_details` Block below for details.
+        :param pulumi.Input[Union['ServerEndpointDetailsArgs', 'ServerEndpointDetailsArgsDict', 'outputs.ServerEndpointDetails']] endpoint_details: VPC endpoint settings that you want to configure for your SFTP server. See `endpoint_details` Block below for details.
         :param pulumi.Input[_builtins.str] endpoint_type: Type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`. Defaults to `PUBLIC`.
         :param pulumi.Input[_builtins.bool] force_destroy: Boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identity_provider_type`.
         :param pulumi.Input[_builtins.str] function: ARN for a lambda function to use for the Identity provider with an `identity_provider_type` of `AWS_LAMBDA`.
@@ -1041,16 +1041,16 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] logging_role: ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         :param pulumi.Input[_builtins.str] post_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
         :param pulumi.Input[_builtins.str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
-        :param pulumi.Input[Union['ServerProtocolDetailsArgs', 'ServerProtocolDetailsArgsDict']] protocol_details: Protocol settings that are configured for your server. See `protocol_details` Block below for details.
+        :param pulumi.Input[Union['ServerProtocolDetailsArgs', 'ServerProtocolDetailsArgsDict', 'outputs.ServerProtocolDetails']] protocol_details: Protocol settings that are configured for your server. See `protocol_details` Block below for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: File transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP`. The available protocols are `AS2` (file transfer over Applicability Statement 2), `SFTP` (file transfer over SSH), `FTPS` (file transfer with TLS encryption), and `FTP` (unencrypted file transfer).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ServerS3StorageOptionsArgs', 'ServerS3StorageOptionsArgsDict']] s3_storage_options: Whether performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
+        :param pulumi.Input[Union['ServerS3StorageOptionsArgs', 'ServerS3StorageOptionsArgsDict', 'outputs.ServerS3StorageOptions']] s3_storage_options: Whether performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
         :param pulumi.Input[_builtins.str] security_policy_name: Name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-2022-03`, `TransferSecurityPolicy-2023-05`, `TransferSecurityPolicy-2024-01`, `TransferSecurityPolicy-2025-03`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-FIPS-2023-05`, `TransferSecurityPolicy-FIPS-2024-01`, `TransferSecurityPolicy-FIPS-2024-05`, `TransferSecurityPolicy-FIPS-2025-03`, `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`, `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`, `TransferSecurityPolicy-Restricted-2018-11`, `TransferSecurityPolicy-Restricted-2020-06`, `TransferSecurityPolicy-Restricted-2024-06`, `TransferSecurityPolicy-SshAuditCompliant-2025-02`, and `TransferSecurityPolicy-AS2Restricted-2025-07`. See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
         :param pulumi.Input[_builtins.str] sftp_authentication_methods: For SFTP-enabled servers with an `identity_provider_type` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] structured_log_destinations: Set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] url: URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
-        :param pulumi.Input[Union['ServerWorkflowDetailsArgs', 'ServerWorkflowDetailsArgsDict']] workflow_details: Workflow details. See `workflow_details` Block below for details.
+        :param pulumi.Input[Union['ServerWorkflowDetailsArgs', 'ServerWorkflowDetailsArgsDict', 'outputs.ServerWorkflowDetails']] workflow_details: Workflow details. See `workflow_details` Block below for details.
         """
         ...
     @overload
@@ -1094,12 +1094,12 @@ class Server(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.transfer.Server("example",
+            endpoint_type="VPC",
             endpoint_details={
                 "address_allocation_ids": [example_aws_eip["id"]],
                 "subnet_ids": [example_aws_subnet["id"]],
                 "vpc_id": example_aws_vpc["id"],
-            },
-            endpoint_type="VPC")
+            })
         ```
 
         ### AWS Directory authentication
@@ -1131,11 +1131,11 @@ class Server(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.transfer.Server("example",
+            endpoint_type="VPC",
             endpoint_details={
                 "subnet_ids": [example_aws_subnet["id"]],
                 "vpc_id": example_aws_vpc["id"],
             },
-            endpoint_type="VPC",
             protocols=[
                 "FTP",
                 "FTPS",
@@ -1153,11 +1153,11 @@ class Server(pulumi.CustomResource):
 
         transfer = aws.cloudwatch.LogGroup("transfer", name_prefix="transfer_test_")
         transfer_assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["transfer.amazonaws.com"],
             }],
-            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         iam_for_transfer = aws.iam.Role("iam_for_transfer",
@@ -1202,7 +1202,7 @@ class Server(pulumi.CustomResource):
                  certificate: pulumi.Input[Optional[_builtins.str]] = None,
                  directory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  domain: pulumi.Input[Optional[_builtins.str]] = None,
-                 endpoint_details: pulumi.Input[Optional[Union['ServerEndpointDetailsArgs', 'ServerEndpointDetailsArgsDict']]] = None,
+                 endpoint_details: pulumi.Input[Optional[Union['ServerEndpointDetailsArgs', 'ServerEndpointDetailsArgsDict', 'outputs.ServerEndpointDetails']]] = None,
                  endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
                  force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  function: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1213,16 +1213,16 @@ class Server(pulumi.CustomResource):
                  logging_role: pulumi.Input[Optional[_builtins.str]] = None,
                  post_authentication_login_banner: pulumi.Input[Optional[_builtins.str]] = None,
                  pre_authentication_login_banner: pulumi.Input[Optional[_builtins.str]] = None,
-                 protocol_details: pulumi.Input[Optional[Union['ServerProtocolDetailsArgs', 'ServerProtocolDetailsArgsDict']]] = None,
+                 protocol_details: pulumi.Input[Optional[Union['ServerProtocolDetailsArgs', 'ServerProtocolDetailsArgsDict', 'outputs.ServerProtocolDetails']]] = None,
                  protocols: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3_storage_options: pulumi.Input[Optional[Union['ServerS3StorageOptionsArgs', 'ServerS3StorageOptionsArgsDict']]] = None,
+                 s3_storage_options: pulumi.Input[Optional[Union['ServerS3StorageOptionsArgs', 'ServerS3StorageOptionsArgsDict', 'outputs.ServerS3StorageOptions']]] = None,
                  security_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sftp_authentication_methods: pulumi.Input[Optional[_builtins.str]] = None,
                  structured_log_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  url: pulumi.Input[Optional[_builtins.str]] = None,
-                 workflow_details: pulumi.Input[Optional[Union['ServerWorkflowDetailsArgs', 'ServerWorkflowDetailsArgsDict']]] = None,
+                 workflow_details: pulumi.Input[Optional[Union['ServerWorkflowDetailsArgs', 'ServerWorkflowDetailsArgsDict', 'outputs.ServerWorkflowDetails']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1277,7 +1277,7 @@ class Server(pulumi.CustomResource):
             directory_id: pulumi.Input[Optional[_builtins.str]] = None,
             domain: pulumi.Input[Optional[_builtins.str]] = None,
             endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-            endpoint_details: pulumi.Input[Optional[Union['ServerEndpointDetailsArgs', 'ServerEndpointDetailsArgsDict']]] = None,
+            endpoint_details: pulumi.Input[Optional[Union['ServerEndpointDetailsArgs', 'ServerEndpointDetailsArgsDict', 'outputs.ServerEndpointDetails']]] = None,
             endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
             force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
             function: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1289,17 +1289,17 @@ class Server(pulumi.CustomResource):
             logging_role: pulumi.Input[Optional[_builtins.str]] = None,
             post_authentication_login_banner: pulumi.Input[Optional[_builtins.str]] = None,
             pre_authentication_login_banner: pulumi.Input[Optional[_builtins.str]] = None,
-            protocol_details: pulumi.Input[Optional[Union['ServerProtocolDetailsArgs', 'ServerProtocolDetailsArgsDict']]] = None,
+            protocol_details: pulumi.Input[Optional[Union['ServerProtocolDetailsArgs', 'ServerProtocolDetailsArgsDict', 'outputs.ServerProtocolDetails']]] = None,
             protocols: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            s3_storage_options: pulumi.Input[Optional[Union['ServerS3StorageOptionsArgs', 'ServerS3StorageOptionsArgsDict']]] = None,
+            s3_storage_options: pulumi.Input[Optional[Union['ServerS3StorageOptionsArgs', 'ServerS3StorageOptionsArgsDict', 'outputs.ServerS3StorageOptions']]] = None,
             security_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
             sftp_authentication_methods: pulumi.Input[Optional[_builtins.str]] = None,
             structured_log_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             url: pulumi.Input[Optional[_builtins.str]] = None,
-            workflow_details: pulumi.Input[Optional[Union['ServerWorkflowDetailsArgs', 'ServerWorkflowDetailsArgsDict']]] = None) -> 'Server':
+            workflow_details: pulumi.Input[Optional[Union['ServerWorkflowDetailsArgs', 'ServerWorkflowDetailsArgsDict', 'outputs.ServerWorkflowDetails']]] = None) -> 'Server':
         """
         Get an existing Server resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1312,7 +1312,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] directory_id: Directory service ID of the directory service you want to connect to with an `identity_provider_type` of `AWS_DIRECTORY_SERVICE`.
         :param pulumi.Input[_builtins.str] domain: Domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
         :param pulumi.Input[_builtins.str] endpoint: Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
-        :param pulumi.Input[Union['ServerEndpointDetailsArgs', 'ServerEndpointDetailsArgsDict']] endpoint_details: VPC endpoint settings that you want to configure for your SFTP server. See `endpoint_details` Block below for details.
+        :param pulumi.Input[Union['ServerEndpointDetailsArgs', 'ServerEndpointDetailsArgsDict', 'outputs.ServerEndpointDetails']] endpoint_details: VPC endpoint settings that you want to configure for your SFTP server. See `endpoint_details` Block below for details.
         :param pulumi.Input[_builtins.str] endpoint_type: Type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`. Defaults to `PUBLIC`.
         :param pulumi.Input[_builtins.bool] force_destroy: Boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identity_provider_type`.
         :param pulumi.Input[_builtins.str] function: ARN for a lambda function to use for the Identity provider with an `identity_provider_type` of `AWS_LAMBDA`.
@@ -1324,17 +1324,17 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] logging_role: ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         :param pulumi.Input[_builtins.str] post_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
         :param pulumi.Input[_builtins.str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
-        :param pulumi.Input[Union['ServerProtocolDetailsArgs', 'ServerProtocolDetailsArgsDict']] protocol_details: Protocol settings that are configured for your server. See `protocol_details` Block below for details.
+        :param pulumi.Input[Union['ServerProtocolDetailsArgs', 'ServerProtocolDetailsArgsDict', 'outputs.ServerProtocolDetails']] protocol_details: Protocol settings that are configured for your server. See `protocol_details` Block below for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: File transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP`. The available protocols are `AS2` (file transfer over Applicability Statement 2), `SFTP` (file transfer over SSH), `FTPS` (file transfer with TLS encryption), and `FTP` (unencrypted file transfer).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ServerS3StorageOptionsArgs', 'ServerS3StorageOptionsArgsDict']] s3_storage_options: Whether performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
+        :param pulumi.Input[Union['ServerS3StorageOptionsArgs', 'ServerS3StorageOptionsArgsDict', 'outputs.ServerS3StorageOptions']] s3_storage_options: Whether performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
         :param pulumi.Input[_builtins.str] security_policy_name: Name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-2022-03`, `TransferSecurityPolicy-2023-05`, `TransferSecurityPolicy-2024-01`, `TransferSecurityPolicy-2025-03`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-FIPS-2023-05`, `TransferSecurityPolicy-FIPS-2024-01`, `TransferSecurityPolicy-FIPS-2024-05`, `TransferSecurityPolicy-FIPS-2025-03`, `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`, `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`, `TransferSecurityPolicy-Restricted-2018-11`, `TransferSecurityPolicy-Restricted-2020-06`, `TransferSecurityPolicy-Restricted-2024-06`, `TransferSecurityPolicy-SshAuditCompliant-2025-02`, and `TransferSecurityPolicy-AS2Restricted-2025-07`. See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
         :param pulumi.Input[_builtins.str] sftp_authentication_methods: For SFTP-enabled servers with an `identity_provider_type` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] structured_log_destinations: Set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] url: URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
-        :param pulumi.Input[Union['ServerWorkflowDetailsArgs', 'ServerWorkflowDetailsArgsDict']] workflow_details: Workflow details. See `workflow_details` Block below for details.
+        :param pulumi.Input[Union['ServerWorkflowDetailsArgs', 'ServerWorkflowDetailsArgsDict', 'outputs.ServerWorkflowDetails']] workflow_details: Workflow details. See `workflow_details` Block below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

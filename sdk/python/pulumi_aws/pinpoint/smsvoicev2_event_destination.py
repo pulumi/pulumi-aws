@@ -319,14 +319,14 @@ class Smsvoicev2EventDestination(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloudwatch_logs_destination: pulumi.Input[Optional[Union['Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs', 'Smsvoicev2EventDestinationCloudwatchLogsDestinationArgsDict']]] = None,
+                 cloudwatch_logs_destination: pulumi.Input[Optional[Union['Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs', 'Smsvoicev2EventDestinationCloudwatchLogsDestinationArgsDict', 'outputs.Smsvoicev2EventDestinationCloudwatchLogsDestination']]] = None,
                  configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  event_destination_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 kinesis_firehose_destination: pulumi.Input[Optional[Union['Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs', 'Smsvoicev2EventDestinationKinesisFirehoseDestinationArgsDict']]] = None,
+                 kinesis_firehose_destination: pulumi.Input[Optional[Union['Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs', 'Smsvoicev2EventDestinationKinesisFirehoseDestinationArgsDict', 'outputs.Smsvoicev2EventDestinationKinesisFirehoseDestination']]] = None,
                  matching_event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 sns_destination: pulumi.Input[Optional[Union['Smsvoicev2EventDestinationSnsDestinationArgs', 'Smsvoicev2EventDestinationSnsDestinationArgsDict']]] = None,
+                 sns_destination: pulumi.Input[Optional[Union['Smsvoicev2EventDestinationSnsDestinationArgs', 'Smsvoicev2EventDestinationSnsDestinationArgsDict', 'outputs.Smsvoicev2EventDestinationSnsDestination']]] = None,
                  __props__=None):
         """
         Manages an AWS End User Messaging SMS Event Destination.
@@ -343,13 +343,13 @@ class Smsvoicev2EventDestination(pulumi.CustomResource):
 
         example = aws.pinpoint.Smsvoicev2ConfigurationSet("example", name="example-configuration-set")
         example_smsvoicev2_event_destination = aws.pinpoint.Smsvoicev2EventDestination("example",
+            configuration_set_name=example.name,
+            event_destination_name="example",
+            matching_event_types=["ALL"],
             cloudwatch_logs_destination={
                 "iam_role_arn": example_aws_iam_role["arn"],
                 "log_group_arn": example_aws_cloudwatch_log_group["arn"],
-            },
-            configuration_set_name=example.name,
-            event_destination_name="example",
-            matching_event_types=["ALL"])
+            })
         ```
 
         ### Kinesis Firehose Destination
@@ -360,13 +360,13 @@ class Smsvoicev2EventDestination(pulumi.CustomResource):
 
         example = aws.pinpoint.Smsvoicev2ConfigurationSet("example", name="example-configuration-set")
         example_smsvoicev2_event_destination = aws.pinpoint.Smsvoicev2EventDestination("example",
+            configuration_set_name=example.name,
+            event_destination_name="example",
+            matching_event_types=["ALL"],
             kinesis_firehose_destination={
                 "delivery_stream_arn": example_aws_kinesis_firehose_delivery_stream["arn"],
                 "iam_role_arn": example_aws_iam_role["arn"],
-            },
-            configuration_set_name=example.name,
-            event_destination_name="example",
-            matching_event_types=["ALL"])
+            })
         ```
 
         ### SNS Destination
@@ -377,12 +377,12 @@ class Smsvoicev2EventDestination(pulumi.CustomResource):
 
         example = aws.pinpoint.Smsvoicev2ConfigurationSet("example", name="example-configuration-set")
         example_smsvoicev2_event_destination = aws.pinpoint.Smsvoicev2EventDestination("example",
-            sns_destination={
-                "topic_arn": example_aws_sns_topic["arn"],
-            },
             configuration_set_name=example.name,
             event_destination_name="example",
-            matching_event_types=["ALL"])
+            matching_event_types=["ALL"],
+            sns_destination={
+                "topic_arn": example_aws_sns_topic["arn"],
+            })
         ```
 
         ## Import
@@ -408,16 +408,16 @@ class Smsvoicev2EventDestination(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs', 'Smsvoicev2EventDestinationCloudwatchLogsDestinationArgsDict']] cloudwatch_logs_destination: Send events to Amazon CloudWatch Logs. Exactly one of `cloudwatch_logs_destination`, `kinesis_firehose_destination`, or `sns_destination` must be configured. See `cloudwatch_logs_destination` Block for details.
+        :param pulumi.Input[Union['Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs', 'Smsvoicev2EventDestinationCloudwatchLogsDestinationArgsDict', 'outputs.Smsvoicev2EventDestinationCloudwatchLogsDestination']] cloudwatch_logs_destination: Send events to Amazon CloudWatch Logs. Exactly one of `cloudwatch_logs_destination`, `kinesis_firehose_destination`, or `sns_destination` must be configured. See `cloudwatch_logs_destination` Block for details.
         :param pulumi.Input[_builtins.str] configuration_set_name: Name of the configuration set this event destination belongs to. Changing this forces a new resource.
         :param pulumi.Input[_builtins.bool] enabled: Whether the event destination is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] event_destination_name: Name of the event destination. Changing this forces a new resource.
-        :param pulumi.Input[Union['Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs', 'Smsvoicev2EventDestinationKinesisFirehoseDestinationArgsDict']] kinesis_firehose_destination: Send events to Amazon Data Firehose. Exactly one of `cloudwatch_logs_destination`, `kinesis_firehose_destination`, or `sns_destination` must be configured. See `kinesis_firehose_destination` Block for details.
+        :param pulumi.Input[Union['Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs', 'Smsvoicev2EventDestinationKinesisFirehoseDestinationArgsDict', 'outputs.Smsvoicev2EventDestinationKinesisFirehoseDestination']] kinesis_firehose_destination: Send events to Amazon Data Firehose. Exactly one of `cloudwatch_logs_destination`, `kinesis_firehose_destination`, or `sns_destination` must be configured. See `kinesis_firehose_destination` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] matching_event_types: Event types for which the destination receives records. See the [AWS API reference](https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_CreateEventDestination.html#pinpoint-CreateEventDestination-request-MatchingEventTypes) for valid values.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['Smsvoicev2EventDestinationSnsDestinationArgs', 'Smsvoicev2EventDestinationSnsDestinationArgsDict']] sns_destination: Send events to Amazon SNS. Exactly one of `cloudwatch_logs_destination`, `kinesis_firehose_destination`, or `sns_destination` must be configured. See `sns_destination` Block for details.
+        :param pulumi.Input[Union['Smsvoicev2EventDestinationSnsDestinationArgs', 'Smsvoicev2EventDestinationSnsDestinationArgsDict', 'outputs.Smsvoicev2EventDestinationSnsDestination']] sns_destination: Send events to Amazon SNS. Exactly one of `cloudwatch_logs_destination`, `kinesis_firehose_destination`, or `sns_destination` must be configured. See `sns_destination` Block for details.
         """
         ...
     @overload
@@ -440,13 +440,13 @@ class Smsvoicev2EventDestination(pulumi.CustomResource):
 
         example = aws.pinpoint.Smsvoicev2ConfigurationSet("example", name="example-configuration-set")
         example_smsvoicev2_event_destination = aws.pinpoint.Smsvoicev2EventDestination("example",
+            configuration_set_name=example.name,
+            event_destination_name="example",
+            matching_event_types=["ALL"],
             cloudwatch_logs_destination={
                 "iam_role_arn": example_aws_iam_role["arn"],
                 "log_group_arn": example_aws_cloudwatch_log_group["arn"],
-            },
-            configuration_set_name=example.name,
-            event_destination_name="example",
-            matching_event_types=["ALL"])
+            })
         ```
 
         ### Kinesis Firehose Destination
@@ -457,13 +457,13 @@ class Smsvoicev2EventDestination(pulumi.CustomResource):
 
         example = aws.pinpoint.Smsvoicev2ConfigurationSet("example", name="example-configuration-set")
         example_smsvoicev2_event_destination = aws.pinpoint.Smsvoicev2EventDestination("example",
+            configuration_set_name=example.name,
+            event_destination_name="example",
+            matching_event_types=["ALL"],
             kinesis_firehose_destination={
                 "delivery_stream_arn": example_aws_kinesis_firehose_delivery_stream["arn"],
                 "iam_role_arn": example_aws_iam_role["arn"],
-            },
-            configuration_set_name=example.name,
-            event_destination_name="example",
-            matching_event_types=["ALL"])
+            })
         ```
 
         ### SNS Destination
@@ -474,12 +474,12 @@ class Smsvoicev2EventDestination(pulumi.CustomResource):
 
         example = aws.pinpoint.Smsvoicev2ConfigurationSet("example", name="example-configuration-set")
         example_smsvoicev2_event_destination = aws.pinpoint.Smsvoicev2EventDestination("example",
-            sns_destination={
-                "topic_arn": example_aws_sns_topic["arn"],
-            },
             configuration_set_name=example.name,
             event_destination_name="example",
-            matching_event_types=["ALL"])
+            matching_event_types=["ALL"],
+            sns_destination={
+                "topic_arn": example_aws_sns_topic["arn"],
+            })
         ```
 
         ## Import
@@ -518,14 +518,14 @@ class Smsvoicev2EventDestination(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloudwatch_logs_destination: pulumi.Input[Optional[Union['Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs', 'Smsvoicev2EventDestinationCloudwatchLogsDestinationArgsDict']]] = None,
+                 cloudwatch_logs_destination: pulumi.Input[Optional[Union['Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs', 'Smsvoicev2EventDestinationCloudwatchLogsDestinationArgsDict', 'outputs.Smsvoicev2EventDestinationCloudwatchLogsDestination']]] = None,
                  configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  event_destination_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 kinesis_firehose_destination: pulumi.Input[Optional[Union['Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs', 'Smsvoicev2EventDestinationKinesisFirehoseDestinationArgsDict']]] = None,
+                 kinesis_firehose_destination: pulumi.Input[Optional[Union['Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs', 'Smsvoicev2EventDestinationKinesisFirehoseDestinationArgsDict', 'outputs.Smsvoicev2EventDestinationKinesisFirehoseDestination']]] = None,
                  matching_event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 sns_destination: pulumi.Input[Optional[Union['Smsvoicev2EventDestinationSnsDestinationArgs', 'Smsvoicev2EventDestinationSnsDestinationArgsDict']]] = None,
+                 sns_destination: pulumi.Input[Optional[Union['Smsvoicev2EventDestinationSnsDestinationArgs', 'Smsvoicev2EventDestinationSnsDestinationArgsDict', 'outputs.Smsvoicev2EventDestinationSnsDestination']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -560,15 +560,15 @@ class Smsvoicev2EventDestination(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cloudwatch_logs_destination: pulumi.Input[Optional[Union['Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs', 'Smsvoicev2EventDestinationCloudwatchLogsDestinationArgsDict']]] = None,
+            cloudwatch_logs_destination: pulumi.Input[Optional[Union['Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs', 'Smsvoicev2EventDestinationCloudwatchLogsDestinationArgsDict', 'outputs.Smsvoicev2EventDestinationCloudwatchLogsDestination']]] = None,
             configuration_set_arn: pulumi.Input[Optional[_builtins.str]] = None,
             configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             event_destination_name: pulumi.Input[Optional[_builtins.str]] = None,
-            kinesis_firehose_destination: pulumi.Input[Optional[Union['Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs', 'Smsvoicev2EventDestinationKinesisFirehoseDestinationArgsDict']]] = None,
+            kinesis_firehose_destination: pulumi.Input[Optional[Union['Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs', 'Smsvoicev2EventDestinationKinesisFirehoseDestinationArgsDict', 'outputs.Smsvoicev2EventDestinationKinesisFirehoseDestination']]] = None,
             matching_event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            sns_destination: pulumi.Input[Optional[Union['Smsvoicev2EventDestinationSnsDestinationArgs', 'Smsvoicev2EventDestinationSnsDestinationArgsDict']]] = None) -> 'Smsvoicev2EventDestination':
+            sns_destination: pulumi.Input[Optional[Union['Smsvoicev2EventDestinationSnsDestinationArgs', 'Smsvoicev2EventDestinationSnsDestinationArgsDict', 'outputs.Smsvoicev2EventDestinationSnsDestination']]] = None) -> 'Smsvoicev2EventDestination':
         """
         Get an existing Smsvoicev2EventDestination resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -576,17 +576,17 @@ class Smsvoicev2EventDestination(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs', 'Smsvoicev2EventDestinationCloudwatchLogsDestinationArgsDict']] cloudwatch_logs_destination: Send events to Amazon CloudWatch Logs. Exactly one of `cloudwatch_logs_destination`, `kinesis_firehose_destination`, or `sns_destination` must be configured. See `cloudwatch_logs_destination` Block for details.
+        :param pulumi.Input[Union['Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs', 'Smsvoicev2EventDestinationCloudwatchLogsDestinationArgsDict', 'outputs.Smsvoicev2EventDestinationCloudwatchLogsDestination']] cloudwatch_logs_destination: Send events to Amazon CloudWatch Logs. Exactly one of `cloudwatch_logs_destination`, `kinesis_firehose_destination`, or `sns_destination` must be configured. See `cloudwatch_logs_destination` Block for details.
         :param pulumi.Input[_builtins.str] configuration_set_arn: ARN of the parent configuration set.
         :param pulumi.Input[_builtins.str] configuration_set_name: Name of the configuration set this event destination belongs to. Changing this forces a new resource.
         :param pulumi.Input[_builtins.bool] enabled: Whether the event destination is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] event_destination_name: Name of the event destination. Changing this forces a new resource.
-        :param pulumi.Input[Union['Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs', 'Smsvoicev2EventDestinationKinesisFirehoseDestinationArgsDict']] kinesis_firehose_destination: Send events to Amazon Data Firehose. Exactly one of `cloudwatch_logs_destination`, `kinesis_firehose_destination`, or `sns_destination` must be configured. See `kinesis_firehose_destination` Block for details.
+        :param pulumi.Input[Union['Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs', 'Smsvoicev2EventDestinationKinesisFirehoseDestinationArgsDict', 'outputs.Smsvoicev2EventDestinationKinesisFirehoseDestination']] kinesis_firehose_destination: Send events to Amazon Data Firehose. Exactly one of `cloudwatch_logs_destination`, `kinesis_firehose_destination`, or `sns_destination` must be configured. See `kinesis_firehose_destination` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] matching_event_types: Event types for which the destination receives records. See the [AWS API reference](https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_CreateEventDestination.html#pinpoint-CreateEventDestination-request-MatchingEventTypes) for valid values.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['Smsvoicev2EventDestinationSnsDestinationArgs', 'Smsvoicev2EventDestinationSnsDestinationArgsDict']] sns_destination: Send events to Amazon SNS. Exactly one of `cloudwatch_logs_destination`, `kinesis_firehose_destination`, or `sns_destination` must be configured. See `sns_destination` Block for details.
+        :param pulumi.Input[Union['Smsvoicev2EventDestinationSnsDestinationArgs', 'Smsvoicev2EventDestinationSnsDestinationArgsDict', 'outputs.Smsvoicev2EventDestinationSnsDestination']] sns_destination: Send events to Amazon SNS. Exactly one of `cloudwatch_logs_destination`, `kinesis_firehose_destination`, or `sns_destination` must be configured. See `sns_destination` Block for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

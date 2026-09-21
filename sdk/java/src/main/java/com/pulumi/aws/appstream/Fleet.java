@@ -50,13 +50,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testFleet = new Fleet("testFleet", FleetArgs.builder()
+ *             .name("test-fleet")
  *             .computeCapacity(FleetComputeCapacityArgs.builder()
  *                 .desiredInstances(1)
  *                 .build())
- *             .vpcConfig(FleetVpcConfigArgs.builder()
- *                 .subnetIds("subnet-06e9b13400c225127")
- *                 .build())
- *             .name("test-fleet")
  *             .description("test fleet")
  *             .idleDisconnectTimeoutInSeconds(60)
  *             .displayName("test-fleet")
@@ -65,6 +62,9 @@ import javax.annotation.Nullable;
  *             .imageName("Amazon-AppStream2-Sample-Image-03-11-2023")
  *             .instanceType("stream.standard.large")
  *             .maxUserDurationInSeconds(600)
+ *             .vpcConfig(FleetVpcConfigArgs.builder()
+ *                 .subnetIds("subnet-06e9b13400c225127")
+ *                 .build())
  *             .tags(Map.of("TagName", "tag-value"))
  *             .build());
  * 

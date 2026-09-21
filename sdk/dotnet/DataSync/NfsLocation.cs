@@ -26,6 +26,8 @@ namespace Pulumi.Aws.DataSync
     /// {
     ///     var example = new Aws.DataSync.NfsLocation("example", new()
     ///     {
+    ///         ServerHostname = "nfs.example.com",
+    ///         Subdirectory = "/exported/path",
     ///         OnPremConfig = new Aws.DataSync.Inputs.NfsLocationOnPremConfigArgs
     ///         {
     ///             AgentArns = new[]
@@ -33,8 +35,6 @@ namespace Pulumi.Aws.DataSync
     ///                 exampleAwsDatasyncAgent.Arn,
     ///             },
     ///         },
-    ///         ServerHostname = "nfs.example.com",
-    ///         Subdirectory = "/exported/path",
     ///     });
     /// 
     /// });

@@ -54,13 +54,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new MigrationProject("example", MigrationProjectArgs.builder()
+ *             .instanceProfileArn(exampleAwsDmsInstanceProfile.arn())
  *             .sourceDataProviderDescriptors(MigrationProjectSourceDataProviderDescriptorArgs.builder()
  *                 .dataProviderArn(source.arn())
  *                 .build())
  *             .targetDataProviderDescriptors(MigrationProjectTargetDataProviderDescriptorArgs.builder()
  *                 .dataProviderArn(target.arn())
  *                 .build())
- *             .instanceProfileArn(exampleAwsDmsInstanceProfile.arn())
  *             .build());
  * 
  *     }
@@ -79,9 +79,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.dms.MigrationProject;
  * import com.pulumi.aws.dms.MigrationProjectArgs;
- * import com.pulumi.aws.dms.inputs.MigrationProjectSchemaConversionApplicationAttributesArgs;
  * import com.pulumi.aws.dms.inputs.MigrationProjectSourceDataProviderDescriptorArgs;
  * import com.pulumi.aws.dms.inputs.MigrationProjectTargetDataProviderDescriptorArgs;
+ * import com.pulumi.aws.dms.inputs.MigrationProjectSchemaConversionApplicationAttributesArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -96,10 +96,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new MigrationProject("example", MigrationProjectArgs.builder()
- *             .schemaConversionApplicationAttributes(MigrationProjectSchemaConversionApplicationAttributesArgs.builder()
- *                 .s3BucketPath("s3://example-bucket")
- *                 .s3BucketRoleArn(exampleAwsIamRole.arn())
- *                 .build())
+ *             .name("example")
+ *             .description("Example migration project")
+ *             .instanceProfileArn(exampleAwsDmsInstanceProfile.arn())
  *             .sourceDataProviderDescriptors(MigrationProjectSourceDataProviderDescriptorArgs.builder()
  *                 .dataProviderArn(source.arn())
  *                 .secretsManagerAccessRoleArn(exampleAwsIamRole.arn())
@@ -110,9 +109,10 @@ import javax.annotation.Nullable;
  *                 .secretsManagerAccessRoleArn(exampleAwsIamRole.arn())
  *                 .secretsManagerSecretId(targetAwsSecretsmanagerSecret.arn())
  *                 .build())
- *             .name("example")
- *             .description("Example migration project")
- *             .instanceProfileArn(exampleAwsDmsInstanceProfile.arn())
+ *             .schemaConversionApplicationAttributes(MigrationProjectSchemaConversionApplicationAttributesArgs.builder()
+ *                 .s3BucketPath("s3://example-bucket")
+ *                 .s3BucketRoleArn(exampleAwsIamRole.arn())
+ *                 .build())
  *             .tags(Map.of("Environment", "example"))
  *             .build());
  * 

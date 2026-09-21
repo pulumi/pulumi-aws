@@ -32,6 +32,8 @@ namespace Pulumi.Aws.LightSail
     /// 
     ///     var exampleDistribution = new Aws.LightSail.Distribution("example", new()
     ///     {
+    ///         Name = "example-distribution",
+    ///         BundleId = "small_1_0",
     ///         Origin = new Aws.LightSail.Inputs.DistributionOriginArgs
     ///         {
     ///             Name = example.Name,
@@ -43,6 +45,11 @@ namespace Pulumi.Aws.LightSail
     ///         },
     ///         CacheBehaviorSettings = new Aws.LightSail.Inputs.DistributionCacheBehaviorSettingsArgs
     ///         {
+    ///             AllowedHttpMethods = "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
+    ///             CachedHttpMethods = "GET,HEAD",
+    ///             DefaultTtl = 86400,
+    ///             MaximumTtl = 31536000,
+    ///             MinimumTtl = 0,
     ///             ForwardedCookies = new Aws.LightSail.Inputs.DistributionCacheBehaviorSettingsForwardedCookiesArgs
     ///             {
     ///                 Option = "none",
@@ -55,14 +62,7 @@ namespace Pulumi.Aws.LightSail
     ///             {
     ///                 Option = false,
     ///             },
-    ///             AllowedHttpMethods = "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
-    ///             CachedHttpMethods = "GET,HEAD",
-    ///             DefaultTtl = 86400,
-    ///             MaximumTtl = 31536000,
-    ///             MinimumTtl = 0,
     ///         },
-    ///         Name = "example-distribution",
-    ///         BundleId = "small_1_0",
     ///     });
     /// 
     /// });
@@ -80,6 +80,7 @@ namespace Pulumi.Aws.LightSail
     /// {
     ///     var available = Aws.GetAvailabilityZones.Invoke(new()
     ///     {
+    ///         State = "available",
     ///         Filters = new[]
     ///         {
     ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
@@ -91,7 +92,6 @@ namespace Pulumi.Aws.LightSail
     ///                 },
     ///             },
     ///         },
-    ///         State = "available",
     ///     });
     /// 
     ///     var exampleStaticIp = new Aws.LightSail.StaticIp("example", new()
@@ -115,6 +115,8 @@ namespace Pulumi.Aws.LightSail
     /// 
     ///     var exampleDistribution = new Aws.LightSail.Distribution("example", new()
     ///     {
+    ///         Name = "example-distribution",
+    ///         BundleId = "small_1_0",
     ///         Origin = new Aws.LightSail.Inputs.DistributionOriginArgs
     ///         {
     ///             Name = exampleInstance.Name,
@@ -124,8 +126,6 @@ namespace Pulumi.Aws.LightSail
     ///         {
     ///             Behavior = "cache",
     ///         },
-    ///         Name = "example-distribution",
-    ///         BundleId = "small_1_0",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -149,6 +149,7 @@ namespace Pulumi.Aws.LightSail
     /// {
     ///     var available = Aws.GetAvailabilityZones.Invoke(new()
     ///     {
+    ///         State = "available",
     ///         Filters = new[]
     ///         {
     ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
@@ -160,7 +161,6 @@ namespace Pulumi.Aws.LightSail
     ///                 },
     ///             },
     ///         },
-    ///         State = "available",
     ///     });
     /// 
     ///     var example = new Aws.LightSail.Lb("example", new()
@@ -190,6 +190,8 @@ namespace Pulumi.Aws.LightSail
     /// 
     ///     var exampleDistribution = new Aws.LightSail.Distribution("example", new()
     ///     {
+    ///         Name = "example-distribution",
+    ///         BundleId = "small_1_0",
     ///         Origin = new Aws.LightSail.Inputs.DistributionOriginArgs
     ///         {
     ///             Name = example.Name,
@@ -199,8 +201,6 @@ namespace Pulumi.Aws.LightSail
     ///         {
     ///             Behavior = "cache",
     ///         },
-    ///         Name = "example-distribution",
-    ///         BundleId = "small_1_0",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

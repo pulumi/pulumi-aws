@@ -30,6 +30,9 @@ import * as utilities from "../utilities";
  *     perUnitStorageThroughput: 125,
  * });
  * const exampleDataRepositoryAssociation = new aws.fsx.DataRepositoryAssociation("example", {
+ *     fileSystemId: exampleLustreFileSystem.id,
+ *     dataRepositoryPath: pulumi.interpolate`s3://${example.id}`,
+ *     fileSystemPath: "/my-bucket",
  *     s3: {
  *         autoExportPolicy: {
  *             events: [
@@ -46,9 +49,6 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     },
- *     fileSystemId: exampleLustreFileSystem.id,
- *     dataRepositoryPath: pulumi.interpolate`s3://${example.id}`,
- *     fileSystemPath: "/my-bucket",
  * });
  * ```
  *

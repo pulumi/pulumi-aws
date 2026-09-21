@@ -691,7 +691,7 @@ class Workspace(pulumi.CustomResource):
                  grafana_version: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_access_control: pulumi.Input[Optional[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']]] = None,
+                 network_access_control: pulumi.Input[Optional[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict', 'outputs.WorkspaceNetworkAccessControl']]] = None,
                  notification_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  organization_role_name: pulumi.Input[Optional[_builtins.str]] = None,
                  organizational_units: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -700,7 +700,7 @@ class Workspace(pulumi.CustomResource):
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  stack_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_configuration: pulumi.Input[Optional[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']]] = None,
+                 vpc_configuration: pulumi.Input[Optional[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict', 'outputs.WorkspaceVpcConfiguration']]] = None,
                  __props__=None):
         """
         Provides an Amazon Managed Grafana workspace resource.
@@ -779,7 +779,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4` and `12.4`. If not specified, defaults to the latest version.
         :param pulumi.Input[_builtins.str] kms_key_id: The ARN of the AWS KMS key for encrypting workspace data.
         :param pulumi.Input[_builtins.str] name: The Grafana workspace name.
-        :param pulumi.Input[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
+        :param pulumi.Input[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict', 'outputs.WorkspaceNetworkAccessControl']] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_destinations: The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
         :param pulumi.Input[_builtins.str] organization_role_name: The role name that the workspace uses to access resources through Amazon Organizations.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] organizational_units: The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
@@ -790,7 +790,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] role_arn: The IAM role ARN that the workspace assumes.
         :param pulumi.Input[_builtins.str] stack_set_name: The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']] vpc_configuration: The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+        :param pulumi.Input[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict', 'outputs.WorkspaceVpcConfiguration']] vpc_configuration: The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
         """
         ...
     @overload
@@ -888,7 +888,7 @@ class Workspace(pulumi.CustomResource):
                  grafana_version: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_access_control: pulumi.Input[Optional[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']]] = None,
+                 network_access_control: pulumi.Input[Optional[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict', 'outputs.WorkspaceNetworkAccessControl']]] = None,
                  notification_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  organization_role_name: pulumi.Input[Optional[_builtins.str]] = None,
                  organizational_units: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -897,7 +897,7 @@ class Workspace(pulumi.CustomResource):
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  stack_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_configuration: pulumi.Input[Optional[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']]] = None,
+                 vpc_configuration: pulumi.Input[Optional[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict', 'outputs.WorkspaceVpcConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -955,7 +955,7 @@ class Workspace(pulumi.CustomResource):
             grafana_version: pulumi.Input[Optional[_builtins.str]] = None,
             kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            network_access_control: pulumi.Input[Optional[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']]] = None,
+            network_access_control: pulumi.Input[Optional[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict', 'outputs.WorkspaceNetworkAccessControl']]] = None,
             notification_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             organization_role_name: pulumi.Input[Optional[_builtins.str]] = None,
             organizational_units: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -966,7 +966,7 @@ class Workspace(pulumi.CustomResource):
             stack_set_name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            vpc_configuration: pulumi.Input[Optional[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']]] = None) -> 'Workspace':
+            vpc_configuration: pulumi.Input[Optional[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict', 'outputs.WorkspaceVpcConfiguration']]] = None) -> 'Workspace':
         """
         Get an existing Workspace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -984,7 +984,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4` and `12.4`. If not specified, defaults to the latest version.
         :param pulumi.Input[_builtins.str] kms_key_id: The ARN of the AWS KMS key for encrypting workspace data.
         :param pulumi.Input[_builtins.str] name: The Grafana workspace name.
-        :param pulumi.Input[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
+        :param pulumi.Input[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict', 'outputs.WorkspaceNetworkAccessControl']] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_destinations: The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
         :param pulumi.Input[_builtins.str] organization_role_name: The role name that the workspace uses to access resources through Amazon Organizations.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] organizational_units: The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
@@ -996,7 +996,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] stack_set_name: The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']] vpc_configuration: The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+        :param pulumi.Input[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict', 'outputs.WorkspaceVpcConfiguration']] vpc_configuration: The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

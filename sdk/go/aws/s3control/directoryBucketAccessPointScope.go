@@ -45,10 +45,10 @@ import (
 //				return err
 //			}
 //			example, err := s3.NewDirectoryBucket(ctx, "example", &s3.DirectoryBucketArgs{
+//				Bucket: pulumi.String("example--zoneId--x-s3"),
 //				Location: &s3.DirectoryBucketLocationArgs{
 //					Name: pulumi.String(available.ZoneIds[0]),
 //				},
-//				Bucket: pulumi.String("example--zoneId--x-s3"),
 //			})
 //			if err != nil {
 //				return err
@@ -61,6 +61,8 @@ import (
 //				return err
 //			}
 //			_, err = s3control.NewDirectoryBucketAccessPointScope(ctx, "example", &s3control.DirectoryBucketAccessPointScopeArgs{
+//				Name:      pulumi.String("example--zoneId--xa-s3"),
+//				AccountId: pulumi.String("123456789012"),
 //				Scope: &s3control.DirectoryBucketAccessPointScopeScopeArgs{
 //					Permissions: pulumi.StringArray{
 //						pulumi.String("GetObject"),
@@ -71,8 +73,6 @@ import (
 //						pulumi.String("myobject2*"),
 //					},
 //				},
-//				Name:      pulumi.String("example--zoneId--xa-s3"),
-//				AccountId: pulumi.String("123456789012"),
 //			})
 //			if err != nil {
 //				return err

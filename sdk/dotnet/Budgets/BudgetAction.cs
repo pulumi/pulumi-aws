@@ -56,6 +56,7 @@ namespace Pulumi.Aws.Budgets
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -67,7 +68,6 @@ namespace Pulumi.Aws.Budgets
     ///                         },
     ///                     },
     ///                 },
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -94,6 +94,11 @@ namespace Pulumi.Aws.Budgets
     /// 
     ///     var exampleBudgetAction = new Aws.Budgets.BudgetAction("example", new()
     ///     {
+    ///         BudgetName = exampleBudget.Name,
+    ///         ActionType = "APPLY_IAM_POLICY",
+    ///         ApprovalModel = "AUTOMATIC",
+    ///         NotificationType = "ACTUAL",
+    ///         ExecutionRoleArn = exampleRole.Arn,
     ///         ActionThreshold = new Aws.Budgets.Inputs.BudgetActionActionThresholdArgs
     ///         {
     ///             ActionThresholdType = "ABSOLUTE_VALUE",
@@ -118,11 +123,6 @@ namespace Pulumi.Aws.Budgets
     ///                 SubscriptionType = "EMAIL",
     ///             },
     ///         },
-    ///         BudgetName = exampleBudget.Name,
-    ///         ActionType = "APPLY_IAM_POLICY",
-    ///         ApprovalModel = "AUTOMATIC",
-    ///         NotificationType = "ACTUAL",
-    ///         ExecutionRoleArn = exampleRole.Arn,
     ///         Tags = 
     ///         {
     ///             { "Tag1", "Value1" },

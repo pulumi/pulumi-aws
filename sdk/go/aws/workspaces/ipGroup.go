@@ -28,6 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := workspaces.NewIpGroup(ctx, "contractors", &workspaces.IpGroupArgs{
+//				Name:        pulumi.String("Contractors"),
+//				Description: pulumi.String("Contractors IP access control group"),
 //				Rules: workspaces.IpGroupRuleArray{
 //					&workspaces.IpGroupRuleArgs{
 //						Source:      pulumi.String("150.24.14.0/24"),
@@ -42,8 +44,6 @@ import (
 //						Description: pulumi.String("STL"),
 //					},
 //				},
-//				Name:        pulumi.String("Contractors"),
-//				Description: pulumi.String("Contractors IP access control group"),
 //			})
 //			if err != nil {
 //				return err

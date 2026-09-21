@@ -231,7 +231,7 @@ class AwaitableGetNetworkInsightsAnalysisResult(GetNetworkInsightsAnalysisResult
             warning_message=self.warning_message)
 
 
-def get_network_insights_analysis(filters: Optional[Sequence[Union['GetNetworkInsightsAnalysisFilterArgs', 'GetNetworkInsightsAnalysisFilterArgsDict']]] = None,
+def get_network_insights_analysis(filters: Optional[Sequence[Union['GetNetworkInsightsAnalysisFilterArgs', 'GetNetworkInsightsAnalysisFilterArgsDict', 'outputs.GetNetworkInsightsAnalysisFilterResult']]] = None,
                                   network_insights_analysis_id: Optional[_builtins.str] = None,
                                   region: Optional[_builtins.str] = None,
                                   tags: Optional[Mapping[str, _builtins.str]] = None,
@@ -249,7 +249,7 @@ def get_network_insights_analysis(filters: Optional[Sequence[Union['GetNetworkIn
     ```
 
 
-    :param Sequence[Union['GetNetworkInsightsAnalysisFilterArgs', 'GetNetworkInsightsAnalysisFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetNetworkInsightsAnalysisFilterArgs', 'GetNetworkInsightsAnalysisFilterArgsDict', 'outputs.GetNetworkInsightsAnalysisFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
            
            The arguments of this data source act as filters for querying the available
            Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
@@ -283,7 +283,7 @@ def get_network_insights_analysis(filters: Optional[Sequence[Union['GetNetworkIn
         status_message=pulumi.get(__ret__, 'status_message'),
         tags=pulumi.get(__ret__, 'tags'),
         warning_message=pulumi.get(__ret__, 'warning_message'))
-def get_network_insights_analysis_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetNetworkInsightsAnalysisFilterArgs', 'GetNetworkInsightsAnalysisFilterArgsDict']]]]] = None,
+def get_network_insights_analysis_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetNetworkInsightsAnalysisFilterArgs', 'GetNetworkInsightsAnalysisFilterArgsDict', 'outputs.GetNetworkInsightsAnalysisFilterResult']]]]] = None,
                                          network_insights_analysis_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                          tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
@@ -301,7 +301,7 @@ def get_network_insights_analysis_output(filters: pulumi.Input[Optional[Optional
     ```
 
 
-    :param Sequence[Union['GetNetworkInsightsAnalysisFilterArgs', 'GetNetworkInsightsAnalysisFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetNetworkInsightsAnalysisFilterArgs', 'GetNetworkInsightsAnalysisFilterArgsDict', 'outputs.GetNetworkInsightsAnalysisFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
            
            The arguments of this data source act as filters for querying the available
            Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis

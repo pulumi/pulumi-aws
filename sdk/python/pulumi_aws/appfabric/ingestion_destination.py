@@ -295,12 +295,12 @@ class IngestionDestination(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_bundle_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 destination_configuration: pulumi.Input[Optional[Union['IngestionDestinationDestinationConfigurationArgs', 'IngestionDestinationDestinationConfigurationArgsDict']]] = None,
+                 destination_configuration: pulumi.Input[Optional[Union['IngestionDestinationDestinationConfigurationArgs', 'IngestionDestinationDestinationConfigurationArgsDict', 'outputs.IngestionDestinationDestinationConfiguration']]] = None,
                  ingestion_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 processing_configuration: pulumi.Input[Optional[Union['IngestionDestinationProcessingConfigurationArgs', 'IngestionDestinationProcessingConfigurationArgsDict']]] = None,
+                 processing_configuration: pulumi.Input[Optional[Union['IngestionDestinationProcessingConfigurationArgs', 'IngestionDestinationProcessingConfigurationArgsDict', 'outputs.IngestionDestinationProcessingConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['IngestionDestinationTimeoutsArgs', 'IngestionDestinationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['IngestionDestinationTimeoutsArgs', 'IngestionDestinationTimeoutsArgsDict', 'outputs.IngestionDestinationTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS AppFabric Ingestion Destination.
@@ -314,6 +314,8 @@ class IngestionDestination(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appfabric.IngestionDestination("example",
+            app_bundle_arn=example_aws_appfabric_app_bundle["arn"],
+            ingestion_arn=example_aws_appfabric_ingestion["arn"],
             processing_configuration={
                 "audit_log": {
                     "format": "json",
@@ -328,18 +330,16 @@ class IngestionDestination(pulumi.CustomResource):
                         },
                     },
                 },
-            },
-            app_bundle_arn=example_aws_appfabric_app_bundle["arn"],
-            ingestion_arn=example_aws_appfabric_ingestion["arn"])
+            })
         ```
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_bundle_arn: ARN of the app bundle to use for the request.
-        :param pulumi.Input[Union['IngestionDestinationDestinationConfigurationArgs', 'IngestionDestinationDestinationConfigurationArgsDict']] destination_configuration: Configuration for the destination of ingested data. See `destination_configuration` Block below.
+        :param pulumi.Input[Union['IngestionDestinationDestinationConfigurationArgs', 'IngestionDestinationDestinationConfigurationArgsDict', 'outputs.IngestionDestinationDestinationConfiguration']] destination_configuration: Configuration for the destination of ingested data. See `destination_configuration` Block below.
         :param pulumi.Input[_builtins.str] ingestion_arn: ARN of the ingestion to use for the request.
-        :param pulumi.Input[Union['IngestionDestinationProcessingConfigurationArgs', 'IngestionDestinationProcessingConfigurationArgsDict']] processing_configuration: Configuration for how ingested data is processed. See `processing_configuration` Block below.
+        :param pulumi.Input[Union['IngestionDestinationProcessingConfigurationArgs', 'IngestionDestinationProcessingConfigurationArgsDict', 'outputs.IngestionDestinationProcessingConfiguration']] processing_configuration: Configuration for how ingested data is processed. See `processing_configuration` Block below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -363,6 +363,8 @@ class IngestionDestination(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appfabric.IngestionDestination("example",
+            app_bundle_arn=example_aws_appfabric_app_bundle["arn"],
+            ingestion_arn=example_aws_appfabric_ingestion["arn"],
             processing_configuration={
                 "audit_log": {
                     "format": "json",
@@ -377,9 +379,7 @@ class IngestionDestination(pulumi.CustomResource):
                         },
                     },
                 },
-            },
-            app_bundle_arn=example_aws_appfabric_app_bundle["arn"],
-            ingestion_arn=example_aws_appfabric_ingestion["arn"])
+            })
         ```
 
 
@@ -399,12 +399,12 @@ class IngestionDestination(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_bundle_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 destination_configuration: pulumi.Input[Optional[Union['IngestionDestinationDestinationConfigurationArgs', 'IngestionDestinationDestinationConfigurationArgsDict']]] = None,
+                 destination_configuration: pulumi.Input[Optional[Union['IngestionDestinationDestinationConfigurationArgs', 'IngestionDestinationDestinationConfigurationArgsDict', 'outputs.IngestionDestinationDestinationConfiguration']]] = None,
                  ingestion_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 processing_configuration: pulumi.Input[Optional[Union['IngestionDestinationProcessingConfigurationArgs', 'IngestionDestinationProcessingConfigurationArgsDict']]] = None,
+                 processing_configuration: pulumi.Input[Optional[Union['IngestionDestinationProcessingConfigurationArgs', 'IngestionDestinationProcessingConfigurationArgsDict', 'outputs.IngestionDestinationProcessingConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['IngestionDestinationTimeoutsArgs', 'IngestionDestinationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['IngestionDestinationTimeoutsArgs', 'IngestionDestinationTimeoutsArgsDict', 'outputs.IngestionDestinationTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -443,13 +443,13 @@ class IngestionDestination(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             app_bundle_arn: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            destination_configuration: pulumi.Input[Optional[Union['IngestionDestinationDestinationConfigurationArgs', 'IngestionDestinationDestinationConfigurationArgsDict']]] = None,
+            destination_configuration: pulumi.Input[Optional[Union['IngestionDestinationDestinationConfigurationArgs', 'IngestionDestinationDestinationConfigurationArgsDict', 'outputs.IngestionDestinationDestinationConfiguration']]] = None,
             ingestion_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            processing_configuration: pulumi.Input[Optional[Union['IngestionDestinationProcessingConfigurationArgs', 'IngestionDestinationProcessingConfigurationArgsDict']]] = None,
+            processing_configuration: pulumi.Input[Optional[Union['IngestionDestinationProcessingConfigurationArgs', 'IngestionDestinationProcessingConfigurationArgsDict', 'outputs.IngestionDestinationProcessingConfiguration']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['IngestionDestinationTimeoutsArgs', 'IngestionDestinationTimeoutsArgsDict']]] = None) -> 'IngestionDestination':
+            timeouts: pulumi.Input[Optional[Union['IngestionDestinationTimeoutsArgs', 'IngestionDestinationTimeoutsArgsDict', 'outputs.IngestionDestinationTimeouts']]] = None) -> 'IngestionDestination':
         """
         Get an existing IngestionDestination resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -459,9 +459,9 @@ class IngestionDestination(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_bundle_arn: ARN of the app bundle to use for the request.
         :param pulumi.Input[_builtins.str] arn: ARN of the Ingestion Destination.
-        :param pulumi.Input[Union['IngestionDestinationDestinationConfigurationArgs', 'IngestionDestinationDestinationConfigurationArgsDict']] destination_configuration: Configuration for the destination of ingested data. See `destination_configuration` Block below.
+        :param pulumi.Input[Union['IngestionDestinationDestinationConfigurationArgs', 'IngestionDestinationDestinationConfigurationArgsDict', 'outputs.IngestionDestinationDestinationConfiguration']] destination_configuration: Configuration for the destination of ingested data. See `destination_configuration` Block below.
         :param pulumi.Input[_builtins.str] ingestion_arn: ARN of the ingestion to use for the request.
-        :param pulumi.Input[Union['IngestionDestinationProcessingConfigurationArgs', 'IngestionDestinationProcessingConfigurationArgsDict']] processing_configuration: Configuration for how ingested data is processed. See `processing_configuration` Block below.
+        :param pulumi.Input[Union['IngestionDestinationProcessingConfigurationArgs', 'IngestionDestinationProcessingConfigurationArgsDict', 'outputs.IngestionDestinationProcessingConfiguration']] processing_configuration: Configuration for how ingested data is processed. See `processing_configuration` Block below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

@@ -213,13 +213,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var tcp_example = new TargetGroup("tcp-example", TargetGroupArgs.builder()
- *             .targetHealthStates(TargetGroupTargetHealthStateArgs.builder()
- *                 .enableUnhealthyConnectionTermination(false)
- *                 .build())
  *             .name("tf-example-lb-nlb-tg")
  *             .port(25)
  *             .protocol("TCP")
  *             .vpcId(main.id())
+ *             .targetHealthStates(TargetGroupTargetHealthStateArgs.builder()
+ *                 .enableUnhealthyConnectionTermination(false)
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -255,6 +255,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var tcp_example = new TargetGroup("tcp-example", TargetGroupArgs.builder()
+ *             .name("tf-example-lb-nlb-tg")
+ *             .port(80)
+ *             .protocol("TCP")
+ *             .vpcId(main.id())
  *             .targetGroupHealth(TargetGroupTargetGroupHealthArgs.builder()
  *                 .dnsFailover(TargetGroupTargetGroupHealthDnsFailoverArgs.builder()
  *                     .minimumHealthyTargetsCount("1")
@@ -265,10 +269,6 @@ import javax.annotation.Nullable;
  *                     .minimumHealthyTargetsPercentage("off")
  *                     .build())
  *                 .build())
- *             .name("tf-example-lb-nlb-tg")
- *             .port(80)
- *             .protocol("TCP")
- *             .vpcId(main.id())
  *             .build());
  * 
  *     }

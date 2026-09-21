@@ -45,8 +45,19 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.CatalogTable("example", new()
     ///     {
+    ///         Name = "MyCatalogTable",
+    ///         DatabaseName = "MyCatalogDatabase",
+    ///         TableType = "EXTERNAL_TABLE",
+    ///         Parameters = 
+    ///         {
+    ///             { "EXTERNAL", "TRUE" },
+    ///             { "parquet.compression", "SNAPPY" },
+    ///         },
     ///         StorageDescriptor = new Aws.Glue.Inputs.CatalogTableStorageDescriptorArgs
     ///         {
+    ///             Location = "s3://my-bucket/event-streams/my-stream",
+    ///             InputFormat = "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+    ///             OutputFormat = "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
     ///             SerDeInfo = new Aws.Glue.Inputs.CatalogTableStorageDescriptorSerDeInfoArgs
     ///             {
     ///                 Name = "my-stream",
@@ -87,17 +98,6 @@ namespace Pulumi.Aws.Glue
     ///                     Comment = "",
     ///                 },
     ///             },
-    ///             Location = "s3://my-bucket/event-streams/my-stream",
-    ///             InputFormat = "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
-    ///             OutputFormat = "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
-    ///         },
-    ///         Name = "MyCatalogTable",
-    ///         DatabaseName = "MyCatalogDatabase",
-    ///         TableType = "EXTERNAL_TABLE",
-    ///         Parameters = 
-    ///         {
-    ///             { "EXTERNAL", "TRUE" },
-    ///             { "parquet.compression", "SNAPPY" },
     ///         },
     ///     });
     /// 
@@ -116,14 +116,21 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.CatalogTable("example", new()
     ///     {
+    ///         Name = "transactiontable1",
+    ///         DatabaseName = "bankdata_icebergdb",
     ///         OpenTableFormatInput = new Aws.Glue.Inputs.CatalogTableOpenTableFormatInputArgs
     ///         {
     ///             IcebergInput = new Aws.Glue.Inputs.CatalogTableOpenTableFormatInputIcebergInputArgs
     ///             {
+    ///                 MetadataOperation = "CREATE",
+    ///                 Version = "2",
     ///                 IcebergTableInput = new Aws.Glue.Inputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs
     ///                 {
+    ///                     Location = "s3://sampledatabucket/bankdataiceberg/transactiontable1/",
     ///                     Schema = new Aws.Glue.Inputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs
     ///                     {
+    ///                         SchemaId = 0,
+    ///                         Type = "struct",
     ///                         Fields = new[]
     ///                         {
     ///                             new Aws.Glue.Inputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs
@@ -151,8 +158,6 @@ namespace Pulumi.Aws.Glue
     /// ",
     ///                             },
     ///                         },
-    ///                         SchemaId = 0,
-    ///                         Type = "struct",
     ///                     },
     ///                     PartitionSpec = new Aws.Glue.Inputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs
     ///                     {
@@ -181,14 +186,9 @@ namespace Pulumi.Aws.Glue
     ///                         },
     ///                         OrderId = 1,
     ///                     },
-    ///                     Location = "s3://sampledatabucket/bankdataiceberg/transactiontable1/",
     ///                 },
-    ///                 MetadataOperation = "CREATE",
-    ///                 Version = "2",
     ///             },
     ///         },
-    ///         Name = "transactiontable1",
-    ///         DatabaseName = "bankdata_icebergdb",
     ///     });
     /// 
     /// });
@@ -206,8 +206,12 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.CatalogTable("example", new()
     ///     {
+    ///         Name = "multidialect_view",
+    ///         DatabaseName = "catalog_database",
+    ///         TableType = "VIRTUAL_VIEW",
     ///         ViewDefinition = new Aws.Glue.Inputs.CatalogTableViewDefinitionArgs
     ///         {
+    ///             IsProtected = true,
     ///             Representations = new[]
     ///             {
     ///                 new Aws.Glue.Inputs.CatalogTableViewDefinitionRepresentationArgs
@@ -218,11 +222,7 @@ namespace Pulumi.Aws.Glue
     ///                     ValidationConnection = exampleAwsGlueConnection.Name,
     ///                 },
     ///             },
-    ///             IsProtected = true,
     ///         },
-    ///         Name = "multidialect_view",
-    ///         DatabaseName = "catalog_database",
-    ///         TableType = "VIRTUAL_VIEW",
     ///     });
     /// 
     /// });

@@ -67,6 +67,7 @@ import javax.annotation.Nullable;
  * 
  *         // Code signing configuration with enforcement
  *         var example = new CodeSigningConfig("example", CodeSigningConfigArgs.builder()
+ *             .description("Code signing configuration for Lambda functions")
  *             .allowedPublishers(CodeSigningConfigAllowedPublishersArgs.builder()
  *                 .signingProfileVersionArns(                
  *                     prod.versionArn(),
@@ -75,7 +76,6 @@ import javax.annotation.Nullable;
  *             .policies(CodeSigningConfigPoliciesArgs.builder()
  *                 .untrustedArtifactOnDeployment("Enforce")
  *                 .build())
- *             .description("Code signing configuration for Lambda functions")
  *             .tags(Map.ofEntries(
  *                 Map.entry("Environment", "production"),
  *                 Map.entry("Purpose", "code-signing")
@@ -114,13 +114,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CodeSigningConfig("example", CodeSigningConfigArgs.builder()
+ *             .description("Development code signing configuration")
  *             .allowedPublishers(CodeSigningConfigAllowedPublishersArgs.builder()
  *                 .signingProfileVersionArns(dev.versionArn())
  *                 .build())
  *             .policies(CodeSigningConfigPoliciesArgs.builder()
  *                 .untrustedArtifactOnDeployment("Warn")
  *                 .build())
- *             .description("Development code signing configuration")
  *             .tags(Map.ofEntries(
  *                 Map.entry("Environment", "development"),
  *                 Map.entry("Purpose", "code-signing")
@@ -160,13 +160,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Production signing configuration
  *         var prod = new CodeSigningConfig("prod", CodeSigningConfigArgs.builder()
+ *             .description("Production code signing configuration with strict enforcement")
  *             .allowedPublishers(CodeSigningConfigAllowedPublishersArgs.builder()
  *                 .signingProfileVersionArns(prodAwsSignerSigningProfile.versionArn())
  *                 .build())
  *             .policies(CodeSigningConfigPoliciesArgs.builder()
  *                 .untrustedArtifactOnDeployment("Enforce")
  *                 .build())
- *             .description("Production code signing configuration with strict enforcement")
  *             .tags(Map.ofEntries(
  *                 Map.entry("Environment", "production"),
  *                 Map.entry("Security", "strict")
@@ -175,6 +175,7 @@ import javax.annotation.Nullable;
  * 
  *         // Development signing configuration
  *         var dev = new CodeSigningConfig("dev", CodeSigningConfigArgs.builder()
+ *             .description("Development code signing configuration with warnings")
  *             .allowedPublishers(CodeSigningConfigAllowedPublishersArgs.builder()
  *                 .signingProfileVersionArns(                
  *                     devAwsSignerSigningProfile.versionArn(),
@@ -183,7 +184,6 @@ import javax.annotation.Nullable;
  *             .policies(CodeSigningConfigPoliciesArgs.builder()
  *                 .untrustedArtifactOnDeployment("Warn")
  *                 .build())
- *             .description("Development code signing configuration with warnings")
  *             .tags(Map.ofEntries(
  *                 Map.entry("Environment", "development"),
  *                 Map.entry("Security", "flexible")

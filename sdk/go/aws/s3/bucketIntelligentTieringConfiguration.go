@@ -39,6 +39,8 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketIntelligentTieringConfiguration(ctx, "example-entire-bucket", &s3.BucketIntelligentTieringConfigurationArgs{
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Name:   pulumi.String("EntireBucket"),
 //				Tierings: s3.BucketIntelligentTieringConfigurationTieringArray{
 //					&s3.BucketIntelligentTieringConfigurationTieringArgs{
 //						AccessTier: pulumi.String("DEEP_ARCHIVE_ACCESS"),
@@ -49,8 +51,6 @@ import (
 //						Days:       pulumi.Int(125),
 //					},
 //				},
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
-//				Name:   pulumi.String("EntireBucket"),
 //			})
 //			if err != nil {
 //				return err
@@ -82,6 +82,9 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketIntelligentTieringConfiguration(ctx, "example-filtered", &s3.BucketIntelligentTieringConfigurationArgs{
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Name:   pulumi.String("ImportantBlueDocuments"),
+//				Status: pulumi.String("Disabled"),
 //				Filter: &s3.BucketIntelligentTieringConfigurationFilterArgs{
 //					Prefix: pulumi.String("documents/"),
 //					Tags: pulumi.StringMap{
@@ -95,9 +98,6 @@ import (
 //						Days:       pulumi.Int(125),
 //					},
 //				},
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
-//				Name:   pulumi.String("ImportantBlueDocuments"),
-//				Status: pulumi.String("Disabled"),
 //			})
 //			if err != nil {
 //				return err

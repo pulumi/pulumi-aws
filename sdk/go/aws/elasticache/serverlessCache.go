@@ -34,6 +34,8 @@ import (
 // splat0 = append(splat0, val0.(map[string]interface{})["id"])
 // }
 // _, err := elasticache.NewServerlessCache(ctx, "example", &elasticache.ServerlessCacheArgs{
+// Engine: pulumi.String("memcached"),
+// Name: pulumi.String("example"),
 // CacheUsageLimits: &elasticache.ServerlessCacheCacheUsageLimitsArgs{
 // DataStorage: &elasticache.ServerlessCacheCacheUsageLimitsDataStorageArgs{
 // Maximum: pulumi.Int(10),
@@ -45,8 +47,6 @@ import (
 // },
 // },
 // },
-// Engine: pulumi.String("memcached"),
-// Name: pulumi.String("example"),
 // Description: pulumi.String("Test Server"),
 // KmsKeyId: pulumi.Any(test.Arn),
 // MajorEngineVersion: pulumi.String("1.6"),
@@ -88,6 +88,8 @@ import (
 // splat0 = append(splat0, val0.(map[string]interface{})["id"])
 // }
 // _, err := elasticache.NewServerlessCache(ctx, "example", &elasticache.ServerlessCacheArgs{
+// Engine: pulumi.String("redis"),
+// Name: pulumi.String("example"),
 // CacheUsageLimits: &elasticache.ServerlessCacheCacheUsageLimitsArgs{
 // DataStorage: &elasticache.ServerlessCacheCacheUsageLimitsDataStorageArgs{
 // Maximum: pulumi.Int(10),
@@ -99,8 +101,6 @@ import (
 // },
 // },
 // },
-// Engine: pulumi.String("redis"),
-// Name: pulumi.String("example"),
 // DailySnapshotTime: pulumi.String("09:00"),
 // Description: pulumi.String("Test Server"),
 // KmsKeyId: pulumi.Any(test.Arn),
@@ -144,6 +144,8 @@ import (
 // splat0 = append(splat0, val0.(map[string]interface{})["id"])
 // }
 // _, err := elasticache.NewServerlessCache(ctx, "example", &elasticache.ServerlessCacheArgs{
+// Engine: pulumi.String("valkey"),
+// Name: pulumi.String("example"),
 // CacheUsageLimits: &elasticache.ServerlessCacheCacheUsageLimitsArgs{
 // DataStorage: &elasticache.ServerlessCacheCacheUsageLimitsDataStorageArgs{
 // Maximum: pulumi.Int(10),
@@ -155,8 +157,6 @@ import (
 // },
 // },
 // },
-// Engine: pulumi.String("valkey"),
-// Name: pulumi.String("example"),
 // DailySnapshotTime: pulumi.String("09:00"),
 // Description: pulumi.String("Test Server"),
 // KmsKeyId: pulumi.Any(test.Arn),

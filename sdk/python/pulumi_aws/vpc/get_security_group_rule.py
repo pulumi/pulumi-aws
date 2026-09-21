@@ -219,7 +219,7 @@ class AwaitableGetSecurityGroupRuleResult(GetSecurityGroupRuleResult):
             to_port=self.to_port)
 
 
-def get_security_group_rule(filters: Optional[Sequence[Union['GetSecurityGroupRuleFilterArgs', 'GetSecurityGroupRuleFilterArgsDict']]] = None,
+def get_security_group_rule(filters: Optional[Sequence[Union['GetSecurityGroupRuleFilterArgs', 'GetSecurityGroupRuleFilterArgsDict', 'outputs.GetSecurityGroupRuleFilterResult']]] = None,
                             region: Optional[_builtins.str] = None,
                             security_group_rule_id: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityGroupRuleResult:
@@ -236,7 +236,7 @@ def get_security_group_rule(filters: Optional[Sequence[Union['GetSecurityGroupRu
     ```
 
 
-    :param Sequence[Union['GetSecurityGroupRuleFilterArgs', 'GetSecurityGroupRuleFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetSecurityGroupRuleFilterArgs', 'GetSecurityGroupRuleFilterArgsDict', 'outputs.GetSecurityGroupRuleFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
            
            The arguments of this data source act as filters for querying the available
            security group rules. The given filters must match exactly one security group rule
@@ -268,7 +268,7 @@ def get_security_group_rule(filters: Optional[Sequence[Union['GetSecurityGroupRu
         security_group_rule_id=pulumi.get(__ret__, 'security_group_rule_id'),
         tags=pulumi.get(__ret__, 'tags'),
         to_port=pulumi.get(__ret__, 'to_port'))
-def get_security_group_rule_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetSecurityGroupRuleFilterArgs', 'GetSecurityGroupRuleFilterArgsDict']]]]] = None,
+def get_security_group_rule_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetSecurityGroupRuleFilterArgs', 'GetSecurityGroupRuleFilterArgsDict', 'outputs.GetSecurityGroupRuleFilterResult']]]]] = None,
                                    region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                    security_group_rule_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityGroupRuleResult]:
@@ -285,7 +285,7 @@ def get_security_group_rule_output(filters: pulumi.Input[Optional[Optional[Seque
     ```
 
 
-    :param Sequence[Union['GetSecurityGroupRuleFilterArgs', 'GetSecurityGroupRuleFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetSecurityGroupRuleFilterArgs', 'GetSecurityGroupRuleFilterArgsDict', 'outputs.GetSecurityGroupRuleFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
            
            The arguments of this data source act as filters for querying the available
            security group rules. The given filters must match exactly one security group rule

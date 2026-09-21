@@ -30,6 +30,8 @@ namespace Pulumi.Aws.WafRegional
     /// 
     ///     var exampleRuleGroup = new Aws.WafRegional.RuleGroup("example", new()
     ///     {
+    ///         Name = "example",
+    ///         MetricName = "example",
     ///         ActivatedRules = new[]
     ///         {
     ///             new Aws.WafRegional.Inputs.RuleGroupActivatedRuleArgs
@@ -42,8 +44,6 @@ namespace Pulumi.Aws.WafRegional
     ///                 RuleId = example.Id,
     ///             },
     ///         },
-    ///         Name = "example",
-    ///         MetricName = "example",
     ///     });
     /// 
     /// });

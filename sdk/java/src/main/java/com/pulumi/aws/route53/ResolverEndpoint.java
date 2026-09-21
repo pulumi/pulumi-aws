@@ -47,6 +47,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new ResolverEndpoint("foo", ResolverEndpointArgs.builder()
+ *             .name("foo")
+ *             .direction("INBOUND")
+ *             .resolverEndpointType("IPV4")
+ *             .securityGroupIds(            
+ *                 sg1.id(),
+ *                 sg2.id())
  *             .ipAddresses(            
  *                 ResolverEndpointIpAddressArgs.builder()
  *                     .subnetId(sn1.id())
@@ -55,12 +61,6 @@ import javax.annotation.Nullable;
  *                     .subnetId(sn2.id())
  *                     .ip("10.0.64.4")
  *                     .build())
- *             .name("foo")
- *             .direction("INBOUND")
- *             .resolverEndpointType("IPV4")
- *             .securityGroupIds(            
- *                 sg1.id(),
- *                 sg2.id())
  *             .protocols(            
  *                 "Do53",
  *                 "DoH")

@@ -28,12 +28,10 @@ import * as utilities from "../utilities";
  *     enableDnsSupport: true,
  * });
  * const example = new aws.route53.Zone("example", {
+ *     name: "example.com",
  *     vpcs: [{
  *         vpcId: primary.id,
  *     }],
- *     name: "example.com",
- * }, {
- *     ignoreChanges: ["vpcs"],
  * });
  * const secondaryZoneAssociation = new aws.route53.ZoneAssociation("secondary", {
  *     zoneId: example.zoneId,

@@ -80,6 +80,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleScalingPlan = new ScalingPlan("exampleScalingPlan", ScalingPlanArgs.builder()
+ *             .name("example-dynamic-cost-optimization")
  *             .applicationSource(ScalingPlanApplicationSourceArgs.builder()
  *                 .tagFilters(ScalingPlanApplicationSourceTagFilterArgs.builder()
  *                     .key("application")
@@ -87,12 +88,6 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .scalingInstructions(ScalingPlanScalingInstructionArgs.builder()
- *                 .targetTrackingConfigurations(ScalingPlanScalingInstructionTargetTrackingConfigurationArgs.builder()
- *                     .predefinedScalingMetricSpecification(ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs.builder()
- *                         .predefinedScalingMetricType("ASGAverageCPUUtilization")
- *                         .build())
- *                     .targetValue(70.0)
- *                     .build())
  *                 .maxCapacity(3)
  *                 .minCapacity(0)
  *                 .resourceId(StdFunctions.format(FormatArgs.builder()
@@ -101,8 +96,13 @@ import javax.annotation.Nullable;
  *                     .build()).result())
  *                 .scalableDimension("autoscaling:autoScalingGroup:DesiredCapacity")
  *                 .serviceNamespace("autoscaling")
+ *                 .targetTrackingConfigurations(ScalingPlanScalingInstructionTargetTrackingConfigurationArgs.builder()
+ *                     .predefinedScalingMetricSpecification(ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs.builder()
+ *                         .predefinedScalingMetricType("ASGAverageCPUUtilization")
+ *                         .build())
+ *                     .targetValue(70.0)
+ *                     .build())
  *                 .build())
- *             .name("example-dynamic-cost-optimization")
  *             .build());
  * 
  *     }
@@ -129,9 +129,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.autoscalingplans.inputs.ScalingPlanApplicationSourceArgs;
  * import com.pulumi.aws.autoscalingplans.inputs.ScalingPlanApplicationSourceTagFilterArgs;
  * import com.pulumi.aws.autoscalingplans.inputs.ScalingPlanScalingInstructionArgs;
- * import com.pulumi.aws.autoscalingplans.inputs.ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs;
  * import com.pulumi.aws.autoscalingplans.inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationArgs;
  * import com.pulumi.aws.autoscalingplans.inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs;
+ * import com.pulumi.aws.autoscalingplans.inputs.ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs;
  * import com.pulumi.std.StdFunctions;
  * import com.pulumi.std.inputs.FormatArgs;
  * import java.util.ArrayList;
@@ -164,6 +164,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleScalingPlan = new ScalingPlan("exampleScalingPlan", ScalingPlanArgs.builder()
+ *             .name("example-predictive-cost-optimization")
  *             .applicationSource(ScalingPlanApplicationSourceArgs.builder()
  *                 .tagFilters(ScalingPlanApplicationSourceTagFilterArgs.builder()
  *                     .key("application")
@@ -171,15 +172,6 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .scalingInstructions(ScalingPlanScalingInstructionArgs.builder()
- *                 .predefinedLoadMetricSpecification(ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs.builder()
- *                     .predefinedLoadMetricType("ASGTotalCPUUtilization")
- *                     .build())
- *                 .targetTrackingConfigurations(ScalingPlanScalingInstructionTargetTrackingConfigurationArgs.builder()
- *                     .predefinedScalingMetricSpecification(ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs.builder()
- *                         .predefinedScalingMetricType("ASGAverageCPUUtilization")
- *                         .build())
- *                     .targetValue(70.0)
- *                     .build())
  *                 .disableDynamicScaling(true)
  *                 .maxCapacity(3)
  *                 .minCapacity(0)
@@ -189,10 +181,18 @@ import javax.annotation.Nullable;
  *                     .build()).result())
  *                 .scalableDimension("autoscaling:autoScalingGroup:DesiredCapacity")
  *                 .serviceNamespace("autoscaling")
+ *                 .targetTrackingConfigurations(ScalingPlanScalingInstructionTargetTrackingConfigurationArgs.builder()
+ *                     .predefinedScalingMetricSpecification(ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs.builder()
+ *                         .predefinedScalingMetricType("ASGAverageCPUUtilization")
+ *                         .build())
+ *                     .targetValue(70.0)
+ *                     .build())
  *                 .predictiveScalingMaxCapacityBehavior("SetForecastCapacityToMaxCapacity")
  *                 .predictiveScalingMode("ForecastAndScale")
+ *                 .predefinedLoadMetricSpecification(ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs.builder()
+ *                     .predefinedLoadMetricType("ASGTotalCPUUtilization")
+ *                     .build())
  *                 .build())
- *             .name("example-predictive-cost-optimization")
  *             .build());
  * 
  *     }

@@ -27,6 +27,7 @@ namespace Pulumi.Aws.Ebs
         /// {
         ///     var ebsVolume = Aws.Ebs.GetVolume.Invoke(new()
         ///     {
+        ///         MostRecent = true,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ebs.Inputs.GetVolumeFilterInputArgs
@@ -46,7 +47,6 @@ namespace Pulumi.Aws.Ebs
         ///                 },
         ///             },
         ///         },
-        ///         MostRecent = true,
         ///     });
         /// 
         /// });
@@ -71,6 +71,7 @@ namespace Pulumi.Aws.Ebs
         /// {
         ///     var ebsVolume = Aws.Ebs.GetVolume.Invoke(new()
         ///     {
+        ///         MostRecent = true,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ebs.Inputs.GetVolumeFilterInputArgs
@@ -90,7 +91,6 @@ namespace Pulumi.Aws.Ebs
         ///                 },
         ///             },
         ///         },
-        ///         MostRecent = true,
         ///     });
         /// 
         /// });
@@ -115,6 +115,7 @@ namespace Pulumi.Aws.Ebs
         /// {
         ///     var ebsVolume = Aws.Ebs.GetVolume.Invoke(new()
         ///     {
+        ///         MostRecent = true,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ebs.Inputs.GetVolumeFilterInputArgs
@@ -134,7 +135,6 @@ namespace Pulumi.Aws.Ebs
         ///                 },
         ///             },
         ///         },
-        ///         MostRecent = true,
         ///     });
         /// 
         /// });

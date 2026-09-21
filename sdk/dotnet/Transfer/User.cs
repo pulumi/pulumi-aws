@@ -39,6 +39,7 @@ namespace Pulumi.Aws.Transfer
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -50,7 +51,6 @@ namespace Pulumi.Aws.Transfer
     ///                         },
     ///                     },
     ///                 },
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -94,6 +94,10 @@ namespace Pulumi.Aws.Transfer
     /// 
     ///     var fooUser = new Aws.Transfer.User("foo", new()
     ///     {
+    ///         ServerId = fooServer.Id,
+    ///         UserName = "tftestuser",
+    ///         Role = fooRole.Arn,
+    ///         HomeDirectoryType = "LOGICAL",
     ///         HomeDirectoryMappings = new[]
     ///         {
     ///             new Aws.Transfer.Inputs.UserHomeDirectoryMappingArgs
@@ -102,10 +106,6 @@ namespace Pulumi.Aws.Transfer
     ///                 Target = "/bucket3/test-path/tftestuser.pdf",
     ///             },
     ///         },
-    ///         ServerId = fooServer.Id,
-    ///         UserName = "tftestuser",
-    ///         Role = fooRole.Arn,
-    ///         HomeDirectoryType = "LOGICAL",
     ///     });
     /// 
     /// });
@@ -123,6 +123,7 @@ namespace Pulumi.Aws.Transfer
     /// {
     ///     var example = new Aws.Transfer.User("example", new()
     ///     {
+    ///         HomeDirectoryType = "LOGICAL",
     ///         HomeDirectoryMappings = new[]
     ///         {
     ///             new Aws.Transfer.Inputs.UserHomeDirectoryMappingArgs
@@ -131,7 +132,6 @@ namespace Pulumi.Aws.Transfer
     ///                 Target = $"/{foo.Id}/${{Transfer:UserName}}",
     ///             },
     ///         },
-    ///         HomeDirectoryType = "LOGICAL",
     ///     });
     /// 
     /// });

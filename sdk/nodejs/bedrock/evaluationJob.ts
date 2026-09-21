@@ -21,13 +21,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.EvaluationJob("example", {
+ *     jobName: "example-job",
+ *     roleArn: exampleAwsIamRole.arn,
  *     evaluationConfig: {
  *         automated: {
  *             datasetMetricConfigs: [{
+ *                 taskType: "Generation",
  *                 dataset: {
  *                     name: "Builtin.Bold",
  *                 },
- *                 taskType: "Generation",
  *                 metricNames: ["Builtin.Robustness"],
  *             }],
  *         },
@@ -42,8 +44,6 @@ import * as utilities from "../utilities";
  *     outputDataConfig: {
  *         s3Uri: `s3://${exampleAwsS3Bucket.id}/output/`,
  *     },
- *     jobName: "example-job",
- *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *

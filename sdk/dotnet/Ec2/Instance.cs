@@ -28,6 +28,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var ubuntu = Aws.Ec2.GetAmi.Invoke(new()
     ///     {
+    ///         MostRecent = true,
     ///         Filters = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
@@ -47,7 +48,6 @@ namespace Pulumi.Aws.Ec2
     ///                 },
     ///             },
     ///         },
-    ///         MostRecent = true,
     ///         Owners = new[]
     ///         {
     ///             "099720109477",
@@ -102,6 +102,11 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = Aws.Ec2.GetAmi.Invoke(new()
     ///     {
+    ///         MostRecent = true,
+    ///         Owners = new[]
+    ///         {
+    ///             "amazon",
+    ///         },
     ///         Filters = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
@@ -121,24 +126,19 @@ namespace Pulumi.Aws.Ec2
     ///                 },
     ///             },
     ///         },
-    ///         MostRecent = true,
-    ///         Owners = new[]
-    ///         {
-    ///             "amazon",
-    ///         },
     ///     });
     /// 
     ///     var exampleInstance = new Aws.Ec2.Instance("example", new()
     ///     {
+    ///         Ami = example.Apply(getAmiResult =&gt; getAmiResult.Id),
     ///         InstanceMarketOptions = new Aws.Ec2.Inputs.InstanceInstanceMarketOptionsArgs
     ///         {
+    ///             MarketType = "spot",
     ///             SpotOptions = new Aws.Ec2.Inputs.InstanceInstanceMarketOptionsSpotOptionsArgs
     ///             {
     ///                 MaxPrice = "0.0031",
     ///             },
-    ///             MarketType = "spot",
     ///         },
-    ///         Ami = example.Apply(getAmiResult =&gt; getAmiResult.Id),
     ///         InstanceType = Aws.Ec2.InstanceType.T4g_Nano,
     ///         Tags = 
     ///         {
@@ -194,6 +194,8 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var exampleInstance = new Aws.Ec2.Instance("example", new()
     ///     {
+    ///         Ami = "ami-005e54dee72cc1d00",
+    ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
     ///         PrimaryNetworkInterface = new Aws.Ec2.Inputs.InstancePrimaryNetworkInterfaceArgs
     ///         {
     ///             NetworkInterfaceId = example.Id,
@@ -202,8 +204,6 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///             CpuCredits = "unlimited",
     ///         },
-    ///         Ami = "ami-005e54dee72cc1d00",
-    ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
     ///     });
     /// 
     /// });
@@ -241,6 +241,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var amzn_linux_2023_ami = Aws.Ec2.GetAmi.Invoke(new()
     ///     {
+    ///         MostRecent = true,
+    ///         Owners = new[]
+    ///         {
+    ///             "amazon",
+    ///         },
     ///         Filters = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
@@ -252,23 +257,18 @@ namespace Pulumi.Aws.Ec2
     ///                 },
     ///             },
     ///         },
-    ///         MostRecent = true,
-    ///         Owners = new[]
-    ///         {
-    ///             "amazon",
-    ///         },
     ///     });
     /// 
     ///     var exampleInstance = new Aws.Ec2.Instance("example", new()
     ///     {
+    ///         Ami = amzn_linux_2023_ami.Apply(amzn_linux_2023_ami =&gt; amzn_linux_2023_ami.Apply(getAmiResult =&gt; getAmiResult.Id)),
+    ///         InstanceType = Aws.Ec2.InstanceType.C6a_2XLarge,
+    ///         SubnetId = exampleSubnet.Id,
     ///         CpuOptions = new Aws.Ec2.Inputs.InstanceCpuOptionsArgs
     ///         {
     ///             CoreCount = 2,
     ///             ThreadsPerCore = 2,
     ///         },
-    ///         Ami = amzn_linux_2023_ami.Apply(amzn_linux_2023_ami =&gt; amzn_linux_2023_ami.Apply(getAmiResult =&gt; getAmiResult.Id)),
-    ///         InstanceType = Aws.Ec2.InstanceType.C6a_2XLarge,
-    ///         SubnetId = exampleSubnet.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "tf-example" },

@@ -85,6 +85,8 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     ///     var exampleCatalogTable = new Aws.Glue.CatalogTable("example", new()
     ///     {
+    ///         Name = "abelt",
+    ///         DatabaseName = test.Name,
     ///         StorageDescriptor = new Aws.Glue.Inputs.CatalogTableStorageDescriptorArgs
     ///         {
     ///             Columns = new[]
@@ -96,12 +98,15 @@ namespace Pulumi.Aws.LakeFormation
     ///                 },
     ///             },
     ///         },
-    ///         Name = "abelt",
-    ///         DatabaseName = test.Name,
     ///     });
     /// 
     ///     var examplePermissions = new Aws.LakeFormation.Permissions("example", new()
     ///     {
+    ///         PermissionDetails = new[]
+    ///         {
+    ///             "SELECT",
+    ///         },
+    ///         Principal = "arn:aws:iam:us-east-1:123456789012:user/SanHolo",
     ///         TableWithColumns = new Aws.LakeFormation.Inputs.PermissionsTableWithColumnsArgs
     ///         {
     ///             DatabaseName = exampleCatalogTable.DatabaseName,
@@ -111,11 +116,6 @@ namespace Pulumi.Aws.LakeFormation
     ///                 "event",
     ///             },
     ///         },
-    ///         PermissionDetails = new[]
-    ///         {
-    ///             "SELECT",
-    ///         },
-    ///         Principal = "arn:aws:iam:us-east-1:123456789012:user/SanHolo",
     ///     });
     /// 
     /// });
@@ -141,6 +141,11 @@ namespace Pulumi.Aws.LakeFormation
     /// {
     ///     var example = new Aws.LakeFormation.Permissions("example", new()
     ///     {
+    ///         PermissionDetails = new[]
+    ///         {
+    ///             "SELECT",
+    ///         },
+    ///         Principal = "123456789012:IAMPrincipals",
     ///         TableWithColumns = new Aws.LakeFormation.Inputs.PermissionsTableWithColumnsArgs
     ///         {
     ///             DatabaseName = exampleAwsGlueCatalogTable.DatabaseName,
@@ -150,11 +155,6 @@ namespace Pulumi.Aws.LakeFormation
     ///                 "event",
     ///             },
     ///         },
-    ///         PermissionDetails = new[]
-    ///         {
-    ///             "SELECT",
-    ///         },
-    ///         Principal = "123456789012:IAMPrincipals",
     ///     });
     /// 
     /// });
@@ -180,14 +180,14 @@ namespace Pulumi.Aws.LakeFormation
     /// {
     ///     var example = new Aws.LakeFormation.Permissions("example", new()
     ///     {
-    ///         DataLocation = new Aws.LakeFormation.Inputs.PermissionsDataLocationArgs
-    ///         {
-    ///             Arn = exampleAwsLakeformationResource.Arn,
-    ///         },
     ///         Principal = workflowRole.Arn,
     ///         PermissionDetails = new[]
     ///         {
     ///             "DATA_LOCATION_ACCESS",
+    ///         },
+    ///         DataLocation = new Aws.LakeFormation.Inputs.PermissionsDataLocationArgs
+    ///         {
+    ///             Arn = exampleAwsLakeformationResource.Arn,
     ///         },
     ///     });
     /// 
@@ -206,17 +206,17 @@ namespace Pulumi.Aws.LakeFormation
     /// {
     ///     var example = new Aws.LakeFormation.Permissions("example", new()
     ///     {
-    ///         Database = new Aws.LakeFormation.Inputs.PermissionsDatabaseArgs
-    ///         {
-    ///             Name = exampleAwsGlueCatalogDatabase.Name,
-    ///             CatalogId = "110376042874",
-    ///         },
     ///         Principal = workflowRole.Arn,
     ///         PermissionDetails = new[]
     ///         {
     ///             "CREATE_TABLE",
     ///             "ALTER",
     ///             "DROP",
+    ///         },
+    ///         Database = new Aws.LakeFormation.Inputs.PermissionsDatabaseArgs
+    ///         {
+    ///             Name = exampleAwsGlueCatalogDatabase.Name,
+    ///             CatalogId = "110376042874",
     ///         },
     ///     });
     /// 
@@ -235,8 +235,16 @@ namespace Pulumi.Aws.LakeFormation
     /// {
     ///     var test = new Aws.LakeFormation.Permissions("test", new()
     ///     {
+    ///         Principal = salesRole.Arn,
+    ///         PermissionDetails = new[]
+    ///         {
+    ///             "CREATE_TABLE",
+    ///             "ALTER",
+    ///             "DROP",
+    ///         },
     ///         LfTagPolicy = new Aws.LakeFormation.Inputs.PermissionsLfTagPolicyArgs
     ///         {
+    ///             ResourceType = "DATABASE",
     ///             Expressions = new[]
     ///             {
     ///                 new Aws.LakeFormation.Inputs.PermissionsLfTagPolicyExpressionArgs
@@ -257,14 +265,6 @@ namespace Pulumi.Aws.LakeFormation
     ///                     },
     ///                 },
     ///             },
-    ///             ResourceType = "DATABASE",
-    ///         },
-    ///         Principal = salesRole.Arn,
-    ///         PermissionDetails = new[]
-    ///         {
-    ///             "CREATE_TABLE",
-    ///             "ALTER",
-    ///             "DROP",
     ///         },
     ///     });
     /// 

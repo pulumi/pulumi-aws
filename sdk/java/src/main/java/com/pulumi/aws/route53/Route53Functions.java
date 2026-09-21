@@ -4873,6 +4873,8 @@ public final class Route53Functions {
      *             .build());
      * 
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *             .recordType("A")
+     *             .startRule("site_switch")
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("my_elb")
@@ -4886,17 +4888,15 @@ public final class Route53Functions {
      *                     .value("www.example.com")
      *                     .build())
      *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
+     *                 .id("site_switch")
+     *                 .type("failover")
      *                 .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
      *                     .endpointReference("my_elb")
      *                     .build())
      *                 .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
      *                     .endpointReference("site_down_banner")
      *                     .build())
-     *                 .id("site_switch")
-     *                 .type("failover")
      *                 .build())
-     *             .recordType("A")
-     *             .startRule("site_switch")
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
@@ -4944,6 +4944,8 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *             .recordType("A")
+     *             .startRule("geoproximity_rule")
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("na_endpoint_a")
@@ -4967,16 +4969,18 @@ public final class Route53Functions {
      *                     .build())
      *             .rules(            
      *                 GetTrafficPolicyDocumentRuleArgs.builder()
+     *                     .id("na_rule")
+     *                     .type("failover")
      *                     .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
      *                         .endpointReference("na_endpoint_a")
      *                         .build())
      *                     .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
      *                         .endpointReference("na_endpoint_b")
      *                         .build())
-     *                     .id("na_rule")
-     *                     .type("failover")
      *                     .build(),
      *                 GetTrafficPolicyDocumentRuleArgs.builder()
+     *                     .id("geoproximity_rule")
+     *                     .type("geoproximity")
      *                     .geoProximityLocations(                    
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:us-west-1")
@@ -4996,11 +5000,7 @@ public final class Route53Functions {
      *                             .evaluateTargetHealth(true)
      *                             .endpointReference("ap_endpoint")
      *                             .build())
-     *                     .id("geoproximity_rule")
-     *                     .type("geoproximity")
      *                     .build())
-     *             .recordType("A")
-     *             .startRule("geoproximity_rule")
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
@@ -5059,6 +5059,8 @@ public final class Route53Functions {
      *             .build());
      * 
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *             .recordType("A")
+     *             .startRule("site_switch")
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("my_elb")
@@ -5072,17 +5074,15 @@ public final class Route53Functions {
      *                     .value("www.example.com")
      *                     .build())
      *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
+     *                 .id("site_switch")
+     *                 .type("failover")
      *                 .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
      *                     .endpointReference("my_elb")
      *                     .build())
      *                 .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
      *                     .endpointReference("site_down_banner")
      *                     .build())
-     *                 .id("site_switch")
-     *                 .type("failover")
      *                 .build())
-     *             .recordType("A")
-     *             .startRule("site_switch")
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
@@ -5130,6 +5130,8 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *             .recordType("A")
+     *             .startRule("geoproximity_rule")
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("na_endpoint_a")
@@ -5153,16 +5155,18 @@ public final class Route53Functions {
      *                     .build())
      *             .rules(            
      *                 GetTrafficPolicyDocumentRuleArgs.builder()
+     *                     .id("na_rule")
+     *                     .type("failover")
      *                     .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
      *                         .endpointReference("na_endpoint_a")
      *                         .build())
      *                     .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
      *                         .endpointReference("na_endpoint_b")
      *                         .build())
-     *                     .id("na_rule")
-     *                     .type("failover")
      *                     .build(),
      *                 GetTrafficPolicyDocumentRuleArgs.builder()
+     *                     .id("geoproximity_rule")
+     *                     .type("geoproximity")
      *                     .geoProximityLocations(                    
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:us-west-1")
@@ -5182,11 +5186,7 @@ public final class Route53Functions {
      *                             .evaluateTargetHealth(true)
      *                             .endpointReference("ap_endpoint")
      *                             .build())
-     *                     .id("geoproximity_rule")
-     *                     .type("geoproximity")
      *                     .build())
-     *             .recordType("A")
-     *             .startRule("geoproximity_rule")
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
@@ -5245,6 +5245,8 @@ public final class Route53Functions {
      *             .build());
      * 
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *             .recordType("A")
+     *             .startRule("site_switch")
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("my_elb")
@@ -5258,17 +5260,15 @@ public final class Route53Functions {
      *                     .value("www.example.com")
      *                     .build())
      *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
+     *                 .id("site_switch")
+     *                 .type("failover")
      *                 .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
      *                     .endpointReference("my_elb")
      *                     .build())
      *                 .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
      *                     .endpointReference("site_down_banner")
      *                     .build())
-     *                 .id("site_switch")
-     *                 .type("failover")
      *                 .build())
-     *             .recordType("A")
-     *             .startRule("site_switch")
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
@@ -5316,6 +5316,8 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *             .recordType("A")
+     *             .startRule("geoproximity_rule")
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("na_endpoint_a")
@@ -5339,16 +5341,18 @@ public final class Route53Functions {
      *                     .build())
      *             .rules(            
      *                 GetTrafficPolicyDocumentRuleArgs.builder()
+     *                     .id("na_rule")
+     *                     .type("failover")
      *                     .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
      *                         .endpointReference("na_endpoint_a")
      *                         .build())
      *                     .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
      *                         .endpointReference("na_endpoint_b")
      *                         .build())
-     *                     .id("na_rule")
-     *                     .type("failover")
      *                     .build(),
      *                 GetTrafficPolicyDocumentRuleArgs.builder()
+     *                     .id("geoproximity_rule")
+     *                     .type("geoproximity")
      *                     .geoProximityLocations(                    
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:us-west-1")
@@ -5368,11 +5372,7 @@ public final class Route53Functions {
      *                             .evaluateTargetHealth(true)
      *                             .endpointReference("ap_endpoint")
      *                             .build())
-     *                     .id("geoproximity_rule")
-     *                     .type("geoproximity")
      *                     .build())
-     *             .recordType("A")
-     *             .startRule("geoproximity_rule")
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
@@ -5431,6 +5431,8 @@ public final class Route53Functions {
      *             .build());
      * 
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *             .recordType("A")
+     *             .startRule("site_switch")
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("my_elb")
@@ -5444,17 +5446,15 @@ public final class Route53Functions {
      *                     .value("www.example.com")
      *                     .build())
      *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
+     *                 .id("site_switch")
+     *                 .type("failover")
      *                 .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
      *                     .endpointReference("my_elb")
      *                     .build())
      *                 .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
      *                     .endpointReference("site_down_banner")
      *                     .build())
-     *                 .id("site_switch")
-     *                 .type("failover")
      *                 .build())
-     *             .recordType("A")
-     *             .startRule("site_switch")
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
@@ -5502,6 +5502,8 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *             .recordType("A")
+     *             .startRule("geoproximity_rule")
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("na_endpoint_a")
@@ -5525,16 +5527,18 @@ public final class Route53Functions {
      *                     .build())
      *             .rules(            
      *                 GetTrafficPolicyDocumentRuleArgs.builder()
+     *                     .id("na_rule")
+     *                     .type("failover")
      *                     .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
      *                         .endpointReference("na_endpoint_a")
      *                         .build())
      *                     .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
      *                         .endpointReference("na_endpoint_b")
      *                         .build())
-     *                     .id("na_rule")
-     *                     .type("failover")
      *                     .build(),
      *                 GetTrafficPolicyDocumentRuleArgs.builder()
+     *                     .id("geoproximity_rule")
+     *                     .type("geoproximity")
      *                     .geoProximityLocations(                    
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:us-west-1")
@@ -5554,11 +5558,7 @@ public final class Route53Functions {
      *                             .evaluateTargetHealth(true)
      *                             .endpointReference("ap_endpoint")
      *                             .build())
-     *                     .id("geoproximity_rule")
-     *                     .type("geoproximity")
      *                     .build())
-     *             .recordType("A")
-     *             .startRule("geoproximity_rule")
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
@@ -5617,6 +5617,8 @@ public final class Route53Functions {
      *             .build());
      * 
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *             .recordType("A")
+     *             .startRule("site_switch")
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("my_elb")
@@ -5630,17 +5632,15 @@ public final class Route53Functions {
      *                     .value("www.example.com")
      *                     .build())
      *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
+     *                 .id("site_switch")
+     *                 .type("failover")
      *                 .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
      *                     .endpointReference("my_elb")
      *                     .build())
      *                 .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
      *                     .endpointReference("site_down_banner")
      *                     .build())
-     *                 .id("site_switch")
-     *                 .type("failover")
      *                 .build())
-     *             .recordType("A")
-     *             .startRule("site_switch")
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
@@ -5688,6 +5688,8 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *             .recordType("A")
+     *             .startRule("geoproximity_rule")
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("na_endpoint_a")
@@ -5711,16 +5713,18 @@ public final class Route53Functions {
      *                     .build())
      *             .rules(            
      *                 GetTrafficPolicyDocumentRuleArgs.builder()
+     *                     .id("na_rule")
+     *                     .type("failover")
      *                     .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
      *                         .endpointReference("na_endpoint_a")
      *                         .build())
      *                     .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
      *                         .endpointReference("na_endpoint_b")
      *                         .build())
-     *                     .id("na_rule")
-     *                     .type("failover")
      *                     .build(),
      *                 GetTrafficPolicyDocumentRuleArgs.builder()
+     *                     .id("geoproximity_rule")
+     *                     .type("geoproximity")
      *                     .geoProximityLocations(                    
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:us-west-1")
@@ -5740,11 +5744,7 @@ public final class Route53Functions {
      *                             .evaluateTargetHealth(true)
      *                             .endpointReference("ap_endpoint")
      *                             .build())
-     *                     .id("geoproximity_rule")
-     *                     .type("geoproximity")
      *                     .build())
-     *             .recordType("A")
-     *             .startRule("geoproximity_rule")
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
@@ -5803,6 +5803,8 @@ public final class Route53Functions {
      *             .build());
      * 
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *             .recordType("A")
+     *             .startRule("site_switch")
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("my_elb")
@@ -5816,17 +5818,15 @@ public final class Route53Functions {
      *                     .value("www.example.com")
      *                     .build())
      *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
+     *                 .id("site_switch")
+     *                 .type("failover")
      *                 .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
      *                     .endpointReference("my_elb")
      *                     .build())
      *                 .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
      *                     .endpointReference("site_down_banner")
      *                     .build())
-     *                 .id("site_switch")
-     *                 .type("failover")
      *                 .build())
-     *             .recordType("A")
-     *             .startRule("site_switch")
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
@@ -5874,6 +5874,8 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *             .recordType("A")
+     *             .startRule("geoproximity_rule")
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("na_endpoint_a")
@@ -5897,16 +5899,18 @@ public final class Route53Functions {
      *                     .build())
      *             .rules(            
      *                 GetTrafficPolicyDocumentRuleArgs.builder()
+     *                     .id("na_rule")
+     *                     .type("failover")
      *                     .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
      *                         .endpointReference("na_endpoint_a")
      *                         .build())
      *                     .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
      *                         .endpointReference("na_endpoint_b")
      *                         .build())
-     *                     .id("na_rule")
-     *                     .type("failover")
      *                     .build(),
      *                 GetTrafficPolicyDocumentRuleArgs.builder()
+     *                     .id("geoproximity_rule")
+     *                     .type("geoproximity")
      *                     .geoProximityLocations(                    
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:us-west-1")
@@ -5926,11 +5930,7 @@ public final class Route53Functions {
      *                             .evaluateTargetHealth(true)
      *                             .endpointReference("ap_endpoint")
      *                             .build())
-     *                     .id("geoproximity_rule")
-     *                     .type("geoproximity")
      *                     .build())
-     *             .recordType("A")
-     *             .startRule("geoproximity_rule")
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
@@ -5989,6 +5989,8 @@ public final class Route53Functions {
      *             .build());
      * 
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *             .recordType("A")
+     *             .startRule("site_switch")
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("my_elb")
@@ -6002,17 +6004,15 @@ public final class Route53Functions {
      *                     .value("www.example.com")
      *                     .build())
      *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
+     *                 .id("site_switch")
+     *                 .type("failover")
      *                 .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
      *                     .endpointReference("my_elb")
      *                     .build())
      *                 .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
      *                     .endpointReference("site_down_banner")
      *                     .build())
-     *                 .id("site_switch")
-     *                 .type("failover")
      *                 .build())
-     *             .recordType("A")
-     *             .startRule("site_switch")
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
@@ -6060,6 +6060,8 @@ public final class Route53Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *             .recordType("A")
+     *             .startRule("geoproximity_rule")
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("na_endpoint_a")
@@ -6083,16 +6085,18 @@ public final class Route53Functions {
      *                     .build())
      *             .rules(            
      *                 GetTrafficPolicyDocumentRuleArgs.builder()
+     *                     .id("na_rule")
+     *                     .type("failover")
      *                     .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
      *                         .endpointReference("na_endpoint_a")
      *                         .build())
      *                     .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
      *                         .endpointReference("na_endpoint_b")
      *                         .build())
-     *                     .id("na_rule")
-     *                     .type("failover")
      *                     .build(),
      *                 GetTrafficPolicyDocumentRuleArgs.builder()
+     *                     .id("geoproximity_rule")
+     *                     .type("geoproximity")
      *                     .geoProximityLocations(                    
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:us-west-1")
@@ -6112,11 +6116,7 @@ public final class Route53Functions {
      *                             .evaluateTargetHealth(true)
      *                             .endpointReference("ap_endpoint")
      *                             .build())
-     *                     .id("geoproximity_rule")
-     *                     .type("geoproximity")
      *                     .build())
-     *             .recordType("A")
-     *             .startRule("geoproximity_rule")
      *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()

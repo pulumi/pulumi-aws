@@ -729,17 +729,17 @@ class LoadBalancer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_logs: pulumi.Input[Optional[Union['LoadBalancerAccessLogsArgs', 'LoadBalancerAccessLogsArgsDict']]] = None,
+                 access_logs: pulumi.Input[Optional[Union['LoadBalancerAccessLogsArgs', 'LoadBalancerAccessLogsArgsDict', 'outputs.LoadBalancerAccessLogs']]] = None,
                  availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  connection_draining: pulumi.Input[Optional[_builtins.bool]] = None,
                  connection_draining_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  cross_zone_load_balancing: pulumi.Input[Optional[_builtins.bool]] = None,
                  desync_mitigation_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 health_check: pulumi.Input[Optional[Union['LoadBalancerHealthCheckArgs', 'LoadBalancerHealthCheckArgsDict']]] = None,
+                 health_check: pulumi.Input[Optional[Union['LoadBalancerHealthCheckArgs', 'LoadBalancerHealthCheckArgsDict', 'outputs.LoadBalancerHealthCheck']]] = None,
                  idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  instances: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  internal: pulumi.Input[Optional[_builtins.bool]] = None,
-                 listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerListenerArgs', 'LoadBalancerListenerArgsDict']]]]] = None,
+                 listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerListenerArgs', 'LoadBalancerListenerArgsDict', 'outputs.LoadBalancerListener']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -768,17 +768,16 @@ class LoadBalancer(pulumi.CustomResource):
 
         # Create a new load balancer
         bar = aws.elb.LoadBalancer("bar",
+            name="foobar-elb",
+            availability_zones=[
+                "us-west-2a",
+                "us-west-2b",
+                "us-west-2c",
+            ],
             access_logs={
                 "bucket": "foo",
                 "bucket_prefix": "bar",
                 "interval": 60,
-            },
-            health_check={
-                "healthy_threshold": 2,
-                "unhealthy_threshold": 2,
-                "timeout": 3,
-                "target": "HTTP:8000/",
-                "interval": 30,
             },
             listeners=[
                 {
@@ -795,12 +794,13 @@ class LoadBalancer(pulumi.CustomResource):
                     "ssl_certificate_id": "arn:aws:iam::123456789012:server-certificate/certName",
                 },
             ],
-            name="foobar-elb",
-            availability_zones=[
-                "us-west-2a",
-                "us-west-2b",
-                "us-west-2c",
-            ],
+            health_check={
+                "healthy_threshold": 2,
+                "unhealthy_threshold": 2,
+                "timeout": 3,
+                "target": "HTTP:8000/",
+                "interval": 30,
+            },
             instances=[foo["id"]],
             cross_zone_load_balancing=True,
             idle_timeout=400,
@@ -833,17 +833,17 @@ class LoadBalancer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['LoadBalancerAccessLogsArgs', 'LoadBalancerAccessLogsArgsDict']] access_logs: An Access Logs block. Access Logs documented below.
+        :param pulumi.Input[Union['LoadBalancerAccessLogsArgs', 'LoadBalancerAccessLogsArgsDict', 'outputs.LoadBalancerAccessLogs']] access_logs: An Access Logs block. Access Logs documented below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: The AZ's to serve traffic in.
         :param pulumi.Input[_builtins.bool] connection_draining: Boolean to enable connection draining. Default: `false`
         :param pulumi.Input[_builtins.int] connection_draining_timeout: The time in seconds to allow for connections to drain. Default: `300`
         :param pulumi.Input[_builtins.bool] cross_zone_load_balancing: Enable cross-zone load balancing. Default: `true`
         :param pulumi.Input[_builtins.str] desync_mitigation_mode: Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
-        :param pulumi.Input[Union['LoadBalancerHealthCheckArgs', 'LoadBalancerHealthCheckArgsDict']] health_check: A health_check block. Health Check documented below.
+        :param pulumi.Input[Union['LoadBalancerHealthCheckArgs', 'LoadBalancerHealthCheckArgsDict', 'outputs.LoadBalancerHealthCheck']] health_check: A health_check block. Health Check documented below.
         :param pulumi.Input[_builtins.int] idle_timeout: The time in seconds that the connection is allowed to be idle. Default: `60`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] instances: A list of instance ids to place in the ELB pool.
         :param pulumi.Input[_builtins.bool] internal: If true, ELB will be an internal ELB.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerListenerArgs', 'LoadBalancerListenerArgsDict']]]] listeners: A list of listener blocks. Listeners documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerListenerArgs', 'LoadBalancerListenerArgsDict', 'outputs.LoadBalancerListener']]]] listeners: A list of listener blocks. Listeners documented below.
         :param pulumi.Input[_builtins.str] name: The name of the ELB. By default generated by this provider.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
@@ -885,17 +885,16 @@ class LoadBalancer(pulumi.CustomResource):
 
         # Create a new load balancer
         bar = aws.elb.LoadBalancer("bar",
+            name="foobar-elb",
+            availability_zones=[
+                "us-west-2a",
+                "us-west-2b",
+                "us-west-2c",
+            ],
             access_logs={
                 "bucket": "foo",
                 "bucket_prefix": "bar",
                 "interval": 60,
-            },
-            health_check={
-                "healthy_threshold": 2,
-                "unhealthy_threshold": 2,
-                "timeout": 3,
-                "target": "HTTP:8000/",
-                "interval": 30,
             },
             listeners=[
                 {
@@ -912,12 +911,13 @@ class LoadBalancer(pulumi.CustomResource):
                     "ssl_certificate_id": "arn:aws:iam::123456789012:server-certificate/certName",
                 },
             ],
-            name="foobar-elb",
-            availability_zones=[
-                "us-west-2a",
-                "us-west-2b",
-                "us-west-2c",
-            ],
+            health_check={
+                "healthy_threshold": 2,
+                "unhealthy_threshold": 2,
+                "timeout": 3,
+                "target": "HTTP:8000/",
+                "interval": 30,
+            },
             instances=[foo["id"]],
             cross_zone_load_balancing=True,
             idle_timeout=400,
@@ -963,17 +963,17 @@ class LoadBalancer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_logs: pulumi.Input[Optional[Union['LoadBalancerAccessLogsArgs', 'LoadBalancerAccessLogsArgsDict']]] = None,
+                 access_logs: pulumi.Input[Optional[Union['LoadBalancerAccessLogsArgs', 'LoadBalancerAccessLogsArgsDict', 'outputs.LoadBalancerAccessLogs']]] = None,
                  availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  connection_draining: pulumi.Input[Optional[_builtins.bool]] = None,
                  connection_draining_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  cross_zone_load_balancing: pulumi.Input[Optional[_builtins.bool]] = None,
                  desync_mitigation_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 health_check: pulumi.Input[Optional[Union['LoadBalancerHealthCheckArgs', 'LoadBalancerHealthCheckArgsDict']]] = None,
+                 health_check: pulumi.Input[Optional[Union['LoadBalancerHealthCheckArgs', 'LoadBalancerHealthCheckArgsDict', 'outputs.LoadBalancerHealthCheck']]] = None,
                  idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  instances: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  internal: pulumi.Input[Optional[_builtins.bool]] = None,
-                 listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerListenerArgs', 'LoadBalancerListenerArgsDict']]]]] = None,
+                 listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerListenerArgs', 'LoadBalancerListenerArgsDict', 'outputs.LoadBalancerListener']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1027,7 +1027,7 @@ class LoadBalancer(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_logs: pulumi.Input[Optional[Union['LoadBalancerAccessLogsArgs', 'LoadBalancerAccessLogsArgsDict']]] = None,
+            access_logs: pulumi.Input[Optional[Union['LoadBalancerAccessLogsArgs', 'LoadBalancerAccessLogsArgsDict', 'outputs.LoadBalancerAccessLogs']]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             connection_draining: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1035,11 +1035,11 @@ class LoadBalancer(pulumi.CustomResource):
             cross_zone_load_balancing: pulumi.Input[Optional[_builtins.bool]] = None,
             desync_mitigation_mode: pulumi.Input[Optional[_builtins.str]] = None,
             dns_name: pulumi.Input[Optional[_builtins.str]] = None,
-            health_check: pulumi.Input[Optional[Union['LoadBalancerHealthCheckArgs', 'LoadBalancerHealthCheckArgsDict']]] = None,
+            health_check: pulumi.Input[Optional[Union['LoadBalancerHealthCheckArgs', 'LoadBalancerHealthCheckArgsDict', 'outputs.LoadBalancerHealthCheck']]] = None,
             idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
             instances: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             internal: pulumi.Input[Optional[_builtins.bool]] = None,
-            listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerListenerArgs', 'LoadBalancerListenerArgsDict']]]]] = None,
+            listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerListenerArgs', 'LoadBalancerListenerArgsDict', 'outputs.LoadBalancerListener']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1057,7 +1057,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['LoadBalancerAccessLogsArgs', 'LoadBalancerAccessLogsArgsDict']] access_logs: An Access Logs block. Access Logs documented below.
+        :param pulumi.Input[Union['LoadBalancerAccessLogsArgs', 'LoadBalancerAccessLogsArgsDict', 'outputs.LoadBalancerAccessLogs']] access_logs: An Access Logs block. Access Logs documented below.
         :param pulumi.Input[_builtins.str] arn: The ARN of the ELB
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: The AZ's to serve traffic in.
         :param pulumi.Input[_builtins.bool] connection_draining: Boolean to enable connection draining. Default: `false`
@@ -1065,11 +1065,11 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] cross_zone_load_balancing: Enable cross-zone load balancing. Default: `true`
         :param pulumi.Input[_builtins.str] desync_mitigation_mode: Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
         :param pulumi.Input[_builtins.str] dns_name: The DNS name of the ELB
-        :param pulumi.Input[Union['LoadBalancerHealthCheckArgs', 'LoadBalancerHealthCheckArgsDict']] health_check: A health_check block. Health Check documented below.
+        :param pulumi.Input[Union['LoadBalancerHealthCheckArgs', 'LoadBalancerHealthCheckArgsDict', 'outputs.LoadBalancerHealthCheck']] health_check: A health_check block. Health Check documented below.
         :param pulumi.Input[_builtins.int] idle_timeout: The time in seconds that the connection is allowed to be idle. Default: `60`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] instances: A list of instance ids to place in the ELB pool.
         :param pulumi.Input[_builtins.bool] internal: If true, ELB will be an internal ELB.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerListenerArgs', 'LoadBalancerListenerArgsDict']]]] listeners: A list of listener blocks. Listeners documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerListenerArgs', 'LoadBalancerListenerArgsDict', 'outputs.LoadBalancerListener']]]] listeners: A list of listener blocks. Listeners documented below.
         :param pulumi.Input[_builtins.str] name: The name of the ELB. By default generated by this provider.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.

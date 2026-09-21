@@ -38,6 +38,10 @@ namespace Pulumi.Aws.CodeStarNotifications
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sns:Publish",
+    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -48,10 +52,6 @@ namespace Pulumi.Aws.CodeStarNotifications
     ///                             "codestar-notifications.amazonaws.com",
     ///                         },
     ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sns:Publish",
     ///                 },
     ///                 Resources = new[]
     ///                 {
@@ -69,13 +69,6 @@ namespace Pulumi.Aws.CodeStarNotifications
     /// 
     ///     var commits = new Aws.CodeStarNotifications.NotificationRule("commits", new()
     ///     {
-    ///         Targets = new[]
-    ///         {
-    ///             new Aws.CodeStarNotifications.Inputs.NotificationRuleTargetArgs
-    ///             {
-    ///                 Address = notif.Arn,
-    ///             },
-    ///         },
     ///         DetailType = "BASIC",
     ///         EventTypeIds = new[]
     ///         {
@@ -83,6 +76,13 @@ namespace Pulumi.Aws.CodeStarNotifications
     ///         },
     ///         Name = "example-code-repo-commits",
     ///         Resource = code.Arn,
+    ///         Targets = new[]
+    ///         {
+    ///             new Aws.CodeStarNotifications.Inputs.NotificationRuleTargetArgs
+    ///             {
+    ///                 Address = notif.Arn,
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });

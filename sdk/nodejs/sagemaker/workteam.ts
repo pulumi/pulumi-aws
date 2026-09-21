@@ -19,6 +19,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.Workteam("example", {
+ *     workteamName: "example",
+ *     workforceName: exampleAwsSagemakerWorkforce.id,
+ *     description: "example",
  *     memberDefinitions: [{
  *         cognitoMemberDefinition: {
  *             clientId: exampleAwsCognitoUserPoolClient.id,
@@ -26,9 +29,6 @@ import * as utilities from "../utilities";
  *             userGroup: exampleAwsCognitoUserGroup.name,
  *         },
  *     }],
- *     workteamName: "example",
- *     workforceName: exampleAwsSagemakerWorkforce.id,
- *     description: "example",
  * });
  * ```
  *
@@ -39,14 +39,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.Workteam("example", {
+ *     workteamName: "example",
+ *     workforceName: exampleAwsSagemakerWorkforce.id,
+ *     description: "example",
  *     memberDefinitions: [{
  *         oidcMemberDefinition: {
  *             groups: ["example"],
  *         },
  *     }],
- *     workteamName: "example",
- *     workforceName: exampleAwsSagemakerWorkforce.id,
- *     description: "example",
  * });
  * ```
  *

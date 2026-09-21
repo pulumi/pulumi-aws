@@ -31,6 +31,7 @@ import * as utilities from "../utilities";
  *     mediaType: "video/h264",
  * });
  * const exampleRole = new aws.iam.Role("example", {
+ *     name: "example-role",
  *     inlinePolicies: [{
  *         name: "Rekognition-Access",
  *         policy: pulumi.jsonStringify({
@@ -57,7 +58,6 @@ import * as utilities from "../utilities";
  *             ],
  *         }),
  *     }],
- *     name: "example-role",
  *     assumeRolePolicy: JSON.stringify({
  *         Version: "2012-10-17",
  *         Statement: [{
@@ -70,6 +70,8 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * const exampleStreamProcessor = new aws.rekognition.StreamProcessor("example", {
+ *     roleArn: exampleRole.arn,
+ *     name: "example-processor",
  *     dataSharingPreference: {
  *         optIn: false,
  *     },
@@ -94,8 +96,6 @@ import * as utilities from "../utilities";
  *     notificationChannel: {
  *         snsTopicArn: exampleTopic.arn,
  *     },
- *     roleArn: exampleRole.arn,
- *     name: "example-processor",
  * });
  * ```
  *
@@ -116,6 +116,7 @@ import * as utilities from "../utilities";
  *     shardCount: 1,
  * });
  * const exampleRole = new aws.iam.Role("example", {
+ *     name: "example-role",
  *     inlinePolicies: [{
  *         name: "Rekognition-Access",
  *         policy: pulumi.jsonStringify({
@@ -137,7 +138,6 @@ import * as utilities from "../utilities";
  *             ],
  *         }),
  *     }],
- *     name: "example-role",
  *     assumeRolePolicy: JSON.stringify({
  *         Version: "2012-10-17",
  *         Statement: [{
@@ -151,23 +151,10 @@ import * as utilities from "../utilities";
  * });
  * const exampleCollection = new aws.rekognition.Collection("example", {collectionId: "example-collection"});
  * const exampleStreamProcessor = new aws.rekognition.StreamProcessor("example", {
+ *     roleArn: exampleRole.arn,
+ *     name: "example-processor",
  *     dataSharingPreference: {
  *         optIn: false,
- *     },
- *     input: {
- *         kinesisVideoStream: {
- *             arn: example.arn,
- *         },
- *     },
- *     output: {
- *         kinesisDataStream: {
- *             arn: exampleStream.arn,
- *         },
- *     },
- *     settings: {
- *         faceSearch: {
- *             collectionId: exampleCollection.id,
- *         },
  *     },
  *     regionsOfInterests: [{
  *         polygons: [
@@ -185,8 +172,21 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     }],
- *     roleArn: exampleRole.arn,
- *     name: "example-processor",
+ *     input: {
+ *         kinesisVideoStream: {
+ *             arn: example.arn,
+ *         },
+ *     },
+ *     output: {
+ *         kinesisDataStream: {
+ *             arn: exampleStream.arn,
+ *         },
+ *     },
+ *     settings: {
+ *         faceSearch: {
+ *             collectionId: exampleCollection.id,
+ *         },
+ *     },
  * });
  * ```
  *

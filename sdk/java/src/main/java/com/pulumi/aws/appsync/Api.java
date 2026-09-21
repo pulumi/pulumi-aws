@@ -52,6 +52,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Api("example", ApiArgs.builder()
+ *             .name("example-event-api")
  *             .eventConfig(ApiEventConfigArgs.builder()
  *                 .authProviders(ApiEventConfigAuthProviderArgs.builder()
  *                     .authType("API_KEY")
@@ -66,7 +67,6 @@ import javax.annotation.Nullable;
  *                     .authType("API_KEY")
  *                     .build())
  *                 .build())
- *             .name("example-event-api")
  *             .build());
  * 
  *     }
@@ -116,13 +116,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleApi = new Api("exampleApi", ApiArgs.builder()
+ *             .name("example-event-api")
  *             .eventConfig(ApiEventConfigArgs.builder()
  *                 .authProviders(ApiEventConfigAuthProviderArgs.builder()
+ *                     .authType("AMAZON_COGNITO_USER_POOLS")
  *                     .cognitoConfig(ApiEventConfigAuthProviderCognitoConfigArgs.builder()
  *                         .userPoolId(example.id())
  *                         .awsRegion(current.region())
  *                         .build())
- *                     .authType("AMAZON_COGNITO_USER_POOLS")
  *                     .build())
  *                 .connectionAuthModes(ApiEventConfigConnectionAuthModeArgs.builder()
  *                     .authType("AMAZON_COGNITO_USER_POOLS")
@@ -134,7 +135,6 @@ import javax.annotation.Nullable;
  *                     .authType("AMAZON_COGNITO_USER_POOLS")
  *                     .build())
  *                 .build())
- *             .name("example-event-api")
  *             .build());
  * 
  *     }
@@ -173,13 +173,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Api("example", ApiArgs.builder()
+ *             .name("example-event-api")
  *             .eventConfig(ApiEventConfigArgs.builder()
  *                 .authProviders(ApiEventConfigAuthProviderArgs.builder()
+ *                     .authType("AWS_LAMBDA")
  *                     .lambdaAuthorizerConfig(ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs.builder()
  *                         .authorizerUri(exampleAwsLambdaFunction.arn())
  *                         .authorizerResultTtlInSeconds(300)
  *                         .build())
- *                     .authType("AWS_LAMBDA")
  *                     .build())
  *                 .connectionAuthModes(ApiEventConfigConnectionAuthModeArgs.builder()
  *                     .authType("AWS_LAMBDA")
@@ -191,7 +192,6 @@ import javax.annotation.Nullable;
  *                     .authType("AWS_LAMBDA")
  *                     .build())
  *                 .build())
- *             .name("example-event-api")
  *             .build());
  * 
  *     }

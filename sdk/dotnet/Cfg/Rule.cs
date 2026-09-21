@@ -34,6 +34,7 @@ namespace Pulumi.Aws.Cfg
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -45,7 +46,6 @@ namespace Pulumi.Aws.Cfg
     ///                         },
     ///                     },
     ///                 },
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -68,12 +68,12 @@ namespace Pulumi.Aws.Cfg
     /// 
     ///     var r = new Aws.Cfg.Rule("r", new()
     ///     {
+    ///         Name = "example",
     ///         Source = new Aws.Cfg.Inputs.RuleSourceArgs
     ///         {
     ///             Owner = "AWS",
     ///             SourceIdentifier = "S3_BUCKET_VERSIONING_ENABLED",
     ///         },
-    ///         Name = "example",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -166,8 +166,17 @@ namespace Pulumi.Aws.Cfg
     /// {
     ///     var example = new Aws.Cfg.Rule("example", new()
     ///     {
+    ///         Name = "example",
     ///         Source = new Aws.Cfg.Inputs.RuleSourceArgs
     ///         {
+    ///             Owner = "CUSTOM_POLICY",
+    ///             SourceDetails = new[]
+    ///             {
+    ///                 new Aws.Cfg.Inputs.RuleSourceSourceDetailArgs
+    ///                 {
+    ///                     MessageType = "ConfigurationItemChangeNotification",
+    ///                 },
+    ///             },
     ///             CustomPolicyDetails = new Aws.Cfg.Inputs.RuleSourceCustomPolicyDetailsArgs
     ///             {
     ///                 PolicyRuntime = "guard-2.x.x",
@@ -183,16 +192,7 @@ namespace Pulumi.Aws.Cfg
     /// \t  }
     /// ",
     ///             },
-    ///             SourceDetails = new[]
-    ///             {
-    ///                 new Aws.Cfg.Inputs.RuleSourceSourceDetailArgs
-    ///                 {
-    ///                     MessageType = "ConfigurationItemChangeNotification",
-    ///                 },
-    ///             },
-    ///             Owner = "CUSTOM_POLICY",
     ///         },
-    ///         Name = "example",
     ///     });
     /// 
     /// });

@@ -24,6 +24,8 @@ namespace Pulumi.Aws.Workspaces
     /// {
     ///     var contractors = new Aws.Workspaces.IpGroup("contractors", new()
     ///     {
+    ///         Name = "Contractors",
+    ///         Description = "Contractors IP access control group",
     ///         Rules = new[]
     ///         {
     ///             new Aws.Workspaces.Inputs.IpGroupRuleArgs
@@ -42,8 +44,6 @@ namespace Pulumi.Aws.Workspaces
     ///                 Description = "STL",
     ///             },
     ///         },
-    ///         Name = "Contractors",
-    ///         Description = "Contractors IP access control group",
     ///     });
     /// 
     /// });

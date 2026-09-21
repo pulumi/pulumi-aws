@@ -73,6 +73,8 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = cognito.NewManagedLoginBranding(ctx, "client", &cognito.ManagedLoginBrandingArgs{
+//				ClientId:   pulumi.Any(example.Id),
+//				UserPoolId: pulumi.Any(exampleAwsCognitoUserPool.Id),
 //				Assets: cognito.ManagedLoginBrandingAssetArray{
 //					&cognito.ManagedLoginBrandingAssetArgs{
 //						Bytes:     pulumi.String(invokeFilebase64.Result),
@@ -81,9 +83,7 @@ import (
 //						Extension: pulumi.String("SVG"),
 //					},
 //				},
-//				ClientId:   pulumi.Any(example.Id),
-//				UserPoolId: pulumi.Any(exampleAwsCognitoUserPool.Id),
-//				Settings:   pulumi.String(json0),
+//				Settings: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

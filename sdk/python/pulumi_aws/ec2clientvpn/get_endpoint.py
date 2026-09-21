@@ -352,7 +352,7 @@ class AwaitableGetEndpointResult(GetEndpointResult):
 
 
 def get_endpoint(client_vpn_endpoint_id: Optional[_builtins.str] = None,
-                 filters: Optional[Sequence[Union['GetEndpointFilterArgs', 'GetEndpointFilterArgsDict']]] = None,
+                 filters: Optional[Sequence[Union['GetEndpointFilterArgs', 'GetEndpointFilterArgsDict', 'outputs.GetEndpointFilterResult']]] = None,
                  region: Optional[_builtins.str] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointResult:
@@ -384,7 +384,7 @@ def get_endpoint(client_vpn_endpoint_id: Optional[_builtins.str] = None,
 
 
     :param _builtins.str client_vpn_endpoint_id: ID of the Client VPN endpoint.
-    :param Sequence[Union['GetEndpointFilterArgs', 'GetEndpointFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetEndpointFilterArgs', 'GetEndpointFilterArgsDict', 'outputs.GetEndpointFilterResult']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired endpoint.
     """
@@ -425,7 +425,7 @@ def get_endpoint(client_vpn_endpoint_id: Optional[_builtins.str] = None,
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         vpn_port=pulumi.get(__ret__, 'vpn_port'))
 def get_endpoint_output(client_vpn_endpoint_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                        filters: pulumi.Input[Optional[Optional[Sequence[Union['GetEndpointFilterArgs', 'GetEndpointFilterArgsDict']]]]] = None,
+                        filters: pulumi.Input[Optional[Optional[Sequence[Union['GetEndpointFilterArgs', 'GetEndpointFilterArgsDict', 'outputs.GetEndpointFilterResult']]]]] = None,
                         region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointResult]:
@@ -457,7 +457,7 @@ def get_endpoint_output(client_vpn_endpoint_id: pulumi.Input[Optional[Optional[_
 
 
     :param _builtins.str client_vpn_endpoint_id: ID of the Client VPN endpoint.
-    :param Sequence[Union['GetEndpointFilterArgs', 'GetEndpointFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetEndpointFilterArgs', 'GetEndpointFilterArgsDict', 'outputs.GetEndpointFilterResult']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired endpoint.
     """

@@ -609,18 +609,18 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_domain: pulumi.Input[Optional[_builtins.str]] = None,
                  attachment_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 cidr_options: pulumi.Input[Optional[Union['EndpointCidrOptionsArgs', 'EndpointCidrOptionsArgsDict']]] = None,
+                 cidr_options: pulumi.Input[Optional[Union['EndpointCidrOptionsArgs', 'EndpointCidrOptionsArgsDict', 'outputs.EndpointCidrOptions']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint_domain_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 load_balancer_options: pulumi.Input[Optional[Union['EndpointLoadBalancerOptionsArgs', 'EndpointLoadBalancerOptionsArgsDict']]] = None,
-                 network_interface_options: pulumi.Input[Optional[Union['EndpointNetworkInterfaceOptionsArgs', 'EndpointNetworkInterfaceOptionsArgsDict']]] = None,
+                 load_balancer_options: pulumi.Input[Optional[Union['EndpointLoadBalancerOptionsArgs', 'EndpointLoadBalancerOptionsArgsDict', 'outputs.EndpointLoadBalancerOptions']]] = None,
+                 network_interface_options: pulumi.Input[Optional[Union['EndpointNetworkInterfaceOptionsArgs', 'EndpointNetworkInterfaceOptionsArgsDict', 'outputs.EndpointNetworkInterfaceOptions']]] = None,
                  policy_document: pulumi.Input[Optional[_builtins.str]] = None,
-                 rds_options: pulumi.Input[Optional[Union['EndpointRdsOptionsArgs', 'EndpointRdsOptionsArgsDict']]] = None,
+                 rds_options: pulumi.Input[Optional[Union['EndpointRdsOptionsArgs', 'EndpointRdsOptionsArgsDict', 'outputs.EndpointRdsOptions']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sse_specification: pulumi.Input[Optional[Union['EndpointSseSpecificationArgs', 'EndpointSseSpecificationArgsDict']]] = None,
+                 sse_specification: pulumi.Input[Optional[Union['EndpointSseSpecificationArgs', 'EndpointSseSpecificationArgsDict', 'outputs.EndpointSseSpecification']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  verified_access_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -636,18 +636,18 @@ class Endpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.Endpoint("example",
-            load_balancer_options={
-                "load_balancer_arn": example_aws_lb["arn"],
-                "port": 443,
-                "protocol": "https",
-                "subnet_ids": [subnet["id"] for subnet in public],
-            },
             application_domain="example.com",
             attachment_type="vpc",
             description="example",
             domain_certificate_arn=example_aws_acm_certificate["arn"],
             endpoint_domain_prefix="example",
             endpoint_type="load-balancer",
+            load_balancer_options={
+                "load_balancer_arn": example_aws_lb["arn"],
+                "port": 443,
+                "protocol": "https",
+                "subnet_ids": [subnet["id"] for subnet in public],
+            },
             security_group_ids=[example_aws_security_group["id"]],
             verified_access_group_id=example_aws_verifiedaccess_group["id"])
         ```
@@ -659,17 +659,17 @@ class Endpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.Endpoint("example",
-            network_interface_options={
-                "network_interface_id": example_aws_network_interface["id"],
-                "port": 443,
-                "protocol": "https",
-            },
             application_domain="example.com",
             attachment_type="vpc",
             description="example",
             domain_certificate_arn=example_aws_acm_certificate["arn"],
             endpoint_domain_prefix="example",
             endpoint_type="network-interface",
+            network_interface_options={
+                "network_interface_id": example_aws_network_interface["id"],
+                "port": 443,
+                "protocol": "https",
+            },
             security_group_ids=[example_aws_security_group["id"]],
             verified_access_group_id=example_aws_verifiedaccess_group["id"])
         ```
@@ -681,18 +681,18 @@ class Endpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.Endpoint("example",
+            attachment_type="vpc",
+            description="example",
+            endpoint_type="cidr",
             cidr_options={
+                "cidr": test[0]["cidrBlock"],
                 "port_ranges": [{
                     "from_port": 443,
                     "to_port": 443,
                 }],
-                "cidr": test[0]["cidrBlock"],
                 "protocol": "tcp",
                 "subnet_ids": [subnet["id"] for subnet in test],
             },
-            attachment_type="vpc",
-            description="example",
-            endpoint_type="cidr",
             security_group_ids=[test_aws_security_group["id"]],
             verified_access_group_id=test_aws_verifiedaccess_group["id"])
         ```
@@ -710,17 +710,17 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_domain: The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         :param pulumi.Input[_builtins.str] attachment_type: The type of attachment. Currently, only `vpc` is supported.
-        :param pulumi.Input[Union['EndpointCidrOptionsArgs', 'EndpointCidrOptionsArgsDict']] cidr_options: The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+        :param pulumi.Input[Union['EndpointCidrOptionsArgs', 'EndpointCidrOptionsArgsDict', 'outputs.EndpointCidrOptions']] cidr_options: The CIDR block details. This parameter is required if the endpoint type is `cidr`.
         :param pulumi.Input[_builtins.str] description: A description for the Verified Access endpoint.
         :param pulumi.Input[_builtins.str] domain_certificate_arn: The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         :param pulumi.Input[_builtins.str] endpoint_domain_prefix: A custom identifier that is prepended to the DNS name that is generated for the endpoint.
         :param pulumi.Input[_builtins.str] endpoint_type: The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
-        :param pulumi.Input[Union['EndpointLoadBalancerOptionsArgs', 'EndpointLoadBalancerOptionsArgsDict']] load_balancer_options: The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
-        :param pulumi.Input[Union['EndpointNetworkInterfaceOptionsArgs', 'EndpointNetworkInterfaceOptionsArgsDict']] network_interface_options: The network interface details. This parameter is required if the endpoint type is `network-interface`.
+        :param pulumi.Input[Union['EndpointLoadBalancerOptionsArgs', 'EndpointLoadBalancerOptionsArgsDict', 'outputs.EndpointLoadBalancerOptions']] load_balancer_options: The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
+        :param pulumi.Input[Union['EndpointNetworkInterfaceOptionsArgs', 'EndpointNetworkInterfaceOptionsArgsDict', 'outputs.EndpointNetworkInterfaceOptions']] network_interface_options: The network interface details. This parameter is required if the endpoint type is `network-interface`.
         :param pulumi.Input[_builtins.str] policy_document: The policy document that is associated with this resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of the the security groups IDs to associate with the Verified Access endpoint.
-        :param pulumi.Input[Union['EndpointSseSpecificationArgs', 'EndpointSseSpecificationArgsDict']] sse_specification: The options in use for server side encryption.
+        :param pulumi.Input[Union['EndpointSseSpecificationArgs', 'EndpointSseSpecificationArgsDict', 'outputs.EndpointSseSpecification']] sse_specification: The options in use for server side encryption.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] verified_access_group_id: The ID of the Verified Access group to associate the endpoint with.
                
@@ -744,18 +744,18 @@ class Endpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.Endpoint("example",
-            load_balancer_options={
-                "load_balancer_arn": example_aws_lb["arn"],
-                "port": 443,
-                "protocol": "https",
-                "subnet_ids": [subnet["id"] for subnet in public],
-            },
             application_domain="example.com",
             attachment_type="vpc",
             description="example",
             domain_certificate_arn=example_aws_acm_certificate["arn"],
             endpoint_domain_prefix="example",
             endpoint_type="load-balancer",
+            load_balancer_options={
+                "load_balancer_arn": example_aws_lb["arn"],
+                "port": 443,
+                "protocol": "https",
+                "subnet_ids": [subnet["id"] for subnet in public],
+            },
             security_group_ids=[example_aws_security_group["id"]],
             verified_access_group_id=example_aws_verifiedaccess_group["id"])
         ```
@@ -767,17 +767,17 @@ class Endpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.Endpoint("example",
-            network_interface_options={
-                "network_interface_id": example_aws_network_interface["id"],
-                "port": 443,
-                "protocol": "https",
-            },
             application_domain="example.com",
             attachment_type="vpc",
             description="example",
             domain_certificate_arn=example_aws_acm_certificate["arn"],
             endpoint_domain_prefix="example",
             endpoint_type="network-interface",
+            network_interface_options={
+                "network_interface_id": example_aws_network_interface["id"],
+                "port": 443,
+                "protocol": "https",
+            },
             security_group_ids=[example_aws_security_group["id"]],
             verified_access_group_id=example_aws_verifiedaccess_group["id"])
         ```
@@ -789,18 +789,18 @@ class Endpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.Endpoint("example",
+            attachment_type="vpc",
+            description="example",
+            endpoint_type="cidr",
             cidr_options={
+                "cidr": test[0]["cidrBlock"],
                 "port_ranges": [{
                     "from_port": 443,
                     "to_port": 443,
                 }],
-                "cidr": test[0]["cidrBlock"],
                 "protocol": "tcp",
                 "subnet_ids": [subnet["id"] for subnet in test],
             },
-            attachment_type="vpc",
-            description="example",
-            endpoint_type="cidr",
             security_group_ids=[test_aws_security_group["id"]],
             verified_access_group_id=test_aws_verifiedaccess_group["id"])
         ```
@@ -831,18 +831,18 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_domain: pulumi.Input[Optional[_builtins.str]] = None,
                  attachment_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 cidr_options: pulumi.Input[Optional[Union['EndpointCidrOptionsArgs', 'EndpointCidrOptionsArgsDict']]] = None,
+                 cidr_options: pulumi.Input[Optional[Union['EndpointCidrOptionsArgs', 'EndpointCidrOptionsArgsDict', 'outputs.EndpointCidrOptions']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint_domain_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 load_balancer_options: pulumi.Input[Optional[Union['EndpointLoadBalancerOptionsArgs', 'EndpointLoadBalancerOptionsArgsDict']]] = None,
-                 network_interface_options: pulumi.Input[Optional[Union['EndpointNetworkInterfaceOptionsArgs', 'EndpointNetworkInterfaceOptionsArgsDict']]] = None,
+                 load_balancer_options: pulumi.Input[Optional[Union['EndpointLoadBalancerOptionsArgs', 'EndpointLoadBalancerOptionsArgsDict', 'outputs.EndpointLoadBalancerOptions']]] = None,
+                 network_interface_options: pulumi.Input[Optional[Union['EndpointNetworkInterfaceOptionsArgs', 'EndpointNetworkInterfaceOptionsArgsDict', 'outputs.EndpointNetworkInterfaceOptions']]] = None,
                  policy_document: pulumi.Input[Optional[_builtins.str]] = None,
-                 rds_options: pulumi.Input[Optional[Union['EndpointRdsOptionsArgs', 'EndpointRdsOptionsArgsDict']]] = None,
+                 rds_options: pulumi.Input[Optional[Union['EndpointRdsOptionsArgs', 'EndpointRdsOptionsArgsDict', 'outputs.EndpointRdsOptions']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sse_specification: pulumi.Input[Optional[Union['EndpointSseSpecificationArgs', 'EndpointSseSpecificationArgsDict']]] = None,
+                 sse_specification: pulumi.Input[Optional[Union['EndpointSseSpecificationArgs', 'EndpointSseSpecificationArgsDict', 'outputs.EndpointSseSpecification']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  verified_access_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -892,20 +892,20 @@ class Endpoint(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             application_domain: pulumi.Input[Optional[_builtins.str]] = None,
             attachment_type: pulumi.Input[Optional[_builtins.str]] = None,
-            cidr_options: pulumi.Input[Optional[Union['EndpointCidrOptionsArgs', 'EndpointCidrOptionsArgsDict']]] = None,
+            cidr_options: pulumi.Input[Optional[Union['EndpointCidrOptionsArgs', 'EndpointCidrOptionsArgsDict', 'outputs.EndpointCidrOptions']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             device_validation_domain: pulumi.Input[Optional[_builtins.str]] = None,
             domain_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
             endpoint_domain: pulumi.Input[Optional[_builtins.str]] = None,
             endpoint_domain_prefix: pulumi.Input[Optional[_builtins.str]] = None,
             endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
-            load_balancer_options: pulumi.Input[Optional[Union['EndpointLoadBalancerOptionsArgs', 'EndpointLoadBalancerOptionsArgsDict']]] = None,
-            network_interface_options: pulumi.Input[Optional[Union['EndpointNetworkInterfaceOptionsArgs', 'EndpointNetworkInterfaceOptionsArgsDict']]] = None,
+            load_balancer_options: pulumi.Input[Optional[Union['EndpointLoadBalancerOptionsArgs', 'EndpointLoadBalancerOptionsArgsDict', 'outputs.EndpointLoadBalancerOptions']]] = None,
+            network_interface_options: pulumi.Input[Optional[Union['EndpointNetworkInterfaceOptionsArgs', 'EndpointNetworkInterfaceOptionsArgsDict', 'outputs.EndpointNetworkInterfaceOptions']]] = None,
             policy_document: pulumi.Input[Optional[_builtins.str]] = None,
-            rds_options: pulumi.Input[Optional[Union['EndpointRdsOptionsArgs', 'EndpointRdsOptionsArgsDict']]] = None,
+            rds_options: pulumi.Input[Optional[Union['EndpointRdsOptionsArgs', 'EndpointRdsOptionsArgsDict', 'outputs.EndpointRdsOptions']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            sse_specification: pulumi.Input[Optional[Union['EndpointSseSpecificationArgs', 'EndpointSseSpecificationArgsDict']]] = None,
+            sse_specification: pulumi.Input[Optional[Union['EndpointSseSpecificationArgs', 'EndpointSseSpecificationArgsDict', 'outputs.EndpointSseSpecification']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             verified_access_group_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -919,19 +919,19 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_domain: The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         :param pulumi.Input[_builtins.str] attachment_type: The type of attachment. Currently, only `vpc` is supported.
-        :param pulumi.Input[Union['EndpointCidrOptionsArgs', 'EndpointCidrOptionsArgsDict']] cidr_options: The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+        :param pulumi.Input[Union['EndpointCidrOptionsArgs', 'EndpointCidrOptionsArgsDict', 'outputs.EndpointCidrOptions']] cidr_options: The CIDR block details. This parameter is required if the endpoint type is `cidr`.
         :param pulumi.Input[_builtins.str] description: A description for the Verified Access endpoint.
         :param pulumi.Input[_builtins.str] device_validation_domain: Returned if endpoint has a device trust provider attached.
         :param pulumi.Input[_builtins.str] domain_certificate_arn: The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         :param pulumi.Input[_builtins.str] endpoint_domain: A DNS name that is generated for the endpoint.
         :param pulumi.Input[_builtins.str] endpoint_domain_prefix: A custom identifier that is prepended to the DNS name that is generated for the endpoint.
         :param pulumi.Input[_builtins.str] endpoint_type: The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
-        :param pulumi.Input[Union['EndpointLoadBalancerOptionsArgs', 'EndpointLoadBalancerOptionsArgsDict']] load_balancer_options: The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
-        :param pulumi.Input[Union['EndpointNetworkInterfaceOptionsArgs', 'EndpointNetworkInterfaceOptionsArgsDict']] network_interface_options: The network interface details. This parameter is required if the endpoint type is `network-interface`.
+        :param pulumi.Input[Union['EndpointLoadBalancerOptionsArgs', 'EndpointLoadBalancerOptionsArgsDict', 'outputs.EndpointLoadBalancerOptions']] load_balancer_options: The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
+        :param pulumi.Input[Union['EndpointNetworkInterfaceOptionsArgs', 'EndpointNetworkInterfaceOptionsArgsDict', 'outputs.EndpointNetworkInterfaceOptions']] network_interface_options: The network interface details. This parameter is required if the endpoint type is `network-interface`.
         :param pulumi.Input[_builtins.str] policy_document: The policy document that is associated with this resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of the the security groups IDs to associate with the Verified Access endpoint.
-        :param pulumi.Input[Union['EndpointSseSpecificationArgs', 'EndpointSseSpecificationArgsDict']] sse_specification: The options in use for server side encryption.
+        :param pulumi.Input[Union['EndpointSseSpecificationArgs', 'EndpointSseSpecificationArgsDict', 'outputs.EndpointSseSpecification']] sse_specification: The options in use for server side encryption.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] verified_access_group_id: The ID of the Verified Access group to associate the endpoint with.
                

@@ -80,7 +80,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.fsx.OpenZfsFileSystem;
  * import com.pulumi.aws.fsx.OpenZfsFileSystemArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -96,9 +95,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new OpenZfsFileSystem("example", OpenZfsFileSystemArgs.builder()
  *             .securityGroupIds(exampleAwsSecurityGroup.id())
- *             .build(), CustomResourceOptions.builder()
- *                 .ignoreChanges("securityGroupIds")
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

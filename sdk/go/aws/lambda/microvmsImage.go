@@ -109,6 +109,9 @@ import (
 //				return err
 //			}
 //			_, err = lambdamicrovms.NewImage(ctx, "example", &lambdamicrovms.ImageArgs{
+//				Name:         pulumi.String("example"),
+//				BaseImageArn: pulumi.Sprintf("arn:%v:lambda:%v:aws:microvm-image:al2023-1", current.Partition, currentGetRegion.Region),
+//				BuildRoleArn: example.Arn,
 //				CodeArtifact: &lambdamicrovms.ImageCodeArtifactArgs{
 //					Uri: pulumi.All(exampleBucket.Bucket, exampleBucketObjectv2.Key).ApplyT(func(_args []interface{}) (string, error) {
 //						bucket := _args[0].(string)
@@ -116,9 +119,6 @@ import (
 //						return fmt.Sprintf("s3://%v/%v", bucket, key), nil
 //					}).(pulumi.StringOutput),
 //				},
-//				Name:         pulumi.String("example"),
-//				BaseImageArn: pulumi.Sprintf("arn:%v:lambda:%v:aws:microvm-image:al2023-1", current.Partition, currentGetRegion.Region),
-//				BuildRoleArn: example.Arn,
 //			})
 //			if err != nil {
 //				return err

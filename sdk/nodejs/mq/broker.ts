@@ -27,19 +27,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.mq.Broker("example", {
+ *     brokerName: "example",
  *     configuration: {
  *         id: test.id,
  *         revision: Number(test.latestRevision),
  *     },
- *     users: [{
- *         username: "example_user",
- *         password: "<password>",
- *     }],
- *     brokerName: "example",
  *     engineType: "ActiveMQ",
  *     engineVersion: "5.17.6",
  *     hostInstanceType: "mq.t2.micro",
  *     securityGroups: [testAwsSecurityGroup.id],
+ *     users: [{
+ *         username: "example_user",
+ *         password: "<password>",
+ *     }],
  * });
  * ```
  *
@@ -50,20 +50,20 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.mq.Broker("example", {
+ *     brokerName: "example",
  *     configuration: {
  *         id: test.id,
  *         revision: Number(test.latestRevision),
  *     },
- *     users: [{
- *         username: "example_user",
- *         password: "<password>",
- *     }],
- *     brokerName: "example",
  *     engineType: "ActiveMQ",
  *     engineVersion: "5.17.6",
  *     storageType: "ebs",
  *     hostInstanceType: "mq.m5.large",
  *     securityGroups: [testAwsSecurityGroup.id],
+ *     users: [{
+ *         username: "example_user",
+ *         password: "<password>",
+ *     }],
  * });
  * ```
  *
@@ -74,17 +74,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const examplePrimary = new aws.mq.Broker("example_primary", {
- *     users: [
- *         {
- *             username: "example_user",
- *             password: "<password>",
- *         },
- *         {
- *             username: "example_replication_user",
- *             password: "<password>",
- *             replicationUser: true,
- *         },
- *     ],
  *     applyImmediately: true,
  *     brokerName: "example_primary",
  *     engineType: "ActiveMQ",
@@ -92,8 +81,6 @@ import * as utilities from "../utilities";
  *     hostInstanceType: "mq.m5.large",
  *     securityGroups: [examplePrimaryAwsSecurityGroup.id],
  *     deploymentMode: "ACTIVE_STANDBY_MULTI_AZ",
- * });
- * const example = new aws.mq.Broker("example", {
  *     users: [
  *         {
  *             username: "example_user",
@@ -105,6 +92,8 @@ import * as utilities from "../utilities";
  *             replicationUser: true,
  *         },
  *     ],
+ * });
+ * const example = new aws.mq.Broker("example", {
  *     applyImmediately: true,
  *     brokerName: "example",
  *     engineType: "ActiveMQ",
@@ -114,6 +103,17 @@ import * as utilities from "../utilities";
  *     deploymentMode: "ACTIVE_STANDBY_MULTI_AZ",
  *     dataReplicationMode: "CRDR",
  *     dataReplicationPrimaryBrokerArn: primary.arn,
+ *     users: [
+ *         {
+ *             username: "example_user",
+ *             password: "<password>",
+ *         },
+ *         {
+ *             username: "example_replication_user",
+ *             password: "<password>",
+ *             replicationUser: true,
+ *         },
+ *     ],
  * });
  * ```
  *

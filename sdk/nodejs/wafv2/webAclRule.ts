@@ -27,6 +27,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.wafv2.WebAcl("example", {
+ *     name: "example",
+ *     scope: "REGIONAL",
  *     defaultAction: {
  *         allow: {},
  *     },
@@ -35,13 +37,12 @@ import * as utilities from "../utilities";
  *         metricName: "example",
  *         sampledRequestsEnabled: false,
  *     },
- *     name: "example",
- *     scope: "REGIONAL",
- * }, {
- *     ignoreChanges: ["rules"],
  * });
  * // Separate rule resource with identical configuration
  * const blockCountries = new aws.wafv2.WebAclRule("block_countries", {
+ *     name: "block-countries",
+ *     priority: 1,
+ *     webAclArn: example.arn,
  *     action: {
  *         block: {},
  *     },
@@ -58,9 +59,6 @@ import * as utilities from "../utilities";
  *         metricName: "block-countries",
  *         sampledRequestsEnabled: false,
  *     },
- *     name: "block-countries",
- *     priority: 1,
- *     webAclArn: example.arn,
  * });
  * ```
  *
@@ -79,6 +77,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.wafv2.WebAcl("example", {
+ *     name: "example",
+ *     scope: "REGIONAL",
  *     defaultAction: {
  *         allow: {},
  *     },
@@ -87,12 +87,11 @@ import * as utilities from "../utilities";
  *         metricName: "example",
  *         sampledRequestsEnabled: false,
  *     },
- *     name: "example",
- *     scope: "REGIONAL",
- * }, {
- *     ignoreChanges: ["rules"],
  * });
  * const blockCountries = new aws.wafv2.WebAclRule("block_countries", {
+ *     name: "block-countries",
+ *     priority: 1,
+ *     webAclArn: example.arn,
  *     action: {
  *         block: {},
  *     },
@@ -109,9 +108,6 @@ import * as utilities from "../utilities";
  *         metricName: "block-countries",
  *         sampledRequestsEnabled: false,
  *     },
- *     name: "block-countries",
- *     priority: 1,
- *     webAclArn: example.arn,
  * });
  * ```
  *
@@ -133,6 +129,8 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const example = new aws.wafv2.WebAcl("example", {
+ *     name: "example",
+ *     scope: "REGIONAL",
  *     defaultAction: {
  *         allow: {},
  *     },
@@ -141,12 +139,11 @@ import * as utilities from "../utilities";
  *         metricName: "example",
  *         sampledRequestsEnabled: true,
  *     },
- *     name: "example",
- *     scope: "REGIONAL",
- * }, {
- *     ignoreChanges: ["rules"],
  * });
  * const blockIps = new aws.wafv2.WebAclRule("block_ips", {
+ *     name: "block-bad-ips",
+ *     priority: 1,
+ *     webAclArn: example.arn,
  *     action: {
  *         block: {},
  *     },
@@ -160,9 +157,6 @@ import * as utilities from "../utilities";
  *         metricName: "block-bad-ips",
  *         sampledRequestsEnabled: true,
  *     },
- *     name: "block-bad-ips",
- *     priority: 1,
- *     webAclArn: example.arn,
  * });
  * ```
  *
@@ -173,6 +167,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const rateLimit = new aws.wafv2.WebAclRule("rate_limit", {
+ *     name: "rate-limit",
+ *     priority: 2,
+ *     webAclArn: example.arn,
  *     action: {
  *         block: {},
  *     },
@@ -187,9 +184,6 @@ import * as utilities from "../utilities";
  *         metricName: "rate-limit",
  *         sampledRequestsEnabled: true,
  *     },
- *     name: "rate-limit",
- *     priority: 2,
- *     webAclArn: example.arn,
  * });
  * ```
  *
@@ -200,6 +194,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const awsManagedRules = new aws.wafv2.WebAclRule("aws_managed_rules", {
+ *     name: "aws-managed-rules",
+ *     priority: 3,
+ *     webAclArn: example.arn,
  *     overrideAction: {
  *         none: {},
  *     },
@@ -214,9 +211,6 @@ import * as utilities from "../utilities";
  *         metricName: "aws-managed-rules",
  *         sampledRequestsEnabled: true,
  *     },
- *     name: "aws-managed-rules",
- *     priority: 3,
- *     webAclArn: example.arn,
  * });
  * ```
  *
@@ -227,6 +221,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const captchaWithHeaders = new aws.wafv2.WebAclRule("captcha_with_headers", {
+ *     name: "captcha-with-headers",
+ *     priority: 4,
+ *     webAclArn: example.arn,
  *     action: {
  *         captcha: {
  *             customRequestHandling: {
@@ -247,9 +244,6 @@ import * as utilities from "../utilities";
  *         metricName: "captcha-with-headers",
  *         sampledRequestsEnabled: true,
  *     },
- *     name: "captcha-with-headers",
- *     priority: 4,
- *     webAclArn: example.arn,
  * });
  * ```
  *
@@ -260,6 +254,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const blockedIps = new aws.wafv2.WebAclRule("blocked_ips", {
+ *     name: "blocked-ips",
+ *     priority: 1,
+ *     webAclArn: example.arn,
  *     action: {
  *         block: {},
  *     },
@@ -273,9 +270,6 @@ import * as utilities from "../utilities";
  *         metricName: "block-bad-ips",
  *         sampledRequestsEnabled: true,
  *     },
- *     name: "blocked-ips",
- *     priority: 1,
- *     webAclArn: example.arn,
  * });
  * ```
  *
@@ -295,6 +289,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const blockSuspicious = new aws.wafv2.WebAclRule("block_suspicious", {
+ *     name: "block-suspicious",
+ *     priority: 1,
+ *     webAclArn: example.arn,
  *     action: {
  *         block: {},
  *     },
@@ -308,6 +305,8 @@ import * as utilities from "../utilities";
  *                 },
  *                 {
  *                     byteMatchStatement: {
+ *                         searchString: "admin",
+ *                         positionalConstraint: "CONTAINS",
  *                         fieldToMatch: {
  *                             uriPath: {},
  *                         },
@@ -315,8 +314,6 @@ import * as utilities from "../utilities";
  *                             priority: 0,
  *                             type: "LOWERCASE",
  *                         }],
- *                         searchString: "admin",
- *                         positionalConstraint: "CONTAINS",
  *                     },
  *                 },
  *             ],
@@ -327,9 +324,6 @@ import * as utilities from "../utilities";
  *         metricName: "block-suspicious",
  *         sampledRequestsEnabled: true,
  *     },
- *     name: "block-suspicious",
- *     priority: 1,
- *     webAclArn: example.arn,
  * });
  * ```
  *
@@ -342,6 +336,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const blockCountries = new aws.wafv2.WebAclRule("block_countries", {
+ *     name: "block-countries",
+ *     priority: 2,
+ *     webAclArn: example.arn,
  *     action: {
  *         block: {},
  *     },
@@ -366,9 +363,6 @@ import * as utilities from "../utilities";
  *         metricName: "block-countries",
  *         sampledRequestsEnabled: true,
  *     },
- *     name: "block-countries",
- *     priority: 2,
- *     webAclArn: example.arn,
  * });
  * ```
  *
@@ -381,6 +375,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const allowOnlyUs = new aws.wafv2.WebAclRule("allow_only_us", {
+ *     name: "allow-only-us",
+ *     priority: 3,
+ *     webAclArn: example.arn,
  *     action: {
  *         block: {},
  *     },
@@ -401,9 +398,6 @@ import * as utilities from "../utilities";
  *         metricName: "allow-only-us",
  *         sampledRequestsEnabled: true,
  *     },
- *     name: "allow-only-us",
- *     priority: 3,
- *     webAclArn: example.arn,
  * });
  * ```
  *

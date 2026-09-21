@@ -240,7 +240,7 @@ class CustomLogSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict', 'outputs.CustomLogSourceConfiguration']]] = None,
                  event_classes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  source_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -260,6 +260,9 @@ class CustomLogSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.CustomLogSource("example",
+            source_name="example-name",
+            source_version="1.0",
+            event_classes=["FILE_ACTIVITY"],
             configuration={
                 "crawler_configuration": {
                     "role_arn": custom_log["arn"],
@@ -269,9 +272,6 @@ class CustomLogSource(pulumi.CustomResource):
                     "principal": "123456789012",
                 },
             },
-            source_name="example-name",
-            source_version="1.0",
-            event_classes=["FILE_ACTIVITY"],
             opts = pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
         ```
 
@@ -286,7 +286,7 @@ class CustomLogSource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict']] configuration: The configuration for the third-party custom source.
+        :param pulumi.Input[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict', 'outputs.CustomLogSourceConfiguration']] configuration: The configuration for the third-party custom source.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_classes: The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] source_name: Specify the name for a third-party custom source.
@@ -314,6 +314,9 @@ class CustomLogSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.CustomLogSource("example",
+            source_name="example-name",
+            source_version="1.0",
+            event_classes=["FILE_ACTIVITY"],
             configuration={
                 "crawler_configuration": {
                     "role_arn": custom_log["arn"],
@@ -323,9 +326,6 @@ class CustomLogSource(pulumi.CustomResource):
                     "principal": "123456789012",
                 },
             },
-            source_name="example-name",
-            source_version="1.0",
-            event_classes=["FILE_ACTIVITY"],
             opts = pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
         ```
 
@@ -353,7 +353,7 @@ class CustomLogSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict', 'outputs.CustomLogSourceConfiguration']]] = None,
                  event_classes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  source_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -388,10 +388,10 @@ class CustomLogSource(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomLogSourceAttributeArgs', 'CustomLogSourceAttributeArgsDict']]]]] = None,
-            configuration: pulumi.Input[Optional[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict']]] = None,
+            attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomLogSourceAttributeArgs', 'CustomLogSourceAttributeArgsDict', 'outputs.CustomLogSourceAttribute']]]]] = None,
+            configuration: pulumi.Input[Optional[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict', 'outputs.CustomLogSourceConfiguration']]] = None,
             event_classes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            provider_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomLogSourceProviderDetailArgs', 'CustomLogSourceProviderDetailArgsDict']]]]] = None,
+            provider_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomLogSourceProviderDetailArgs', 'CustomLogSourceProviderDetailArgsDict', 'outputs.CustomLogSourceProviderDetail']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             source_name: pulumi.Input[Optional[_builtins.str]] = None,
             source_version: pulumi.Input[Optional[_builtins.str]] = None) -> 'CustomLogSource':
@@ -402,10 +402,10 @@ class CustomLogSource(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomLogSourceAttributeArgs', 'CustomLogSourceAttributeArgsDict']]]] attributes: The attributes of a third-party custom source.
-        :param pulumi.Input[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict']] configuration: The configuration for the third-party custom source.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomLogSourceAttributeArgs', 'CustomLogSourceAttributeArgsDict', 'outputs.CustomLogSourceAttribute']]]] attributes: The attributes of a third-party custom source.
+        :param pulumi.Input[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict', 'outputs.CustomLogSourceConfiguration']] configuration: The configuration for the third-party custom source.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_classes: The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomLogSourceProviderDetailArgs', 'CustomLogSourceProviderDetailArgsDict']]]] provider_details: The details of the log provider for a third-party custom source.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomLogSourceProviderDetailArgs', 'CustomLogSourceProviderDetailArgsDict', 'outputs.CustomLogSourceProviderDetail']]]] provider_details: The details of the log provider for a third-party custom source.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] source_name: Specify the name for a third-party custom source.
                This must be a Regionally unique value.

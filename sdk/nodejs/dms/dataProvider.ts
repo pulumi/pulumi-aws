@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.dms.DataProvider("example", {
+ *     engine: "postgres",
  *     settings: {
  *         postgresqlSettings: {
  *             serverName: "example.com",
@@ -27,7 +28,6 @@ import * as utilities from "../utilities";
  *             sslMode: "none",
  *         },
  *     },
- *     engine: "postgres",
  * });
  * ```
  *
@@ -38,6 +38,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.dms.DataProvider("example", {
+ *     name: "example-mysql",
+ *     description: "Example MySQL data provider",
+ *     engine: "mysql",
  *     settings: {
  *         mysqlSettings: {
  *             serverName: "mysql.example.com",
@@ -45,9 +48,6 @@ import * as utilities from "../utilities";
  *             sslMode: "require",
  *         },
  *     },
- *     name: "example-mysql",
- *     description: "Example MySQL data provider",
- *     engine: "mysql",
  *     tags: {
  *         Environment: "example",
  *     },

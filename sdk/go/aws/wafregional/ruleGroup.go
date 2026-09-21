@@ -36,6 +36,8 @@ import (
 //				return err
 //			}
 //			_, err = wafregional.NewRuleGroup(ctx, "example", &wafregional.RuleGroupArgs{
+//				Name:       pulumi.String("example"),
+//				MetricName: pulumi.String("example"),
 //				ActivatedRules: wafregional.RuleGroupActivatedRuleArray{
 //					&wafregional.RuleGroupActivatedRuleArgs{
 //						Action: &wafregional.RuleGroupActivatedRuleActionArgs{
@@ -45,8 +47,6 @@ import (
 //						RuleId:   example.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
-//				Name:       pulumi.String("example"),
-//				MetricName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

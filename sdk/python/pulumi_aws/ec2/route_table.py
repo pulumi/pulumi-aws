@@ -263,7 +263,7 @@ class RouteTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  propagating_vgws: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict']]]]] = None,
+                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict', 'outputs.RouteTableRoute']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -292,6 +292,7 @@ class RouteTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.RouteTable("example",
+            vpc_id=example_aws_vpc["id"],
             routes=[
                 {
                     "cidr_block": "10.0.1.0/24",
@@ -302,7 +303,6 @@ class RouteTable(pulumi.CustomResource):
                     "egress_only_gateway_id": example_aws_egress_only_internet_gateway["id"],
                 },
             ],
-            vpc_id=example_aws_vpc["id"],
             tags={
                 "Name": "example",
             })
@@ -334,11 +334,11 @@ class RouteTable(pulumi.CustomResource):
 
         test = aws.ec2.Vpc("test", cidr_block="10.1.0.0/16")
         test_route_table = aws.ec2.RouteTable("test",
+            vpc_id=test.id,
             routes=[{
                 "cidr_block": "10.1.0.0/16",
                 "gateway_id": "local",
-            }],
-            vpc_id=test.id)
+            }])
         ```
 
         Next, update the target of the route:
@@ -353,11 +353,11 @@ class RouteTable(pulumi.CustomResource):
             vpc_id=test.id)
         test_network_interface = aws.ec2.NetworkInterface("test", subnet_id=test_subnet.id)
         test_route_table = aws.ec2.RouteTable("test",
+            vpc_id=test.id,
             routes=[{
                 "cidr_block": test.cidr_block,
                 "network_interface_id": test_network_interface.id,
-            }],
-            vpc_id=test.id)
+            }])
         ```
 
         The target could then be updated again back to `local`.
@@ -386,7 +386,7 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] propagating_vgws: A list of virtual gateways for propagation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict']]]] routes: A list of route objects. Their keys are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict', 'outputs.RouteTableRoute']]]] routes: A list of route objects. Their keys are documented below.
                This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
                
                > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`ec2.Route`) and a Route Table resource with routes defined in-line (`ec2.RouteTable`). At this time you cannot use a `ec2.RouteTable` inline `route` blocks in conjunction with any `ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
@@ -424,6 +424,7 @@ class RouteTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.RouteTable("example",
+            vpc_id=example_aws_vpc["id"],
             routes=[
                 {
                     "cidr_block": "10.0.1.0/24",
@@ -434,7 +435,6 @@ class RouteTable(pulumi.CustomResource):
                     "egress_only_gateway_id": example_aws_egress_only_internet_gateway["id"],
                 },
             ],
-            vpc_id=example_aws_vpc["id"],
             tags={
                 "Name": "example",
             })
@@ -466,11 +466,11 @@ class RouteTable(pulumi.CustomResource):
 
         test = aws.ec2.Vpc("test", cidr_block="10.1.0.0/16")
         test_route_table = aws.ec2.RouteTable("test",
+            vpc_id=test.id,
             routes=[{
                 "cidr_block": "10.1.0.0/16",
                 "gateway_id": "local",
-            }],
-            vpc_id=test.id)
+            }])
         ```
 
         Next, update the target of the route:
@@ -485,11 +485,11 @@ class RouteTable(pulumi.CustomResource):
             vpc_id=test.id)
         test_network_interface = aws.ec2.NetworkInterface("test", subnet_id=test_subnet.id)
         test_route_table = aws.ec2.RouteTable("test",
+            vpc_id=test.id,
             routes=[{
                 "cidr_block": test.cidr_block,
                 "network_interface_id": test_network_interface.id,
-            }],
-            vpc_id=test.id)
+            }])
         ```
 
         The target could then be updated again back to `local`.
@@ -531,7 +531,7 @@ class RouteTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  propagating_vgws: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict']]]]] = None,
+                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict', 'outputs.RouteTableRoute']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -567,7 +567,7 @@ class RouteTable(pulumi.CustomResource):
             owner_id: pulumi.Input[Optional[_builtins.str]] = None,
             propagating_vgws: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict']]]]] = None,
+            routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict', 'outputs.RouteTableRoute']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'RouteTable':
@@ -582,7 +582,7 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] owner_id: The ID of the AWS account that owns the route table.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] propagating_vgws: A list of virtual gateways for propagation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict']]]] routes: A list of route objects. Their keys are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict', 'outputs.RouteTableRoute']]]] routes: A list of route objects. Their keys are documented below.
                This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
                
                > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`ec2.Route`) and a Route Table resource with routes defined in-line (`ec2.RouteTable`). At this time you cannot use a `ec2.RouteTable` inline `route` blocks in conjunction with any `ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.

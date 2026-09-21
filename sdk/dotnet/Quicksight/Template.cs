@@ -26,6 +26,9 @@ namespace Pulumi.Aws.Quicksight
     /// {
     ///     var example = new Aws.Quicksight.Template("example", new()
     ///     {
+    ///         TemplateId = "example-id",
+    ///         Name = "example-name",
+    ///         VersionDescription = "version",
     ///         SourceEntity = new Aws.Quicksight.Inputs.TemplateSourceEntityArgs
     ///         {
     ///             SourceTemplate = new Aws.Quicksight.Inputs.TemplateSourceEntitySourceTemplateArgs
@@ -33,9 +36,6 @@ namespace Pulumi.Aws.Quicksight
     ///                 Arn = source.Arn,
     ///             },
     ///         },
-    ///         TemplateId = "example-id",
-    ///         Name = "example-name",
-    ///         VersionDescription = "version",
     ///     });
     /// 
     /// });
@@ -53,6 +53,9 @@ namespace Pulumi.Aws.Quicksight
     /// {
     ///     var example = new Aws.Quicksight.Template("example", new()
     ///     {
+    ///         TemplateId = "example-id",
+    ///         Name = "example-name",
+    ///         VersionDescription = "version",
     ///         Definition = 
     ///         {
     ///             { "dataSetConfigurations", new[]
@@ -82,12 +85,15 @@ namespace Pulumi.Aws.Quicksight
     ///             {
     ///                 
     ///                 {
+    ///                     { "title", "Test" },
+    ///                     { "sheetId", "Test1" },
     ///                     { "visuals", new[]
     ///                     {
     ///                         
     ///                         {
     ///                             { "barChartVisual", 
     ///                             {
+    ///                                 { "visualId", "BarChart" },
     ///                                 { "chartConfiguration", 
     ///                                 {
     ///                                     { "fieldWells", 
@@ -100,12 +106,12 @@ namespace Pulumi.Aws.Quicksight
     ///                                                 {
     ///                                                     { "categoricalDimensionField", 
     ///                                                     {
+    ///                                                         { "fieldId", "1" },
     ///                                                         { "column", 
     ///                                                         {
     ///                                                             { "columnName", "Column1" },
     ///                                                             { "dataSetIdentifier", "1" },
     ///                                                         } },
-    ///                                                         { "fieldId", "1" },
     ///                                                     } },
     ///                                                 },
     ///                                             } },
@@ -115,6 +121,7 @@ namespace Pulumi.Aws.Quicksight
     ///                                                 {
     ///                                                     { "numericalMeasureField", 
     ///                                                     {
+    ///                                                         { "fieldId", "2" },
     ///                                                         { "column", 
     ///                                                         {
     ///                                                             { "columnName", "Column2" },
@@ -124,25 +131,18 @@ namespace Pulumi.Aws.Quicksight
     ///                                                         {
     ///                                                             { "simpleNumericalAggregation", "SUM" },
     ///                                                         } },
-    ///                                                         { "fieldId", "2" },
     ///                                                     } },
     ///                                                 },
     ///                                             } },
     ///                                         } },
     ///                                     } },
     ///                                 } },
-    ///                                 { "visualId", "BarChart" },
     ///                             } },
     ///                         },
     ///                     } },
-    ///                     { "title", "Test" },
-    ///                     { "sheetId", "Test1" },
     ///                 },
     ///             } },
     ///         },
-    ///         TemplateId = "example-id",
-    ///         Name = "example-name",
-    ///         VersionDescription = "version",
     ///     });
     /// 
     /// });

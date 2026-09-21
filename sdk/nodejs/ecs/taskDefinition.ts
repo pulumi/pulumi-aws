@@ -19,14 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const service = new aws.ecs.TaskDefinition("service", {
- *     placementConstraints: [{
- *         type: "memberOf",
- *         expression: "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
- *     }],
- *     volumes: [{
- *         name: "service-storage",
- *         hostPath: "/ecs/service-storage",
- *     }],
  *     family: "service",
  *     containerDefinitions: JSON.stringify([
  *         {
@@ -52,6 +44,14 @@ import * as utilities from "../utilities";
  *             }],
  *         },
  *     ]),
+ *     volumes: [{
+ *         name: "service-storage",
+ *         hostPath: "/ecs/service-storage",
+ *     }],
+ *     placementConstraints: [{
+ *         type: "memberOf",
+ *         expression: "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
+ *     }],
  * });
  * ```
  *
@@ -63,6 +63,10 @@ import * as utilities from "../utilities";
  * import * as std from "@pulumi/std";
  *
  * const service = new aws.ecs.TaskDefinition("service", {
+ *     family: "service",
+ *     containerDefinitions: std.file({
+ *         input: "task-definitions/service.json",
+ *     }).then(invoke => invoke.result),
  *     proxyConfiguration: {
  *         type: "APPMESH",
  *         containerName: "applicationContainerName",
@@ -74,10 +78,6 @@ import * as utilities from "../utilities";
  *             ProxyIngressPort: "15000",
  *         },
  *     },
- *     family: "service",
- *     containerDefinitions: std.file({
- *         input: "task-definitions/service.json",
- *     }).then(invoke => invoke.result),
  * });
  * ```
  *
@@ -89,7 +89,12 @@ import * as utilities from "../utilities";
  * import * as std from "@pulumi/std";
  *
  * const service = new aws.ecs.TaskDefinition("service", {
+ *     family: "service",
+ *     containerDefinitions: std.file({
+ *         input: "task-definitions/service.json",
+ *     }).then(invoke => invoke.result),
  *     volumes: [{
+ *         name: "service-storage",
  *         dockerVolumeConfiguration: {
  *             scope: "shared",
  *             autoprovision: true,
@@ -100,12 +105,7 @@ import * as utilities from "../utilities";
  *                 o: `addr=${fs.dnsName},rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport`,
  *             },
  *         },
- *         name: "service-storage",
  *     }],
- *     family: "service",
- *     containerDefinitions: std.file({
- *         input: "task-definitions/service.json",
- *     }).then(invoke => invoke.result),
  * });
  * ```
  *
@@ -117,23 +117,23 @@ import * as utilities from "../utilities";
  * import * as std from "@pulumi/std";
  *
  * const service = new aws.ecs.TaskDefinition("service", {
- *     volumes: [{
- *         efsVolumeConfiguration: {
- *             authorizationConfig: {
- *                 accessPointId: test.id,
- *                 iam: "ENABLED",
- *             },
- *             fileSystemId: fs.id,
- *             rootDirectory: "/opt/data",
- *             transitEncryption: "ENABLED",
- *             transitEncryptionPort: 2999,
- *         },
- *         name: "service-storage",
- *     }],
  *     family: "service",
  *     containerDefinitions: std.file({
  *         input: "task-definitions/service.json",
  *     }).then(invoke => invoke.result),
+ *     volumes: [{
+ *         name: "service-storage",
+ *         efsVolumeConfiguration: {
+ *             fileSystemId: fs.id,
+ *             rootDirectory: "/opt/data",
+ *             transitEncryption: "ENABLED",
+ *             transitEncryptionPort: 2999,
+ *             authorizationConfig: {
+ *                 accessPointId: test.id,
+ *                 iam: "ENABLED",
+ *             },
+ *         },
+ *     }],
  * });
  * ```
  *
@@ -152,21 +152,21 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * const service = new aws.ecs.TaskDefinition("service", {
- *     volumes: [{
- *         fsxWindowsFileServerVolumeConfiguration: {
- *             authorizationConfig: {
- *                 credentialsParameter: test.arn,
- *                 domain: testAwsDirectoryServiceDirectory.name,
- *             },
- *             fileSystemId: testAwsFsxWindowsFileSystem.id,
- *             rootDirectory: "\\data",
- *         },
- *         name: "service-storage",
- *     }],
  *     family: "service",
  *     containerDefinitions: std.file({
  *         input: "task-definitions/service.json",
  *     }).then(invoke => invoke.result),
+ *     volumes: [{
+ *         name: "service-storage",
+ *         fsxWindowsFileServerVolumeConfiguration: {
+ *             fileSystemId: testAwsFsxWindowsFileSystem.id,
+ *             rootDirectory: "\\data",
+ *             authorizationConfig: {
+ *                 credentialsParameter: test.arn,
+ *                 domain: testAwsDirectoryServiceDirectory.name,
+ *             },
+ *         },
+ *     }],
  * });
  * ```
  *
@@ -209,10 +209,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.ecs.TaskDefinition("test", {
- *     runtimePlatform: {
- *         operatingSystemFamily: "WINDOWS_SERVER_2019_CORE",
- *         cpuArchitecture: "X86_64",
- *     },
  *     family: "test",
  *     requiresCompatibilities: ["FARGATE"],
  *     networkMode: "awsvpc",
@@ -228,6 +224,10 @@ import * as utilities from "../utilities";
  *   }
  * ]
  * `,
+ *     runtimePlatform: {
+ *         operatingSystemFamily: "WINDOWS_SERVER_2019_CORE",
+ *         cpuArchitecture: "X86_64",
+ *     },
  * });
  * ```
  *

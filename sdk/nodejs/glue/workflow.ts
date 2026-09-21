@@ -17,14 +17,17 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.glue.Workflow("example", {name: "example"});
  * const example_start = new aws.glue.Trigger("example-start", {
- *     actions: [{
- *         jobName: "example-job",
- *     }],
  *     name: "trigger-start",
  *     type: "ON_DEMAND",
  *     workflowName: example.name,
+ *     actions: [{
+ *         jobName: "example-job",
+ *     }],
  * });
  * const example_inner = new aws.glue.Trigger("example-inner", {
+ *     name: "trigger-inner",
+ *     type: "CONDITIONAL",
+ *     workflowName: example.name,
  *     predicate: {
  *         conditions: [{
  *             jobName: "example-job",
@@ -34,9 +37,6 @@ import * as utilities from "../utilities";
  *     actions: [{
  *         jobName: "another-example-job",
  *     }],
- *     name: "trigger-inner",
- *     type: "CONDITIONAL",
- *     workflowName: example.name,
  * });
  * ```
  *

@@ -37,6 +37,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewAllowedImagesSettings(ctx, "example", &ec2.AllowedImagesSettingsArgs{
+//				State: pulumi.String("enabled"),
 //				ImageCriterions: ec2.AllowedImagesSettingsImageCriterionArray{
 //					&ec2.AllowedImagesSettingsImageCriterionArgs{
 //						ImageProviders: pulumi.StringArray{
@@ -44,7 +45,6 @@ import (
 //						},
 //					},
 //				},
-//				State: pulumi.String("enabled"),
 //			})
 //			if err != nil {
 //				return err
@@ -70,6 +70,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewAllowedImagesSettings(ctx, "example", &ec2.AllowedImagesSettingsArgs{
+//				State: pulumi.String("audit-mode"),
 //				ImageCriterions: ec2.AllowedImagesSettingsImageCriterionArray{
 //					&ec2.AllowedImagesSettingsImageCriterionArgs{
 //						ImageProviders: pulumi.StringArray{
@@ -78,7 +79,6 @@ import (
 //						},
 //					},
 //				},
-//				State: pulumi.String("audit-mode"),
 //			})
 //			if err != nil {
 //				return err

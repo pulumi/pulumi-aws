@@ -399,7 +399,7 @@ class IdentityPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_classic_flow: pulumi.Input[Optional[_builtins.bool]] = None,
                  allow_unauthenticated_identities: pulumi.Input[Optional[_builtins.bool]] = None,
-                 cognito_identity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IdentityPoolCognitoIdentityProviderArgs', 'IdentityPoolCognitoIdentityProviderArgsDict']]]]] = None,
+                 cognito_identity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IdentityPoolCognitoIdentityProviderArgs', 'IdentityPoolCognitoIdentityProviderArgsDict', 'outputs.IdentityPoolCognitoIdentityProvider']]]]] = None,
                  developer_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                  openid_connect_provider_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -422,6 +422,9 @@ class IdentityPool(pulumi.CustomResource):
             name="my-saml-provider",
             saml_metadata_document=std.file(input="saml-metadata.xml").result)
         main = aws.cognito.IdentityPool("main",
+            identity_pool_name="identity pool",
+            allow_unauthenticated_identities=False,
+            allow_classic_flow=False,
             cognito_identity_providers=[
                 {
                     "client_id": "6lhlkkfbfb4q5kpp90urffae",
@@ -434,9 +437,6 @@ class IdentityPool(pulumi.CustomResource):
                     "server_side_token_check": False,
                 },
             ],
-            identity_pool_name="identity pool",
-            allow_unauthenticated_identities=False,
-            allow_classic_flow=False,
             supported_login_providers={
                 "graph.facebook.com": "7346241598935552",
                 "accounts.google.com": "123456789012.apps.googleusercontent.com",
@@ -458,7 +458,7 @@ class IdentityPool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_classic_flow: Enables or disables the classic / basic authentication flow. Default is `false`.
         :param pulumi.Input[_builtins.bool] allow_unauthenticated_identities: Whether the identity pool supports unauthenticated logins or not.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IdentityPoolCognitoIdentityProviderArgs', 'IdentityPoolCognitoIdentityProviderArgsDict']]]] cognito_identity_providers: An array of Amazon Cognito Identity user pools and their client IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IdentityPoolCognitoIdentityProviderArgs', 'IdentityPoolCognitoIdentityProviderArgsDict', 'outputs.IdentityPoolCognitoIdentityProvider']]]] cognito_identity_providers: An array of Amazon Cognito Identity user pools and their client IDs.
         :param pulumi.Input[_builtins.str] developer_provider_name: The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
                backend and the Cognito service to communicate about the developer provider.
         :param pulumi.Input[_builtins.str] identity_pool_name: The Cognito Identity Pool name.
@@ -488,6 +488,9 @@ class IdentityPool(pulumi.CustomResource):
             name="my-saml-provider",
             saml_metadata_document=std.file(input="saml-metadata.xml").result)
         main = aws.cognito.IdentityPool("main",
+            identity_pool_name="identity pool",
+            allow_unauthenticated_identities=False,
+            allow_classic_flow=False,
             cognito_identity_providers=[
                 {
                     "client_id": "6lhlkkfbfb4q5kpp90urffae",
@@ -500,9 +503,6 @@ class IdentityPool(pulumi.CustomResource):
                     "server_side_token_check": False,
                 },
             ],
-            identity_pool_name="identity pool",
-            allow_unauthenticated_identities=False,
-            allow_classic_flow=False,
             supported_login_providers={
                 "graph.facebook.com": "7346241598935552",
                 "accounts.google.com": "123456789012.apps.googleusercontent.com",
@@ -537,7 +537,7 @@ class IdentityPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_classic_flow: pulumi.Input[Optional[_builtins.bool]] = None,
                  allow_unauthenticated_identities: pulumi.Input[Optional[_builtins.bool]] = None,
-                 cognito_identity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IdentityPoolCognitoIdentityProviderArgs', 'IdentityPoolCognitoIdentityProviderArgsDict']]]]] = None,
+                 cognito_identity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IdentityPoolCognitoIdentityProviderArgs', 'IdentityPoolCognitoIdentityProviderArgsDict', 'outputs.IdentityPoolCognitoIdentityProvider']]]]] = None,
                  developer_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                  openid_connect_provider_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -581,7 +581,7 @@ class IdentityPool(pulumi.CustomResource):
             allow_classic_flow: pulumi.Input[Optional[_builtins.bool]] = None,
             allow_unauthenticated_identities: pulumi.Input[Optional[_builtins.bool]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            cognito_identity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IdentityPoolCognitoIdentityProviderArgs', 'IdentityPoolCognitoIdentityProviderArgsDict']]]]] = None,
+            cognito_identity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IdentityPoolCognitoIdentityProviderArgs', 'IdentityPoolCognitoIdentityProviderArgsDict', 'outputs.IdentityPoolCognitoIdentityProvider']]]]] = None,
             developer_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
             identity_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
             openid_connect_provider_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -600,7 +600,7 @@ class IdentityPool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] allow_classic_flow: Enables or disables the classic / basic authentication flow. Default is `false`.
         :param pulumi.Input[_builtins.bool] allow_unauthenticated_identities: Whether the identity pool supports unauthenticated logins or not.
         :param pulumi.Input[_builtins.str] arn: The ARN of the identity pool.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IdentityPoolCognitoIdentityProviderArgs', 'IdentityPoolCognitoIdentityProviderArgsDict']]]] cognito_identity_providers: An array of Amazon Cognito Identity user pools and their client IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IdentityPoolCognitoIdentityProviderArgs', 'IdentityPoolCognitoIdentityProviderArgsDict', 'outputs.IdentityPoolCognitoIdentityProvider']]]] cognito_identity_providers: An array of Amazon Cognito Identity user pools and their client IDs.
         :param pulumi.Input[_builtins.str] developer_provider_name: The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
                backend and the Cognito service to communicate about the developer provider.
         :param pulumi.Input[_builtins.str] identity_pool_name: The Cognito Identity Pool name.

@@ -17,6 +17,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleTable = new aws.dynamodb.Table("example", {
+ *     name: "example",
+ *     billingMode: "PROVISIONED",
+ *     readCapacity: 20,
+ *     writeCapacity: 20,
+ *     hashKey: "UserId",
+ *     rangeKey: "GameTitle",
  *     attributes: [
  *         {
  *             name: "UserId",
@@ -27,14 +33,10 @@ import * as utilities from "../utilities";
  *             type: "S",
  *         },
  *     ],
- *     name: "example",
- *     billingMode: "PROVISIONED",
- *     readCapacity: 20,
- *     writeCapacity: 20,
- *     hashKey: "UserId",
- *     rangeKey: "GameTitle",
  * });
  * const example = new aws.dynamodb.GlobalSecondaryIndex("example", {
+ *     tableName: exampleTable.name,
+ *     indexName: "GameTitleIndex",
  *     projection: {
  *         projectionType: "INCLUDE",
  *         nonKeyAttributes: ["UserId"],
@@ -48,8 +50,6 @@ import * as utilities from "../utilities";
  *         attributeType: "S",
  *         keyType: "HASH",
  *     }],
- *     tableName: exampleTable.name,
- *     indexName: "GameTitleIndex",
  * });
  * ```
  *
@@ -66,20 +66,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.dynamodb.Table("example", {
- *     attributes: [
- *         {
- *             name: "example-key",
- *             type: "S",
- *         },
- *         {
- *             name: "example-gsi-key-1",
- *             type: "S",
- *         },
- *         {
- *             name: "example-gsi-key-2",
- *             type: "S",
- *         },
- *     ],
+ *     name: "example-table",
+ *     hashKey: "example-key",
+ *     readCapacity: 1,
+ *     writeCapacity: 1,
  *     globalSecondaryIndexes: [
  *         {
  *             name: "example-index-1",
@@ -96,10 +86,20 @@ import * as utilities from "../utilities";
  *             writeCapacity: 1,
  *         },
  *     ],
- *     name: "example-table",
- *     hashKey: "example-key",
- *     readCapacity: 1,
- *     writeCapacity: 1,
+ *     attributes: [
+ *         {
+ *             name: "example-key",
+ *             type: "S",
+ *         },
+ *         {
+ *             name: "example-gsi-key-1",
+ *             type: "S",
+ *         },
+ *         {
+ *             name: "example-gsi-key-2",
+ *             type: "S",
+ *         },
+ *     ],
  * });
  * ```
  *

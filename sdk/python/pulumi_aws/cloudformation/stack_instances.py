@@ -371,8 +371,8 @@ class StackInstances(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  call_as: pulumi.Input[Optional[_builtins.str]] = None,
-                 deployment_targets: pulumi.Input[Optional[Union['StackInstancesDeploymentTargetsArgs', 'StackInstancesDeploymentTargetsArgsDict']]] = None,
-                 operation_preferences: pulumi.Input[Optional[Union['StackInstancesOperationPreferencesArgs', 'StackInstancesOperationPreferencesArgsDict']]] = None,
+                 deployment_targets: pulumi.Input[Optional[Union['StackInstancesDeploymentTargetsArgs', 'StackInstancesDeploymentTargetsArgsDict', 'outputs.StackInstancesDeploymentTargets']]] = None,
+                 operation_preferences: pulumi.Input[Optional[Union['StackInstancesOperationPreferencesArgs', 'StackInstancesOperationPreferencesArgsDict', 'outputs.StackInstancesOperationPreferences']]] = None,
                  parameter_overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -415,12 +415,12 @@ class StackInstances(pulumi.CustomResource):
         import pulumi_aws as aws
 
         a_ws_cloud_formation_stack_set_execution_role_assume_role_policy = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "effect": "Allow",
             "principals": [{
                 "identifiers": [a_ws_cloud_formation_stack_set_administration_role["arn"]],
                 "type": "AWS",
             }],
-            "actions": ["sts:AssumeRole"],
-            "effect": "Allow",
         }])
         a_ws_cloud_formation_stack_set_execution_role = aws.iam.Role("AWSCloudFormationStackSetExecutionRole",
             assume_role_policy=a_ws_cloud_formation_stack_set_execution_role_assume_role_policy.json,
@@ -480,8 +480,8 @@ class StackInstances(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts: Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deployment_targets`, but not both.
         :param pulumi.Input[_builtins.str] call_as: Whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
-        :param pulumi.Input[Union['StackInstancesDeploymentTargetsArgs', 'StackInstancesDeploymentTargetsArgsDict']] deployment_targets: AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deployment_targets below.
-        :param pulumi.Input[Union['StackInstancesOperationPreferencesArgs', 'StackInstancesOperationPreferencesArgsDict']] operation_preferences: Preferences for how AWS CloudFormation performs a stack set operation. See operation_preferences below.
+        :param pulumi.Input[Union['StackInstancesDeploymentTargetsArgs', 'StackInstancesDeploymentTargetsArgsDict', 'outputs.StackInstancesDeploymentTargets']] deployment_targets: AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deployment_targets below.
+        :param pulumi.Input[Union['StackInstancesOperationPreferencesArgs', 'StackInstancesOperationPreferencesArgsDict', 'outputs.StackInstancesOperationPreferences']] operation_preferences: Preferences for how AWS CloudFormation performs a stack set operation. See operation_preferences below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameter_overrides: Key-value map of input parameters to override from the stack set for these instances. This argument's drift detection is limited to the first account and region since each instance can have unique parameters.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: Regions where you want to create stack instances in the specified `accounts`.
@@ -532,12 +532,12 @@ class StackInstances(pulumi.CustomResource):
         import pulumi_aws as aws
 
         a_ws_cloud_formation_stack_set_execution_role_assume_role_policy = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "effect": "Allow",
             "principals": [{
                 "identifiers": [a_ws_cloud_formation_stack_set_administration_role["arn"]],
                 "type": "AWS",
             }],
-            "actions": ["sts:AssumeRole"],
-            "effect": "Allow",
         }])
         a_ws_cloud_formation_stack_set_execution_role = aws.iam.Role("AWSCloudFormationStackSetExecutionRole",
             assume_role_policy=a_ws_cloud_formation_stack_set_execution_role_assume_role_policy.json,
@@ -610,8 +610,8 @@ class StackInstances(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  call_as: pulumi.Input[Optional[_builtins.str]] = None,
-                 deployment_targets: pulumi.Input[Optional[Union['StackInstancesDeploymentTargetsArgs', 'StackInstancesDeploymentTargetsArgsDict']]] = None,
-                 operation_preferences: pulumi.Input[Optional[Union['StackInstancesOperationPreferencesArgs', 'StackInstancesOperationPreferencesArgsDict']]] = None,
+                 deployment_targets: pulumi.Input[Optional[Union['StackInstancesDeploymentTargetsArgs', 'StackInstancesDeploymentTargetsArgsDict', 'outputs.StackInstancesDeploymentTargets']]] = None,
+                 operation_preferences: pulumi.Input[Optional[Union['StackInstancesOperationPreferencesArgs', 'StackInstancesOperationPreferencesArgsDict', 'outputs.StackInstancesOperationPreferences']]] = None,
                  parameter_overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -651,13 +651,13 @@ class StackInstances(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             call_as: pulumi.Input[Optional[_builtins.str]] = None,
-            deployment_targets: pulumi.Input[Optional[Union['StackInstancesDeploymentTargetsArgs', 'StackInstancesDeploymentTargetsArgsDict']]] = None,
-            operation_preferences: pulumi.Input[Optional[Union['StackInstancesOperationPreferencesArgs', 'StackInstancesOperationPreferencesArgsDict']]] = None,
+            deployment_targets: pulumi.Input[Optional[Union['StackInstancesDeploymentTargetsArgs', 'StackInstancesDeploymentTargetsArgsDict', 'outputs.StackInstancesDeploymentTargets']]] = None,
+            operation_preferences: pulumi.Input[Optional[Union['StackInstancesOperationPreferencesArgs', 'StackInstancesOperationPreferencesArgsDict', 'outputs.StackInstancesOperationPreferences']]] = None,
             parameter_overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             retain_stacks: pulumi.Input[Optional[_builtins.bool]] = None,
-            stack_instance_summaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackInstancesStackInstanceSummaryArgs', 'StackInstancesStackInstanceSummaryArgsDict']]]]] = None,
+            stack_instance_summaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackInstancesStackInstanceSummaryArgs', 'StackInstancesStackInstanceSummaryArgsDict', 'outputs.StackInstancesStackInstanceSummary']]]]] = None,
             stack_set_id: pulumi.Input[Optional[_builtins.str]] = None,
             stack_set_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'StackInstances':
         """
@@ -669,13 +669,13 @@ class StackInstances(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts: Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deployment_targets`, but not both.
         :param pulumi.Input[_builtins.str] call_as: Whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
-        :param pulumi.Input[Union['StackInstancesDeploymentTargetsArgs', 'StackInstancesDeploymentTargetsArgsDict']] deployment_targets: AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deployment_targets below.
-        :param pulumi.Input[Union['StackInstancesOperationPreferencesArgs', 'StackInstancesOperationPreferencesArgsDict']] operation_preferences: Preferences for how AWS CloudFormation performs a stack set operation. See operation_preferences below.
+        :param pulumi.Input[Union['StackInstancesDeploymentTargetsArgs', 'StackInstancesDeploymentTargetsArgsDict', 'outputs.StackInstancesDeploymentTargets']] deployment_targets: AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deployment_targets below.
+        :param pulumi.Input[Union['StackInstancesOperationPreferencesArgs', 'StackInstancesOperationPreferencesArgsDict', 'outputs.StackInstancesOperationPreferences']] operation_preferences: Preferences for how AWS CloudFormation performs a stack set operation. See operation_preferences below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameter_overrides: Key-value map of input parameters to override from the stack set for these instances. This argument's drift detection is limited to the first account and region since each instance can have unique parameters.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: Regions where you want to create stack instances in the specified `accounts`.
         :param pulumi.Input[_builtins.bool] retain_stacks: Whether to remove the stack instances from the stack set, but not delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retain_stacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StackInstancesStackInstanceSummaryArgs', 'StackInstancesStackInstanceSummaryArgsDict']]]] stack_instance_summaries: List of stack instances created from an organizational unit deployment target. This may not always be set depending on whether CloudFormation returns summaries for your configuration. See `stack_instance_summaries`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StackInstancesStackInstanceSummaryArgs', 'StackInstancesStackInstanceSummaryArgsDict', 'outputs.StackInstancesStackInstanceSummary']]]] stack_instance_summaries: List of stack instances created from an organizational unit deployment target. This may not always be set depending on whether CloudFormation returns summaries for your configuration. See `stack_instance_summaries`.
         :param pulumi.Input[_builtins.str] stack_set_id: Name or unique ID of the stack set that the stack instance is associated with.
         :param pulumi.Input[_builtins.str] stack_set_name: Name of the stack set.
                

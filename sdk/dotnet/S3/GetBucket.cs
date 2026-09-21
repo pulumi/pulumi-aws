@@ -41,6 +41,9 @@ namespace Pulumi.Aws.S3
         /// 
         ///     var example = new Aws.Route53.Record("example", new()
         ///     {
+        ///         ZoneId = testZone.Apply(getZoneResult =&gt; getZoneResult.Id),
+        ///         Name = "bucket",
+        ///         Type = Aws.Route53.RecordType.A,
         ///         Aliases = new[]
         ///         {
         ///             new Aws.Route53.Inputs.RecordAliasArgs
@@ -49,9 +52,6 @@ namespace Pulumi.Aws.S3
         ///                 ZoneId = selected.Apply(getBucketResult =&gt; getBucketResult.HostedZoneId),
         ///             },
         ///         },
-        ///         ZoneId = testZone.Apply(getZoneResult =&gt; getZoneResult.Id),
-        ///         Name = "bucket",
-        ///         Type = Aws.Route53.RecordType.A,
         ///     });
         /// 
         /// });
@@ -120,6 +120,9 @@ namespace Pulumi.Aws.S3
         /// 
         ///     var example = new Aws.Route53.Record("example", new()
         ///     {
+        ///         ZoneId = testZone.Apply(getZoneResult =&gt; getZoneResult.Id),
+        ///         Name = "bucket",
+        ///         Type = Aws.Route53.RecordType.A,
         ///         Aliases = new[]
         ///         {
         ///             new Aws.Route53.Inputs.RecordAliasArgs
@@ -128,9 +131,6 @@ namespace Pulumi.Aws.S3
         ///                 ZoneId = selected.Apply(getBucketResult =&gt; getBucketResult.HostedZoneId),
         ///             },
         ///         },
-        ///         ZoneId = testZone.Apply(getZoneResult =&gt; getZoneResult.Id),
-        ///         Name = "bucket",
-        ///         Type = Aws.Route53.RecordType.A,
         ///     });
         /// 
         /// });
@@ -199,6 +199,9 @@ namespace Pulumi.Aws.S3
         /// 
         ///     var example = new Aws.Route53.Record("example", new()
         ///     {
+        ///         ZoneId = testZone.Apply(getZoneResult =&gt; getZoneResult.Id),
+        ///         Name = "bucket",
+        ///         Type = Aws.Route53.RecordType.A,
         ///         Aliases = new[]
         ///         {
         ///             new Aws.Route53.Inputs.RecordAliasArgs
@@ -207,9 +210,6 @@ namespace Pulumi.Aws.S3
         ///                 ZoneId = selected.Apply(getBucketResult =&gt; getBucketResult.HostedZoneId),
         ///             },
         ///         },
-        ///         ZoneId = testZone.Apply(getZoneResult =&gt; getZoneResult.Id),
-        ///         Name = "bucket",
-        ///         Type = Aws.Route53.RecordType.A,
         ///     });
         /// 
         /// });

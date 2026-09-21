@@ -26,6 +26,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new()
     ///     {
+    ///         FirewallArn = exampleAwsNetworkfirewallFirewall.Arn,
     ///         LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
     ///         {
     ///             LogDestinationConfigs = new[]
@@ -42,7 +43,6 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                 },
     ///             },
     ///         },
-    ///         FirewallArn = exampleAwsNetworkfirewallFirewall.Arn,
     ///     });
     /// 
     /// });
@@ -60,6 +60,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new()
     ///     {
+    ///         FirewallArn = exampleAwsNetworkfirewallFirewall.Arn,
     ///         LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
     ///         {
     ///             LogDestinationConfigs = new[]
@@ -75,7 +76,6 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                 },
     ///             },
     ///         },
-    ///         FirewallArn = exampleAwsNetworkfirewallFirewall.Arn,
     ///     });
     /// 
     /// });
@@ -93,6 +93,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new()
     ///     {
+    ///         FirewallArn = exampleAwsNetworkfirewallFirewall.Arn,
     ///         LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
     ///         {
     ///             LogDestinationConfigs = new[]
@@ -108,7 +109,6 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                 },
     ///             },
     ///         },
-    ///         FirewallArn = exampleAwsNetworkfirewallFirewall.Arn,
     ///     });
     /// 
     /// });

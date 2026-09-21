@@ -36,6 +36,9 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var testInventory = new Aws.S3.Inventory("test", new()
     ///     {
+    ///         Bucket = test.Id,
+    ///         Name = "EntireBucketDaily",
+    ///         IncludedObjectVersions = "All",
     ///         Schedule = new Aws.S3.Inputs.InventoryScheduleArgs
     ///         {
     ///             Frequency = "Daily",
@@ -48,9 +51,6 @@ namespace Pulumi.Aws.S3
     ///                 BucketArn = inventory.Arn,
     ///             },
     ///         },
-    ///         Bucket = test.Id,
-    ///         Name = "EntireBucketDaily",
-    ///         IncludedObjectVersions = "All",
     ///     });
     /// 
     /// });
@@ -78,6 +78,9 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var test_prefix = new Aws.S3.Inventory("test-prefix", new()
     ///     {
+    ///         Bucket = test.Id,
+    ///         Name = "DocumentsWeekly",
+    ///         IncludedObjectVersions = "All",
     ///         Schedule = new Aws.S3.Inputs.InventoryScheduleArgs
     ///         {
     ///             Frequency = "Daily",
@@ -95,9 +98,6 @@ namespace Pulumi.Aws.S3
     ///                 Prefix = "inventory",
     ///             },
     ///         },
-    ///         Bucket = test.Id,
-    ///         Name = "DocumentsWeekly",
-    ///         IncludedObjectVersions = "All",
     ///     });
     /// 
     /// });

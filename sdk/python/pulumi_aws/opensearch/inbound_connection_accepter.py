@@ -136,6 +136,7 @@ class InboundConnectionAccepter(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_region = aws.get_region()
         foo = aws.opensearch.OutboundConnection("foo",
+            connection_alias="outbound_connection",
             local_domain_info={
                 "owner_id": current.account_id,
                 "region": current_get_region.region,
@@ -145,8 +146,7 @@ class InboundConnectionAccepter(pulumi.CustomResource):
                 "owner_id": current.account_id,
                 "region": current_get_region.region,
                 "domain_name": remote_domain["domainName"],
-            },
-            connection_alias="outbound_connection")
+            })
         foo_inbound_connection_accepter = aws.opensearch.InboundConnectionAccepter("foo", connection_id=foo.id)
         ```
 
@@ -184,6 +184,7 @@ class InboundConnectionAccepter(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_region = aws.get_region()
         foo = aws.opensearch.OutboundConnection("foo",
+            connection_alias="outbound_connection",
             local_domain_info={
                 "owner_id": current.account_id,
                 "region": current_get_region.region,
@@ -193,8 +194,7 @@ class InboundConnectionAccepter(pulumi.CustomResource):
                 "owner_id": current.account_id,
                 "region": current_get_region.region,
                 "domain_name": remote_domain["domainName"],
-            },
-            connection_alias="outbound_connection")
+            })
         foo_inbound_connection_accepter = aws.opensearch.InboundConnectionAccepter("foo", connection_id=foo.id)
         ```
 

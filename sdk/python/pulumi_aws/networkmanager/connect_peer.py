@@ -400,7 +400,7 @@ class ConnectPeer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bgp_options: pulumi.Input[Optional[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict']]] = None,
+                 bgp_options: pulumi.Input[Optional[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict', 'outputs.ConnectPeerBgpOptions']]] = None,
                  connect_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  core_network_address: pulumi.Input[Optional[_builtins.str]] = None,
                  inside_cidr_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -426,18 +426,18 @@ class ConnectPeer(pulumi.CustomResource):
             core_network_id=example_awscc_networkmanager_core_network["id"],
             vpc_arn=example_aws_vpc["arn"])
         example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
-            options={
-                "protocol": "GRE",
-            },
             core_network_id=example_awscc_networkmanager_core_network["id"],
             transport_attachment_id=example.id,
-            edge_location=example.edge_location)
+            edge_location=example.edge_location,
+            options={
+                "protocol": "GRE",
+            })
         example_connect_peer = aws.networkmanager.ConnectPeer("example",
+            connect_attachment_id=example_connect_attachment.id,
+            peer_address="127.0.0.1",
             bgp_options={
                 "peer_asn": "65000",
             },
-            connect_attachment_id=example_connect_attachment.id,
-            peer_address="127.0.0.1",
             inside_cidr_blocks=["172.16.0.0/16"])
         ```
 
@@ -455,22 +455,22 @@ class ConnectPeer(pulumi.CustomResource):
             attachment_id=example.id,
             attachment_type=example.attachment_type)
         example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
-            options={
-                "protocol": "GRE",
-            },
             core_network_id=example_awscc_networkmanager_core_network["id"],
             transport_attachment_id=example.id,
             edge_location=example.edge_location,
+            options={
+                "protocol": "GRE",
+            },
             opts = pulumi.ResourceOptions(depends_on=[example_attachment_accepter]))
         example2 = aws.networkmanager.AttachmentAccepter("example2",
             attachment_id=example_connect_attachment.id,
             attachment_type=example_connect_attachment.attachment_type)
         example_connect_peer = aws.networkmanager.ConnectPeer("example",
+            connect_attachment_id=example_connect_attachment.id,
+            peer_address="127.0.0.1",
             bgp_options={
                 "peer_asn": "65500",
             },
-            connect_attachment_id=example_connect_attachment.id,
-            peer_address="127.0.0.1",
             inside_cidr_blocks=["172.16.0.0/16"],
             opts = pulumi.ResourceOptions(depends_on=[example2]))
         ```
@@ -486,18 +486,18 @@ class ConnectPeer(pulumi.CustomResource):
             core_network_id=example_awscc_networkmanager_core_network["id"],
             vpc_arn=example_aws_vpc["arn"])
         example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
-            options={
-                "protocol": "NO_ENCAP",
-            },
             core_network_id=example_awscc_networkmanager_core_network["id"],
             transport_attachment_id=example.id,
-            edge_location=example.edge_location)
+            edge_location=example.edge_location,
+            options={
+                "protocol": "NO_ENCAP",
+            })
         example_connect_peer = aws.networkmanager.ConnectPeer("example",
+            connect_attachment_id=example_connect_attachment.id,
+            peer_address="127.0.0.1",
             bgp_options={
                 "peer_asn": "65000",
             },
-            connect_attachment_id=example_connect_attachment.id,
-            peer_address="127.0.0.1",
             subnet_arn=example2["arn"])
         ```
 
@@ -512,7 +512,7 @@ class ConnectPeer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict']] bgp_options: Connect peer BGP options. See bgp_options for more information.
+        :param pulumi.Input[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict', 'outputs.ConnectPeerBgpOptions']] bgp_options: Connect peer BGP options. See bgp_options for more information.
         :param pulumi.Input[_builtins.str] connect_attachment_id: ID of the connection attachment.
         :param pulumi.Input[_builtins.str] core_network_address: Connect peer core network address.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] inside_cidr_blocks: Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
@@ -546,18 +546,18 @@ class ConnectPeer(pulumi.CustomResource):
             core_network_id=example_awscc_networkmanager_core_network["id"],
             vpc_arn=example_aws_vpc["arn"])
         example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
-            options={
-                "protocol": "GRE",
-            },
             core_network_id=example_awscc_networkmanager_core_network["id"],
             transport_attachment_id=example.id,
-            edge_location=example.edge_location)
+            edge_location=example.edge_location,
+            options={
+                "protocol": "GRE",
+            })
         example_connect_peer = aws.networkmanager.ConnectPeer("example",
+            connect_attachment_id=example_connect_attachment.id,
+            peer_address="127.0.0.1",
             bgp_options={
                 "peer_asn": "65000",
             },
-            connect_attachment_id=example_connect_attachment.id,
-            peer_address="127.0.0.1",
             inside_cidr_blocks=["172.16.0.0/16"])
         ```
 
@@ -575,22 +575,22 @@ class ConnectPeer(pulumi.CustomResource):
             attachment_id=example.id,
             attachment_type=example.attachment_type)
         example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
-            options={
-                "protocol": "GRE",
-            },
             core_network_id=example_awscc_networkmanager_core_network["id"],
             transport_attachment_id=example.id,
             edge_location=example.edge_location,
+            options={
+                "protocol": "GRE",
+            },
             opts = pulumi.ResourceOptions(depends_on=[example_attachment_accepter]))
         example2 = aws.networkmanager.AttachmentAccepter("example2",
             attachment_id=example_connect_attachment.id,
             attachment_type=example_connect_attachment.attachment_type)
         example_connect_peer = aws.networkmanager.ConnectPeer("example",
+            connect_attachment_id=example_connect_attachment.id,
+            peer_address="127.0.0.1",
             bgp_options={
                 "peer_asn": "65500",
             },
-            connect_attachment_id=example_connect_attachment.id,
-            peer_address="127.0.0.1",
             inside_cidr_blocks=["172.16.0.0/16"],
             opts = pulumi.ResourceOptions(depends_on=[example2]))
         ```
@@ -606,18 +606,18 @@ class ConnectPeer(pulumi.CustomResource):
             core_network_id=example_awscc_networkmanager_core_network["id"],
             vpc_arn=example_aws_vpc["arn"])
         example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
-            options={
-                "protocol": "NO_ENCAP",
-            },
             core_network_id=example_awscc_networkmanager_core_network["id"],
             transport_attachment_id=example.id,
-            edge_location=example.edge_location)
+            edge_location=example.edge_location,
+            options={
+                "protocol": "NO_ENCAP",
+            })
         example_connect_peer = aws.networkmanager.ConnectPeer("example",
+            connect_attachment_id=example_connect_attachment.id,
+            peer_address="127.0.0.1",
             bgp_options={
                 "peer_asn": "65000",
             },
-            connect_attachment_id=example_connect_attachment.id,
-            peer_address="127.0.0.1",
             subnet_arn=example2["arn"])
         ```
 
@@ -645,7 +645,7 @@ class ConnectPeer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bgp_options: pulumi.Input[Optional[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict']]] = None,
+                 bgp_options: pulumi.Input[Optional[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict', 'outputs.ConnectPeerBgpOptions']]] = None,
                  connect_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  core_network_address: pulumi.Input[Optional[_builtins.str]] = None,
                  inside_cidr_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -691,8 +691,8 @@ class ConnectPeer(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            bgp_options: pulumi.Input[Optional[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict']]] = None,
-            configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectPeerConfigurationArgs', 'ConnectPeerConfigurationArgsDict']]]]] = None,
+            bgp_options: pulumi.Input[Optional[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict', 'outputs.ConnectPeerBgpOptions']]] = None,
+            configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectPeerConfigurationArgs', 'ConnectPeerConfigurationArgsDict', 'outputs.ConnectPeerConfiguration']]]]] = None,
             connect_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
             connect_peer_id: pulumi.Input[Optional[_builtins.str]] = None,
             core_network_address: pulumi.Input[Optional[_builtins.str]] = None,
@@ -713,8 +713,8 @@ class ConnectPeer(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Connect peer.
-        :param pulumi.Input[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict']] bgp_options: Connect peer BGP options. See bgp_options for more information.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectPeerConfigurationArgs', 'ConnectPeerConfigurationArgsDict']]]] configurations: Configuration of the Connect peer.
+        :param pulumi.Input[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict', 'outputs.ConnectPeerBgpOptions']] bgp_options: Connect peer BGP options. See bgp_options for more information.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectPeerConfigurationArgs', 'ConnectPeerConfigurationArgsDict', 'outputs.ConnectPeerConfiguration']]]] configurations: Configuration of the Connect peer.
         :param pulumi.Input[_builtins.str] connect_attachment_id: ID of the connection attachment.
         :param pulumi.Input[_builtins.str] connect_peer_id: ID of the Connect peer.
         :param pulumi.Input[_builtins.str] core_network_address: Connect peer core network address.

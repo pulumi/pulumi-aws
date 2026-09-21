@@ -377,27 +377,18 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
         test_global_network = aws.networkmanager.GlobalNetwork("test", tags={
             "Name": "test",
         })
-        test = aws.networkmanager.get_core_network_policy_document(attachment_policies=[{
-                "action": {
-                    "association_method": "constant",
-                    "segment": "shared",
-                },
-                "conditions": [{
-                    "type": "tag-value",
-                    "operator": "equals",
-                    "key": "segment",
-                    "value": "shared",
-                }],
-                "rule_number": 1,
-                "condition_logic": "or",
-            }],
-            core_network_configurations=[{
+        test = aws.networkmanager.get_core_network_policy_document(core_network_configurations=[{
+                "vpn_ecmp_support": False,
+                "asn_ranges": ["64512-64555"],
                 "edge_locations": [{
                     "location": current["region"],
                     "asn": "64512",
                 }],
-                "vpn_ecmp_support": False,
-                "asn_ranges": ["64512-64555"],
+            }],
+            segments=[{
+                "name": "shared",
+                "description": "SegmentForSharedServices",
+                "require_attachment_acceptance": True,
             }],
             segment_actions=[{
                 "action": "share",
@@ -405,10 +396,19 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
                 "segment": "shared",
                 "share_withs": ["*"],
             }],
-            segments=[{
-                "name": "shared",
-                "description": "SegmentForSharedServices",
-                "require_attachment_acceptance": True,
+            attachment_policies=[{
+                "rule_number": 1,
+                "condition_logic": "or",
+                "conditions": [{
+                    "type": "tag-value",
+                    "operator": "equals",
+                    "key": "segment",
+                    "value": "shared",
+                }],
+                "action": {
+                    "association_method": "constant",
+                    "segment": "shared",
+                },
             }])
         test_networkmanager_core_network = awscc.NetworkmanagerCoreNetwork("test",
             global_network_id=test_global_network.id,
@@ -486,27 +486,18 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
         test_global_network = aws.networkmanager.GlobalNetwork("test", tags={
             "Name": "test",
         })
-        test = aws.networkmanager.get_core_network_policy_document(attachment_policies=[{
-                "action": {
-                    "association_method": "constant",
-                    "segment": "shared",
-                },
-                "conditions": [{
-                    "type": "tag-value",
-                    "operator": "equals",
-                    "key": "segment",
-                    "value": "shared",
-                }],
-                "rule_number": 1,
-                "condition_logic": "or",
-            }],
-            core_network_configurations=[{
+        test = aws.networkmanager.get_core_network_policy_document(core_network_configurations=[{
+                "vpn_ecmp_support": False,
+                "asn_ranges": ["64512-64555"],
                 "edge_locations": [{
                     "location": current["region"],
                     "asn": "64512",
                 }],
-                "vpn_ecmp_support": False,
-                "asn_ranges": ["64512-64555"],
+            }],
+            segments=[{
+                "name": "shared",
+                "description": "SegmentForSharedServices",
+                "require_attachment_acceptance": True,
             }],
             segment_actions=[{
                 "action": "share",
@@ -514,10 +505,19 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
                 "segment": "shared",
                 "share_withs": ["*"],
             }],
-            segments=[{
-                "name": "shared",
-                "description": "SegmentForSharedServices",
-                "require_attachment_acceptance": True,
+            attachment_policies=[{
+                "rule_number": 1,
+                "condition_logic": "or",
+                "conditions": [{
+                    "type": "tag-value",
+                    "operator": "equals",
+                    "key": "segment",
+                    "value": "shared",
+                }],
+                "action": {
+                    "association_method": "constant",
+                    "segment": "shared",
+                },
             }])
         test_networkmanager_core_network = awscc.NetworkmanagerCoreNetwork("test",
             global_network_id=test_global_network.id,

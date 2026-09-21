@@ -47,6 +47,7 @@ import (
 //			}
 //			example, err := s3control.NewMultiRegionAccessPoint(ctx, "example", &s3control.MultiRegionAccessPointArgs{
 //				Details: &s3control.MultiRegionAccessPointDetailsArgs{
+//					Name: pulumi.String("example"),
 //					Regions: s3control.MultiRegionAccessPointDetailsRegionArray{
 //						&s3control.MultiRegionAccessPointDetailsRegionArgs{
 //							Bucket: primary.Bucket,
@@ -55,13 +56,13 @@ import (
 //							Bucket: secondary.Bucket,
 //						},
 //					},
-//					Name: pulumi.String("example"),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3control.NewMultiRegionAccessPointRoutes(ctx, "example", &s3control.MultiRegionAccessPointRoutesArgs{
+//				Mrap: example.Arn,
 //				Routes: s3control.MultiRegionAccessPointRoutesRouteArray{
 //					&s3control.MultiRegionAccessPointRoutesRouteArgs{
 //						Bucket:                primary.Bucket,
@@ -74,7 +75,6 @@ import (
 //						TrafficDialPercentage: pulumi.Int(100),
 //					},
 //				},
-//				Mrap: example.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -100,6 +100,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3control.NewMultiRegionAccessPointRoutes(ctx, "example", &s3control.MultiRegionAccessPointRoutesArgs{
+//				Mrap: pulumi.Any(exampleAwsS3controlMultiRegionAccessPoint.Arn),
 //				Routes: s3control.MultiRegionAccessPointRoutesRouteArray{
 //					&s3control.MultiRegionAccessPointRoutesRouteArgs{
 //						Bucket:                pulumi.Any(primary.Bucket),
@@ -112,7 +113,6 @@ import (
 //						TrafficDialPercentage: pulumi.Int(100),
 //					},
 //				},
-//				Mrap: pulumi.Any(exampleAwsS3controlMultiRegionAccessPoint.Arn),
 //			})
 //			if err != nil {
 //				return err

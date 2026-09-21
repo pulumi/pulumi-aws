@@ -66,6 +66,8 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentcoreRegistry("example", new()
     ///     {
+    ///         Name = "example_registry",
+    ///         AuthorizerType = "CUSTOM_JWT",
     ///         AuthorizerConfiguration = new Aws.Bedrock.Inputs.AgentcoreRegistryAuthorizerConfigurationArgs
     ///         {
     ///             CustomJwtAuthorizer = new Aws.Bedrock.Inputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs
@@ -81,8 +83,6 @@ namespace Pulumi.Aws.Bedrock
     ///                 },
     ///             },
     ///         },
-    ///         Name = "example_registry",
-    ///         AuthorizerType = "CUSTOM_JWT",
     ///     });
     /// 
     /// });

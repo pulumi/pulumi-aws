@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const example = new aws.wafregional.RegexMatchSet("example", {
+ *     name: "example",
  *     regexMatchTuples: [{
  *         fieldToMatch: {
  *             data: "User-Agent",
@@ -32,7 +33,6 @@ import * as utilities from "../utilities";
  *         regexPatternSetId: exampleRegexPatternSet.id,
  *         textTransformation: "NONE",
  *     }],
- *     name: "example",
  * });
  * ```
  *

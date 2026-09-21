@@ -26,10 +26,10 @@ namespace Pulumi.Aws.RedShift
     /// {
     ///     var example = new Aws.DynamoDB.Table("example", new()
     ///     {
-    ///         PointInTimeRecovery = new Aws.DynamoDB.Inputs.TablePointInTimeRecoveryArgs
-    ///         {
-    ///             Enabled = true,
-    ///         },
+    ///         Name = "dynamodb-table-example",
+    ///         ReadCapacity = 1,
+    ///         WriteCapacity = 1,
+    ///         HashKey = "example",
     ///         Attributes = new[]
     ///         {
     ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
@@ -38,10 +38,10 @@ namespace Pulumi.Aws.RedShift
     ///                 Type = "S",
     ///             },
     ///         },
-    ///         Name = "dynamodb-table-example",
-    ///         ReadCapacity = 1,
-    ///         WriteCapacity = 1,
-    ///         HashKey = "example",
+    ///         PointInTimeRecovery = new Aws.DynamoDB.Inputs.TablePointInTimeRecoveryArgs
+    ///         {
+    ///             Enabled = true,
+    ///         },
     ///     });
     /// 
     ///     var exampleNamespace = new Aws.RedshiftServerless.Namespace("example", new()
@@ -51,14 +51,6 @@ namespace Pulumi.Aws.RedShift
     /// 
     ///     var exampleWorkgroup = new Aws.RedshiftServerless.Workgroup("example", new()
     ///     {
-    ///         ConfigParameters = new[]
-    ///         {
-    ///             new Aws.RedshiftServerless.Inputs.WorkgroupConfigParameterArgs
-    ///             {
-    ///                 ParameterKey = "enable_case_sensitive_identifier",
-    ///                 ParameterValue = "true",
-    ///             },
-    ///         },
     ///         NamespaceName = exampleNamespace.NamespaceName,
     ///         WorkgroupName = "example-workgroup",
     ///         BaseCapacity = 8,
@@ -68,6 +60,14 @@ namespace Pulumi.Aws.RedShift
     ///             example1.Id,
     ///             example2.Id,
     ///             example3.Id,
+    ///         },
+    ///         ConfigParameters = new[]
+    ///         {
+    ///             new Aws.RedshiftServerless.Inputs.WorkgroupConfigParameterArgs
+    ///             {
+    ///                 ParameterKey = "enable_case_sensitive_identifier",
+    ///                 ParameterValue = "true",
+    ///             },
     ///         },
     ///     });
     /// 

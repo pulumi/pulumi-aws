@@ -117,7 +117,7 @@ class CustomRoutingListener(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accelerator_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomRoutingListenerPortRangeArgs', 'CustomRoutingListenerPortRangeArgsDict']]]]] = None,
+                 port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomRoutingListenerPortRangeArgs', 'CustomRoutingListenerPortRangeArgsDict', 'outputs.CustomRoutingListenerPortRange']]]]] = None,
                  __props__=None):
         """
         Provides a Global Accelerator custom routing listener.
@@ -129,20 +129,20 @@ class CustomRoutingListener(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.globalaccelerator.CustomRoutingAccelerator("example",
+            name="Example",
+            ip_address_type="IPV4",
+            enabled=True,
             attributes={
                 "flow_logs_enabled": True,
                 "flow_logs_s3_bucket": "example-bucket",
                 "flow_logs_s3_prefix": "flow-logs/",
-            },
-            name="Example",
-            ip_address_type="IPV4",
-            enabled=True)
+            })
         example_custom_routing_listener = aws.globalaccelerator.CustomRoutingListener("example",
+            accelerator_arn=example.arn,
             port_ranges=[{
                 "from_port": 80,
                 "to_port": 80,
-            }],
-            accelerator_arn=example.arn)
+            }])
         ```
 
         ## Import
@@ -163,7 +163,7 @@ class CustomRoutingListener(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accelerator_arn: ARN of a custom routing accelerator.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomRoutingListenerPortRangeArgs', 'CustomRoutingListenerPortRangeArgsDict']]]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomRoutingListenerPortRangeArgs', 'CustomRoutingListenerPortRangeArgsDict', 'outputs.CustomRoutingListenerPortRange']]]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
         """
         ...
     @overload
@@ -181,20 +181,20 @@ class CustomRoutingListener(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.globalaccelerator.CustomRoutingAccelerator("example",
+            name="Example",
+            ip_address_type="IPV4",
+            enabled=True,
             attributes={
                 "flow_logs_enabled": True,
                 "flow_logs_s3_bucket": "example-bucket",
                 "flow_logs_s3_prefix": "flow-logs/",
-            },
-            name="Example",
-            ip_address_type="IPV4",
-            enabled=True)
+            })
         example_custom_routing_listener = aws.globalaccelerator.CustomRoutingListener("example",
+            accelerator_arn=example.arn,
             port_ranges=[{
                 "from_port": 80,
                 "to_port": 80,
-            }],
-            accelerator_arn=example.arn)
+            }])
         ```
 
         ## Import
@@ -228,7 +228,7 @@ class CustomRoutingListener(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accelerator_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomRoutingListenerPortRangeArgs', 'CustomRoutingListenerPortRangeArgsDict']]]]] = None,
+                 port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomRoutingListenerPortRangeArgs', 'CustomRoutingListenerPortRangeArgsDict', 'outputs.CustomRoutingListenerPortRange']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -257,7 +257,7 @@ class CustomRoutingListener(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             accelerator_arn: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomRoutingListenerPortRangeArgs', 'CustomRoutingListenerPortRangeArgsDict']]]]] = None) -> 'CustomRoutingListener':
+            port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomRoutingListenerPortRangeArgs', 'CustomRoutingListenerPortRangeArgsDict', 'outputs.CustomRoutingListenerPortRange']]]]] = None) -> 'CustomRoutingListener':
         """
         Get an existing CustomRoutingListener resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -266,7 +266,7 @@ class CustomRoutingListener(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accelerator_arn: ARN of a custom routing accelerator.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomRoutingListenerPortRangeArgs', 'CustomRoutingListenerPortRangeArgsDict']]]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomRoutingListenerPortRangeArgs', 'CustomRoutingListenerPortRangeArgsDict', 'outputs.CustomRoutingListenerPortRange']]]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

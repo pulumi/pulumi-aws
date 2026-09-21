@@ -32,6 +32,7 @@ namespace Pulumi.Aws.Iam
         /// 
         ///     var elb = new Aws.Elb.LoadBalancer("elb", new()
         ///     {
+        ///         Name = "my-domain-elb",
         ///         Listeners = new[]
         ///         {
         ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
@@ -43,7 +44,6 @@ namespace Pulumi.Aws.Iam
         ///                 SslCertificateId = my_domain.Apply(my_domain =&gt; my_domain.Apply(getServerCertificateResult =&gt; getServerCertificateResult.Arn)),
         ///             },
         ///         },
-        ///         Name = "my-domain-elb",
         ///     });
         /// 
         /// });
@@ -73,6 +73,7 @@ namespace Pulumi.Aws.Iam
         /// 
         ///     var elb = new Aws.Elb.LoadBalancer("elb", new()
         ///     {
+        ///         Name = "my-domain-elb",
         ///         Listeners = new[]
         ///         {
         ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
@@ -84,7 +85,6 @@ namespace Pulumi.Aws.Iam
         ///                 SslCertificateId = my_domain.Apply(my_domain =&gt; my_domain.Apply(getServerCertificateResult =&gt; getServerCertificateResult.Arn)),
         ///             },
         ///         },
-        ///         Name = "my-domain-elb",
         ///     });
         /// 
         /// });
@@ -114,6 +114,7 @@ namespace Pulumi.Aws.Iam
         /// 
         ///     var elb = new Aws.Elb.LoadBalancer("elb", new()
         ///     {
+        ///         Name = "my-domain-elb",
         ///         Listeners = new[]
         ///         {
         ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
@@ -125,7 +126,6 @@ namespace Pulumi.Aws.Iam
         ///                 SslCertificateId = my_domain.Apply(my_domain =&gt; my_domain.Apply(getServerCertificateResult =&gt; getServerCertificateResult.Arn)),
         ///             },
         ///         },
-        ///         Name = "my-domain-elb",
         ///     });
         /// 
         /// });

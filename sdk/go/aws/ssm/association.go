@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewAssociation(ctx, "example", &ssm.AssociationArgs{
+//				Name: pulumi.Any(exampleAwsSsmDocument.Name),
 //				Targets: ssm.AssociationTargetArray{
 //					&ssm.AssociationTargetArgs{
 //						Key: pulumi.String("InstanceIds"),
@@ -38,7 +39,6 @@ import (
 //						},
 //					},
 //				},
-//				Name: pulumi.Any(exampleAwsSsmDocument.Name),
 //			})
 //			if err != nil {
 //				return err
@@ -66,6 +66,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewAssociation(ctx, "example", &ssm.AssociationArgs{
+//				Name: pulumi.String("AmazonCloudWatch-ManageAgent"),
 //				Targets: ssm.AssociationTargetArray{
 //					&ssm.AssociationTargetArgs{
 //						Key: pulumi.String("InstanceIds"),
@@ -74,7 +75,6 @@ import (
 //						},
 //					},
 //				},
-//				Name: pulumi.String("AmazonCloudWatch-ManageAgent"),
 //			})
 //			if err != nil {
 //				return err
@@ -102,6 +102,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewAssociation(ctx, "example", &ssm.AssociationArgs{
+//				Name: pulumi.String("AmazonCloudWatch-ManageAgent"),
 //				Targets: ssm.AssociationTargetArray{
 //					&ssm.AssociationTargetArgs{
 //						Key: pulumi.String("tag:Environment"),
@@ -110,7 +111,6 @@ import (
 //						},
 //					},
 //				},
-//				Name: pulumi.String("AmazonCloudWatch-ManageAgent"),
 //			})
 //			if err != nil {
 //				return err
@@ -138,6 +138,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewAssociation(ctx, "example", &ssm.AssociationArgs{
+//				Name:               pulumi.Any(exampleAwsSsmDocument.Name),
+//				ScheduleExpression: pulumi.String("cron(0 2 ? * SUN *)"),
 //				Targets: ssm.AssociationTargetArray{
 //					&ssm.AssociationTargetArgs{
 //						Key: pulumi.String("InstanceIds"),
@@ -146,8 +148,6 @@ import (
 //						},
 //					},
 //				},
-//				Name:               pulumi.Any(exampleAwsSsmDocument.Name),
-//				ScheduleExpression: pulumi.String("cron(0 2 ? * SUN *)"),
 //			})
 //			if err != nil {
 //				return err
@@ -235,6 +235,7 @@ import (
 //			}
 //			// Removed EC2 provisioning dependencies for brevity
 //			_, err = ssm.NewAssociation(ctx, "system_update", &ssm.AssociationArgs{
+//				Name: pulumi.String("AWS-RunShellScript"),
 //				Targets: ssm.AssociationTargetArray{
 //					&ssm.AssociationTargetArgs{
 //						Key: pulumi.String("InstanceIds"),
@@ -244,7 +245,6 @@ import (
 //						},
 //					},
 //				},
-//				Name:               pulumi.String("AWS-RunShellScript"),
 //				ScheduleExpression: pulumi.String("cron(0 2 ? * SUN *)"),
 //				Parameters: pulumi.StringMap{
 //					"commands":         pulumi.String(invokeJoin.Result),
@@ -291,6 +291,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// SSM Association for Webbased Servers
 //			_, err := ssm.NewAssociation(ctx, "database_association", &ssm.AssociationArgs{
+//				Name: pulumi.Any(systemUpdate.Name),
 //				Targets: ssm.AssociationTargetArray{
 //					&ssm.AssociationTargetArgs{
 //						Key: pulumi.String("tag:Role"),
@@ -300,7 +301,6 @@ import (
 //						},
 //					},
 //				},
-//				Name: pulumi.Any(systemUpdate.Name),
 //				Parameters: pulumi.StringMap{
 //					"restartServices": pulumi.String("true"),
 //				},

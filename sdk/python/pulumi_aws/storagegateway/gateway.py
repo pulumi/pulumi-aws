@@ -745,10 +745,10 @@ class Gateway(pulumi.CustomResource):
                  gateway_timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  gateway_type: pulumi.Input[Optional[_builtins.str]] = None,
                  gateway_vpc_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 maintenance_start_time: pulumi.Input[Optional[Union['GatewayMaintenanceStartTimeArgs', 'GatewayMaintenanceStartTimeArgsDict']]] = None,
+                 maintenance_start_time: pulumi.Input[Optional[Union['GatewayMaintenanceStartTimeArgs', 'GatewayMaintenanceStartTimeArgsDict', 'outputs.GatewayMaintenanceStartTime']]] = None,
                  medium_changer_type: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 smb_active_directory_settings: pulumi.Input[Optional[Union['GatewaySmbActiveDirectorySettingsArgs', 'GatewaySmbActiveDirectorySettingsArgsDict']]] = None,
+                 smb_active_directory_settings: pulumi.Input[Optional[Union['GatewaySmbActiveDirectorySettingsArgs', 'GatewaySmbActiveDirectorySettingsArgsDict', 'outputs.GatewaySmbActiveDirectorySettings']]] = None,
                  smb_file_share_visibility: pulumi.Input[Optional[_builtins.bool]] = None,
                  smb_guest_password: pulumi.Input[Optional[_builtins.str]] = None,
                  smb_security_strategy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -786,15 +786,15 @@ class Gateway(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.storagegateway.Gateway("example",
+            gateway_ip_address="1.2.3.4",
+            gateway_name="example",
+            gateway_timezone="GMT",
+            gateway_type="FILE_FSX_SMB",
             smb_active_directory_settings={
                 "domain_name": "corp.example.com",
                 "password": "avoid-plaintext-passwords",
                 "username": "Admin",
-            },
-            gateway_ip_address="1.2.3.4",
-            gateway_name="example",
-            gateway_timezone="GMT",
-            gateway_type="FILE_FSX_SMB")
+            })
         ```
 
         ### S3 File Gateway
@@ -865,8 +865,7 @@ class Gateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.storagegateway.Gateway("example", gateway_ip_address=sgw["privateIp"],
-        opts = pulumi.ResourceOptions(ignore_changes=["gatewayIpAddress"]))
+        example = aws.storagegateway.Gateway("example", gateway_ip_address=sgw["privateIp"])
         ```
 
 
@@ -881,10 +880,10 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] gateway_timezone: Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
         :param pulumi.Input[_builtins.str] gateway_type: Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
         :param pulumi.Input[_builtins.str] gateway_vpc_endpoint: VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
-        :param pulumi.Input[Union['GatewayMaintenanceStartTimeArgs', 'GatewayMaintenanceStartTimeArgsDict']] maintenance_start_time: The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
+        :param pulumi.Input[Union['GatewayMaintenanceStartTimeArgs', 'GatewayMaintenanceStartTimeArgsDict', 'outputs.GatewayMaintenanceStartTime']] maintenance_start_time: The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
         :param pulumi.Input[_builtins.str] medium_changer_type: Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['GatewaySmbActiveDirectorySettingsArgs', 'GatewaySmbActiveDirectorySettingsArgsDict']] smb_active_directory_settings: Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
+        :param pulumi.Input[Union['GatewaySmbActiveDirectorySettingsArgs', 'GatewaySmbActiveDirectorySettingsArgsDict', 'outputs.GatewaySmbActiveDirectorySettings']] smb_active_directory_settings: Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
         :param pulumi.Input[_builtins.bool] smb_file_share_visibility: Specifies whether the shares on this gateway appear when listing shares.
         :param pulumi.Input[_builtins.str] smb_guest_password: Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
         :param pulumi.Input[_builtins.str] smb_security_strategy: Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
@@ -930,15 +929,15 @@ class Gateway(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.storagegateway.Gateway("example",
+            gateway_ip_address="1.2.3.4",
+            gateway_name="example",
+            gateway_timezone="GMT",
+            gateway_type="FILE_FSX_SMB",
             smb_active_directory_settings={
                 "domain_name": "corp.example.com",
                 "password": "avoid-plaintext-passwords",
                 "username": "Admin",
-            },
-            gateway_ip_address="1.2.3.4",
-            gateway_name="example",
-            gateway_timezone="GMT",
-            gateway_type="FILE_FSX_SMB")
+            })
         ```
 
         ### S3 File Gateway
@@ -1009,8 +1008,7 @@ class Gateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.storagegateway.Gateway("example", gateway_ip_address=sgw["privateIp"],
-        opts = pulumi.ResourceOptions(ignore_changes=["gatewayIpAddress"]))
+        example = aws.storagegateway.Gateway("example", gateway_ip_address=sgw["privateIp"])
         ```
 
 
@@ -1038,10 +1036,10 @@ class Gateway(pulumi.CustomResource):
                  gateway_timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  gateway_type: pulumi.Input[Optional[_builtins.str]] = None,
                  gateway_vpc_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 maintenance_start_time: pulumi.Input[Optional[Union['GatewayMaintenanceStartTimeArgs', 'GatewayMaintenanceStartTimeArgsDict']]] = None,
+                 maintenance_start_time: pulumi.Input[Optional[Union['GatewayMaintenanceStartTimeArgs', 'GatewayMaintenanceStartTimeArgsDict', 'outputs.GatewayMaintenanceStartTime']]] = None,
                  medium_changer_type: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 smb_active_directory_settings: pulumi.Input[Optional[Union['GatewaySmbActiveDirectorySettingsArgs', 'GatewaySmbActiveDirectorySettingsArgsDict']]] = None,
+                 smb_active_directory_settings: pulumi.Input[Optional[Union['GatewaySmbActiveDirectorySettingsArgs', 'GatewaySmbActiveDirectorySettingsArgsDict', 'outputs.GatewaySmbActiveDirectorySettings']]] = None,
                  smb_file_share_visibility: pulumi.Input[Optional[_builtins.bool]] = None,
                  smb_guest_password: pulumi.Input[Optional[_builtins.str]] = None,
                  smb_security_strategy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1107,15 +1105,15 @@ class Gateway(pulumi.CustomResource):
             gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
             gateway_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
             gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
-            gateway_network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayGatewayNetworkInterfaceArgs', 'GatewayGatewayNetworkInterfaceArgsDict']]]]] = None,
+            gateway_network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayGatewayNetworkInterfaceArgs', 'GatewayGatewayNetworkInterfaceArgsDict', 'outputs.GatewayGatewayNetworkInterface']]]]] = None,
             gateway_timezone: pulumi.Input[Optional[_builtins.str]] = None,
             gateway_type: pulumi.Input[Optional[_builtins.str]] = None,
             gateway_vpc_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             host_environment: pulumi.Input[Optional[_builtins.str]] = None,
-            maintenance_start_time: pulumi.Input[Optional[Union['GatewayMaintenanceStartTimeArgs', 'GatewayMaintenanceStartTimeArgsDict']]] = None,
+            maintenance_start_time: pulumi.Input[Optional[Union['GatewayMaintenanceStartTimeArgs', 'GatewayMaintenanceStartTimeArgsDict', 'outputs.GatewayMaintenanceStartTime']]] = None,
             medium_changer_type: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            smb_active_directory_settings: pulumi.Input[Optional[Union['GatewaySmbActiveDirectorySettingsArgs', 'GatewaySmbActiveDirectorySettingsArgsDict']]] = None,
+            smb_active_directory_settings: pulumi.Input[Optional[Union['GatewaySmbActiveDirectorySettingsArgs', 'GatewaySmbActiveDirectorySettingsArgsDict', 'outputs.GatewaySmbActiveDirectorySettings']]] = None,
             smb_file_share_visibility: pulumi.Input[Optional[_builtins.bool]] = None,
             smb_guest_password: pulumi.Input[Optional[_builtins.str]] = None,
             smb_security_strategy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1139,15 +1137,15 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] gateway_id: Identifier of the gateway.
         :param pulumi.Input[_builtins.str] gateway_ip_address: Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         :param pulumi.Input[_builtins.str] gateway_name: Name of the gateway.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GatewayGatewayNetworkInterfaceArgs', 'GatewayGatewayNetworkInterfaceArgsDict']]]] gateway_network_interfaces: An array that contains descriptions of the gateway network interfaces. See Gateway Network Interface.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GatewayGatewayNetworkInterfaceArgs', 'GatewayGatewayNetworkInterfaceArgsDict', 'outputs.GatewayGatewayNetworkInterface']]]] gateway_network_interfaces: An array that contains descriptions of the gateway network interfaces. See Gateway Network Interface.
         :param pulumi.Input[_builtins.str] gateway_timezone: Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
         :param pulumi.Input[_builtins.str] gateway_type: Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
         :param pulumi.Input[_builtins.str] gateway_vpc_endpoint: VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
         :param pulumi.Input[_builtins.str] host_environment: The type of hypervisor environment used by the host.
-        :param pulumi.Input[Union['GatewayMaintenanceStartTimeArgs', 'GatewayMaintenanceStartTimeArgsDict']] maintenance_start_time: The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
+        :param pulumi.Input[Union['GatewayMaintenanceStartTimeArgs', 'GatewayMaintenanceStartTimeArgsDict', 'outputs.GatewayMaintenanceStartTime']] maintenance_start_time: The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
         :param pulumi.Input[_builtins.str] medium_changer_type: Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['GatewaySmbActiveDirectorySettingsArgs', 'GatewaySmbActiveDirectorySettingsArgsDict']] smb_active_directory_settings: Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
+        :param pulumi.Input[Union['GatewaySmbActiveDirectorySettingsArgs', 'GatewaySmbActiveDirectorySettingsArgsDict', 'outputs.GatewaySmbActiveDirectorySettings']] smb_active_directory_settings: Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
         :param pulumi.Input[_builtins.bool] smb_file_share_visibility: Specifies whether the shares on this gateway appear when listing shares.
         :param pulumi.Input[_builtins.str] smb_guest_password: Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
         :param pulumi.Input[_builtins.str] smb_security_strategy: Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.

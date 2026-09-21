@@ -31,6 +31,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewRoute(ctx, "serviceb", &appmesh.RouteArgs{
+//				Name:              pulumi.String("serviceB-route"),
+//				MeshName:          pulumi.Any(simple.Id),
+//				VirtualRouterName: pulumi.Any(servicebAwsAppmeshVirtualRouter.Name),
 //				Spec: &appmesh.RouteSpecArgs{
 //					HttpRoute: &appmesh.RouteSpecHttpRouteArgs{
 //						Match: &appmesh.RouteSpecHttpRouteMatchArgs{
@@ -50,9 +53,6 @@ import (
 //						},
 //					},
 //				},
-//				Name:              pulumi.String("serviceB-route"),
-//				MeshName:          pulumi.Any(simple.Id),
-//				VirtualRouterName: pulumi.Any(servicebAwsAppmeshVirtualRouter.Name),
 //			})
 //			if err != nil {
 //				return err
@@ -78,20 +78,23 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewRoute(ctx, "serviceb", &appmesh.RouteArgs{
+//				Name:              pulumi.String("serviceB-route"),
+//				MeshName:          pulumi.Any(simple.Id),
+//				VirtualRouterName: pulumi.Any(servicebAwsAppmeshVirtualRouter.Name),
 //				Spec: &appmesh.RouteSpecArgs{
 //					HttpRoute: &appmesh.RouteSpecHttpRouteArgs{
 //						Match: &appmesh.RouteSpecHttpRouteMatchArgs{
-//							Headers: appmesh.RouteSpecHttpRouteMatchHeaderArray{
-//								&appmesh.RouteSpecHttpRouteMatchHeaderArgs{
-//									Match: &appmesh.RouteSpecHttpRouteMatchHeaderMatchArgs{
-//										Prefix: pulumi.String("123"),
-//									},
-//									Name: pulumi.String("clientRequestId"),
-//								},
-//							},
 //							Method: pulumi.String("POST"),
 //							Prefix: pulumi.String("/"),
 //							Scheme: pulumi.String("https"),
+//							Headers: appmesh.RouteSpecHttpRouteMatchHeaderArray{
+//								&appmesh.RouteSpecHttpRouteMatchHeaderArgs{
+//									Name: pulumi.String("clientRequestId"),
+//									Match: &appmesh.RouteSpecHttpRouteMatchHeaderMatchArgs{
+//										Prefix: pulumi.String("123"),
+//									},
+//								},
+//							},
 //						},
 //						Action: &appmesh.RouteSpecHttpRouteActionArgs{
 //							WeightedTargets: appmesh.RouteSpecHttpRouteActionWeightedTargetArray{
@@ -103,9 +106,6 @@ import (
 //						},
 //					},
 //				},
-//				Name:              pulumi.String("serviceB-route"),
-//				MeshName:          pulumi.Any(simple.Id),
-//				VirtualRouterName: pulumi.Any(servicebAwsAppmeshVirtualRouter.Name),
 //			})
 //			if err != nil {
 //				return err
@@ -131,20 +131,23 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewRoute(ctx, "serviceb", &appmesh.RouteArgs{
+//				Name:              pulumi.String("serviceB-route"),
+//				MeshName:          pulumi.Any(simple.Id),
+//				VirtualRouterName: pulumi.Any(servicebAwsAppmeshVirtualRouter.Name),
 //				Spec: &appmesh.RouteSpecArgs{
 //					HttpRoute: &appmesh.RouteSpecHttpRouteArgs{
 //						Match: &appmesh.RouteSpecHttpRouteMatchArgs{
 //							Prefix: pulumi.String("/"),
 //						},
 //						RetryPolicy: &appmesh.RouteSpecHttpRouteRetryPolicyArgs{
-//							PerRetryTimeout: &appmesh.RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs{
-//								Unit:  pulumi.String("s"),
-//								Value: pulumi.Int(15),
-//							},
 //							HttpRetryEvents: pulumi.StringArray{
 //								pulumi.String("server-error"),
 //							},
 //							MaxRetries: pulumi.Int(1),
+//							PerRetryTimeout: &appmesh.RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs{
+//								Unit:  pulumi.String("s"),
+//								Value: pulumi.Int(15),
+//							},
 //						},
 //						Action: &appmesh.RouteSpecHttpRouteActionArgs{
 //							WeightedTargets: appmesh.RouteSpecHttpRouteActionWeightedTargetArray{
@@ -156,9 +159,6 @@ import (
 //						},
 //					},
 //				},
-//				Name:              pulumi.String("serviceB-route"),
-//				MeshName:          pulumi.Any(simple.Id),
-//				VirtualRouterName: pulumi.Any(servicebAwsAppmeshVirtualRouter.Name),
 //			})
 //			if err != nil {
 //				return err
@@ -184,6 +184,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewRoute(ctx, "serviceb", &appmesh.RouteArgs{
+//				Name:              pulumi.String("serviceB-route"),
+//				MeshName:          pulumi.Any(simple.Id),
+//				VirtualRouterName: pulumi.Any(servicebAwsAppmeshVirtualRouter.Name),
 //				Spec: &appmesh.RouteSpecArgs{
 //					TcpRoute: &appmesh.RouteSpecTcpRouteArgs{
 //						Action: &appmesh.RouteSpecTcpRouteActionArgs{
@@ -196,9 +199,6 @@ import (
 //						},
 //					},
 //				},
-//				Name:              pulumi.String("serviceB-route"),
-//				MeshName:          pulumi.Any(simple.Id),
-//				VirtualRouterName: pulumi.Any(servicebAwsAppmeshVirtualRouter.Name),
 //			})
 //			if err != nil {
 //				return err

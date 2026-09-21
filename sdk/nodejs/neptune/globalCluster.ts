@@ -65,9 +65,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.neptune.Cluster("example", {}, {
- *     ignoreChanges: ["globalClusterIdentifier"],
- * });
+ * const example = new aws.neptune.Cluster("example", {});
  * const exampleGlobalCluster = new aws.neptune.GlobalCluster("example", {
  *     globalClusterIdentifier: "example",
  *     sourceDbClusterIdentifier: example.arn,
@@ -88,9 +86,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.neptune.GlobalCluster("example", {}, {
- *     ignoreChanges: ["sourceDbClusterIdentifier"],
- * });
+ * const example = new aws.neptune.GlobalCluster("example", {});
  * ```
  */
 export class GlobalCluster extends pulumi.CustomResource {

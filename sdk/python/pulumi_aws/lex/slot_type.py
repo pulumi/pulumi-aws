@@ -329,7 +329,7 @@ class SlotType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  create_version: pulumi.Input[Optional[_builtins.bool]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 enumeration_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict']]]]] = None,
+                 enumeration_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict', 'outputs.SlotTypeEnumerationValue']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  value_selection_strategy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -345,6 +345,8 @@ class SlotType(pulumi.CustomResource):
         import pulumi_aws as aws
 
         flower_types = aws.lex.SlotType("flower_types",
+            create_version=True,
+            description="Types of flowers to order",
             enumeration_values=[
                 {
                     "synonyms": [
@@ -361,8 +363,6 @@ class SlotType(pulumi.CustomResource):
                     "value": "tulips",
                 },
             ],
-            create_version=True,
-            description="Types of flowers to order",
             name="FlowerTypes",
             value_selection_strategy="ORIGINAL_VALUE")
         ```
@@ -381,7 +381,7 @@ class SlotType(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] create_version: Determines if a new slot type version is created when the initial resource is created and on each
                update. Defaults to `false`.
         :param pulumi.Input[_builtins.str] description: A description of the slot type. Must be less than or equal to 200 characters in length.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict']]]] enumeration_values: A list of EnumerationValue objects that defines the values that
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict', 'outputs.SlotTypeEnumerationValue']]]] enumeration_values: A list of EnumerationValue objects that defines the values that
                the slot type can take. Each value can have a list of synonyms, which are additional values that help
                train the machine learning model about the values that it resolves for a slot. Attributes are
                documented under enumeration_value.
@@ -409,6 +409,8 @@ class SlotType(pulumi.CustomResource):
         import pulumi_aws as aws
 
         flower_types = aws.lex.SlotType("flower_types",
+            create_version=True,
+            description="Types of flowers to order",
             enumeration_values=[
                 {
                     "synonyms": [
@@ -425,8 +427,6 @@ class SlotType(pulumi.CustomResource):
                     "value": "tulips",
                 },
             ],
-            create_version=True,
-            description="Types of flowers to order",
             name="FlowerTypes",
             value_selection_strategy="ORIGINAL_VALUE")
         ```
@@ -457,7 +457,7 @@ class SlotType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  create_version: pulumi.Input[Optional[_builtins.bool]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 enumeration_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict']]]]] = None,
+                 enumeration_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict', 'outputs.SlotTypeEnumerationValue']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  value_selection_strategy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -496,7 +496,7 @@ class SlotType(pulumi.CustomResource):
             create_version: pulumi.Input[Optional[_builtins.bool]] = None,
             created_date: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            enumeration_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict']]]]] = None,
+            enumeration_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict', 'outputs.SlotTypeEnumerationValue']]]]] = None,
             last_updated_date: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -515,7 +515,7 @@ class SlotType(pulumi.CustomResource):
                update. Defaults to `false`.
         :param pulumi.Input[_builtins.str] created_date: The date when the slot type version was created.
         :param pulumi.Input[_builtins.str] description: A description of the slot type. Must be less than or equal to 200 characters in length.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict']]]] enumeration_values: A list of EnumerationValue objects that defines the values that
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict', 'outputs.SlotTypeEnumerationValue']]]] enumeration_values: A list of EnumerationValue objects that defines the values that
                the slot type can take. Each value can have a list of synonyms, which are additional values that help
                train the machine learning model about the values that it resolves for a slot. Attributes are
                documented under enumeration_value.

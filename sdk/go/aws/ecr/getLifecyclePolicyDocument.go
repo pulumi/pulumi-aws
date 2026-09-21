@@ -32,6 +32,8 @@ import (
 //			example, err := ecr.GetLifecyclePolicyDocument(ctx, &ecr.GetLifecyclePolicyDocumentArgs{
 //				Rules: []ecr.GetLifecyclePolicyDocumentRule{
 //					{
+//						Priority:    1,
+//						Description: pulumi.StringRef("This is a test."),
 //						Selection: {
 //							TagStatus: "tagged",
 //							TagPrefixLists: []string{
@@ -40,8 +42,6 @@ import (
 //							CountType:   "imageCountMoreThan",
 //							CountNumber: 100,
 //						},
-//						Priority:    1,
-//						Description: pulumi.StringRef("This is a test."),
 //					},
 //				},
 //			}, nil)

@@ -26,11 +26,8 @@ namespace Pulumi.Aws.Rbin
     /// {
     ///     var example = new Aws.Rbin.Rule("example", new()
     ///     {
-    ///         RetentionPeriod = new Aws.Rbin.Inputs.RuleRetentionPeriodArgs
-    ///         {
-    ///             RetentionPeriodValue = 10,
-    ///             RetentionPeriodUnit = "DAYS",
-    ///         },
+    ///         Description = "Example tag-level retention rule",
+    ///         ResourceType = "EBS_SNAPSHOT",
     ///         ResourceTags = new[]
     ///         {
     ///             new Aws.Rbin.Inputs.RuleResourceTagArgs
@@ -39,8 +36,11 @@ namespace Pulumi.Aws.Rbin
     ///                 ResourceTagValue = "tag_value",
     ///             },
     ///         },
-    ///         Description = "Example tag-level retention rule",
-    ///         ResourceType = "EBS_SNAPSHOT",
+    ///         RetentionPeriod = new Aws.Rbin.Inputs.RuleRetentionPeriodArgs
+    ///         {
+    ///             RetentionPeriodValue = 10,
+    ///             RetentionPeriodUnit = "DAYS",
+    ///         },
     ///         Tags = 
     ///         {
     ///             { "test_tag_key", "test_tag_value" },
@@ -62,11 +62,8 @@ namespace Pulumi.Aws.Rbin
     /// {
     ///     var example = new Aws.Rbin.Rule("example", new()
     ///     {
-    ///         RetentionPeriod = new Aws.Rbin.Inputs.RuleRetentionPeriodArgs
-    ///         {
-    ///             RetentionPeriodValue = 10,
-    ///             RetentionPeriodUnit = "DAYS",
-    ///         },
+    ///         Description = "Example region-level retention rule with exclusion tags",
+    ///         ResourceType = "EC2_IMAGE",
     ///         ExcludeResourceTags = new[]
     ///         {
     ///             new Aws.Rbin.Inputs.RuleExcludeResourceTagArgs
@@ -75,8 +72,11 @@ namespace Pulumi.Aws.Rbin
     ///                 ResourceTagValue = "tag_value",
     ///             },
     ///         },
-    ///         Description = "Example region-level retention rule with exclusion tags",
-    ///         ResourceType = "EC2_IMAGE",
+    ///         RetentionPeriod = new Aws.Rbin.Inputs.RuleRetentionPeriodArgs
+    ///         {
+    ///             RetentionPeriodValue = 10,
+    ///             RetentionPeriodUnit = "DAYS",
+    ///         },
     ///         Tags = 
     ///         {
     ///             { "test_tag_key", "test_tag_value" },

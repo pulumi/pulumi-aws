@@ -529,11 +529,11 @@ class ResourceConfiguration(pulumi.CustomResource):
                  port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  protocol: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_configuration_definition: pulumi.Input[Optional[Union['ResourceConfigurationResourceConfigurationDefinitionArgs', 'ResourceConfigurationResourceConfigurationDefinitionArgsDict']]] = None,
+                 resource_configuration_definition: pulumi.Input[Optional[Union['ResourceConfigurationResourceConfigurationDefinitionArgs', 'ResourceConfigurationResourceConfigurationDefinitionArgsDict', 'outputs.ResourceConfigurationResourceConfigurationDefinition']]] = None,
                  resource_configuration_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ResourceConfigurationTimeoutsArgs', 'ResourceConfigurationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ResourceConfigurationTimeoutsArgs', 'ResourceConfigurationTimeoutsArgsDict', 'outputs.ResourceConfigurationTimeouts']]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -548,16 +548,16 @@ class ResourceConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.ResourceConfiguration("example",
+            name="Example",
+            resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
+            port_ranges=["80"],
+            protocol="TCP",
             resource_configuration_definition={
                 "dns_resource": {
                     "domain_name": "example.com",
                     "ip_address_type": "IPV4",
                 },
             },
-            name="Example",
-            resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
-            port_ranges=["80"],
-            protocol="TCP",
             tags={
                 "Environment": "Example",
             })
@@ -570,15 +570,15 @@ class ResourceConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.ResourceConfiguration("example",
+            name="Example",
+            resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
+            port_ranges=["80"],
+            protocol="TCP",
             resource_configuration_definition={
                 "ip_resource": {
                     "ip_address": "10.0.0.1",
                 },
             },
-            name="Example",
-            resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
-            port_ranges=["80"],
-            protocol="TCP",
             tags={
                 "Environment": "Example",
             })
@@ -592,18 +592,18 @@ class ResourceConfiguration(pulumi.CustomResource):
 
         example = aws.vpclattice.DomainVerification("example", domain_name="example.com")
         example_resource_configuration = aws.vpclattice.ResourceConfiguration("example",
-            resource_configuration_definition={
-                "dns_resource": {
-                    "domain_name": "test.example.com",
-                    "ip_address_type": "IPV4",
-                },
-            },
             name="Example",
             resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
             custom_domain_name="custom.example.com",
             domain_verification_id=example.id,
             port_ranges=["443"],
             protocol="TCP",
+            resource_configuration_definition={
+                "dns_resource": {
+                    "domain_name": "test.example.com",
+                    "ip_address_type": "IPV4",
+                },
+            },
             tags={
                 "Environment": "Example",
             })
@@ -616,14 +616,14 @@ class ResourceConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.vpclattice.ResourceConfiguration("test",
+            name="Example",
+            resource_gateway_identifier=test_aws_vpclattice_resource_gateway["id"],
+            type="ARN",
             resource_configuration_definition={
                 "arn_resource": {
                     "arn": example["arn"],
                 },
-            },
-            name="Example",
-            resource_gateway_identifier=test_aws_vpclattice_resource_gateway["id"],
-            type="ARN")
+            })
         ```
 
         ## Import
@@ -644,7 +644,7 @@ class ResourceConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] port_ranges: Port ranges to access the Resource either single port `80` or range `80-81` range.
         :param pulumi.Input[_builtins.str] protocol: Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ResourceConfigurationResourceConfigurationDefinitionArgs', 'ResourceConfigurationResourceConfigurationDefinitionArgsDict']] resource_configuration_definition: Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
+        :param pulumi.Input[Union['ResourceConfigurationResourceConfigurationDefinitionArgs', 'ResourceConfigurationResourceConfigurationDefinitionArgsDict', 'outputs.ResourceConfigurationResourceConfigurationDefinition']] resource_configuration_definition: Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] resource_configuration_group_id: ID of Resource Configuration where `type` is `CHILD`.
@@ -670,16 +670,16 @@ class ResourceConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.ResourceConfiguration("example",
+            name="Example",
+            resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
+            port_ranges=["80"],
+            protocol="TCP",
             resource_configuration_definition={
                 "dns_resource": {
                     "domain_name": "example.com",
                     "ip_address_type": "IPV4",
                 },
             },
-            name="Example",
-            resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
-            port_ranges=["80"],
-            protocol="TCP",
             tags={
                 "Environment": "Example",
             })
@@ -692,15 +692,15 @@ class ResourceConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.ResourceConfiguration("example",
+            name="Example",
+            resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
+            port_ranges=["80"],
+            protocol="TCP",
             resource_configuration_definition={
                 "ip_resource": {
                     "ip_address": "10.0.0.1",
                 },
             },
-            name="Example",
-            resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
-            port_ranges=["80"],
-            protocol="TCP",
             tags={
                 "Environment": "Example",
             })
@@ -714,18 +714,18 @@ class ResourceConfiguration(pulumi.CustomResource):
 
         example = aws.vpclattice.DomainVerification("example", domain_name="example.com")
         example_resource_configuration = aws.vpclattice.ResourceConfiguration("example",
-            resource_configuration_definition={
-                "dns_resource": {
-                    "domain_name": "test.example.com",
-                    "ip_address_type": "IPV4",
-                },
-            },
             name="Example",
             resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
             custom_domain_name="custom.example.com",
             domain_verification_id=example.id,
             port_ranges=["443"],
             protocol="TCP",
+            resource_configuration_definition={
+                "dns_resource": {
+                    "domain_name": "test.example.com",
+                    "ip_address_type": "IPV4",
+                },
+            },
             tags={
                 "Environment": "Example",
             })
@@ -738,14 +738,14 @@ class ResourceConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.vpclattice.ResourceConfiguration("test",
+            name="Example",
+            resource_gateway_identifier=test_aws_vpclattice_resource_gateway["id"],
+            type="ARN",
             resource_configuration_definition={
                 "arn_resource": {
                     "arn": example["arn"],
                 },
-            },
-            name="Example",
-            resource_gateway_identifier=test_aws_vpclattice_resource_gateway["id"],
-            type="ARN")
+            })
         ```
 
         ## Import
@@ -779,11 +779,11 @@ class ResourceConfiguration(pulumi.CustomResource):
                  port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  protocol: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_configuration_definition: pulumi.Input[Optional[Union['ResourceConfigurationResourceConfigurationDefinitionArgs', 'ResourceConfigurationResourceConfigurationDefinitionArgsDict']]] = None,
+                 resource_configuration_definition: pulumi.Input[Optional[Union['ResourceConfigurationResourceConfigurationDefinitionArgs', 'ResourceConfigurationResourceConfigurationDefinitionArgsDict', 'outputs.ResourceConfigurationResourceConfigurationDefinition']]] = None,
                  resource_configuration_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ResourceConfigurationTimeoutsArgs', 'ResourceConfigurationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ResourceConfigurationTimeoutsArgs', 'ResourceConfigurationTimeoutsArgsDict', 'outputs.ResourceConfigurationTimeouts']]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -831,12 +831,12 @@ class ResourceConfiguration(pulumi.CustomResource):
             port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             protocol: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            resource_configuration_definition: pulumi.Input[Optional[Union['ResourceConfigurationResourceConfigurationDefinitionArgs', 'ResourceConfigurationResourceConfigurationDefinitionArgsDict']]] = None,
+            resource_configuration_definition: pulumi.Input[Optional[Union['ResourceConfigurationResourceConfigurationDefinitionArgs', 'ResourceConfigurationResourceConfigurationDefinitionArgsDict', 'outputs.ResourceConfigurationResourceConfigurationDefinition']]] = None,
             resource_configuration_group_id: pulumi.Input[Optional[_builtins.str]] = None,
             resource_gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['ResourceConfigurationTimeoutsArgs', 'ResourceConfigurationTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['ResourceConfigurationTimeoutsArgs', 'ResourceConfigurationTimeoutsArgsDict', 'outputs.ResourceConfigurationTimeouts']]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None) -> 'ResourceConfiguration':
         """
         Get an existing ResourceConfiguration resource's state with the given name, id, and optional extra
@@ -855,7 +855,7 @@ class ResourceConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] port_ranges: Port ranges to access the Resource either single port `80` or range `80-81` range.
         :param pulumi.Input[_builtins.str] protocol: Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ResourceConfigurationResourceConfigurationDefinitionArgs', 'ResourceConfigurationResourceConfigurationDefinitionArgsDict']] resource_configuration_definition: Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
+        :param pulumi.Input[Union['ResourceConfigurationResourceConfigurationDefinitionArgs', 'ResourceConfigurationResourceConfigurationDefinitionArgsDict', 'outputs.ResourceConfigurationResourceConfigurationDefinition']] resource_configuration_definition: Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] resource_configuration_group_id: ID of Resource Configuration where `type` is `CHILD`.

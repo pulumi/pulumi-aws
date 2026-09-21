@@ -382,7 +382,7 @@ class EnvironmentProfile(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentProfileUserParameterArgs', 'EnvironmentProfileUserParameterArgsDict']]]]] = None,
+                 user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentProfileUserParameterArgs', 'EnvironmentProfileUserParameterArgsDict', 'outputs.EnvironmentProfileUserParameter']]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS DataZone Environment Profile.
@@ -397,22 +397,6 @@ class EnvironmentProfile(pulumi.CustomResource):
         import pulumi_aws as aws
 
         domain_execution_role = aws.iam.Role("domain_execution_role",
-            inline_policies=[{
-                "name": "example-name",
-                "policy": json.dumps({
-                    "Version": "2012-10-17",
-                    "Statement": [{
-                        "Action": [
-                            "datazone:*",
-                            "ram:*",
-                            "sso:*",
-                            "kms:*",
-                        ],
-                        "Effect": "Allow",
-                        "Resource": "*",
-                    }],
-                }),
-            }],
             name="example-name",
             assume_role_policy=json.dumps({
                 "Version": "2012-10-17",
@@ -438,7 +422,23 @@ class EnvironmentProfile(pulumi.CustomResource):
                         },
                     },
                 ],
-            }))
+            }),
+            inline_policies=[{
+                "name": "example-name",
+                "policy": json.dumps({
+                    "Version": "2012-10-17",
+                    "Statement": [{
+                        "Action": [
+                            "datazone:*",
+                            "ram:*",
+                            "sso:*",
+                            "kms:*",
+                        ],
+                        "Effect": "Allow",
+                        "Resource": "*",
+                    }],
+                }),
+            }])
         test_domain = aws.datazone.Domain("test",
             name="example-name",
             domain_execution_role=domain_execution_role.arn)
@@ -460,17 +460,17 @@ class EnvironmentProfile(pulumi.CustomResource):
             provisioning_role_arn=domain_execution_role.arn,
             enabled_regions=[test_get_region.region])
         test_environment_profile = aws.datazone.EnvironmentProfile("test",
-            user_parameters=[{
-                "name": "consumerGlueDbName",
-                "value": "value",
-            }],
             aws_account_id=test.account_id,
             aws_account_region=test_get_region.region,
             description="description",
             environment_blueprint_identifier=test_get_environment_blueprint.id,
             name="example-name",
             project_identifier=test_project.id,
-            domain_identifier=test_domain.id)
+            domain_identifier=test_domain.id,
+            user_parameters=[{
+                "name": "consumerGlueDbName",
+                "value": "value",
+            }])
         ```
 
         ## Import
@@ -504,7 +504,7 @@ class EnvironmentProfile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the environment profile.
         :param pulumi.Input[_builtins.str] project_identifier: Project identifier for environment profile.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentProfileUserParameterArgs', 'EnvironmentProfileUserParameterArgsDict']]]] user_parameters: Array of user parameters of the environment profile with the following attributes:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentProfileUserParameterArgs', 'EnvironmentProfileUserParameterArgsDict', 'outputs.EnvironmentProfileUserParameter']]]] user_parameters: Array of user parameters of the environment profile with the following attributes:
         """
         ...
     @overload
@@ -525,22 +525,6 @@ class EnvironmentProfile(pulumi.CustomResource):
         import pulumi_aws as aws
 
         domain_execution_role = aws.iam.Role("domain_execution_role",
-            inline_policies=[{
-                "name": "example-name",
-                "policy": json.dumps({
-                    "Version": "2012-10-17",
-                    "Statement": [{
-                        "Action": [
-                            "datazone:*",
-                            "ram:*",
-                            "sso:*",
-                            "kms:*",
-                        ],
-                        "Effect": "Allow",
-                        "Resource": "*",
-                    }],
-                }),
-            }],
             name="example-name",
             assume_role_policy=json.dumps({
                 "Version": "2012-10-17",
@@ -566,7 +550,23 @@ class EnvironmentProfile(pulumi.CustomResource):
                         },
                     },
                 ],
-            }))
+            }),
+            inline_policies=[{
+                "name": "example-name",
+                "policy": json.dumps({
+                    "Version": "2012-10-17",
+                    "Statement": [{
+                        "Action": [
+                            "datazone:*",
+                            "ram:*",
+                            "sso:*",
+                            "kms:*",
+                        ],
+                        "Effect": "Allow",
+                        "Resource": "*",
+                    }],
+                }),
+            }])
         test_domain = aws.datazone.Domain("test",
             name="example-name",
             domain_execution_role=domain_execution_role.arn)
@@ -588,17 +588,17 @@ class EnvironmentProfile(pulumi.CustomResource):
             provisioning_role_arn=domain_execution_role.arn,
             enabled_regions=[test_get_region.region])
         test_environment_profile = aws.datazone.EnvironmentProfile("test",
-            user_parameters=[{
-                "name": "consumerGlueDbName",
-                "value": "value",
-            }],
             aws_account_id=test.account_id,
             aws_account_region=test_get_region.region,
             description="description",
             environment_blueprint_identifier=test_get_environment_blueprint.id,
             name="example-name",
             project_identifier=test_project.id,
-            domain_identifier=test_domain.id)
+            domain_identifier=test_domain.id,
+            user_parameters=[{
+                "name": "consumerGlueDbName",
+                "value": "value",
+            }])
         ```
 
         ## Import
@@ -645,7 +645,7 @@ class EnvironmentProfile(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentProfileUserParameterArgs', 'EnvironmentProfileUserParameterArgsDict']]]]] = None,
+                 user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentProfileUserParameterArgs', 'EnvironmentProfileUserParameterArgsDict', 'outputs.EnvironmentProfileUserParameter']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -696,7 +696,7 @@ class EnvironmentProfile(pulumi.CustomResource):
             project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             updated_at: pulumi.Input[Optional[_builtins.str]] = None,
-            user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentProfileUserParameterArgs', 'EnvironmentProfileUserParameterArgsDict']]]]] = None) -> 'EnvironmentProfile':
+            user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentProfileUserParameterArgs', 'EnvironmentProfileUserParameterArgsDict', 'outputs.EnvironmentProfileUserParameter']]]]] = None) -> 'EnvironmentProfile':
         """
         Get an existing EnvironmentProfile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -715,7 +715,7 @@ class EnvironmentProfile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] project_identifier: Project identifier for environment profile.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] updated_at: Time of last update to environment profile.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentProfileUserParameterArgs', 'EnvironmentProfileUserParameterArgsDict']]]] user_parameters: Array of user parameters of the environment profile with the following attributes:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentProfileUserParameterArgs', 'EnvironmentProfileUserParameterArgsDict', 'outputs.EnvironmentProfileUserParameter']]]] user_parameters: Array of user parameters of the environment profile with the following attributes:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

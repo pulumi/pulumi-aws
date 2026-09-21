@@ -24,6 +24,11 @@ namespace Pulumi.Aws.AppStream
     /// {
     ///     var example = new Aws.AppStream.DirectoryConfig("example", new()
     ///     {
+    ///         DirectoryName = "NAME OF DIRECTORY",
+    ///         OrganizationalUnitDistinguishedNames = new[]
+    ///         {
+    ///             "DISTINGUISHED NAME",
+    ///         },
     ///         ServiceAccountCredentials = new Aws.AppStream.Inputs.DirectoryConfigServiceAccountCredentialsArgs
     ///         {
     ///             AccountName = "NAME OF ACCOUNT",
@@ -33,11 +38,6 @@ namespace Pulumi.Aws.AppStream
     ///         {
     ///             CertificateAuthorityArn = "ARN OF CERTIFICATE AUTHORITY",
     ///             Status = "STATUS OF CERTIFICATE BASED AUTHENTICATION",
-    ///         },
-    ///         DirectoryName = "NAME OF DIRECTORY",
-    ///         OrganizationalUnitDistinguishedNames = new[]
-    ///         {
-    ///             "DISTINGUISHED NAME",
     ///         },
     ///     });
     /// 

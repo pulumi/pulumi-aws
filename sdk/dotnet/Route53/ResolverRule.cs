@@ -45,6 +45,10 @@ namespace Pulumi.Aws.Route53
     /// {
     ///     var fwd = new Aws.Route53.ResolverRule("fwd", new()
     ///     {
+    ///         DomainName = "example.com",
+    ///         Name = "example",
+    ///         RuleType = "FORWARD",
+    ///         ResolverEndpointId = foo.Id,
     ///         TargetIps = new[]
     ///         {
     ///             new Aws.Route53.Inputs.ResolverRuleTargetIpArgs
@@ -52,10 +56,6 @@ namespace Pulumi.Aws.Route53
     ///                 Ip = "123.45.67.89",
     ///             },
     ///         },
-    ///         DomainName = "example.com",
-    ///         Name = "example",
-    ///         RuleType = "FORWARD",
-    ///         ResolverEndpointId = foo.Id,
     ///         Tags = 
     ///         {
     ///             { "Environment", "Prod" },
@@ -77,6 +77,10 @@ namespace Pulumi.Aws.Route53
     /// {
     ///     var fwd = new Aws.Route53.ResolverRule("fwd", new()
     ///     {
+    ///         DomainName = "example.com",
+    ///         Name = "example",
+    ///         RuleType = "FORWARD",
+    ///         ResolverEndpointId = foo.Id,
     ///         TargetIps = new[]
     ///         {
     ///             new Aws.Route53.Inputs.ResolverRuleTargetIpArgs
@@ -84,10 +88,6 @@ namespace Pulumi.Aws.Route53
     ///                 Ipv6 = "2600:1f18:1686:2000:4e60:6e3e:258:da36",
     ///             },
     ///         },
-    ///         DomainName = "example.com",
-    ///         Name = "example",
-    ///         RuleType = "FORWARD",
-    ///         ResolverEndpointId = foo.Id,
     ///         Tags = 
     ///         {
     ///             { "Environment", "Prod" },

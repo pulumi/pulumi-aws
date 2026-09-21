@@ -46,6 +46,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var bar = new ParameterGroup("bar", ParameterGroupArgs.builder()
+ *             .name("parameter-group-test")
+ *             .family("redshift-1.0")
  *             .parameters(            
  *                 ParameterGroupParameterArgs.builder()
  *                     .name("require_ssl")
@@ -59,8 +61,6 @@ import javax.annotation.Nullable;
  *                     .name("enable_user_activity_logging")
  *                     .value("true")
  *                     .build())
- *             .name("parameter-group-test")
- *             .family("redshift-1.0")
  *             .build());
  * 
  *     }

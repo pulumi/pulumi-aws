@@ -30,6 +30,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.DefaultRouteTable("example", new()
     ///     {
+    ///         DefaultRouteTableId = exampleAwsVpc.DefaultRouteTableId,
     ///         Routes = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.DefaultRouteTableRouteArgs
@@ -43,7 +44,6 @@ namespace Pulumi.Aws.Ec2
     ///                 EgressOnlyGatewayId = exampleAwsEgressOnlyInternetGateway.Id,
     ///             },
     ///         },
-    ///         DefaultRouteTableId = exampleAwsVpc.DefaultRouteTableId,
     ///         Tags = 
     ///         {
     ///             { "Name", "example" },

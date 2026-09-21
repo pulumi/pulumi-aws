@@ -326,13 +326,13 @@ class DevEnvironment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
-                 ides: pulumi.Input[Optional[Union['DevEnvironmentIdesArgs', 'DevEnvironmentIdesArgsDict']]] = None,
+                 ides: pulumi.Input[Optional[Union['DevEnvironmentIdesArgs', 'DevEnvironmentIdesArgsDict', 'outputs.DevEnvironmentIdes']]] = None,
                  inactivity_timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  instance_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 persistent_storage: pulumi.Input[Optional[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict']]] = None,
+                 persistent_storage: pulumi.Input[Optional[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict', 'outputs.DevEnvironmentPersistentStorage']]] = None,
                  project_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 repositories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DevEnvironmentRepositoryArgs', 'DevEnvironmentRepositoryArgsDict']]]]] = None,
+                 repositories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DevEnvironmentRepositoryArgs', 'DevEnvironmentRepositoryArgsDict', 'outputs.DevEnvironmentRepository']]]]] = None,
                  space_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -345,6 +345,10 @@ class DevEnvironment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.codecatalyst.DevEnvironment("test",
+            alias="devenv",
+            space_name="myspace",
+            project_name="myproject",
+            instance_type="dev.standard1.small",
             persistent_storage={
                 "size": 16,
             },
@@ -352,29 +356,25 @@ class DevEnvironment(pulumi.CustomResource):
                 "name": "PyCharm",
                 "runtime": "public.ecr.aws/jetbrains/py",
             },
+            inactivity_timeout_minutes=40,
             repositories=[{
                 "repository_name": "pulumi-provider-aws",
                 "branch_name": "main",
-            }],
-            alias="devenv",
-            space_name="myspace",
-            project_name="myproject",
-            instance_type="dev.standard1.small",
-            inactivity_timeout_minutes=40)
+            }])
         ```
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DevEnvironmentIdesArgs', 'DevEnvironmentIdesArgsDict']] ides: Information about the integrated development environment (IDE) configured for a Dev Environment.
+        :param pulumi.Input[Union['DevEnvironmentIdesArgs', 'DevEnvironmentIdesArgsDict', 'outputs.DevEnvironmentIdes']] ides: Information about the integrated development environment (IDE) configured for a Dev Environment.
         :param pulumi.Input[_builtins.int] inactivity_timeout_minutes: The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
         :param pulumi.Input[_builtins.str] instance_type: The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
                
                The following arguments are optional:
-        :param pulumi.Input[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict']] persistent_storage: Information about the amount of storage allocated to the Dev Environment.
+        :param pulumi.Input[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict', 'outputs.DevEnvironmentPersistentStorage']] persistent_storage: Information about the amount of storage allocated to the Dev Environment.
         :param pulumi.Input[_builtins.str] project_name: The name of the project in the space.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DevEnvironmentRepositoryArgs', 'DevEnvironmentRepositoryArgsDict']]]] repositories: The source repository that contains the branch to clone into the Dev Environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DevEnvironmentRepositoryArgs', 'DevEnvironmentRepositoryArgsDict', 'outputs.DevEnvironmentRepository']]]] repositories: The source repository that contains the branch to clone into the Dev Environment.
         :param pulumi.Input[_builtins.str] space_name: The name of the space.
         """
         ...
@@ -393,6 +393,10 @@ class DevEnvironment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.codecatalyst.DevEnvironment("test",
+            alias="devenv",
+            space_name="myspace",
+            project_name="myproject",
+            instance_type="dev.standard1.small",
             persistent_storage={
                 "size": 16,
             },
@@ -400,15 +404,11 @@ class DevEnvironment(pulumi.CustomResource):
                 "name": "PyCharm",
                 "runtime": "public.ecr.aws/jetbrains/py",
             },
+            inactivity_timeout_minutes=40,
             repositories=[{
                 "repository_name": "pulumi-provider-aws",
                 "branch_name": "main",
-            }],
-            alias="devenv",
-            space_name="myspace",
-            project_name="myproject",
-            instance_type="dev.standard1.small",
-            inactivity_timeout_minutes=40)
+            }])
         ```
 
 
@@ -428,13 +428,13 @@ class DevEnvironment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
-                 ides: pulumi.Input[Optional[Union['DevEnvironmentIdesArgs', 'DevEnvironmentIdesArgsDict']]] = None,
+                 ides: pulumi.Input[Optional[Union['DevEnvironmentIdesArgs', 'DevEnvironmentIdesArgsDict', 'outputs.DevEnvironmentIdes']]] = None,
                  inactivity_timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  instance_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 persistent_storage: pulumi.Input[Optional[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict']]] = None,
+                 persistent_storage: pulumi.Input[Optional[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict', 'outputs.DevEnvironmentPersistentStorage']]] = None,
                  project_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 repositories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DevEnvironmentRepositoryArgs', 'DevEnvironmentRepositoryArgsDict']]]]] = None,
+                 repositories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DevEnvironmentRepositoryArgs', 'DevEnvironmentRepositoryArgsDict', 'outputs.DevEnvironmentRepository']]]]] = None,
                  space_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -475,13 +475,13 @@ class DevEnvironment(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             alias: pulumi.Input[Optional[_builtins.str]] = None,
-            ides: pulumi.Input[Optional[Union['DevEnvironmentIdesArgs', 'DevEnvironmentIdesArgsDict']]] = None,
+            ides: pulumi.Input[Optional[Union['DevEnvironmentIdesArgs', 'DevEnvironmentIdesArgsDict', 'outputs.DevEnvironmentIdes']]] = None,
             inactivity_timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None,
             instance_type: pulumi.Input[Optional[_builtins.str]] = None,
-            persistent_storage: pulumi.Input[Optional[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict']]] = None,
+            persistent_storage: pulumi.Input[Optional[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict', 'outputs.DevEnvironmentPersistentStorage']]] = None,
             project_name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            repositories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DevEnvironmentRepositoryArgs', 'DevEnvironmentRepositoryArgsDict']]]]] = None,
+            repositories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DevEnvironmentRepositoryArgs', 'DevEnvironmentRepositoryArgsDict', 'outputs.DevEnvironmentRepository']]]]] = None,
             space_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'DevEnvironment':
         """
         Get an existing DevEnvironment resource's state with the given name, id, and optional extra
@@ -490,15 +490,15 @@ class DevEnvironment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DevEnvironmentIdesArgs', 'DevEnvironmentIdesArgsDict']] ides: Information about the integrated development environment (IDE) configured for a Dev Environment.
+        :param pulumi.Input[Union['DevEnvironmentIdesArgs', 'DevEnvironmentIdesArgsDict', 'outputs.DevEnvironmentIdes']] ides: Information about the integrated development environment (IDE) configured for a Dev Environment.
         :param pulumi.Input[_builtins.int] inactivity_timeout_minutes: The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
         :param pulumi.Input[_builtins.str] instance_type: The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
                
                The following arguments are optional:
-        :param pulumi.Input[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict']] persistent_storage: Information about the amount of storage allocated to the Dev Environment.
+        :param pulumi.Input[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict', 'outputs.DevEnvironmentPersistentStorage']] persistent_storage: Information about the amount of storage allocated to the Dev Environment.
         :param pulumi.Input[_builtins.str] project_name: The name of the project in the space.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DevEnvironmentRepositoryArgs', 'DevEnvironmentRepositoryArgsDict']]]] repositories: The source repository that contains the branch to clone into the Dev Environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DevEnvironmentRepositoryArgs', 'DevEnvironmentRepositoryArgsDict', 'outputs.DevEnvironmentRepository']]]] repositories: The source repository that contains the branch to clone into the Dev Environment.
         :param pulumi.Input[_builtins.str] space_name: The name of the space.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -265,10 +265,10 @@ class S3AccessPointAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 openzfs_configuration: pulumi.Input[Optional[Union['S3AccessPointAttachmentOpenzfsConfigurationArgs', 'S3AccessPointAttachmentOpenzfsConfigurationArgsDict']]] = None,
+                 openzfs_configuration: pulumi.Input[Optional[Union['S3AccessPointAttachmentOpenzfsConfigurationArgs', 'S3AccessPointAttachmentOpenzfsConfigurationArgsDict', 'outputs.S3AccessPointAttachmentOpenzfsConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3_access_point: pulumi.Input[Optional[Union['S3AccessPointAttachmentS3AccessPointArgs', 'S3AccessPointAttachmentS3AccessPointArgsDict']]] = None,
-                 timeouts: pulumi.Input[Optional[Union['S3AccessPointAttachmentTimeoutsArgs', 'S3AccessPointAttachmentTimeoutsArgsDict']]] = None,
+                 s3_access_point: pulumi.Input[Optional[Union['S3AccessPointAttachmentS3AccessPointArgs', 'S3AccessPointAttachmentS3AccessPointArgsDict', 'outputs.S3AccessPointAttachmentS3AccessPoint']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['S3AccessPointAttachmentTimeoutsArgs', 'S3AccessPointAttachmentTimeoutsArgsDict', 'outputs.S3AccessPointAttachmentTimeouts']]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -281,18 +281,18 @@ class S3AccessPointAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.fsx.S3AccessPointAttachment("example",
+            name="example-attachment",
+            type="OPENZFS",
             openzfs_configuration={
+                "volume_id": example_aws_fsx_openzfs_volume["id"],
                 "file_system_identity": {
+                    "type": "POSIX",
                     "posix_user": {
                         "uid": 1001,
                         "gid": 1001,
                     },
-                    "type": "POSIX",
                 },
-                "volume_id": example_aws_fsx_openzfs_volume["id"],
-            },
-            name="example-attachment",
-            type="OPENZFS")
+            })
         ```
 
         ## Import
@@ -307,9 +307,9 @@ class S3AccessPointAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the S3 access point.
-        :param pulumi.Input[Union['S3AccessPointAttachmentOpenzfsConfigurationArgs', 'S3AccessPointAttachmentOpenzfsConfigurationArgsDict']] openzfs_configuration: Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfs_configuration` Block for details.
+        :param pulumi.Input[Union['S3AccessPointAttachmentOpenzfsConfigurationArgs', 'S3AccessPointAttachmentOpenzfsConfigurationArgsDict', 'outputs.S3AccessPointAttachmentOpenzfsConfiguration']] openzfs_configuration: Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfs_configuration` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['S3AccessPointAttachmentS3AccessPointArgs', 'S3AccessPointAttachmentS3AccessPointArgsDict']] s3_access_point: S3 access point configuration. See `s3_access_point` Block for details.
+        :param pulumi.Input[Union['S3AccessPointAttachmentS3AccessPointArgs', 'S3AccessPointAttachmentS3AccessPointArgsDict', 'outputs.S3AccessPointAttachmentS3AccessPoint']] s3_access_point: S3 access point configuration. See `s3_access_point` Block for details.
         :param pulumi.Input[_builtins.str] type: Type of S3 access point. Valid values: `OpenZFS`.
                
                The following arguments are optional:
@@ -330,18 +330,18 @@ class S3AccessPointAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.fsx.S3AccessPointAttachment("example",
+            name="example-attachment",
+            type="OPENZFS",
             openzfs_configuration={
+                "volume_id": example_aws_fsx_openzfs_volume["id"],
                 "file_system_identity": {
+                    "type": "POSIX",
                     "posix_user": {
                         "uid": 1001,
                         "gid": 1001,
                     },
-                    "type": "POSIX",
                 },
-                "volume_id": example_aws_fsx_openzfs_volume["id"],
-            },
-            name="example-attachment",
-            type="OPENZFS")
+            })
         ```
 
         ## Import
@@ -369,10 +369,10 @@ class S3AccessPointAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 openzfs_configuration: pulumi.Input[Optional[Union['S3AccessPointAttachmentOpenzfsConfigurationArgs', 'S3AccessPointAttachmentOpenzfsConfigurationArgsDict']]] = None,
+                 openzfs_configuration: pulumi.Input[Optional[Union['S3AccessPointAttachmentOpenzfsConfigurationArgs', 'S3AccessPointAttachmentOpenzfsConfigurationArgsDict', 'outputs.S3AccessPointAttachmentOpenzfsConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3_access_point: pulumi.Input[Optional[Union['S3AccessPointAttachmentS3AccessPointArgs', 'S3AccessPointAttachmentS3AccessPointArgsDict']]] = None,
-                 timeouts: pulumi.Input[Optional[Union['S3AccessPointAttachmentTimeoutsArgs', 'S3AccessPointAttachmentTimeoutsArgsDict']]] = None,
+                 s3_access_point: pulumi.Input[Optional[Union['S3AccessPointAttachmentS3AccessPointArgs', 'S3AccessPointAttachmentS3AccessPointArgsDict', 'outputs.S3AccessPointAttachmentS3AccessPoint']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['S3AccessPointAttachmentTimeoutsArgs', 'S3AccessPointAttachmentTimeoutsArgsDict', 'outputs.S3AccessPointAttachmentTimeouts']]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -406,12 +406,12 @@ class S3AccessPointAttachment(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            openzfs_configuration: pulumi.Input[Optional[Union['S3AccessPointAttachmentOpenzfsConfigurationArgs', 'S3AccessPointAttachmentOpenzfsConfigurationArgsDict']]] = None,
+            openzfs_configuration: pulumi.Input[Optional[Union['S3AccessPointAttachmentOpenzfsConfigurationArgs', 'S3AccessPointAttachmentOpenzfsConfigurationArgsDict', 'outputs.S3AccessPointAttachmentOpenzfsConfiguration']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            s3_access_point: pulumi.Input[Optional[Union['S3AccessPointAttachmentS3AccessPointArgs', 'S3AccessPointAttachmentS3AccessPointArgsDict']]] = None,
+            s3_access_point: pulumi.Input[Optional[Union['S3AccessPointAttachmentS3AccessPointArgs', 'S3AccessPointAttachmentS3AccessPointArgsDict', 'outputs.S3AccessPointAttachmentS3AccessPoint']]] = None,
             s3_access_point_alias: pulumi.Input[Optional[_builtins.str]] = None,
             s3_access_point_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['S3AccessPointAttachmentTimeoutsArgs', 'S3AccessPointAttachmentTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['S3AccessPointAttachmentTimeoutsArgs', 'S3AccessPointAttachmentTimeoutsArgsDict', 'outputs.S3AccessPointAttachmentTimeouts']]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None) -> 'S3AccessPointAttachment':
         """
         Get an existing S3AccessPointAttachment resource's state with the given name, id, and optional extra
@@ -421,9 +421,9 @@ class S3AccessPointAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the S3 access point.
-        :param pulumi.Input[Union['S3AccessPointAttachmentOpenzfsConfigurationArgs', 'S3AccessPointAttachmentOpenzfsConfigurationArgsDict']] openzfs_configuration: Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfs_configuration` Block for details.
+        :param pulumi.Input[Union['S3AccessPointAttachmentOpenzfsConfigurationArgs', 'S3AccessPointAttachmentOpenzfsConfigurationArgsDict', 'outputs.S3AccessPointAttachmentOpenzfsConfiguration']] openzfs_configuration: Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfs_configuration` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['S3AccessPointAttachmentS3AccessPointArgs', 'S3AccessPointAttachmentS3AccessPointArgsDict']] s3_access_point: S3 access point configuration. See `s3_access_point` Block for details.
+        :param pulumi.Input[Union['S3AccessPointAttachmentS3AccessPointArgs', 'S3AccessPointAttachmentS3AccessPointArgsDict', 'outputs.S3AccessPointAttachmentS3AccessPoint']] s3_access_point: S3 access point configuration. See `s3_access_point` Block for details.
         :param pulumi.Input[_builtins.str] s3_access_point_alias: S3 access point's alias.
         :param pulumi.Input[_builtins.str] s3_access_point_arn: S3 access point's ARN.
         :param pulumi.Input[_builtins.str] type: Type of S3 access point. Valid values: `OpenZFS`.

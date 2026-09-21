@@ -33,12 +33,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apigatewayv2.RoutingRule;
  * import com.pulumi.aws.apigatewayv2.RoutingRuleArgs;
- * import com.pulumi.aws.apigatewayv2.inputs.RoutingRuleActionArgs;
- * import com.pulumi.aws.apigatewayv2.inputs.RoutingRuleActionInvokeApiArgs;
  * import com.pulumi.aws.apigatewayv2.inputs.RoutingRuleConditionArgs;
  * import com.pulumi.aws.apigatewayv2.inputs.RoutingRuleConditionMatchHeadersArgs;
  * import com.pulumi.aws.apigatewayv2.inputs.RoutingRuleConditionMatchHeadersAnyOfArgs;
  * import com.pulumi.aws.apigatewayv2.inputs.RoutingRuleConditionMatchBasePathsArgs;
+ * import com.pulumi.aws.apigatewayv2.inputs.RoutingRuleActionArgs;
+ * import com.pulumi.aws.apigatewayv2.inputs.RoutingRuleActionInvokeApiArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -53,13 +53,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RoutingRule("example", RoutingRuleArgs.builder()
- *             .actions(RoutingRuleActionArgs.builder()
- *                 .invokeApi(RoutingRuleActionInvokeApiArgs.builder()
- *                     .apiId("example-api-id")
- *                     .stage("example-stage")
- *                     .stripBasePath(true)
- *                     .build())
- *                 .build())
+ *             .domainName("test.example.com")
  *             .conditions(RoutingRuleConditionArgs.builder()
  *                 .matchHeaders(RoutingRuleConditionMatchHeadersArgs.builder()
  *                     .anyOf(RoutingRuleConditionMatchHeadersAnyOfArgs.builder()
@@ -73,7 +67,13 @@ import javax.annotation.Nullable;
  *                         "another-path")
  *                     .build())
  *                 .build())
- *             .domainName("test.example.com")
+ *             .actions(RoutingRuleActionArgs.builder()
+ *                 .invokeApi(RoutingRuleActionInvokeApiArgs.builder()
+ *                     .apiId("example-api-id")
+ *                     .stage("example-stage")
+ *                     .stripBasePath(true)
+ *                     .build())
+ *                 .build())
  *             .priority(1)
  *             .build());
  * 

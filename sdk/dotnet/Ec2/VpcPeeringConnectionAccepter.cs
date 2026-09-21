@@ -138,15 +138,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.VpcPeeringConnectionAccepter("example", new()
-    ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         IgnoreChanges =
-    ///         {
-    ///             "autoAccept",
-    ///         },
-    ///     });
+    ///     var example = new Aws.Ec2.VpcPeeringConnectionAccepter("example");
     /// 
     /// });
     /// ```

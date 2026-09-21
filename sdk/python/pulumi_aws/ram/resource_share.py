@@ -270,7 +270,7 @@ class ResourceShare(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  permission_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_share_configuration: pulumi.Input[Optional[Union['ResourceShareResourceShareConfigurationArgs', 'ResourceShareResourceShareConfigurationArgsDict']]] = None,
+                 resource_share_configuration: pulumi.Input[Optional[Union['ResourceShareResourceShareConfigurationArgs', 'ResourceShareResourceShareConfigurationArgsDict', 'outputs.ResourceShareResourceShareConfiguration']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -305,7 +305,7 @@ class ResourceShare(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the resource share.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permission_arns: ARNs of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ResourceShareResourceShareConfigurationArgs', 'ResourceShareResourceShareConfigurationArgsDict']] resource_share_configuration: Configuration block for the resource share. See `resource_share_configuration` Block for details.
+        :param pulumi.Input[Union['ResourceShareResourceShareConfigurationArgs', 'ResourceShareResourceShareConfigurationArgsDict', 'outputs.ResourceShareResourceShareConfiguration']] resource_share_configuration: Configuration block for the resource share. See `resource_share_configuration` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -359,7 +359,7 @@ class ResourceShare(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  permission_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_share_configuration: pulumi.Input[Optional[Union['ResourceShareResourceShareConfigurationArgs', 'ResourceShareResourceShareConfigurationArgsDict']]] = None,
+                 resource_share_configuration: pulumi.Input[Optional[Union['ResourceShareResourceShareConfigurationArgs', 'ResourceShareResourceShareConfigurationArgsDict', 'outputs.ResourceShareResourceShareConfiguration']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -393,7 +393,7 @@ class ResourceShare(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             permission_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            resource_share_configuration: pulumi.Input[Optional[Union['ResourceShareResourceShareConfigurationArgs', 'ResourceShareResourceShareConfigurationArgsDict']]] = None,
+            resource_share_configuration: pulumi.Input[Optional[Union['ResourceShareResourceShareConfigurationArgs', 'ResourceShareResourceShareConfigurationArgsDict', 'outputs.ResourceShareResourceShareConfiguration']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ResourceShare':
         """
@@ -408,7 +408,7 @@ class ResourceShare(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the resource share.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permission_arns: ARNs of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ResourceShareResourceShareConfigurationArgs', 'ResourceShareResourceShareConfigurationArgsDict']] resource_share_configuration: Configuration block for the resource share. See `resource_share_configuration` Block for details.
+        :param pulumi.Input[Union['ResourceShareResourceShareConfigurationArgs', 'ResourceShareResourceShareConfigurationArgsDict', 'outputs.ResourceShareResourceShareConfiguration']] resource_share_configuration: Configuration block for the resource share. See `resource_share_configuration` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

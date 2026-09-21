@@ -27,6 +27,14 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.User("example", new()
     ///     {
+    ///         InstanceId = exampleAwsConnectInstance.Id,
+    ///         Name = "example",
+    ///         Password = "Password123",
+    ///         RoutingProfileId = exampleAwsConnectRoutingProfile.RoutingProfileId,
+    ///         SecurityProfileIds = new[]
+    ///         {
+    ///             exampleAwsConnectSecurityProfile.SecurityProfileId,
+    ///         },
     ///         IdentityInfo = new Aws.Connect.Inputs.UserIdentityInfoArgs
     ///         {
     ///             FirstName = "example",
@@ -36,14 +44,6 @@ namespace Pulumi.Aws.Connect
     ///         {
     ///             AfterContactWorkTimeLimit = 0,
     ///             PhoneType = "SOFT_PHONE",
-    ///         },
-    ///         InstanceId = exampleAwsConnectInstance.Id,
-    ///         Name = "example",
-    ///         Password = "Password123",
-    ///         RoutingProfileId = exampleAwsConnectRoutingProfile.RoutingProfileId,
-    ///         SecurityProfileIds = new[]
-    ///         {
-    ///             exampleAwsConnectSecurityProfile.SecurityProfileId,
     ///         },
     ///     });
     /// 
@@ -62,6 +62,15 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.User("example", new()
     ///     {
+    ///         InstanceId = exampleAwsConnectInstance.Id,
+    ///         Name = "example",
+    ///         Password = "Password123",
+    ///         RoutingProfileId = exampleAwsConnectRoutingProfile.RoutingProfileId,
+    ///         HierarchyGroupId = exampleAwsConnectUserHierarchyGroup.HierarchyGroupId,
+    ///         SecurityProfileIds = new[]
+    ///         {
+    ///             exampleAwsConnectSecurityProfile.SecurityProfileId,
+    ///         },
     ///         IdentityInfo = new Aws.Connect.Inputs.UserIdentityInfoArgs
     ///         {
     ///             FirstName = "example",
@@ -71,15 +80,6 @@ namespace Pulumi.Aws.Connect
     ///         {
     ///             AfterContactWorkTimeLimit = 0,
     ///             PhoneType = "SOFT_PHONE",
-    ///         },
-    ///         InstanceId = exampleAwsConnectInstance.Id,
-    ///         Name = "example",
-    ///         Password = "Password123",
-    ///         RoutingProfileId = exampleAwsConnectRoutingProfile.RoutingProfileId,
-    ///         HierarchyGroupId = exampleAwsConnectUserHierarchyGroup.HierarchyGroupId,
-    ///         SecurityProfileIds = new[]
-    ///         {
-    ///             exampleAwsConnectSecurityProfile.SecurityProfileId,
     ///         },
     ///     });
     /// 
@@ -98,6 +98,14 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.User("example", new()
     ///     {
+    ///         InstanceId = exampleAwsConnectInstance.Id,
+    ///         Name = "example",
+    ///         Password = "Password123",
+    ///         RoutingProfileId = exampleAwsConnectRoutingProfile.RoutingProfileId,
+    ///         SecurityProfileIds = new[]
+    ///         {
+    ///             exampleAwsConnectSecurityProfile.SecurityProfileId,
+    ///         },
     ///         IdentityInfo = new Aws.Connect.Inputs.UserIdentityInfoArgs
     ///         {
     ///             Email = "example@example.com",
@@ -109,14 +117,6 @@ namespace Pulumi.Aws.Connect
     ///         {
     ///             AfterContactWorkTimeLimit = 0,
     ///             PhoneType = "SOFT_PHONE",
-    ///         },
-    ///         InstanceId = exampleAwsConnectInstance.Id,
-    ///         Name = "example",
-    ///         Password = "Password123",
-    ///         RoutingProfileId = exampleAwsConnectRoutingProfile.RoutingProfileId,
-    ///         SecurityProfileIds = new[]
-    ///         {
-    ///             exampleAwsConnectSecurityProfile.SecurityProfileId,
     ///         },
     ///     });
     /// 
@@ -135,11 +135,6 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.User("example", new()
     ///     {
-    ///         PhoneConfig = new Aws.Connect.Inputs.UserPhoneConfigArgs
-    ///         {
-    ///             AfterContactWorkTimeLimit = 0,
-    ///             PhoneType = "SOFT_PHONE",
-    ///         },
     ///         InstanceId = exampleAwsConnectInstance.Id,
     ///         Name = "example",
     ///         Password = "Password123",
@@ -147,6 +142,11 @@ namespace Pulumi.Aws.Connect
     ///         SecurityProfileIds = new[]
     ///         {
     ///             exampleAwsConnectSecurityProfile.SecurityProfileId,
+    ///         },
+    ///         PhoneConfig = new Aws.Connect.Inputs.UserPhoneConfigArgs
+    ///         {
+    ///             AfterContactWorkTimeLimit = 0,
+    ///             PhoneType = "SOFT_PHONE",
     ///         },
     ///     });
     /// 
@@ -165,13 +165,6 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.User("example", new()
     ///     {
-    ///         PhoneConfig = new Aws.Connect.Inputs.UserPhoneConfigArgs
-    ///         {
-    ///             AfterContactWorkTimeLimit = 0,
-    ///             AutoAccept = false,
-    ///             DeskPhoneNumber = "+112345678912",
-    ///             PhoneType = "DESK_PHONE",
-    ///         },
     ///         InstanceId = exampleAwsConnectInstance.Id,
     ///         Name = "example",
     ///         Password = "Password123",
@@ -180,6 +173,13 @@ namespace Pulumi.Aws.Connect
     ///         {
     ///             exampleAwsConnectSecurityProfile.SecurityProfileId,
     ///             example2.SecurityProfileId,
+    ///         },
+    ///         PhoneConfig = new Aws.Connect.Inputs.UserPhoneConfigArgs
+    ///         {
+    ///             AfterContactWorkTimeLimit = 0,
+    ///             AutoAccept = false,
+    ///             DeskPhoneNumber = "+112345678912",
+    ///             PhoneType = "DESK_PHONE",
     ///         },
     ///     });
     /// 

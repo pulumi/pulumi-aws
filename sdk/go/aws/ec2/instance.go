@@ -32,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			ubuntu, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+//				MostRecent: pulumi.BoolRef(true),
 //				Filters: []ec2.GetAmiFilter{
 //					{
 //						Name: "name",
@@ -46,7 +47,6 @@ import (
 //						},
 //					},
 //				},
-//				MostRecent: pulumi.BoolRef(true),
 //				Owners: []string{
 //					"099720109477",
 //				},
@@ -115,6 +115,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+//				MostRecent: pulumi.BoolRef(true),
+//				Owners: []string{
+//					"amazon",
+//				},
 //				Filters: []ec2.GetAmiFilter{
 //					{
 //						Name: "architecture",
@@ -129,22 +133,18 @@ import (
 //						},
 //					},
 //				},
-//				MostRecent: pulumi.BoolRef(true),
-//				Owners: []string{
-//					"amazon",
-//				},
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
+//				Ami: pulumi.String(example.Id),
 //				InstanceMarketOptions: &ec2.InstanceInstanceMarketOptionsArgs{
+//					MarketType: pulumi.String("spot"),
 //					SpotOptions: &ec2.InstanceInstanceMarketOptionsSpotOptionsArgs{
 //						MaxPrice: pulumi.String("0.0031"),
 //					},
-//					MarketType: pulumi.String("spot"),
 //				},
-//				Ami:          pulumi.String(example.Id),
 //				InstanceType: pulumi.String(ec2.InstanceType_T4g_Nano),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("test-spot"),
@@ -206,14 +206,14 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
+//				Ami:          pulumi.String("ami-005e54dee72cc1d00"),
+//				InstanceType: pulumi.String(ec2.InstanceType_T2_Micro),
 //				PrimaryNetworkInterface: &ec2.InstancePrimaryNetworkInterfaceArgs{
 //					NetworkInterfaceId: example.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				CreditSpecification: &ec2.InstanceCreditSpecificationArgs{
 //					CpuCredits: pulumi.String("unlimited"),
 //				},
-//				Ami:          pulumi.String("ami-005e54dee72cc1d00"),
-//				InstanceType: pulumi.String(ec2.InstanceType_T2_Micro),
 //			})
 //			if err != nil {
 //				return err
@@ -259,6 +259,10 @@ import (
 //				return err
 //			}
 //			amzn_linux_2023_ami, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+//				MostRecent: pulumi.BoolRef(true),
+//				Owners: []string{
+//					"amazon",
+//				},
 //				Filters: []ec2.GetAmiFilter{
 //					{
 //						Name: "name",
@@ -267,22 +271,18 @@ import (
 //						},
 //					},
 //				},
-//				MostRecent: pulumi.BoolRef(true),
-//				Owners: []string{
-//					"amazon",
-//				},
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
+//				Ami:          pulumi.String(amzn_linux_2023_ami.Id),
+//				InstanceType: pulumi.String(ec2.InstanceType_C6a_2XLarge),
+//				SubnetId:     exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //				CpuOptions: &ec2.InstanceCpuOptionsArgs{
 //					CoreCount:      pulumi.Int(2),
 //					ThreadsPerCore: pulumi.Int(2),
 //				},
-//				Ami:          pulumi.String(amzn_linux_2023_ami.Id),
-//				InstanceType: pulumi.String(ec2.InstanceType_C6a_2XLarge),
-//				SubnetId:     exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("tf-example"),
 //				},

@@ -377,15 +377,15 @@ class Registry(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 approval_configuration: pulumi.Input[Optional[Union['RegistryApprovalConfigurationArgs', 'RegistryApprovalConfigurationArgsDict']]] = None,
-                 auto_detection_configuration: pulumi.Input[Optional[Union['RegistryAutoDetectionConfigurationArgs', 'RegistryAutoDetectionConfigurationArgsDict']]] = None,
+                 approval_configuration: pulumi.Input[Optional[Union['RegistryApprovalConfigurationArgs', 'RegistryApprovalConfigurationArgsDict', 'outputs.RegistryApprovalConfiguration']]] = None,
+                 auto_detection_configuration: pulumi.Input[Optional[Union['RegistryAutoDetectionConfigurationArgs', 'RegistryAutoDetectionConfigurationArgsDict', 'outputs.RegistryAutoDetectionConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 discovery_configuration: pulumi.Input[Optional[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict']]] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['RegistryEncryptionConfigurationArgs', 'RegistryEncryptionConfigurationArgsDict']]] = None,
+                 discovery_configuration: pulumi.Input[Optional[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict', 'outputs.RegistryDiscoveryConfiguration']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['RegistryEncryptionConfigurationArgs', 'RegistryEncryptionConfigurationArgsDict', 'outputs.RegistryEncryptionConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['RegistryTimeoutsArgs', 'RegistryTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['RegistryTimeoutsArgs', 'RegistryTimeoutsArgsDict', 'outputs.RegistryTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS Agent Registry registry.
@@ -401,10 +401,10 @@ class Registry(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.agentregistry.Registry("example",
+            name="example-registry",
             discovery_configuration={
                 "authorizer_type": "AWS_IAM",
-            },
-            name="example-registry")
+            })
         ```
 
         ### With Description
@@ -414,11 +414,11 @@ class Registry(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.agentregistry.Registry("example",
+            name="example-registry",
+            description="Example agent registry",
             discovery_configuration={
                 "authorizer_type": "AWS_IAM",
-            },
-            name="example-registry",
-            description="Example agent registry")
+            })
         ```
 
         ### With Auto Approval
@@ -428,13 +428,13 @@ class Registry(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.agentregistry.Registry("example",
+            name="example-registry",
             approval_configuration={
                 "auto_approval_rules": ["APPROVE_ALL"],
             },
             discovery_configuration={
                 "authorizer_type": "AWS_IAM",
-            },
-            name="example-registry")
+            })
         ```
 
         ### With Custom JWT Authorization
@@ -444,19 +444,11 @@ class Registry(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.agentregistry.Registry("example",
+            name="example-registry",
             discovery_configuration={
+                "authorizer_type": "CUSTOM_JWT",
                 "authorizer_configuration": {
                     "custom_jwt_authorizer": {
-                        "custom_claims": [{
-                            "authorizing_claim_match_value": {
-                                "claim_match_value": {
-                                    "match_value_string": "authorized-user",
-                                },
-                                "claim_match_operator": "EQUALS",
-                            },
-                            "inbound_token_claim_name": "sub",
-                            "inbound_token_claim_value_type": "STRING",
-                        }],
                         "discovery_url": "https://example.com/.well-known/openid-configuration",
                         "allowed_audiences": ["https://api.example.com"],
                         "allowed_clients": ["client-id-1"],
@@ -464,11 +456,19 @@ class Registry(pulumi.CustomResource):
                             "read",
                             "write",
                         ],
+                        "custom_claims": [{
+                            "inbound_token_claim_name": "sub",
+                            "inbound_token_claim_value_type": "STRING",
+                            "authorizing_claim_match_value": {
+                                "claim_match_operator": "EQUALS",
+                                "claim_match_value": {
+                                    "match_value_string": "authorized-user",
+                                },
+                            },
+                        }],
                     },
                 },
-                "authorizer_type": "CUSTOM_JWT",
-            },
-            name="example-registry")
+            })
         ```
 
         ## Import
@@ -493,11 +493,11 @@ class Registry(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['RegistryApprovalConfigurationArgs', 'RegistryApprovalConfigurationArgsDict']] approval_configuration: Approval configuration for registry records. See below.
-        :param pulumi.Input[Union['RegistryAutoDetectionConfigurationArgs', 'RegistryAutoDetectionConfigurationArgsDict']] auto_detection_configuration: Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
+        :param pulumi.Input[Union['RegistryApprovalConfigurationArgs', 'RegistryApprovalConfigurationArgsDict', 'outputs.RegistryApprovalConfiguration']] approval_configuration: Approval configuration for registry records. See below.
+        :param pulumi.Input[Union['RegistryAutoDetectionConfigurationArgs', 'RegistryAutoDetectionConfigurationArgsDict', 'outputs.RegistryAutoDetectionConfiguration']] auto_detection_configuration: Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
         :param pulumi.Input[_builtins.str] description: Description of the registry. Maximum length of 4096 characters.
-        :param pulumi.Input[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict']] discovery_configuration: Discovery configuration for the registry. See below.
-        :param pulumi.Input[Union['RegistryEncryptionConfigurationArgs', 'RegistryEncryptionConfigurationArgsDict']] encryption_configuration: Server-side encryption configuration for the registry. See below.
+        :param pulumi.Input[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict', 'outputs.RegistryDiscoveryConfiguration']] discovery_configuration: Discovery configuration for the registry. See below.
+        :param pulumi.Input[Union['RegistryEncryptionConfigurationArgs', 'RegistryEncryptionConfigurationArgsDict', 'outputs.RegistryEncryptionConfiguration']] encryption_configuration: Server-side encryption configuration for the registry. See below.
         :param pulumi.Input[_builtins.str] name: Name of the registry. Must start with a letter or digit. Valid characters are a-z, A-Z, 0-9, _ (underscore), - (hyphen), . (dot), and / (forward slash). The name can have up to 64 characters.
                
                The following arguments are optional:
@@ -524,10 +524,10 @@ class Registry(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.agentregistry.Registry("example",
+            name="example-registry",
             discovery_configuration={
                 "authorizer_type": "AWS_IAM",
-            },
-            name="example-registry")
+            })
         ```
 
         ### With Description
@@ -537,11 +537,11 @@ class Registry(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.agentregistry.Registry("example",
+            name="example-registry",
+            description="Example agent registry",
             discovery_configuration={
                 "authorizer_type": "AWS_IAM",
-            },
-            name="example-registry",
-            description="Example agent registry")
+            })
         ```
 
         ### With Auto Approval
@@ -551,13 +551,13 @@ class Registry(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.agentregistry.Registry("example",
+            name="example-registry",
             approval_configuration={
                 "auto_approval_rules": ["APPROVE_ALL"],
             },
             discovery_configuration={
                 "authorizer_type": "AWS_IAM",
-            },
-            name="example-registry")
+            })
         ```
 
         ### With Custom JWT Authorization
@@ -567,19 +567,11 @@ class Registry(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.agentregistry.Registry("example",
+            name="example-registry",
             discovery_configuration={
+                "authorizer_type": "CUSTOM_JWT",
                 "authorizer_configuration": {
                     "custom_jwt_authorizer": {
-                        "custom_claims": [{
-                            "authorizing_claim_match_value": {
-                                "claim_match_value": {
-                                    "match_value_string": "authorized-user",
-                                },
-                                "claim_match_operator": "EQUALS",
-                            },
-                            "inbound_token_claim_name": "sub",
-                            "inbound_token_claim_value_type": "STRING",
-                        }],
                         "discovery_url": "https://example.com/.well-known/openid-configuration",
                         "allowed_audiences": ["https://api.example.com"],
                         "allowed_clients": ["client-id-1"],
@@ -587,11 +579,19 @@ class Registry(pulumi.CustomResource):
                             "read",
                             "write",
                         ],
+                        "custom_claims": [{
+                            "inbound_token_claim_name": "sub",
+                            "inbound_token_claim_value_type": "STRING",
+                            "authorizing_claim_match_value": {
+                                "claim_match_operator": "EQUALS",
+                                "claim_match_value": {
+                                    "match_value_string": "authorized-user",
+                                },
+                            },
+                        }],
                     },
                 },
-                "authorizer_type": "CUSTOM_JWT",
-            },
-            name="example-registry")
+            })
         ```
 
         ## Import
@@ -629,15 +629,15 @@ class Registry(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 approval_configuration: pulumi.Input[Optional[Union['RegistryApprovalConfigurationArgs', 'RegistryApprovalConfigurationArgsDict']]] = None,
-                 auto_detection_configuration: pulumi.Input[Optional[Union['RegistryAutoDetectionConfigurationArgs', 'RegistryAutoDetectionConfigurationArgsDict']]] = None,
+                 approval_configuration: pulumi.Input[Optional[Union['RegistryApprovalConfigurationArgs', 'RegistryApprovalConfigurationArgsDict', 'outputs.RegistryApprovalConfiguration']]] = None,
+                 auto_detection_configuration: pulumi.Input[Optional[Union['RegistryAutoDetectionConfigurationArgs', 'RegistryAutoDetectionConfigurationArgsDict', 'outputs.RegistryAutoDetectionConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 discovery_configuration: pulumi.Input[Optional[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict']]] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['RegistryEncryptionConfigurationArgs', 'RegistryEncryptionConfigurationArgsDict']]] = None,
+                 discovery_configuration: pulumi.Input[Optional[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict', 'outputs.RegistryDiscoveryConfiguration']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['RegistryEncryptionConfigurationArgs', 'RegistryEncryptionConfigurationArgsDict', 'outputs.RegistryEncryptionConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['RegistryTimeoutsArgs', 'RegistryTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['RegistryTimeoutsArgs', 'RegistryTimeoutsArgsDict', 'outputs.RegistryTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -671,18 +671,18 @@ class Registry(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            approval_configuration: pulumi.Input[Optional[Union['RegistryApprovalConfigurationArgs', 'RegistryApprovalConfigurationArgsDict']]] = None,
-            auto_detection_configuration: pulumi.Input[Optional[Union['RegistryAutoDetectionConfigurationArgs', 'RegistryAutoDetectionConfigurationArgsDict']]] = None,
+            approval_configuration: pulumi.Input[Optional[Union['RegistryApprovalConfigurationArgs', 'RegistryApprovalConfigurationArgsDict', 'outputs.RegistryApprovalConfiguration']]] = None,
+            auto_detection_configuration: pulumi.Input[Optional[Union['RegistryAutoDetectionConfigurationArgs', 'RegistryAutoDetectionConfigurationArgsDict', 'outputs.RegistryAutoDetectionConfiguration']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            discovery_configuration: pulumi.Input[Optional[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict']]] = None,
-            encryption_configuration: pulumi.Input[Optional[Union['RegistryEncryptionConfigurationArgs', 'RegistryEncryptionConfigurationArgsDict']]] = None,
+            discovery_configuration: pulumi.Input[Optional[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict', 'outputs.RegistryDiscoveryConfiguration']]] = None,
+            encryption_configuration: pulumi.Input[Optional[Union['RegistryEncryptionConfigurationArgs', 'RegistryEncryptionConfigurationArgsDict', 'outputs.RegistryEncryptionConfiguration']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             registry_arn: pulumi.Input[Optional[_builtins.str]] = None,
             registry_id: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['RegistryTimeoutsArgs', 'RegistryTimeoutsArgsDict']]] = None) -> 'Registry':
+            timeouts: pulumi.Input[Optional[Union['RegistryTimeoutsArgs', 'RegistryTimeoutsArgsDict', 'outputs.RegistryTimeouts']]] = None) -> 'Registry':
         """
         Get an existing Registry resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -690,11 +690,11 @@ class Registry(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['RegistryApprovalConfigurationArgs', 'RegistryApprovalConfigurationArgsDict']] approval_configuration: Approval configuration for registry records. See below.
-        :param pulumi.Input[Union['RegistryAutoDetectionConfigurationArgs', 'RegistryAutoDetectionConfigurationArgsDict']] auto_detection_configuration: Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
+        :param pulumi.Input[Union['RegistryApprovalConfigurationArgs', 'RegistryApprovalConfigurationArgsDict', 'outputs.RegistryApprovalConfiguration']] approval_configuration: Approval configuration for registry records. See below.
+        :param pulumi.Input[Union['RegistryAutoDetectionConfigurationArgs', 'RegistryAutoDetectionConfigurationArgsDict', 'outputs.RegistryAutoDetectionConfiguration']] auto_detection_configuration: Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
         :param pulumi.Input[_builtins.str] description: Description of the registry. Maximum length of 4096 characters.
-        :param pulumi.Input[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict']] discovery_configuration: Discovery configuration for the registry. See below.
-        :param pulumi.Input[Union['RegistryEncryptionConfigurationArgs', 'RegistryEncryptionConfigurationArgsDict']] encryption_configuration: Server-side encryption configuration for the registry. See below.
+        :param pulumi.Input[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict', 'outputs.RegistryDiscoveryConfiguration']] discovery_configuration: Discovery configuration for the registry. See below.
+        :param pulumi.Input[Union['RegistryEncryptionConfigurationArgs', 'RegistryEncryptionConfigurationArgsDict', 'outputs.RegistryEncryptionConfiguration']] encryption_configuration: Server-side encryption configuration for the registry. See below.
         :param pulumi.Input[_builtins.str] name: Name of the registry. Must start with a letter or digit. Valid characters are a-z, A-Z, 0-9, _ (underscore), - (hyphen), . (dot), and / (forward slash). The name can have up to 64 characters.
                
                The following arguments are optional:

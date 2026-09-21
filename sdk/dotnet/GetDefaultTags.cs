@@ -47,15 +47,7 @@ namespace Pulumi.Aws
         /// 
         ///     var exampleGroup = new Aws.AutoScaling.Group("example", new()
         ///     {
-        ///         Tags = .Select(entry =&gt; 
-        ///         {
-        ///             return 
-        ///             {
-        ///                 { "key", key },
-        ///                 { "value", entry },
-        ///                 { "propagateAtLaunch", true },
-        ///             };
-        ///         }).ToList(),
+        ///         Tags = ,
         ///     });
         /// 
         /// });
@@ -100,15 +92,7 @@ namespace Pulumi.Aws
         /// 
         ///     var exampleGroup = new Aws.AutoScaling.Group("example", new()
         ///     {
-        ///         Tags = .Select(entry =&gt; 
-        ///         {
-        ///             return 
-        ///             {
-        ///                 { "key", key },
-        ///                 { "value", entry },
-        ///                 { "propagateAtLaunch", true },
-        ///             };
-        ///         }).ToList(),
+        ///         Tags = ,
         ///     });
         /// 
         /// });
@@ -153,15 +137,7 @@ namespace Pulumi.Aws
         /// 
         ///     var exampleGroup = new Aws.AutoScaling.Group("example", new()
         ///     {
-        ///         Tags = .Select(entry =&gt; 
-        ///         {
-        ///             return 
-        ///             {
-        ///                 { "key", key },
-        ///                 { "value", entry },
-        ///                 { "propagateAtLaunch", true },
-        ///             };
-        ///         }).ToList(),
+        ///         Tags = ,
         ///     });
         /// 
         /// });

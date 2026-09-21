@@ -38,6 +38,8 @@ import (
 //				return err
 //			}
 //			_, err = lightsail.NewDistribution(ctx, "example", &lightsail.DistributionArgs{
+//				Name:     pulumi.String("example-distribution"),
+//				BundleId: pulumi.String("small_1_0"),
 //				Origin: &lightsail.DistributionOriginArgs{
 //					Name:       example.Name,
 //					RegionName: example.Region,
@@ -46,6 +48,11 @@ import (
 //					Behavior: pulumi.String("cache"),
 //				},
 //				CacheBehaviorSettings: &lightsail.DistributionCacheBehaviorSettingsArgs{
+//					AllowedHttpMethods: pulumi.String("GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE"),
+//					CachedHttpMethods:  pulumi.String("GET,HEAD"),
+//					DefaultTtl:         pulumi.Int(86400),
+//					MaximumTtl:         pulumi.Int(31536000),
+//					MinimumTtl:         pulumi.Int(0),
 //					ForwardedCookies: &lightsail.DistributionCacheBehaviorSettingsForwardedCookiesArgs{
 //						Option: pulumi.String("none"),
 //					},
@@ -55,14 +62,7 @@ import (
 //					ForwardedQueryStrings: &lightsail.DistributionCacheBehaviorSettingsForwardedQueryStringsArgs{
 //						Option: pulumi.Bool(false),
 //					},
-//					AllowedHttpMethods: pulumi.String("GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE"),
-//					CachedHttpMethods:  pulumi.String("GET,HEAD"),
-//					DefaultTtl:         pulumi.Int(86400),
-//					MaximumTtl:         pulumi.Int(31536000),
-//					MinimumTtl:         pulumi.Int(0),
 //				},
-//				Name:     pulumi.String("example-distribution"),
-//				BundleId: pulumi.String("small_1_0"),
 //			})
 //			if err != nil {
 //				return err
@@ -89,6 +89,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
+//				State: pulumi.StringRef("available"),
 //				Filters: []aws.GetAvailabilityZonesFilter{
 //					{
 //						Name: "opt-in-status",
@@ -97,7 +98,6 @@ import (
 //						},
 //					},
 //				},
-//				State: pulumi.StringRef("available"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -125,6 +125,8 @@ import (
 //				return err
 //			}
 //			_, err = lightsail.NewDistribution(ctx, "example", &lightsail.DistributionArgs{
+//				Name:     pulumi.String("example-distribution"),
+//				BundleId: pulumi.String("small_1_0"),
 //				Origin: &lightsail.DistributionOriginArgs{
 //					Name:       exampleInstance.Name,
 //					RegionName: pulumi.String(available.Id),
@@ -132,8 +134,6 @@ import (
 //				DefaultCacheBehavior: &lightsail.DistributionDefaultCacheBehaviorArgs{
 //					Behavior: pulumi.String("cache"),
 //				},
-//				Name:     pulumi.String("example-distribution"),
-//				BundleId: pulumi.String("small_1_0"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				example,
 //			}))
@@ -162,6 +162,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
+//				State: pulumi.StringRef("available"),
 //				Filters: []aws.GetAvailabilityZonesFilter{
 //					{
 //						Name: "opt-in-status",
@@ -170,7 +171,6 @@ import (
 //						},
 //					},
 //				},
-//				State: pulumi.StringRef("available"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -203,6 +203,8 @@ import (
 //				return err
 //			}
 //			_, err = lightsail.NewDistribution(ctx, "example", &lightsail.DistributionArgs{
+//				Name:     pulumi.String("example-distribution"),
+//				BundleId: pulumi.String("small_1_0"),
 //				Origin: &lightsail.DistributionOriginArgs{
 //					Name:       example.Name,
 //					RegionName: pulumi.String(available.Id),
@@ -210,8 +212,6 @@ import (
 //				DefaultCacheBehavior: &lightsail.DistributionDefaultCacheBehaviorArgs{
 //					Behavior: pulumi.String("cache"),
 //				},
-//				Name:     pulumi.String("example-distribution"),
-//				BundleId: pulumi.String("small_1_0"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleLbAttachment,
 //			}))

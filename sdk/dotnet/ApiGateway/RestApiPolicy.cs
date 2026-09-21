@@ -37,18 +37,7 @@ namespace Pulumi.Aws.ApiGateway
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "IpAddress",
-    ///                         Variable = "aws:SourceIp",
-    ///                         Values = new[]
-    ///                         {
-    ///                             "123.123.123.123/32",
-    ///                         },
-    ///                     },
-    ///                 },
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -60,7 +49,6 @@ namespace Pulumi.Aws.ApiGateway
     ///                         },
     ///                     },
     ///                 },
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "execute-api:Invoke",
@@ -68,6 +56,18 @@ namespace Pulumi.Aws.ApiGateway
     ///                 Resources = new[]
     ///                 {
     ///                     $"{testRestApi.ExecutionArn}/*",
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "IpAddress",
+    ///                         Variable = "aws:SourceIp",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "123.123.123.123/32",
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
     ///         },

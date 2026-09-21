@@ -71,6 +71,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.GetHosts(ctx, &ec2.GetHostsArgs{
+//				OutpostArn: pulumi.StringRef(example.Arn),
 //				Filters: []ec2.GetHostsFilter{
 //					{
 //						Name: "state",
@@ -79,7 +80,6 @@ import (
 //						},
 //					},
 //				},
-//				OutpostArn: pulumi.StringRef(example.Arn),
 //			}, nil)
 //			if err != nil {
 //				return err

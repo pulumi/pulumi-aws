@@ -40,6 +40,7 @@ namespace Pulumi.Aws.S3Control
     ///     {
     ///         Details = new Aws.S3Control.Inputs.MultiRegionAccessPointDetailsArgs
     ///         {
+    ///             Name = "example",
     ///             Regions = new[]
     ///             {
     ///                 new Aws.S3Control.Inputs.MultiRegionAccessPointDetailsRegionArgs
@@ -51,12 +52,12 @@ namespace Pulumi.Aws.S3Control
     ///                     Bucket = secondary.BucketName,
     ///                 },
     ///             },
-    ///             Name = "example",
     ///         },
     ///     });
     /// 
     ///     var exampleMultiRegionAccessPointRoutes = new Aws.S3Control.MultiRegionAccessPointRoutes("example", new()
     ///     {
+    ///         Mrap = example.Arn,
     ///         Routes = new[]
     ///         {
     ///             new Aws.S3Control.Inputs.MultiRegionAccessPointRoutesRouteArgs
@@ -72,7 +73,6 @@ namespace Pulumi.Aws.S3Control
     ///                 TrafficDialPercentage = 100,
     ///             },
     ///         },
-    ///         Mrap = example.Arn,
     ///     });
     /// 
     /// });
@@ -90,6 +90,7 @@ namespace Pulumi.Aws.S3Control
     /// {
     ///     var example = new Aws.S3Control.MultiRegionAccessPointRoutes("example", new()
     ///     {
+    ///         Mrap = exampleAwsS3controlMultiRegionAccessPoint.Arn,
     ///         Routes = new[]
     ///         {
     ///             new Aws.S3Control.Inputs.MultiRegionAccessPointRoutesRouteArgs
@@ -105,7 +106,6 @@ namespace Pulumi.Aws.S3Control
     ///                 TrafficDialPercentage = 100,
     ///             },
     ///         },
-    ///         Mrap = exampleAwsS3controlMultiRegionAccessPoint.Arn,
     ///     });
     /// 
     /// });

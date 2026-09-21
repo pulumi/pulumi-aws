@@ -41,18 +41,8 @@ namespace Pulumi.Aws.MediaStore
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "Bool",
-    ///                         Variable = "aws:SecureTransport",
-    ///                         Values = new[]
-    ///                         {
-    ///                             "true",
-    ///                         },
-    ///                     },
-    ///                 },
+    ///                 Sid = "MediaStoreFullAccess",
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -64,8 +54,6 @@ namespace Pulumi.Aws.MediaStore
     ///                         },
     ///                     },
     ///                 },
-    ///                 Sid = "MediaStoreFullAccess",
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "mediastore:*",
@@ -73,6 +61,18 @@ namespace Pulumi.Aws.MediaStore
     ///                 Resources = new[]
     ///                 {
     ///                     $"arn:aws:mediastore:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:container/{exampleContainer.Name}/*",
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "Bool",
+    ///                         Variable = "aws:SecureTransport",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "true",
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
     ///         },

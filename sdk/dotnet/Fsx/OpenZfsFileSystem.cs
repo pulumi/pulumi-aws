@@ -61,12 +61,6 @@ namespace Pulumi.Aws.Fsx
     ///         {
     ///             exampleAwsSecurityGroup.Id,
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         IgnoreChanges =
-    ///         {
-    ///             "securityGroupIds",
-    ///         },
     ///     });
     /// 
     /// });

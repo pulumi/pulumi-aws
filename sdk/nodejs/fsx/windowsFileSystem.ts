@@ -40,6 +40,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.fsx.WindowsFileSystem("example", {
+ *     kmsKeyId: exampleAwsKmsKey.arn,
+ *     storageCapacity: 32,
+ *     subnetIds: [exampleAwsSubnet.id],
+ *     throughputCapacity: 32,
  *     selfManagedActiveDirectory: {
  *         dnsIps: [
  *             "10.0.0.111",
@@ -49,10 +53,6 @@ import * as utilities from "../utilities";
  *         password: "avoid-plaintext-passwords",
  *         username: "Admin",
  *     },
- *     kmsKeyId: exampleAwsKmsKey.arn,
- *     storageCapacity: 32,
- *     subnetIds: [exampleAwsSubnet.id],
- *     throughputCapacity: 32,
  * });
  * ```
  *
@@ -63,6 +63,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.fsx.WindowsFileSystem("example", {
+ *     kmsKeyId: exampleAwsKmsKey.arn,
+ *     storageCapacity: 32,
+ *     subnetIds: [exampleAwsSubnet.id],
+ *     throughputCapacity: 32,
  *     selfManagedActiveDirectory: {
  *         dnsIps: [
  *             "10.0.0.111",
@@ -71,10 +75,6 @@ import * as utilities from "../utilities";
  *         domainName: "corp.example.com",
  *         domainJoinServiceAccountSecret: exampleAwsSecretsmanagerSecret.arn,
  *     },
- *     kmsKeyId: exampleAwsKmsKey.arn,
- *     storageCapacity: 32,
- *     subnetIds: [exampleAwsSubnet.id],
- *     throughputCapacity: 32,
  * });
  * ```
  *
@@ -92,9 +92,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.fsx.WindowsFileSystem("example", {securityGroupIds: [exampleAwsSecurityGroup.id]}, {
- *     ignoreChanges: ["securityGroupIds"],
- * });
+ * const example = new aws.fsx.WindowsFileSystem("example", {securityGroupIds: [exampleAwsSecurityGroup.id]});
  * ```
  */
 export class WindowsFileSystem extends pulumi.CustomResource {

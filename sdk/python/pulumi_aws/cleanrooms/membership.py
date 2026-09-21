@@ -381,8 +381,8 @@ class Membership(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collaboration_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 default_result_configuration: pulumi.Input[Optional[Union['MembershipDefaultResultConfigurationArgs', 'MembershipDefaultResultConfigurationArgsDict']]] = None,
-                 payment_configuration: pulumi.Input[Optional[Union['MembershipPaymentConfigurationArgs', 'MembershipPaymentConfigurationArgsDict']]] = None,
+                 default_result_configuration: pulumi.Input[Optional[Union['MembershipDefaultResultConfigurationArgs', 'MembershipDefaultResultConfigurationArgsDict', 'outputs.MembershipDefaultResultConfiguration']]] = None,
+                 payment_configuration: pulumi.Input[Optional[Union['MembershipPaymentConfigurationArgs', 'MembershipPaymentConfigurationArgsDict', 'outputs.MembershipPaymentConfiguration']]] = None,
                  query_log_status: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -399,7 +399,10 @@ class Membership(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_membership = aws.cleanrooms.Membership("test_membership",
+            collaboration_id="1234abcd-12ab-34cd-56ef-1234567890ab",
+            query_log_status="DISABLED",
             default_result_configuration={
+                "role_arn": "arn:aws:iam::123456789012:role/role-name",
                 "output_configuration": {
                     "s3": {
                         "bucket": "test-bucket",
@@ -407,10 +410,7 @@ class Membership(pulumi.CustomResource):
                         "key_prefix": "test-prefix",
                     },
                 },
-                "role_arn": "arn:aws:iam::123456789012:role/role-name",
             },
-            collaboration_id="1234abcd-12ab-34cd-56ef-1234567890ab",
-            query_log_status="DISABLED",
             tags={
                 "Project": "Terraform",
             })
@@ -439,7 +439,7 @@ class Membership(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] collaboration_id: The ID of the collaboration to which the member was invited.
-        :param pulumi.Input[Union['MembershipDefaultResultConfigurationArgs', 'MembershipDefaultResultConfigurationArgsDict']] default_result_configuration: The default configuration for a query result.
+        :param pulumi.Input[Union['MembershipDefaultResultConfigurationArgs', 'MembershipDefaultResultConfigurationArgsDict', 'outputs.MembershipDefaultResultConfiguration']] default_result_configuration: The default configuration for a query result.
         :param pulumi.Input[_builtins.str] query_log_status: An indicator as to whether query logging has been enabled or disabled for the membership.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key value pairs which tag the membership.
@@ -462,7 +462,10 @@ class Membership(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_membership = aws.cleanrooms.Membership("test_membership",
+            collaboration_id="1234abcd-12ab-34cd-56ef-1234567890ab",
+            query_log_status="DISABLED",
             default_result_configuration={
+                "role_arn": "arn:aws:iam::123456789012:role/role-name",
                 "output_configuration": {
                     "s3": {
                         "bucket": "test-bucket",
@@ -470,10 +473,7 @@ class Membership(pulumi.CustomResource):
                         "key_prefix": "test-prefix",
                     },
                 },
-                "role_arn": "arn:aws:iam::123456789012:role/role-name",
             },
-            collaboration_id="1234abcd-12ab-34cd-56ef-1234567890ab",
-            query_log_status="DISABLED",
             tags={
                 "Project": "Terraform",
             })
@@ -515,8 +515,8 @@ class Membership(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collaboration_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 default_result_configuration: pulumi.Input[Optional[Union['MembershipDefaultResultConfigurationArgs', 'MembershipDefaultResultConfigurationArgsDict']]] = None,
-                 payment_configuration: pulumi.Input[Optional[Union['MembershipPaymentConfigurationArgs', 'MembershipPaymentConfigurationArgsDict']]] = None,
+                 default_result_configuration: pulumi.Input[Optional[Union['MembershipDefaultResultConfigurationArgs', 'MembershipDefaultResultConfigurationArgsDict', 'outputs.MembershipDefaultResultConfiguration']]] = None,
+                 payment_configuration: pulumi.Input[Optional[Union['MembershipPaymentConfigurationArgs', 'MembershipPaymentConfigurationArgsDict', 'outputs.MembershipPaymentConfiguration']]] = None,
                  query_log_status: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -566,9 +566,9 @@ class Membership(pulumi.CustomResource):
             collaboration_id: pulumi.Input[Optional[_builtins.str]] = None,
             collaboration_name: pulumi.Input[Optional[_builtins.str]] = None,
             create_time: pulumi.Input[Optional[_builtins.str]] = None,
-            default_result_configuration: pulumi.Input[Optional[Union['MembershipDefaultResultConfigurationArgs', 'MembershipDefaultResultConfigurationArgsDict']]] = None,
+            default_result_configuration: pulumi.Input[Optional[Union['MembershipDefaultResultConfigurationArgs', 'MembershipDefaultResultConfigurationArgsDict', 'outputs.MembershipDefaultResultConfiguration']]] = None,
             member_abilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            payment_configuration: pulumi.Input[Optional[Union['MembershipPaymentConfigurationArgs', 'MembershipPaymentConfigurationArgsDict']]] = None,
+            payment_configuration: pulumi.Input[Optional[Union['MembershipPaymentConfigurationArgs', 'MembershipPaymentConfigurationArgsDict', 'outputs.MembershipPaymentConfiguration']]] = None,
             query_log_status: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
@@ -589,7 +589,7 @@ class Membership(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] collaboration_id: The ID of the collaboration to which the member was invited.
         :param pulumi.Input[_builtins.str] collaboration_name: The name of the joined collaboration.
         :param pulumi.Input[_builtins.str] create_time: The date and time the membership was created.
-        :param pulumi.Input[Union['MembershipDefaultResultConfigurationArgs', 'MembershipDefaultResultConfigurationArgsDict']] default_result_configuration: The default configuration for a query result.
+        :param pulumi.Input[Union['MembershipDefaultResultConfigurationArgs', 'MembershipDefaultResultConfigurationArgsDict', 'outputs.MembershipDefaultResultConfiguration']] default_result_configuration: The default configuration for a query result.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] member_abilities: The list of abilities for the invited member.
         :param pulumi.Input[_builtins.str] query_log_status: An indicator as to whether query logging has been enabled or disabled for the membership.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

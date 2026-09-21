@@ -138,7 +138,7 @@ class BucketOwnershipControls(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['BucketOwnershipControlsRuleArgs', 'BucketOwnershipControlsRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['BucketOwnershipControlsRuleArgs', 'BucketOwnershipControlsRuleArgsDict', 'outputs.BucketOwnershipControlsRule']]] = None,
                  __props__=None):
         """
         Provides a resource to manage S3 Bucket Ownership Controls. For more information, see the [S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html).
@@ -153,10 +153,10 @@ class BucketOwnershipControls(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="example")
         example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
+            bucket=example.id,
             rule={
                 "object_ownership": "BucketOwnerPreferred",
-            },
-            bucket=example.id)
+            })
         ```
 
         ## Import
@@ -183,7 +183,7 @@ class BucketOwnershipControls(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket that you want to associate this access point with.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['BucketOwnershipControlsRuleArgs', 'BucketOwnershipControlsRuleArgsDict']] rule: Configuration block(s) with Ownership Controls rules. Detailed below.
+        :param pulumi.Input[Union['BucketOwnershipControlsRuleArgs', 'BucketOwnershipControlsRuleArgsDict', 'outputs.BucketOwnershipControlsRule']] rule: Configuration block(s) with Ownership Controls rules. Detailed below.
         """
         ...
     @overload
@@ -204,10 +204,10 @@ class BucketOwnershipControls(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="example")
         example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
+            bucket=example.id,
             rule={
                 "object_ownership": "BucketOwnerPreferred",
-            },
-            bucket=example.id)
+            })
         ```
 
         ## Import
@@ -247,7 +247,7 @@ class BucketOwnershipControls(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['BucketOwnershipControlsRuleArgs', 'BucketOwnershipControlsRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['BucketOwnershipControlsRuleArgs', 'BucketOwnershipControlsRuleArgsDict', 'outputs.BucketOwnershipControlsRule']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -276,7 +276,7 @@ class BucketOwnershipControls(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             bucket: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            rule: pulumi.Input[Optional[Union['BucketOwnershipControlsRuleArgs', 'BucketOwnershipControlsRuleArgsDict']]] = None) -> 'BucketOwnershipControls':
+            rule: pulumi.Input[Optional[Union['BucketOwnershipControlsRuleArgs', 'BucketOwnershipControlsRuleArgsDict', 'outputs.BucketOwnershipControlsRule']]] = None) -> 'BucketOwnershipControls':
         """
         Get an existing BucketOwnershipControls resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -286,7 +286,7 @@ class BucketOwnershipControls(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket that you want to associate this access point with.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['BucketOwnershipControlsRuleArgs', 'BucketOwnershipControlsRuleArgsDict']] rule: Configuration block(s) with Ownership Controls rules. Detailed below.
+        :param pulumi.Input[Union['BucketOwnershipControlsRuleArgs', 'BucketOwnershipControlsRuleArgsDict', 'outputs.BucketOwnershipControlsRule']] rule: Configuration block(s) with Ownership Controls rules. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

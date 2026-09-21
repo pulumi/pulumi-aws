@@ -297,7 +297,7 @@ class ConnectorV2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connector_provider: pulumi.Input[Optional[Union['ConnectorV2ConnectorProviderArgs', 'ConnectorV2ConnectorProviderArgsDict']]] = None,
+                 connector_provider: pulumi.Input[Optional[Union['ConnectorV2ConnectorProviderArgs', 'ConnectorV2ConnectorProviderArgsDict', 'outputs.ConnectorV2ConnectorProvider']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -323,12 +323,12 @@ class ConnectorV2(pulumi.CustomResource):
         example_aggregator_v2 = aws.securityhub.AggregatorV2("example", region_linking_mode="ALL_REGIONS",
         opts = pulumi.ResourceOptions(depends_on=[example]))
         example_connector_v2 = aws.securityhub.ConnectorV2("example",
+            name="jira-connector",
             connector_provider={
                 "jira_cloud": {
                     "project_key": "SEC",
                 },
             },
-            name="jira-connector",
             opts = pulumi.ResourceOptions(depends_on=[example_aggregator_v2]))
         pulumi.export("authUrl", example_connector_v2.auth_url)
         ```
@@ -340,14 +340,14 @@ class ConnectorV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securityhub.ConnectorV2("example",
+            name="jira-connector",
+            description="Jira Cloud integration for security findings",
+            kms_key_arn=example_aws_kms_key["arn"],
             connector_provider={
                 "jira_cloud": {
                     "project_key": "SEC",
                 },
             },
-            name="jira-connector",
-            description="Jira Cloud integration for security findings",
-            kms_key_arn=example_aws_kms_key["arn"],
             opts = pulumi.ResourceOptions(depends_on=[example_aws_securityhub_aggregator_v2]))
         ```
 
@@ -373,7 +373,7 @@ class ConnectorV2(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ConnectorV2ConnectorProviderArgs', 'ConnectorV2ConnectorProviderArgsDict']] connector_provider: Third-party provider details. See `connector_provider` below.
+        :param pulumi.Input[Union['ConnectorV2ConnectorProviderArgs', 'ConnectorV2ConnectorProviderArgsDict', 'outputs.ConnectorV2ConnectorProvider']] connector_provider: Third-party provider details. See `connector_provider` below.
         :param pulumi.Input[_builtins.str] description: A description of the connector.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of KMS key for connector encryption.
         :param pulumi.Input[_builtins.str] name: The name of the connector.
@@ -405,12 +405,12 @@ class ConnectorV2(pulumi.CustomResource):
         example_aggregator_v2 = aws.securityhub.AggregatorV2("example", region_linking_mode="ALL_REGIONS",
         opts = pulumi.ResourceOptions(depends_on=[example]))
         example_connector_v2 = aws.securityhub.ConnectorV2("example",
+            name="jira-connector",
             connector_provider={
                 "jira_cloud": {
                     "project_key": "SEC",
                 },
             },
-            name="jira-connector",
             opts = pulumi.ResourceOptions(depends_on=[example_aggregator_v2]))
         pulumi.export("authUrl", example_connector_v2.auth_url)
         ```
@@ -422,14 +422,14 @@ class ConnectorV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securityhub.ConnectorV2("example",
+            name="jira-connector",
+            description="Jira Cloud integration for security findings",
+            kms_key_arn=example_aws_kms_key["arn"],
             connector_provider={
                 "jira_cloud": {
                     "project_key": "SEC",
                 },
             },
-            name="jira-connector",
-            description="Jira Cloud integration for security findings",
-            kms_key_arn=example_aws_kms_key["arn"],
             opts = pulumi.ResourceOptions(depends_on=[example_aws_securityhub_aggregator_v2]))
         ```
 
@@ -468,7 +468,7 @@ class ConnectorV2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connector_provider: pulumi.Input[Optional[Union['ConnectorV2ConnectorProviderArgs', 'ConnectorV2ConnectorProviderArgsDict']]] = None,
+                 connector_provider: pulumi.Input[Optional[Union['ConnectorV2ConnectorProviderArgs', 'ConnectorV2ConnectorProviderArgsDict', 'outputs.ConnectorV2ConnectorProvider']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -507,9 +507,9 @@ class ConnectorV2(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             connector_id: pulumi.Input[Optional[_builtins.str]] = None,
-            connector_provider: pulumi.Input[Optional[Union['ConnectorV2ConnectorProviderArgs', 'ConnectorV2ConnectorProviderArgsDict']]] = None,
+            connector_provider: pulumi.Input[Optional[Union['ConnectorV2ConnectorProviderArgs', 'ConnectorV2ConnectorProviderArgsDict', 'outputs.ConnectorV2ConnectorProvider']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            healths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectorV2HealthArgs', 'ConnectorV2HealthArgsDict']]]]] = None,
+            healths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectorV2HealthArgs', 'ConnectorV2HealthArgsDict', 'outputs.ConnectorV2Health']]]]] = None,
             kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -524,9 +524,9 @@ class ConnectorV2(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the connector.
         :param pulumi.Input[_builtins.str] connector_id: ID of the connector.
-        :param pulumi.Input[Union['ConnectorV2ConnectorProviderArgs', 'ConnectorV2ConnectorProviderArgsDict']] connector_provider: Third-party provider details. See `connector_provider` below.
+        :param pulumi.Input[Union['ConnectorV2ConnectorProviderArgs', 'ConnectorV2ConnectorProviderArgsDict', 'outputs.ConnectorV2ConnectorProvider']] connector_provider: Third-party provider details. See `connector_provider` below.
         :param pulumi.Input[_builtins.str] description: A description of the connector.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectorV2HealthArgs', 'ConnectorV2HealthArgsDict']]]] healths: Current health status. See `health` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectorV2HealthArgs', 'ConnectorV2HealthArgsDict', 'outputs.ConnectorV2Health']]]] healths: Current health status. See `health` below.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of KMS key for connector encryption.
         :param pulumi.Input[_builtins.str] name: The name of the connector.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

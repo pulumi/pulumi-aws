@@ -60,6 +60,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CapacityProvider("example", CapacityProviderArgs.builder()
+ *             .name("example")
  *             .vpcConfig(CapacityProviderVpcConfigArgs.builder()
  *                 .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
  *                 .securityGroupIds(exampleAwsSecurityGroup.id())
@@ -67,15 +68,9 @@ import javax.annotation.Nullable;
  *             .permissionsConfig(CapacityProviderPermissionsConfigArgs.builder()
  *                 .capacityProviderOperatorRoleArn(exampleAwsIamRole.arn())
  *                 .build())
- *             .name("example")
  *             .build());
  * 
  *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
- *             .capacityProviderConfig(FunctionCapacityProviderConfigArgs.builder()
- *                 .lambdaManagedInstancesCapacityProviderConfig(FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs.builder()
- *                     .capacityProviderArn(example.arn())
- *                     .build())
- *                 .build())
  *             .code(new FileArchive("lambda_function.zip"))
  *             .name("example")
  *             .role(exampleAwsIamRole.arn())
@@ -84,15 +79,20 @@ import javax.annotation.Nullable;
  *             .memorySize(32768)
  *             .publish(true)
  *             .publishTo("LATEST_PUBLISHED")
+ *             .capacityProviderConfig(FunctionCapacityProviderConfigArgs.builder()
+ *                 .lambdaManagedInstancesCapacityProviderConfig(FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs.builder()
+ *                     .capacityProviderArn(example.arn())
+ *                     .build())
+ *                 .build())
  *             .build());
  * 
  *         var exampleFunctionScalingConfig = new FunctionScalingConfig("exampleFunctionScalingConfig", FunctionScalingConfigArgs.builder()
+ *             .functionName(exampleFunction.name())
+ *             .qualifier("$LATEST.PUBLISHED")
  *             .functionScalingConfig(FunctionScalingConfigFunctionScalingConfigArgs.builder()
  *                 .minExecutionEnvironments(3)
  *                 .maxExecutionEnvironments(100)
  *                 .build())
- *             .functionName(exampleFunction.name())
- *             .qualifier("$LATEST.PUBLISHED")
  *             .build());
  * 
  *     }

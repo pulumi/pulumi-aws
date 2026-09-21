@@ -40,6 +40,7 @@ namespace Pulumi.Aws.Chime
     /// 
     ///     var @group = new Aws.Chime.VoiceConnectorGroup("group", new()
     ///     {
+    ///         Name = "test-group",
     ///         Connectors = new[]
     ///         {
     ///             new Aws.Chime.Inputs.VoiceConnectorGroupConnectorArgs
@@ -53,7 +54,6 @@ namespace Pulumi.Aws.Chime
     ///                 Priority = 3,
     ///             },
     ///         },
-    ///         Name = "test-group",
     ///     });
     /// 
     /// });

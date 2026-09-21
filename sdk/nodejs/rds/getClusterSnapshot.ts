@@ -26,8 +26,6 @@ import * as utilities from "../utilities";
  *     clusterIdentifier: "development_cluster",
  *     snapshotIdentifier: developmentFinalSnapshot.then(developmentFinalSnapshot => developmentFinalSnapshot.id),
  *     dbSubnetGroupName: "my_db_subnet_group",
- * }, {
- *     ignoreChanges: ["snapshotIdentifier"],
  * });
  * const auroraClusterInstance = new aws.rds.ClusterInstance("aurora", {
  *     clusterIdentifier: aurora.id,
@@ -186,8 +184,6 @@ export interface GetClusterSnapshotResult {
  *     clusterIdentifier: "development_cluster",
  *     snapshotIdentifier: developmentFinalSnapshot.then(developmentFinalSnapshot => developmentFinalSnapshot.id),
  *     dbSubnetGroupName: "my_db_subnet_group",
- * }, {
- *     ignoreChanges: ["snapshotIdentifier"],
  * });
  * const auroraClusterInstance = new aws.rds.ClusterInstance("aurora", {
  *     clusterIdentifier: aurora.id,

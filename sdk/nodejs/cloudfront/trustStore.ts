@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudfront.TrustStore("example", {
+ *     name: "example-trust-store",
  *     caCertificatesBundleSource: {
  *         caCertificatesBundleS3Location: {
  *             bucket: "example-bucket",
@@ -26,7 +27,6 @@ import * as utilities from "../utilities";
  *             region: "us-east-1",
  *         },
  *     },
- *     name: "example-trust-store",
  * });
  * ```
  *
@@ -37,6 +37,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudfront.TrustStore("example", {
+ *     name: "example-trust-store",
  *     caCertificatesBundleSource: {
  *         caCertificatesBundleS3Location: {
  *             bucket: "example-bucket",
@@ -45,7 +46,6 @@ import * as utilities from "../utilities";
  *             version: "abc123",
  *         },
  *     },
- *     name: "example-trust-store",
  * });
  * ```
  *

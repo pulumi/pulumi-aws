@@ -21,6 +21,7 @@ import * as utilities from "./utilities";
  *     services: ["ec2"],
  * });
  * const fromEurope = new aws.ec2.SecurityGroup("from_europe", {
+ *     name: "from_europe",
  *     ingress: [{
  *         fromPort: 443,
  *         toPort: 443,
@@ -28,7 +29,6 @@ import * as utilities from "./utilities";
  *         cidrBlocks: europeanEc2.then(europeanEc2 => europeanEc2.cidrBlocks),
  *         ipv6CidrBlocks: europeanEc2.then(europeanEc2 => europeanEc2.ipv6CidrBlocks),
  *     }],
- *     name: "from_europe",
  *     tags: {
  *         CreateDate: europeanEc2.then(europeanEc2 => europeanEc2.createDate),
  *         SyncToken: output(europeanEc2.then(europeanEc2 => europeanEc2.syncToken)).apply(x =>String(x)),
@@ -123,6 +123,7 @@ export interface GetIpRangesResult {
  *     services: ["ec2"],
  * });
  * const fromEurope = new aws.ec2.SecurityGroup("from_europe", {
+ *     name: "from_europe",
  *     ingress: [{
  *         fromPort: 443,
  *         toPort: 443,
@@ -130,7 +131,6 @@ export interface GetIpRangesResult {
  *         cidrBlocks: europeanEc2.then(europeanEc2 => europeanEc2.cidrBlocks),
  *         ipv6CidrBlocks: europeanEc2.then(europeanEc2 => europeanEc2.ipv6CidrBlocks),
  *     }],
- *     name: "from_europe",
  *     tags: {
  *         CreateDate: europeanEc2.then(europeanEc2 => europeanEc2.createDate),
  *         SyncToken: output(europeanEc2.then(europeanEc2 => europeanEc2.syncToken)).apply(x =>String(x)),

@@ -21,18 +21,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.securitylake.Subscriber("example", {
- *     subscriberIdentity: {
- *         externalId: "example",
- *         principal: "1234567890",
- *     },
+ *     subscriberName: "example-name",
+ *     accessType: "S3",
  *     sources: [{
  *         awsLogSourceResource: {
  *             sourceName: "ROUTE53",
  *             sourceVersion: "1.0",
  *         },
  *     }],
- *     subscriberName: "example-name",
- *     accessType: "S3",
+ *     subscriberIdentity: {
+ *         externalId: "example",
+ *         principal: "1234567890",
+ *     },
  * }, {
  *     dependsOn: [exampleAwsSecuritylakeDataLake],
  * });
@@ -45,10 +45,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.securitylake.Subscriber("example", {
- *     subscriberIdentity: {
- *         externalId: "example",
- *         principal: "1234567890",
- *     },
+ *     subscriberName: "example-name",
+ *     accessType: "S3",
  *     sources: [
  *         {
  *             awsLogSourceResource: {
@@ -63,8 +61,10 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     ],
- *     subscriberName: "example-name",
- *     accessType: "S3",
+ *     subscriberIdentity: {
+ *         externalId: "example",
+ *         principal: "1234567890",
+ *     },
  * }, {
  *     dependsOn: [exampleAwsSecuritylakeDataLake],
  * });

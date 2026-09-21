@@ -30,6 +30,11 @@ namespace Pulumi.Aws.DynamoDB
     /// {
     ///     var example = new Aws.DynamoDB.Table("example", new()
     ///     {
+    ///         Name = "TestTable",
+    ///         HashKey = "BrodoBaggins",
+    ///         BillingMode = "PAY_PER_REQUEST",
+    ///         StreamEnabled = true,
+    ///         StreamViewType = "NEW_AND_OLD_IMAGES",
     ///         Attributes = new[]
     ///         {
     ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
@@ -37,17 +42,6 @@ namespace Pulumi.Aws.DynamoDB
     ///                 Name = "BrodoBaggins",
     ///                 Type = "S",
     ///             },
-    ///         },
-    ///         Name = "TestTable",
-    ///         HashKey = "BrodoBaggins",
-    ///         BillingMode = "PAY_PER_REQUEST",
-    ///         StreamEnabled = true,
-    ///         StreamViewType = "NEW_AND_OLD_IMAGES",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         IgnoreChanges =
-    ///         {
-    ///             "replicas",
     ///         },
     ///     });
     /// 

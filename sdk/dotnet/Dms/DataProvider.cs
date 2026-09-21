@@ -26,6 +26,7 @@ namespace Pulumi.Aws.Dms
     /// {
     ///     var example = new Aws.Dms.DataProvider("example", new()
     ///     {
+    ///         Engine = "postgres",
     ///         Settings = new Aws.Dms.Inputs.DataProviderSettingsArgs
     ///         {
     ///             PostgresqlSettings = new Aws.Dms.Inputs.DataProviderSettingsPostgresqlSettingsArgs
@@ -36,7 +37,6 @@ namespace Pulumi.Aws.Dms
     ///                 SslMode = "none",
     ///             },
     ///         },
-    ///         Engine = "postgres",
     ///     });
     /// 
     /// });
@@ -54,6 +54,9 @@ namespace Pulumi.Aws.Dms
     /// {
     ///     var example = new Aws.Dms.DataProvider("example", new()
     ///     {
+    ///         Name = "example-mysql",
+    ///         Description = "Example MySQL data provider",
+    ///         Engine = "mysql",
     ///         Settings = new Aws.Dms.Inputs.DataProviderSettingsArgs
     ///         {
     ///             MysqlSettings = new Aws.Dms.Inputs.DataProviderSettingsMysqlSettingsArgs
@@ -63,9 +66,6 @@ namespace Pulumi.Aws.Dms
     ///                 SslMode = "require",
     ///             },
     ///         },
-    ///         Name = "example-mysql",
-    ///         Description = "Example MySQL data provider",
-    ///         Engine = "mysql",
     ///         Tags = 
     ///         {
     ///             { "Environment", "example" },

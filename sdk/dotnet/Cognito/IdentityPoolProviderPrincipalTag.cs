@@ -47,6 +47,8 @@ namespace Pulumi.Aws.Cognito
     /// 
     ///     var exampleIdentityPool = new Aws.Cognito.IdentityPool("example", new()
     ///     {
+    ///         IdentityPoolName = "identity pool",
+    ///         AllowUnauthenticatedIdentities = false,
     ///         CognitoIdentityProviders = new[]
     ///         {
     ///             new Aws.Cognito.Inputs.IdentityPoolCognitoIdentityProviderArgs
@@ -56,8 +58,6 @@ namespace Pulumi.Aws.Cognito
     ///                 ServerSideTokenCheck = false,
     ///             },
     ///         },
-    ///         IdentityPoolName = "identity pool",
-    ///         AllowUnauthenticatedIdentities = false,
     ///     });
     /// 
     ///     var exampleIdentityPoolProviderPrincipalTag = new Aws.Cognito.IdentityPoolProviderPrincipalTag("example", new()

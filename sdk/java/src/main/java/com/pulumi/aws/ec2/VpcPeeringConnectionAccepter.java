@@ -170,8 +170,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.VpcPeeringConnectionAccepter;
- * import com.pulumi.aws.ec2.VpcPeeringConnectionAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -185,9 +183,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VpcPeeringConnectionAccepter("example", VpcPeeringConnectionAccepterArgs.Empty, CustomResourceOptions.builder()
- *             .ignoreChanges("autoAccept")
- *             .build());
+ *         var example = new VpcPeeringConnectionAccepter("example");
  * 
  *     }
  * }

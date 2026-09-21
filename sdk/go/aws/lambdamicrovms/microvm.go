@@ -59,6 +59,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambdamicrovms.NewMicrovm(ctx, "example", &lambdamicrovms.MicrovmArgs{
+//				ImageArn:                 pulumi.Any(exampleAwsLambdamicrovmsImage.Arn),
+//				ExecutionRoleArn:         pulumi.Any(exampleAwsIamRole.Arn),
+//				MaximumDurationInSeconds: pulumi.Int(14400),
+//				EgressNetworkConnectors: pulumi.StringArray{
+//					pulumi.String("arn:aws:lambda:us-east-1:aws:network-connector:aws-network-connector:INTERNET_EGRESS"),
+//				},
+//				IngressNetworkConnectors: pulumi.StringArray{
+//					pulumi.String("arn:aws:lambda:us-east-1:aws:network-connector:aws-network-connector:ALL_INGRESS"),
+//				},
 //				IdlePolicy: &lambdamicrovms.MicrovmIdlePolicyArgs{
 //					AutoResumeEnabled:        pulumi.Bool(true),
 //					MaxIdleDurationSeconds:   pulumi.Int(900),
@@ -68,15 +77,6 @@ import (
 //					Cloudwatch: &lambdamicrovms.MicrovmLoggingCloudwatchArgs{
 //						LogGroup: pulumi.Any(exampleAwsCloudwatchLogGroup.Name),
 //					},
-//				},
-//				ImageArn:                 pulumi.Any(exampleAwsLambdamicrovmsImage.Arn),
-//				ExecutionRoleArn:         pulumi.Any(exampleAwsIamRole.Arn),
-//				MaximumDurationInSeconds: pulumi.Int(14400),
-//				EgressNetworkConnectors: pulumi.StringArray{
-//					pulumi.String("arn:aws:lambda:us-east-1:aws:network-connector:aws-network-connector:INTERNET_EGRESS"),
-//				},
-//				IngressNetworkConnectors: pulumi.StringArray{
-//					pulumi.String("arn:aws:lambda:us-east-1:aws:network-connector:aws-network-connector:ALL_INGRESS"),
 //				},
 //			})
 //			if err != nil {

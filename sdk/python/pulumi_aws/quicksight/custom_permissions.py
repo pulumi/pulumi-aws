@@ -241,7 +241,7 @@ class CustomPermissions(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 capabilities: pulumi.Input[Optional[Union['CustomPermissionsCapabilitiesArgs', 'CustomPermissionsCapabilitiesArgsDict']]] = None,
+                 capabilities: pulumi.Input[Optional[Union['CustomPermissionsCapabilitiesArgs', 'CustomPermissionsCapabilitiesArgsDict', 'outputs.CustomPermissionsCapabilities']]] = None,
                  custom_permissions_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -256,11 +256,11 @@ class CustomPermissions(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.CustomPermissions("example",
+            custom_permissions_name="example-permissions",
             capabilities={
                 "print_reports": "DENY",
                 "share_dashboards": "DENY",
-            },
-            custom_permissions_name="example-permissions")
+            })
         ```
 
         ## Import
@@ -275,7 +275,7 @@ class CustomPermissions(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[Union['CustomPermissionsCapabilitiesArgs', 'CustomPermissionsCapabilitiesArgsDict']] capabilities: Actions to include in the custom permissions profile. See capabilities.
+        :param pulumi.Input[Union['CustomPermissionsCapabilitiesArgs', 'CustomPermissionsCapabilitiesArgsDict', 'outputs.CustomPermissionsCapabilities']] capabilities: Actions to include in the custom permissions profile. See capabilities.
         :param pulumi.Input[_builtins.str] custom_permissions_name: Custom permissions profile name.
                
                The following arguments are optional:
@@ -298,11 +298,11 @@ class CustomPermissions(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.CustomPermissions("example",
+            custom_permissions_name="example-permissions",
             capabilities={
                 "print_reports": "DENY",
                 "share_dashboards": "DENY",
-            },
-            custom_permissions_name="example-permissions")
+            })
         ```
 
         ## Import
@@ -330,7 +330,7 @@ class CustomPermissions(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 capabilities: pulumi.Input[Optional[Union['CustomPermissionsCapabilitiesArgs', 'CustomPermissionsCapabilitiesArgsDict']]] = None,
+                 capabilities: pulumi.Input[Optional[Union['CustomPermissionsCapabilitiesArgs', 'CustomPermissionsCapabilitiesArgsDict', 'outputs.CustomPermissionsCapabilities']]] = None,
                  custom_permissions_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -366,7 +366,7 @@ class CustomPermissions(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-            capabilities: pulumi.Input[Optional[Union['CustomPermissionsCapabilitiesArgs', 'CustomPermissionsCapabilitiesArgsDict']]] = None,
+            capabilities: pulumi.Input[Optional[Union['CustomPermissionsCapabilitiesArgs', 'CustomPermissionsCapabilitiesArgsDict', 'outputs.CustomPermissionsCapabilities']]] = None,
             custom_permissions_name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -380,7 +380,7 @@ class CustomPermissions(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the custom permissions profile.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[Union['CustomPermissionsCapabilitiesArgs', 'CustomPermissionsCapabilitiesArgsDict']] capabilities: Actions to include in the custom permissions profile. See capabilities.
+        :param pulumi.Input[Union['CustomPermissionsCapabilitiesArgs', 'CustomPermissionsCapabilitiesArgsDict', 'outputs.CustomPermissionsCapabilities']] capabilities: Actions to include in the custom permissions profile. See capabilities.
         :param pulumi.Input[_builtins.str] custom_permissions_name: Custom permissions profile name.
                
                The following arguments are optional:

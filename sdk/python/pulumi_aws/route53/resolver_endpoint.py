@@ -424,7 +424,7 @@ class ResolverEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  direction: pulumi.Input[Optional[_builtins.str]] = None,
-                 ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressArgs', 'ResolverEndpointIpAddressArgsDict']]]]] = None,
+                 ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressArgs', 'ResolverEndpointIpAddressArgsDict', 'outputs.ResolverEndpointIpAddress']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  protocols: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -444,6 +444,13 @@ class ResolverEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.route53.ResolverEndpoint("foo",
+            name="foo",
+            direction="INBOUND",
+            resolver_endpoint_type="IPV4",
+            security_group_ids=[
+                sg1["id"],
+                sg2["id"],
+            ],
             ip_addresses=[
                 {
                     "subnet_id": sn1["id"],
@@ -452,13 +459,6 @@ class ResolverEndpoint(pulumi.CustomResource):
                     "subnet_id": sn2["id"],
                     "ip": "10.0.64.4",
                 },
-            ],
-            name="foo",
-            direction="INBOUND",
-            resolver_endpoint_type="IPV4",
-            security_group_ids=[
-                sg1["id"],
-                sg2["id"],
             ],
             protocols=[
                 "Do53",
@@ -482,7 +482,7 @@ class ResolverEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] direction: Direction of DNS queries to or from the Route 53 Resolver endpoint.
                Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressArgs', 'ResolverEndpointIpAddressArgsDict']]]] ip_addresses: Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressArgs', 'ResolverEndpointIpAddressArgsDict', 'outputs.ResolverEndpointIpAddress']]]] ip_addresses: Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
                to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
         :param pulumi.Input[_builtins.str] name: Friendly name of the Route 53 Resolver endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: Protocols you want to use for the Route 53 Resolver endpoint.
@@ -511,6 +511,13 @@ class ResolverEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.route53.ResolverEndpoint("foo",
+            name="foo",
+            direction="INBOUND",
+            resolver_endpoint_type="IPV4",
+            security_group_ids=[
+                sg1["id"],
+                sg2["id"],
+            ],
             ip_addresses=[
                 {
                     "subnet_id": sn1["id"],
@@ -519,13 +526,6 @@ class ResolverEndpoint(pulumi.CustomResource):
                     "subnet_id": sn2["id"],
                     "ip": "10.0.64.4",
                 },
-            ],
-            name="foo",
-            direction="INBOUND",
-            resolver_endpoint_type="IPV4",
-            security_group_ids=[
-                sg1["id"],
-                sg2["id"],
             ],
             protocols=[
                 "Do53",
@@ -561,7 +561,7 @@ class ResolverEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  direction: pulumi.Input[Optional[_builtins.str]] = None,
-                 ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressArgs', 'ResolverEndpointIpAddressArgsDict']]]]] = None,
+                 ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressArgs', 'ResolverEndpointIpAddressArgsDict', 'outputs.ResolverEndpointIpAddress']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  protocols: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -611,7 +611,7 @@ class ResolverEndpoint(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             direction: pulumi.Input[Optional[_builtins.str]] = None,
             host_vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
-            ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressArgs', 'ResolverEndpointIpAddressArgsDict']]]]] = None,
+            ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressArgs', 'ResolverEndpointIpAddressArgsDict', 'outputs.ResolverEndpointIpAddress']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             protocols: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -632,7 +632,7 @@ class ResolverEndpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] direction: Direction of DNS queries to or from the Route 53 Resolver endpoint.
                Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
         :param pulumi.Input[_builtins.str] host_vpc_id: ID of the VPC that you want to create the resolver endpoint in.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressArgs', 'ResolverEndpointIpAddressArgsDict']]]] ip_addresses: Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressArgs', 'ResolverEndpointIpAddressArgsDict', 'outputs.ResolverEndpointIpAddress']]]] ip_addresses: Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
                to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
         :param pulumi.Input[_builtins.str] name: Friendly name of the Route 53 Resolver endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: Protocols you want to use for the Route 53 Resolver endpoint.

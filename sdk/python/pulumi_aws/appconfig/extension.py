@@ -277,10 +277,10 @@ class Extension(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_points: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExtensionActionPointArgs', 'ExtensionActionPointArgsDict']]]]] = None,
+                 action_points: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExtensionActionPointArgs', 'ExtensionActionPointArgsDict', 'outputs.ExtensionActionPoint']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExtensionParameterArgs', 'ExtensionParameterArgsDict']]]]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExtensionParameterArgs', 'ExtensionParameterArgsDict', 'outputs.ExtensionParameter']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -295,26 +295,26 @@ class Extension(pulumi.CustomResource):
 
         test_topic = aws.sns.Topic("test", name="test")
         test = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["appconfig.amazonaws.com"],
             }],
-            "actions": ["sts:AssumeRole"],
         }])
         test_role = aws.iam.Role("test",
             name="test",
             assume_role_policy=test.json)
         test_extension = aws.appconfig.Extension("test",
+            name="test",
+            description="test description",
             action_points=[{
+                "point": "ON_DEPLOYMENT_COMPLETE",
                 "actions": [{
                     "name": "test",
                     "role_arn": test_role.arn,
                     "uri": test_topic.arn,
                 }],
-                "point": "ON_DEPLOYMENT_COMPLETE",
             }],
-            name="test",
-            description="test description",
             tags={
                 "Type": "AppConfig Extension",
             })
@@ -331,10 +331,10 @@ class Extension(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExtensionActionPointArgs', 'ExtensionActionPointArgsDict']]]] action_points: Action points defined in the extension. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExtensionActionPointArgs', 'ExtensionActionPointArgsDict', 'outputs.ExtensionActionPoint']]]] action_points: Action points defined in the extension. Detailed below.
         :param pulumi.Input[_builtins.str] description: Information about the extension.
         :param pulumi.Input[_builtins.str] name: Name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExtensionParameterArgs', 'ExtensionParameterArgsDict']]]] parameters: Parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExtensionParameterArgs', 'ExtensionParameterArgsDict', 'outputs.ExtensionParameter']]]] parameters: Parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -355,26 +355,26 @@ class Extension(pulumi.CustomResource):
 
         test_topic = aws.sns.Topic("test", name="test")
         test = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["appconfig.amazonaws.com"],
             }],
-            "actions": ["sts:AssumeRole"],
         }])
         test_role = aws.iam.Role("test",
             name="test",
             assume_role_policy=test.json)
         test_extension = aws.appconfig.Extension("test",
+            name="test",
+            description="test description",
             action_points=[{
+                "point": "ON_DEPLOYMENT_COMPLETE",
                 "actions": [{
                     "name": "test",
                     "role_arn": test_role.arn,
                     "uri": test_topic.arn,
                 }],
-                "point": "ON_DEPLOYMENT_COMPLETE",
             }],
-            name="test",
-            description="test description",
             tags={
                 "Type": "AppConfig Extension",
             })
@@ -404,10 +404,10 @@ class Extension(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_points: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExtensionActionPointArgs', 'ExtensionActionPointArgsDict']]]]] = None,
+                 action_points: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExtensionActionPointArgs', 'ExtensionActionPointArgsDict', 'outputs.ExtensionActionPoint']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExtensionParameterArgs', 'ExtensionParameterArgsDict']]]]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExtensionParameterArgs', 'ExtensionParameterArgsDict', 'outputs.ExtensionParameter']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -440,11 +440,11 @@ class Extension(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action_points: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExtensionActionPointArgs', 'ExtensionActionPointArgsDict']]]]] = None,
+            action_points: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExtensionActionPointArgs', 'ExtensionActionPointArgsDict', 'outputs.ExtensionActionPoint']]]]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExtensionParameterArgs', 'ExtensionParameterArgsDict']]]]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExtensionParameterArgs', 'ExtensionParameterArgsDict', 'outputs.ExtensionParameter']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -456,11 +456,11 @@ class Extension(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExtensionActionPointArgs', 'ExtensionActionPointArgsDict']]]] action_points: Action points defined in the extension. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExtensionActionPointArgs', 'ExtensionActionPointArgsDict', 'outputs.ExtensionActionPoint']]]] action_points: Action points defined in the extension. Detailed below.
         :param pulumi.Input[_builtins.str] arn: ARN of the AppConfig Extension.
         :param pulumi.Input[_builtins.str] description: Information about the extension.
         :param pulumi.Input[_builtins.str] name: Name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExtensionParameterArgs', 'ExtensionParameterArgsDict']]]] parameters: Parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExtensionParameterArgs', 'ExtensionParameterArgsDict', 'outputs.ExtensionParameter']]]] parameters: Parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.int] version: Version number for the extension.

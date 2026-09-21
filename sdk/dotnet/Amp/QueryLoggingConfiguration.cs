@@ -34,6 +34,7 @@ namespace Pulumi.Aws.Amp
     /// 
     ///     var exampleQueryLoggingConfiguration = new Aws.Amp.QueryLoggingConfiguration("example", new()
     ///     {
+    ///         WorkspaceId = example.Id,
     ///         Destinations = new[]
     ///         {
     ///             new Aws.Amp.Inputs.QueryLoggingConfigurationDestinationArgs
@@ -48,7 +49,6 @@ namespace Pulumi.Aws.Amp
     ///                 },
     ///             },
     ///         },
-    ///         WorkspaceId = example.Id,
     ///     });
     /// 
     /// });

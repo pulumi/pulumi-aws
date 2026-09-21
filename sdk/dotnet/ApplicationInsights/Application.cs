@@ -25,6 +25,7 @@ namespace Pulumi.Aws.ApplicationInsights
     /// {
     ///     var exampleGroup = new Aws.ResourceGroups.Group("example", new()
     ///     {
+    ///         Name = "example",
     ///         ResourceQuery = new Aws.ResourceGroups.Inputs.GroupResourceQueryArgs
     ///         {
     ///             Query = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -46,7 +47,6 @@ namespace Pulumi.Aws.ApplicationInsights
     ///                 },
     ///             }),
     ///         },
-    ///         Name = "example",
     ///     });
     /// 
     ///     var example = new Aws.ApplicationInsights.Application("example", new()

@@ -28,10 +28,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appstream.NewStack(ctx, "example", &appstream.StackArgs{
-//				ApplicationSettings: &appstream.StackApplicationSettingsArgs{
-//					Enabled:       pulumi.Bool(true),
-//					SettingsGroup: pulumi.String("SettingsGroup"),
-//				},
+//				Name:        pulumi.String("stack name"),
+//				Description: pulumi.String("stack description"),
+//				DisplayName: pulumi.String("stack display name"),
+//				FeedbackUrl: pulumi.String("http://your-domain/feedback"),
+//				RedirectUrl: pulumi.String("http://your-domain/redirect"),
 //				StorageConnectors: appstream.StackStorageConnectorArray{
 //					&appstream.StackStorageConnectorArgs{
 //						ConnectorType: pulumi.String("HOMEFOLDERS"),
@@ -71,11 +72,10 @@ import (
 //						Permission: pulumi.String("ENABLED"),
 //					},
 //				},
-//				Name:        pulumi.String("stack name"),
-//				Description: pulumi.String("stack description"),
-//				DisplayName: pulumi.String("stack display name"),
-//				FeedbackUrl: pulumi.String("http://your-domain/feedback"),
-//				RedirectUrl: pulumi.String("http://your-domain/redirect"),
+//				ApplicationSettings: &appstream.StackApplicationSettingsArgs{
+//					Enabled:       pulumi.Bool(true),
+//					SettingsGroup: pulumi.String("SettingsGroup"),
+//				},
 //				Tags: pulumi.StringMap{
 //					"TagName": pulumi.String("TagValue"),
 //				},

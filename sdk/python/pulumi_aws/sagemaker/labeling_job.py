@@ -484,16 +484,16 @@ class LabelingJob(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 human_task_config: pulumi.Input[Optional[Union['LabelingJobHumanTaskConfigArgs', 'LabelingJobHumanTaskConfigArgsDict']]] = None,
-                 input_config: pulumi.Input[Optional[Union['LabelingJobInputConfigArgs', 'LabelingJobInputConfigArgsDict']]] = None,
+                 human_task_config: pulumi.Input[Optional[Union['LabelingJobHumanTaskConfigArgs', 'LabelingJobHumanTaskConfigArgsDict', 'outputs.LabelingJobHumanTaskConfig']]] = None,
+                 input_config: pulumi.Input[Optional[Union['LabelingJobInputConfigArgs', 'LabelingJobInputConfigArgsDict', 'outputs.LabelingJobInputConfig']]] = None,
                  label_attribute_name: pulumi.Input[Optional[_builtins.str]] = None,
                  label_category_config_s3_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 labeling_job_algorithms_config: pulumi.Input[Optional[Union['LabelingJobLabelingJobAlgorithmsConfigArgs', 'LabelingJobLabelingJobAlgorithmsConfigArgsDict']]] = None,
+                 labeling_job_algorithms_config: pulumi.Input[Optional[Union['LabelingJobLabelingJobAlgorithmsConfigArgs', 'LabelingJobLabelingJobAlgorithmsConfigArgsDict', 'outputs.LabelingJobLabelingJobAlgorithmsConfig']]] = None,
                  labeling_job_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 output_config: pulumi.Input[Optional[Union['LabelingJobOutputConfigArgs', 'LabelingJobOutputConfigArgsDict']]] = None,
+                 output_config: pulumi.Input[Optional[Union['LabelingJobOutputConfigArgs', 'LabelingJobOutputConfigArgsDict', 'outputs.LabelingJobOutputConfig']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 stopping_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LabelingJobStoppingConditionArgs', 'LabelingJobStoppingConditionArgsDict']]]]] = None,
+                 stopping_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LabelingJobStoppingConditionArgs', 'LabelingJobStoppingConditionArgsDict', 'outputs.LabelingJobStoppingCondition']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -509,19 +509,23 @@ class LabelingJob(pulumi.CustomResource):
 
         # https://docs.aws.amazon.com/sagemaker/latest/dg/sms-named-entity-recg.html#sms-creating-ner-api.
         test = aws.sagemaker.LabelingJob("test",
+            label_attribute_name="label1",
+            labeling_job_name="my-labeling-job",
+            role_arn=example_aws_iam_role["arn"],
+            label_category_config_s3_uri=f"s3://{example_aws_s3_bucket['bucket']}/{example_aws_s3_object['key']}",
             human_task_config={
-                "ui_config": {
-                    "human_task_ui_arn": "arn:aws:sagemaker:us-west-2:394669845002:human-task-ui/NamedEntityRecognition",
-                },
-                "annotation_consolidation_config": {
-                    "annotation_consolidation_lambda_arn": "arn:aws:lambda:us-west-2:081040173940:function:ACS-NamedEntityRecognition",
-                },
                 "number_of_human_workers_per_data_object": 1,
                 "task_description": "Apply the labels provided to specific words or phrases within the larger text block.",
                 "task_title": "Named entity Recognition task",
                 "task_time_limit_in_seconds": 28800,
                 "workteam_arn": example["arn"],
+                "ui_config": {
+                    "human_task_ui_arn": "arn:aws:sagemaker:us-west-2:394669845002:human-task-ui/NamedEntityRecognition",
+                },
                 "pre_human_task_lambda_arn": "arn:aws:lambda:us-west-2:081040173940:function:PRE-NamedEntityRecognition",
+                "annotation_consolidation_config": {
+                    "annotation_consolidation_lambda_arn": "arn:aws:lambda:us-west-2:081040173940:function:ACS-NamedEntityRecognition",
+                },
             },
             input_config={
                 "data_source": {
@@ -532,11 +536,7 @@ class LabelingJob(pulumi.CustomResource):
             },
             output_config={
                 "s3_output_path": f"s3://{example_aws_s3_bucket['bucket']}/",
-            },
-            label_attribute_name="label1",
-            labeling_job_name="my-labeling-job",
-            role_arn=example_aws_iam_role["arn"],
-            label_category_config_s3_uri=f"s3://{example_aws_s3_bucket['bucket']}/{example_aws_s3_object['key']}")
+            })
         ```
 
         ## Import
@@ -550,16 +550,16 @@ class LabelingJob(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['LabelingJobHumanTaskConfigArgs', 'LabelingJobHumanTaskConfigArgsDict']] human_task_config: Configuration information required for human workers to complete a labeling task. Fields are documented below.
-        :param pulumi.Input[Union['LabelingJobInputConfigArgs', 'LabelingJobInputConfigArgsDict']] input_config: Input data for the labeling job. Fields are documented below.
+        :param pulumi.Input[Union['LabelingJobHumanTaskConfigArgs', 'LabelingJobHumanTaskConfigArgsDict', 'outputs.LabelingJobHumanTaskConfig']] human_task_config: Configuration information required for human workers to complete a labeling task. Fields are documented below.
+        :param pulumi.Input[Union['LabelingJobInputConfigArgs', 'LabelingJobInputConfigArgsDict', 'outputs.LabelingJobInputConfig']] input_config: Input data for the labeling job. Fields are documented below.
         :param pulumi.Input[_builtins.str] label_attribute_name: Attribute name to use for the label in the output manifest file.
         :param pulumi.Input[_builtins.str] label_category_config_s3_uri: S3 URI of the file that defines the categories used to label the data objects.
-        :param pulumi.Input[Union['LabelingJobLabelingJobAlgorithmsConfigArgs', 'LabelingJobLabelingJobAlgorithmsConfigArgsDict']] labeling_job_algorithms_config: Information required to perform automated data labeling.. Fields are documented below.
+        :param pulumi.Input[Union['LabelingJobLabelingJobAlgorithmsConfigArgs', 'LabelingJobLabelingJobAlgorithmsConfigArgsDict', 'outputs.LabelingJobLabelingJobAlgorithmsConfig']] labeling_job_algorithms_config: Information required to perform automated data labeling.. Fields are documented below.
         :param pulumi.Input[_builtins.str] labeling_job_name: Name of the labeling job.
-        :param pulumi.Input[Union['LabelingJobOutputConfigArgs', 'LabelingJobOutputConfigArgsDict']] output_config: Location of the output data. Fields are documented below.
+        :param pulumi.Input[Union['LabelingJobOutputConfigArgs', 'LabelingJobOutputConfigArgsDict', 'outputs.LabelingJobOutputConfig']] output_config: Location of the output data. Fields are documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of IAM role that Amazon SageMaker assumes to perform tasks during data labeling.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LabelingJobStoppingConditionArgs', 'LabelingJobStoppingConditionArgsDict']]]] stopping_conditions: Conditions for stopping a labeling job. If any of the conditions are met, the job is automatically stopped. Fields are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LabelingJobStoppingConditionArgs', 'LabelingJobStoppingConditionArgsDict', 'outputs.LabelingJobStoppingCondition']]]] stopping_conditions: Conditions for stopping a labeling job. If any of the conditions are met, the job is automatically stopped. Fields are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -581,19 +581,23 @@ class LabelingJob(pulumi.CustomResource):
 
         # https://docs.aws.amazon.com/sagemaker/latest/dg/sms-named-entity-recg.html#sms-creating-ner-api.
         test = aws.sagemaker.LabelingJob("test",
+            label_attribute_name="label1",
+            labeling_job_name="my-labeling-job",
+            role_arn=example_aws_iam_role["arn"],
+            label_category_config_s3_uri=f"s3://{example_aws_s3_bucket['bucket']}/{example_aws_s3_object['key']}",
             human_task_config={
-                "ui_config": {
-                    "human_task_ui_arn": "arn:aws:sagemaker:us-west-2:394669845002:human-task-ui/NamedEntityRecognition",
-                },
-                "annotation_consolidation_config": {
-                    "annotation_consolidation_lambda_arn": "arn:aws:lambda:us-west-2:081040173940:function:ACS-NamedEntityRecognition",
-                },
                 "number_of_human_workers_per_data_object": 1,
                 "task_description": "Apply the labels provided to specific words or phrases within the larger text block.",
                 "task_title": "Named entity Recognition task",
                 "task_time_limit_in_seconds": 28800,
                 "workteam_arn": example["arn"],
+                "ui_config": {
+                    "human_task_ui_arn": "arn:aws:sagemaker:us-west-2:394669845002:human-task-ui/NamedEntityRecognition",
+                },
                 "pre_human_task_lambda_arn": "arn:aws:lambda:us-west-2:081040173940:function:PRE-NamedEntityRecognition",
+                "annotation_consolidation_config": {
+                    "annotation_consolidation_lambda_arn": "arn:aws:lambda:us-west-2:081040173940:function:ACS-NamedEntityRecognition",
+                },
             },
             input_config={
                 "data_source": {
@@ -604,11 +608,7 @@ class LabelingJob(pulumi.CustomResource):
             },
             output_config={
                 "s3_output_path": f"s3://{example_aws_s3_bucket['bucket']}/",
-            },
-            label_attribute_name="label1",
-            labeling_job_name="my-labeling-job",
-            role_arn=example_aws_iam_role["arn"],
-            label_category_config_s3_uri=f"s3://{example_aws_s3_bucket['bucket']}/{example_aws_s3_object['key']}")
+            })
         ```
 
         ## Import
@@ -635,16 +635,16 @@ class LabelingJob(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 human_task_config: pulumi.Input[Optional[Union['LabelingJobHumanTaskConfigArgs', 'LabelingJobHumanTaskConfigArgsDict']]] = None,
-                 input_config: pulumi.Input[Optional[Union['LabelingJobInputConfigArgs', 'LabelingJobInputConfigArgsDict']]] = None,
+                 human_task_config: pulumi.Input[Optional[Union['LabelingJobHumanTaskConfigArgs', 'LabelingJobHumanTaskConfigArgsDict', 'outputs.LabelingJobHumanTaskConfig']]] = None,
+                 input_config: pulumi.Input[Optional[Union['LabelingJobInputConfigArgs', 'LabelingJobInputConfigArgsDict', 'outputs.LabelingJobInputConfig']]] = None,
                  label_attribute_name: pulumi.Input[Optional[_builtins.str]] = None,
                  label_category_config_s3_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 labeling_job_algorithms_config: pulumi.Input[Optional[Union['LabelingJobLabelingJobAlgorithmsConfigArgs', 'LabelingJobLabelingJobAlgorithmsConfigArgsDict']]] = None,
+                 labeling_job_algorithms_config: pulumi.Input[Optional[Union['LabelingJobLabelingJobAlgorithmsConfigArgs', 'LabelingJobLabelingJobAlgorithmsConfigArgsDict', 'outputs.LabelingJobLabelingJobAlgorithmsConfig']]] = None,
                  labeling_job_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 output_config: pulumi.Input[Optional[Union['LabelingJobOutputConfigArgs', 'LabelingJobOutputConfigArgsDict']]] = None,
+                 output_config: pulumi.Input[Optional[Union['LabelingJobOutputConfigArgs', 'LabelingJobOutputConfigArgsDict', 'outputs.LabelingJobOutputConfig']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 stopping_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LabelingJobStoppingConditionArgs', 'LabelingJobStoppingConditionArgsDict']]]]] = None,
+                 stopping_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LabelingJobStoppingConditionArgs', 'LabelingJobStoppingConditionArgsDict', 'outputs.LabelingJobStoppingCondition']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -695,20 +695,20 @@ class LabelingJob(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
-            human_task_config: pulumi.Input[Optional[Union['LabelingJobHumanTaskConfigArgs', 'LabelingJobHumanTaskConfigArgsDict']]] = None,
-            input_config: pulumi.Input[Optional[Union['LabelingJobInputConfigArgs', 'LabelingJobInputConfigArgsDict']]] = None,
+            human_task_config: pulumi.Input[Optional[Union['LabelingJobHumanTaskConfigArgs', 'LabelingJobHumanTaskConfigArgsDict', 'outputs.LabelingJobHumanTaskConfig']]] = None,
+            input_config: pulumi.Input[Optional[Union['LabelingJobInputConfigArgs', 'LabelingJobInputConfigArgsDict', 'outputs.LabelingJobInputConfig']]] = None,
             job_reference_code: pulumi.Input[Optional[_builtins.str]] = None,
             label_attribute_name: pulumi.Input[Optional[_builtins.str]] = None,
             label_category_config_s3_uri: pulumi.Input[Optional[_builtins.str]] = None,
-            label_counters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LabelingJobLabelCounterArgs', 'LabelingJobLabelCounterArgsDict']]]]] = None,
-            labeling_job_algorithms_config: pulumi.Input[Optional[Union['LabelingJobLabelingJobAlgorithmsConfigArgs', 'LabelingJobLabelingJobAlgorithmsConfigArgsDict']]] = None,
+            label_counters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LabelingJobLabelCounterArgs', 'LabelingJobLabelCounterArgsDict', 'outputs.LabelingJobLabelCounter']]]]] = None,
+            labeling_job_algorithms_config: pulumi.Input[Optional[Union['LabelingJobLabelingJobAlgorithmsConfigArgs', 'LabelingJobLabelingJobAlgorithmsConfigArgsDict', 'outputs.LabelingJobLabelingJobAlgorithmsConfig']]] = None,
             labeling_job_arn: pulumi.Input[Optional[_builtins.str]] = None,
             labeling_job_name: pulumi.Input[Optional[_builtins.str]] = None,
             labeling_job_status: pulumi.Input[Optional[_builtins.str]] = None,
-            output_config: pulumi.Input[Optional[Union['LabelingJobOutputConfigArgs', 'LabelingJobOutputConfigArgsDict']]] = None,
+            output_config: pulumi.Input[Optional[Union['LabelingJobOutputConfigArgs', 'LabelingJobOutputConfigArgsDict', 'outputs.LabelingJobOutputConfig']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            stopping_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LabelingJobStoppingConditionArgs', 'LabelingJobStoppingConditionArgsDict']]]]] = None,
+            stopping_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LabelingJobStoppingConditionArgs', 'LabelingJobStoppingConditionArgsDict', 'outputs.LabelingJobStoppingCondition']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'LabelingJob':
         """
@@ -719,20 +719,20 @@ class LabelingJob(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] failure_reason: If the job failed, the reason that it failed.
-        :param pulumi.Input[Union['LabelingJobHumanTaskConfigArgs', 'LabelingJobHumanTaskConfigArgsDict']] human_task_config: Configuration information required for human workers to complete a labeling task. Fields are documented below.
-        :param pulumi.Input[Union['LabelingJobInputConfigArgs', 'LabelingJobInputConfigArgsDict']] input_config: Input data for the labeling job. Fields are documented below.
+        :param pulumi.Input[Union['LabelingJobHumanTaskConfigArgs', 'LabelingJobHumanTaskConfigArgsDict', 'outputs.LabelingJobHumanTaskConfig']] human_task_config: Configuration information required for human workers to complete a labeling task. Fields are documented below.
+        :param pulumi.Input[Union['LabelingJobInputConfigArgs', 'LabelingJobInputConfigArgsDict', 'outputs.LabelingJobInputConfig']] input_config: Input data for the labeling job. Fields are documented below.
         :param pulumi.Input[_builtins.str] job_reference_code: Unique identifier for work done as part of a labeling job.
         :param pulumi.Input[_builtins.str] label_attribute_name: Attribute name to use for the label in the output manifest file.
         :param pulumi.Input[_builtins.str] label_category_config_s3_uri: S3 URI of the file that defines the categories used to label the data objects.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LabelingJobLabelCounterArgs', 'LabelingJobLabelCounterArgsDict']]]] label_counters: A breakdown of the number of objects labeled.
-        :param pulumi.Input[Union['LabelingJobLabelingJobAlgorithmsConfigArgs', 'LabelingJobLabelingJobAlgorithmsConfigArgsDict']] labeling_job_algorithms_config: Information required to perform automated data labeling.. Fields are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LabelingJobLabelCounterArgs', 'LabelingJobLabelCounterArgsDict', 'outputs.LabelingJobLabelCounter']]]] label_counters: A breakdown of the number of objects labeled.
+        :param pulumi.Input[Union['LabelingJobLabelingJobAlgorithmsConfigArgs', 'LabelingJobLabelingJobAlgorithmsConfigArgsDict', 'outputs.LabelingJobLabelingJobAlgorithmsConfig']] labeling_job_algorithms_config: Information required to perform automated data labeling.. Fields are documented below.
         :param pulumi.Input[_builtins.str] labeling_job_arn: ARN of the labeling job.
         :param pulumi.Input[_builtins.str] labeling_job_name: Name of the labeling job.
         :param pulumi.Input[_builtins.str] labeling_job_status: Processing status of the labeling job.
-        :param pulumi.Input[Union['LabelingJobOutputConfigArgs', 'LabelingJobOutputConfigArgsDict']] output_config: Location of the output data. Fields are documented below.
+        :param pulumi.Input[Union['LabelingJobOutputConfigArgs', 'LabelingJobOutputConfigArgsDict', 'outputs.LabelingJobOutputConfig']] output_config: Location of the output data. Fields are documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of IAM role that Amazon SageMaker assumes to perform tasks during data labeling.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LabelingJobStoppingConditionArgs', 'LabelingJobStoppingConditionArgsDict']]]] stopping_conditions: Conditions for stopping a labeling job. If any of the conditions are met, the job is automatically stopped. Fields are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LabelingJobStoppingConditionArgs', 'LabelingJobStoppingConditionArgsDict', 'outputs.LabelingJobStoppingCondition']]]] stopping_conditions: Conditions for stopping a labeling job. If any of the conditions are met, the job is automatically stopped. Fields are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

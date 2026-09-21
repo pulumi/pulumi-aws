@@ -24,6 +24,11 @@ namespace Pulumi.Aws.Elb
     /// {
     ///     var lb = new Aws.Elb.LoadBalancer("lb", new()
     ///     {
+    ///         Name = "test-lb",
+    ///         AvailabilityZones = new[]
+    ///         {
+    ///             "us-east-1a",
+    ///         },
     ///         Listeners = new[]
     ///         {
     ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
@@ -33,11 +38,6 @@ namespace Pulumi.Aws.Elb
     ///                 LbPort = 80,
     ///                 LbProtocol = "http",
     ///             },
-    ///         },
-    ///         Name = "test-lb",
-    ///         AvailabilityZones = new[]
-    ///         {
-    ///             "us-east-1a",
     ///         },
     ///     });
     /// 

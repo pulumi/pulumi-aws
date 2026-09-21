@@ -33,6 +33,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lakeformation.DataLakeSettings("example", {
+ *     admins: [
+ *         test.arn,
+ *         testAwsIamRole.arn,
+ *     ],
  *     createDatabaseDefaultPermissions: [{
  *         permissions: [
  *             "SELECT",
@@ -45,10 +49,6 @@ import * as utilities from "../utilities";
  *         permissions: ["ALL"],
  *         principal: testAwsIamRole.arn,
  *     }],
- *     admins: [
- *         test.arn,
- *         testAwsIamRole.arn,
- *     ],
  * });
  * ```
  *
@@ -59,6 +59,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lakeformation.DataLakeSettings("example", {
+ *     admins: [
+ *         test.arn,
+ *         testAwsIamRole.arn,
+ *     ],
  *     createDatabaseDefaultPermissions: [{
  *         permissions: [
  *             "SELECT",
@@ -71,10 +75,6 @@ import * as utilities from "../utilities";
  *         permissions: ["ALL"],
  *         principal: testAwsIamRole.arn,
  *     }],
- *     admins: [
- *         test.arn,
- *         testAwsIamRole.arn,
- *     ],
  *     allowExternalDataFiltering: true,
  *     externalDataFilteringAllowLists: [
  *         current.accountId,

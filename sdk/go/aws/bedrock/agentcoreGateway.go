@@ -34,6 +34,10 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -41,10 +45,6 @@ import (
 //									"bedrock-agentcore.amazonaws.com",
 //								},
 //							},
-//						},
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"sts:AssumeRole",
 //						},
 //					},
 //				},
@@ -60,6 +60,9 @@ import (
 //				return err
 //			}
 //			_, err = bedrock.NewAgentcoreGateway(ctx, "example", &bedrock.AgentcoreGatewayArgs{
+//				Name:           pulumi.String("example-gateway"),
+//				RoleArn:        example.Arn,
+//				AuthorizerType: pulumi.String("CUSTOM_JWT"),
 //				AuthorizerConfiguration: &bedrock.AgentcoreGatewayAuthorizerConfigurationArgs{
 //					CustomJwtAuthorizer: &bedrock.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs{
 //						DiscoveryUrl: pulumi.String("https://accounts.google.com/.well-known/openid-configuration"),
@@ -69,10 +72,7 @@ import (
 //						},
 //					},
 //				},
-//				Name:           pulumi.String("example-gateway"),
-//				RoleArn:        example.Arn,
-//				AuthorizerType: pulumi.String("CUSTOM_JWT"),
-//				ProtocolType:   pulumi.String("MCP"),
+//				ProtocolType: pulumi.String("MCP"),
 //			})
 //			if err != nil {
 //				return err
@@ -98,6 +98,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreGateway(ctx, "example", &bedrock.AgentcoreGatewayArgs{
+//				Name:           pulumi.String("mcp-gateway"),
+//				Description:    pulumi.String("Gateway for MCP communication"),
+//				RoleArn:        pulumi.Any(exampleAwsIamRole.Arn),
+//				AuthorizerType: pulumi.String("CUSTOM_JWT"),
 //				AuthorizerConfiguration: &bedrock.AgentcoreGatewayAuthorizerConfigurationArgs{
 //					CustomJwtAuthorizer: &bedrock.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs{
 //						DiscoveryUrl: pulumi.String("https://auth.example.com/.well-known/openid-configuration"),
@@ -115,6 +119,7 @@ import (
 //						},
 //					},
 //				},
+//				ProtocolType: pulumi.String("MCP"),
 //				ProtocolConfiguration: &bedrock.AgentcoreGatewayProtocolConfigurationArgs{
 //					Mcp: &bedrock.AgentcoreGatewayProtocolConfigurationMcpArgs{
 //						Instructions: pulumi.String("Gateway for handling MCP requests"),
@@ -125,11 +130,6 @@ import (
 //						},
 //					},
 //				},
-//				Name:           pulumi.String("mcp-gateway"),
-//				Description:    pulumi.String("Gateway for MCP communication"),
-//				RoleArn:        pulumi.Any(exampleAwsIamRole.Arn),
-//				AuthorizerType: pulumi.String("CUSTOM_JWT"),
-//				ProtocolType:   pulumi.String("MCP"),
 //			})
 //			if err != nil {
 //				return err
@@ -166,8 +166,16 @@ import (
 //				return err
 //			}
 //			_, err = bedrock.NewAgentcoreGateway(ctx, "example", &bedrock.AgentcoreGatewayArgs{
+//				Name:           pulumi.String("gateway-with-interceptor"),
+//				RoleArn:        pulumi.Any(exampleAwsIamRole.Arn),
+//				AuthorizerType: pulumi.String("AWS_IAM"),
+//				ProtocolType:   pulumi.String("MCP"),
 //				InterceptorConfigurations: bedrock.AgentcoreGatewayInterceptorConfigurationArray{
 //					&bedrock.AgentcoreGatewayInterceptorConfigurationArgs{
+//						InterceptionPoints: pulumi.StringArray{
+//							pulumi.String("REQUEST"),
+//							pulumi.String("RESPONSE"),
+//						},
 //						Interceptor: &bedrock.AgentcoreGatewayInterceptorConfigurationInterceptorArgs{
 //							Lambda: &bedrock.AgentcoreGatewayInterceptorConfigurationInterceptorLambdaArgs{
 //								Arn: interceptor.Arn,
@@ -176,16 +184,8 @@ import (
 //						InputConfiguration: &bedrock.AgentcoreGatewayInterceptorConfigurationInputConfigurationArgs{
 //							PassRequestHeaders: pulumi.Bool(true),
 //						},
-//						InterceptionPoints: pulumi.StringArray{
-//							pulumi.String("REQUEST"),
-//							pulumi.String("RESPONSE"),
-//						},
 //					},
 //				},
-//				Name:           pulumi.String("gateway-with-interceptor"),
-//				RoleArn:        pulumi.Any(exampleAwsIamRole.Arn),
-//				AuthorizerType: pulumi.String("AWS_IAM"),
-//				ProtocolType:   pulumi.String("MCP"),
 //			})
 //			if err != nil {
 //				return err

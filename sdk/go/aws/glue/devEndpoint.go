@@ -34,6 +34,9 @@ import (
 //			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -41,9 +44,6 @@ import (
 //									"glue.amazonaws.com",
 //								},
 //							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
 //						},
 //					},
 //				},

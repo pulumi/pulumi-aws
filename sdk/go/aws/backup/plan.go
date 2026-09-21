@@ -29,6 +29,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := backup.NewPlan(ctx, "example", &backup.PlanArgs{
+//				Name: pulumi.String("my_example_backup_plan"),
+//				Rules: backup.PlanRuleArray{
+//					&backup.PlanRuleArgs{
+//						RuleName:        pulumi.String("my_example_backup_rule"),
+//						TargetVaultName: pulumi.Any(test.Name),
+//						Schedule:        pulumi.String("cron(0 12 * * ? *)"),
+//						Lifecycle: &backup.PlanRuleLifecycleArgs{
+//							DeleteAfter: pulumi.Int(14),
+//						},
+//					},
+//				},
 //				AdvancedBackupSettings: backup.PlanAdvancedBackupSettingArray{
 //					&backup.PlanAdvancedBackupSettingArgs{
 //						BackupOptions: pulumi.StringMap{
@@ -37,17 +48,6 @@ import (
 //						ResourceType: pulumi.String("EC2"),
 //					},
 //				},
-//				Rules: backup.PlanRuleArray{
-//					&backup.PlanRuleArgs{
-//						Lifecycle: &backup.PlanRuleLifecycleArgs{
-//							DeleteAfter: pulumi.Int(14),
-//						},
-//						RuleName:        pulumi.String("my_example_backup_rule"),
-//						TargetVaultName: pulumi.Any(test.Name),
-//						Schedule:        pulumi.String("cron(0 12 * * ? *)"),
-//					},
-//				},
-//				Name: pulumi.String("my_example_backup_plan"),
 //			})
 //			if err != nil {
 //				return err

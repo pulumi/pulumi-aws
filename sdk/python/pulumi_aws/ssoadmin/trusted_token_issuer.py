@@ -308,7 +308,7 @@ class TrustedTokenIssuer(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trusted_token_issuer_configuration: pulumi.Input[Optional[Union['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs', 'TrustedTokenIssuerTrustedTokenIssuerConfigurationArgsDict']]] = None,
+                 trusted_token_issuer_configuration: pulumi.Input[Optional[Union['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs', 'TrustedTokenIssuerTrustedTokenIssuerConfigurationArgsDict', 'outputs.TrustedTokenIssuerTrustedTokenIssuerConfiguration']]] = None,
                  trusted_token_issuer_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -324,6 +324,9 @@ class TrustedTokenIssuer(pulumi.CustomResource):
 
         example = aws.ssoadmin.get_instances()
         example_trusted_token_issuer = aws.ssoadmin.TrustedTokenIssuer("example",
+            name="example",
+            instance_arn=example.arns[0],
+            trusted_token_issuer_type="OIDC_JWT",
             trusted_token_issuer_configuration={
                 "oidc_jwt_configuration": {
                     "claim_attribute_path": "email",
@@ -331,10 +334,7 @@ class TrustedTokenIssuer(pulumi.CustomResource):
                     "issuer_url": "https://example.com",
                     "jwks_retrieval_option": "OPEN_ID_DISCOVERY",
                 },
-            },
-            name="example",
-            instance_arn=example.arns[0],
-            trusted_token_issuer_type="OIDC_JWT")
+            })
         ```
 
         ## Import
@@ -363,7 +363,7 @@ class TrustedTokenIssuer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the trusted token issuer.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs', 'TrustedTokenIssuerTrustedTokenIssuerConfigurationArgsDict']] trusted_token_issuer_configuration: A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
+        :param pulumi.Input[Union['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs', 'TrustedTokenIssuerTrustedTokenIssuerConfigurationArgsDict', 'outputs.TrustedTokenIssuerTrustedTokenIssuerConfiguration']] trusted_token_issuer_configuration: A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
         :param pulumi.Input[_builtins.str] trusted_token_issuer_type: Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
                
                The following arguments are optional:
@@ -387,6 +387,9 @@ class TrustedTokenIssuer(pulumi.CustomResource):
 
         example = aws.ssoadmin.get_instances()
         example_trusted_token_issuer = aws.ssoadmin.TrustedTokenIssuer("example",
+            name="example",
+            instance_arn=example.arns[0],
+            trusted_token_issuer_type="OIDC_JWT",
             trusted_token_issuer_configuration={
                 "oidc_jwt_configuration": {
                     "claim_attribute_path": "email",
@@ -394,10 +397,7 @@ class TrustedTokenIssuer(pulumi.CustomResource):
                     "issuer_url": "https://example.com",
                     "jwks_retrieval_option": "OPEN_ID_DISCOVERY",
                 },
-            },
-            name="example",
-            instance_arn=example.arns[0],
-            trusted_token_issuer_type="OIDC_JWT")
+            })
         ```
 
         ## Import
@@ -439,7 +439,7 @@ class TrustedTokenIssuer(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trusted_token_issuer_configuration: pulumi.Input[Optional[Union['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs', 'TrustedTokenIssuerTrustedTokenIssuerConfigurationArgsDict']]] = None,
+                 trusted_token_issuer_configuration: pulumi.Input[Optional[Union['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs', 'TrustedTokenIssuerTrustedTokenIssuerConfigurationArgsDict', 'outputs.TrustedTokenIssuerTrustedTokenIssuerConfiguration']]] = None,
                  trusted_token_issuer_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -482,7 +482,7 @@ class TrustedTokenIssuer(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            trusted_token_issuer_configuration: pulumi.Input[Optional[Union['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs', 'TrustedTokenIssuerTrustedTokenIssuerConfigurationArgsDict']]] = None,
+            trusted_token_issuer_configuration: pulumi.Input[Optional[Union['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs', 'TrustedTokenIssuerTrustedTokenIssuerConfigurationArgsDict', 'outputs.TrustedTokenIssuerTrustedTokenIssuerConfiguration']]] = None,
             trusted_token_issuer_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'TrustedTokenIssuer':
         """
         Get an existing TrustedTokenIssuer resource's state with the given name, id, and optional extra
@@ -498,7 +498,7 @@ class TrustedTokenIssuer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs', 'TrustedTokenIssuerTrustedTokenIssuerConfigurationArgsDict']] trusted_token_issuer_configuration: A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
+        :param pulumi.Input[Union['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs', 'TrustedTokenIssuerTrustedTokenIssuerConfigurationArgsDict', 'outputs.TrustedTokenIssuerTrustedTokenIssuerConfiguration']] trusted_token_issuer_configuration: A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
         :param pulumi.Input[_builtins.str] trusted_token_issuer_type: Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
                
                The following arguments are optional:

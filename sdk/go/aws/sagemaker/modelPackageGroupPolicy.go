@@ -48,14 +48,6 @@ import (
 //			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String(current.AccountId),
-//								},
-//								Type: pulumi.String("AWS"),
-//							},
-//						},
 //						Sid: pulumi.String("AddPermModelPackageGroup"),
 //						Actions: pulumi.StringArray{
 //							pulumi.String("sagemaker:DescribeModelPackage"),
@@ -63,6 +55,14 @@ import (
 //						},
 //						Resources: pulumi.StringArray{
 //							exampleModelPackageGroup.Arn,
+//						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String(current.AccountId),
+//								},
+//								Type: pulumi.String("AWS"),
+//							},
 //						},
 //					},
 //				},

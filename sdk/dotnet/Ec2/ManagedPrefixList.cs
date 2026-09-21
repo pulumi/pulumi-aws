@@ -38,6 +38,9 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.ManagedPrefixList("example", new()
     ///     {
+    ///         Name = "All VPC CIDR-s",
+    ///         AddressFamily = "IPv4",
+    ///         MaxEntries = 5,
     ///         Entries = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.ManagedPrefixListEntryArgs
@@ -51,9 +54,6 @@ namespace Pulumi.Aws.Ec2
     ///                 Description = "Secondary",
     ///             },
     ///         },
-    ///         Name = "All VPC CIDR-s",
-    ///         AddressFamily = "IPv4",
-    ///         MaxEntries = 5,
     ///         Tags = 
     ///         {
     ///             { "Env", "live" },

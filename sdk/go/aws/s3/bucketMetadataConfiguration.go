@@ -31,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewBucketMetadataConfiguration(ctx, "example", &s3.BucketMetadataConfigurationArgs{
+//				Bucket: pulumi.Any(exampleAwsS3Bucket.Bucket),
 //				MetadataConfiguration: &s3.BucketMetadataConfigurationMetadataConfigurationArgs{
 //					InventoryTableConfiguration: &s3.BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs{
 //						ConfigurationState: pulumi.String("ENABLED"),
@@ -42,7 +43,6 @@ import (
 //						},
 //					},
 //				},
-//				Bucket: pulumi.Any(exampleAwsS3Bucket.Bucket),
 //			})
 //			if err != nil {
 //				return err

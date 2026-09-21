@@ -33,18 +33,8 @@ namespace Pulumi.Aws.Efs
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "Bool",
-    ///                         Variable = "aws:SecureTransport",
-    ///                         Values = new[]
-    ///                         {
-    ///                             "true",
-    ///                         },
-    ///                     },
-    ///                 },
+    ///                 Sid = "ExampleStatement01",
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -56,8 +46,6 @@ namespace Pulumi.Aws.Efs
     ///                         },
     ///                     },
     ///                 },
-    ///                 Sid = "ExampleStatement01",
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "elasticfilesystem:ClientMount",
@@ -66,6 +54,18 @@ namespace Pulumi.Aws.Efs
     ///                 Resources = new[]
     ///                 {
     ///                     fs.Arn,
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "Bool",
+    ///                         Variable = "aws:SecureTransport",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "true",
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
     ///         },

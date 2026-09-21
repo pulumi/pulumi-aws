@@ -266,9 +266,9 @@ class CapacityProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_group_provider: pulumi.Input[Optional[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict']]] = None,
+                 auto_scaling_group_provider: pulumi.Input[Optional[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict', 'outputs.CapacityProviderAutoScalingGroupProvider']]] = None,
                  cluster: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_instances_provider: pulumi.Input[Optional[Union['CapacityProviderManagedInstancesProviderArgs', 'CapacityProviderManagedInstancesProviderArgsDict']]] = None,
+                 managed_instances_provider: pulumi.Input[Optional[Union['CapacityProviderManagedInstancesProviderArgs', 'CapacityProviderManagedInstancesProviderArgsDict', 'outputs.CapacityProviderManagedInstancesProvider']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -296,17 +296,17 @@ class CapacityProvider(pulumi.CustomResource):
             "propagate_at_launch": True,
         }])
         example_capacity_provider = aws.ecs.CapacityProvider("example",
+            name="example",
             auto_scaling_group_provider={
+                "auto_scaling_group_arn": example.arn,
+                "managed_termination_protection": "ENABLED",
                 "managed_scaling": {
                     "maximum_scaling_step_size": 1000,
                     "minimum_scaling_step_size": 1,
                     "status": "ENABLED",
                     "target_capacity": 10,
                 },
-                "auto_scaling_group_arn": example.arn,
-                "managed_termination_protection": "ENABLED",
-            },
-            name="example")
+            })
         ```
 
         ### Managed Instances Provider
@@ -316,8 +316,14 @@ class CapacityProvider(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.CapacityProvider("example",
+            name="example",
+            cluster="my-cluster",
             managed_instances_provider={
+                "infrastructure_role_arn": ecs_infrastructure["arn"],
+                "propagate_tags": "CAPACITY_PROVIDER",
                 "instance_launch_template": {
+                    "ec2_instance_profile_arn": ecs_instance["arn"],
+                    "monitoring": "DETAILED",
                     "network_configuration": {
                         "subnets": [example_aws_subnet["id"]],
                         "security_groups": [example_aws_security_group["id"]],
@@ -340,14 +346,8 @@ class CapacityProvider(pulumi.CustomResource):
                             "amd",
                         ],
                     },
-                    "ec2_instance_profile_arn": ecs_instance["arn"],
-                    "monitoring": "DETAILED",
                 },
-                "infrastructure_role_arn": ecs_infrastructure["arn"],
-                "propagate_tags": "CAPACITY_PROVIDER",
-            },
-            name="example",
-            cluster="my-cluster")
+            })
         ```
 
         ## Import
@@ -367,9 +367,9 @@ class CapacityProvider(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict']] auto_scaling_group_provider: Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+        :param pulumi.Input[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict', 'outputs.CapacityProviderAutoScalingGroupProvider']] auto_scaling_group_provider: Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
         :param pulumi.Input[_builtins.str] cluster: Name of the ECS cluster. Required when using `managed_instances_provider`. Must not be set when using `auto_scaling_group_provider`.
-        :param pulumi.Input[Union['CapacityProviderManagedInstancesProviderArgs', 'CapacityProviderManagedInstancesProviderArgsDict']] managed_instances_provider: Configuration block for the managed instances provider. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+        :param pulumi.Input[Union['CapacityProviderManagedInstancesProviderArgs', 'CapacityProviderManagedInstancesProviderArgsDict', 'outputs.CapacityProviderManagedInstancesProvider']] managed_instances_provider: Configuration block for the managed instances provider. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
         :param pulumi.Input[_builtins.str] name: Name of the capacity provider.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -403,17 +403,17 @@ class CapacityProvider(pulumi.CustomResource):
             "propagate_at_launch": True,
         }])
         example_capacity_provider = aws.ecs.CapacityProvider("example",
+            name="example",
             auto_scaling_group_provider={
+                "auto_scaling_group_arn": example.arn,
+                "managed_termination_protection": "ENABLED",
                 "managed_scaling": {
                     "maximum_scaling_step_size": 1000,
                     "minimum_scaling_step_size": 1,
                     "status": "ENABLED",
                     "target_capacity": 10,
                 },
-                "auto_scaling_group_arn": example.arn,
-                "managed_termination_protection": "ENABLED",
-            },
-            name="example")
+            })
         ```
 
         ### Managed Instances Provider
@@ -423,8 +423,14 @@ class CapacityProvider(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.CapacityProvider("example",
+            name="example",
+            cluster="my-cluster",
             managed_instances_provider={
+                "infrastructure_role_arn": ecs_infrastructure["arn"],
+                "propagate_tags": "CAPACITY_PROVIDER",
                 "instance_launch_template": {
+                    "ec2_instance_profile_arn": ecs_instance["arn"],
+                    "monitoring": "DETAILED",
                     "network_configuration": {
                         "subnets": [example_aws_subnet["id"]],
                         "security_groups": [example_aws_security_group["id"]],
@@ -447,14 +453,8 @@ class CapacityProvider(pulumi.CustomResource):
                             "amd",
                         ],
                     },
-                    "ec2_instance_profile_arn": ecs_instance["arn"],
-                    "monitoring": "DETAILED",
                 },
-                "infrastructure_role_arn": ecs_infrastructure["arn"],
-                "propagate_tags": "CAPACITY_PROVIDER",
-            },
-            name="example",
-            cluster="my-cluster")
+            })
         ```
 
         ## Import
@@ -487,9 +487,9 @@ class CapacityProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_group_provider: pulumi.Input[Optional[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict']]] = None,
+                 auto_scaling_group_provider: pulumi.Input[Optional[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict', 'outputs.CapacityProviderAutoScalingGroupProvider']]] = None,
                  cluster: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_instances_provider: pulumi.Input[Optional[Union['CapacityProviderManagedInstancesProviderArgs', 'CapacityProviderManagedInstancesProviderArgsDict']]] = None,
+                 managed_instances_provider: pulumi.Input[Optional[Union['CapacityProviderManagedInstancesProviderArgs', 'CapacityProviderManagedInstancesProviderArgsDict', 'outputs.CapacityProviderManagedInstancesProvider']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -521,9 +521,9 @@ class CapacityProvider(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            auto_scaling_group_provider: pulumi.Input[Optional[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict']]] = None,
+            auto_scaling_group_provider: pulumi.Input[Optional[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict', 'outputs.CapacityProviderAutoScalingGroupProvider']]] = None,
             cluster: pulumi.Input[Optional[_builtins.str]] = None,
-            managed_instances_provider: pulumi.Input[Optional[Union['CapacityProviderManagedInstancesProviderArgs', 'CapacityProviderManagedInstancesProviderArgsDict']]] = None,
+            managed_instances_provider: pulumi.Input[Optional[Union['CapacityProviderManagedInstancesProviderArgs', 'CapacityProviderManagedInstancesProviderArgsDict', 'outputs.CapacityProviderManagedInstancesProvider']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -536,9 +536,9 @@ class CapacityProvider(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN that identifies the capacity provider.
-        :param pulumi.Input[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict']] auto_scaling_group_provider: Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+        :param pulumi.Input[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict', 'outputs.CapacityProviderAutoScalingGroupProvider']] auto_scaling_group_provider: Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
         :param pulumi.Input[_builtins.str] cluster: Name of the ECS cluster. Required when using `managed_instances_provider`. Must not be set when using `auto_scaling_group_provider`.
-        :param pulumi.Input[Union['CapacityProviderManagedInstancesProviderArgs', 'CapacityProviderManagedInstancesProviderArgsDict']] managed_instances_provider: Configuration block for the managed instances provider. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+        :param pulumi.Input[Union['CapacityProviderManagedInstancesProviderArgs', 'CapacityProviderManagedInstancesProviderArgsDict', 'outputs.CapacityProviderManagedInstancesProvider']] managed_instances_provider: Configuration block for the managed instances provider. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
         :param pulumi.Input[_builtins.str] name: Name of the capacity provider.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -284,13 +284,16 @@ class Workflow(pulumi.CustomResource):
 
         example = aws.glue.Workflow("example", name="example")
         example_start = aws.glue.Trigger("example-start",
-            actions=[{
-                "job_name": "example-job",
-            }],
             name="trigger-start",
             type="ON_DEMAND",
-            workflow_name=example.name)
+            workflow_name=example.name,
+            actions=[{
+                "job_name": "example-job",
+            }])
         example_inner = aws.glue.Trigger("example-inner",
+            name="trigger-inner",
+            type="CONDITIONAL",
+            workflow_name=example.name,
             predicate={
                 "conditions": [{
                     "job_name": "example-job",
@@ -299,10 +302,7 @@ class Workflow(pulumi.CustomResource):
             },
             actions=[{
                 "job_name": "another-example-job",
-            }],
-            name="trigger-inner",
-            type="CONDITIONAL",
-            workflow_name=example.name)
+            }])
         ```
 
         ## Import
@@ -342,13 +342,16 @@ class Workflow(pulumi.CustomResource):
 
         example = aws.glue.Workflow("example", name="example")
         example_start = aws.glue.Trigger("example-start",
-            actions=[{
-                "job_name": "example-job",
-            }],
             name="trigger-start",
             type="ON_DEMAND",
-            workflow_name=example.name)
+            workflow_name=example.name,
+            actions=[{
+                "job_name": "example-job",
+            }])
         example_inner = aws.glue.Trigger("example-inner",
+            name="trigger-inner",
+            type="CONDITIONAL",
+            workflow_name=example.name,
             predicate={
                 "conditions": [{
                     "job_name": "example-job",
@@ -357,10 +360,7 @@ class Workflow(pulumi.CustomResource):
             },
             actions=[{
                 "job_name": "another-example-job",
-            }],
-            name="trigger-inner",
-            type="CONDITIONAL",
-            workflow_name=example.name)
+            }])
         ```
 
         ## Import

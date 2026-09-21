@@ -51,6 +51,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var serviceb = new Route("serviceb", RouteArgs.builder()
+ *             .name("serviceB-route")
+ *             .meshName(simple.id())
+ *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
  *             .spec(RouteSpecArgs.builder()
  *                 .httpRoute(RouteSpecHttpRouteArgs.builder()
  *                     .match(RouteSpecHttpRouteMatchArgs.builder()
@@ -69,9 +72,6 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .name("serviceB-route")
- *             .meshName(simple.id())
- *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
  *             .build());
  * 
  *     }
@@ -111,18 +111,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var serviceb = new Route("serviceb", RouteArgs.builder()
+ *             .name("serviceB-route")
+ *             .meshName(simple.id())
+ *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
  *             .spec(RouteSpecArgs.builder()
  *                 .httpRoute(RouteSpecHttpRouteArgs.builder()
  *                     .match(RouteSpecHttpRouteMatchArgs.builder()
- *                         .headers(RouteSpecHttpRouteMatchHeaderArgs.builder()
- *                             .match(RouteSpecHttpRouteMatchHeaderMatchArgs.builder()
- *                                 .prefix("123")
- *                                 .build())
- *                             .name("clientRequestId")
- *                             .build())
  *                         .method("POST")
  *                         .prefix("/")
  *                         .scheme("https")
+ *                         .headers(RouteSpecHttpRouteMatchHeaderArgs.builder()
+ *                             .name("clientRequestId")
+ *                             .match(RouteSpecHttpRouteMatchHeaderMatchArgs.builder()
+ *                                 .prefix("123")
+ *                                 .build())
+ *                             .build())
  *                         .build())
  *                     .action(RouteSpecHttpRouteActionArgs.builder()
  *                         .weightedTargets(RouteSpecHttpRouteActionWeightedTargetArgs.builder()
@@ -132,9 +135,6 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .name("serviceB-route")
- *             .meshName(simple.id())
- *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
  *             .build());
  * 
  *     }
@@ -174,18 +174,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var serviceb = new Route("serviceb", RouteArgs.builder()
+ *             .name("serviceB-route")
+ *             .meshName(simple.id())
+ *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
  *             .spec(RouteSpecArgs.builder()
  *                 .httpRoute(RouteSpecHttpRouteArgs.builder()
  *                     .match(RouteSpecHttpRouteMatchArgs.builder()
  *                         .prefix("/")
  *                         .build())
  *                     .retryPolicy(RouteSpecHttpRouteRetryPolicyArgs.builder()
+ *                         .httpRetryEvents("server-error")
+ *                         .maxRetries(1)
  *                         .perRetryTimeout(RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs.builder()
  *                             .unit("s")
  *                             .value(15)
  *                             .build())
- *                         .httpRetryEvents("server-error")
- *                         .maxRetries(1)
  *                         .build())
  *                     .action(RouteSpecHttpRouteActionArgs.builder()
  *                         .weightedTargets(RouteSpecHttpRouteActionWeightedTargetArgs.builder()
@@ -195,9 +198,6 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .name("serviceB-route")
- *             .meshName(simple.id())
- *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
  *             .build());
  * 
  *     }
@@ -234,6 +234,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var serviceb = new Route("serviceb", RouteArgs.builder()
+ *             .name("serviceB-route")
+ *             .meshName(simple.id())
+ *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
  *             .spec(RouteSpecArgs.builder()
  *                 .tcpRoute(RouteSpecTcpRouteArgs.builder()
  *                     .action(RouteSpecTcpRouteActionArgs.builder()
@@ -244,9 +247,6 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .name("serviceB-route")
- *             .meshName(simple.id())
- *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
  *             .build());
  * 
  *     }

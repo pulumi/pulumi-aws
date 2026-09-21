@@ -34,18 +34,7 @@ namespace Pulumi.Aws.OpenSearch
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "IpAddress",
-    ///                         Variable = "aws:SourceIp",
-    ///                         Values = new[]
-    ///                         {
-    ///                             "127.0.0.1/32",
-    ///                         },
-    ///                     },
-    ///                 },
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -57,7 +46,6 @@ namespace Pulumi.Aws.OpenSearch
     ///                         },
     ///                     },
     ///                 },
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "es:*",
@@ -65,6 +53,18 @@ namespace Pulumi.Aws.OpenSearch
     ///                 Resources = new[]
     ///                 {
     ///                     $"{example.Arn}/*",
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "IpAddress",
+    ///                         Variable = "aws:SourceIp",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "127.0.0.1/32",
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
     ///         },

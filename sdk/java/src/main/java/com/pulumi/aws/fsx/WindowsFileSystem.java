@@ -95,6 +95,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WindowsFileSystem("example", WindowsFileSystemArgs.builder()
+ *             .kmsKeyId(exampleAwsKmsKey.arn())
+ *             .storageCapacity(32)
+ *             .subnetIds(exampleAwsSubnet.id())
+ *             .throughputCapacity(32)
  *             .selfManagedActiveDirectory(WindowsFileSystemSelfManagedActiveDirectoryArgs.builder()
  *                 .dnsIps(                
  *                     "10.0.0.111",
@@ -103,10 +107,6 @@ import javax.annotation.Nullable;
  *                 .password("avoid-plaintext-passwords")
  *                 .username("Admin")
  *                 .build())
- *             .kmsKeyId(exampleAwsKmsKey.arn())
- *             .storageCapacity(32)
- *             .subnetIds(exampleAwsSubnet.id())
- *             .throughputCapacity(32)
  *             .build());
  * 
  *     }
@@ -140,6 +140,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WindowsFileSystem("example", WindowsFileSystemArgs.builder()
+ *             .kmsKeyId(exampleAwsKmsKey.arn())
+ *             .storageCapacity(32)
+ *             .subnetIds(exampleAwsSubnet.id())
+ *             .throughputCapacity(32)
  *             .selfManagedActiveDirectory(WindowsFileSystemSelfManagedActiveDirectoryArgs.builder()
  *                 .dnsIps(                
  *                     "10.0.0.111",
@@ -147,10 +151,6 @@ import javax.annotation.Nullable;
  *                 .domainName("corp.example.com")
  *                 .domainJoinServiceAccountSecret(exampleAwsSecretsmanagerSecret.arn())
  *                 .build())
- *             .kmsKeyId(exampleAwsKmsKey.arn())
- *             .storageCapacity(32)
- *             .subnetIds(exampleAwsSubnet.id())
- *             .throughputCapacity(32)
  *             .build());
  * 
  *     }
@@ -177,7 +177,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.fsx.WindowsFileSystem;
  * import com.pulumi.aws.fsx.WindowsFileSystemArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -193,9 +192,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new WindowsFileSystem("example", WindowsFileSystemArgs.builder()
  *             .securityGroupIds(exampleAwsSecurityGroup.id())
- *             .build(), CustomResourceOptions.builder()
- *                 .ignoreChanges("securityGroupIds")
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

@@ -115,6 +115,8 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var test = new Aws.Ssm.Document("test", new()
     ///     {
+    ///         Name = "test_document",
+    ///         DocumentType = "Package",
     ///         AttachmentsSources = new[]
     ///         {
     ///             new Aws.Ssm.Inputs.DocumentAttachmentsSourceArgs
@@ -125,14 +127,6 @@ namespace Pulumi.Aws.Ssm
     ///                     $"s3://{objectBucket.Bucket}/test.zip",
     ///                 },
     ///             },
-    ///         },
-    ///         Name = "test_document",
-    ///         DocumentType = "Package",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         IgnoreChanges =
-    ///         {
-    ///             "attachmentsSources",
     ///         },
     ///     });
     /// 

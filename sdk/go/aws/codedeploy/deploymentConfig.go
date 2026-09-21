@@ -30,28 +30,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			foo, err := codedeploy.NewDeploymentConfig(ctx, "foo", &codedeploy.DeploymentConfigArgs{
+//				DeploymentConfigName: pulumi.String("test-deployment-config"),
 //				MinimumHealthyHosts: &codedeploy.DeploymentConfigMinimumHealthyHostsArgs{
 //					Type:  pulumi.String("HOST_COUNT"),
 //					Value: pulumi.Int(2),
 //				},
-//				DeploymentConfigName: pulumi.String("test-deployment-config"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = codedeploy.NewDeploymentGroup(ctx, "foo", &codedeploy.DeploymentGroupArgs{
-//				AutoRollbackConfiguration: &codedeploy.DeploymentGroupAutoRollbackConfigurationArgs{
-//					Enabled: pulumi.Bool(true),
-//					Events: pulumi.StringArray{
-//						pulumi.String("DEPLOYMENT_FAILURE"),
-//					},
-//				},
-//				AlarmConfiguration: &codedeploy.DeploymentGroupAlarmConfigurationArgs{
-//					Alarms: pulumi.StringArray{
-//						pulumi.String("my-alarm-name"),
-//					},
-//					Enabled: pulumi.Bool(true),
-//				},
+//				AppName:              pulumi.Any(fooApp.Name),
+//				DeploymentGroupName:  pulumi.String("bar"),
+//				ServiceRoleArn:       pulumi.Any(fooRole.Arn),
+//				DeploymentConfigName: foo.ID().ToIDOutput().ToStringOutput(),
 //				Ec2TagFilters: codedeploy.DeploymentGroupEc2TagFilterArray{
 //					&codedeploy.DeploymentGroupEc2TagFilterArgs{
 //						Key:   pulumi.String("filterkey"),
@@ -68,10 +60,18 @@ import (
 //						TriggerTargetArn: pulumi.String("foo-topic-arn"),
 //					},
 //				},
-//				AppName:              pulumi.Any(fooApp.Name),
-//				DeploymentGroupName:  pulumi.String("bar"),
-//				ServiceRoleArn:       pulumi.Any(fooRole.Arn),
-//				DeploymentConfigName: foo.ID().ToIDOutput().ToStringOutput(),
+//				AutoRollbackConfiguration: &codedeploy.DeploymentGroupAutoRollbackConfigurationArgs{
+//					Enabled: pulumi.Bool(true),
+//					Events: pulumi.StringArray{
+//						pulumi.String("DEPLOYMENT_FAILURE"),
+//					},
+//				},
+//				AlarmConfiguration: &codedeploy.DeploymentGroupAlarmConfigurationArgs{
+//					Alarms: pulumi.StringArray{
+//						pulumi.String("my-alarm-name"),
+//					},
+//					Enabled: pulumi.Bool(true),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -97,20 +97,24 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			foo, err := codedeploy.NewDeploymentConfig(ctx, "foo", &codedeploy.DeploymentConfigArgs{
+//				DeploymentConfigName: pulumi.String("test-deployment-config"),
+//				ComputePlatform:      pulumi.String("Lambda"),
 //				TrafficRoutingConfig: &codedeploy.DeploymentConfigTrafficRoutingConfigArgs{
+//					Type: pulumi.String("TimeBasedLinear"),
 //					TimeBasedLinear: &codedeploy.DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs{
 //						Interval:   pulumi.Int(10),
 //						Percentage: pulumi.Int(10),
 //					},
-//					Type: pulumi.String("TimeBasedLinear"),
 //				},
-//				DeploymentConfigName: pulumi.String("test-deployment-config"),
-//				ComputePlatform:      pulumi.String("Lambda"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = codedeploy.NewDeploymentGroup(ctx, "foo", &codedeploy.DeploymentGroupArgs{
+//				AppName:              pulumi.Any(fooApp.Name),
+//				DeploymentGroupName:  pulumi.String("bar"),
+//				ServiceRoleArn:       pulumi.Any(fooRole.Arn),
+//				DeploymentConfigName: foo.ID().ToIDOutput().ToStringOutput(),
 //				AutoRollbackConfiguration: &codedeploy.DeploymentGroupAutoRollbackConfigurationArgs{
 //					Enabled: pulumi.Bool(true),
 //					Events: pulumi.StringArray{
@@ -123,10 +127,6 @@ import (
 //					},
 //					Enabled: pulumi.Bool(true),
 //				},
-//				AppName:              pulumi.Any(fooApp.Name),
-//				DeploymentGroupName:  pulumi.String("bar"),
-//				ServiceRoleArn:       pulumi.Any(fooRole.Arn),
-//				DeploymentConfigName: foo.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

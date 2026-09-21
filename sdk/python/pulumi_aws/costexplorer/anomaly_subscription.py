@@ -299,9 +299,9 @@ class AnomalySubscription(pulumi.CustomResource):
                  frequency: pulumi.Input[Optional[_builtins.str]] = None,
                  monitor_arn_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict']]]]] = None,
+                 subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict', 'outputs.AnomalySubscriptionSubscriber']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 threshold_expression: pulumi.Input[Optional[Union['AnomalySubscriptionThresholdExpressionArgs', 'AnomalySubscriptionThresholdExpressionArgsDict']]] = None,
+                 threshold_expression: pulumi.Input[Optional[Union['AnomalySubscriptionThresholdExpressionArgs', 'AnomalySubscriptionThresholdExpressionArgsDict', 'outputs.AnomalySubscriptionThresholdExpression']]] = None,
                  __props__=None):
         """
         Provides a CE Anomaly Subscription.
@@ -319,20 +319,20 @@ class AnomalySubscription(pulumi.CustomResource):
             monitor_type="DIMENSIONAL",
             monitor_dimension="SERVICE")
         test_anomaly_subscription = aws.costexplorer.AnomalySubscription("test",
+            name="DAILYSUBSCRIPTION",
+            frequency="DAILY",
+            monitor_arn_lists=[test.arn],
+            subscribers=[{
+                "type": "EMAIL",
+                "address": "abc@example.com",
+            }],
             threshold_expression={
                 "dimension": {
                     "key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
                     "match_options": ["GREATER_THAN_OR_EQUAL"],
                     "values": ["100"],
                 },
-            },
-            subscribers=[{
-                "type": "EMAIL",
-                "address": "abc@example.com",
-            }],
-            name="DAILYSUBSCRIPTION",
-            frequency="DAILY",
-            monitor_arn_lists=[test.arn])
+            })
         ```
 
         ### Threshold Expression Example
@@ -344,20 +344,20 @@ class AnomalySubscription(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.costexplorer.AnomalySubscription("test",
+            name="AWSServiceMonitor",
+            frequency="DAILY",
+            monitor_arn_lists=[test_aws_ce_anomaly_monitor["arn"]],
+            subscribers=[{
+                "type": "EMAIL",
+                "address": "abc@example.com",
+            }],
             threshold_expression={
                 "dimension": {
                     "key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
                     "match_options": ["GREATER_THAN_OR_EQUAL"],
                     "values": ["100"],
                 },
-            },
-            subscribers=[{
-                "type": "EMAIL",
-                "address": "abc@example.com",
-            }],
-            name="AWSServiceMonitor",
-            frequency="DAILY",
-            monitor_arn_lists=[test_aws_ce_anomaly_monitor["arn"]])
+            })
         ```
 
         ### Using an `and` Expression
@@ -367,6 +367,13 @@ class AnomalySubscription(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.costexplorer.AnomalySubscription("test",
+            name="AWSServiceMonitor",
+            frequency="DAILY",
+            monitor_arn_lists=[test_aws_ce_anomaly_monitor["arn"]],
+            subscribers=[{
+                "type": "EMAIL",
+                "address": "abc@example.com",
+            }],
             threshold_expression={
                 "ands": [
                     {
@@ -384,14 +391,7 @@ class AnomalySubscription(pulumi.CustomResource):
                         },
                     },
                 ],
-            },
-            subscribers=[{
-                "type": "EMAIL",
-                "address": "abc@example.com",
-            }],
-            name="AWSServiceMonitor",
-            frequency="DAILY",
-            monitor_arn_lists=[test_aws_ce_anomaly_monitor["arn"]])
+            })
         ```
 
         ### SNS Example
@@ -401,27 +401,19 @@ class AnomalySubscription(pulumi.CustomResource):
         import pulumi_aws as aws
 
         cost_anomaly_updates = aws.sns.Topic("cost_anomaly_updates", name="CostAnomalyUpdates")
-        sns_topic_policy = aws.iam.get_policy_document_output(statements=[
+        sns_topic_policy = aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
+            statements=[
                 {
+                    "sid": "AWSAnomalyDetectionSNSPublishingPermissions",
+                    "actions": ["SNS:Publish"],
+                    "effect": "Allow",
                     "principals": [{
                         "type": "Service",
                         "identifiers": ["costalerts.amazonaws.com"],
                     }],
-                    "sid": "AWSAnomalyDetectionSNSPublishingPermissions",
-                    "actions": ["SNS:Publish"],
-                    "effect": "Allow",
                     "resources": [cost_anomaly_updates.arn],
                 },
                 {
-                    "conditions": [{
-                        "test": "StringEquals",
-                        "variable": "AWS:SourceOwner",
-                        "values": [account_id],
-                    }],
-                    "principals": [{
-                        "type": "AWS",
-                        "identifiers": ["*"],
-                    }],
                     "sid": "__default_statement_ID",
                     "actions": [
                         "SNS:Subscribe",
@@ -434,11 +426,19 @@ class AnomalySubscription(pulumi.CustomResource):
                         "SNS:DeleteTopic",
                         "SNS:AddPermission",
                     ],
+                    "conditions": [{
+                        "test": "StringEquals",
+                        "variable": "AWS:SourceOwner",
+                        "values": [account_id],
+                    }],
                     "effect": "Allow",
+                    "principals": [{
+                        "type": "AWS",
+                        "identifiers": ["*"],
+                    }],
                     "resources": [cost_anomaly_updates.arn],
                 },
-            ],
-            policy_id="__default_policy_ID")
+            ])
         default = aws.sns.TopicPolicy("default",
             arn=cost_anomaly_updates.arn,
             policy=sns_topic_policy.json)
@@ -447,13 +447,13 @@ class AnomalySubscription(pulumi.CustomResource):
             monitor_type="DIMENSIONAL",
             monitor_dimension="SERVICE")
         realtime_subscription = aws.costexplorer.AnomalySubscription("realtime_subscription",
+            name="RealtimeAnomalySubscription",
+            frequency="IMMEDIATE",
+            monitor_arn_lists=[anomaly_monitor.arn],
             subscribers=[{
                 "type": "SNS",
                 "address": cost_anomaly_updates.arn,
             }],
-            name="RealtimeAnomalySubscription",
-            frequency="IMMEDIATE",
-            monitor_arn_lists=[anomaly_monitor.arn],
             opts = pulumi.ResourceOptions(depends_on=[default]))
         ```
 
@@ -478,9 +478,9 @@ class AnomalySubscription(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] frequency: The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] monitor_arn_lists: A list of cost anomaly monitors.
         :param pulumi.Input[_builtins.str] name: The name for the subscription.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict']]]] subscribers: A subscriber configuration. Multiple subscribers can be defined.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict', 'outputs.AnomalySubscriptionSubscriber']]]] subscribers: A subscriber configuration. Multiple subscribers can be defined.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['AnomalySubscriptionThresholdExpressionArgs', 'AnomalySubscriptionThresholdExpressionArgsDict']] threshold_expression: An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
+        :param pulumi.Input[Union['AnomalySubscriptionThresholdExpressionArgs', 'AnomalySubscriptionThresholdExpressionArgsDict', 'outputs.AnomalySubscriptionThresholdExpression']] threshold_expression: An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
         """
         ...
     @overload
@@ -504,20 +504,20 @@ class AnomalySubscription(pulumi.CustomResource):
             monitor_type="DIMENSIONAL",
             monitor_dimension="SERVICE")
         test_anomaly_subscription = aws.costexplorer.AnomalySubscription("test",
+            name="DAILYSUBSCRIPTION",
+            frequency="DAILY",
+            monitor_arn_lists=[test.arn],
+            subscribers=[{
+                "type": "EMAIL",
+                "address": "abc@example.com",
+            }],
             threshold_expression={
                 "dimension": {
                     "key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
                     "match_options": ["GREATER_THAN_OR_EQUAL"],
                     "values": ["100"],
                 },
-            },
-            subscribers=[{
-                "type": "EMAIL",
-                "address": "abc@example.com",
-            }],
-            name="DAILYSUBSCRIPTION",
-            frequency="DAILY",
-            monitor_arn_lists=[test.arn])
+            })
         ```
 
         ### Threshold Expression Example
@@ -529,20 +529,20 @@ class AnomalySubscription(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.costexplorer.AnomalySubscription("test",
+            name="AWSServiceMonitor",
+            frequency="DAILY",
+            monitor_arn_lists=[test_aws_ce_anomaly_monitor["arn"]],
+            subscribers=[{
+                "type": "EMAIL",
+                "address": "abc@example.com",
+            }],
             threshold_expression={
                 "dimension": {
                     "key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
                     "match_options": ["GREATER_THAN_OR_EQUAL"],
                     "values": ["100"],
                 },
-            },
-            subscribers=[{
-                "type": "EMAIL",
-                "address": "abc@example.com",
-            }],
-            name="AWSServiceMonitor",
-            frequency="DAILY",
-            monitor_arn_lists=[test_aws_ce_anomaly_monitor["arn"]])
+            })
         ```
 
         ### Using an `and` Expression
@@ -552,6 +552,13 @@ class AnomalySubscription(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.costexplorer.AnomalySubscription("test",
+            name="AWSServiceMonitor",
+            frequency="DAILY",
+            monitor_arn_lists=[test_aws_ce_anomaly_monitor["arn"]],
+            subscribers=[{
+                "type": "EMAIL",
+                "address": "abc@example.com",
+            }],
             threshold_expression={
                 "ands": [
                     {
@@ -569,14 +576,7 @@ class AnomalySubscription(pulumi.CustomResource):
                         },
                     },
                 ],
-            },
-            subscribers=[{
-                "type": "EMAIL",
-                "address": "abc@example.com",
-            }],
-            name="AWSServiceMonitor",
-            frequency="DAILY",
-            monitor_arn_lists=[test_aws_ce_anomaly_monitor["arn"]])
+            })
         ```
 
         ### SNS Example
@@ -586,27 +586,19 @@ class AnomalySubscription(pulumi.CustomResource):
         import pulumi_aws as aws
 
         cost_anomaly_updates = aws.sns.Topic("cost_anomaly_updates", name="CostAnomalyUpdates")
-        sns_topic_policy = aws.iam.get_policy_document_output(statements=[
+        sns_topic_policy = aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
+            statements=[
                 {
+                    "sid": "AWSAnomalyDetectionSNSPublishingPermissions",
+                    "actions": ["SNS:Publish"],
+                    "effect": "Allow",
                     "principals": [{
                         "type": "Service",
                         "identifiers": ["costalerts.amazonaws.com"],
                     }],
-                    "sid": "AWSAnomalyDetectionSNSPublishingPermissions",
-                    "actions": ["SNS:Publish"],
-                    "effect": "Allow",
                     "resources": [cost_anomaly_updates.arn],
                 },
                 {
-                    "conditions": [{
-                        "test": "StringEquals",
-                        "variable": "AWS:SourceOwner",
-                        "values": [account_id],
-                    }],
-                    "principals": [{
-                        "type": "AWS",
-                        "identifiers": ["*"],
-                    }],
                     "sid": "__default_statement_ID",
                     "actions": [
                         "SNS:Subscribe",
@@ -619,11 +611,19 @@ class AnomalySubscription(pulumi.CustomResource):
                         "SNS:DeleteTopic",
                         "SNS:AddPermission",
                     ],
+                    "conditions": [{
+                        "test": "StringEquals",
+                        "variable": "AWS:SourceOwner",
+                        "values": [account_id],
+                    }],
                     "effect": "Allow",
+                    "principals": [{
+                        "type": "AWS",
+                        "identifiers": ["*"],
+                    }],
                     "resources": [cost_anomaly_updates.arn],
                 },
-            ],
-            policy_id="__default_policy_ID")
+            ])
         default = aws.sns.TopicPolicy("default",
             arn=cost_anomaly_updates.arn,
             policy=sns_topic_policy.json)
@@ -632,13 +632,13 @@ class AnomalySubscription(pulumi.CustomResource):
             monitor_type="DIMENSIONAL",
             monitor_dimension="SERVICE")
         realtime_subscription = aws.costexplorer.AnomalySubscription("realtime_subscription",
+            name="RealtimeAnomalySubscription",
+            frequency="IMMEDIATE",
+            monitor_arn_lists=[anomaly_monitor.arn],
             subscribers=[{
                 "type": "SNS",
                 "address": cost_anomaly_updates.arn,
             }],
-            name="RealtimeAnomalySubscription",
-            frequency="IMMEDIATE",
-            monitor_arn_lists=[anomaly_monitor.arn],
             opts = pulumi.ResourceOptions(depends_on=[default]))
         ```
 
@@ -676,9 +676,9 @@ class AnomalySubscription(pulumi.CustomResource):
                  frequency: pulumi.Input[Optional[_builtins.str]] = None,
                  monitor_arn_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict']]]]] = None,
+                 subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict', 'outputs.AnomalySubscriptionSubscriber']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 threshold_expression: pulumi.Input[Optional[Union['AnomalySubscriptionThresholdExpressionArgs', 'AnomalySubscriptionThresholdExpressionArgsDict']]] = None,
+                 threshold_expression: pulumi.Input[Optional[Union['AnomalySubscriptionThresholdExpressionArgs', 'AnomalySubscriptionThresholdExpressionArgsDict', 'outputs.AnomalySubscriptionThresholdExpression']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -718,10 +718,10 @@ class AnomalySubscription(pulumi.CustomResource):
             frequency: pulumi.Input[Optional[_builtins.str]] = None,
             monitor_arn_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict']]]]] = None,
+            subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict', 'outputs.AnomalySubscriptionSubscriber']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            threshold_expression: pulumi.Input[Optional[Union['AnomalySubscriptionThresholdExpressionArgs', 'AnomalySubscriptionThresholdExpressionArgsDict']]] = None) -> 'AnomalySubscription':
+            threshold_expression: pulumi.Input[Optional[Union['AnomalySubscriptionThresholdExpressionArgs', 'AnomalySubscriptionThresholdExpressionArgsDict', 'outputs.AnomalySubscriptionThresholdExpression']]] = None) -> 'AnomalySubscription':
         """
         Get an existing AnomalySubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -734,10 +734,10 @@ class AnomalySubscription(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] frequency: The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] monitor_arn_lists: A list of cost anomaly monitors.
         :param pulumi.Input[_builtins.str] name: The name for the subscription.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict']]]] subscribers: A subscriber configuration. Multiple subscribers can be defined.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict', 'outputs.AnomalySubscriptionSubscriber']]]] subscribers: A subscriber configuration. Multiple subscribers can be defined.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['AnomalySubscriptionThresholdExpressionArgs', 'AnomalySubscriptionThresholdExpressionArgsDict']] threshold_expression: An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
+        :param pulumi.Input[Union['AnomalySubscriptionThresholdExpressionArgs', 'AnomalySubscriptionThresholdExpressionArgsDict', 'outputs.AnomalySubscriptionThresholdExpression']] threshold_expression: An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -75,6 +75,9 @@ namespace Pulumi.Aws.AppFlow
     /// 
     ///     var exampleConnectorProfile = new Aws.AppFlow.ConnectorProfile("example", new()
     ///     {
+    ///         Name = "example_profile",
+    ///         ConnectorType = "Redshift",
+    ///         ConnectionMode = "Public",
     ///         ConnectorProfileConfig = new Aws.AppFlow.Inputs.ConnectorProfileConnectorProfileConfigArgs
     ///         {
     ///             ConnectorProfileCredentials = new Aws.AppFlow.Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs
@@ -100,9 +103,6 @@ namespace Pulumi.Aws.AppFlow
     ///                 },
     ///             },
     ///         },
-    ///         Name = "example_profile",
-    ///         ConnectorType = "Redshift",
-    ///         ConnectionMode = "Public",
     ///     });
     /// 
     /// });

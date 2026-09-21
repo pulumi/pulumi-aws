@@ -57,6 +57,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleOrganizationConfiguration = new OrganizationConfiguration("exampleOrganizationConfiguration", OrganizationConfigurationArgs.builder()
+ *             .autoEnableOrganizationMembers("ALL")
+ *             .detectorId(example.id())
  *             .datasources(OrganizationConfigurationDatasourcesArgs.builder()
  *                 .s3Logs(OrganizationConfigurationDatasourcesS3LogsArgs.builder()
  *                     .autoEnable(true)
@@ -74,8 +76,6 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .autoEnableOrganizationMembers("ALL")
- *             .detectorId(example.id())
  *             .build());
  * 
  *     }

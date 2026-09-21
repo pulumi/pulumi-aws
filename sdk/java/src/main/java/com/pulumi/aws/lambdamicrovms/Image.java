@@ -109,6 +109,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleImage = new Image("exampleImage", ImageArgs.builder()
+ *             .name("example")
+ *             .baseImageArn(String.format("arn:%s:lambda:%s:aws:microvm-image:al2023-1", current.partition(),currentGetRegion.region()))
+ *             .buildRoleArn(example.arn())
  *             .codeArtifact(ImageCodeArtifactArgs.builder()
  *                 .uri(Output.tuple(exampleBucket.bucket(), exampleBucketObjectv2.key()).applyValue(values -> {
  *                     var bucket = values.t1;
@@ -116,9 +119,6 @@ import javax.annotation.Nullable;
  *                     return String.format("s3://%s/%s", bucket,key);
  *                 }))
  *                 .build())
- *             .name("example")
- *             .baseImageArn(String.format("arn:%s:lambda:%s:aws:microvm-image:al2023-1", current.partition(),currentGetRegion.region()))
- *             .buildRoleArn(example.arn())
  *             .build());
  * 
  *     }

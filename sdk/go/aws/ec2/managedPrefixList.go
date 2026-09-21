@@ -43,6 +43,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewManagedPrefixList(ctx, "example", &ec2.ManagedPrefixListArgs{
+//				Name:          pulumi.String("All VPC CIDR-s"),
+//				AddressFamily: pulumi.String("IPv4"),
+//				MaxEntries:    pulumi.Int(5),
 //				Entries: ec2.ManagedPrefixListEntryTypeArray{
 //					&ec2.ManagedPrefixListEntryTypeArgs{
 //						Cidr:        pulumi.Any(exampleAwsVpc.CidrBlock),
@@ -53,9 +56,6 @@ import (
 //						Description: pulumi.String("Secondary"),
 //					},
 //				},
-//				Name:          pulumi.String("All VPC CIDR-s"),
-//				AddressFamily: pulumi.String("IPv4"),
-//				MaxEntries:    pulumi.Int(5),
 //				Tags: pulumi.StringMap{
 //					"Env": pulumi.String("live"),
 //				},

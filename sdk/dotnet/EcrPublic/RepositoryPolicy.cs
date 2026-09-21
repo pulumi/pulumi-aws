@@ -37,6 +37,8 @@ namespace Pulumi.Aws.EcrPublic
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Sid = "new policy",
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -48,8 +50,6 @@ namespace Pulumi.Aws.EcrPublic
     ///                         },
     ///                     },
     ///                 },
-    ///                 Sid = "new policy",
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "ecr:GetDownloadUrlForLayer",

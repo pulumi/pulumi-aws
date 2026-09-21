@@ -61,6 +61,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var group = new VoiceConnectorGroup("group", VoiceConnectorGroupArgs.builder()
+ *             .name("test-group")
  *             .connectors(            
  *                 VoiceConnectorGroupConnectorArgs.builder()
  *                     .voiceConnectorId(vc1.id())
@@ -70,7 +71,6 @@ import javax.annotation.Nullable;
  *                     .voiceConnectorId(vc2.id())
  *                     .priority(3)
  *                     .build())
- *             .name("test-group")
  *             .build());
  * 
  *     }

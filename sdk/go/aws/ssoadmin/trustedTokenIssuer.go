@@ -35,6 +35,9 @@ import (
 //				return err
 //			}
 //			_, err = ssoadmin.NewTrustedTokenIssuer(ctx, "example", &ssoadmin.TrustedTokenIssuerArgs{
+//				Name:                   pulumi.String("example"),
+//				InstanceArn:            pulumi.String(example.Arns[0]),
+//				TrustedTokenIssuerType: pulumi.String("OIDC_JWT"),
 //				TrustedTokenIssuerConfiguration: &ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs{
 //					OidcJwtConfiguration: &ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs{
 //						ClaimAttributePath:         pulumi.String("email"),
@@ -43,9 +46,6 @@ import (
 //						JwksRetrievalOption:        pulumi.String("OPEN_ID_DISCOVERY"),
 //					},
 //				},
-//				Name:                   pulumi.String("example"),
-//				InstanceArn:            pulumi.String(example.Arns[0]),
-//				TrustedTokenIssuerType: pulumi.String("OIDC_JWT"),
 //			})
 //			if err != nil {
 //				return err

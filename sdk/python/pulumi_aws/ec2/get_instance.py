@@ -621,7 +621,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             vpc_security_group_ids=self.vpc_security_group_ids)
 
 
-def get_instance(filters: Optional[Sequence[Union['GetInstanceFilterArgs', 'GetInstanceFilterArgsDict']]] = None,
+def get_instance(filters: Optional[Sequence[Union['GetInstanceFilterArgs', 'GetInstanceFilterArgsDict', 'outputs.GetInstanceFilterResult']]] = None,
                  get_password_data: Optional[_builtins.bool] = None,
                  get_user_data: Optional[_builtins.bool] = None,
                  instance_id: Optional[_builtins.str] = None,
@@ -638,7 +638,8 @@ def get_instance(filters: Optional[Sequence[Union['GetInstanceFilterArgs', 'GetI
     import pulumi
     import pulumi_aws as aws
 
-    foo = aws.ec2.get_instance(filters=[
+    foo = aws.ec2.get_instance(instance_id="i-instanceid",
+        filters=[
             {
                 "name": "image-id",
                 "values": ["ami-xxxxxxxx"],
@@ -647,12 +648,11 @@ def get_instance(filters: Optional[Sequence[Union['GetInstanceFilterArgs', 'GetI
                 "name": "tag:Name",
                 "values": ["instance-name-tag"],
             },
-        ],
-        instance_id="i-instanceid")
+        ])
     ```
 
 
-    :param Sequence[Union['GetInstanceFilterArgs', 'GetInstanceFilterArgsDict']] filters: One or more filters to apply to the search.
+    :param Sequence[Union['GetInstanceFilterArgs', 'GetInstanceFilterArgsDict', 'outputs.GetInstanceFilterResult']] filters: One or more filters to apply to the search.
            If multiple `filter` blocks are provided, they all must be true.
            For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
            See `filter` Block below.
@@ -732,7 +732,7 @@ def get_instance(filters: Optional[Sequence[Union['GetInstanceFilterArgs', 'GetI
         user_data=pulumi.get(__ret__, 'user_data'),
         user_data_base64=pulumi.get(__ret__, 'user_data_base64'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
-def get_instance_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetInstanceFilterArgs', 'GetInstanceFilterArgsDict']]]]] = None,
+def get_instance_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetInstanceFilterArgs', 'GetInstanceFilterArgsDict', 'outputs.GetInstanceFilterResult']]]]] = None,
                         get_password_data: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                         get_user_data: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                         instance_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -749,7 +749,8 @@ def get_instance_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['
     import pulumi
     import pulumi_aws as aws
 
-    foo = aws.ec2.get_instance(filters=[
+    foo = aws.ec2.get_instance(instance_id="i-instanceid",
+        filters=[
             {
                 "name": "image-id",
                 "values": ["ami-xxxxxxxx"],
@@ -758,12 +759,11 @@ def get_instance_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['
                 "name": "tag:Name",
                 "values": ["instance-name-tag"],
             },
-        ],
-        instance_id="i-instanceid")
+        ])
     ```
 
 
-    :param Sequence[Union['GetInstanceFilterArgs', 'GetInstanceFilterArgsDict']] filters: One or more filters to apply to the search.
+    :param Sequence[Union['GetInstanceFilterArgs', 'GetInstanceFilterArgsDict', 'outputs.GetInstanceFilterResult']] filters: One or more filters to apply to the search.
            If multiple `filter` blocks are provided, they all must be true.
            For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
            See `filter` Block below.

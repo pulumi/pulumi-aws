@@ -36,12 +36,10 @@ import * as utilities from "../utilities";
  *     role: example.name,
  * });
  * const exampleLifecyclePolicy = new aws.imagebuilder.LifecyclePolicy("example", {
- *     resourceSelection: {
- *         tagMap: {
- *             key1: "value1",
- *             key2: "value2",
- *         },
- *     },
+ *     name: "name",
+ *     description: "Example description",
+ *     executionRole: example.arn,
+ *     resourceType: "AMI_IMAGE",
  *     policyDetails: [{
  *         action: {
  *             type: "DELETE",
@@ -53,10 +51,12 @@ import * as utilities from "../utilities";
  *             unit: "YEARS",
  *         },
  *     }],
- *     name: "name",
- *     description: "Example description",
- *     executionRole: example.arn,
- *     resourceType: "AMI_IMAGE",
+ *     resourceSelection: {
+ *         tagMap: {
+ *             key1: "value1",
+ *             key2: "value2",
+ *         },
+ *     },
  * }, {
  *     dependsOn: [exampleRolePolicyAttachment],
  * });

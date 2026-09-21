@@ -323,8 +323,8 @@ class SessionLogger(pulumi.CustomResource):
                  additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 event_filter: pulumi.Input[Optional[Union['SessionLoggerEventFilterArgs', 'SessionLoggerEventFilterArgsDict']]] = None,
-                 log_configuration: pulumi.Input[Optional[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict']]] = None,
+                 event_filter: pulumi.Input[Optional[Union['SessionLoggerEventFilterArgs', 'SessionLoggerEventFilterArgsDict', 'outputs.SessionLoggerEventFilter']]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict', 'outputs.SessionLoggerLogConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -341,11 +341,11 @@ class SessionLogger(pulumi.CustomResource):
 
         example_bucket = aws.s3.Bucket("example", bucket="example-session-logs")
         example = aws.iam.get_policy_document_output(statements=[{
+            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["workspaces-web.amazonaws.com"],
             }],
-            "effect": "Allow",
             "actions": ["s3:PutObject"],
             "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
         }])
@@ -353,6 +353,7 @@ class SessionLogger(pulumi.CustomResource):
             bucket=example_bucket.id,
             policy=example.json)
         example_session_logger = aws.workspacesweb.SessionLogger("example",
+            display_name="example-session-logger",
             event_filter={
                 "all": {},
             },
@@ -363,7 +364,6 @@ class SessionLogger(pulumi.CustomResource):
                     "log_file_format": "Json",
                 },
             },
-            display_name="example-session-logger",
             opts = pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
         ```
 
@@ -377,11 +377,11 @@ class SessionLogger(pulumi.CustomResource):
             bucket="example-session-logs",
             force_destroy=True)
         example = aws.iam.get_policy_document_output(statements=[{
+            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["workspaces-web.amazonaws.com"],
             }],
-            "effect": "Allow",
             "actions": ["s3:PutObject"],
             "resources": [
                 example_bucket.arn,
@@ -420,6 +420,12 @@ class SessionLogger(pulumi.CustomResource):
             description="KMS key for WorkSpaces Web Session Logger",
             policy=kms_key_policy.json)
         example_session_logger = aws.workspacesweb.SessionLogger("example",
+            display_name="example-session-logger",
+            customer_managed_key=example_key.arn,
+            additional_encryption_context={
+                "Environment": "Production",
+                "Application": "WorkSpacesWeb",
+            },
             event_filter={
                 "includes": [
                     "SessionStart",
@@ -434,12 +440,6 @@ class SessionLogger(pulumi.CustomResource):
                     "key_prefix": "workspaces-web-logs/",
                     "log_file_format": "JsonLines",
                 },
-            },
-            display_name="example-session-logger",
-            customer_managed_key=example_key.arn,
-            additional_encryption_context={
-                "Environment": "Production",
-                "Application": "WorkSpacesWeb",
             },
             tags={
                 "Name": "example-session-logger",
@@ -465,8 +465,8 @@ class SessionLogger(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Map of additional encryption context key-value pairs.
         :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key used to encrypt sensitive information.
         :param pulumi.Input[_builtins.str] display_name: Human-readable display name for the session logger resource. Forces replacement if changed.
-        :param pulumi.Input[Union['SessionLoggerEventFilterArgs', 'SessionLoggerEventFilterArgsDict']] event_filter: Event filter that determines which events are logged. See Event Filter below.
-        :param pulumi.Input[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict']] log_configuration: Configuration block for specifying where logs are delivered. See Log Configuration below.
+        :param pulumi.Input[Union['SessionLoggerEventFilterArgs', 'SessionLoggerEventFilterArgsDict', 'outputs.SessionLoggerEventFilter']] event_filter: Event filter that determines which events are logged. See Event Filter below.
+        :param pulumi.Input[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict', 'outputs.SessionLoggerLogConfiguration']] log_configuration: Configuration block for specifying where logs are delivered. See Log Configuration below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -491,11 +491,11 @@ class SessionLogger(pulumi.CustomResource):
 
         example_bucket = aws.s3.Bucket("example", bucket="example-session-logs")
         example = aws.iam.get_policy_document_output(statements=[{
+            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["workspaces-web.amazonaws.com"],
             }],
-            "effect": "Allow",
             "actions": ["s3:PutObject"],
             "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
         }])
@@ -503,6 +503,7 @@ class SessionLogger(pulumi.CustomResource):
             bucket=example_bucket.id,
             policy=example.json)
         example_session_logger = aws.workspacesweb.SessionLogger("example",
+            display_name="example-session-logger",
             event_filter={
                 "all": {},
             },
@@ -513,7 +514,6 @@ class SessionLogger(pulumi.CustomResource):
                     "log_file_format": "Json",
                 },
             },
-            display_name="example-session-logger",
             opts = pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
         ```
 
@@ -527,11 +527,11 @@ class SessionLogger(pulumi.CustomResource):
             bucket="example-session-logs",
             force_destroy=True)
         example = aws.iam.get_policy_document_output(statements=[{
+            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["workspaces-web.amazonaws.com"],
             }],
-            "effect": "Allow",
             "actions": ["s3:PutObject"],
             "resources": [
                 example_bucket.arn,
@@ -570,6 +570,12 @@ class SessionLogger(pulumi.CustomResource):
             description="KMS key for WorkSpaces Web Session Logger",
             policy=kms_key_policy.json)
         example_session_logger = aws.workspacesweb.SessionLogger("example",
+            display_name="example-session-logger",
+            customer_managed_key=example_key.arn,
+            additional_encryption_context={
+                "Environment": "Production",
+                "Application": "WorkSpacesWeb",
+            },
             event_filter={
                 "includes": [
                     "SessionStart",
@@ -584,12 +590,6 @@ class SessionLogger(pulumi.CustomResource):
                     "key_prefix": "workspaces-web-logs/",
                     "log_file_format": "JsonLines",
                 },
-            },
-            display_name="example-session-logger",
-            customer_managed_key=example_key.arn,
-            additional_encryption_context={
-                "Environment": "Production",
-                "Application": "WorkSpacesWeb",
             },
             tags={
                 "Name": "example-session-logger",
@@ -628,8 +628,8 @@ class SessionLogger(pulumi.CustomResource):
                  additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 event_filter: pulumi.Input[Optional[Union['SessionLoggerEventFilterArgs', 'SessionLoggerEventFilterArgsDict']]] = None,
-                 log_configuration: pulumi.Input[Optional[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict']]] = None,
+                 event_filter: pulumi.Input[Optional[Union['SessionLoggerEventFilterArgs', 'SessionLoggerEventFilterArgsDict', 'outputs.SessionLoggerEventFilter']]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict', 'outputs.SessionLoggerLogConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -669,8 +669,8 @@ class SessionLogger(pulumi.CustomResource):
             associated_portal_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            event_filter: pulumi.Input[Optional[Union['SessionLoggerEventFilterArgs', 'SessionLoggerEventFilterArgsDict']]] = None,
-            log_configuration: pulumi.Input[Optional[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict']]] = None,
+            event_filter: pulumi.Input[Optional[Union['SessionLoggerEventFilterArgs', 'SessionLoggerEventFilterArgsDict', 'outputs.SessionLoggerEventFilter']]] = None,
+            log_configuration: pulumi.Input[Optional[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict', 'outputs.SessionLoggerLogConfiguration']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             session_logger_arn: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -686,8 +686,8 @@ class SessionLogger(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_portal_arns: List of ARNs of the web portals associated with the session logger.
         :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key used to encrypt sensitive information.
         :param pulumi.Input[_builtins.str] display_name: Human-readable display name for the session logger resource. Forces replacement if changed.
-        :param pulumi.Input[Union['SessionLoggerEventFilterArgs', 'SessionLoggerEventFilterArgsDict']] event_filter: Event filter that determines which events are logged. See Event Filter below.
-        :param pulumi.Input[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict']] log_configuration: Configuration block for specifying where logs are delivered. See Log Configuration below.
+        :param pulumi.Input[Union['SessionLoggerEventFilterArgs', 'SessionLoggerEventFilterArgsDict', 'outputs.SessionLoggerEventFilter']] event_filter: Event filter that determines which events are logged. See Event Filter below.
+        :param pulumi.Input[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict', 'outputs.SessionLoggerLogConfiguration']] log_configuration: Configuration block for specifying where logs are delivered. See Log Configuration below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

@@ -27,6 +27,8 @@ namespace Pulumi.Aws.ElasticSearch
     /// {
     ///     var example = new Aws.ElasticSearch.Domain("example", new()
     ///     {
+    ///         DomainName = "example",
+    ///         ElasticsearchVersion = "1.5",
     ///         ClusterConfig = new Aws.ElasticSearch.Inputs.DomainClusterConfigArgs
     ///         {
     ///             InstanceType = "r4.large.elasticsearch",
@@ -35,8 +37,6 @@ namespace Pulumi.Aws.ElasticSearch
     ///         {
     ///             AutomatedSnapshotStartHour = 23,
     ///         },
-    ///         DomainName = "example",
-    ///         ElasticsearchVersion = "1.5",
     ///         Tags = 
     ///         {
     ///             { "Domain", "TestDomain" },
@@ -45,8 +45,10 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     ///     var exampleDomainSamlOptions = new Aws.ElasticSearch.DomainSamlOptions("example", new()
     ///     {
+    ///         DomainName = example.DomainName,
     ///         SamlOptions = new Aws.ElasticSearch.Inputs.DomainSamlOptionsSamlOptionsArgs
     ///         {
+    ///             Enabled = true,
     ///             Idp = new Aws.ElasticSearch.Inputs.DomainSamlOptionsSamlOptionsIdpArgs
     ///             {
     ///                 EntityId = "https://example.com",
@@ -55,9 +57,7 @@ namespace Pulumi.Aws.ElasticSearch
     ///                     Input = "./saml-metadata.xml",
     ///                 }).Apply(invoke =&gt; invoke.Result),
     ///             },
-    ///             Enabled = true,
     ///         },
-    ///         DomainName = example.DomainName,
     ///     });
     /// 
     /// });

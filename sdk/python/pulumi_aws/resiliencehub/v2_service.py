@@ -400,12 +400,12 @@ class V2Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_systems: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2ServiceAssociatedSystemArgs', 'V2ServiceAssociatedSystemArgsDict']]]]] = None,
+                 associated_systems: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2ServiceAssociatedSystemArgs', 'V2ServiceAssociatedSystemArgsDict', 'outputs.V2ServiceAssociatedSystem']]]]] = None,
                  dependency_discovery: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permission_model: pulumi.Input[Optional[Union['V2ServicePermissionModelArgs', 'V2ServicePermissionModelArgsDict']]] = None,
+                 permission_model: pulumi.Input[Optional[Union['V2ServicePermissionModelArgs', 'V2ServicePermissionModelArgsDict', 'outputs.V2ServicePermissionModel']]] = None,
                  policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -425,11 +425,11 @@ class V2Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.resiliencehub.V2Service("example",
+            name="example-service",
+            regions=["us-west-2"],
             permission_model={
                 "invoker_role_name": "AWSResilienceHubAssessmentRole",
-            },
-            name="example-service",
-            regions=["us-west-2"])
+            })
         ```
 
         ### With Policy
@@ -439,14 +439,11 @@ class V2Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.resiliencehub.V2Policy("example",
+            name="example-policy",
             availability_slo={
                 "target": 99.9,
-            },
-            name="example-policy")
+            })
         example_v2_service = aws.resiliencehub.V2Service("example",
-            permission_model={
-                "invoker_role_name": "AWSResilienceHubAssessmentRole",
-            },
             name="example-service",
             description="Production API service",
             policy_arn=example.arn,
@@ -454,6 +451,9 @@ class V2Service(pulumi.CustomResource):
                 "us-west-2",
                 "us-east-1",
             ],
+            permission_model={
+                "invoker_role_name": "AWSResilienceHubAssessmentRole",
+            },
             tags={
                 "Environment": "production",
             })
@@ -467,14 +467,14 @@ class V2Service(pulumi.CustomResource):
 
         example = aws.resiliencehub.V2System("example", name="example-system")
         example_v2_service = aws.resiliencehub.V2Service("example",
+            name="example-service",
+            regions=["us-west-2"],
             permission_model={
                 "invoker_role_name": "AWSResilienceHubAssessmentRole",
             },
             associated_systems=[{
                 "system_arn": example.arn,
-            }],
-            name="example-service",
-            regions=["us-west-2"])
+            }])
         ```
 
         ## Import
@@ -494,12 +494,12 @@ class V2Service(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2ServiceAssociatedSystemArgs', 'V2ServiceAssociatedSystemArgsDict']]]] associated_systems: Systems to associate with the service. See `associated_system` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['V2ServiceAssociatedSystemArgs', 'V2ServiceAssociatedSystemArgsDict', 'outputs.V2ServiceAssociatedSystem']]]] associated_systems: Systems to associate with the service. See `associated_system` Block below.
         :param pulumi.Input[_builtins.str] dependency_discovery: Dependency discovery. Valid values: `ENABLED`, `DISABLED`.
         :param pulumi.Input[_builtins.str] description: Description of the service.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key ARN.
         :param pulumi.Input[_builtins.str] name: Name of the service. Changing this value requires creating a new resource.
-        :param pulumi.Input[Union['V2ServicePermissionModelArgs', 'V2ServicePermissionModelArgsDict']] permission_model: Permission model for resource discovery. See `permission_model` Block below.
+        :param pulumi.Input[Union['V2ServicePermissionModelArgs', 'V2ServicePermissionModelArgsDict', 'outputs.V2ServicePermissionModel']] permission_model: Permission model for resource discovery. See `permission_model` Block below.
         :param pulumi.Input[_builtins.str] policy_arn: ARN of the resilience policy to associate with this service.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS regions where the service operates.
@@ -527,11 +527,11 @@ class V2Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.resiliencehub.V2Service("example",
+            name="example-service",
+            regions=["us-west-2"],
             permission_model={
                 "invoker_role_name": "AWSResilienceHubAssessmentRole",
-            },
-            name="example-service",
-            regions=["us-west-2"])
+            })
         ```
 
         ### With Policy
@@ -541,14 +541,11 @@ class V2Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.resiliencehub.V2Policy("example",
+            name="example-policy",
             availability_slo={
                 "target": 99.9,
-            },
-            name="example-policy")
+            })
         example_v2_service = aws.resiliencehub.V2Service("example",
-            permission_model={
-                "invoker_role_name": "AWSResilienceHubAssessmentRole",
-            },
             name="example-service",
             description="Production API service",
             policy_arn=example.arn,
@@ -556,6 +553,9 @@ class V2Service(pulumi.CustomResource):
                 "us-west-2",
                 "us-east-1",
             ],
+            permission_model={
+                "invoker_role_name": "AWSResilienceHubAssessmentRole",
+            },
             tags={
                 "Environment": "production",
             })
@@ -569,14 +569,14 @@ class V2Service(pulumi.CustomResource):
 
         example = aws.resiliencehub.V2System("example", name="example-system")
         example_v2_service = aws.resiliencehub.V2Service("example",
+            name="example-service",
+            regions=["us-west-2"],
             permission_model={
                 "invoker_role_name": "AWSResilienceHubAssessmentRole",
             },
             associated_systems=[{
                 "system_arn": example.arn,
-            }],
-            name="example-service",
-            regions=["us-west-2"])
+            }])
         ```
 
         ## Import
@@ -609,12 +609,12 @@ class V2Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_systems: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2ServiceAssociatedSystemArgs', 'V2ServiceAssociatedSystemArgsDict']]]]] = None,
+                 associated_systems: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2ServiceAssociatedSystemArgs', 'V2ServiceAssociatedSystemArgsDict', 'outputs.V2ServiceAssociatedSystem']]]]] = None,
                  dependency_discovery: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permission_model: pulumi.Input[Optional[Union['V2ServicePermissionModelArgs', 'V2ServicePermissionModelArgsDict']]] = None,
+                 permission_model: pulumi.Input[Optional[Union['V2ServicePermissionModelArgs', 'V2ServicePermissionModelArgsDict', 'outputs.V2ServicePermissionModel']]] = None,
                  policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -655,12 +655,12 @@ class V2Service(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            associated_systems: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2ServiceAssociatedSystemArgs', 'V2ServiceAssociatedSystemArgsDict']]]]] = None,
+            associated_systems: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2ServiceAssociatedSystemArgs', 'V2ServiceAssociatedSystemArgsDict', 'outputs.V2ServiceAssociatedSystem']]]]] = None,
             dependency_discovery: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            permission_model: pulumi.Input[Optional[Union['V2ServicePermissionModelArgs', 'V2ServicePermissionModelArgsDict']]] = None,
+            permission_model: pulumi.Input[Optional[Union['V2ServicePermissionModelArgs', 'V2ServicePermissionModelArgsDict', 'outputs.V2ServicePermissionModel']]] = None,
             policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -674,12 +674,12 @@ class V2Service(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the service.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2ServiceAssociatedSystemArgs', 'V2ServiceAssociatedSystemArgsDict']]]] associated_systems: Systems to associate with the service. See `associated_system` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['V2ServiceAssociatedSystemArgs', 'V2ServiceAssociatedSystemArgsDict', 'outputs.V2ServiceAssociatedSystem']]]] associated_systems: Systems to associate with the service. See `associated_system` Block below.
         :param pulumi.Input[_builtins.str] dependency_discovery: Dependency discovery. Valid values: `ENABLED`, `DISABLED`.
         :param pulumi.Input[_builtins.str] description: Description of the service.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key ARN.
         :param pulumi.Input[_builtins.str] name: Name of the service. Changing this value requires creating a new resource.
-        :param pulumi.Input[Union['V2ServicePermissionModelArgs', 'V2ServicePermissionModelArgsDict']] permission_model: Permission model for resource discovery. See `permission_model` Block below.
+        :param pulumi.Input[Union['V2ServicePermissionModelArgs', 'V2ServicePermissionModelArgsDict', 'outputs.V2ServicePermissionModel']] permission_model: Permission model for resource discovery. See `permission_model` Block below.
         :param pulumi.Input[_builtins.str] policy_arn: ARN of the resilience policy to associate with this service.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS regions where the service operates.

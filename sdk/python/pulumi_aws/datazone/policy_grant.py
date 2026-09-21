@@ -316,12 +316,12 @@ class PolicyGrant(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 detail: pulumi.Input[Optional[Union['PolicyGrantDetailArgs', 'PolicyGrantDetailArgsDict']]] = None,
+                 detail: pulumi.Input[Optional[Union['PolicyGrantDetailArgs', 'PolicyGrantDetailArgsDict', 'outputs.PolicyGrantDetail']]] = None,
                  domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  entity_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  entity_type: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 principal: pulumi.Input[Optional[Union['PolicyGrantPrincipalArgs', 'PolicyGrantPrincipalArgsDict']]] = None,
+                 principal: pulumi.Input[Optional[Union['PolicyGrantPrincipalArgs', 'PolicyGrantPrincipalArgsDict', 'outputs.PolicyGrantPrincipal']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -336,6 +336,10 @@ class PolicyGrant(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datazone.PolicyGrant("example",
+            domain_identifier=example_aws_datazone_domain["id"],
+            entity_identifier=example_aws_datazone_domain["rootDomainUnitId"],
+            entity_type="DOMAIN_UNIT",
+            policy_type="CREATE_DOMAIN_UNIT",
             detail={
                 "create_domain_unit": {},
             },
@@ -343,11 +347,7 @@ class PolicyGrant(pulumi.CustomResource):
                 "user": {
                     "all_users_grant_filter": {},
                 },
-            },
-            domain_identifier=example_aws_datazone_domain["id"],
-            entity_identifier=example_aws_datazone_domain["rootDomainUnitId"],
-            entity_type="DOMAIN_UNIT",
-            policy_type="CREATE_DOMAIN_UNIT")
+            })
         ```
 
         ### With Include Child Domain Units
@@ -357,6 +357,10 @@ class PolicyGrant(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datazone.PolicyGrant("example",
+            domain_identifier=example_aws_datazone_domain["id"],
+            entity_identifier=example_aws_datazone_domain["rootDomainUnitId"],
+            entity_type="DOMAIN_UNIT",
+            policy_type="CREATE_DOMAIN_UNIT",
             detail={
                 "create_domain_unit": {
                     "include_child_domain_units": True,
@@ -366,11 +370,7 @@ class PolicyGrant(pulumi.CustomResource):
                 "user": {
                     "all_users_grant_filter": {},
                 },
-            },
-            domain_identifier=example_aws_datazone_domain["id"],
-            entity_identifier=example_aws_datazone_domain["rootDomainUnitId"],
-            entity_type="DOMAIN_UNIT",
-            policy_type="CREATE_DOMAIN_UNIT")
+            })
         ```
 
         ### With Project Principal
@@ -380,6 +380,10 @@ class PolicyGrant(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datazone.PolicyGrant("example",
+            domain_identifier=example_aws_datazone_domain["id"],
+            entity_identifier=example_aws_datazone_domain["rootDomainUnitId"],
+            entity_type="DOMAIN_UNIT",
+            policy_type="CREATE_GLOSSARY",
             detail={
                 "create_glossary": {},
             },
@@ -388,11 +392,7 @@ class PolicyGrant(pulumi.CustomResource):
                     "project_designation": "OWNER",
                     "project_identifier": example_aws_datazone_project["id"],
                 },
-            },
-            domain_identifier=example_aws_datazone_domain["id"],
-            entity_identifier=example_aws_datazone_domain["rootDomainUnitId"],
-            entity_type="DOMAIN_UNIT",
-            policy_type="CREATE_GLOSSARY")
+            })
         ```
 
         ## Import
@@ -421,12 +421,12 @@ class PolicyGrant(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['PolicyGrantDetailArgs', 'PolicyGrantDetailArgsDict']] detail: Policy grant detail. Exactly one sub-block must be specified. See `detail` Block below.
+        :param pulumi.Input[Union['PolicyGrantDetailArgs', 'PolicyGrantDetailArgsDict', 'outputs.PolicyGrantDetail']] detail: Policy grant detail. Exactly one sub-block must be specified. See `detail` Block below.
         :param pulumi.Input[_builtins.str] domain_identifier: Identifier of the domain where the policy grant is created.
         :param pulumi.Input[_builtins.str] entity_identifier: Identifier of the entity to which the policy grant applies.
         :param pulumi.Input[_builtins.str] entity_type: Type of entity to which the policy grant applies. Valid values: `ASSET_TYPE`, `DOMAIN_UNIT`, `ENVIRONMENT_BLUEPRINT_CONFIGURATION`, `ENVIRONMENT_PROFILE`.
         :param pulumi.Input[_builtins.str] policy_type: Type of the managed policy. Valid values: `ADD_TO_PROJECT_MEMBER_POOL`, `CREATE_ASSET_TYPE`, `CREATE_DOMAIN_UNIT`, `CREATE_ENVIRONMENT`, `CREATE_ENVIRONMENT_FROM_BLUEPRINT`, `CREATE_ENVIRONMENT_PROFILE`, `CREATE_FORM_TYPE`, `CREATE_GLOSSARY`, `CREATE_PROJECT`, `CREATE_PROJECT_FROM_PROJECT_PROFILE`, `DELEGATE_CREATE_ENVIRONMENT_PROFILE`, `OVERRIDE_DOMAIN_UNIT_OWNERS`, `OVERRIDE_PROJECT_OWNERS`, `USE_ASSET_TYPE`.
-        :param pulumi.Input[Union['PolicyGrantPrincipalArgs', 'PolicyGrantPrincipalArgsDict']] principal: Principal to which the policy grant applies. Exactly one sub-block must be specified. See `principal` Block below.
+        :param pulumi.Input[Union['PolicyGrantPrincipalArgs', 'PolicyGrantPrincipalArgsDict', 'outputs.PolicyGrantPrincipal']] principal: Principal to which the policy grant applies. Exactly one sub-block must be specified. See `principal` Block below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -449,6 +449,10 @@ class PolicyGrant(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datazone.PolicyGrant("example",
+            domain_identifier=example_aws_datazone_domain["id"],
+            entity_identifier=example_aws_datazone_domain["rootDomainUnitId"],
+            entity_type="DOMAIN_UNIT",
+            policy_type="CREATE_DOMAIN_UNIT",
             detail={
                 "create_domain_unit": {},
             },
@@ -456,11 +460,7 @@ class PolicyGrant(pulumi.CustomResource):
                 "user": {
                     "all_users_grant_filter": {},
                 },
-            },
-            domain_identifier=example_aws_datazone_domain["id"],
-            entity_identifier=example_aws_datazone_domain["rootDomainUnitId"],
-            entity_type="DOMAIN_UNIT",
-            policy_type="CREATE_DOMAIN_UNIT")
+            })
         ```
 
         ### With Include Child Domain Units
@@ -470,6 +470,10 @@ class PolicyGrant(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datazone.PolicyGrant("example",
+            domain_identifier=example_aws_datazone_domain["id"],
+            entity_identifier=example_aws_datazone_domain["rootDomainUnitId"],
+            entity_type="DOMAIN_UNIT",
+            policy_type="CREATE_DOMAIN_UNIT",
             detail={
                 "create_domain_unit": {
                     "include_child_domain_units": True,
@@ -479,11 +483,7 @@ class PolicyGrant(pulumi.CustomResource):
                 "user": {
                     "all_users_grant_filter": {},
                 },
-            },
-            domain_identifier=example_aws_datazone_domain["id"],
-            entity_identifier=example_aws_datazone_domain["rootDomainUnitId"],
-            entity_type="DOMAIN_UNIT",
-            policy_type="CREATE_DOMAIN_UNIT")
+            })
         ```
 
         ### With Project Principal
@@ -493,6 +493,10 @@ class PolicyGrant(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datazone.PolicyGrant("example",
+            domain_identifier=example_aws_datazone_domain["id"],
+            entity_identifier=example_aws_datazone_domain["rootDomainUnitId"],
+            entity_type="DOMAIN_UNIT",
+            policy_type="CREATE_GLOSSARY",
             detail={
                 "create_glossary": {},
             },
@@ -501,11 +505,7 @@ class PolicyGrant(pulumi.CustomResource):
                     "project_designation": "OWNER",
                     "project_identifier": example_aws_datazone_project["id"],
                 },
-            },
-            domain_identifier=example_aws_datazone_domain["id"],
-            entity_identifier=example_aws_datazone_domain["rootDomainUnitId"],
-            entity_type="DOMAIN_UNIT",
-            policy_type="CREATE_GLOSSARY")
+            })
         ```
 
         ## Import
@@ -547,12 +547,12 @@ class PolicyGrant(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 detail: pulumi.Input[Optional[Union['PolicyGrantDetailArgs', 'PolicyGrantDetailArgsDict']]] = None,
+                 detail: pulumi.Input[Optional[Union['PolicyGrantDetailArgs', 'PolicyGrantDetailArgsDict', 'outputs.PolicyGrantDetail']]] = None,
                  domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  entity_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  entity_type: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 principal: pulumi.Input[Optional[Union['PolicyGrantPrincipalArgs', 'PolicyGrantPrincipalArgsDict']]] = None,
+                 principal: pulumi.Input[Optional[Union['PolicyGrantPrincipalArgs', 'PolicyGrantPrincipalArgsDict', 'outputs.PolicyGrantPrincipal']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -597,13 +597,13 @@ class PolicyGrant(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
             created_by: pulumi.Input[Optional[_builtins.str]] = None,
-            detail: pulumi.Input[Optional[Union['PolicyGrantDetailArgs', 'PolicyGrantDetailArgsDict']]] = None,
+            detail: pulumi.Input[Optional[Union['PolicyGrantDetailArgs', 'PolicyGrantDetailArgsDict', 'outputs.PolicyGrantDetail']]] = None,
             domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
             entity_identifier: pulumi.Input[Optional[_builtins.str]] = None,
             entity_type: pulumi.Input[Optional[_builtins.str]] = None,
             grant_id: pulumi.Input[Optional[_builtins.str]] = None,
             policy_type: pulumi.Input[Optional[_builtins.str]] = None,
-            principal: pulumi.Input[Optional[Union['PolicyGrantPrincipalArgs', 'PolicyGrantPrincipalArgsDict']]] = None,
+            principal: pulumi.Input[Optional[Union['PolicyGrantPrincipalArgs', 'PolicyGrantPrincipalArgsDict', 'outputs.PolicyGrantPrincipal']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'PolicyGrant':
         """
         Get an existing PolicyGrant resource's state with the given name, id, and optional extra
@@ -614,13 +614,13 @@ class PolicyGrant(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] created_at: Timestamp when the policy grant was created (RFC3339 format).
         :param pulumi.Input[_builtins.str] created_by: User who created the policy grant.
-        :param pulumi.Input[Union['PolicyGrantDetailArgs', 'PolicyGrantDetailArgsDict']] detail: Policy grant detail. Exactly one sub-block must be specified. See `detail` Block below.
+        :param pulumi.Input[Union['PolicyGrantDetailArgs', 'PolicyGrantDetailArgsDict', 'outputs.PolicyGrantDetail']] detail: Policy grant detail. Exactly one sub-block must be specified. See `detail` Block below.
         :param pulumi.Input[_builtins.str] domain_identifier: Identifier of the domain where the policy grant is created.
         :param pulumi.Input[_builtins.str] entity_identifier: Identifier of the entity to which the policy grant applies.
         :param pulumi.Input[_builtins.str] entity_type: Type of entity to which the policy grant applies. Valid values: `ASSET_TYPE`, `DOMAIN_UNIT`, `ENVIRONMENT_BLUEPRINT_CONFIGURATION`, `ENVIRONMENT_PROFILE`.
         :param pulumi.Input[_builtins.str] grant_id: Identifier of the policy grant.
         :param pulumi.Input[_builtins.str] policy_type: Type of the managed policy. Valid values: `ADD_TO_PROJECT_MEMBER_POOL`, `CREATE_ASSET_TYPE`, `CREATE_DOMAIN_UNIT`, `CREATE_ENVIRONMENT`, `CREATE_ENVIRONMENT_FROM_BLUEPRINT`, `CREATE_ENVIRONMENT_PROFILE`, `CREATE_FORM_TYPE`, `CREATE_GLOSSARY`, `CREATE_PROJECT`, `CREATE_PROJECT_FROM_PROJECT_PROFILE`, `DELEGATE_CREATE_ENVIRONMENT_PROFILE`, `OVERRIDE_DOMAIN_UNIT_OWNERS`, `OVERRIDE_PROJECT_OWNERS`, `USE_ASSET_TYPE`.
-        :param pulumi.Input[Union['PolicyGrantPrincipalArgs', 'PolicyGrantPrincipalArgsDict']] principal: Principal to which the policy grant applies. Exactly one sub-block must be specified. See `principal` Block below.
+        :param pulumi.Input[Union['PolicyGrantPrincipalArgs', 'PolicyGrantPrincipalArgsDict', 'outputs.PolicyGrantPrincipal']] principal: Principal to which the policy grant applies. Exactly one sub-block must be specified. See `principal` Block below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

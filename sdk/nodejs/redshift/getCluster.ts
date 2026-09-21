@@ -20,14 +20,9 @@ import * as utilities from "../utilities";
  *     clusterIdentifier: "example-cluster",
  * });
  * const exampleStream = new aws.kinesis.FirehoseDeliveryStream("example_stream", {
+ *     name: "kinesis-firehose-example-stream",
+ *     destination: "redshift",
  *     redshiftConfiguration: {
- *         s3Configuration: {
- *             roleArn: firehoseRole.arn,
- *             bucketArn: bucket.arn,
- *             bufferSize: 10,
- *             bufferInterval: 400,
- *             compressionFormat: "GZIP",
- *         },
  *         roleArn: firehoseRole.arn,
  *         clusterJdbcurl: example.then(example => `jdbc:redshift://${example.endpoint}/${example.databaseName}`),
  *         username: "exampleuser",
@@ -35,9 +30,14 @@ import * as utilities from "../utilities";
  *         dataTableName: "example-table",
  *         copyOptions: "delimiter '|'",
  *         dataTableColumns: "example-col",
+ *         s3Configuration: {
+ *             roleArn: firehoseRole.arn,
+ *             bucketArn: bucket.arn,
+ *             bufferSize: 10,
+ *             bufferInterval: 400,
+ *             compressionFormat: "GZIP",
+ *         },
  *     },
- *     name: "kinesis-firehose-example-stream",
- *     destination: "redshift",
  * });
  * ```
  */
@@ -248,14 +248,9 @@ export interface GetClusterResult {
  *     clusterIdentifier: "example-cluster",
  * });
  * const exampleStream = new aws.kinesis.FirehoseDeliveryStream("example_stream", {
+ *     name: "kinesis-firehose-example-stream",
+ *     destination: "redshift",
  *     redshiftConfiguration: {
- *         s3Configuration: {
- *             roleArn: firehoseRole.arn,
- *             bucketArn: bucket.arn,
- *             bufferSize: 10,
- *             bufferInterval: 400,
- *             compressionFormat: "GZIP",
- *         },
  *         roleArn: firehoseRole.arn,
  *         clusterJdbcurl: example.then(example => `jdbc:redshift://${example.endpoint}/${example.databaseName}`),
  *         username: "exampleuser",
@@ -263,9 +258,14 @@ export interface GetClusterResult {
  *         dataTableName: "example-table",
  *         copyOptions: "delimiter '|'",
  *         dataTableColumns: "example-col",
+ *         s3Configuration: {
+ *             roleArn: firehoseRole.arn,
+ *             bucketArn: bucket.arn,
+ *             bufferSize: 10,
+ *             bufferInterval: 400,
+ *             compressionFormat: "GZIP",
+ *         },
  *     },
- *     name: "kinesis-firehose-example-stream",
- *     destination: "redshift",
  * });
  * ```
  */

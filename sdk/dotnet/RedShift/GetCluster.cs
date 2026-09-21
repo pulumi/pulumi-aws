@@ -31,8 +31,17 @@ namespace Pulumi.Aws.RedShift
         /// 
         ///     var exampleStream = new Aws.Kinesis.FirehoseDeliveryStream("example_stream", new()
         ///     {
+        ///         Name = "kinesis-firehose-example-stream",
+        ///         Destination = "redshift",
         ///         RedshiftConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs
         ///         {
+        ///             RoleArn = firehoseRole.Arn,
+        ///             ClusterJdbcurl = $"jdbc:redshift://{example.Apply(getClusterResult =&gt; getClusterResult.Endpoint)}/{example.Apply(getClusterResult =&gt; getClusterResult.DatabaseName)}",
+        ///             Username = "exampleuser",
+        ///             Password = "Exampl3Pass",
+        ///             DataTableName = "example-table",
+        ///             CopyOptions = "delimiter '|'",
+        ///             DataTableColumns = "example-col",
         ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs
         ///             {
         ///                 RoleArn = firehoseRole.Arn,
@@ -41,16 +50,7 @@ namespace Pulumi.Aws.RedShift
         ///                 BufferInterval = 400,
         ///                 CompressionFormat = "GZIP",
         ///             },
-        ///             RoleArn = firehoseRole.Arn,
-        ///             ClusterJdbcurl = $"jdbc:redshift://{example.Apply(getClusterResult =&gt; getClusterResult.Endpoint)}/{example.Apply(getClusterResult =&gt; getClusterResult.DatabaseName)}",
-        ///             Username = "exampleuser",
-        ///             Password = "Exampl3Pass",
-        ///             DataTableName = "example-table",
-        ///             CopyOptions = "delimiter '|'",
-        ///             DataTableColumns = "example-col",
         ///         },
-        ///         Name = "kinesis-firehose-example-stream",
-        ///         Destination = "redshift",
         ///     });
         /// 
         /// });
@@ -79,8 +79,17 @@ namespace Pulumi.Aws.RedShift
         /// 
         ///     var exampleStream = new Aws.Kinesis.FirehoseDeliveryStream("example_stream", new()
         ///     {
+        ///         Name = "kinesis-firehose-example-stream",
+        ///         Destination = "redshift",
         ///         RedshiftConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs
         ///         {
+        ///             RoleArn = firehoseRole.Arn,
+        ///             ClusterJdbcurl = $"jdbc:redshift://{example.Apply(getClusterResult =&gt; getClusterResult.Endpoint)}/{example.Apply(getClusterResult =&gt; getClusterResult.DatabaseName)}",
+        ///             Username = "exampleuser",
+        ///             Password = "Exampl3Pass",
+        ///             DataTableName = "example-table",
+        ///             CopyOptions = "delimiter '|'",
+        ///             DataTableColumns = "example-col",
         ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs
         ///             {
         ///                 RoleArn = firehoseRole.Arn,
@@ -89,16 +98,7 @@ namespace Pulumi.Aws.RedShift
         ///                 BufferInterval = 400,
         ///                 CompressionFormat = "GZIP",
         ///             },
-        ///             RoleArn = firehoseRole.Arn,
-        ///             ClusterJdbcurl = $"jdbc:redshift://{example.Apply(getClusterResult =&gt; getClusterResult.Endpoint)}/{example.Apply(getClusterResult =&gt; getClusterResult.DatabaseName)}",
-        ///             Username = "exampleuser",
-        ///             Password = "Exampl3Pass",
-        ///             DataTableName = "example-table",
-        ///             CopyOptions = "delimiter '|'",
-        ///             DataTableColumns = "example-col",
         ///         },
-        ///         Name = "kinesis-firehose-example-stream",
-        ///         Destination = "redshift",
         ///     });
         /// 
         /// });
@@ -127,8 +127,17 @@ namespace Pulumi.Aws.RedShift
         /// 
         ///     var exampleStream = new Aws.Kinesis.FirehoseDeliveryStream("example_stream", new()
         ///     {
+        ///         Name = "kinesis-firehose-example-stream",
+        ///         Destination = "redshift",
         ///         RedshiftConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs
         ///         {
+        ///             RoleArn = firehoseRole.Arn,
+        ///             ClusterJdbcurl = $"jdbc:redshift://{example.Apply(getClusterResult =&gt; getClusterResult.Endpoint)}/{example.Apply(getClusterResult =&gt; getClusterResult.DatabaseName)}",
+        ///             Username = "exampleuser",
+        ///             Password = "Exampl3Pass",
+        ///             DataTableName = "example-table",
+        ///             CopyOptions = "delimiter '|'",
+        ///             DataTableColumns = "example-col",
         ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs
         ///             {
         ///                 RoleArn = firehoseRole.Arn,
@@ -137,16 +146,7 @@ namespace Pulumi.Aws.RedShift
         ///                 BufferInterval = 400,
         ///                 CompressionFormat = "GZIP",
         ///             },
-        ///             RoleArn = firehoseRole.Arn,
-        ///             ClusterJdbcurl = $"jdbc:redshift://{example.Apply(getClusterResult =&gt; getClusterResult.Endpoint)}/{example.Apply(getClusterResult =&gt; getClusterResult.DatabaseName)}",
-        ///             Username = "exampleuser",
-        ///             Password = "Exampl3Pass",
-        ///             DataTableName = "example-table",
-        ///             CopyOptions = "delimiter '|'",
-        ///             DataTableColumns = "example-col",
         ///         },
-        ///         Name = "kinesis-firehose-example-stream",
-        ///         Destination = "redshift",
         ///     });
         /// 
         /// });

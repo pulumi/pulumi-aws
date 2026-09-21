@@ -19,6 +19,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.Guardrail("example", {
+ *     name: "example",
+ *     blockedInputMessaging: "example",
+ *     blockedOutputsMessaging: "example",
+ *     description: "example",
  *     contentPolicyConfig: {
  *         filtersConfigs: [{
  *             inputStrength: "MEDIUM",
@@ -50,14 +54,14 @@ import * as utilities from "../utilities";
  *         }],
  *     },
  *     topicPolicyConfig: {
- *         tierConfigs: [{
- *             tierName: "CLASSIC",
- *         }],
  *         topicsConfigs: [{
  *             name: "investment_topic",
  *             examples: ["Where should I invest my money ?"],
  *             type: "DENY",
  *             definition: "Investment advice refers to inquiries, guidance, or recommendations regarding the management or allocation of funds or assets with the goal of generating returns .",
+ *         }],
+ *         tierConfigs: [{
+ *             tierName: "CLASSIC",
  *         }],
  *     },
  *     wordPolicyConfig: {
@@ -68,10 +72,6 @@ import * as utilities from "../utilities";
  *             text: "HATE",
  *         }],
  *     },
- *     name: "example",
- *     blockedInputMessaging: "example",
- *     blockedOutputsMessaging: "example",
- *     description: "example",
  * });
  * ```
  *

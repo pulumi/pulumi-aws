@@ -34,10 +34,18 @@ namespace Pulumi.Aws.Mq
     /// {
     ///     var example = new Aws.Mq.Broker("example", new()
     ///     {
+    ///         BrokerName = "example",
     ///         Configuration = new Aws.Mq.Inputs.BrokerConfigurationArgs
     ///         {
     ///             Id = test.Id,
     ///             Revision = test.LatestRevision,
+    ///         },
+    ///         EngineType = "ActiveMQ",
+    ///         EngineVersion = "5.17.6",
+    ///         HostInstanceType = "mq.t2.micro",
+    ///         SecurityGroups = new[]
+    ///         {
+    ///             testAwsSecurityGroup.Id,
     ///         },
     ///         Users = new[]
     ///         {
@@ -46,14 +54,6 @@ namespace Pulumi.Aws.Mq
     ///                 Username = "example_user",
     ///                 Password = "&lt;password&gt;",
     ///             },
-    ///         },
-    ///         BrokerName = "example",
-    ///         EngineType = "ActiveMQ",
-    ///         EngineVersion = "5.17.6",
-    ///         HostInstanceType = "mq.t2.micro",
-    ///         SecurityGroups = new[]
-    ///         {
-    ///             testAwsSecurityGroup.Id,
     ///         },
     ///     });
     /// 
@@ -72,10 +72,19 @@ namespace Pulumi.Aws.Mq
     /// {
     ///     var example = new Aws.Mq.Broker("example", new()
     ///     {
+    ///         BrokerName = "example",
     ///         Configuration = new Aws.Mq.Inputs.BrokerConfigurationArgs
     ///         {
     ///             Id = test.Id,
     ///             Revision = test.LatestRevision,
+    ///         },
+    ///         EngineType = "ActiveMQ",
+    ///         EngineVersion = "5.17.6",
+    ///         StorageType = "ebs",
+    ///         HostInstanceType = "mq.m5.large",
+    ///         SecurityGroups = new[]
+    ///         {
+    ///             testAwsSecurityGroup.Id,
     ///         },
     ///         Users = new[]
     ///         {
@@ -84,15 +93,6 @@ namespace Pulumi.Aws.Mq
     ///                 Username = "example_user",
     ///                 Password = "&lt;password&gt;",
     ///             },
-    ///         },
-    ///         BrokerName = "example",
-    ///         EngineType = "ActiveMQ",
-    ///         EngineVersion = "5.17.6",
-    ///         StorageType = "ebs",
-    ///         HostInstanceType = "mq.m5.large",
-    ///         SecurityGroups = new[]
-    ///         {
-    ///             testAwsSecurityGroup.Id,
     ///         },
     ///     });
     /// 
@@ -111,20 +111,6 @@ namespace Pulumi.Aws.Mq
     /// {
     ///     var examplePrimary = new Aws.Mq.Broker("example_primary", new()
     ///     {
-    ///         Users = new[]
-    ///         {
-    ///             new Aws.Mq.Inputs.BrokerUserArgs
-    ///             {
-    ///                 Username = "example_user",
-    ///                 Password = "&lt;password&gt;",
-    ///             },
-    ///             new Aws.Mq.Inputs.BrokerUserArgs
-    ///             {
-    ///                 Username = "example_replication_user",
-    ///                 Password = "&lt;password&gt;",
-    ///                 ReplicationUser = true,
-    ///             },
-    ///         },
     ///         ApplyImmediately = true,
     ///         BrokerName = "example_primary",
     ///         EngineType = "ActiveMQ",
@@ -135,10 +121,6 @@ namespace Pulumi.Aws.Mq
     ///             examplePrimaryAwsSecurityGroup.Id,
     ///         },
     ///         DeploymentMode = "ACTIVE_STANDBY_MULTI_AZ",
-    ///     });
-    /// 
-    ///     var example = new Aws.Mq.Broker("example", new()
-    ///     {
     ///         Users = new[]
     ///         {
     ///             new Aws.Mq.Inputs.BrokerUserArgs
@@ -153,6 +135,10 @@ namespace Pulumi.Aws.Mq
     ///                 ReplicationUser = true,
     ///             },
     ///         },
+    ///     });
+    /// 
+    ///     var example = new Aws.Mq.Broker("example", new()
+    ///     {
     ///         ApplyImmediately = true,
     ///         BrokerName = "example",
     ///         EngineType = "ActiveMQ",
@@ -165,6 +151,20 @@ namespace Pulumi.Aws.Mq
     ///         DeploymentMode = "ACTIVE_STANDBY_MULTI_AZ",
     ///         DataReplicationMode = "CRDR",
     ///         DataReplicationPrimaryBrokerArn = primary.Arn,
+    ///         Users = new[]
+    ///         {
+    ///             new Aws.Mq.Inputs.BrokerUserArgs
+    ///             {
+    ///                 Username = "example_user",
+    ///                 Password = "&lt;password&gt;",
+    ///             },
+    ///             new Aws.Mq.Inputs.BrokerUserArgs
+    ///             {
+    ///                 Username = "example_replication_user",
+    ///                 Password = "&lt;password&gt;",
+    ///                 ReplicationUser = true,
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });

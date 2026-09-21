@@ -35,18 +35,18 @@ import (
 //				return err
 //			}
 //			_, err = glue.NewUserDefinedFunction(ctx, "example", &glue.UserDefinedFunctionArgs{
-//				ResourceUris: glue.UserDefinedFunctionResourceUriArray{
-//					&glue.UserDefinedFunctionResourceUriArgs{
-//						ResourceType: pulumi.String("ARCHIVE"),
-//						Uri:          pulumi.String("uri"),
-//					},
-//				},
 //				Name:         pulumi.String("my_func"),
 //				CatalogId:    example.CatalogId,
 //				DatabaseName: example.Name,
 //				ClassName:    pulumi.String("class"),
 //				OwnerName:    pulumi.String("owner"),
 //				OwnerType:    pulumi.String("GROUP"),
+//				ResourceUris: glue.UserDefinedFunctionResourceUriArray{
+//					&glue.UserDefinedFunctionResourceUriArgs{
+//						ResourceType: pulumi.String("ARCHIVE"),
+//						Uri:          pulumi.String("uri"),
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err

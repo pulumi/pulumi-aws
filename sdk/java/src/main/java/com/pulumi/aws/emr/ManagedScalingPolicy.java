@@ -50,17 +50,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sample = new Cluster("sample", ClusterArgs.builder()
+ *             .name("emr-sample-cluster")
+ *             .releaseLabel("emr-5.30.0")
  *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
  *                 .instanceType("m4.large")
  *                 .build())
  *             .coreInstanceGroup(ClusterCoreInstanceGroupArgs.builder()
  *                 .instanceType("c4.large")
  *                 .build())
- *             .name("emr-sample-cluster")
- *             .releaseLabel("emr-5.30.0")
  *             .build());
  * 
  *         var samplepolicy = new ManagedScalingPolicy("samplepolicy", ManagedScalingPolicyArgs.builder()
+ *             .clusterId(sample.id())
  *             .computeLimits(ManagedScalingPolicyComputeLimitArgs.builder()
  *                 .unitType("Instances")
  *                 .minimumCapacityUnits(2)
@@ -68,7 +69,6 @@ import javax.annotation.Nullable;
  *                 .maximumOndemandCapacityUnits(2)
  *                 .maximumCoreCapacityUnits(10)
  *                 .build())
- *             .clusterId(sample.id())
  *             .build());
  * 
  *     }

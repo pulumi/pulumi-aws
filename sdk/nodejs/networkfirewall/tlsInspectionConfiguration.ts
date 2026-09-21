@@ -21,9 +21,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.TlsInspectionConfiguration("example", {
+ *     name: "example",
+ *     description: "example",
+ *     encryptionConfigurations: [{
+ *         keyId: "AWS_OWNED_KMS_KEY",
+ *         type: "AWS_OWNED_KMS_KEY",
+ *     }],
  *     tlsInspectionConfiguration: {
  *         serverCertificateConfiguration: {
+ *             serverCertificates: [{
+ *                 resourceArn: example1.arn,
+ *             }],
  *             scopes: [{
+ *                 protocols: [6],
  *                 destinationPorts: [{
  *                     fromPort: 443,
  *                     toPort: 443,
@@ -38,19 +48,9 @@ import * as utilities from "../utilities";
  *                 sources: [{
  *                     addressDefinition: "0.0.0.0/0",
  *                 }],
- *                 protocols: [6],
- *             }],
- *             serverCertificates: [{
- *                 resourceArn: example1.arn,
  *             }],
  *         },
  *     },
- *     encryptionConfigurations: [{
- *         keyId: "AWS_OWNED_KMS_KEY",
- *         type: "AWS_OWNED_KMS_KEY",
- *     }],
- *     name: "example",
- *     description: "example",
  * });
  * ```
  *
@@ -61,13 +61,21 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.TlsInspectionConfiguration("example", {
+ *     name: "example",
+ *     description: "example",
+ *     encryptionConfigurations: [{
+ *         keyId: "AWS_OWNED_KMS_KEY",
+ *         type: "AWS_OWNED_KMS_KEY",
+ *     }],
  *     tlsInspectionConfiguration: {
  *         serverCertificateConfiguration: {
+ *             certificateAuthorityArn: example1.arn,
  *             checkCertificateRevocationStatus: {
  *                 revokedStatusAction: "REJECT",
  *                 unknownStatusAction: "PASS",
  *             },
  *             scopes: [{
+ *                 protocols: [6],
  *                 destinationPorts: [{
  *                     fromPort: 443,
  *                     toPort: 443,
@@ -82,17 +90,9 @@ import * as utilities from "../utilities";
  *                 sources: [{
  *                     addressDefinition: "0.0.0.0/0",
  *                 }],
- *                 protocols: [6],
  *             }],
- *             certificateAuthorityArn: example1.arn,
  *         },
  *     },
- *     encryptionConfigurations: [{
- *         keyId: "AWS_OWNED_KMS_KEY",
- *         type: "AWS_OWNED_KMS_KEY",
- *     }],
- *     name: "example",
- *     description: "example",
  * });
  * ```
  *
@@ -107,9 +107,19 @@ import * as utilities from "../utilities";
  *     deletionWindowInDays: 7,
  * });
  * const exampleTlsInspectionConfiguration = new aws.networkfirewall.TlsInspectionConfiguration("example", {
+ *     name: "example",
+ *     description: "example",
+ *     encryptionConfigurations: [{
+ *         keyId: example.arn,
+ *         type: "CUSTOMER_KMS",
+ *     }],
  *     tlsInspectionConfiguration: {
  *         serverCertificateConfiguration: {
+ *             serverCertificates: [{
+ *                 resourceArn: example1.arn,
+ *             }],
  *             scopes: [{
+ *                 protocols: [6],
  *                 destinationPorts: [{
  *                     fromPort: 443,
  *                     toPort: 443,
@@ -124,19 +134,9 @@ import * as utilities from "../utilities";
  *                 sources: [{
  *                     addressDefinition: "0.0.0.0/0",
  *                 }],
- *                 protocols: [6],
- *             }],
- *             serverCertificates: [{
- *                 resourceArn: example1.arn,
  *             }],
  *         },
  *     },
- *     encryptionConfigurations: [{
- *         keyId: example.arn,
- *         type: "CUSTOMER_KMS",
- *     }],
- *     name: "example",
- *     description: "example",
  * });
  * ```
  *
@@ -151,38 +151,38 @@ import * as utilities from "../utilities";
  *     deletionWindowInDays: 7,
  * });
  * const exampleTlsInspectionConfiguration = new aws.networkfirewall.TlsInspectionConfiguration("example", {
+ *     name: "example",
+ *     description: "example",
+ *     encryptionConfigurations: [{
+ *         keyId: example.arn,
+ *         type: "CUSTOMER_KMS",
+ *     }],
  *     tlsInspectionConfiguration: {
  *         serverCertificateConfigurations: [{
+ *             certificateAuthorityArn: example1.arn,
  *             checkCertificateRevocationStatus: [{
  *                 revokedStatusAction: "REJECT",
  *                 unknownStatusAction: "PASS",
  *             }],
  *             scope: [{
- *                 destination: [{
- *                     addressDefinition: "0.0.0.0/0",
- *                 }],
+ *                 protocols: [6],
  *                 destinationPorts: [{
  *                     fromPort: 443,
  *                     toPort: 443,
  *                 }],
- *                 source: [{
+ *                 destination: [{
  *                     addressDefinition: "0.0.0.0/0",
  *                 }],
  *                 sourcePorts: [{
  *                     fromPort: 0,
  *                     toPort: 65535,
  *                 }],
- *                 protocols: [6],
+ *                 source: [{
+ *                     addressDefinition: "0.0.0.0/0",
+ *                 }],
  *             }],
- *             certificateAuthorityArn: example1.arn,
  *         }],
  *     },
- *     encryptionConfigurations: [{
- *         keyId: example.arn,
- *         type: "CUSTOMER_KMS",
- *     }],
- *     name: "example",
- *     description: "example",
  * });
  * ```
  *
@@ -193,13 +193,24 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.TlsInspectionConfiguration("example", {
+ *     name: "example",
+ *     description: "example",
+ *     encryptionConfigurations: [{
+ *         keyId: "AWS_OWNED_KMS_KEY",
+ *         type: "AWS_OWNED_KMS_KEY",
+ *     }],
  *     tlsInspectionConfiguration: {
  *         serverCertificateConfiguration: {
+ *             certificateAuthorityArn: example1.arn,
  *             checkCertificateRevocationStatus: {
  *                 revokedStatusAction: "REJECT",
  *                 unknownStatusAction: "PASS",
  *             },
+ *             serverCertificates: [{
+ *                 resourceArn: example2.arn,
+ *             }],
  *             scopes: [{
+ *                 protocols: [6],
  *                 destinationPorts: [{
  *                     fromPort: 443,
  *                     toPort: 443,
@@ -214,20 +225,9 @@ import * as utilities from "../utilities";
  *                 sources: [{
  *                     addressDefinition: "0.0.0.0/0",
  *                 }],
- *                 protocols: [6],
  *             }],
- *             serverCertificates: [{
- *                 resourceArn: example2.arn,
- *             }],
- *             certificateAuthorityArn: example1.arn,
  *         },
  *     },
- *     encryptionConfigurations: [{
- *         keyId: "AWS_OWNED_KMS_KEY",
- *         type: "AWS_OWNED_KMS_KEY",
- *     }],
- *     name: "example",
- *     description: "example",
  * });
  * ```
  *

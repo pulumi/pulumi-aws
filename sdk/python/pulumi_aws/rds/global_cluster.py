@@ -557,8 +557,7 @@ class GlobalCluster(pulumi.CustomResource):
             cluster_identifier="test-secondary-cluster",
             global_cluster_identifier=example.id,
             db_subnet_group_name="default",
-            opts = pulumi.ResourceOptions(depends_on=[primary_cluster_instance],
-                ignore_changes=["replicationSourceIdentifier"]))
+            opts = pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
         secondary_cluster_instance = aws.rds.ClusterInstance("secondary",
             engine=example.engine.apply(lambda x: aws.rds.EngineType(x)),
             engine_version=example.engine_version,
@@ -602,8 +601,7 @@ class GlobalCluster(pulumi.CustomResource):
             global_cluster_identifier=example.id,
             skip_final_snapshot=True,
             db_subnet_group_name="default",
-            opts = pulumi.ResourceOptions(depends_on=[primary_cluster_instance],
-                ignore_changes=["replicationSourceIdentifier"]))
+            opts = pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
         secondary_cluster_instance = aws.rds.ClusterInstance("secondary",
             engine=example.engine.apply(lambda x: aws.rds.EngineType(x)),
             engine_version=example.engine_version,
@@ -619,7 +617,7 @@ class GlobalCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rds.Cluster("example", opts = pulumi.ResourceOptions(ignore_changes=["globalClusterIdentifier"]))
+        example = aws.rds.Cluster("example")
         example_global_cluster = aws.rds.GlobalCluster("example",
             force_destroy=True,
             global_cluster_identifier="example",
@@ -648,8 +646,7 @@ class GlobalCluster(pulumi.CustomResource):
             global_cluster_identifier=example.id,
             master_password="satsukimae",
             master_username="maesatsuki",
-            skip_final_snapshot=True,
-            opts = pulumi.ResourceOptions(ignore_changes=["engineVersion"]))
+            skip_final_snapshot=True)
         primary_cluster_instance = aws.rds.ClusterInstance("primary",
             apply_immediately=True,
             cluster_identifier=primary.id,
@@ -675,7 +672,7 @@ class GlobalCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rds.GlobalCluster("example", opts = pulumi.ResourceOptions(ignore_changes=["sourceDbClusterIdentifier"]))
+        example = aws.rds.GlobalCluster("example")
         ```
 
 
@@ -743,8 +740,7 @@ class GlobalCluster(pulumi.CustomResource):
             cluster_identifier="test-secondary-cluster",
             global_cluster_identifier=example.id,
             db_subnet_group_name="default",
-            opts = pulumi.ResourceOptions(depends_on=[primary_cluster_instance],
-                ignore_changes=["replicationSourceIdentifier"]))
+            opts = pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
         secondary_cluster_instance = aws.rds.ClusterInstance("secondary",
             engine=example.engine.apply(lambda x: aws.rds.EngineType(x)),
             engine_version=example.engine_version,
@@ -788,8 +784,7 @@ class GlobalCluster(pulumi.CustomResource):
             global_cluster_identifier=example.id,
             skip_final_snapshot=True,
             db_subnet_group_name="default",
-            opts = pulumi.ResourceOptions(depends_on=[primary_cluster_instance],
-                ignore_changes=["replicationSourceIdentifier"]))
+            opts = pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
         secondary_cluster_instance = aws.rds.ClusterInstance("secondary",
             engine=example.engine.apply(lambda x: aws.rds.EngineType(x)),
             engine_version=example.engine_version,
@@ -805,7 +800,7 @@ class GlobalCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rds.Cluster("example", opts = pulumi.ResourceOptions(ignore_changes=["globalClusterIdentifier"]))
+        example = aws.rds.Cluster("example")
         example_global_cluster = aws.rds.GlobalCluster("example",
             force_destroy=True,
             global_cluster_identifier="example",
@@ -834,8 +829,7 @@ class GlobalCluster(pulumi.CustomResource):
             global_cluster_identifier=example.id,
             master_password="satsukimae",
             master_username="maesatsuki",
-            skip_final_snapshot=True,
-            opts = pulumi.ResourceOptions(ignore_changes=["engineVersion"]))
+            skip_final_snapshot=True)
         primary_cluster_instance = aws.rds.ClusterInstance("primary",
             apply_immediately=True,
             cluster_identifier=primary.id,
@@ -861,7 +855,7 @@ class GlobalCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rds.GlobalCluster("example", opts = pulumi.ResourceOptions(ignore_changes=["sourceDbClusterIdentifier"]))
+        example = aws.rds.GlobalCluster("example")
         ```
 
 
@@ -939,7 +933,7 @@ class GlobalCluster(pulumi.CustomResource):
             engine_version_actual: pulumi.Input[Optional[_builtins.str]] = None,
             force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
             global_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-            global_cluster_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalClusterGlobalClusterMemberArgs', 'GlobalClusterGlobalClusterMemberArgsDict']]]]] = None,
+            global_cluster_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalClusterGlobalClusterMemberArgs', 'GlobalClusterGlobalClusterMemberArgsDict', 'outputs.GlobalClusterGlobalClusterMember']]]]] = None,
             global_cluster_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             source_db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
@@ -965,7 +959,7 @@ class GlobalCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] global_cluster_identifier: Global cluster identifier.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalClusterGlobalClusterMemberArgs', 'GlobalClusterGlobalClusterMemberArgsDict']]]] global_cluster_members: Set of objects containing Global Cluster members.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalClusterGlobalClusterMemberArgs', 'GlobalClusterGlobalClusterMemberArgsDict', 'outputs.GlobalClusterGlobalClusterMember']]]] global_cluster_members: Set of objects containing Global Cluster members.
         :param pulumi.Input[_builtins.str] global_cluster_resource_id: AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] source_db_cluster_identifier: ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engine_version`. This allows upgrading the engine version of the Global Cluster.

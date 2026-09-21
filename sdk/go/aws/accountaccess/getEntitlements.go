@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := accountaccess.GetEntitlements(ctx, &accountaccess.GetEntitlementsArgs{
+//				ApplicationArn: exampleAwsAccountaccessApplication.Arn,
 //				Filter: accountaccess.GetEntitlementsFilter{
 //					PrincipalRole: accountaccess.GetEntitlementsFilterPrincipalRole{
 //						Principal: accountaccess.GetEntitlementsFilterPrincipalRolePrincipal{
@@ -39,7 +40,6 @@ import (
 //						},
 //					},
 //				},
-//				ApplicationArn: exampleAwsAccountaccessApplication.Arn,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -65,12 +65,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := accountaccess.GetEntitlements(ctx, &accountaccess.GetEntitlementsArgs{
+//				ApplicationArn: exampleAwsAccountaccessApplication.Arn,
 //				Filter: accountaccess.GetEntitlementsFilter{
 //					PrincipalRole: accountaccess.GetEntitlementsFilterPrincipalRole{
 //						AccountId: pulumi.StringRef("123456789012"),
 //					},
 //				},
-//				ApplicationArn: exampleAwsAccountaccessApplication.Arn,
 //			}, nil)
 //			if err != nil {
 //				return err

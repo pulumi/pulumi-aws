@@ -37,6 +37,8 @@ import (
 //				return err
 //			}
 //			example, err := route53.GetTrafficPolicyDocument(ctx, &route53.GetTrafficPolicyDocumentArgs{
+//				RecordType: pulumi.StringRef("A"),
+//				StartRule:  pulumi.StringRef("site_switch"),
 //				Endpoints: []route53.GetTrafficPolicyDocumentEndpoint{
 //					{
 //						Id:    "my_elb",
@@ -52,18 +54,16 @@ import (
 //				},
 //				Rules: []route53.GetTrafficPolicyDocumentRule{
 //					{
+//						Id:   "site_switch",
+//						Type: pulumi.StringRef("failover"),
 //						Primary: {
 //							EndpointReference: pulumi.StringRef("my_elb"),
 //						},
 //						Secondary: {
 //							EndpointReference: pulumi.StringRef("site_down_banner"),
 //						},
-//						Id:   "site_switch",
-//						Type: pulumi.StringRef("failover"),
 //					},
 //				},
-//				RecordType: pulumi.StringRef("A"),
-//				StartRule:  pulumi.StringRef("site_switch"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -99,6 +99,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := route53.GetTrafficPolicyDocument(ctx, &route53.GetTrafficPolicyDocumentArgs{
+//				RecordType: pulumi.StringRef("A"),
+//				StartRule:  pulumi.StringRef("geoproximity_rule"),
 //				Endpoints: []route53.GetTrafficPolicyDocumentEndpoint{
 //					{
 //						Id:    "na_endpoint_a",
@@ -123,16 +125,18 @@ import (
 //				},
 //				Rules: []route53.GetTrafficPolicyDocumentRule{
 //					{
+//						Id:   "na_rule",
+//						Type: pulumi.StringRef("failover"),
 //						Primary: {
 //							EndpointReference: pulumi.StringRef("na_endpoint_a"),
 //						},
 //						Secondary: {
 //							EndpointReference: pulumi.StringRef("na_endpoint_b"),
 //						},
-//						Id:   "na_rule",
-//						Type: pulumi.StringRef("failover"),
 //					},
 //					{
+//						Id:   "geoproximity_rule",
+//						Type: pulumi.StringRef("geoproximity"),
 //						GeoProximityLocations: []route53.GetTrafficPolicyDocumentRuleGeoProximityLocation{
 //							{
 //								Region:               pulumi.StringRef("aws:route53:us-west-1"),
@@ -153,12 +157,8 @@ import (
 //								EndpointReference:    pulumi.StringRef("ap_endpoint"),
 //							},
 //						},
-//						Id:   "geoproximity_rule",
-//						Type: pulumi.StringRef("geoproximity"),
 //					},
 //				},
-//				RecordType: pulumi.StringRef("A"),
-//				StartRule:  pulumi.StringRef("geoproximity_rule"),
 //			}, nil)
 //			if err != nil {
 //				return err

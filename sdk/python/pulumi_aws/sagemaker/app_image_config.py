@@ -274,9 +274,9 @@ class AppImageConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_image_config_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 code_editor_app_image_config: pulumi.Input[Optional[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']]] = None,
-                 jupyter_lab_image_config: pulumi.Input[Optional[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict']]] = None,
-                 kernel_gateway_image_config: pulumi.Input[Optional[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']]] = None,
+                 code_editor_app_image_config: pulumi.Input[Optional[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict', 'outputs.AppImageConfigCodeEditorAppImageConfig']]] = None,
+                 jupyter_lab_image_config: pulumi.Input[Optional[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict', 'outputs.AppImageConfigJupyterLabImageConfig']]] = None,
+                 kernel_gateway_image_config: pulumi.Input[Optional[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict', 'outputs.AppImageConfigKernelGatewayImageConfig']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -292,12 +292,12 @@ class AppImageConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.sagemaker.AppImageConfig("test",
+            app_image_config_name="example",
             kernel_gateway_image_config={
                 "kernel_specs": [{
                     "name": "example",
                 }],
-            },
-            app_image_config_name="example")
+            })
         ```
 
         ### Using Code Editor with empty configuration
@@ -307,8 +307,8 @@ class AppImageConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.sagemaker.AppImageConfig("test",
-            code_editor_app_image_config={},
-            app_image_config_name="example")
+            app_image_config_name="example",
+            code_editor_app_image_config={})
         ```
 
         ### Default File System Config
@@ -318,13 +318,13 @@ class AppImageConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.sagemaker.AppImageConfig("test",
+            app_image_config_name="example",
             kernel_gateway_image_config={
-                "file_system_config": {},
                 "kernel_specs": [{
                     "name": "example",
                 }],
-            },
-            app_image_config_name="example")
+                "file_system_config": {},
+            })
         ```
 
         ## Import
@@ -339,9 +339,9 @@ class AppImageConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_image_config_name: The name of the App Image Config.
-        :param pulumi.Input[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']] code_editor_app_image_config: The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
-        :param pulumi.Input[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict']] jupyter_lab_image_config: The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
-        :param pulumi.Input[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+        :param pulumi.Input[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict', 'outputs.AppImageConfigCodeEditorAppImageConfig']] code_editor_app_image_config: The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
+        :param pulumi.Input[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict', 'outputs.AppImageConfigJupyterLabImageConfig']] jupyter_lab_image_config: The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
+        :param pulumi.Input[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict', 'outputs.AppImageConfigKernelGatewayImageConfig']] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
@@ -365,12 +365,12 @@ class AppImageConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.sagemaker.AppImageConfig("test",
+            app_image_config_name="example",
             kernel_gateway_image_config={
                 "kernel_specs": [{
                     "name": "example",
                 }],
-            },
-            app_image_config_name="example")
+            })
         ```
 
         ### Using Code Editor with empty configuration
@@ -380,8 +380,8 @@ class AppImageConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.sagemaker.AppImageConfig("test",
-            code_editor_app_image_config={},
-            app_image_config_name="example")
+            app_image_config_name="example",
+            code_editor_app_image_config={})
         ```
 
         ### Default File System Config
@@ -391,13 +391,13 @@ class AppImageConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.sagemaker.AppImageConfig("test",
+            app_image_config_name="example",
             kernel_gateway_image_config={
-                "file_system_config": {},
                 "kernel_specs": [{
                     "name": "example",
                 }],
-            },
-            app_image_config_name="example")
+                "file_system_config": {},
+            })
         ```
 
         ## Import
@@ -425,9 +425,9 @@ class AppImageConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_image_config_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 code_editor_app_image_config: pulumi.Input[Optional[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']]] = None,
-                 jupyter_lab_image_config: pulumi.Input[Optional[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict']]] = None,
-                 kernel_gateway_image_config: pulumi.Input[Optional[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']]] = None,
+                 code_editor_app_image_config: pulumi.Input[Optional[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict', 'outputs.AppImageConfigCodeEditorAppImageConfig']]] = None,
+                 jupyter_lab_image_config: pulumi.Input[Optional[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict', 'outputs.AppImageConfigJupyterLabImageConfig']]] = None,
+                 kernel_gateway_image_config: pulumi.Input[Optional[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict', 'outputs.AppImageConfigKernelGatewayImageConfig']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -461,9 +461,9 @@ class AppImageConfig(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             app_image_config_name: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            code_editor_app_image_config: pulumi.Input[Optional[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']]] = None,
-            jupyter_lab_image_config: pulumi.Input[Optional[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict']]] = None,
-            kernel_gateway_image_config: pulumi.Input[Optional[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']]] = None,
+            code_editor_app_image_config: pulumi.Input[Optional[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict', 'outputs.AppImageConfigCodeEditorAppImageConfig']]] = None,
+            jupyter_lab_image_config: pulumi.Input[Optional[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict', 'outputs.AppImageConfigJupyterLabImageConfig']]] = None,
+            kernel_gateway_image_config: pulumi.Input[Optional[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict', 'outputs.AppImageConfigKernelGatewayImageConfig']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'AppImageConfig':
@@ -476,9 +476,9 @@ class AppImageConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_image_config_name: The name of the App Image Config.
         :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this App Image Config.
-        :param pulumi.Input[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']] code_editor_app_image_config: The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
-        :param pulumi.Input[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict']] jupyter_lab_image_config: The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
-        :param pulumi.Input[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+        :param pulumi.Input[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict', 'outputs.AppImageConfigCodeEditorAppImageConfig']] code_editor_app_image_config: The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
+        :param pulumi.Input[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict', 'outputs.AppImageConfigJupyterLabImageConfig']] jupyter_lab_image_config: The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
+        :param pulumi.Input[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict', 'outputs.AppImageConfigKernelGatewayImageConfig']] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                

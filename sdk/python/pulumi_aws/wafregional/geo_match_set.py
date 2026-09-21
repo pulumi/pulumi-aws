@@ -138,7 +138,7 @@ class GeoMatchSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 geo_match_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GeoMatchSetGeoMatchConstraintArgs', 'GeoMatchSetGeoMatchConstraintArgsDict']]]]] = None,
+                 geo_match_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GeoMatchSetGeoMatchConstraintArgs', 'GeoMatchSetGeoMatchConstraintArgsDict', 'outputs.GeoMatchSetGeoMatchConstraint']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -152,6 +152,7 @@ class GeoMatchSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         geo_match_set = aws.wafregional.GeoMatchSet("geo_match_set",
+            name="geo_match_set",
             geo_match_constraints=[
                 {
                     "type": "Country",
@@ -161,8 +162,7 @@ class GeoMatchSet(pulumi.CustomResource):
                     "type": "Country",
                     "value": "CA",
                 },
-            ],
-            name="geo_match_set")
+            ])
         ```
 
         ## Import
@@ -176,7 +176,7 @@ class GeoMatchSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GeoMatchSetGeoMatchConstraintArgs', 'GeoMatchSetGeoMatchConstraintArgsDict']]]] geo_match_constraints: Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GeoMatchSetGeoMatchConstraintArgs', 'GeoMatchSetGeoMatchConstraintArgsDict', 'outputs.GeoMatchSetGeoMatchConstraint']]]] geo_match_constraints: Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
         :param pulumi.Input[_builtins.str] name: Name or description of the Geo Match Set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -196,6 +196,7 @@ class GeoMatchSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         geo_match_set = aws.wafregional.GeoMatchSet("geo_match_set",
+            name="geo_match_set",
             geo_match_constraints=[
                 {
                     "type": "Country",
@@ -205,8 +206,7 @@ class GeoMatchSet(pulumi.CustomResource):
                     "type": "Country",
                     "value": "CA",
                 },
-            ],
-            name="geo_match_set")
+            ])
         ```
 
         ## Import
@@ -233,7 +233,7 @@ class GeoMatchSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 geo_match_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GeoMatchSetGeoMatchConstraintArgs', 'GeoMatchSetGeoMatchConstraintArgsDict']]]]] = None,
+                 geo_match_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GeoMatchSetGeoMatchConstraintArgs', 'GeoMatchSetGeoMatchConstraintArgsDict', 'outputs.GeoMatchSetGeoMatchConstraint']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -258,7 +258,7 @@ class GeoMatchSet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            geo_match_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GeoMatchSetGeoMatchConstraintArgs', 'GeoMatchSetGeoMatchConstraintArgsDict']]]]] = None,
+            geo_match_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GeoMatchSetGeoMatchConstraintArgs', 'GeoMatchSetGeoMatchConstraintArgsDict', 'outputs.GeoMatchSetGeoMatchConstraint']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'GeoMatchSet':
         """
@@ -268,7 +268,7 @@ class GeoMatchSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GeoMatchSetGeoMatchConstraintArgs', 'GeoMatchSetGeoMatchConstraintArgsDict']]]] geo_match_constraints: Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GeoMatchSetGeoMatchConstraintArgs', 'GeoMatchSetGeoMatchConstraintArgsDict', 'outputs.GeoMatchSetGeoMatchConstraint']]]] geo_match_constraints: Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
         :param pulumi.Input[_builtins.str] name: Name or description of the Geo Match Set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """

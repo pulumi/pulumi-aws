@@ -39,7 +39,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codegurureviewer.inputs.RepositoryAssociationRepositoryArgs;
  * import com.pulumi.aws.codegurureviewer.inputs.RepositoryAssociationRepositoryCodecommitArgs;
  * import com.pulumi.aws.codegurureviewer.inputs.RepositoryAssociationKmsKeyDetailsArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -57,9 +56,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleRepository = new Repository("exampleRepository", RepositoryArgs.builder()
  *             .repositoryName("example-repo")
- *             .build(), CustomResourceOptions.builder()
- *                 .ignoreChanges("tags[\"codeguru-reviewer\"]")
- *                 .build());
+ *             .build());
  * 
  *         var exampleRepositoryAssociation = new RepositoryAssociation("exampleRepositoryAssociation", RepositoryAssociationArgs.builder()
  *             .repository(RepositoryAssociationRepositoryArgs.builder()

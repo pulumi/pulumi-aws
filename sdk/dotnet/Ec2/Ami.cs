@@ -34,6 +34,10 @@ namespace Pulumi.Aws.Ec2
     ///     // already exists with the id "snap-xxxxxxxx".
     ///     var example = new Aws.Ec2.Ami("example", new()
     ///     {
+    ///         Name = "example",
+    ///         VirtualizationType = "hvm",
+    ///         RootDeviceName = "/dev/xvda",
+    ///         ImdsSupport = "v2.0",
     ///         EbsBlockDevices = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.AmiEbsBlockDeviceArgs
@@ -43,10 +47,6 @@ namespace Pulumi.Aws.Ec2
     ///                 VolumeSize = 8,
     ///             },
     ///         },
-    ///         Name = "example",
-    ///         VirtualizationType = "hvm",
-    ///         RootDeviceName = "/dev/xvda",
-    ///         ImdsSupport = "v2.0",
     ///     });
     /// 
     /// });

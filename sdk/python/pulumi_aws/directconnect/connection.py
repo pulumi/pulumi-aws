@@ -821,7 +821,7 @@ class Connection(pulumi.CustomResource):
             prefix_pool_unallocated_count_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
             prefix_pool_unallocated_count_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
             provider_name: pulumi.Input[Optional[_builtins.str]] = None,
-            rate_limiter_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectionRateLimiterStatusArgs', 'ConnectionRateLimiterStatusArgsDict']]]]] = None,
+            rate_limiter_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectionRateLimiterStatusArgs', 'ConnectionRateLimiterStatusArgsDict', 'outputs.ConnectionRateLimiterStatus']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             request_macsec: pulumi.Input[Optional[_builtins.bool]] = None,
             skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -853,7 +853,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] prefix_pool_unallocated_count_ipv4: The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
         :param pulumi.Input[_builtins.int] prefix_pool_unallocated_count_ipv6: The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
         :param pulumi.Input[_builtins.str] provider_name: The name of the service provider associated with the connection.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectionRateLimiterStatusArgs', 'ConnectionRateLimiterStatusArgsDict']]]] rate_limiter_statuses: Rate limiter status for the connection. See `rate_limiter_status` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectionRateLimiterStatusArgs', 'ConnectionRateLimiterStatusArgsDict', 'outputs.ConnectionRateLimiterStatus']]]] rate_limiter_statuses: Rate limiter status for the connection. See `rate_limiter_status` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] request_macsec: Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
                

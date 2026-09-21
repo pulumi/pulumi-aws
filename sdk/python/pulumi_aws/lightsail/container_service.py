@@ -467,8 +467,8 @@ class ContainerService(pulumi.CustomResource):
                  is_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  power: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_registry_access: pulumi.Input[Optional[Union['ContainerServicePrivateRegistryAccessArgs', 'ContainerServicePrivateRegistryAccessArgsDict']]] = None,
-                 public_domain_names: pulumi.Input[Optional[Union['ContainerServicePublicDomainNamesArgs', 'ContainerServicePublicDomainNamesArgsDict']]] = None,
+                 private_registry_access: pulumi.Input[Optional[Union['ContainerServicePrivateRegistryAccessArgs', 'ContainerServicePrivateRegistryAccessArgsDict', 'outputs.ContainerServicePrivateRegistryAccess']]] = None,
+                 public_domain_names: pulumi.Input[Optional[Union['ContainerServicePublicDomainNamesArgs', 'ContainerServicePublicDomainNamesArgsDict', 'outputs.ContainerServicePublicDomainNames']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  scale: pulumi.Input[Optional[_builtins.int]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -525,11 +525,11 @@ class ContainerService(pulumi.CustomResource):
             },
         })
         example = aws.iam.get_policy_document_output(statements=[{
+            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": [example_container_service.private_registry_access.ecr_image_puller_role.principal_arn],
             }],
-            "effect": "Allow",
             "actions": [
                 "ecr:BatchGetImage",
                 "ecr:GetDownloadUrlForLayer",
@@ -554,8 +554,8 @@ class ContainerService(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] is_disabled: Whether to disable the container service. Defaults to `false`.
         :param pulumi.Input[_builtins.str] name: Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
         :param pulumi.Input[_builtins.str] power: Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
-        :param pulumi.Input[Union['ContainerServicePrivateRegistryAccessArgs', 'ContainerServicePrivateRegistryAccessArgsDict']] private_registry_access: Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
-        :param pulumi.Input[Union['ContainerServicePublicDomainNamesArgs', 'ContainerServicePublicDomainNamesArgsDict']] public_domain_names: Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don't specify public domain names, then you can use the default domain of the container service. See below.
+        :param pulumi.Input[Union['ContainerServicePrivateRegistryAccessArgs', 'ContainerServicePrivateRegistryAccessArgsDict', 'outputs.ContainerServicePrivateRegistryAccess']] private_registry_access: Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
+        :param pulumi.Input[Union['ContainerServicePublicDomainNamesArgs', 'ContainerServicePublicDomainNamesArgsDict', 'outputs.ContainerServicePublicDomainNames']] public_domain_names: Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don't specify public domain names, then you can use the default domain of the container service. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] scale: Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
                
@@ -620,11 +620,11 @@ class ContainerService(pulumi.CustomResource):
             },
         })
         example = aws.iam.get_policy_document_output(statements=[{
+            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": [example_container_service.private_registry_access.ecr_image_puller_role.principal_arn],
             }],
-            "effect": "Allow",
             "actions": [
                 "ecr:BatchGetImage",
                 "ecr:GetDownloadUrlForLayer",
@@ -662,8 +662,8 @@ class ContainerService(pulumi.CustomResource):
                  is_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  power: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_registry_access: pulumi.Input[Optional[Union['ContainerServicePrivateRegistryAccessArgs', 'ContainerServicePrivateRegistryAccessArgsDict']]] = None,
-                 public_domain_names: pulumi.Input[Optional[Union['ContainerServicePublicDomainNamesArgs', 'ContainerServicePublicDomainNamesArgsDict']]] = None,
+                 private_registry_access: pulumi.Input[Optional[Union['ContainerServicePrivateRegistryAccessArgs', 'ContainerServicePrivateRegistryAccessArgsDict', 'outputs.ContainerServicePrivateRegistryAccess']]] = None,
+                 public_domain_names: pulumi.Input[Optional[Union['ContainerServicePublicDomainNamesArgs', 'ContainerServicePublicDomainNamesArgsDict', 'outputs.ContainerServicePublicDomainNames']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  scale: pulumi.Input[Optional[_builtins.int]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -717,8 +717,8 @@ class ContainerService(pulumi.CustomResource):
             power_id: pulumi.Input[Optional[_builtins.str]] = None,
             principal_arn: pulumi.Input[Optional[_builtins.str]] = None,
             private_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-            private_registry_access: pulumi.Input[Optional[Union['ContainerServicePrivateRegistryAccessArgs', 'ContainerServicePrivateRegistryAccessArgsDict']]] = None,
-            public_domain_names: pulumi.Input[Optional[Union['ContainerServicePublicDomainNamesArgs', 'ContainerServicePublicDomainNamesArgsDict']]] = None,
+            private_registry_access: pulumi.Input[Optional[Union['ContainerServicePrivateRegistryAccessArgs', 'ContainerServicePrivateRegistryAccessArgsDict', 'outputs.ContainerServicePrivateRegistryAccess']]] = None,
+            public_domain_names: pulumi.Input[Optional[Union['ContainerServicePublicDomainNamesArgs', 'ContainerServicePublicDomainNamesArgsDict', 'outputs.ContainerServicePublicDomainNames']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             resource_type: pulumi.Input[Optional[_builtins.str]] = None,
             scale: pulumi.Input[Optional[_builtins.int]] = None,
@@ -742,8 +742,8 @@ class ContainerService(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] power_id: Power ID of the container service.
         :param pulumi.Input[_builtins.str] principal_arn: Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
         :param pulumi.Input[_builtins.str] private_domain_name: Private domain name of the container service. The private domain name is accessible only by other resources within the default VPC of your Lightsail account.
-        :param pulumi.Input[Union['ContainerServicePrivateRegistryAccessArgs', 'ContainerServicePrivateRegistryAccessArgsDict']] private_registry_access: Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
-        :param pulumi.Input[Union['ContainerServicePublicDomainNamesArgs', 'ContainerServicePublicDomainNamesArgsDict']] public_domain_names: Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don't specify public domain names, then you can use the default domain of the container service. See below.
+        :param pulumi.Input[Union['ContainerServicePrivateRegistryAccessArgs', 'ContainerServicePrivateRegistryAccessArgsDict', 'outputs.ContainerServicePrivateRegistryAccess']] private_registry_access: Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
+        :param pulumi.Input[Union['ContainerServicePublicDomainNamesArgs', 'ContainerServicePublicDomainNamesArgsDict', 'outputs.ContainerServicePublicDomainNames']] public_domain_names: Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don't specify public domain names, then you can use the default domain of the container service. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_type: Lightsail resource type of the container service (i.e., ContainerService).
         :param pulumi.Input[_builtins.int] scale: Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.

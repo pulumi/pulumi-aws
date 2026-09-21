@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Cognito
     /// {
     ///     var example = new Aws.Cognito.RiskConfiguration("example", new()
     ///     {
+    ///         UserPoolId = exampleAwsCognitoUserPool.Id,
     ///         RiskExceptionConfiguration = new Aws.Cognito.Inputs.RiskConfigurationRiskExceptionConfigurationArgs
     ///         {
     ///             BlockedIpRangeLists = new[]
@@ -31,7 +32,6 @@ namespace Pulumi.Aws.Cognito
     ///                 "10.10.10.10/32",
     ///             },
     ///         },
-    ///         UserPoolId = exampleAwsCognitoUserPool.Id,
     ///     });
     /// 
     /// });

@@ -21,37 +21,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.networkmanager.getCoreNetworkPolicyDocument({
- *     attachmentPolicies: [
- *         {
- *             action: {
- *                 associationMethod: "constant",
- *                 segment: "shared",
- *             },
- *             conditions: [{
- *                 type: "tag-value",
- *                 operator: "equals",
- *                 key: "segment",
- *                 value: "shared",
- *             }],
- *             ruleNumber: 100,
- *             conditionLogic: "or",
- *         },
- *         {
- *             action: {
- *                 associationMethod: "constant",
- *                 segment: "prod",
- *             },
- *             conditions: [{
- *                 type: "tag-value",
- *                 operator: "equals",
- *                 key: "segment",
- *                 value: "prod",
- *             }],
- *             ruleNumber: 200,
- *             conditionLogic: "or",
- *         },
- *     ],
  *     coreNetworkConfigurations: [{
+ *         vpnEcmpSupport: false,
+ *         asnRanges: ["64512-64555"],
  *         edgeLocations: [
  *             {
  *                 location: "us-east-1",
@@ -62,14 +34,6 @@ import * as utilities from "../utilities";
  *                 asn: "64513",
  *             },
  *         ],
- *         vpnEcmpSupport: false,
- *         asnRanges: ["64512-64555"],
- *     }],
- *     segmentActions: [{
- *         action: "share",
- *         mode: "attachment-route",
- *         segment: "shared",
- *         shareWiths: ["*"],
  *     }],
  *     segments: [
  *         {
@@ -81,6 +45,42 @@ import * as utilities from "../utilities";
  *             name: "prod",
  *             description: "Segment for prod services",
  *             requireAttachmentAcceptance: true,
+ *         },
+ *     ],
+ *     segmentActions: [{
+ *         action: "share",
+ *         mode: "attachment-route",
+ *         segment: "shared",
+ *         shareWiths: ["*"],
+ *     }],
+ *     attachmentPolicies: [
+ *         {
+ *             ruleNumber: 100,
+ *             conditionLogic: "or",
+ *             conditions: [{
+ *                 type: "tag-value",
+ *                 operator: "equals",
+ *                 key: "segment",
+ *                 value: "shared",
+ *             }],
+ *             action: {
+ *                 associationMethod: "constant",
+ *                 segment: "shared",
+ *             },
+ *         },
+ *         {
+ *             ruleNumber: 200,
+ *             conditionLogic: "or",
+ *             conditions: [{
+ *                 type: "tag-value",
+ *                 operator: "equals",
+ *                 key: "segment",
+ *                 value: "prod",
+ *             }],
+ *             action: {
+ *                 associationMethod: "constant",
+ *                 segment: "prod",
+ *             },
  *         },
  *     ],
  * });
@@ -175,37 +175,9 @@ export interface GetCoreNetworkPolicyDocumentResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.networkmanager.getCoreNetworkPolicyDocument({
- *     attachmentPolicies: [
- *         {
- *             action: {
- *                 associationMethod: "constant",
- *                 segment: "shared",
- *             },
- *             conditions: [{
- *                 type: "tag-value",
- *                 operator: "equals",
- *                 key: "segment",
- *                 value: "shared",
- *             }],
- *             ruleNumber: 100,
- *             conditionLogic: "or",
- *         },
- *         {
- *             action: {
- *                 associationMethod: "constant",
- *                 segment: "prod",
- *             },
- *             conditions: [{
- *                 type: "tag-value",
- *                 operator: "equals",
- *                 key: "segment",
- *                 value: "prod",
- *             }],
- *             ruleNumber: 200,
- *             conditionLogic: "or",
- *         },
- *     ],
  *     coreNetworkConfigurations: [{
+ *         vpnEcmpSupport: false,
+ *         asnRanges: ["64512-64555"],
  *         edgeLocations: [
  *             {
  *                 location: "us-east-1",
@@ -216,14 +188,6 @@ export interface GetCoreNetworkPolicyDocumentResult {
  *                 asn: "64513",
  *             },
  *         ],
- *         vpnEcmpSupport: false,
- *         asnRanges: ["64512-64555"],
- *     }],
- *     segmentActions: [{
- *         action: "share",
- *         mode: "attachment-route",
- *         segment: "shared",
- *         shareWiths: ["*"],
  *     }],
  *     segments: [
  *         {
@@ -235,6 +199,42 @@ export interface GetCoreNetworkPolicyDocumentResult {
  *             name: "prod",
  *             description: "Segment for prod services",
  *             requireAttachmentAcceptance: true,
+ *         },
+ *     ],
+ *     segmentActions: [{
+ *         action: "share",
+ *         mode: "attachment-route",
+ *         segment: "shared",
+ *         shareWiths: ["*"],
+ *     }],
+ *     attachmentPolicies: [
+ *         {
+ *             ruleNumber: 100,
+ *             conditionLogic: "or",
+ *             conditions: [{
+ *                 type: "tag-value",
+ *                 operator: "equals",
+ *                 key: "segment",
+ *                 value: "shared",
+ *             }],
+ *             action: {
+ *                 associationMethod: "constant",
+ *                 segment: "shared",
+ *             },
+ *         },
+ *         {
+ *             ruleNumber: 200,
+ *             conditionLogic: "or",
+ *             conditions: [{
+ *                 type: "tag-value",
+ *                 operator: "equals",
+ *                 key: "segment",
+ *                 value: "prod",
+ *             }],
+ *             action: {
+ *                 associationMethod: "constant",
+ *                 segment: "prod",
+ *             },
  *         },
  *     ],
  * });

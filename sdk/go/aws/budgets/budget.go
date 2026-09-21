@@ -29,6 +29,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := budgets.NewBudget(ctx, "ec2", &budgets.BudgetArgs{
+//				Name:            pulumi.String("budget-ec2-monthly"),
+//				BudgetType:      pulumi.String("COST"),
+//				LimitAmount:     pulumi.String("1200"),
+//				LimitUnit:       pulumi.String("USD"),
+//				TimePeriodEnd:   pulumi.String("2087-06-15_00:00"),
+//				TimePeriodStart: pulumi.String("2017-07-01_00:00"),
+//				TimeUnit:        pulumi.String("MONTHLY"),
 //				CostFilters: budgets.BudgetCostFilterArray{
 //					&budgets.BudgetCostFilterArgs{
 //						Name: pulumi.String("Service"),
@@ -48,13 +55,6 @@ import (
 //						},
 //					},
 //				},
-//				Name:            pulumi.String("budget-ec2-monthly"),
-//				BudgetType:      pulumi.String("COST"),
-//				LimitAmount:     pulumi.String("1200"),
-//				LimitUnit:       pulumi.String("USD"),
-//				TimePeriodEnd:   pulumi.String("2087-06-15_00:00"),
-//				TimePeriodStart: pulumi.String("2017-07-01_00:00"),
-//				TimeUnit:        pulumi.String("MONTHLY"),
 //				Tags: pulumi.StringMap{
 //					"Tag1": pulumi.String("Value1"),
 //					"Tag2": pulumi.String("Value2"),
@@ -177,6 +177,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := budgets.NewBudget(ctx, "savings_plan_utilization", &budgets.BudgetArgs{
+//				BudgetType:  pulumi.String("SAVINGS_PLANS_UTILIZATION"),
+//				LimitAmount: pulumi.String("100.0"),
+//				LimitUnit:   pulumi.String("PERCENTAGE"),
 //				CostTypes: &budgets.BudgetCostTypesArgs{
 //					IncludeCredit:            pulumi.Bool(false),
 //					IncludeDiscount:          pulumi.Bool(false),
@@ -189,9 +192,6 @@ import (
 //					IncludeUpfront:           pulumi.Bool(false),
 //					UseBlended:               pulumi.Bool(false),
 //				},
-//				BudgetType:  pulumi.String("SAVINGS_PLANS_UTILIZATION"),
-//				LimitAmount: pulumi.String("100.0"),
-//				LimitUnit:   pulumi.String("PERCENTAGE"),
 //			})
 //			if err != nil {
 //				return err
@@ -217,6 +217,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := budgets.NewBudget(ctx, "ri_utilization", &budgets.BudgetArgs{
+//				BudgetType:  pulumi.String("RI_UTILIZATION"),
+//				LimitAmount: pulumi.String("100.0"),
+//				LimitUnit:   pulumi.String("PERCENTAGE"),
 //				CostTypes: &budgets.BudgetCostTypesArgs{
 //					IncludeCredit:            pulumi.Bool(false),
 //					IncludeDiscount:          pulumi.Bool(false),
@@ -237,9 +240,6 @@ import (
 //						},
 //					},
 //				},
-//				BudgetType:  pulumi.String("RI_UTILIZATION"),
-//				LimitAmount: pulumi.String("100.0"),
-//				LimitUnit:   pulumi.String("PERCENTAGE"),
 //			})
 //			if err != nil {
 //				return err
@@ -332,6 +332,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := budgets.NewBudget(ctx, "simple", &budgets.BudgetArgs{
+//				Name:        pulumi.String("budget-ec2-filter"),
+//				BudgetType:  pulumi.String("COST"),
+//				LimitAmount: pulumi.String("500"),
+//				LimitUnit:   pulumi.String("USD"),
+//				TimeUnit:    pulumi.String("MONTHLY"),
+//				Metrics:     pulumi.String("UnblendedCost"),
 //				FilterExpression: &budgets.BudgetFilterExpressionArgs{
 //					Dimensions: &budgets.BudgetFilterExpressionDimensionsArgs{
 //						Key: pulumi.String("SERVICE"),
@@ -340,12 +346,6 @@ import (
 //						},
 //					},
 //				},
-//				Name:        pulumi.String("budget-ec2-filter"),
-//				BudgetType:  pulumi.String("COST"),
-//				LimitAmount: pulumi.String("500"),
-//				LimitUnit:   pulumi.String("USD"),
-//				TimeUnit:    pulumi.String("MONTHLY"),
-//				Metrics:     pulumi.String("UnblendedCost"),
 //			})
 //			if err != nil {
 //				return err
@@ -371,6 +371,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := budgets.NewBudget(ctx, "and_example", &budgets.BudgetArgs{
+//				Name:        pulumi.String("budget-and-filter"),
+//				BudgetType:  pulumi.String("COST"),
+//				LimitAmount: pulumi.String("1200"),
+//				LimitUnit:   pulumi.String("USD"),
+//				TimeUnit:    pulumi.String("MONTHLY"),
+//				Metrics:     pulumi.String("BlendedCost"),
 //				FilterExpression: &budgets.BudgetFilterExpressionArgs{
 //					Ands: budgets.BudgetFilterExpressionAndArray{
 //						&budgets.BudgetFilterExpressionAndArgs{
@@ -391,12 +397,6 @@ import (
 //						},
 //					},
 //				},
-//				Name:        pulumi.String("budget-and-filter"),
-//				BudgetType:  pulumi.String("COST"),
-//				LimitAmount: pulumi.String("1200"),
-//				LimitUnit:   pulumi.String("USD"),
-//				TimeUnit:    pulumi.String("MONTHLY"),
-//				Metrics:     pulumi.String("BlendedCost"),
 //			})
 //			if err != nil {
 //				return err
@@ -422,6 +422,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := budgets.NewBudget(ctx, "or_example", &budgets.BudgetArgs{
+//				Name:        pulumi.String("budget-or-filter"),
+//				BudgetType:  pulumi.String("COST"),
+//				LimitAmount: pulumi.String("2000"),
+//				LimitUnit:   pulumi.String("USD"),
+//				TimeUnit:    pulumi.String("MONTHLY"),
+//				Metrics:     pulumi.String("AmortizedCost"),
 //				FilterExpression: &budgets.BudgetFilterExpressionArgs{
 //					Ors: budgets.BudgetFilterExpressionOrArray{
 //						&budgets.BudgetFilterExpressionOrArgs{
@@ -442,12 +448,6 @@ import (
 //						},
 //					},
 //				},
-//				Name:        pulumi.String("budget-or-filter"),
-//				BudgetType:  pulumi.String("COST"),
-//				LimitAmount: pulumi.String("2000"),
-//				LimitUnit:   pulumi.String("USD"),
-//				TimeUnit:    pulumi.String("MONTHLY"),
-//				Metrics:     pulumi.String("AmortizedCost"),
 //			})
 //			if err != nil {
 //				return err
@@ -473,6 +473,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := budgets.NewBudget(ctx, "not_example", &budgets.BudgetArgs{
+//				Name:        pulumi.String("budget-not-filter"),
+//				BudgetType:  pulumi.String("COST"),
+//				LimitAmount: pulumi.String("1000"),
+//				LimitUnit:   pulumi.String("USD"),
+//				TimeUnit:    pulumi.String("MONTHLY"),
+//				Metrics:     pulumi.String("NetUnblendedCost"),
 //				FilterExpression: &budgets.BudgetFilterExpressionArgs{
 //					Not: &budgets.BudgetFilterExpressionNotArgs{
 //						Dimensions: &budgets.BudgetFilterExpressionNotDimensionsArgs{
@@ -483,12 +489,6 @@ import (
 //						},
 //					},
 //				},
-//				Name:        pulumi.String("budget-not-filter"),
-//				BudgetType:  pulumi.String("COST"),
-//				LimitAmount: pulumi.String("1000"),
-//				LimitUnit:   pulumi.String("USD"),
-//				TimeUnit:    pulumi.String("MONTHLY"),
-//				Metrics:     pulumi.String("NetUnblendedCost"),
 //			})
 //			if err != nil {
 //				return err
@@ -514,6 +514,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := budgets.NewBudget(ctx, "compound_example", &budgets.BudgetArgs{
+//				Name:        pulumi.String("budget-compound-filter"),
+//				BudgetType:  pulumi.String("COST"),
+//				LimitAmount: pulumi.String("1500"),
+//				LimitUnit:   pulumi.String("USD"),
+//				TimeUnit:    pulumi.String("MONTHLY"),
+//				Metrics:     pulumi.String("NetAmortizedCost"),
 //				FilterExpression: &budgets.BudgetFilterExpressionArgs{
 //					Ors: budgets.BudgetFilterExpressionOrArray{
 //						&budgets.BudgetFilterExpressionOrArgs{
@@ -567,12 +573,6 @@ import (
 //						},
 //					},
 //				},
-//				Name:        pulumi.String("budget-compound-filter"),
-//				BudgetType:  pulumi.String("COST"),
-//				LimitAmount: pulumi.String("1500"),
-//				LimitUnit:   pulumi.String("USD"),
-//				TimeUnit:    pulumi.String("MONTHLY"),
-//				Metrics:     pulumi.String("NetAmortizedCost"),
 //			})
 //			if err != nil {
 //				return err

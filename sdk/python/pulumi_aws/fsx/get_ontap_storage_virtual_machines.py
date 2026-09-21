@@ -81,7 +81,7 @@ class AwaitableGetOntapStorageVirtualMachinesResult(GetOntapStorageVirtualMachin
             region=self.region)
 
 
-def get_ontap_storage_virtual_machines(filters: Optional[Sequence[Union['GetOntapStorageVirtualMachinesFilterArgs', 'GetOntapStorageVirtualMachinesFilterArgsDict']]] = None,
+def get_ontap_storage_virtual_machines(filters: Optional[Sequence[Union['GetOntapStorageVirtualMachinesFilterArgs', 'GetOntapStorageVirtualMachinesFilterArgsDict', 'outputs.GetOntapStorageVirtualMachinesFilterResult']]] = None,
                                        region: Optional[_builtins.str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOntapStorageVirtualMachinesResult:
     """
@@ -102,7 +102,7 @@ def get_ontap_storage_virtual_machines(filters: Optional[Sequence[Union['GetOnta
     ```
 
 
-    :param Sequence[Union['GetOntapStorageVirtualMachinesFilterArgs', 'GetOntapStorageVirtualMachinesFilterArgsDict']] filters: Configuration block. Detailed below.
+    :param Sequence[Union['GetOntapStorageVirtualMachinesFilterArgs', 'GetOntapStorageVirtualMachinesFilterArgsDict', 'outputs.GetOntapStorageVirtualMachinesFilterResult']] filters: Configuration block. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -116,7 +116,7 @@ def get_ontap_storage_virtual_machines(filters: Optional[Sequence[Union['GetOnta
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
         region=pulumi.get(__ret__, 'region'))
-def get_ontap_storage_virtual_machines_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetOntapStorageVirtualMachinesFilterArgs', 'GetOntapStorageVirtualMachinesFilterArgsDict']]]]] = None,
+def get_ontap_storage_virtual_machines_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetOntapStorageVirtualMachinesFilterArgs', 'GetOntapStorageVirtualMachinesFilterArgsDict', 'outputs.GetOntapStorageVirtualMachinesFilterResult']]]]] = None,
                                               region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOntapStorageVirtualMachinesResult]:
     """
@@ -137,7 +137,7 @@ def get_ontap_storage_virtual_machines_output(filters: pulumi.Input[Optional[Opt
     ```
 
 
-    :param Sequence[Union['GetOntapStorageVirtualMachinesFilterArgs', 'GetOntapStorageVirtualMachinesFilterArgsDict']] filters: Configuration block. Detailed below.
+    :param Sequence[Union['GetOntapStorageVirtualMachinesFilterArgs', 'GetOntapStorageVirtualMachinesFilterArgsDict', 'outputs.GetOntapStorageVirtualMachinesFilterResult']] filters: Configuration block. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

@@ -38,6 +38,7 @@ import (
 //				return err
 //			}
 //			example, err := cloudfront.NewContinuousDeploymentPolicy(ctx, "example", &cloudfront.ContinuousDeploymentPolicyArgs{
+//				Enabled: pulumi.Bool(true),
 //				StagingDistributionDnsNames: &cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs{
 //					Items: pulumi.StringArray{
 //						staging.DomainName,
@@ -45,12 +46,11 @@ import (
 //					Quantity: pulumi.Int(1),
 //				},
 //				TrafficConfig: &cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs{
+//					Type: pulumi.String("SingleWeight"),
 //					SingleWeightConfig: &cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs{
 //						Weight: pulumi.Float64(0.01),
 //					},
-//					Type: pulumi.String("SingleWeight"),
 //				},
-//				Enabled: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -83,6 +83,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewContinuousDeploymentPolicy(ctx, "example", &cloudfront.ContinuousDeploymentPolicyArgs{
+//				Enabled: pulumi.Bool(true),
 //				StagingDistributionDnsNames: &cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs{
 //					Items: pulumi.StringArray{
 //						staging.DomainName,
@@ -90,16 +91,15 @@ import (
 //					Quantity: pulumi.Int(1),
 //				},
 //				TrafficConfig: &cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs{
+//					Type: pulumi.String("SingleWeight"),
 //					SingleWeightConfig: &cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs{
+//						Weight: pulumi.Float64(0.01),
 //						SessionStickinessConfig: &cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs{
 //							IdleTtl:    pulumi.Int(300),
 //							MaximumTtl: pulumi.Int(600),
 //						},
-//						Weight: pulumi.Float64(0.01),
 //					},
-//					Type: pulumi.String("SingleWeight"),
 //				},
-//				Enabled: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -125,6 +125,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewContinuousDeploymentPolicy(ctx, "example", &cloudfront.ContinuousDeploymentPolicyArgs{
+//				Enabled: pulumi.Bool(true),
 //				StagingDistributionDnsNames: &cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs{
 //					Items: pulumi.StringArray{
 //						staging.DomainName,
@@ -132,13 +133,12 @@ import (
 //					Quantity: pulumi.Int(1),
 //				},
 //				TrafficConfig: &cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs{
+//					Type: pulumi.String("SingleHeader"),
 //					SingleHeaderConfig: &cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs{
 //						Header: pulumi.String("aws-cf-cd-example"),
 //						Value:  pulumi.String("example"),
 //					},
-//					Type: pulumi.String("SingleHeader"),
 //				},
-//				Enabled: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

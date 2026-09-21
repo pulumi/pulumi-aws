@@ -165,7 +165,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreMemoryStrategy(ctx, "custom_semantic", &bedrock.AgentcoreMemoryStrategyArgs{
+//				Name:                   pulumi.String("custom-semantic-strategy"),
+//				MemoryId:               pulumi.Any(example.Id),
+//				MemoryExecutionRoleArn: pulumi.Any(example.MemoryExecutionRoleArn),
+//				Type:                   pulumi.String("CUSTOM"),
+//				Description:            pulumi.String("Custom semantic processing strategy"),
+//				NamespaceTemplates: pulumi.StringArray{
+//					pulumi.String("{sessionId}"),
+//				},
 //				Configuration: &bedrock.AgentcoreMemoryStrategyConfigurationArgs{
+//					Type: pulumi.String("SEMANTIC_OVERRIDE"),
 //					Consolidation: &bedrock.AgentcoreMemoryStrategyConfigurationConsolidationArgs{
 //						AppendToPrompt: pulumi.String("Focus on extracting key semantic relationships and concepts"),
 //						ModelId:        pulumi.String("anthropic.claude-3-sonnet-20240229-v1:0"),
@@ -174,15 +183,6 @@ import (
 //						AppendToPrompt: pulumi.String("Extract and categorize semantic information"),
 //						ModelId:        pulumi.String("anthropic.claude-3-haiku-20240307-v1:0"),
 //					},
-//					Type: pulumi.String("SEMANTIC_OVERRIDE"),
-//				},
-//				Name:                   pulumi.String("custom-semantic-strategy"),
-//				MemoryId:               pulumi.Any(example.Id),
-//				MemoryExecutionRoleArn: pulumi.Any(example.MemoryExecutionRoleArn),
-//				Type:                   pulumi.String("CUSTOM"),
-//				Description:            pulumi.String("Custom semantic processing strategy"),
-//				NamespaceTemplates: pulumi.StringArray{
-//					pulumi.String("{sessionId}"),
 //				},
 //			})
 //			if err != nil {
@@ -209,19 +209,19 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreMemoryStrategy(ctx, "custom_summary", &bedrock.AgentcoreMemoryStrategyArgs{
-//				Configuration: &bedrock.AgentcoreMemoryStrategyConfigurationArgs{
-//					Consolidation: &bedrock.AgentcoreMemoryStrategyConfigurationConsolidationArgs{
-//						AppendToPrompt: pulumi.String("Create concise summaries while preserving key details"),
-//						ModelId:        pulumi.String("anthropic.claude-3-sonnet-20240229-v1:0"),
-//					},
-//					Type: pulumi.String("SUMMARY_OVERRIDE"),
-//				},
 //				Name:        pulumi.String("custom-summary-strategy"),
 //				MemoryId:    pulumi.Any(example.Id),
 //				Type:        pulumi.String("CUSTOM"),
 //				Description: pulumi.String("Custom summarization strategy"),
 //				NamespaceTemplates: pulumi.StringArray{
 //					pulumi.String("summaries"),
+//				},
+//				Configuration: &bedrock.AgentcoreMemoryStrategyConfigurationArgs{
+//					Type: pulumi.String("SUMMARY_OVERRIDE"),
+//					Consolidation: &bedrock.AgentcoreMemoryStrategyConfigurationConsolidationArgs{
+//						AppendToPrompt: pulumi.String("Create concise summaries while preserving key details"),
+//						ModelId:        pulumi.String("anthropic.claude-3-sonnet-20240229-v1:0"),
+//					},
 //				},
 //			})
 //			if err != nil {
@@ -248,7 +248,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreMemoryStrategy(ctx, "custom_user_pref", &bedrock.AgentcoreMemoryStrategyArgs{
+//				Name:        pulumi.String("custom-user-preference-strategy"),
+//				MemoryId:    pulumi.Any(example.Id),
+//				Type:        pulumi.String("CUSTOM"),
+//				Description: pulumi.String("Custom user preference tracking strategy"),
+//				NamespaceTemplates: pulumi.StringArray{
+//					pulumi.String("user_prefs"),
+//				},
 //				Configuration: &bedrock.AgentcoreMemoryStrategyConfigurationArgs{
+//					Type: pulumi.String("USER_PREFERENCE_OVERRIDE"),
 //					Consolidation: &bedrock.AgentcoreMemoryStrategyConfigurationConsolidationArgs{
 //						AppendToPrompt: pulumi.String("Consolidate user preferences and behavioral patterns"),
 //						ModelId:        pulumi.String("anthropic.claude-3-sonnet-20240229-v1:0"),
@@ -257,14 +265,6 @@ import (
 //						AppendToPrompt: pulumi.String("Extract user preferences and interaction patterns"),
 //						ModelId:        pulumi.String("anthropic.claude-3-haiku-20240307-v1:0"),
 //					},
-//					Type: pulumi.String("USER_PREFERENCE_OVERRIDE"),
-//				},
-//				Name:        pulumi.String("custom-user-preference-strategy"),
-//				MemoryId:    pulumi.Any(example.Id),
-//				Type:        pulumi.String("CUSTOM"),
-//				Description: pulumi.String("Custom user preference tracking strategy"),
-//				NamespaceTemplates: pulumi.StringArray{
-//					pulumi.String("user_prefs"),
 //				},
 //			})
 //			if err != nil {
@@ -291,7 +291,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreMemoryStrategy(ctx, "custom_episodic", &bedrock.AgentcoreMemoryStrategyArgs{
+//				Name:                   pulumi.String("custom-episodic-strategy"),
+//				MemoryId:               pulumi.Any(example.Id),
+//				MemoryExecutionRoleArn: pulumi.Any(example.MemoryExecutionRoleArn),
+//				Type:                   pulumi.String("CUSTOM"),
+//				Description:            pulumi.String("Custom episodic processing strategy"),
+//				NamespaceTemplates: pulumi.StringArray{
+//					pulumi.String("/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"),
+//				},
 //				Configuration: &bedrock.AgentcoreMemoryStrategyConfigurationArgs{
+//					Type: pulumi.String("EPISODIC_OVERRIDE"),
 //					Consolidation: &bedrock.AgentcoreMemoryStrategyConfigurationConsolidationArgs{
 //						AppendToPrompt: pulumi.String("Consolidate episodic memories into coherent narratives"),
 //						ModelId:        pulumi.String("anthropic.claude-3-sonnet-20240229-v1:0"),
@@ -300,15 +309,6 @@ import (
 //						AppendToPrompt: pulumi.String("Extract key events and episodes from interactions"),
 //						ModelId:        pulumi.String("anthropic.claude-3-haiku-20240307-v1:0"),
 //					},
-//					Type: pulumi.String("EPISODIC_OVERRIDE"),
-//				},
-//				Name:                   pulumi.String("custom-episodic-strategy"),
-//				MemoryId:               pulumi.Any(example.Id),
-//				MemoryExecutionRoleArn: pulumi.Any(example.MemoryExecutionRoleArn),
-//				Type:                   pulumi.String("CUSTOM"),
-//				Description:            pulumi.String("Custom episodic processing strategy"),
-//				NamespaceTemplates: pulumi.StringArray{
-//					pulumi.String("/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"),
 //				},
 //			})
 //			if err != nil {
@@ -335,15 +335,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreMemoryStrategy(ctx, "self_managed", &bedrock.AgentcoreMemoryStrategyArgs{
+//				Name:                   pulumi.String("self-managed-strategy"),
+//				MemoryId:               pulumi.Any(exampleAwsBedrockagentcoreMemory.Id),
+//				MemoryExecutionRoleArn: pulumi.Any(exampleAwsBedrockagentcoreMemory.MemoryExecutionRoleArn),
+//				Type:                   pulumi.String("CUSTOM"),
+//				Description:            pulumi.String("Self-managed processing strategy"),
 //				Configuration: &bedrock.AgentcoreMemoryStrategyConfigurationArgs{
+//					Type: pulumi.String("SELF_MANAGED"),
 //					SelfManaged: []map[string]interface{}{
 //						map[string]interface{}{
-//							"invocationConfiguration": []map[string]interface{}{
-//								map[string]interface{}{
-//									"topicArn":                  example.Arn,
-//									"payloadDeliveryBucketName": exampleAwsS3Bucket.Bucket,
-//								},
-//							},
+//							"historicalContextWindowSize": 10,
 //							"triggerConditions": []map[string][]map[string]int{
 //								{
 //									"messageBasedTrigger": []map[string]int{
@@ -353,16 +354,15 @@ import (
 //									},
 //								},
 //							},
-//							"historicalContextWindowSize": 10,
+//							"invocationConfiguration": []map[string]interface{}{
+//								map[string]interface{}{
+//									"topicArn":                  exampleAwsSnsTopic.Arn,
+//									"payloadDeliveryBucketName": example.Bucket,
+//								},
+//							},
 //						},
 //					},
-//					Type: pulumi.String("SELF_MANAGED"),
 //				},
-//				Name:                   pulumi.String("self-managed-strategy"),
-//				MemoryId:               pulumi.Any(exampleAwsBedrockagentcoreMemory.Id),
-//				MemoryExecutionRoleArn: pulumi.Any(exampleAwsBedrockagentcoreMemory.MemoryExecutionRoleArn),
-//				Type:                   pulumi.String("CUSTOM"),
-//				Description:            pulumi.String("Self-managed processing strategy"),
 //			})
 //			if err != nil {
 //				return err
@@ -388,12 +388,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreMemoryStrategy(ctx, "self_managed", &bedrock.AgentcoreMemoryStrategyArgs{
+//				Name:                   pulumi.String("self-managed-strategy"),
+//				MemoryId:               pulumi.Any(exampleAwsBedrockagentcoreMemory.Id),
+//				MemoryExecutionRoleArn: pulumi.Any(exampleAwsBedrockagentcoreMemory.MemoryExecutionRoleArn),
+//				Type:                   pulumi.String("CUSTOM"),
+//				Description:            pulumi.String("Self-managed processing strategy"),
 //				Configuration: &bedrock.AgentcoreMemoryStrategyConfigurationArgs{
+//					Type: pulumi.String("SELF_MANAGED"),
 //					SelfManagedConfiguration: &bedrock.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs{
-//						InvocationConfiguration: &bedrock.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationArgs{
-//							TopicArn:                  pulumi.Any(example.Arn),
-//							PayloadDeliveryBucketName: pulumi.Any(exampleAwsS3Bucket.Bucket),
-//						},
+//						HistoricalContextWindowSize: pulumi.Int(10),
 //						TriggerCondition: []map[string][]map[string]int{
 //							{
 //								"messageBasedTrigger": []map[string]int{
@@ -403,15 +406,12 @@ import (
 //								},
 //							},
 //						},
-//						HistoricalContextWindowSize: pulumi.Int(10),
+//						InvocationConfiguration: &bedrock.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationArgs{
+//							TopicArn:                  pulumi.Any(exampleAwsSnsTopic.Arn),
+//							PayloadDeliveryBucketName: pulumi.Any(example.Bucket),
+//						},
 //					},
-//					Type: pulumi.String("SELF_MANAGED"),
 //				},
-//				Name:                   pulumi.String("self-managed-strategy"),
-//				MemoryId:               pulumi.Any(exampleAwsBedrockagentcoreMemory.Id),
-//				MemoryExecutionRoleArn: pulumi.Any(exampleAwsBedrockagentcoreMemory.MemoryExecutionRoleArn),
-//				Type:                   pulumi.String("CUSTOM"),
-//				Description:            pulumi.String("Self-managed processing strategy"),
 //			})
 //			if err != nil {
 //				return err

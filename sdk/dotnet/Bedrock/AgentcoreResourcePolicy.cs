@@ -32,17 +32,11 @@ namespace Pulumi.Aws.Bedrock
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Conditions = new[]
+    ///                 Sid = "AllowOAuthFromVPC",
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "StringEquals",
-    ///                         Variable = "aws:SourceVpc",
-    ///                         Values = new[]
-    ///                         {
-    ///                             "vpc-1a2b3c4d",
-    ///                         },
-    ///                     },
+    ///                     "bedrock-agentcore:InvokeAgentRuntime",
     ///                 },
     ///                 Principals = new[]
     ///                 {
@@ -55,15 +49,21 @@ namespace Pulumi.Aws.Bedrock
     ///                         },
     ///                     },
     ///                 },
-    ///                 Sid = "AllowOAuthFromVPC",
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "bedrock-agentcore:InvokeAgentRuntime",
-    ///                 },
     ///                 Resources = new[]
     ///                 {
     ///                     exampleAgentcoreAgentRuntime.AgentRuntimeArn,
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = "aws:SourceVpc",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "vpc-1a2b3c4d",
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
     ///         },

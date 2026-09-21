@@ -81,7 +81,7 @@ class AwaitableGetReleaseLabelsResult(GetReleaseLabelsResult):
             release_labels=self.release_labels)
 
 
-def get_release_labels(filters: Optional[Union['GetReleaseLabelsFiltersArgs', 'GetReleaseLabelsFiltersArgsDict']] = None,
+def get_release_labels(filters: Optional[Union['GetReleaseLabelsFiltersArgs', 'GetReleaseLabelsFiltersArgsDict', 'outputs.GetReleaseLabelsFiltersResult']] = None,
                        region: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReleaseLabelsResult:
     """
@@ -100,7 +100,7 @@ def get_release_labels(filters: Optional[Union['GetReleaseLabelsFiltersArgs', 'G
     ```
 
 
-    :param Union['GetReleaseLabelsFiltersArgs', 'GetReleaseLabelsFiltersArgsDict'] filters: Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
+    :param Union['GetReleaseLabelsFiltersArgs', 'GetReleaseLabelsFiltersArgsDict', 'outputs.GetReleaseLabelsFiltersResult'] filters: Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -114,7 +114,7 @@ def get_release_labels(filters: Optional[Union['GetReleaseLabelsFiltersArgs', 'G
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         release_labels=pulumi.get(__ret__, 'release_labels'))
-def get_release_labels_output(filters: pulumi.Input[Optional[Optional[Union['GetReleaseLabelsFiltersArgs', 'GetReleaseLabelsFiltersArgsDict']]]] = None,
+def get_release_labels_output(filters: pulumi.Input[Optional[Optional[Union['GetReleaseLabelsFiltersArgs', 'GetReleaseLabelsFiltersArgsDict', 'outputs.GetReleaseLabelsFiltersResult']]]] = None,
                               region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReleaseLabelsResult]:
     """
@@ -133,7 +133,7 @@ def get_release_labels_output(filters: pulumi.Input[Optional[Optional[Union['Get
     ```
 
 
-    :param Union['GetReleaseLabelsFiltersArgs', 'GetReleaseLabelsFiltersArgsDict'] filters: Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
+    :param Union['GetReleaseLabelsFiltersArgs', 'GetReleaseLabelsFiltersArgsDict', 'outputs.GetReleaseLabelsFiltersResult'] filters: Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

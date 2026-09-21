@@ -102,7 +102,7 @@ class AwaitableGetPrincipalApplicationAssignmentsResult(GetPrincipalApplicationA
             region=self.region)
 
 
-def get_principal_application_assignments(application_assignments: Optional[Sequence[Union['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs', 'GetPrincipalApplicationAssignmentsApplicationAssignmentArgsDict']]] = None,
+def get_principal_application_assignments(application_assignments: Optional[Sequence[Union['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs', 'GetPrincipalApplicationAssignmentsApplicationAssignmentArgsDict', 'outputs.GetPrincipalApplicationAssignmentsApplicationAssignmentResult']]] = None,
                                           instance_arn: Optional[_builtins.str] = None,
                                           principal_id: Optional[_builtins.str] = None,
                                           principal_type: Optional[_builtins.str] = None,
@@ -125,7 +125,7 @@ def get_principal_application_assignments(application_assignments: Optional[Sequ
     ```
 
 
-    :param Sequence[Union['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs', 'GetPrincipalApplicationAssignmentsApplicationAssignmentArgsDict']] application_assignments: List of principals assigned to the application. See the `application_assignments` attribute reference below.
+    :param Sequence[Union['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs', 'GetPrincipalApplicationAssignmentsApplicationAssignmentArgsDict', 'outputs.GetPrincipalApplicationAssignmentsApplicationAssignmentResult']] application_assignments: List of principals assigned to the application. See the `application_assignments` attribute reference below.
     :param _builtins.str instance_arn: ARN of the instance of IAM Identity Center.
     :param _builtins.str principal_id: An identifier for an object in IAM Identity Center, such as a user or group.
     :param _builtins.str principal_type: Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
@@ -147,7 +147,7 @@ def get_principal_application_assignments(application_assignments: Optional[Sequ
         principal_id=pulumi.get(__ret__, 'principal_id'),
         principal_type=pulumi.get(__ret__, 'principal_type'),
         region=pulumi.get(__ret__, 'region'))
-def get_principal_application_assignments_output(application_assignments: pulumi.Input[Optional[Optional[Sequence[Union['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs', 'GetPrincipalApplicationAssignmentsApplicationAssignmentArgsDict']]]]] = None,
+def get_principal_application_assignments_output(application_assignments: pulumi.Input[Optional[Optional[Sequence[Union['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs', 'GetPrincipalApplicationAssignmentsApplicationAssignmentArgsDict', 'outputs.GetPrincipalApplicationAssignmentsApplicationAssignmentResult']]]]] = None,
                                                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                                  principal_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                  principal_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -170,7 +170,7 @@ def get_principal_application_assignments_output(application_assignments: pulumi
     ```
 
 
-    :param Sequence[Union['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs', 'GetPrincipalApplicationAssignmentsApplicationAssignmentArgsDict']] application_assignments: List of principals assigned to the application. See the `application_assignments` attribute reference below.
+    :param Sequence[Union['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs', 'GetPrincipalApplicationAssignmentsApplicationAssignmentArgsDict', 'outputs.GetPrincipalApplicationAssignmentsApplicationAssignmentResult']] application_assignments: List of principals assigned to the application. See the `application_assignments` attribute reference below.
     :param _builtins.str instance_arn: ARN of the instance of IAM Identity Center.
     :param _builtins.str principal_id: An identifier for an object in IAM Identity Center, such as a user or group.
     :param _builtins.str principal_type: Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.

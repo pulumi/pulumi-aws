@@ -344,11 +344,11 @@ class Workteam(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 member_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict']]]]] = None,
-                 notification_configuration: pulumi.Input[Optional[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict']]] = None,
+                 member_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict', 'outputs.WorkteamMemberDefinition']]]]] = None,
+                 notification_configuration: pulumi.Input[Optional[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict', 'outputs.WorkteamNotificationConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 worker_access_configuration: pulumi.Input[Optional[Union['WorkteamWorkerAccessConfigurationArgs', 'WorkteamWorkerAccessConfigurationArgsDict']]] = None,
+                 worker_access_configuration: pulumi.Input[Optional[Union['WorkteamWorkerAccessConfigurationArgs', 'WorkteamWorkerAccessConfigurationArgsDict', 'outputs.WorkteamWorkerAccessConfiguration']]] = None,
                  workforce_name: pulumi.Input[Optional[_builtins.str]] = None,
                  workteam_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -364,16 +364,16 @@ class Workteam(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.Workteam("example",
+            workteam_name="example",
+            workforce_name=example_aws_sagemaker_workforce["id"],
+            description="example",
             member_definitions=[{
                 "cognito_member_definition": {
                     "client_id": example_aws_cognito_user_pool_client["id"],
                     "user_pool": example_aws_cognito_user_pool_domain["userPoolId"],
                     "user_group": example_aws_cognito_user_group["name"],
                 },
-            }],
-            workteam_name="example",
-            workforce_name=example_aws_sagemaker_workforce["id"],
-            description="example")
+            }])
         ```
 
         ### Oidc Usage
@@ -383,14 +383,14 @@ class Workteam(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.Workteam("example",
+            workteam_name="example",
+            workforce_name=example_aws_sagemaker_workforce["id"],
+            description="example",
             member_definitions=[{
                 "oidc_member_definition": {
                     "groups": ["example"],
                 },
-            }],
-            workteam_name="example",
-            workforce_name=example_aws_sagemaker_workforce["id"],
-            description="example")
+            }])
         ```
 
         ## Import
@@ -405,11 +405,11 @@ class Workteam(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the work team.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict']]]] member_definitions: A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
-        :param pulumi.Input[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict']] notification_configuration: Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict', 'outputs.WorkteamMemberDefinition']]]] member_definitions: A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
+        :param pulumi.Input[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict', 'outputs.WorkteamNotificationConfiguration']] notification_configuration: Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['WorkteamWorkerAccessConfigurationArgs', 'WorkteamWorkerAccessConfigurationArgsDict']] worker_access_configuration: Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
+        :param pulumi.Input[Union['WorkteamWorkerAccessConfigurationArgs', 'WorkteamWorkerAccessConfigurationArgsDict', 'outputs.WorkteamWorkerAccessConfiguration']] worker_access_configuration: Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
         :param pulumi.Input[_builtins.str] workforce_name: The name of the workforce.
         :param pulumi.Input[_builtins.str] workteam_name: The name of the Workteam (must be unique).
         """
@@ -431,16 +431,16 @@ class Workteam(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.Workteam("example",
+            workteam_name="example",
+            workforce_name=example_aws_sagemaker_workforce["id"],
+            description="example",
             member_definitions=[{
                 "cognito_member_definition": {
                     "client_id": example_aws_cognito_user_pool_client["id"],
                     "user_pool": example_aws_cognito_user_pool_domain["userPoolId"],
                     "user_group": example_aws_cognito_user_group["name"],
                 },
-            }],
-            workteam_name="example",
-            workforce_name=example_aws_sagemaker_workforce["id"],
-            description="example")
+            }])
         ```
 
         ### Oidc Usage
@@ -450,14 +450,14 @@ class Workteam(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.Workteam("example",
+            workteam_name="example",
+            workforce_name=example_aws_sagemaker_workforce["id"],
+            description="example",
             member_definitions=[{
                 "oidc_member_definition": {
                     "groups": ["example"],
                 },
-            }],
-            workteam_name="example",
-            workforce_name=example_aws_sagemaker_workforce["id"],
-            description="example")
+            }])
         ```
 
         ## Import
@@ -485,11 +485,11 @@ class Workteam(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 member_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict']]]]] = None,
-                 notification_configuration: pulumi.Input[Optional[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict']]] = None,
+                 member_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict', 'outputs.WorkteamMemberDefinition']]]]] = None,
+                 notification_configuration: pulumi.Input[Optional[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict', 'outputs.WorkteamNotificationConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 worker_access_configuration: pulumi.Input[Optional[Union['WorkteamWorkerAccessConfigurationArgs', 'WorkteamWorkerAccessConfigurationArgsDict']]] = None,
+                 worker_access_configuration: pulumi.Input[Optional[Union['WorkteamWorkerAccessConfigurationArgs', 'WorkteamWorkerAccessConfigurationArgsDict', 'outputs.WorkteamWorkerAccessConfiguration']]] = None,
                  workforce_name: pulumi.Input[Optional[_builtins.str]] = None,
                  workteam_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -530,13 +530,13 @@ class Workteam(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            member_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict']]]]] = None,
-            notification_configuration: pulumi.Input[Optional[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict']]] = None,
+            member_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict', 'outputs.WorkteamMemberDefinition']]]]] = None,
+            notification_configuration: pulumi.Input[Optional[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict', 'outputs.WorkteamNotificationConfiguration']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             subdomain: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            worker_access_configuration: pulumi.Input[Optional[Union['WorkteamWorkerAccessConfigurationArgs', 'WorkteamWorkerAccessConfigurationArgsDict']]] = None,
+            worker_access_configuration: pulumi.Input[Optional[Union['WorkteamWorkerAccessConfigurationArgs', 'WorkteamWorkerAccessConfigurationArgsDict', 'outputs.WorkteamWorkerAccessConfiguration']]] = None,
             workforce_name: pulumi.Input[Optional[_builtins.str]] = None,
             workteam_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Workteam':
         """
@@ -548,13 +548,13 @@ class Workteam(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this Workteam.
         :param pulumi.Input[_builtins.str] description: A description of the work team.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict']]]] member_definitions: A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
-        :param pulumi.Input[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict']] notification_configuration: Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict', 'outputs.WorkteamMemberDefinition']]]] member_definitions: A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
+        :param pulumi.Input[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict', 'outputs.WorkteamNotificationConfiguration']] notification_configuration: Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] subdomain: The subdomain for your OIDC Identity Provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['WorkteamWorkerAccessConfigurationArgs', 'WorkteamWorkerAccessConfigurationArgsDict']] worker_access_configuration: Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
+        :param pulumi.Input[Union['WorkteamWorkerAccessConfigurationArgs', 'WorkteamWorkerAccessConfigurationArgsDict', 'outputs.WorkteamWorkerAccessConfiguration']] worker_access_configuration: Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
         :param pulumi.Input[_builtins.str] workforce_name: The name of the workforce.
         :param pulumi.Input[_builtins.str] workteam_name: The name of the Workteam (must be unique).
         """

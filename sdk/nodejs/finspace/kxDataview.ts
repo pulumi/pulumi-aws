@@ -19,10 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.finspace.KxDataview("example", {
- *     segmentConfigurations: [{
- *         volumeName: exampleAwsFinspaceKxVolume.name,
- *         dbPaths: ["/*"],
- *     }],
  *     name: "my-tf-kx-dataview",
  *     environmentId: exampleAwsFinspaceKxEnvironment.id,
  *     databaseName: exampleAwsFinspaceKxDatabase.name,
@@ -30,12 +26,10 @@ import * as utilities from "../utilities";
  *     description: "Terraform managed Kx Dataview",
  *     azMode: "SINGLE",
  *     autoUpdate: true,
- * }, {
- *     customTimeouts: {
- *         create: "24h",
- *         update: "24h",
- *         "delete": "12h",
- *     },
+ *     segmentConfigurations: [{
+ *         volumeName: exampleAwsFinspaceKxVolume.name,
+ *         dbPaths: ["/*"],
+ *     }],
  * });
  * ```
  *

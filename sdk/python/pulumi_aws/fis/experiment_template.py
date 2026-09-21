@@ -378,16 +378,16 @@ class ExperimentTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict', 'outputs.ExperimentTemplateAction']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 experiment_options: pulumi.Input[Optional[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']]] = None,
-                 experiment_report_configuration: pulumi.Input[Optional[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict']]] = None,
-                 log_configuration: pulumi.Input[Optional[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']]] = None,
+                 experiment_options: pulumi.Input[Optional[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict', 'outputs.ExperimentTemplateExperimentOptions']]] = None,
+                 experiment_report_configuration: pulumi.Input[Optional[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict', 'outputs.ExperimentTemplateExperimentReportConfiguration']]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict', 'outputs.ExperimentTemplateLogConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 stop_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]]] = None,
+                 stop_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict', 'outputs.ExperimentTemplateStopCondition']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTemplateTargetArgs', 'ExperimentTemplateTargetArgsDict']]]]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTemplateTargetArgs', 'ExperimentTemplateTargetArgsDict', 'outputs.ExperimentTemplateTarget']]]]] = None,
                  __props__=None):
         """
         Provides an FIS Experiment Template, which can be used to run an experiment.
@@ -403,28 +403,28 @@ class ExperimentTemplate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.fis.ExperimentTemplate("example",
+            description="example",
+            role_arn=example_aws_iam_role["arn"],
+            stop_conditions=[{
+                "source": "none",
+            }],
             actions=[{
+                "name": "example-action",
+                "action_id": "aws:ec2:terminate-instances",
                 "target": {
                     "key": "Instances",
                     "value": "example-target",
                 },
-                "name": "example-action",
-                "action_id": "aws:ec2:terminate-instances",
-            }],
-            stop_conditions=[{
-                "source": "none",
             }],
             targets=[{
+                "name": "example-target",
+                "resource_type": "aws:ec2:instance",
+                "selection_mode": "COUNT(1)",
                 "resource_tags": [{
                     "key": "env",
                     "value": "example",
                 }],
-                "name": "example-target",
-                "resource_type": "aws:ec2:instance",
-                "selection_mode": "COUNT(1)",
-            }],
-            description="example",
-            role_arn=example_aws_iam_role["arn"])
+            }])
         ```
 
         ### Example Usage with Report Configuration
@@ -447,7 +447,8 @@ class ExperimentTemplate(pulumi.CustomResource):
                 }],
                 "Version": "2012-10-17",
             }))
-        report_access = aws.iam.get_policy_document(statements=[
+        report_access = aws.iam.get_policy_document(version="2012-10-17",
+            statements=[
                 {
                     "sid": "logsDelivery",
                     "effect": "Allow",
@@ -475,8 +476,7 @@ class ExperimentTemplate(pulumi.CustomResource):
                     "actions": ["cloudwatch:getMetricWidgetImage"],
                     "resources": ["*"],
                 },
-            ],
-            version="2012-10-17")
+            ])
         report_access_policy = aws.iam.Policy("report_access",
             name="report_access",
             policy=report_access.json)
@@ -484,6 +484,28 @@ class ExperimentTemplate(pulumi.CustomResource):
             role=test["name"],
             policy_arn=report_access_policy.arn)
         example_experiment_template = aws.fis.ExperimentTemplate("example",
+            description="example",
+            role_arn=example.arn,
+            stop_conditions=[{
+                "source": "none",
+            }],
+            actions=[{
+                "name": "example-action",
+                "action_id": "aws:ec2:terminate-instances",
+                "target": {
+                    "key": "Instances",
+                    "value": "example-target",
+                },
+            }],
+            targets=[{
+                "name": "example-target",
+                "resource_type": "aws:ec2:instance",
+                "selection_mode": "COUNT(1)",
+                "resource_tags": [{
+                    "key": "env",
+                    "value": "example",
+                }],
+            }],
             experiment_report_configuration={
                 "data_sources": {
                     "cloudwatch_dashboards": [{
@@ -499,28 +521,6 @@ class ExperimentTemplate(pulumi.CustomResource):
                 "post_experiment_duration": "PT10M",
                 "pre_experiment_duration": "PT10M",
             },
-            actions=[{
-                "target": {
-                    "key": "Instances",
-                    "value": "example-target",
-                },
-                "name": "example-action",
-                "action_id": "aws:ec2:terminate-instances",
-            }],
-            stop_conditions=[{
-                "source": "none",
-            }],
-            targets=[{
-                "resource_tags": [{
-                    "key": "env",
-                    "value": "example",
-                }],
-                "name": "example-target",
-                "resource_type": "aws:ec2:instance",
-                "selection_mode": "COUNT(1)",
-            }],
-            description="example",
-            role_arn=example.arn,
             tags={
                 "Name": "example",
             })
@@ -537,18 +537,18 @@ class ExperimentTemplate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict']]]] actions: Action to be performed during an experiment. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict', 'outputs.ExperimentTemplateAction']]]] actions: Action to be performed during an experiment. See below.
         :param pulumi.Input[_builtins.str] description: Description for the experiment template.
-        :param pulumi.Input[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']] experiment_options: Experiment options for the experiment template. See experiment_options below for more details!
-        :param pulumi.Input[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict']] experiment_report_configuration: Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
-        :param pulumi.Input[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']] log_configuration: Configuration for experiment logging. See below.
+        :param pulumi.Input[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict', 'outputs.ExperimentTemplateExperimentOptions']] experiment_options: Experiment options for the experiment template. See experiment_options below for more details!
+        :param pulumi.Input[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict', 'outputs.ExperimentTemplateExperimentReportConfiguration']] experiment_report_configuration: Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+        :param pulumi.Input[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict', 'outputs.ExperimentTemplateLogConfiguration']] log_configuration: Configuration for experiment logging. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]] stop_conditions: When an ongoing experiment should be stopped. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict', 'outputs.ExperimentTemplateStopCondition']]]] stop_conditions: When an ongoing experiment should be stopped. See below.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateTargetArgs', 'ExperimentTemplateTargetArgsDict']]]] targets: Target of an action. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateTargetArgs', 'ExperimentTemplateTargetArgsDict', 'outputs.ExperimentTemplateTarget']]]] targets: Target of an action. See below.
         """
         ...
     @overload
@@ -570,28 +570,28 @@ class ExperimentTemplate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.fis.ExperimentTemplate("example",
+            description="example",
+            role_arn=example_aws_iam_role["arn"],
+            stop_conditions=[{
+                "source": "none",
+            }],
             actions=[{
+                "name": "example-action",
+                "action_id": "aws:ec2:terminate-instances",
                 "target": {
                     "key": "Instances",
                     "value": "example-target",
                 },
-                "name": "example-action",
-                "action_id": "aws:ec2:terminate-instances",
-            }],
-            stop_conditions=[{
-                "source": "none",
             }],
             targets=[{
+                "name": "example-target",
+                "resource_type": "aws:ec2:instance",
+                "selection_mode": "COUNT(1)",
                 "resource_tags": [{
                     "key": "env",
                     "value": "example",
                 }],
-                "name": "example-target",
-                "resource_type": "aws:ec2:instance",
-                "selection_mode": "COUNT(1)",
-            }],
-            description="example",
-            role_arn=example_aws_iam_role["arn"])
+            }])
         ```
 
         ### Example Usage with Report Configuration
@@ -614,7 +614,8 @@ class ExperimentTemplate(pulumi.CustomResource):
                 }],
                 "Version": "2012-10-17",
             }))
-        report_access = aws.iam.get_policy_document(statements=[
+        report_access = aws.iam.get_policy_document(version="2012-10-17",
+            statements=[
                 {
                     "sid": "logsDelivery",
                     "effect": "Allow",
@@ -642,8 +643,7 @@ class ExperimentTemplate(pulumi.CustomResource):
                     "actions": ["cloudwatch:getMetricWidgetImage"],
                     "resources": ["*"],
                 },
-            ],
-            version="2012-10-17")
+            ])
         report_access_policy = aws.iam.Policy("report_access",
             name="report_access",
             policy=report_access.json)
@@ -651,6 +651,28 @@ class ExperimentTemplate(pulumi.CustomResource):
             role=test["name"],
             policy_arn=report_access_policy.arn)
         example_experiment_template = aws.fis.ExperimentTemplate("example",
+            description="example",
+            role_arn=example.arn,
+            stop_conditions=[{
+                "source": "none",
+            }],
+            actions=[{
+                "name": "example-action",
+                "action_id": "aws:ec2:terminate-instances",
+                "target": {
+                    "key": "Instances",
+                    "value": "example-target",
+                },
+            }],
+            targets=[{
+                "name": "example-target",
+                "resource_type": "aws:ec2:instance",
+                "selection_mode": "COUNT(1)",
+                "resource_tags": [{
+                    "key": "env",
+                    "value": "example",
+                }],
+            }],
             experiment_report_configuration={
                 "data_sources": {
                     "cloudwatch_dashboards": [{
@@ -666,28 +688,6 @@ class ExperimentTemplate(pulumi.CustomResource):
                 "post_experiment_duration": "PT10M",
                 "pre_experiment_duration": "PT10M",
             },
-            actions=[{
-                "target": {
-                    "key": "Instances",
-                    "value": "example-target",
-                },
-                "name": "example-action",
-                "action_id": "aws:ec2:terminate-instances",
-            }],
-            stop_conditions=[{
-                "source": "none",
-            }],
-            targets=[{
-                "resource_tags": [{
-                    "key": "env",
-                    "value": "example",
-                }],
-                "name": "example-target",
-                "resource_type": "aws:ec2:instance",
-                "selection_mode": "COUNT(1)",
-            }],
-            description="example",
-            role_arn=example.arn,
             tags={
                 "Name": "example",
             })
@@ -717,16 +717,16 @@ class ExperimentTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict', 'outputs.ExperimentTemplateAction']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 experiment_options: pulumi.Input[Optional[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']]] = None,
-                 experiment_report_configuration: pulumi.Input[Optional[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict']]] = None,
-                 log_configuration: pulumi.Input[Optional[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']]] = None,
+                 experiment_options: pulumi.Input[Optional[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict', 'outputs.ExperimentTemplateExperimentOptions']]] = None,
+                 experiment_report_configuration: pulumi.Input[Optional[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict', 'outputs.ExperimentTemplateExperimentReportConfiguration']]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict', 'outputs.ExperimentTemplateLogConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 stop_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]]] = None,
+                 stop_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict', 'outputs.ExperimentTemplateStopCondition']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTemplateTargetArgs', 'ExperimentTemplateTargetArgsDict']]]]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTemplateTargetArgs', 'ExperimentTemplateTargetArgsDict', 'outputs.ExperimentTemplateTarget']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -765,17 +765,17 @@ class ExperimentTemplate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict']]]]] = None,
+            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict', 'outputs.ExperimentTemplateAction']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            experiment_options: pulumi.Input[Optional[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']]] = None,
-            experiment_report_configuration: pulumi.Input[Optional[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict']]] = None,
-            log_configuration: pulumi.Input[Optional[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']]] = None,
+            experiment_options: pulumi.Input[Optional[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict', 'outputs.ExperimentTemplateExperimentOptions']]] = None,
+            experiment_report_configuration: pulumi.Input[Optional[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict', 'outputs.ExperimentTemplateExperimentReportConfiguration']]] = None,
+            log_configuration: pulumi.Input[Optional[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict', 'outputs.ExperimentTemplateLogConfiguration']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            stop_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]]] = None,
+            stop_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict', 'outputs.ExperimentTemplateStopCondition']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTemplateTargetArgs', 'ExperimentTemplateTargetArgsDict']]]]] = None) -> 'ExperimentTemplate':
+            targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTemplateTargetArgs', 'ExperimentTemplateTargetArgsDict', 'outputs.ExperimentTemplateTarget']]]]] = None) -> 'ExperimentTemplate':
         """
         Get an existing ExperimentTemplate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -783,18 +783,18 @@ class ExperimentTemplate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict']]]] actions: Action to be performed during an experiment. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict', 'outputs.ExperimentTemplateAction']]]] actions: Action to be performed during an experiment. See below.
         :param pulumi.Input[_builtins.str] description: Description for the experiment template.
-        :param pulumi.Input[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']] experiment_options: Experiment options for the experiment template. See experiment_options below for more details!
-        :param pulumi.Input[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict']] experiment_report_configuration: Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
-        :param pulumi.Input[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']] log_configuration: Configuration for experiment logging. See below.
+        :param pulumi.Input[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict', 'outputs.ExperimentTemplateExperimentOptions']] experiment_options: Experiment options for the experiment template. See experiment_options below for more details!
+        :param pulumi.Input[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict', 'outputs.ExperimentTemplateExperimentReportConfiguration']] experiment_report_configuration: Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+        :param pulumi.Input[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict', 'outputs.ExperimentTemplateLogConfiguration']] log_configuration: Configuration for experiment logging. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]] stop_conditions: When an ongoing experiment should be stopped. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict', 'outputs.ExperimentTemplateStopCondition']]]] stop_conditions: When an ongoing experiment should be stopped. See below.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateTargetArgs', 'ExperimentTemplateTargetArgsDict']]]] targets: Target of an action. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateTargetArgs', 'ExperimentTemplateTargetArgsDict', 'outputs.ExperimentTemplateTarget']]]] targets: Target of an action. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

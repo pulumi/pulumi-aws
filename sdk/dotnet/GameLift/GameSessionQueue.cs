@@ -24,6 +24,13 @@ namespace Pulumi.Aws.GameLift
     /// {
     ///     var test = new Aws.GameLift.GameSessionQueue("test", new()
     ///     {
+    ///         Name = "example-session-queue",
+    ///         Destinations = new[]
+    ///         {
+    ///             usWest2Fleet.Arn,
+    ///             euCentral1Fleet.Arn,
+    ///         },
+    ///         NotificationTarget = gameSessionQueueNotifications.Arn,
     ///         PlayerLatencyPolicies = new[]
     ///         {
     ///             new Aws.GameLift.Inputs.GameSessionQueuePlayerLatencyPolicyArgs
@@ -36,13 +43,6 @@ namespace Pulumi.Aws.GameLift
     ///                 MaximumIndividualPlayerLatencyMilliseconds = 200,
     ///             },
     ///         },
-    ///         Name = "example-session-queue",
-    ///         Destinations = new[]
-    ///         {
-    ///             usWest2Fleet.Arn,
-    ///             euCentral1Fleet.Arn,
-    ///         },
-    ///         NotificationTarget = gameSessionQueueNotifications.Arn,
     ///         TimeoutInSeconds = 60,
     ///     });
     /// 

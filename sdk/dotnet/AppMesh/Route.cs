@@ -26,6 +26,9 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var serviceb = new Aws.AppMesh.Route("serviceb", new()
     ///     {
+    ///         Name = "serviceB-route",
+    ///         MeshName = simple.Id,
+    ///         VirtualRouterName = servicebAwsAppmeshVirtualRouter.Name,
     ///         Spec = new Aws.AppMesh.Inputs.RouteSpecArgs
     ///         {
     ///             HttpRoute = new Aws.AppMesh.Inputs.RouteSpecHttpRouteArgs
@@ -52,9 +55,6 @@ namespace Pulumi.Aws.AppMesh
     ///                 },
     ///             },
     ///         },
-    ///         Name = "serviceB-route",
-    ///         MeshName = simple.Id,
-    ///         VirtualRouterName = servicebAwsAppmeshVirtualRouter.Name,
     ///     });
     /// 
     /// });
@@ -72,26 +72,29 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var serviceb = new Aws.AppMesh.Route("serviceb", new()
     ///     {
+    ///         Name = "serviceB-route",
+    ///         MeshName = simple.Id,
+    ///         VirtualRouterName = servicebAwsAppmeshVirtualRouter.Name,
     ///         Spec = new Aws.AppMesh.Inputs.RouteSpecArgs
     ///         {
     ///             HttpRoute = new Aws.AppMesh.Inputs.RouteSpecHttpRouteArgs
     ///             {
     ///                 Match = new Aws.AppMesh.Inputs.RouteSpecHttpRouteMatchArgs
     ///                 {
+    ///                     Method = "POST",
+    ///                     Prefix = "/",
+    ///                     Scheme = "https",
     ///                     Headers = new[]
     ///                     {
     ///                         new Aws.AppMesh.Inputs.RouteSpecHttpRouteMatchHeaderArgs
     ///                         {
+    ///                             Name = "clientRequestId",
     ///                             Match = new Aws.AppMesh.Inputs.RouteSpecHttpRouteMatchHeaderMatchArgs
     ///                             {
     ///                                 Prefix = "123",
     ///                             },
-    ///                             Name = "clientRequestId",
     ///                         },
     ///                     },
-    ///                     Method = "POST",
-    ///                     Prefix = "/",
-    ///                     Scheme = "https",
     ///                 },
     ///                 Action = new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionArgs
     ///                 {
@@ -106,9 +109,6 @@ namespace Pulumi.Aws.AppMesh
     ///                 },
     ///             },
     ///         },
-    ///         Name = "serviceB-route",
-    ///         MeshName = simple.Id,
-    ///         VirtualRouterName = servicebAwsAppmeshVirtualRouter.Name,
     ///     });
     /// 
     /// });
@@ -126,6 +126,9 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var serviceb = new Aws.AppMesh.Route("serviceb", new()
     ///     {
+    ///         Name = "serviceB-route",
+    ///         MeshName = simple.Id,
+    ///         VirtualRouterName = servicebAwsAppmeshVirtualRouter.Name,
     ///         Spec = new Aws.AppMesh.Inputs.RouteSpecArgs
     ///         {
     ///             HttpRoute = new Aws.AppMesh.Inputs.RouteSpecHttpRouteArgs
@@ -136,16 +139,16 @@ namespace Pulumi.Aws.AppMesh
     ///                 },
     ///                 RetryPolicy = new Aws.AppMesh.Inputs.RouteSpecHttpRouteRetryPolicyArgs
     ///                 {
-    ///                     PerRetryTimeout = new Aws.AppMesh.Inputs.RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs
-    ///                     {
-    ///                         Unit = "s",
-    ///                         Value = 15,
-    ///                     },
     ///                     HttpRetryEvents = new[]
     ///                     {
     ///                         "server-error",
     ///                     },
     ///                     MaxRetries = 1,
+    ///                     PerRetryTimeout = new Aws.AppMesh.Inputs.RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs
+    ///                     {
+    ///                         Unit = "s",
+    ///                         Value = 15,
+    ///                     },
     ///                 },
     ///                 Action = new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionArgs
     ///                 {
@@ -160,9 +163,6 @@ namespace Pulumi.Aws.AppMesh
     ///                 },
     ///             },
     ///         },
-    ///         Name = "serviceB-route",
-    ///         MeshName = simple.Id,
-    ///         VirtualRouterName = servicebAwsAppmeshVirtualRouter.Name,
     ///     });
     /// 
     /// });
@@ -180,6 +180,9 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var serviceb = new Aws.AppMesh.Route("serviceb", new()
     ///     {
+    ///         Name = "serviceB-route",
+    ///         MeshName = simple.Id,
+    ///         VirtualRouterName = servicebAwsAppmeshVirtualRouter.Name,
     ///         Spec = new Aws.AppMesh.Inputs.RouteSpecArgs
     ///         {
     ///             TcpRoute = new Aws.AppMesh.Inputs.RouteSpecTcpRouteArgs
@@ -197,9 +200,6 @@ namespace Pulumi.Aws.AppMesh
     ///                 },
     ///             },
     ///         },
-    ///         Name = "serviceB-route",
-    ///         MeshName = simple.Id,
-    ///         VirtualRouterName = servicebAwsAppmeshVirtualRouter.Name,
     ///     });
     /// 
     /// });

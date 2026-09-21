@@ -57,6 +57,9 @@ namespace Pulumi.Aws.Lex
     /// 
     ///     var testV2modelsBot = new Aws.Lex.V2modelsBot("test", new()
     ///     {
+    ///         Name = "botens_namn",
+    ///         IdleSessionTtlInSeconds = 60,
+    ///         RoleArn = test.Arn,
     ///         DataPrivacies = new[]
     ///         {
     ///             new Aws.Lex.Inputs.V2modelsBotDataPrivacyArgs
@@ -64,9 +67,6 @@ namespace Pulumi.Aws.Lex
     ///                 ChildDirected = true,
     ///             },
     ///         },
-    ///         Name = "botens_namn",
-    ///         IdleSessionTtlInSeconds = 60,
-    ///         RoleArn = test.Arn,
     ///     });
     /// 
     ///     var testV2modelsBotLocale = new Aws.Lex.V2modelsBotLocale("test", new()
@@ -114,83 +114,83 @@ namespace Pulumi.Aws.Lex
     /// {
     ///     var example = new Aws.Lex.V2modelsIntent("example", new()
     ///     {
-    ///         ConfirmationSetting = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingArgs
-    ///         {
-    ///             PromptSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationArgs
-    ///             {
-    ///                 PromptAttemptsSpecifications = new[]
-    ///                 {
-    ///                     new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgs
-    ///                     {
-    ///                         AllowedInputTypes = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs
-    ///                         {
-    ///                             AllowAudioInput = true,
-    ///                             AllowDtmfInput = true,
-    ///                         },
-    ///                         AudioAndDtmfInputSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs
-    ///                         {
-    ///                             AudioSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs
-    ///                             {
-    ///                                 EndTimeoutMs = 640,
-    ///                                 MaxLengthMs = 15000,
-    ///                             },
-    ///                             DtmfSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs
-    ///                             {
-    ///                                 DeletionCharacter = "*",
-    ///                                 EndCharacter = "#",
-    ///                                 EndTimeoutMs = 5000,
-    ///                                 MaxLength = 513,
-    ///                             },
-    ///                             StartTimeoutMs = 4000,
-    ///                         },
-    ///                         TextInputSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs
-    ///                         {
-    ///                             StartTimeoutMs = 30000,
-    ///                         },
-    ///                         AllowInterrupt = true,
-    ///                         MapBlockKey = "Initial",
-    ///                     },
-    ///                     new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgs
-    ///                     {
-    ///                         AllowedInputTypes = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs
-    ///                         {
-    ///                             AllowAudioInput = true,
-    ///                             AllowDtmfInput = true,
-    ///                         },
-    ///                         AudioAndDtmfInputSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs
-    ///                         {
-    ///                             AudioSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs
-    ///                             {
-    ///                                 EndTimeoutMs = 640,
-    ///                                 MaxLengthMs = 15000,
-    ///                             },
-    ///                             DtmfSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs
-    ///                             {
-    ///                                 DeletionCharacter = "*",
-    ///                                 EndCharacter = "#",
-    ///                                 EndTimeoutMs = 5000,
-    ///                                 MaxLength = 513,
-    ///                             },
-    ///                             StartTimeoutMs = 4000,
-    ///                         },
-    ///                         TextInputSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs
-    ///                         {
-    ///                             StartTimeoutMs = 30000,
-    ///                         },
-    ///                         AllowInterrupt = true,
-    ///                         MapBlockKey = "Retry1",
-    ///                     },
-    ///                 },
-    ///                 AllowInterrupt = true,
-    ///                 MaxRetries = 1,
-    ///                 MessageSelectionStrategy = "Ordered",
-    ///             },
-    ///             Active = true,
-    ///         },
     ///         BotId = test.Id,
     ///         BotVersion = testAwsLexv2modelsBotLocale.BotVersion,
     ///         Name = "botens_namn",
     ///         LocaleId = testAwsLexv2modelsBotLocale.LocaleId,
+    ///         ConfirmationSetting = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingArgs
+    ///         {
+    ///             Active = true,
+    ///             PromptSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationArgs
+    ///             {
+    ///                 AllowInterrupt = true,
+    ///                 MaxRetries = 1,
+    ///                 MessageSelectionStrategy = "Ordered",
+    ///                 PromptAttemptsSpecifications = new[]
+    ///                 {
+    ///                     new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgs
+    ///                     {
+    ///                         AllowInterrupt = true,
+    ///                         MapBlockKey = "Initial",
+    ///                         AllowedInputTypes = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs
+    ///                         {
+    ///                             AllowAudioInput = true,
+    ///                             AllowDtmfInput = true,
+    ///                         },
+    ///                         AudioAndDtmfInputSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs
+    ///                         {
+    ///                             StartTimeoutMs = 4000,
+    ///                             AudioSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs
+    ///                             {
+    ///                                 EndTimeoutMs = 640,
+    ///                                 MaxLengthMs = 15000,
+    ///                             },
+    ///                             DtmfSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs
+    ///                             {
+    ///                                 DeletionCharacter = "*",
+    ///                                 EndCharacter = "#",
+    ///                                 EndTimeoutMs = 5000,
+    ///                                 MaxLength = 513,
+    ///                             },
+    ///                         },
+    ///                         TextInputSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs
+    ///                         {
+    ///                             StartTimeoutMs = 30000,
+    ///                         },
+    ///                     },
+    ///                     new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgs
+    ///                     {
+    ///                         AllowInterrupt = true,
+    ///                         MapBlockKey = "Retry1",
+    ///                         AllowedInputTypes = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs
+    ///                         {
+    ///                             AllowAudioInput = true,
+    ///                             AllowDtmfInput = true,
+    ///                         },
+    ///                         AudioAndDtmfInputSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs
+    ///                         {
+    ///                             StartTimeoutMs = 4000,
+    ///                             AudioSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs
+    ///                             {
+    ///                                 EndTimeoutMs = 640,
+    ///                                 MaxLengthMs = 15000,
+    ///                             },
+    ///                             DtmfSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs
+    ///                             {
+    ///                                 DeletionCharacter = "*",
+    ///                                 EndCharacter = "#",
+    ///                                 EndTimeoutMs = 5000,
+    ///                                 MaxLength = 513,
+    ///                             },
+    ///                         },
+    ///                         TextInputSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs
+    ///                         {
+    ///                             StartTimeoutMs = 30000,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });
@@ -208,6 +208,11 @@ namespace Pulumi.Aws.Lex
     /// {
     ///     var qnaExample = new Aws.Lex.V2modelsIntent("qna_example", new()
     ///     {
+    ///         BotId = test.Id,
+    ///         BotVersion = testAwsLexv2modelsBotLocale.BotVersion,
+    ///         Name = "qna_intent",
+    ///         LocaleId = testAwsLexv2modelsBotLocale.LocaleId,
+    ///         ParentIntentSignature = "AMAZON.QnAIntent",
     ///         QnaIntentConfiguration = new Aws.Lex.Inputs.V2modelsIntentQnaIntentConfigurationArgs
     ///         {
     ///             DataSourceConfiguration = new Aws.Lex.Inputs.V2modelsIntentQnaIntentConfigurationDataSourceConfigurationArgs
@@ -227,11 +232,6 @@ namespace Pulumi.Aws.Lex
     ///                 Utterance = "What is the answer?",
     ///             },
     ///         },
-    ///         BotId = test.Id,
-    ///         BotVersion = testAwsLexv2modelsBotLocale.BotVersion,
-    ///         Name = "qna_intent",
-    ///         LocaleId = testAwsLexv2modelsBotLocale.LocaleId,
-    ///         ParentIntentSignature = "AMAZON.QnAIntent",
     ///     });
     /// 
     /// });

@@ -26,6 +26,10 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.Guardrail("example", new()
     ///     {
+    ///         Name = "example",
+    ///         BlockedInputMessaging = "example",
+    ///         BlockedOutputsMessaging = "example",
+    ///         Description = "example",
     ///         ContentPolicyConfig = new Aws.Bedrock.Inputs.GuardrailContentPolicyConfigArgs
     ///         {
     ///             FiltersConfigs = new[]
@@ -76,13 +80,6 @@ namespace Pulumi.Aws.Bedrock
     ///         },
     ///         TopicPolicyConfig = new Aws.Bedrock.Inputs.GuardrailTopicPolicyConfigArgs
     ///         {
-    ///             TierConfigs = new[]
-    ///             {
-    ///                 new Aws.Bedrock.Inputs.GuardrailTopicPolicyConfigTierConfigArgs
-    ///                 {
-    ///                     TierName = "CLASSIC",
-    ///                 },
-    ///             },
     ///             TopicsConfigs = new[]
     ///             {
     ///                 new Aws.Bedrock.Inputs.GuardrailTopicPolicyConfigTopicsConfigArgs
@@ -94,6 +91,13 @@ namespace Pulumi.Aws.Bedrock
     ///                     },
     ///                     Type = "DENY",
     ///                     Definition = "Investment advice refers to inquiries, guidance, or recommendations regarding the management or allocation of funds or assets with the goal of generating returns .",
+    ///                 },
+    ///             },
+    ///             TierConfigs = new[]
+    ///             {
+    ///                 new Aws.Bedrock.Inputs.GuardrailTopicPolicyConfigTierConfigArgs
+    ///                 {
+    ///                     TierName = "CLASSIC",
     ///                 },
     ///             },
     ///         },
@@ -114,10 +118,6 @@ namespace Pulumi.Aws.Bedrock
     ///                 },
     ///             },
     ///         },
-    ///         Name = "example",
-    ///         BlockedInputMessaging = "example",
-    ///         BlockedOutputsMessaging = "example",
-    ///         Description = "example",
     ///     });
     /// 
     /// });

@@ -324,8 +324,8 @@ class CostCategory(pulumi.CustomResource):
                  effective_start: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict']]]]] = None,
-                 split_charge_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict', 'outputs.CostCategoryRule']]]]] = None,
+                 split_charge_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict', 'outputs.CostCategorySplitChargeRule']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -338,8 +338,11 @@ class CostCategory(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.costexplorer.CostCategory("test",
+            name="NAME",
+            rule_version="CostCategoryExpression.v1",
             rules=[
                 {
+                    "value": "production",
                     "rule": {
                         "dimension": {
                             "key": "LINKED_ACCOUNT_NAME",
@@ -347,9 +350,9 @@ class CostCategory(pulumi.CustomResource):
                             "match_options": ["ENDS_WITH"],
                         },
                     },
-                    "value": "production",
                 },
                 {
+                    "value": "staging",
                     "rule": {
                         "dimension": {
                             "key": "LINKED_ACCOUNT_NAME",
@@ -357,9 +360,9 @@ class CostCategory(pulumi.CustomResource):
                             "match_options": ["ENDS_WITH"],
                         },
                     },
-                    "value": "staging",
                 },
                 {
+                    "value": "testing",
                     "rule": {
                         "dimension": {
                             "key": "LINKED_ACCOUNT_NAME",
@@ -367,11 +370,8 @@ class CostCategory(pulumi.CustomResource):
                             "match_options": ["ENDS_WITH"],
                         },
                     },
-                    "value": "testing",
                 },
-            ],
-            name="NAME",
-            rule_version="CostCategoryExpression.v1")
+            ])
         ```
 
         ## Import
@@ -397,8 +397,8 @@ class CostCategory(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] rule_version: Rule schema version in this particular Cost Category.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict']]]] rules: Configuration block for the Cost Category rules used to categorize costs. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict']]]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict', 'outputs.CostCategoryRule']]]] rules: Configuration block for the Cost Category rules used to categorize costs. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict', 'outputs.CostCategorySplitChargeRule']]]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -417,8 +417,11 @@ class CostCategory(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.costexplorer.CostCategory("test",
+            name="NAME",
+            rule_version="CostCategoryExpression.v1",
             rules=[
                 {
+                    "value": "production",
                     "rule": {
                         "dimension": {
                             "key": "LINKED_ACCOUNT_NAME",
@@ -426,9 +429,9 @@ class CostCategory(pulumi.CustomResource):
                             "match_options": ["ENDS_WITH"],
                         },
                     },
-                    "value": "production",
                 },
                 {
+                    "value": "staging",
                     "rule": {
                         "dimension": {
                             "key": "LINKED_ACCOUNT_NAME",
@@ -436,9 +439,9 @@ class CostCategory(pulumi.CustomResource):
                             "match_options": ["ENDS_WITH"],
                         },
                     },
-                    "value": "staging",
                 },
                 {
+                    "value": "testing",
                     "rule": {
                         "dimension": {
                             "key": "LINKED_ACCOUNT_NAME",
@@ -446,11 +449,8 @@ class CostCategory(pulumi.CustomResource):
                             "match_options": ["ENDS_WITH"],
                         },
                     },
-                    "value": "testing",
                 },
-            ],
-            name="NAME",
-            rule_version="CostCategoryExpression.v1")
+            ])
         ```
 
         ## Import
@@ -487,8 +487,8 @@ class CostCategory(pulumi.CustomResource):
                  effective_start: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict']]]]] = None,
-                 split_charge_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict', 'outputs.CostCategoryRule']]]]] = None,
+                 split_charge_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict', 'outputs.CostCategorySplitChargeRule']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -529,8 +529,8 @@ class CostCategory(pulumi.CustomResource):
             effective_start: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             rule_version: pulumi.Input[Optional[_builtins.str]] = None,
-            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict']]]]] = None,
-            split_charge_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict']]]]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict', 'outputs.CostCategoryRule']]]]] = None,
+            split_charge_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict', 'outputs.CostCategorySplitChargeRule']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'CostCategory':
         """
@@ -548,8 +548,8 @@ class CostCategory(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] rule_version: Rule schema version in this particular Cost Category.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict']]]] rules: Configuration block for the Cost Category rules used to categorize costs. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict']]]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict', 'outputs.CostCategoryRule']]]] rules: Configuration block for the Cost Category rules used to categorize costs. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict', 'outputs.CostCategorySplitChargeRule']]]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

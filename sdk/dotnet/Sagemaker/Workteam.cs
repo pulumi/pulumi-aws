@@ -26,6 +26,9 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.Workteam("example", new()
     ///     {
+    ///         WorkteamName = "example",
+    ///         WorkforceName = exampleAwsSagemakerWorkforce.Id,
+    ///         Description = "example",
     ///         MemberDefinitions = new[]
     ///         {
     ///             new Aws.Sagemaker.Inputs.WorkteamMemberDefinitionArgs
@@ -38,9 +41,6 @@ namespace Pulumi.Aws.Sagemaker
     ///                 },
     ///             },
     ///         },
-    ///         WorkteamName = "example",
-    ///         WorkforceName = exampleAwsSagemakerWorkforce.Id,
-    ///         Description = "example",
     ///     });
     /// 
     /// });
@@ -58,6 +58,9 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.Workteam("example", new()
     ///     {
+    ///         WorkteamName = "example",
+    ///         WorkforceName = exampleAwsSagemakerWorkforce.Id,
+    ///         Description = "example",
     ///         MemberDefinitions = new[]
     ///         {
     ///             new Aws.Sagemaker.Inputs.WorkteamMemberDefinitionArgs
@@ -71,9 +74,6 @@ namespace Pulumi.Aws.Sagemaker
     ///                 },
     ///             },
     ///         },
-    ///         WorkteamName = "example",
-    ///         WorkforceName = exampleAwsSagemakerWorkforce.Id,
-    ///         Description = "example",
     ///     });
     /// 
     /// });

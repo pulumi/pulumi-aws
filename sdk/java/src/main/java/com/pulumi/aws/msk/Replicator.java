@@ -35,14 +35,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.msk.Replicator;
  * import com.pulumi.aws.msk.ReplicatorArgs;
- * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListArgs;
- * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListConsumerGroupReplicationArgs;
- * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListTopicReplicationArgs;
- * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs;
- * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs;
  * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterArgs;
  * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterAmazonMskClusterArgs;
  * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterVpcConfigArgs;
+ * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListArgs;
+ * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListTopicReplicationArgs;
+ * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs;
+ * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs;
+ * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListConsumerGroupReplicationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -57,23 +57,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Replicator("test", ReplicatorArgs.builder()
- *             .replicationInfoList(ReplicatorReplicationInfoListArgs.builder()
- *                 .consumerGroupReplications(ReplicatorReplicationInfoListConsumerGroupReplicationArgs.builder()
- *                     .consumerGroupsToReplicates(".*")
- *                     .build())
- *                 .topicReplications(ReplicatorReplicationInfoListTopicReplicationArgs.builder()
- *                     .topicNameConfiguration(ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs.builder()
- *                         .type("PREFIXED_WITH_SOURCE_CLUSTER_ALIAS")
- *                         .build())
- *                     .startingPosition(ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs.builder()
- *                         .type("LATEST")
- *                         .build())
- *                     .topicsToReplicates(".*")
- *                     .build())
- *                 .sourceKafkaClusterArn(source.arn())
- *                 .targetKafkaClusterArn(target.arn())
- *                 .targetCompressionType("NONE")
- *                 .build())
+ *             .replicatorName("test-name")
+ *             .description("test-description")
+ *             .serviceExecutionRoleArn(sourceAwsIamRole.arn())
  *             .kafkaClusters(            
  *                 ReplicatorKafkaClusterArgs.builder()
  *                     .amazonMskCluster(ReplicatorKafkaClusterAmazonMskClusterArgs.builder()
@@ -93,9 +79,23 @@ import javax.annotation.Nullable;
  *                         .securityGroupsIds(targetAwsSecurityGroup.id())
  *                         .build())
  *                     .build())
- *             .replicatorName("test-name")
- *             .description("test-description")
- *             .serviceExecutionRoleArn(sourceAwsIamRole.arn())
+ *             .replicationInfoList(ReplicatorReplicationInfoListArgs.builder()
+ *                 .sourceKafkaClusterArn(source.arn())
+ *                 .targetKafkaClusterArn(target.arn())
+ *                 .targetCompressionType("NONE")
+ *                 .topicReplications(ReplicatorReplicationInfoListTopicReplicationArgs.builder()
+ *                     .topicNameConfiguration(ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs.builder()
+ *                         .type("PREFIXED_WITH_SOURCE_CLUSTER_ALIAS")
+ *                         .build())
+ *                     .topicsToReplicates(".*")
+ *                     .startingPosition(ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs.builder()
+ *                         .type("LATEST")
+ *                         .build())
+ *                     .build())
+ *                 .consumerGroupReplications(ReplicatorReplicationInfoListConsumerGroupReplicationArgs.builder()
+ *                     .consumerGroupsToReplicates(".*")
+ *                     .build())
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -116,11 +116,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.msk.Replicator;
  * import com.pulumi.aws.msk.ReplicatorArgs;
- * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListArgs;
- * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListConsumerGroupReplicationArgs;
- * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListTopicReplicationArgs;
- * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs;
- * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs;
  * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterArgs;
  * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterAmazonMskClusterArgs;
  * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterVpcConfigArgs;
@@ -128,6 +123,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterClientAuthenticationArgs;
  * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterClientAuthenticationSaslScramArgs;
  * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterEncryptionInTransitArgs;
+ * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListArgs;
+ * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListTopicReplicationArgs;
+ * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs;
+ * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs;
+ * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListConsumerGroupReplicationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -142,23 +142,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Replicator("test", ReplicatorArgs.builder()
- *             .replicationInfoList(ReplicatorReplicationInfoListArgs.builder()
- *                 .consumerGroupReplications(ReplicatorReplicationInfoListConsumerGroupReplicationArgs.builder()
- *                     .consumerGroupsToReplicates(".*")
- *                     .build())
- *                 .topicReplications(ReplicatorReplicationInfoListTopicReplicationArgs.builder()
- *                     .topicNameConfiguration(ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs.builder()
- *                         .type("PREFIXED_WITH_SOURCE_CLUSTER_ALIAS")
- *                         .build())
- *                     .startingPosition(ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs.builder()
- *                         .type("LATEST")
- *                         .build())
- *                     .topicsToReplicates(".*")
- *                     .build())
- *                 .sourceKafkaClusterArn(source.arn())
- *                 .targetKafkaClusterId("target-apache-kafka-cluster")
- *                 .targetCompressionType("NONE")
- *                 .build())
+ *             .replicatorName("test-name")
+ *             .description("test-description")
+ *             .serviceExecutionRoleArn(sourceAwsIamRole.arn())
  *             .kafkaClusters(            
  *                 ReplicatorKafkaClusterArgs.builder()
  *                     .amazonMskCluster(ReplicatorKafkaClusterAmazonMskClusterArgs.builder()
@@ -184,9 +170,23 @@ import javax.annotation.Nullable;
  *                         .rootCaCertificate(rootCa.arn())
  *                         .build())
  *                     .build())
- *             .replicatorName("test-name")
- *             .description("test-description")
- *             .serviceExecutionRoleArn(sourceAwsIamRole.arn())
+ *             .replicationInfoList(ReplicatorReplicationInfoListArgs.builder()
+ *                 .sourceKafkaClusterArn(source.arn())
+ *                 .targetKafkaClusterId("target-apache-kafka-cluster")
+ *                 .targetCompressionType("NONE")
+ *                 .topicReplications(ReplicatorReplicationInfoListTopicReplicationArgs.builder()
+ *                     .topicNameConfiguration(ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs.builder()
+ *                         .type("PREFIXED_WITH_SOURCE_CLUSTER_ALIAS")
+ *                         .build())
+ *                     .topicsToReplicates(".*")
+ *                     .startingPosition(ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs.builder()
+ *                         .type("LATEST")
+ *                         .build())
+ *                     .build())
+ *                 .consumerGroupReplications(ReplicatorReplicationInfoListConsumerGroupReplicationArgs.builder()
+ *                     .consumerGroupsToReplicates(".*")
+ *                     .build())
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -207,17 +207,17 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.msk.Replicator;
  * import com.pulumi.aws.msk.ReplicatorArgs;
+ * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterArgs;
+ * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterAmazonMskClusterArgs;
+ * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterVpcConfigArgs;
  * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListArgs;
- * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListConsumerGroupReplicationArgs;
  * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListTopicReplicationArgs;
+ * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListConsumerGroupReplicationArgs;
  * import com.pulumi.aws.msk.inputs.ReplicatorLogDeliveryArgs;
  * import com.pulumi.aws.msk.inputs.ReplicatorLogDeliveryReplicatorLogDeliveryArgs;
  * import com.pulumi.aws.msk.inputs.ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs;
  * import com.pulumi.aws.msk.inputs.ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs;
  * import com.pulumi.aws.msk.inputs.ReplicatorLogDeliveryReplicatorLogDeliveryS3Args;
- * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterArgs;
- * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterAmazonMskClusterArgs;
- * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterVpcConfigArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -232,34 +232,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Replicator("test", ReplicatorArgs.builder()
- *             .replicationInfoList(ReplicatorReplicationInfoListArgs.builder()
- *                 .consumerGroupReplications(ReplicatorReplicationInfoListConsumerGroupReplicationArgs.builder()
- *                     .consumerGroupsToReplicates(".*")
- *                     .build())
- *                 .topicReplications(ReplicatorReplicationInfoListTopicReplicationArgs.builder()
- *                     .topicsToReplicates(".*")
- *                     .build())
- *                 .sourceKafkaClusterArn(source.arn())
- *                 .targetKafkaClusterArn(target.arn())
- *                 .targetCompressionType("NONE")
- *                 .build())
- *             .logDelivery(ReplicatorLogDeliveryArgs.builder()
- *                 .replicatorLogDelivery(ReplicatorLogDeliveryReplicatorLogDeliveryArgs.builder()
- *                     .cloudwatchLogs(ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs.builder()
- *                         .enabled(true)
- *                         .logGroup(testAwsCloudwatchLogGroup.name())
- *                         .build())
- *                     .firehose(ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs.builder()
- *                         .enabled(true)
- *                         .deliveryStream(testAwsKinesisFirehoseDeliveryStream.name())
- *                         .build())
- *                     .s3(ReplicatorLogDeliveryReplicatorLogDeliveryS3Args.builder()
- *                         .enabled(true)
- *                         .bucket(testAwsS3Bucket.bucket())
- *                         .prefix("replicator-logs")
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .replicatorName("test-name")
+ *             .serviceExecutionRoleArn(sourceAwsIamRole.arn())
  *             .kafkaClusters(            
  *                 ReplicatorKafkaClusterArgs.builder()
  *                     .amazonMskCluster(ReplicatorKafkaClusterAmazonMskClusterArgs.builder()
@@ -279,8 +253,34 @@ import javax.annotation.Nullable;
  *                         .securityGroupsIds(targetAwsSecurityGroup.id())
  *                         .build())
  *                     .build())
- *             .replicatorName("test-name")
- *             .serviceExecutionRoleArn(sourceAwsIamRole.arn())
+ *             .replicationInfoList(ReplicatorReplicationInfoListArgs.builder()
+ *                 .sourceKafkaClusterArn(source.arn())
+ *                 .targetKafkaClusterArn(target.arn())
+ *                 .targetCompressionType("NONE")
+ *                 .topicReplications(ReplicatorReplicationInfoListTopicReplicationArgs.builder()
+ *                     .topicsToReplicates(".*")
+ *                     .build())
+ *                 .consumerGroupReplications(ReplicatorReplicationInfoListConsumerGroupReplicationArgs.builder()
+ *                     .consumerGroupsToReplicates(".*")
+ *                     .build())
+ *                 .build())
+ *             .logDelivery(ReplicatorLogDeliveryArgs.builder()
+ *                 .replicatorLogDelivery(ReplicatorLogDeliveryReplicatorLogDeliveryArgs.builder()
+ *                     .cloudwatchLogs(ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs.builder()
+ *                         .enabled(true)
+ *                         .logGroup(testAwsCloudwatchLogGroup.name())
+ *                         .build())
+ *                     .firehose(ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs.builder()
+ *                         .enabled(true)
+ *                         .deliveryStream(testAwsKinesisFirehoseDeliveryStream.name())
+ *                         .build())
+ *                     .s3(ReplicatorLogDeliveryReplicatorLogDeliveryS3Args.builder()
+ *                         .enabled(true)
+ *                         .bucket(testAwsS3Bucket.bucket())
+ *                         .prefix("replicator-logs")
+ *                         .build())
+ *                     .build())
+ *                 .build())
  *             .build());
  * 
  *     }

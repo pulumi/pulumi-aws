@@ -19,8 +19,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.cloudwatch.getLogDataProtectionPolicyDocument({
+ *     name: "Example",
  *     statements: [
  *         {
+ *             sid: "Audit",
+ *             dataIdentifiers: [
+ *                 "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+ *                 "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
+ *             ],
  *             operation: {
  *                 audit: {
  *                     findingsDestination: {
@@ -36,26 +42,20 @@ import * as utilities from "../utilities";
  *                     },
  *                 },
  *             },
- *             sid: "Audit",
- *             dataIdentifiers: [
- *                 "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
- *                 "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
- *             ],
  *         },
  *         {
- *             operation: {
- *                 deidentify: {
- *                     maskConfig: {},
- *                 },
- *             },
  *             sid: "Deidentify",
  *             dataIdentifiers: [
  *                 "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
  *                 "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
  *             ],
+ *             operation: {
+ *                 deidentify: {
+ *                     maskConfig: {},
+ *                 },
+ *             },
  *         },
  *     ],
- *     name: "Example",
  * });
  * const exampleLogDataProtectionPolicy = new aws.cloudwatch.LogDataProtectionPolicy("example", {
  *     logGroupName: exampleAwsCloudwatchLogGroup.name,
@@ -125,8 +125,14 @@ export interface GetLogDataProtectionPolicyDocumentResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.cloudwatch.getLogDataProtectionPolicyDocument({
+ *     name: "Example",
  *     statements: [
  *         {
+ *             sid: "Audit",
+ *             dataIdentifiers: [
+ *                 "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+ *                 "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
+ *             ],
  *             operation: {
  *                 audit: {
  *                     findingsDestination: {
@@ -142,26 +148,20 @@ export interface GetLogDataProtectionPolicyDocumentResult {
  *                     },
  *                 },
  *             },
- *             sid: "Audit",
- *             dataIdentifiers: [
- *                 "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
- *                 "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
- *             ],
  *         },
  *         {
- *             operation: {
- *                 deidentify: {
- *                     maskConfig: {},
- *                 },
- *             },
  *             sid: "Deidentify",
  *             dataIdentifiers: [
  *                 "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
  *                 "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
  *             ],
+ *             operation: {
+ *                 deidentify: {
+ *                     maskConfig: {},
+ *                 },
+ *             },
  *         },
  *     ],
- *     name: "Example",
  * });
  * const exampleLogDataProtectionPolicy = new aws.cloudwatch.LogDataProtectionPolicy("example", {
  *     logGroupName: exampleAwsCloudwatchLogGroup.name,

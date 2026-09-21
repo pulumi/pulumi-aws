@@ -344,7 +344,7 @@ class ResolverRule(pulumi.CustomResource):
                  resolver_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_ips: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResolverRuleTargetIpArgs', 'ResolverRuleTargetIpArgsDict']]]]] = None,
+                 target_ips: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResolverRuleTargetIpArgs', 'ResolverRuleTargetIpArgsDict', 'outputs.ResolverRuleTargetIp']]]]] = None,
                  __props__=None):
         """
         Provides a Route53 Resolver rule.
@@ -369,13 +369,13 @@ class ResolverRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         fwd = aws.route53.ResolverRule("fwd",
-            target_ips=[{
-                "ip": "123.45.67.89",
-            }],
             domain_name="example.com",
             name="example",
             rule_type="FORWARD",
             resolver_endpoint_id=foo["id"],
+            target_ips=[{
+                "ip": "123.45.67.89",
+            }],
             tags={
                 "Environment": "Prod",
             })
@@ -388,13 +388,13 @@ class ResolverRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         fwd = aws.route53.ResolverRule("fwd",
-            target_ips=[{
-                "ipv6": "2600:1f18:1686:2000:4e60:6e3e:258:da36",
-            }],
             domain_name="example.com",
             name="example",
             rule_type="FORWARD",
             resolver_endpoint_id=foo["id"],
+            target_ips=[{
+                "ipv6": "2600:1f18:1686:2000:4e60:6e3e:258:da36",
+            }],
             tags={
                 "Environment": "Prod",
             })
@@ -429,7 +429,7 @@ class ResolverRule(pulumi.CustomResource):
                This argument should only be specified for `FORWARD` type rules.
         :param pulumi.Input[_builtins.str] rule_type: Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ResolverRuleTargetIpArgs', 'ResolverRuleTargetIpArgsDict']]]] target_ips: Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResolverRuleTargetIpArgs', 'ResolverRuleTargetIpArgsDict', 'outputs.ResolverRuleTargetIp']]]] target_ips: Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
                This argument should only be specified for `FORWARD` type rules.
         """
         ...
@@ -461,13 +461,13 @@ class ResolverRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         fwd = aws.route53.ResolverRule("fwd",
-            target_ips=[{
-                "ip": "123.45.67.89",
-            }],
             domain_name="example.com",
             name="example",
             rule_type="FORWARD",
             resolver_endpoint_id=foo["id"],
+            target_ips=[{
+                "ip": "123.45.67.89",
+            }],
             tags={
                 "Environment": "Prod",
             })
@@ -480,13 +480,13 @@ class ResolverRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         fwd = aws.route53.ResolverRule("fwd",
-            target_ips=[{
-                "ipv6": "2600:1f18:1686:2000:4e60:6e3e:258:da36",
-            }],
             domain_name="example.com",
             name="example",
             rule_type="FORWARD",
             resolver_endpoint_id=foo["id"],
+            target_ips=[{
+                "ipv6": "2600:1f18:1686:2000:4e60:6e3e:258:da36",
+            }],
             tags={
                 "Environment": "Prod",
             })
@@ -533,7 +533,7 @@ class ResolverRule(pulumi.CustomResource):
                  resolver_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_ips: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResolverRuleTargetIpArgs', 'ResolverRuleTargetIpArgsDict']]]]] = None,
+                 target_ips: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResolverRuleTargetIpArgs', 'ResolverRuleTargetIpArgsDict', 'outputs.ResolverRuleTargetIp']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -578,7 +578,7 @@ class ResolverRule(pulumi.CustomResource):
             share_status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            target_ips: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResolverRuleTargetIpArgs', 'ResolverRuleTargetIpArgsDict']]]]] = None) -> 'ResolverRule':
+            target_ips: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResolverRuleTargetIpArgs', 'ResolverRuleTargetIpArgsDict', 'outputs.ResolverRuleTargetIp']]]]] = None) -> 'ResolverRule':
         """
         Get an existing ResolverRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -598,7 +598,7 @@ class ResolverRule(pulumi.CustomResource):
                Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ResolverRuleTargetIpArgs', 'ResolverRuleTargetIpArgsDict']]]] target_ips: Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResolverRuleTargetIpArgs', 'ResolverRuleTargetIpArgsDict', 'outputs.ResolverRuleTargetIp']]]] target_ips: Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
                This argument should only be specified for `FORWARD` type rules.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

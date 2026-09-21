@@ -52,17 +52,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Entitlement("example", EntitlementArgs.builder()
+ *             .applicationArn(exampleAwsAccountaccessApplication.arn())
  *             .entitlement(EntitlementEntitlementArgs.builder()
  *                 .principalRole(EntitlementEntitlementPrincipalRoleArgs.builder()
+ *                     .roleArn("arn:aws:iam::123456789012:role/Developer")
  *                     .principal(EntitlementEntitlementPrincipalRolePrincipalArgs.builder()
  *                         .identityCenter(EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs.builder()
  *                             .userId("11111111-2222-3333-4444-555555555555")
  *                             .build())
  *                         .build())
- *                     .roleArn("arn:aws:iam::123456789012:role/Developer")
  *                     .build())
  *                 .build())
- *             .applicationArn(exampleAwsAccountaccessApplication.arn())
  *             .build());
  * 
  *     }
@@ -99,17 +99,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Entitlement("example", EntitlementArgs.builder()
+ *             .applicationArn(exampleAwsAccountaccessApplication.arn())
  *             .entitlement(EntitlementEntitlementArgs.builder()
  *                 .principalRole(EntitlementEntitlementPrincipalRoleArgs.builder()
+ *                     .roleArn("arn:aws:iam::123456789012:role/Engineering")
  *                     .principal(EntitlementEntitlementPrincipalRolePrincipalArgs.builder()
  *                         .identityCenter(EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs.builder()
  *                             .groupId("aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee")
  *                             .build())
  *                         .build())
- *                     .roleArn("arn:aws:iam::123456789012:role/Engineering")
  *                     .build())
  *                 .build())
- *             .applicationArn(exampleAwsAccountaccessApplication.arn())
  *             .build());
  * 
  *     }
@@ -189,17 +189,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEntitlement = new Entitlement("exampleEntitlement", EntitlementArgs.builder()
+ *             .applicationArn(exampleApplication.arn())
  *             .entitlement(EntitlementEntitlementArgs.builder()
  *                 .principalRole(EntitlementEntitlementPrincipalRoleArgs.builder()
+ *                     .roleArn(target.arn())
  *                     .principal(EntitlementEntitlementPrincipalRolePrincipalArgs.builder()
  *                         .identityCenter(EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs.builder()
  *                             .userId("11111111-2222-3333-4444-555555555555")
  *                             .build())
  *                         .build())
- *                     .roleArn(target.arn())
  *                     .build())
  *                 .build())
- *             .applicationArn(exampleApplication.arn())
  *             .build());
  * 
  *     }

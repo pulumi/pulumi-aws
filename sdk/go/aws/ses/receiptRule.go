@@ -30,6 +30,13 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Add a header to the email and store it in S3
 //			_, err := ses.NewReceiptRule(ctx, "store", &ses.ReceiptRuleArgs{
+//				Name:        pulumi.String("store"),
+//				RuleSetName: pulumi.String("default-rule-set"),
+//				Recipients: pulumi.StringArray{
+//					pulumi.String("karen@example.com"),
+//				},
+//				Enabled:     pulumi.Bool(true),
+//				ScanEnabled: pulumi.Bool(true),
 //				AddHeaderActions: ses.ReceiptRuleAddHeaderActionArray{
 //					&ses.ReceiptRuleAddHeaderActionArgs{
 //						HeaderName:  pulumi.String("Custom-Header"),
@@ -43,13 +50,6 @@ import (
 //						Position:   pulumi.Int(2),
 //					},
 //				},
-//				Name:        pulumi.String("store"),
-//				RuleSetName: pulumi.String("default-rule-set"),
-//				Recipients: pulumi.StringArray{
-//					pulumi.String("karen@example.com"),
-//				},
-//				Enabled:     pulumi.Bool(true),
-//				ScanEnabled: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

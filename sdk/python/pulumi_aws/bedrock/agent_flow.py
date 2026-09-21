@@ -394,13 +394,13 @@ class AgentFlow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 definition: pulumi.Input[Optional[Union['AgentFlowDefinitionArgs', 'AgentFlowDefinitionArgsDict']]] = None,
+                 definition: pulumi.Input[Optional[Union['AgentFlowDefinitionArgs', 'AgentFlowDefinitionArgsDict', 'outputs.AgentFlowDefinition']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentFlowTimeoutsArgs', 'AgentFlowTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentFlowTimeoutsArgs', 'AgentFlowTimeoutsArgsDict', 'outputs.AgentFlowTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Bedrock Agents Flow.
@@ -425,35 +425,39 @@ class AgentFlow(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentFlow("example",
+            name="example",
+            execution_role_arn=example_aws_iam_role["arn"],
             definition={
                 "connections": [
                     {
+                        "name": "FlowInputNodeFlowInputNode0ToPrompt_1PromptsNode0",
+                        "source": "FlowInputNode",
+                        "target": "Prompt_1",
+                        "type": "Data",
                         "configuration": {
                             "data": {
                                 "source_output": "document",
                                 "target_input": "topic",
                             },
                         },
-                        "name": "FlowInputNodeFlowInputNode0ToPrompt_1PromptsNode0",
-                        "source": "FlowInputNode",
-                        "target": "Prompt_1",
-                        "type": "Data",
                     },
                     {
+                        "name": "Prompt_1PromptsNode0ToFlowOutputNodeFlowOutputNode0",
+                        "source": "Prompt_1",
+                        "target": "FlowOutputNode",
+                        "type": "Data",
                         "configuration": {
                             "data": {
                                 "source_output": "modelCompletion",
                                 "target_input": "document",
                             },
                         },
-                        "name": "Prompt_1PromptsNode0ToFlowOutputNodeFlowOutputNode0",
-                        "source": "Prompt_1",
-                        "target": "FlowOutputNode",
-                        "type": "Data",
                     },
                 ],
                 "nodes": [
                     {
+                        "name": "FlowInputNode",
+                        "type": "Input",
                         "configuration": {
                             "input": {},
                         },
@@ -461,14 +465,16 @@ class AgentFlow(pulumi.CustomResource):
                             "name": "document",
                             "type": "String",
                         }],
-                        "name": "FlowInputNode",
-                        "type": "Input",
                     },
                     {
+                        "name": "Prompt_1",
+                        "type": "Prompt",
                         "configuration": {
                             "prompt": {
                                 "source_configuration": {
                                     "inline": {
+                                        "model_id": "amazon.titan-text-express-v1",
+                                        "template_type": "TEXT",
                                         "inference_configuration": {
                                             "text": {
                                                 "max_tokens": 2048,
@@ -479,14 +485,12 @@ class AgentFlow(pulumi.CustomResource):
                                         },
                                         "template_configuration": {
                                             "text": {
+                                                "text": "Write a paragraph about {{topic}}.",
                                                 "input_variables": [{
                                                     "name": "topic",
                                                 }],
-                                                "text": "Write a paragraph about {{topic}}.",
                                             },
                                         },
-                                        "model_id": "amazon.titan-text-express-v1",
-                                        "template_type": "TEXT",
                                     },
                                 },
                             },
@@ -500,10 +504,10 @@ class AgentFlow(pulumi.CustomResource):
                             "name": "modelCompletion",
                             "type": "String",
                         }],
-                        "name": "Prompt_1",
-                        "type": "Prompt",
                     },
                     {
+                        "name": "FlowOutputNode",
+                        "type": "Output",
                         "configuration": {
                             "output": {},
                         },
@@ -512,13 +516,9 @@ class AgentFlow(pulumi.CustomResource):
                             "name": "document",
                             "type": "String",
                         }],
-                        "name": "FlowOutputNode",
-                        "type": "Output",
                     },
                 ],
-            },
-            name="example",
-            execution_role_arn=example_aws_iam_role["arn"])
+            })
         ```
 
         ## Import
@@ -533,7 +533,7 @@ class AgentFlow(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] customer_encryption_key_arn: ARN of the KMS key to encrypt the flow.
-        :param pulumi.Input[Union['AgentFlowDefinitionArgs', 'AgentFlowDefinitionArgsDict']] definition: A definition of the nodes and connections between nodes in the flow. See Definition for more information.
+        :param pulumi.Input[Union['AgentFlowDefinitionArgs', 'AgentFlowDefinitionArgsDict', 'outputs.AgentFlowDefinition']] definition: A definition of the nodes and connections between nodes in the flow. See Definition for more information.
         :param pulumi.Input[_builtins.str] description: A description for the flow.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
                
@@ -571,35 +571,39 @@ class AgentFlow(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentFlow("example",
+            name="example",
+            execution_role_arn=example_aws_iam_role["arn"],
             definition={
                 "connections": [
                     {
+                        "name": "FlowInputNodeFlowInputNode0ToPrompt_1PromptsNode0",
+                        "source": "FlowInputNode",
+                        "target": "Prompt_1",
+                        "type": "Data",
                         "configuration": {
                             "data": {
                                 "source_output": "document",
                                 "target_input": "topic",
                             },
                         },
-                        "name": "FlowInputNodeFlowInputNode0ToPrompt_1PromptsNode0",
-                        "source": "FlowInputNode",
-                        "target": "Prompt_1",
-                        "type": "Data",
                     },
                     {
+                        "name": "Prompt_1PromptsNode0ToFlowOutputNodeFlowOutputNode0",
+                        "source": "Prompt_1",
+                        "target": "FlowOutputNode",
+                        "type": "Data",
                         "configuration": {
                             "data": {
                                 "source_output": "modelCompletion",
                                 "target_input": "document",
                             },
                         },
-                        "name": "Prompt_1PromptsNode0ToFlowOutputNodeFlowOutputNode0",
-                        "source": "Prompt_1",
-                        "target": "FlowOutputNode",
-                        "type": "Data",
                     },
                 ],
                 "nodes": [
                     {
+                        "name": "FlowInputNode",
+                        "type": "Input",
                         "configuration": {
                             "input": {},
                         },
@@ -607,14 +611,16 @@ class AgentFlow(pulumi.CustomResource):
                             "name": "document",
                             "type": "String",
                         }],
-                        "name": "FlowInputNode",
-                        "type": "Input",
                     },
                     {
+                        "name": "Prompt_1",
+                        "type": "Prompt",
                         "configuration": {
                             "prompt": {
                                 "source_configuration": {
                                     "inline": {
+                                        "model_id": "amazon.titan-text-express-v1",
+                                        "template_type": "TEXT",
                                         "inference_configuration": {
                                             "text": {
                                                 "max_tokens": 2048,
@@ -625,14 +631,12 @@ class AgentFlow(pulumi.CustomResource):
                                         },
                                         "template_configuration": {
                                             "text": {
+                                                "text": "Write a paragraph about {{topic}}.",
                                                 "input_variables": [{
                                                     "name": "topic",
                                                 }],
-                                                "text": "Write a paragraph about {{topic}}.",
                                             },
                                         },
-                                        "model_id": "amazon.titan-text-express-v1",
-                                        "template_type": "TEXT",
                                     },
                                 },
                             },
@@ -646,10 +650,10 @@ class AgentFlow(pulumi.CustomResource):
                             "name": "modelCompletion",
                             "type": "String",
                         }],
-                        "name": "Prompt_1",
-                        "type": "Prompt",
                     },
                     {
+                        "name": "FlowOutputNode",
+                        "type": "Output",
                         "configuration": {
                             "output": {},
                         },
@@ -658,13 +662,9 @@ class AgentFlow(pulumi.CustomResource):
                             "name": "document",
                             "type": "String",
                         }],
-                        "name": "FlowOutputNode",
-                        "type": "Output",
                     },
                 ],
-            },
-            name="example",
-            execution_role_arn=example_aws_iam_role["arn"])
+            })
         ```
 
         ## Import
@@ -692,13 +692,13 @@ class AgentFlow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 definition: pulumi.Input[Optional[Union['AgentFlowDefinitionArgs', 'AgentFlowDefinitionArgsDict']]] = None,
+                 definition: pulumi.Input[Optional[Union['AgentFlowDefinitionArgs', 'AgentFlowDefinitionArgsDict', 'outputs.AgentFlowDefinition']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentFlowTimeoutsArgs', 'AgentFlowTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentFlowTimeoutsArgs', 'AgentFlowTimeoutsArgsDict', 'outputs.AgentFlowTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -737,7 +737,7 @@ class AgentFlow(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
             customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            definition: pulumi.Input[Optional[Union['AgentFlowDefinitionArgs', 'AgentFlowDefinitionArgsDict']]] = None,
+            definition: pulumi.Input[Optional[Union['AgentFlowDefinitionArgs', 'AgentFlowDefinitionArgsDict', 'outputs.AgentFlowDefinition']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -745,7 +745,7 @@ class AgentFlow(pulumi.CustomResource):
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['AgentFlowTimeoutsArgs', 'AgentFlowTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentFlowTimeoutsArgs', 'AgentFlowTimeoutsArgsDict', 'outputs.AgentFlowTimeouts']]] = None,
             updated_at: pulumi.Input[Optional[_builtins.str]] = None,
             version: pulumi.Input[Optional[_builtins.str]] = None) -> 'AgentFlow':
         """
@@ -758,7 +758,7 @@ class AgentFlow(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the flow.
         :param pulumi.Input[_builtins.str] created_at: The time at which the flow was created.
         :param pulumi.Input[_builtins.str] customer_encryption_key_arn: ARN of the KMS key to encrypt the flow.
-        :param pulumi.Input[Union['AgentFlowDefinitionArgs', 'AgentFlowDefinitionArgsDict']] definition: A definition of the nodes and connections between nodes in the flow. See Definition for more information.
+        :param pulumi.Input[Union['AgentFlowDefinitionArgs', 'AgentFlowDefinitionArgsDict', 'outputs.AgentFlowDefinition']] definition: A definition of the nodes and connections between nodes in the flow. See Definition for more information.
         :param pulumi.Input[_builtins.str] description: A description for the flow.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
                

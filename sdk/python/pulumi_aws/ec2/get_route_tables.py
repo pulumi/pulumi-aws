@@ -99,7 +99,7 @@ class AwaitableGetRouteTablesResult(GetRouteTablesResult):
             vpc_id=self.vpc_id)
 
 
-def get_route_tables(filters: Optional[Sequence[Union['GetRouteTablesFilterArgs', 'GetRouteTablesFilterArgsDict']]] = None,
+def get_route_tables(filters: Optional[Sequence[Union['GetRouteTablesFilterArgs', 'GetRouteTablesFilterArgsDict', 'outputs.GetRouteTablesFilterResult']]] = None,
                      region: Optional[_builtins.str] = None,
                      tags: Optional[Mapping[str, _builtins.str]] = None,
                      vpc_id: Optional[_builtins.str] = None,
@@ -118,11 +118,11 @@ def get_route_tables(filters: Optional[Sequence[Union['GetRouteTablesFilterArgs'
     from typing import Any
     import pulumi_aws as aws
 
-    rts = aws.ec2.get_route_tables(filters=[{
+    rts = aws.ec2.get_route_tables(vpc_id=vpc_id,
+        filters=[{
             "name": "tag:kubernetes.io/kops/role",
             "values": ["private*"],
-        }],
-        vpc_id=vpc_id)
+        }])
     r: list[aws.ec2.Route] = []
     def create_r(range_body):
         for r_range in [{"value": i} for i in range(0, range_body)]:
@@ -135,7 +135,7 @@ def get_route_tables(filters: Optional[Sequence[Union['GetRouteTablesFilterArgs'
     ```
 
 
-    :param Sequence[Union['GetRouteTablesFilterArgs', 'GetRouteTablesFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetRouteTablesFilterArgs', 'GetRouteTablesFilterArgsDict', 'outputs.GetRouteTablesFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired route tables.
@@ -156,7 +156,7 @@ def get_route_tables(filters: Optional[Sequence[Union['GetRouteTablesFilterArgs'
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_route_tables_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetRouteTablesFilterArgs', 'GetRouteTablesFilterArgsDict']]]]] = None,
+def get_route_tables_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetRouteTablesFilterArgs', 'GetRouteTablesFilterArgsDict', 'outputs.GetRouteTablesFilterResult']]]]] = None,
                             region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                             vpc_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -175,11 +175,11 @@ def get_route_tables_output(filters: pulumi.Input[Optional[Optional[Sequence[Uni
     from typing import Any
     import pulumi_aws as aws
 
-    rts = aws.ec2.get_route_tables(filters=[{
+    rts = aws.ec2.get_route_tables(vpc_id=vpc_id,
+        filters=[{
             "name": "tag:kubernetes.io/kops/role",
             "values": ["private*"],
-        }],
-        vpc_id=vpc_id)
+        }])
     r: list[aws.ec2.Route] = []
     def create_r(range_body):
         for r_range in [{"value": i} for i in range(0, range_body)]:
@@ -192,7 +192,7 @@ def get_route_tables_output(filters: pulumi.Input[Optional[Optional[Sequence[Uni
     ```
 
 
-    :param Sequence[Union['GetRouteTablesFilterArgs', 'GetRouteTablesFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetRouteTablesFilterArgs', 'GetRouteTablesFilterArgsDict', 'outputs.GetRouteTablesFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired route tables.

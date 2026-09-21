@@ -29,12 +29,6 @@ namespace Pulumi.Aws.SecretsManager
     ///     var test = new Aws.SecretsManager.Secret("test", new()
     ///     {
     ///         Name = "example-secret",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         IgnoreChanges =
-    ///         {
-    ///             "tags",
-    ///         },
     ///     });
     /// 
     ///     var testTag = new Aws.SecretsManager.Tag("test", new()

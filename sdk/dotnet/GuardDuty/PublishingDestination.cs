@@ -38,17 +38,6 @@ namespace Pulumi.Aws.GuardDuty
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "guardduty.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
     ///                 Sid = "Allow PutObject",
     ///                 Actions = new[]
     ///                 {
@@ -58,9 +47,6 @@ namespace Pulumi.Aws.GuardDuty
     ///                 {
     ///                     $"{gdBucket.Arn}/*",
     ///                 },
-    ///             },
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -72,6 +58,9 @@ namespace Pulumi.Aws.GuardDuty
     ///                         },
     ///                     },
     ///                 },
+    ///             },
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
     ///                 Sid = "Allow GetBucketLocation",
     ///                 Actions = new[]
     ///                 {
@@ -80,6 +69,17 @@ namespace Pulumi.Aws.GuardDuty
     ///                 Resources = new[]
     ///                 {
     ///                     gdBucket.Arn,
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "guardduty.amazonaws.com",
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
     ///         },
@@ -91,6 +91,15 @@ namespace Pulumi.Aws.GuardDuty
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Sid = "Allow GuardDuty to encrypt findings",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "kms:GenerateDataKey",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"arn:aws:kms:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:key/*",
+    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -102,18 +111,18 @@ namespace Pulumi.Aws.GuardDuty
     ///                         },
     ///                     },
     ///                 },
-    ///                 Sid = "Allow GuardDuty to encrypt findings",
+    ///             },
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "Allow all users to modify/delete key (test only)",
     ///                 Actions = new[]
     ///                 {
-    ///                     "kms:GenerateDataKey",
+    ///                     "kms:*",
     ///                 },
     ///                 Resources = new[]
     ///                 {
     ///                     $"arn:aws:kms:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:key/*",
     ///                 },
-    ///             },
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -124,15 +133,6 @@ namespace Pulumi.Aws.GuardDuty
     ///                             $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
     ///                         },
     ///                     },
-    ///                 },
-    ///                 Sid = "Allow all users to modify/delete key (test only)",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "kms:*",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     $"arn:aws:kms:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:key/*",
     ///                 },
     ///             },
     ///         },

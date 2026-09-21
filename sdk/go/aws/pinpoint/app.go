@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := pinpoint.NewApp(ctx, "example", &pinpoint.AppArgs{
+//				Name: pulumi.String("test-app"),
 //				Limits: &pinpoint.AppLimitsArgs{
 //					MaximumDuration: pulumi.Int(600),
 //				},
@@ -37,7 +38,6 @@ import (
 //					Start: pulumi.String("00:00"),
 //					End:   pulumi.String("06:00"),
 //				},
-//				Name: pulumi.String("test-app"),
 //			})
 //			if err != nil {
 //				return err

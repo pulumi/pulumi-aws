@@ -54,14 +54,10 @@ import (
 //			assumeRoleTransfer, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Conditions: []iam.GetPolicyDocumentStatementCondition{
-//							{
-//								Test: "StringEquals",
-//								Values: pulumi.StringArray{
-//									current.AccountId,
-//								},
-//								Variable: "aws:SourceAccount",
-//							},
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"sts:AssumeRole",
+//							"sts:SetContext",
 //						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
@@ -71,10 +67,14 @@ import (
 //								},
 //							},
 //						},
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"sts:AssumeRole",
-//							"sts:SetContext",
+//						Conditions: []iam.GetPolicyDocumentStatementCondition{
+//							{
+//								Test: "StringEquals",
+//								Values: pulumi.StringArray{
+//									current.AccountId,
+//								},
+//								Variable: "aws:SourceAccount",
+//							},
 //						},
 //					},
 //				},
@@ -92,15 +92,6 @@ import (
 //			exampleGetPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Conditions: []iam.GetPolicyDocumentStatementCondition{
-//							{
-//								Test: "StringEquals",
-//								Values: pulumi.StringArray{
-//									current.AccountId,
-//								},
-//								Variable: "s3:ResourceAccount",
-//							},
-//						},
 //						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"s3:GetDataAccess",
@@ -109,8 +100,6 @@ import (
 //						Resources: []string{
 //							fmt.Sprintf("arn:%v:s3:%v:%v:access-grants/*", currentGetPartition.Partition, currentGetRegion.Region, current.AccountId),
 //						},
-//					},
-//					{
 //						Conditions: []iam.GetPolicyDocumentStatementCondition{
 //							{
 //								Test: "StringEquals",
@@ -120,12 +109,23 @@ import (
 //								Variable: "s3:ResourceAccount",
 //							},
 //						},
+//					},
+//					{
 //						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"s3:ListAccessGrantsInstances",
 //						},
 //						Resources: []string{
 //							"*",
+//						},
+//						Conditions: []iam.GetPolicyDocumentStatementCondition{
+//							{
+//								Test: "StringEquals",
+//								Values: pulumi.StringArray{
+//									current.AccountId,
+//								},
+//								Variable: "s3:ResourceAccount",
+//							},
 //						},
 //					},
 //				},

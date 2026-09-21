@@ -26,6 +26,8 @@ import * as utilities from "../utilities";
  *     dependsOn: [example],
  * });
  * const exampleAccessGrant = new aws.s3control.AccessGrant("example", {
+ *     accessGrantsLocationId: exampleAccessGrantsLocation.accessGrantsLocationId,
+ *     permission: "READ",
  *     accessGrantsLocationConfiguration: {
  *         s3SubPrefix: "prefixB*",
  *     },
@@ -33,8 +35,6 @@ import * as utilities from "../utilities";
  *         granteeType: "IAM",
  *         granteeIdentifier: exampleAwsIamUser.arn,
  *     },
- *     accessGrantsLocationId: exampleAccessGrantsLocation.accessGrantsLocationId,
- *     permission: "READ",
  * });
  * ```
  *

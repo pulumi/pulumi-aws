@@ -36,6 +36,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			test, err := ec2.GetInstances(ctx, &ec2.GetInstancesArgs{
+//				InstanceTags: map[string]string{
+//					"Role": "HardWorker",
+//				},
 //				Filters: []ec2.GetInstancesFilter{
 //					{
 //						Name: "instance.group-id",
@@ -43,9 +46,6 @@ import (
 //							"sg-12345678",
 //						},
 //					},
-//				},
-//				InstanceTags: map[string]string{
-//					"Role": "HardWorker",
 //				},
 //				InstanceStateNames: []string{
 //					"running",

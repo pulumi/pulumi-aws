@@ -47,6 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CustomRoutingEndpointGroup("example", CustomRoutingEndpointGroupArgs.builder()
+ *             .listenerArn(exampleAwsGlobalacceleratorCustomRoutingListener.arn())
  *             .destinationConfigurations(CustomRoutingEndpointGroupDestinationConfigurationArgs.builder()
  *                 .fromPort(80)
  *                 .toPort(8080)
@@ -55,7 +56,6 @@ import javax.annotation.Nullable;
  *             .endpointConfigurations(CustomRoutingEndpointGroupEndpointConfigurationArgs.builder()
  *                 .endpointId(exampleAwsSubnet.id())
  *                 .build())
- *             .listenerArn(exampleAwsGlobalacceleratorCustomRoutingListener.arn())
  *             .build());
  * 
  *     }

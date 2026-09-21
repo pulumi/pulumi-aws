@@ -81,7 +81,7 @@ class AwaitableGetInstanceTypesResult(GetInstanceTypesResult):
             region=self.region)
 
 
-def get_instance_types(filters: Optional[Sequence[Union['GetInstanceTypesFilterArgs', 'GetInstanceTypesFilterArgsDict']]] = None,
+def get_instance_types(filters: Optional[Sequence[Union['GetInstanceTypesFilterArgs', 'GetInstanceTypesFilterArgsDict', 'outputs.GetInstanceTypesFilterResult']]] = None,
                        region: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceTypesResult:
     """
@@ -117,7 +117,7 @@ def get_instance_types(filters: Optional[Sequence[Union['GetInstanceTypesFilterA
     ```
 
 
-    :param Sequence[Union['GetInstanceTypesFilterArgs', 'GetInstanceTypesFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
+    :param Sequence[Union['GetInstanceTypesFilterArgs', 'GetInstanceTypesFilterArgsDict', 'outputs.GetInstanceTypesFilterResult']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -131,7 +131,7 @@ def get_instance_types(filters: Optional[Sequence[Union['GetInstanceTypesFilterA
         id=pulumi.get(__ret__, 'id'),
         instance_types=pulumi.get(__ret__, 'instance_types'),
         region=pulumi.get(__ret__, 'region'))
-def get_instance_types_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetInstanceTypesFilterArgs', 'GetInstanceTypesFilterArgsDict']]]]] = None,
+def get_instance_types_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetInstanceTypesFilterArgs', 'GetInstanceTypesFilterArgsDict', 'outputs.GetInstanceTypesFilterResult']]]]] = None,
                               region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceTypesResult]:
     """
@@ -167,7 +167,7 @@ def get_instance_types_output(filters: pulumi.Input[Optional[Optional[Sequence[U
     ```
 
 
-    :param Sequence[Union['GetInstanceTypesFilterArgs', 'GetInstanceTypesFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
+    :param Sequence[Union['GetInstanceTypesFilterArgs', 'GetInstanceTypesFilterArgsDict', 'outputs.GetInstanceTypesFilterResult']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

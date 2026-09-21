@@ -37,6 +37,10 @@ import (
 //				return err
 //			}
 //			amazonLinux, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+//				MostRecent: pulumi.BoolRef(true),
+//				Owners: []string{
+//					"amazon",
+//				},
 //				Filters: []ec2.GetAmiFilter{
 //					{
 //						Name: "name",
@@ -50,10 +54,6 @@ import (
 //							"amazon",
 //						},
 //					},
-//				},
-//				MostRecent: pulumi.BoolRef(true),
-//				Owners: []string{
-//					"amazon",
 //				},
 //			}, nil)
 //			if err != nil {

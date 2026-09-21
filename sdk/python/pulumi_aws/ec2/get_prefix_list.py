@@ -102,7 +102,7 @@ class AwaitableGetPrefixListResult(GetPrefixListResult):
             region=self.region)
 
 
-def get_prefix_list(filters: Optional[Sequence[Union['GetPrefixListFilterArgs', 'GetPrefixListFilterArgsDict']]] = None,
+def get_prefix_list(filters: Optional[Sequence[Union['GetPrefixListFilterArgs', 'GetPrefixListFilterArgsDict', 'outputs.GetPrefixListFilterResult']]] = None,
                     name: Optional[_builtins.str] = None,
                     prefix_list_id: Optional[_builtins.str] = None,
                     region: Optional[_builtins.str] = None,
@@ -153,7 +153,7 @@ def get_prefix_list(filters: Optional[Sequence[Union['GetPrefixListFilterArgs', 
     ```
 
 
-    :param Sequence[Union['GetPrefixListFilterArgs', 'GetPrefixListFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetPrefixListFilterArgs', 'GetPrefixListFilterArgsDict', 'outputs.GetPrefixListFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
            
            The arguments of this data source act as filters for querying the available
            prefix lists. The given filters must match exactly one prefix list
@@ -177,7 +177,7 @@ def get_prefix_list(filters: Optional[Sequence[Union['GetPrefixListFilterArgs', 
         name=pulumi.get(__ret__, 'name'),
         prefix_list_id=pulumi.get(__ret__, 'prefix_list_id'),
         region=pulumi.get(__ret__, 'region'))
-def get_prefix_list_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetPrefixListFilterArgs', 'GetPrefixListFilterArgsDict']]]]] = None,
+def get_prefix_list_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetPrefixListFilterArgs', 'GetPrefixListFilterArgsDict', 'outputs.GetPrefixListFilterResult']]]]] = None,
                            name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            prefix_list_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -228,7 +228,7 @@ def get_prefix_list_output(filters: pulumi.Input[Optional[Optional[Sequence[Unio
     ```
 
 
-    :param Sequence[Union['GetPrefixListFilterArgs', 'GetPrefixListFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetPrefixListFilterArgs', 'GetPrefixListFilterArgsDict', 'outputs.GetPrefixListFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
            
            The arguments of this data source act as filters for querying the available
            prefix lists. The given filters must match exactly one prefix list

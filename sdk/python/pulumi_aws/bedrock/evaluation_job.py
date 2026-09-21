@@ -531,16 +531,16 @@ class EvaluationJob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_type: pulumi.Input[Optional[_builtins.str]] = None,
                  customer_encryption_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 evaluation_config: pulumi.Input[Optional[Union['EvaluationJobEvaluationConfigArgs', 'EvaluationJobEvaluationConfigArgsDict']]] = None,
-                 inference_config: pulumi.Input[Optional[Union['EvaluationJobInferenceConfigArgs', 'EvaluationJobInferenceConfigArgsDict']]] = None,
+                 evaluation_config: pulumi.Input[Optional[Union['EvaluationJobEvaluationConfigArgs', 'EvaluationJobEvaluationConfigArgsDict', 'outputs.EvaluationJobEvaluationConfig']]] = None,
+                 inference_config: pulumi.Input[Optional[Union['EvaluationJobInferenceConfigArgs', 'EvaluationJobInferenceConfigArgsDict', 'outputs.EvaluationJobInferenceConfig']]] = None,
                  job_description: pulumi.Input[Optional[_builtins.str]] = None,
                  job_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 output_data_config: pulumi.Input[Optional[Union['EvaluationJobOutputDataConfigArgs', 'EvaluationJobOutputDataConfigArgsDict']]] = None,
+                 output_data_config: pulumi.Input[Optional[Union['EvaluationJobOutputDataConfigArgs', 'EvaluationJobOutputDataConfigArgsDict', 'outputs.EvaluationJobOutputDataConfig']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['EvaluationJobTimeoutsArgs', 'EvaluationJobTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['EvaluationJobTimeoutsArgs', 'EvaluationJobTimeoutsArgsDict', 'outputs.EvaluationJobTimeouts']]] = None,
                  __props__=None):
         """
         Manages an Amazon Bedrock evaluation job. An evaluation job assesses model or knowledge base performance using either automated metrics or human workers.
@@ -556,13 +556,15 @@ class EvaluationJob(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.EvaluationJob("example",
+            job_name="example-job",
+            role_arn=example_aws_iam_role["arn"],
             evaluation_config={
                 "automated": {
                     "dataset_metric_configs": [{
+                        "task_type": "Generation",
                         "dataset": {
                             "name": "Builtin.Bold",
                         },
-                        "task_type": "Generation",
                         "metric_names": ["Builtin.Robustness"],
                     }],
                 },
@@ -576,9 +578,7 @@ class EvaluationJob(pulumi.CustomResource):
             },
             output_data_config={
                 "s3_uri": f"s3://{example_aws_s3_bucket['id']}/output/",
-            },
-            job_name="example-job",
-            role_arn=example_aws_iam_role["arn"])
+            })
         ```
 
         ## Import
@@ -600,11 +600,11 @@ class EvaluationJob(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_type: Whether the evaluation job evaluates a model or a knowledge base. Valid values: `ModelEvaluation`, `RagEvaluation`.
         :param pulumi.Input[_builtins.str] customer_encryption_key_id: ARN of the customer managed KMS key to use to encrypt the evaluation job.
-        :param pulumi.Input[Union['EvaluationJobEvaluationConfigArgs', 'EvaluationJobEvaluationConfigArgsDict']] evaluation_config: Configuration for either an automated or human-based evaluation job. See `evaluation_config` Block below.
-        :param pulumi.Input[Union['EvaluationJobInferenceConfigArgs', 'EvaluationJobInferenceConfigArgsDict']] inference_config: Configuration for the inference model, or models, used for the evaluation job. See `inference_config` Block below.
+        :param pulumi.Input[Union['EvaluationJobEvaluationConfigArgs', 'EvaluationJobEvaluationConfigArgsDict', 'outputs.EvaluationJobEvaluationConfig']] evaluation_config: Configuration for either an automated or human-based evaluation job. See `evaluation_config` Block below.
+        :param pulumi.Input[Union['EvaluationJobInferenceConfigArgs', 'EvaluationJobInferenceConfigArgsDict', 'outputs.EvaluationJobInferenceConfig']] inference_config: Configuration for the inference model, or models, used for the evaluation job. See `inference_config` Block below.
         :param pulumi.Input[_builtins.str] job_description: Description of the evaluation job.
         :param pulumi.Input[_builtins.str] job_name: Name for the evaluation job. Must be unique within your AWS account and Region, and consist of lowercase letters, numbers, and hyphens.
-        :param pulumi.Input[Union['EvaluationJobOutputDataConfigArgs', 'EvaluationJobOutputDataConfigArgsDict']] output_data_config: Configuration for the Amazon S3 location where the results of the evaluation job are stored. See `output_data_config` Block below.
+        :param pulumi.Input[Union['EvaluationJobOutputDataConfigArgs', 'EvaluationJobOutputDataConfigArgsDict', 'outputs.EvaluationJobOutputDataConfig']] output_data_config: Configuration for the Amazon S3 location where the results of the evaluation job are stored. See `output_data_config` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM service role that Amazon Bedrock can assume to perform tasks on your behalf. See [Required permissions for model evaluations](https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-security.html).
                
@@ -632,13 +632,15 @@ class EvaluationJob(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.EvaluationJob("example",
+            job_name="example-job",
+            role_arn=example_aws_iam_role["arn"],
             evaluation_config={
                 "automated": {
                     "dataset_metric_configs": [{
+                        "task_type": "Generation",
                         "dataset": {
                             "name": "Builtin.Bold",
                         },
-                        "task_type": "Generation",
                         "metric_names": ["Builtin.Robustness"],
                     }],
                 },
@@ -652,9 +654,7 @@ class EvaluationJob(pulumi.CustomResource):
             },
             output_data_config={
                 "s3_uri": f"s3://{example_aws_s3_bucket['id']}/output/",
-            },
-            job_name="example-job",
-            role_arn=example_aws_iam_role["arn"])
+            })
         ```
 
         ## Import
@@ -689,16 +689,16 @@ class EvaluationJob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_type: pulumi.Input[Optional[_builtins.str]] = None,
                  customer_encryption_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 evaluation_config: pulumi.Input[Optional[Union['EvaluationJobEvaluationConfigArgs', 'EvaluationJobEvaluationConfigArgsDict']]] = None,
-                 inference_config: pulumi.Input[Optional[Union['EvaluationJobInferenceConfigArgs', 'EvaluationJobInferenceConfigArgsDict']]] = None,
+                 evaluation_config: pulumi.Input[Optional[Union['EvaluationJobEvaluationConfigArgs', 'EvaluationJobEvaluationConfigArgsDict', 'outputs.EvaluationJobEvaluationConfig']]] = None,
+                 inference_config: pulumi.Input[Optional[Union['EvaluationJobInferenceConfigArgs', 'EvaluationJobInferenceConfigArgsDict', 'outputs.EvaluationJobInferenceConfig']]] = None,
                  job_description: pulumi.Input[Optional[_builtins.str]] = None,
                  job_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 output_data_config: pulumi.Input[Optional[Union['EvaluationJobOutputDataConfigArgs', 'EvaluationJobOutputDataConfigArgsDict']]] = None,
+                 output_data_config: pulumi.Input[Optional[Union['EvaluationJobOutputDataConfigArgs', 'EvaluationJobOutputDataConfigArgsDict', 'outputs.EvaluationJobOutputDataConfig']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['EvaluationJobTimeoutsArgs', 'EvaluationJobTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['EvaluationJobTimeoutsArgs', 'EvaluationJobTimeoutsArgsDict', 'outputs.EvaluationJobTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -750,22 +750,22 @@ class EvaluationJob(pulumi.CustomResource):
             application_type: pulumi.Input[Optional[_builtins.str]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
             customer_encryption_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-            evaluation_config: pulumi.Input[Optional[Union['EvaluationJobEvaluationConfigArgs', 'EvaluationJobEvaluationConfigArgsDict']]] = None,
+            evaluation_config: pulumi.Input[Optional[Union['EvaluationJobEvaluationConfigArgs', 'EvaluationJobEvaluationConfigArgsDict', 'outputs.EvaluationJobEvaluationConfig']]] = None,
             failure_messages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            inference_config: pulumi.Input[Optional[Union['EvaluationJobInferenceConfigArgs', 'EvaluationJobInferenceConfigArgsDict']]] = None,
+            inference_config: pulumi.Input[Optional[Union['EvaluationJobInferenceConfigArgs', 'EvaluationJobInferenceConfigArgsDict', 'outputs.EvaluationJobInferenceConfig']]] = None,
             job_arn: pulumi.Input[Optional[_builtins.str]] = None,
             job_description: pulumi.Input[Optional[_builtins.str]] = None,
             job_name: pulumi.Input[Optional[_builtins.str]] = None,
             job_type: pulumi.Input[Optional[_builtins.str]] = None,
             last_modified_time: pulumi.Input[Optional[_builtins.str]] = None,
-            output_data_config: pulumi.Input[Optional[Union['EvaluationJobOutputDataConfigArgs', 'EvaluationJobOutputDataConfigArgsDict']]] = None,
+            output_data_config: pulumi.Input[Optional[Union['EvaluationJobOutputDataConfigArgs', 'EvaluationJobOutputDataConfigArgsDict', 'outputs.EvaluationJobOutputDataConfig']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['EvaluationJobTimeoutsArgs', 'EvaluationJobTimeoutsArgsDict']]] = None) -> 'EvaluationJob':
+            timeouts: pulumi.Input[Optional[Union['EvaluationJobTimeoutsArgs', 'EvaluationJobTimeoutsArgsDict', 'outputs.EvaluationJobTimeouts']]] = None) -> 'EvaluationJob':
         """
         Get an existing EvaluationJob resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -776,15 +776,15 @@ class EvaluationJob(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] application_type: Whether the evaluation job evaluates a model or a knowledge base. Valid values: `ModelEvaluation`, `RagEvaluation`.
         :param pulumi.Input[_builtins.str] created_at: Date and time the evaluation job was created.
         :param pulumi.Input[_builtins.str] customer_encryption_key_id: ARN of the customer managed KMS key to use to encrypt the evaluation job.
-        :param pulumi.Input[Union['EvaluationJobEvaluationConfigArgs', 'EvaluationJobEvaluationConfigArgsDict']] evaluation_config: Configuration for either an automated or human-based evaluation job. See `evaluation_config` Block below.
+        :param pulumi.Input[Union['EvaluationJobEvaluationConfigArgs', 'EvaluationJobEvaluationConfigArgsDict', 'outputs.EvaluationJobEvaluationConfig']] evaluation_config: Configuration for either an automated or human-based evaluation job. See `evaluation_config` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] failure_messages: List of reasons the evaluation job failed to create, if applicable.
-        :param pulumi.Input[Union['EvaluationJobInferenceConfigArgs', 'EvaluationJobInferenceConfigArgsDict']] inference_config: Configuration for the inference model, or models, used for the evaluation job. See `inference_config` Block below.
+        :param pulumi.Input[Union['EvaluationJobInferenceConfigArgs', 'EvaluationJobInferenceConfigArgsDict', 'outputs.EvaluationJobInferenceConfig']] inference_config: Configuration for the inference model, or models, used for the evaluation job. See `inference_config` Block below.
         :param pulumi.Input[_builtins.str] job_arn: ARN of the evaluation job.
         :param pulumi.Input[_builtins.str] job_description: Description of the evaluation job.
         :param pulumi.Input[_builtins.str] job_name: Name for the evaluation job. Must be unique within your AWS account and Region, and consist of lowercase letters, numbers, and hyphens.
         :param pulumi.Input[_builtins.str] job_type: Whether the evaluation job is automated or human-based.
         :param pulumi.Input[_builtins.str] last_modified_time: Date and time the evaluation job was last modified.
-        :param pulumi.Input[Union['EvaluationJobOutputDataConfigArgs', 'EvaluationJobOutputDataConfigArgsDict']] output_data_config: Configuration for the Amazon S3 location where the results of the evaluation job are stored. See `output_data_config` Block below.
+        :param pulumi.Input[Union['EvaluationJobOutputDataConfigArgs', 'EvaluationJobOutputDataConfigArgsDict', 'outputs.EvaluationJobOutputDataConfig']] output_data_config: Configuration for the Amazon S3 location where the results of the evaluation job are stored. See `output_data_config` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM service role that Amazon Bedrock can assume to perform tasks on your behalf. See [Required permissions for model evaluations](https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-security.html).
                

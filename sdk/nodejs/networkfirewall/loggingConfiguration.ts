@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.LoggingConfiguration("example", {
+ *     firewallArn: exampleAwsNetworkfirewallFirewall.arn,
  *     loggingConfiguration: {
  *         logDestinationConfigs: [{
  *             logDestination: {
@@ -29,7 +30,6 @@ import * as utilities from "../utilities";
  *             logType: "FLOW",
  *         }],
  *     },
- *     firewallArn: exampleAwsNetworkfirewallFirewall.arn,
  * });
  * ```
  *
@@ -40,6 +40,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.LoggingConfiguration("example", {
+ *     firewallArn: exampleAwsNetworkfirewallFirewall.arn,
  *     loggingConfiguration: {
  *         logDestinationConfigs: [{
  *             logDestination: {
@@ -49,7 +50,6 @@ import * as utilities from "../utilities";
  *             logType: "ALERT",
  *         }],
  *     },
- *     firewallArn: exampleAwsNetworkfirewallFirewall.arn,
  * });
  * ```
  *
@@ -60,6 +60,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.LoggingConfiguration("example", {
+ *     firewallArn: exampleAwsNetworkfirewallFirewall.arn,
  *     loggingConfiguration: {
  *         logDestinationConfigs: [{
  *             logDestination: {
@@ -69,7 +70,6 @@ import * as utilities from "../utilities";
  *             logType: "TLS",
  *         }],
  *     },
- *     firewallArn: exampleAwsNetworkfirewallFirewall.arn,
  * });
  * ```
  *

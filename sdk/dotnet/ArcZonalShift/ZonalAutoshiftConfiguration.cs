@@ -54,6 +54,8 @@ namespace Pulumi.Aws.ArcZonalShift
     /// 
     ///     var example = new Aws.ArcZonalShift.ZonalAutoshiftConfiguration("example", new()
     ///     {
+    ///         ResourceArn = exampleLoadBalancer.Arn,
+    ///         ZonalAutoshiftStatus = "ENABLED",
     ///         OutcomeAlarms = new[]
     ///         {
     ///             new Aws.ArcZonalShift.Inputs.ZonalAutoshiftConfigurationOutcomeAlarmArgs
@@ -62,8 +64,6 @@ namespace Pulumi.Aws.ArcZonalShift
     ///                 Type = "CLOUDWATCH",
     ///             },
     ///         },
-    ///         ResourceArn = exampleLoadBalancer.Arn,
-    ///         ZonalAutoshiftStatus = "ENABLED",
     ///     });
     /// 
     /// });
@@ -81,14 +81,8 @@ namespace Pulumi.Aws.ArcZonalShift
     /// {
     ///     var example = new Aws.ArcZonalShift.ZonalAutoshiftConfiguration("example", new()
     ///     {
-    ///         BlockingAlarms = new[]
-    ///         {
-    ///             new Aws.ArcZonalShift.Inputs.ZonalAutoshiftConfigurationBlockingAlarmArgs
-    ///             {
-    ///                 AlarmIdentifier = blocking.Arn,
-    ///                 Type = "CLOUDWATCH",
-    ///             },
-    ///         },
+    ///         ResourceArn = exampleAwsLb.Arn,
+    ///         ZonalAutoshiftStatus = "ENABLED",
     ///         OutcomeAlarms = new[]
     ///         {
     ///             new Aws.ArcZonalShift.Inputs.ZonalAutoshiftConfigurationOutcomeAlarmArgs
@@ -97,8 +91,14 @@ namespace Pulumi.Aws.ArcZonalShift
     ///                 Type = "CLOUDWATCH",
     ///             },
     ///         },
-    ///         ResourceArn = exampleAwsLb.Arn,
-    ///         ZonalAutoshiftStatus = "ENABLED",
+    ///         BlockingAlarms = new[]
+    ///         {
+    ///             new Aws.ArcZonalShift.Inputs.ZonalAutoshiftConfigurationBlockingAlarmArgs
+    ///             {
+    ///                 AlarmIdentifier = blocking.Arn,
+    ///                 Type = "CLOUDWATCH",
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });
@@ -116,6 +116,12 @@ namespace Pulumi.Aws.ArcZonalShift
     /// {
     ///     var example = new Aws.ArcZonalShift.ZonalAutoshiftConfiguration("example", new()
     ///     {
+    ///         ResourceArn = exampleAwsLb.Arn,
+    ///         ZonalAutoshiftStatus = "ENABLED",
+    ///         BlockedWindows = new[]
+    ///         {
+    ///             "Mon:00:00-Mon:08:00",
+    ///         },
     ///         OutcomeAlarms = new[]
     ///         {
     ///             new Aws.ArcZonalShift.Inputs.ZonalAutoshiftConfigurationOutcomeAlarmArgs
@@ -123,12 +129,6 @@ namespace Pulumi.Aws.ArcZonalShift
     ///                 AlarmIdentifier = exampleAwsCloudwatchMetricAlarm.Arn,
     ///                 Type = "CLOUDWATCH",
     ///             },
-    ///         },
-    ///         ResourceArn = exampleAwsLb.Arn,
-    ///         ZonalAutoshiftStatus = "ENABLED",
-    ///         BlockedWindows = new[]
-    ///         {
-    ///             "Mon:00:00-Mon:08:00",
     ///         },
     ///     });
     /// 

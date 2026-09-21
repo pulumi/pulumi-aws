@@ -369,7 +369,7 @@ class OptionGroup(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  option_group_description: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]]] = None,
+                 options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict', 'outputs.OptionGroupOption']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -389,29 +389,29 @@ class OptionGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.rds.OptionGroup("example",
+            name="option-group-test",
+            option_group_description="Option Group",
+            engine_name="sqlserver-ee",
+            major_engine_version="11.00",
             options=[
                 {
+                    "option_name": "Timezone",
                     "option_settings": [{
                         "name": "TIME_ZONE",
                         "value": "UTC",
                     }],
-                    "option_name": "Timezone",
                 },
                 {
+                    "option_name": "SQLSERVER_BACKUP_RESTORE",
                     "option_settings": [{
                         "name": "IAM_ROLE_ARN",
                         "value": example_aws_iam_role["arn"],
                     }],
-                    "option_name": "SQLSERVER_BACKUP_RESTORE",
                 },
                 {
                     "option_name": "TDE",
                 },
-            ],
-            name="option-group-test",
-            option_group_description="Option Group",
-            engine_name="sqlserver-ee",
-            major_engine_version="11.00")
+            ])
         ```
 
         > **Note:** Any modifications to the `rds.OptionGroup` are set to happen immediately as we default to applying immediately.
@@ -440,7 +440,7 @@ class OptionGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[_builtins.str] option_group_description: Description of the option group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]] options: Options to apply. See `option` Block below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict', 'outputs.OptionGroupOption']]]] options: Options to apply. See `option` Block below for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] skip_destroy: Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -466,29 +466,29 @@ class OptionGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.rds.OptionGroup("example",
+            name="option-group-test",
+            option_group_description="Option Group",
+            engine_name="sqlserver-ee",
+            major_engine_version="11.00",
             options=[
                 {
+                    "option_name": "Timezone",
                     "option_settings": [{
                         "name": "TIME_ZONE",
                         "value": "UTC",
                     }],
-                    "option_name": "Timezone",
                 },
                 {
+                    "option_name": "SQLSERVER_BACKUP_RESTORE",
                     "option_settings": [{
                         "name": "IAM_ROLE_ARN",
                         "value": example_aws_iam_role["arn"],
                     }],
-                    "option_name": "SQLSERVER_BACKUP_RESTORE",
                 },
                 {
                     "option_name": "TDE",
                 },
-            ],
-            name="option-group-test",
-            option_group_description="Option Group",
-            engine_name="sqlserver-ee",
-            major_engine_version="11.00")
+            ])
         ```
 
         > **Note:** Any modifications to the `rds.OptionGroup` are set to happen immediately as we default to applying immediately.
@@ -530,7 +530,7 @@ class OptionGroup(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  option_group_description: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]]] = None,
+                 options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict', 'outputs.OptionGroupOption']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -576,7 +576,7 @@ class OptionGroup(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
             option_group_description: pulumi.Input[Optional[_builtins.str]] = None,
-            options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]]] = None,
+            options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict', 'outputs.OptionGroupOption']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -594,7 +594,7 @@ class OptionGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[_builtins.str] option_group_description: Description of the option group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]] options: Options to apply. See `option` Block below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict', 'outputs.OptionGroupOption']]]] options: Options to apply. See `option` Block below for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] skip_destroy: Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

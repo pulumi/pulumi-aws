@@ -31,6 +31,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datazone.NewPolicyGrant(ctx, "example", &datazone.PolicyGrantArgs{
+//				DomainIdentifier: pulumi.Any(exampleAwsDatazoneDomain.Id),
+//				EntityIdentifier: pulumi.Any(exampleAwsDatazoneDomain.RootDomainUnitId),
+//				EntityType:       pulumi.String("DOMAIN_UNIT"),
+//				PolicyType:       pulumi.String("CREATE_DOMAIN_UNIT"),
 //				Detail: &datazone.PolicyGrantDetailArgs{
 //					CreateDomainUnit: &datazone.PolicyGrantDetailCreateDomainUnitArgs{},
 //				},
@@ -39,10 +43,6 @@ import (
 //						AllUsersGrantFilter: &datazone.PolicyGrantPrincipalUserAllUsersGrantFilterArgs{},
 //					},
 //				},
-//				DomainIdentifier: pulumi.Any(exampleAwsDatazoneDomain.Id),
-//				EntityIdentifier: pulumi.Any(exampleAwsDatazoneDomain.RootDomainUnitId),
-//				EntityType:       pulumi.String("DOMAIN_UNIT"),
-//				PolicyType:       pulumi.String("CREATE_DOMAIN_UNIT"),
 //			})
 //			if err != nil {
 //				return err
@@ -68,6 +68,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datazone.NewPolicyGrant(ctx, "example", &datazone.PolicyGrantArgs{
+//				DomainIdentifier: pulumi.Any(exampleAwsDatazoneDomain.Id),
+//				EntityIdentifier: pulumi.Any(exampleAwsDatazoneDomain.RootDomainUnitId),
+//				EntityType:       pulumi.String("DOMAIN_UNIT"),
+//				PolicyType:       pulumi.String("CREATE_DOMAIN_UNIT"),
 //				Detail: &datazone.PolicyGrantDetailArgs{
 //					CreateDomainUnit: &datazone.PolicyGrantDetailCreateDomainUnitArgs{
 //						IncludeChildDomainUnits: pulumi.Bool(true),
@@ -78,10 +82,6 @@ import (
 //						AllUsersGrantFilter: &datazone.PolicyGrantPrincipalUserAllUsersGrantFilterArgs{},
 //					},
 //				},
-//				DomainIdentifier: pulumi.Any(exampleAwsDatazoneDomain.Id),
-//				EntityIdentifier: pulumi.Any(exampleAwsDatazoneDomain.RootDomainUnitId),
-//				EntityType:       pulumi.String("DOMAIN_UNIT"),
-//				PolicyType:       pulumi.String("CREATE_DOMAIN_UNIT"),
 //			})
 //			if err != nil {
 //				return err
@@ -107,6 +107,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datazone.NewPolicyGrant(ctx, "example", &datazone.PolicyGrantArgs{
+//				DomainIdentifier: pulumi.Any(exampleAwsDatazoneDomain.Id),
+//				EntityIdentifier: pulumi.Any(exampleAwsDatazoneDomain.RootDomainUnitId),
+//				EntityType:       pulumi.String("DOMAIN_UNIT"),
+//				PolicyType:       pulumi.String("CREATE_GLOSSARY"),
 //				Detail: &datazone.PolicyGrantDetailArgs{
 //					CreateGlossary: &datazone.PolicyGrantDetailCreateGlossaryArgs{},
 //				},
@@ -116,10 +120,6 @@ import (
 //						ProjectIdentifier:  pulumi.Any(exampleAwsDatazoneProject.Id),
 //					},
 //				},
-//				DomainIdentifier: pulumi.Any(exampleAwsDatazoneDomain.Id),
-//				EntityIdentifier: pulumi.Any(exampleAwsDatazoneDomain.RootDomainUnitId),
-//				EntityType:       pulumi.String("DOMAIN_UNIT"),
-//				PolicyType:       pulumi.String("CREATE_GLOSSARY"),
 //			})
 //			if err != nil {
 //				return err

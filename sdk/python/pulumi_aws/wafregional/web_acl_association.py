@@ -152,20 +152,22 @@ class WebAclAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ipset = aws.wafregional.IpSet("ipset",
+            name="tfIPSet",
             ip_set_descriptors=[{
                 "type": "IPV4",
                 "value": "192.0.7.0/24",
-            }],
-            name="tfIPSet")
+            }])
         foo = aws.wafregional.Rule("foo",
+            name="tfWAFRule",
+            metric_name="tfWAFRule",
             predicates=[{
                 "data_id": ipset.id,
                 "negated": False,
                 "type": "IPMatch",
-            }],
-            name="tfWAFRule",
-            metric_name="tfWAFRule")
+            }])
         foo_web_acl = aws.wafregional.WebAcl("foo",
+            name="foo",
+            metric_name="foo",
             default_action={
                 "type": "ALLOW",
             },
@@ -175,9 +177,7 @@ class WebAclAssociation(pulumi.CustomResource):
                 },
                 "priority": 1,
                 "rule_id": foo.id,
-            }],
-            name="foo",
-            metric_name="foo")
+            }])
         foo_vpc = aws.ec2.Vpc("foo", cidr_block="10.1.0.0/16")
         available = aws.get_availability_zones()
         foo_subnet = aws.ec2.Subnet("foo",
@@ -234,20 +234,22 @@ class WebAclAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ipset = aws.wafregional.IpSet("ipset",
+            name="tfIPSet",
             ip_set_descriptors=[{
                 "type": "IPV4",
                 "value": "192.0.7.0/24",
-            }],
-            name="tfIPSet")
+            }])
         foo = aws.wafregional.Rule("foo",
+            name="tfWAFRule",
+            metric_name="tfWAFRule",
             predicates=[{
                 "data_id": ipset.id,
                 "negated": False,
                 "type": "IPMatch",
-            }],
-            name="tfWAFRule",
-            metric_name="tfWAFRule")
+            }])
         foo_web_acl = aws.wafregional.WebAcl("foo",
+            name="foo",
+            metric_name="foo",
             default_action={
                 "type": "ALLOW",
             },
@@ -257,9 +259,7 @@ class WebAclAssociation(pulumi.CustomResource):
                 },
                 "priority": 1,
                 "rule_id": foo.id,
-            }],
-            name="foo",
-            metric_name="foo")
+            }])
         foo_vpc = aws.ec2.Vpc("foo", cidr_block="10.1.0.0/16")
         available = aws.get_availability_zones()
         foo_subnet = aws.ec2.Subnet("foo",

@@ -135,13 +135,13 @@ class AwaitableGetCoreNetworkPolicyDocumentResult(GetCoreNetworkPolicyDocumentRe
             version=self.version)
 
 
-def get_core_network_policy_document(attachment_policies: Optional[Sequence[Union['GetCoreNetworkPolicyDocumentAttachmentPolicyArgs', 'GetCoreNetworkPolicyDocumentAttachmentPolicyArgsDict']]] = None,
-                                     attachment_routing_policy_rules: Optional[Sequence[Union['GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs', 'GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgsDict']]] = None,
-                                     core_network_configurations: Optional[Sequence[Union['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs', 'GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgsDict']]] = None,
-                                     network_function_groups: Optional[Sequence[Union['GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs', 'GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgsDict']]] = None,
-                                     routing_policies: Optional[Sequence[Union['GetCoreNetworkPolicyDocumentRoutingPolicyArgs', 'GetCoreNetworkPolicyDocumentRoutingPolicyArgsDict']]] = None,
-                                     segment_actions: Optional[Sequence[Union['GetCoreNetworkPolicyDocumentSegmentActionArgs', 'GetCoreNetworkPolicyDocumentSegmentActionArgsDict']]] = None,
-                                     segments: Optional[Sequence[Union['GetCoreNetworkPolicyDocumentSegmentArgs', 'GetCoreNetworkPolicyDocumentSegmentArgsDict']]] = None,
+def get_core_network_policy_document(attachment_policies: Optional[Sequence[Union['GetCoreNetworkPolicyDocumentAttachmentPolicyArgs', 'GetCoreNetworkPolicyDocumentAttachmentPolicyArgsDict', 'outputs.GetCoreNetworkPolicyDocumentAttachmentPolicyResult']]] = None,
+                                     attachment_routing_policy_rules: Optional[Sequence[Union['GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs', 'GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgsDict', 'outputs.GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleResult']]] = None,
+                                     core_network_configurations: Optional[Sequence[Union['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs', 'GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgsDict', 'outputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationResult']]] = None,
+                                     network_function_groups: Optional[Sequence[Union['GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs', 'GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgsDict', 'outputs.GetCoreNetworkPolicyDocumentNetworkFunctionGroupResult']]] = None,
+                                     routing_policies: Optional[Sequence[Union['GetCoreNetworkPolicyDocumentRoutingPolicyArgs', 'GetCoreNetworkPolicyDocumentRoutingPolicyArgsDict', 'outputs.GetCoreNetworkPolicyDocumentRoutingPolicyResult']]] = None,
+                                     segment_actions: Optional[Sequence[Union['GetCoreNetworkPolicyDocumentSegmentActionArgs', 'GetCoreNetworkPolicyDocumentSegmentActionArgsDict', 'outputs.GetCoreNetworkPolicyDocumentSegmentActionResult']]] = None,
+                                     segments: Optional[Sequence[Union['GetCoreNetworkPolicyDocumentSegmentArgs', 'GetCoreNetworkPolicyDocumentSegmentArgsDict', 'outputs.GetCoreNetworkPolicyDocumentSegmentResult']]] = None,
                                      version: Optional[_builtins.str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCoreNetworkPolicyDocumentResult:
     """
@@ -157,37 +157,9 @@ def get_core_network_policy_document(attachment_policies: Optional[Sequence[Unio
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.networkmanager.get_core_network_policy_document(attachment_policies=[
-            {
-                "action": {
-                    "association_method": "constant",
-                    "segment": "shared",
-                },
-                "conditions": [{
-                    "type": "tag-value",
-                    "operator": "equals",
-                    "key": "segment",
-                    "value": "shared",
-                }],
-                "rule_number": 100,
-                "condition_logic": "or",
-            },
-            {
-                "action": {
-                    "association_method": "constant",
-                    "segment": "prod",
-                },
-                "conditions": [{
-                    "type": "tag-value",
-                    "operator": "equals",
-                    "key": "segment",
-                    "value": "prod",
-                }],
-                "rule_number": 200,
-                "condition_logic": "or",
-            },
-        ],
-        core_network_configurations=[{
+    test = aws.networkmanager.get_core_network_policy_document(core_network_configurations=[{
+            "vpn_ecmp_support": False,
+            "asn_ranges": ["64512-64555"],
             "edge_locations": [
                 {
                     "location": "us-east-1",
@@ -198,14 +170,6 @@ def get_core_network_policy_document(attachment_policies: Optional[Sequence[Unio
                     "asn": "64513",
                 },
             ],
-            "vpn_ecmp_support": False,
-            "asn_ranges": ["64512-64555"],
-        }],
-        segment_actions=[{
-            "action": "share",
-            "mode": "attachment-route",
-            "segment": "shared",
-            "share_withs": ["*"],
         }],
         segments=[
             {
@@ -218,19 +182,55 @@ def get_core_network_policy_document(attachment_policies: Optional[Sequence[Unio
                 "description": "Segment for prod services",
                 "require_attachment_acceptance": True,
             },
+        ],
+        segment_actions=[{
+            "action": "share",
+            "mode": "attachment-route",
+            "segment": "shared",
+            "share_withs": ["*"],
+        }],
+        attachment_policies=[
+            {
+                "rule_number": 100,
+                "condition_logic": "or",
+                "conditions": [{
+                    "type": "tag-value",
+                    "operator": "equals",
+                    "key": "segment",
+                    "value": "shared",
+                }],
+                "action": {
+                    "association_method": "constant",
+                    "segment": "shared",
+                },
+            },
+            {
+                "rule_number": 200,
+                "condition_logic": "or",
+                "conditions": [{
+                    "type": "tag-value",
+                    "operator": "equals",
+                    "key": "segment",
+                    "value": "prod",
+                }],
+                "action": {
+                    "association_method": "constant",
+                    "segment": "prod",
+                },
+            },
         ])
     ```
 
     `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
 
 
-    :param Sequence[Union['GetCoreNetworkPolicyDocumentAttachmentPolicyArgs', 'GetCoreNetworkPolicyDocumentAttachmentPolicyArgsDict']] attachment_policies: In a core network, all attachments use the block argument `attachment_policies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
-    :param Sequence[Union['GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs', 'GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgsDict']] attachment_routing_policy_rules: Block argument that applies routing policies to attachments. Available in policy version `2025.11` and later. Detailed below.
-    :param Sequence[Union['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs', 'GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgsDict']] core_network_configurations: The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it's created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
-    :param Sequence[Union['GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs', 'GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgsDict']] network_function_groups: Block argument that defines the service insertion actions you want to include. Detailed below.
-    :param Sequence[Union['GetCoreNetworkPolicyDocumentRoutingPolicyArgs', 'GetCoreNetworkPolicyDocumentRoutingPolicyArgsDict']] routing_policies: Block argument that defines routing policies for controlling route propagation. Routing policies allow you to filter, modify, and control BGP routes advertised to and from your core network. Available in policy version `2025.11` and later. Detailed below.
-    :param Sequence[Union['GetCoreNetworkPolicyDocumentSegmentActionArgs', 'GetCoreNetworkPolicyDocumentSegmentActionArgsDict']] segment_actions: A block argument, `segment_actions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
-    :param Sequence[Union['GetCoreNetworkPolicyDocumentSegmentArgs', 'GetCoreNetworkPolicyDocumentSegmentArgsDict']] segments: Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segment_actions` and `attachment_policies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
+    :param Sequence[Union['GetCoreNetworkPolicyDocumentAttachmentPolicyArgs', 'GetCoreNetworkPolicyDocumentAttachmentPolicyArgsDict', 'outputs.GetCoreNetworkPolicyDocumentAttachmentPolicyResult']] attachment_policies: In a core network, all attachments use the block argument `attachment_policies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
+    :param Sequence[Union['GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs', 'GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgsDict', 'outputs.GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleResult']] attachment_routing_policy_rules: Block argument that applies routing policies to attachments. Available in policy version `2025.11` and later. Detailed below.
+    :param Sequence[Union['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs', 'GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgsDict', 'outputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationResult']] core_network_configurations: The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it's created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
+    :param Sequence[Union['GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs', 'GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgsDict', 'outputs.GetCoreNetworkPolicyDocumentNetworkFunctionGroupResult']] network_function_groups: Block argument that defines the service insertion actions you want to include. Detailed below.
+    :param Sequence[Union['GetCoreNetworkPolicyDocumentRoutingPolicyArgs', 'GetCoreNetworkPolicyDocumentRoutingPolicyArgsDict', 'outputs.GetCoreNetworkPolicyDocumentRoutingPolicyResult']] routing_policies: Block argument that defines routing policies for controlling route propagation. Routing policies allow you to filter, modify, and control BGP routes advertised to and from your core network. Available in policy version `2025.11` and later. Detailed below.
+    :param Sequence[Union['GetCoreNetworkPolicyDocumentSegmentActionArgs', 'GetCoreNetworkPolicyDocumentSegmentActionArgsDict', 'outputs.GetCoreNetworkPolicyDocumentSegmentActionResult']] segment_actions: A block argument, `segment_actions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
+    :param Sequence[Union['GetCoreNetworkPolicyDocumentSegmentArgs', 'GetCoreNetworkPolicyDocumentSegmentArgsDict', 'outputs.GetCoreNetworkPolicyDocumentSegmentResult']] segments: Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segment_actions` and `attachment_policies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
     :param _builtins.str version: Version of the core network policy. Valid values: `2021.12`, `2025.11`. Default: `2021.12`.
     """
     __args__ = dict()
@@ -256,13 +256,13 @@ def get_core_network_policy_document(attachment_policies: Optional[Sequence[Unio
         segment_actions=pulumi.get(__ret__, 'segment_actions'),
         segments=pulumi.get(__ret__, 'segments'),
         version=pulumi.get(__ret__, 'version'))
-def get_core_network_policy_document_output(attachment_policies: pulumi.Input[Optional[Optional[Sequence[Union['GetCoreNetworkPolicyDocumentAttachmentPolicyArgs', 'GetCoreNetworkPolicyDocumentAttachmentPolicyArgsDict']]]]] = None,
-                                            attachment_routing_policy_rules: pulumi.Input[Optional[Optional[Sequence[Union['GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs', 'GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgsDict']]]]] = None,
-                                            core_network_configurations: pulumi.Input[Optional[Sequence[Union['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs', 'GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgsDict']]]] = None,
-                                            network_function_groups: pulumi.Input[Optional[Optional[Sequence[Union['GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs', 'GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgsDict']]]]] = None,
-                                            routing_policies: pulumi.Input[Optional[Optional[Sequence[Union['GetCoreNetworkPolicyDocumentRoutingPolicyArgs', 'GetCoreNetworkPolicyDocumentRoutingPolicyArgsDict']]]]] = None,
-                                            segment_actions: pulumi.Input[Optional[Optional[Sequence[Union['GetCoreNetworkPolicyDocumentSegmentActionArgs', 'GetCoreNetworkPolicyDocumentSegmentActionArgsDict']]]]] = None,
-                                            segments: pulumi.Input[Optional[Sequence[Union['GetCoreNetworkPolicyDocumentSegmentArgs', 'GetCoreNetworkPolicyDocumentSegmentArgsDict']]]] = None,
+def get_core_network_policy_document_output(attachment_policies: pulumi.Input[Optional[Optional[Sequence[Union['GetCoreNetworkPolicyDocumentAttachmentPolicyArgs', 'GetCoreNetworkPolicyDocumentAttachmentPolicyArgsDict', 'outputs.GetCoreNetworkPolicyDocumentAttachmentPolicyResult']]]]] = None,
+                                            attachment_routing_policy_rules: pulumi.Input[Optional[Optional[Sequence[Union['GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs', 'GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgsDict', 'outputs.GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleResult']]]]] = None,
+                                            core_network_configurations: pulumi.Input[Optional[Sequence[Union['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs', 'GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgsDict', 'outputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationResult']]]] = None,
+                                            network_function_groups: pulumi.Input[Optional[Optional[Sequence[Union['GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs', 'GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgsDict', 'outputs.GetCoreNetworkPolicyDocumentNetworkFunctionGroupResult']]]]] = None,
+                                            routing_policies: pulumi.Input[Optional[Optional[Sequence[Union['GetCoreNetworkPolicyDocumentRoutingPolicyArgs', 'GetCoreNetworkPolicyDocumentRoutingPolicyArgsDict', 'outputs.GetCoreNetworkPolicyDocumentRoutingPolicyResult']]]]] = None,
+                                            segment_actions: pulumi.Input[Optional[Optional[Sequence[Union['GetCoreNetworkPolicyDocumentSegmentActionArgs', 'GetCoreNetworkPolicyDocumentSegmentActionArgsDict', 'outputs.GetCoreNetworkPolicyDocumentSegmentActionResult']]]]] = None,
+                                            segments: pulumi.Input[Optional[Sequence[Union['GetCoreNetworkPolicyDocumentSegmentArgs', 'GetCoreNetworkPolicyDocumentSegmentArgsDict', 'outputs.GetCoreNetworkPolicyDocumentSegmentResult']]]] = None,
                                             version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCoreNetworkPolicyDocumentResult]:
     """
@@ -278,37 +278,9 @@ def get_core_network_policy_document_output(attachment_policies: pulumi.Input[Op
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.networkmanager.get_core_network_policy_document(attachment_policies=[
-            {
-                "action": {
-                    "association_method": "constant",
-                    "segment": "shared",
-                },
-                "conditions": [{
-                    "type": "tag-value",
-                    "operator": "equals",
-                    "key": "segment",
-                    "value": "shared",
-                }],
-                "rule_number": 100,
-                "condition_logic": "or",
-            },
-            {
-                "action": {
-                    "association_method": "constant",
-                    "segment": "prod",
-                },
-                "conditions": [{
-                    "type": "tag-value",
-                    "operator": "equals",
-                    "key": "segment",
-                    "value": "prod",
-                }],
-                "rule_number": 200,
-                "condition_logic": "or",
-            },
-        ],
-        core_network_configurations=[{
+    test = aws.networkmanager.get_core_network_policy_document(core_network_configurations=[{
+            "vpn_ecmp_support": False,
+            "asn_ranges": ["64512-64555"],
             "edge_locations": [
                 {
                     "location": "us-east-1",
@@ -319,14 +291,6 @@ def get_core_network_policy_document_output(attachment_policies: pulumi.Input[Op
                     "asn": "64513",
                 },
             ],
-            "vpn_ecmp_support": False,
-            "asn_ranges": ["64512-64555"],
-        }],
-        segment_actions=[{
-            "action": "share",
-            "mode": "attachment-route",
-            "segment": "shared",
-            "share_withs": ["*"],
         }],
         segments=[
             {
@@ -339,19 +303,55 @@ def get_core_network_policy_document_output(attachment_policies: pulumi.Input[Op
                 "description": "Segment for prod services",
                 "require_attachment_acceptance": True,
             },
+        ],
+        segment_actions=[{
+            "action": "share",
+            "mode": "attachment-route",
+            "segment": "shared",
+            "share_withs": ["*"],
+        }],
+        attachment_policies=[
+            {
+                "rule_number": 100,
+                "condition_logic": "or",
+                "conditions": [{
+                    "type": "tag-value",
+                    "operator": "equals",
+                    "key": "segment",
+                    "value": "shared",
+                }],
+                "action": {
+                    "association_method": "constant",
+                    "segment": "shared",
+                },
+            },
+            {
+                "rule_number": 200,
+                "condition_logic": "or",
+                "conditions": [{
+                    "type": "tag-value",
+                    "operator": "equals",
+                    "key": "segment",
+                    "value": "prod",
+                }],
+                "action": {
+                    "association_method": "constant",
+                    "segment": "prod",
+                },
+            },
         ])
     ```
 
     `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
 
 
-    :param Sequence[Union['GetCoreNetworkPolicyDocumentAttachmentPolicyArgs', 'GetCoreNetworkPolicyDocumentAttachmentPolicyArgsDict']] attachment_policies: In a core network, all attachments use the block argument `attachment_policies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
-    :param Sequence[Union['GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs', 'GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgsDict']] attachment_routing_policy_rules: Block argument that applies routing policies to attachments. Available in policy version `2025.11` and later. Detailed below.
-    :param Sequence[Union['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs', 'GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgsDict']] core_network_configurations: The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it's created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
-    :param Sequence[Union['GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs', 'GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgsDict']] network_function_groups: Block argument that defines the service insertion actions you want to include. Detailed below.
-    :param Sequence[Union['GetCoreNetworkPolicyDocumentRoutingPolicyArgs', 'GetCoreNetworkPolicyDocumentRoutingPolicyArgsDict']] routing_policies: Block argument that defines routing policies for controlling route propagation. Routing policies allow you to filter, modify, and control BGP routes advertised to and from your core network. Available in policy version `2025.11` and later. Detailed below.
-    :param Sequence[Union['GetCoreNetworkPolicyDocumentSegmentActionArgs', 'GetCoreNetworkPolicyDocumentSegmentActionArgsDict']] segment_actions: A block argument, `segment_actions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
-    :param Sequence[Union['GetCoreNetworkPolicyDocumentSegmentArgs', 'GetCoreNetworkPolicyDocumentSegmentArgsDict']] segments: Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segment_actions` and `attachment_policies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
+    :param Sequence[Union['GetCoreNetworkPolicyDocumentAttachmentPolicyArgs', 'GetCoreNetworkPolicyDocumentAttachmentPolicyArgsDict', 'outputs.GetCoreNetworkPolicyDocumentAttachmentPolicyResult']] attachment_policies: In a core network, all attachments use the block argument `attachment_policies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
+    :param Sequence[Union['GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs', 'GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgsDict', 'outputs.GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleResult']] attachment_routing_policy_rules: Block argument that applies routing policies to attachments. Available in policy version `2025.11` and later. Detailed below.
+    :param Sequence[Union['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs', 'GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgsDict', 'outputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationResult']] core_network_configurations: The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it's created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
+    :param Sequence[Union['GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs', 'GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgsDict', 'outputs.GetCoreNetworkPolicyDocumentNetworkFunctionGroupResult']] network_function_groups: Block argument that defines the service insertion actions you want to include. Detailed below.
+    :param Sequence[Union['GetCoreNetworkPolicyDocumentRoutingPolicyArgs', 'GetCoreNetworkPolicyDocumentRoutingPolicyArgsDict', 'outputs.GetCoreNetworkPolicyDocumentRoutingPolicyResult']] routing_policies: Block argument that defines routing policies for controlling route propagation. Routing policies allow you to filter, modify, and control BGP routes advertised to and from your core network. Available in policy version `2025.11` and later. Detailed below.
+    :param Sequence[Union['GetCoreNetworkPolicyDocumentSegmentActionArgs', 'GetCoreNetworkPolicyDocumentSegmentActionArgsDict', 'outputs.GetCoreNetworkPolicyDocumentSegmentActionResult']] segment_actions: A block argument, `segment_actions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
+    :param Sequence[Union['GetCoreNetworkPolicyDocumentSegmentArgs', 'GetCoreNetworkPolicyDocumentSegmentArgsDict', 'outputs.GetCoreNetworkPolicyDocumentSegmentResult']] segments: Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segment_actions` and `attachment_policies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
     :param _builtins.str version: Version of the core network policy. Valid values: `2021.12`, `2025.11`. Default: `2021.12`.
     """
     __args__ = dict()

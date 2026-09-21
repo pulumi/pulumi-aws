@@ -23,17 +23,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.accountaccess.Entitlement("example", {
+ *     applicationArn: exampleAwsAccountaccessApplication.arn,
  *     entitlement: {
  *         principalRole: {
+ *             roleArn: "arn:aws:iam::123456789012:role/Developer",
  *             principal: {
  *                 identityCenter: {
  *                     userId: "11111111-2222-3333-4444-555555555555",
  *                 },
  *             },
- *             roleArn: "arn:aws:iam::123456789012:role/Developer",
  *         },
  *     },
- *     applicationArn: exampleAwsAccountaccessApplication.arn,
  * });
  * ```
  *
@@ -44,17 +44,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.accountaccess.Entitlement("example", {
+ *     applicationArn: exampleAwsAccountaccessApplication.arn,
  *     entitlement: {
  *         principalRole: {
+ *             roleArn: "arn:aws:iam::123456789012:role/Engineering",
  *             principal: {
  *                 identityCenter: {
  *                     groupId: "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
  *                 },
  *             },
- *             roleArn: "arn:aws:iam::123456789012:role/Engineering",
  *         },
  *     },
- *     applicationArn: exampleAwsAccountaccessApplication.arn,
  * });
  * ```
  *
@@ -92,17 +92,17 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * const exampleEntitlement = new aws.accountaccess.Entitlement("example", {
+ *     applicationArn: exampleApplication.arn,
  *     entitlement: {
  *         principalRole: {
+ *             roleArn: target.arn,
  *             principal: {
  *                 identityCenter: {
  *                     userId: "11111111-2222-3333-4444-555555555555",
  *                 },
  *             },
- *             roleArn: target.arn,
  *         },
  *     },
- *     applicationArn: exampleApplication.arn,
  * });
  * ```
  *

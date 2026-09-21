@@ -36,6 +36,10 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -43,10 +47,6 @@ import (
 //									"bedrock-agentcore.amazonaws.com",
 //								},
 //							},
-//						},
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"sts:AssumeRole",
 //						},
 //					},
 //				},
@@ -86,6 +86,8 @@ import (
 //				return err
 //			}
 //			_, err = bedrock.NewAgentcoreHarness(ctx, "example", &bedrock.AgentcoreHarnessArgs{
+//				HarnessName:      pulumi.String("example_harness"),
+//				ExecutionRoleArn: example.Arn,
 //				Model: &bedrock.AgentcoreHarnessModelArgs{
 //					BedrockModelConfig: &bedrock.AgentcoreHarnessModelBedrockModelConfigArgs{
 //						ModelId: pulumi.String("anthropic.claude-sonnet-4-20250514"),
@@ -96,8 +98,6 @@ import (
 //						Text: pulumi.String("You are a helpful assistant."),
 //					},
 //				},
-//				HarnessName:      pulumi.String("example_harness"),
-//				ExecutionRoleArn: example.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -141,6 +141,8 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = bedrock.NewAgentcoreHarness(ctx, "example", &bedrock.AgentcoreHarnessArgs{
+//				HarnessName:      pulumi.String("example_with_tools"),
+//				ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				Model: &bedrock.AgentcoreHarnessModelArgs{
 //					BedrockModelConfig: &bedrock.AgentcoreHarnessModelBedrockModelConfigArgs{
 //						ModelId:     pulumi.String("anthropic.claude-sonnet-4-20250514"),
@@ -153,20 +155,27 @@ import (
 //						Text: pulumi.String("You are a coding assistant."),
 //					},
 //				},
+//				AllowedTools: pulumi.StringArray{
+//					pulumi.String("*"),
+//				},
+//				MaxIterations:  pulumi.Int(10),
+//				MaxTokens:      pulumi.Int(4096),
+//				TimeoutSeconds: pulumi.Int(300),
 //				Tools: bedrock.AgentcoreHarnessToolArray{
 //					&bedrock.AgentcoreHarnessToolArgs{
+//						Type: pulumi.String("inline_function"),
+//						Name: pulumi.String("get_weather"),
 //						Config: &bedrock.AgentcoreHarnessToolConfigArgs{
 //							InlineFunction: &bedrock.AgentcoreHarnessToolConfigInlineFunctionArgs{
 //								Description: pulumi.String("Get the current weather for a location"),
 //								InputSchema: pulumi.String(json0),
 //							},
 //						},
-//						Type: pulumi.String("inline_function"),
-//						Name: pulumi.String("get_weather"),
 //					},
 //				},
 //				Truncations: bedrock.AgentcoreHarnessTruncationArray{
 //					&bedrock.AgentcoreHarnessTruncationArgs{
+//						Strategy: pulumi.String("sliding_window"),
 //						Config: []map[string][]map[string]int{
 //							{
 //								"slidingWindow": []map[string]int{
@@ -176,17 +185,8 @@ import (
 //								},
 //							},
 //						},
-//						Strategy: pulumi.String("sliding_window"),
 //					},
 //				},
-//				HarnessName:      pulumi.String("example_with_tools"),
-//				ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				AllowedTools: pulumi.StringArray{
-//					pulumi.String("*"),
-//				},
-//				MaxIterations:  pulumi.Int(10),
-//				MaxTokens:      pulumi.Int(4096),
-//				TimeoutSeconds: pulumi.Int(300),
 //			})
 //			if err != nil {
 //				return err
@@ -212,9 +212,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreHarness(ctx, "example", &bedrock.AgentcoreHarnessArgs{
+//				HarnessName:      pulumi.String("my_harness"),
+//				ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				Model: &bedrock.AgentcoreHarnessModelArgs{
 //					BedrockModelConfig: &bedrock.AgentcoreHarnessModelBedrockModelConfigArgs{
 //						ModelId: pulumi.String("anthropic.claude-sonnet-4-20250514"),
+//					},
+//				},
+//				SystemPrompts: bedrock.AgentcoreHarnessSystemPromptArray{
+//					&bedrock.AgentcoreHarnessSystemPromptArgs{
+//						Text: pulumi.String("You are a helpful assistant."),
 //					},
 //				},
 //				Memory: &bedrock.AgentcoreHarnessMemoryArgs{
@@ -226,13 +233,6 @@ import (
 //						},
 //					},
 //				},
-//				SystemPrompts: bedrock.AgentcoreHarnessSystemPromptArray{
-//					&bedrock.AgentcoreHarnessSystemPromptArgs{
-//						Text: pulumi.String("You are a helpful assistant."),
-//					},
-//				},
-//				HarnessName:      pulumi.String("my_harness"),
-//				ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err

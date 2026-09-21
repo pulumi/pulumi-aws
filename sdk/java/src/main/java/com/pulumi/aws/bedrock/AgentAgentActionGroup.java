@@ -53,6 +53,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentAgentActionGroup("example", AgentAgentActionGroupArgs.builder()
+ *             .actionGroupName("example")
+ *             .agentId("GGRRAED6JP")
+ *             .agentVersion("DRAFT")
+ *             .skipResourceInUseCheck(true)
  *             .actionGroupExecutor(AgentAgentActionGroupActionGroupExecutorArgs.builder()
  *                 .lambda("arn:aws:lambda:us-west-2:123456789012:function:example-function")
  *                 .build())
@@ -61,10 +65,6 @@ import javax.annotation.Nullable;
  *                     .input("path/to/schema.yaml")
  *                     .build()).result())
  *                 .build())
- *             .actionGroupName("example")
- *             .agentId("GGRRAED6JP")
- *             .agentVersion("DRAFT")
- *             .skipResourceInUseCheck(true)
  *             .build());
  * 
  *     }
@@ -100,6 +100,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentAgentActionGroup("example", AgentAgentActionGroupArgs.builder()
+ *             .actionGroupName("example")
+ *             .agentId("GGRRAED6JP")
+ *             .agentVersion("DRAFT")
+ *             .skipResourceInUseCheck(true)
  *             .actionGroupExecutor(AgentAgentActionGroupActionGroupExecutorArgs.builder()
  *                 .lambda("arn:aws:lambda:us-west-2:123456789012:function:example-function")
  *                 .build())
@@ -109,10 +113,6 @@ import javax.annotation.Nullable;
  *                     .s3ObjectKey("path/to/schema.json")
  *                     .build())
  *                 .build())
- *             .actionGroupName("example")
- *             .agentId("GGRRAED6JP")
- *             .agentVersion("DRAFT")
- *             .skipResourceInUseCheck(true)
  *             .build());
  * 
  *     }
@@ -150,12 +150,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentAgentActionGroup("example", AgentAgentActionGroupArgs.builder()
+ *             .actionGroupName("example")
+ *             .agentId("GGRRAED6JP")
+ *             .agentVersion("DRAFT")
+ *             .skipResourceInUseCheck(true)
  *             .actionGroupExecutor(AgentAgentActionGroupActionGroupExecutorArgs.builder()
  *                 .lambda("arn:aws:lambda:us-west-2:123456789012:function:example-function")
  *                 .build())
  *             .functionSchema(AgentAgentActionGroupFunctionSchemaArgs.builder()
  *                 .memberFunctions(AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs.builder()
  *                     .functions(AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs.builder()
+ *                         .name("example-function")
+ *                         .description("Example function")
  *                         .parameters(                        
  *                             AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs.builder()
  *                                 .mapBlockKey("param1")
@@ -169,15 +175,9 @@ import javax.annotation.Nullable;
  *                                 .description("The second parameter")
  *                                 .required(false)
  *                                 .build())
- *                         .name("example-function")
- *                         .description("Example function")
  *                         .build())
  *                     .build())
  *                 .build())
- *             .actionGroupName("example")
- *             .agentId("GGRRAED6JP")
- *             .agentVersion("DRAFT")
- *             .skipResourceInUseCheck(true)
  *             .build());
  * 
  *     }
@@ -214,6 +214,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentAgentActionGroup("example", AgentAgentActionGroupArgs.builder()
+ *             .actionGroupName("example")
+ *             .agentId("GGRRAED6JP")
+ *             .agentVersion("DRAFT")
+ *             .skipResourceInUseCheck(true)
  *             .actionGroupExecutor(AgentAgentActionGroupActionGroupExecutorArgs.builder()
  *                 .customControl("RETURN_CONTROL")
  *                 .build())
@@ -222,10 +226,6 @@ import javax.annotation.Nullable;
  *                     .input("path/to/schema.yaml")
  *                     .build()).result())
  *                 .build())
- *             .actionGroupName("example")
- *             .agentId("GGRRAED6JP")
- *             .agentVersion("DRAFT")
- *             .skipResourceInUseCheck(true)
  *             .build());
  * 
  *     }

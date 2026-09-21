@@ -37,17 +37,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.EventSourceMapping("example", {
- *     destinationConfig: {
- *         onFailure: {
- *             destinationArn: dlq.arn,
- *         },
- *     },
  *     eventSourceArn: exampleAwsKinesisStream.arn,
  *     functionName: exampleAwsLambdaFunction.arn,
  *     startingPosition: "LATEST",
  *     batchSize: 100,
  *     maximumBatchingWindowInSeconds: 5,
  *     parallelizationFactor: 2,
+ *     destinationConfig: {
+ *         onFailure: {
+ *             destinationArn: dlq.arn,
+ *         },
+ *     },
  * });
  * ```
  *
@@ -58,12 +58,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.EventSourceMapping("example", {
- *     scalingConfig: {
- *         maximumConcurrency: 100,
- *     },
  *     eventSourceArn: exampleAwsSqsQueue.arn,
  *     functionName: exampleAwsLambdaFunction.arn,
  *     batchSize: 10,
+ *     scalingConfig: {
+ *         maximumConcurrency: 100,
+ *     },
  * });
  * ```
  *
@@ -74,6 +74,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.EventSourceMapping("example", {
+ *     eventSourceArn: exampleAwsSqsQueue.arn,
+ *     functionName: exampleAwsLambdaFunction.arn,
  *     filterCriteria: {
  *         filters: [{
  *             pattern: JSON.stringify({
@@ -91,8 +93,6 @@ import * as utilities from "../utilities";
  *             }),
  *         }],
  *     },
- *     eventSourceArn: exampleAwsSqsQueue.arn,
- *     functionName: exampleAwsLambdaFunction.arn,
  * });
  * ```
  *
@@ -103,9 +103,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.EventSourceMapping("example", {
- *     amazonManagedKafkaEventSourceConfig: {
- *         consumerGroupId: "lambda-consumer-group",
- *     },
  *     eventSourceArn: exampleAwsMskCluster.arn,
  *     functionName: exampleAwsLambdaFunction.arn,
  *     topics: [
@@ -114,6 +111,9 @@ import * as utilities from "../utilities";
  *     ],
  *     startingPosition: "TRIM_HORIZON",
  *     batchSize: 100,
+ *     amazonManagedKafkaEventSourceConfig: {
+ *         consumerGroupId: "lambda-consumer-group",
+ *     },
  * });
  * ```
  *
@@ -124,6 +124,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.EventSourceMapping("example", {
+ *     functionName: exampleAwsLambdaFunction.arn,
+ *     topics: ["orders"],
+ *     startingPosition: "TRIM_HORIZON",
  *     selfManagedEventSource: {
  *         endpoints: {
  *             KAFKA_BOOTSTRAP_SERVERS: "kafka1.example.com:9092,kafka2.example.com:9092",
@@ -131,11 +134,6 @@ import * as utilities from "../utilities";
  *     },
  *     selfManagedKafkaEventSourceConfig: {
  *         consumerGroupId: "lambda-consumer-group",
- *     },
- *     provisionedPollerConfig: {
- *         maximumPollers: 100,
- *         minimumPollers: 10,
- *         pollerGroupName: "group-123",
  *     },
  *     sourceAccessConfigurations: [
  *         {
@@ -151,9 +149,11 @@ import * as utilities from "../utilities";
  *             uri: `security_group:${exampleAwsSecurityGroup.id}`,
  *         },
  *     ],
- *     functionName: exampleAwsLambdaFunction.arn,
- *     topics: ["orders"],
- *     startingPosition: "TRIM_HORIZON",
+ *     provisionedPollerConfig: {
+ *         maximumPollers: 100,
+ *         minimumPollers: 10,
+ *         pollerGroupName: "group-123",
+ *     },
  * });
  * ```
  *
@@ -164,14 +164,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.EventSourceMapping("example", {
- *     sourceAccessConfigurations: [{
- *         type: "BASIC_AUTH",
- *         uri: exampleAwsSecretsmanagerSecretVersion.arn,
- *     }],
  *     eventSourceArn: exampleAwsMqBroker.arn,
  *     functionName: exampleAwsLambdaFunction.arn,
  *     queues: "orders",
  *     batchSize: 10,
+ *     sourceAccessConfigurations: [{
+ *         type: "BASIC_AUTH",
+ *         uri: exampleAwsSecretsmanagerSecretVersion.arn,
+ *     }],
  * });
  * ```
  *
@@ -182,6 +182,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.EventSourceMapping("example", {
+ *     eventSourceArn: exampleAwsMqBroker.arn,
+ *     functionName: exampleAwsLambdaFunction.arn,
+ *     queues: "orders",
+ *     batchSize: 1,
  *     sourceAccessConfigurations: [
  *         {
  *             type: "VIRTUAL_HOST",
@@ -192,10 +196,6 @@ import * as utilities from "../utilities";
  *             uri: exampleAwsSecretsmanagerSecretVersion.arn,
  *         },
  *     ],
- *     eventSourceArn: exampleAwsMqBroker.arn,
- *     functionName: exampleAwsLambdaFunction.arn,
- *     queues: "orders",
- *     batchSize: 1,
  * });
  * ```
  *
@@ -206,6 +206,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.EventSourceMapping("example", {
+ *     eventSourceArn: exampleAwsDocdbCluster.arn,
+ *     functionName: exampleAwsLambdaFunction.arn,
+ *     startingPosition: "LATEST",
  *     documentDbEventSourceConfig: {
  *         databaseName: "orders",
  *         collectionName: "transactions",
@@ -215,9 +218,6 @@ import * as utilities from "../utilities";
  *         type: "BASIC_AUTH",
  *         uri: exampleAwsSecretsmanagerSecretVersion.arn,
  *     }],
- *     eventSourceArn: exampleAwsDocdbCluster.arn,
- *     functionName: exampleAwsLambdaFunction.arn,
- *     startingPosition: "LATEST",
  * });
  * ```
  *

@@ -114,6 +114,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Table("example", TableArgs.builder()
+ *             .name("example_table")
+ *             .namespace(exampleNamespace.namespace())
+ *             .tableBucketArn(exampleNamespace.tableBucketArn())
+ *             .format("ICEBERG")
  *             .metadata(TableMetadataArgs.builder()
  *                 .iceberg(TableMetadataIcebergArgs.builder()
  *                     .schema(TableMetadataIcebergSchemaArgs.builder()
@@ -141,10 +145,6 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .name("example_table")
- *             .namespace(exampleNamespace.namespace())
- *             .tableBucketArn(exampleNamespace.tableBucketArn())
- *             .format("ICEBERG")
  *             .build());
  * 
  *     }

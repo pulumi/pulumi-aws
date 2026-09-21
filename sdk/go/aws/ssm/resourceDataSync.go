@@ -39,11 +39,11 @@ import (
 //				return err
 //			}
 //			_, err = ssm.NewResourceDataSync(ctx, "example", &ssm.ResourceDataSyncArgs{
+//				Name: pulumi.String("example"),
 //				S3Destination: &ssm.ResourceDataSyncS3DestinationArgs{
 //					BucketName: exampleBucket.Bucket,
 //					Region:     exampleBucket.Region,
 //				},
-//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -51,6 +51,8 @@ import (
 //			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
+//						Sid:    pulumi.String("SSMBucketPermissionsCheck"),
+//						Effect: pulumi.String("Allow"),
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("Service"),
@@ -59,8 +61,6 @@ import (
 //								},
 //							},
 //						},
-//						Sid:    pulumi.String("SSMBucketPermissionsCheck"),
-//						Effect: pulumi.String("Allow"),
 //						Actions: pulumi.StringArray{
 //							pulumi.String("s3:GetBucketAcl"),
 //						},
@@ -69,15 +69,8 @@ import (
 //						},
 //					},
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
-//							&iam.GetPolicyDocumentStatementConditionArgs{
-//								Test:     pulumi.String("StringEquals"),
-//								Variable: pulumi.String("s3:x-amz-acl"),
-//								Values: pulumi.StringArray{
-//									pulumi.String("bucket-owner-full-control"),
-//								},
-//							},
-//						},
+//						Sid:    pulumi.String("SSMBucketDelivery"),
+//						Effect: pulumi.String("Allow"),
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("Service"),
@@ -86,8 +79,6 @@ import (
 //								},
 //							},
 //						},
-//						Sid:    pulumi.String("SSMBucketDelivery"),
-//						Effect: pulumi.String("Allow"),
 //						Actions: pulumi.StringArray{
 //							pulumi.String("s3:PutObject"),
 //						},
@@ -95,6 +86,15 @@ import (
 //							exampleBucket.Arn.ApplyT(func(arn string) (string, error) {
 //								return fmt.Sprintf("%v/*", arn), nil
 //							}).(pulumi.StringOutput),
+//						},
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("StringEquals"),
+//								Variable: pulumi.String("s3:x-amz-acl"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("bucket-owner-full-control"),
+//								},
+//							},
 //						},
 //					},
 //				},

@@ -89,6 +89,9 @@ import (
 //				return err
 //			}
 //			_, err = appflow.NewConnectorProfile(ctx, "example", &appflow.ConnectorProfileArgs{
+//				Name:           pulumi.String("example_profile"),
+//				ConnectorType:  pulumi.String("Redshift"),
+//				ConnectionMode: pulumi.String("Public"),
 //				ConnectorProfileConfig: &appflow.ConnectorProfileConnectorProfileConfigArgs{
 //					ConnectorProfileCredentials: &appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs{
 //						Redshift: &appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs{
@@ -108,9 +111,6 @@ import (
 //						},
 //					},
 //				},
-//				Name:           pulumi.String("example_profile"),
-//				ConnectorType:  pulumi.String("Redshift"),
-//				ConnectionMode: pulumi.String("Public"),
 //			})
 //			if err != nil {
 //				return err

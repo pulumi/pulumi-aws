@@ -48,6 +48,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new ParameterGroup("default", ParameterGroupArgs.builder()
+ *             .name("cache-params")
+ *             .family("redis2.8")
  *             .parameters(            
  *                 ParameterGroupParameterArgs.builder()
  *                     .name("activerehashing")
@@ -57,8 +59,6 @@ import javax.annotation.Nullable;
  *                     .name("min-slaves-to-write")
  *                     .value("2")
  *                     .build())
- *             .name("cache-params")
- *             .family("redis2.8")
  *             .build());
  * 
  *     }

@@ -30,8 +30,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := cloudwatch.GetLogDataProtectionPolicyDocument(ctx, &cloudwatch.GetLogDataProtectionPolicyDocumentArgs{
+//				Name: "Example",
 //				Statements: []cloudwatch.GetLogDataProtectionPolicyDocumentStatement{
 //					{
+//						Sid: pulumi.StringRef("Audit"),
+//						DataIdentifiers: []string{
+//							"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+//							"arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
+//						},
 //						Operation: {
 //							Audit: {
 //								FindingsDestination: {
@@ -47,26 +53,20 @@ import (
 //								},
 //							},
 //						},
-//						Sid: pulumi.StringRef("Audit"),
-//						DataIdentifiers: []string{
-//							"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-//							"arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
-//						},
 //					},
 //					{
-//						Operation: {
-//							Deidentify: {
-//								MaskConfig: {},
-//							},
-//						},
 //						Sid: pulumi.StringRef("Deidentify"),
 //						DataIdentifiers: []string{
 //							"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
 //							"arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
 //						},
+//						Operation: {
+//							Deidentify: {
+//								MaskConfig: {},
+//							},
+//						},
 //					},
 //				},
-//				Name: "Example",
 //			}, nil)
 //			if err != nil {
 //				return err

@@ -30,6 +30,10 @@ namespace Pulumi.Aws.Sagemaker
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -40,10 +44,6 @@ namespace Pulumi.Aws.Sagemaker
     ///                             "sagemaker.amazonaws.com",
     ///                         },
     ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
     ///                 },
     ///             },
     ///         },
@@ -61,12 +61,12 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     ///     var example = new Aws.Sagemaker.Model("example", new()
     ///     {
+    ///         Name = "my-model",
+    ///         ExecutionRoleArn = exampleRole.Arn,
     ///         PrimaryContainer = new Aws.Sagemaker.Inputs.ModelPrimaryContainerArgs
     ///         {
     ///             Image = test.Apply(getPrebuiltEcrImageResult =&gt; getPrebuiltEcrImageResult.RegistryPath),
     ///         },
-    ///         Name = "my-model",
-    ///         ExecutionRoleArn = exampleRole.Arn,
     ///     });
     /// 
     /// });

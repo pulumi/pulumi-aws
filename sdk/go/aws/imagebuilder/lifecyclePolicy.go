@@ -72,12 +72,10 @@ import (
 //				return err
 //			}
 //			_, err = imagebuilder.NewLifecyclePolicy(ctx, "example", &imagebuilder.LifecyclePolicyArgs{
-//				ResourceSelection: &imagebuilder.LifecyclePolicyResourceSelectionArgs{
-//					TagMap: pulumi.StringMap{
-//						"key1": pulumi.String("value1"),
-//						"key2": pulumi.String("value2"),
-//					},
-//				},
+//				Name:          pulumi.String("name"),
+//				Description:   pulumi.String("Example description"),
+//				ExecutionRole: example.Arn,
+//				ResourceType:  pulumi.String("AMI_IMAGE"),
 //				PolicyDetails: imagebuilder.LifecyclePolicyPolicyDetailArray{
 //					&imagebuilder.LifecyclePolicyPolicyDetailArgs{
 //						Action: &imagebuilder.LifecyclePolicyPolicyDetailActionArgs{
@@ -91,10 +89,12 @@ import (
 //						},
 //					},
 //				},
-//				Name:          pulumi.String("name"),
-//				Description:   pulumi.String("Example description"),
-//				ExecutionRole: example.Arn,
-//				ResourceType:  pulumi.String("AMI_IMAGE"),
+//				ResourceSelection: &imagebuilder.LifecyclePolicyResourceSelectionArgs{
+//					TagMap: pulumi.StringMap{
+//						"key1": pulumi.String("value1"),
+//						"key2": pulumi.String("value2"),
+//					},
+//				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleRolePolicyAttachment,
 //			}))

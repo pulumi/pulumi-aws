@@ -31,6 +31,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewDataSource(ctx, "default", &quicksight.DataSourceArgs{
+//				DataSourceId: pulumi.String("example-id"),
+//				Name:         pulumi.String("My Cool Data in S3"),
 //				Parameters: &quicksight.DataSourceParametersArgs{
 //					S3: &quicksight.DataSourceParametersS3Args{
 //						ManifestFileLocation: &quicksight.DataSourceParametersS3ManifestFileLocationArgs{
@@ -39,9 +41,7 @@ import (
 //						},
 //					},
 //				},
-//				DataSourceId: pulumi.String("example-id"),
-//				Name:         pulumi.String("My Cool Data in S3"),
-//				Type:         pulumi.String("S3"),
+//				Type: pulumi.String("S3"),
 //			})
 //			if err != nil {
 //				return err
@@ -190,6 +190,8 @@ import (
 //				return err
 //			}
 //			_, err = quicksight.NewDataSource(ctx, "example", &quicksight.DataSourceArgs{
+//				DataSourceId: pulumi.String("example-id"),
+//				Name:         pulumi.String("manifest in S3"),
 //				Parameters: &quicksight.DataSourceParametersArgs{
 //					S3: &quicksight.DataSourceParametersS3Args{
 //						ManifestFileLocation: &quicksight.DataSourceParametersS3ManifestFileLocationArgs{
@@ -199,9 +201,7 @@ import (
 //						RoleArn: exampleRole.Arn,
 //					},
 //				},
-//				DataSourceId: pulumi.String("example-id"),
-//				Name:         pulumi.String("manifest in S3"),
-//				Type:         pulumi.String("S3"),
+//				Type: pulumi.String("S3"),
 //			})
 //			if err != nil {
 //				return err

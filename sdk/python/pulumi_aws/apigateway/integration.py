@@ -695,7 +695,7 @@ class Integration(pulumi.CustomResource):
                  response_transfer_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_api: pulumi.Input[Optional[_builtins.str]] = None,
                  timeout_milliseconds: pulumi.Input[Optional[_builtins.int]] = None,
-                 tls_config: pulumi.Input[Optional[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']]] = None,
+                 tls_config: pulumi.Input[Optional[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict', 'outputs.IntegrationTlsConfig']]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -762,11 +762,11 @@ class Integration(pulumi.CustomResource):
             authorization="NONE")
         # IAM
         assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["lambda.amazonaws.com"],
             }],
-            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         role = aws.iam.Role("role",
@@ -889,17 +889,17 @@ class Integration(pulumi.CustomResource):
             security_groups=[example_aws_security_group["id"]],
             subnets=[__item["id"] for __item in example_aws_subnet])
         example_listener = aws.lb.Listener("example",
+            load_balancer_arn=example_load_balancer.arn,
+            port=80,
+            protocol="HTTP",
             default_actions=[{
+                "type": "fixed-response",
                 "fixed_response": {
                     "content_type": "text/plain",
                     "message_body": "OK",
                     "status_code": "200",
                 },
-                "type": "fixed-response",
-            }],
-            load_balancer_arn=example_load_balancer.arn,
-            port=80,
-            protocol="HTTP")
+            }])
         example_rest_api = aws.apigateway.RestApi("example", name="example")
         example_resource = aws.apigateway.Resource("example",
             rest_api=example_rest_api.id,
@@ -963,7 +963,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] response_transfer_mode: Response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`. Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
         :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API.
         :param pulumi.Input[_builtins.int] timeout_milliseconds: Custom timeout in milliseconds. The minimum value is 50. The maximum value is 300,000 when `response_transfer_mode` is `BUFFERED`, and 900,000 when `response_transfer_mode` is `STREAM`. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds for `BUFFERED` mode.
-        :param pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']] tls_config: TLS configuration. See below.
+        :param pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict', 'outputs.IntegrationTlsConfig']] tls_config: TLS configuration. See below.
         :param pulumi.Input[_builtins.str] type: Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
         :param pulumi.Input[_builtins.str] uri: Input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`. For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint. e.g., `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:123456789012:function:my-func/invocations`. For private integrations, the URI parameter is not used for routing requests to your endpoint, but is used for setting the Host header and for certificate validation.
         """
@@ -1036,11 +1036,11 @@ class Integration(pulumi.CustomResource):
             authorization="NONE")
         # IAM
         assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["lambda.amazonaws.com"],
             }],
-            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         role = aws.iam.Role("role",
@@ -1163,17 +1163,17 @@ class Integration(pulumi.CustomResource):
             security_groups=[example_aws_security_group["id"]],
             subnets=[__item["id"] for __item in example_aws_subnet])
         example_listener = aws.lb.Listener("example",
+            load_balancer_arn=example_load_balancer.arn,
+            port=80,
+            protocol="HTTP",
             default_actions=[{
+                "type": "fixed-response",
                 "fixed_response": {
                     "content_type": "text/plain",
                     "message_body": "OK",
                     "status_code": "200",
                 },
-                "type": "fixed-response",
-            }],
-            load_balancer_arn=example_load_balancer.arn,
-            port=80,
-            protocol="HTTP")
+            }])
         example_rest_api = aws.apigateway.RestApi("example", name="example")
         example_resource = aws.apigateway.Resource("example",
             rest_api=example_rest_api.id,
@@ -1250,7 +1250,7 @@ class Integration(pulumi.CustomResource):
                  response_transfer_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_api: pulumi.Input[Optional[_builtins.str]] = None,
                  timeout_milliseconds: pulumi.Input[Optional[_builtins.int]] = None,
-                 tls_config: pulumi.Input[Optional[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']]] = None,
+                 tls_config: pulumi.Input[Optional[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict', 'outputs.IntegrationTlsConfig']]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -1317,7 +1317,7 @@ class Integration(pulumi.CustomResource):
             response_transfer_mode: pulumi.Input[Optional[_builtins.str]] = None,
             rest_api: pulumi.Input[Optional[_builtins.str]] = None,
             timeout_milliseconds: pulumi.Input[Optional[_builtins.int]] = None,
-            tls_config: pulumi.Input[Optional[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']]] = None,
+            tls_config: pulumi.Input[Optional[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict', 'outputs.IntegrationTlsConfig']]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
             uri: pulumi.Input[Optional[_builtins.str]] = None) -> 'Integration':
         """
@@ -1344,7 +1344,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] response_transfer_mode: Response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`. Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
         :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API.
         :param pulumi.Input[_builtins.int] timeout_milliseconds: Custom timeout in milliseconds. The minimum value is 50. The maximum value is 300,000 when `response_transfer_mode` is `BUFFERED`, and 900,000 when `response_transfer_mode` is `STREAM`. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds for `BUFFERED` mode.
-        :param pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']] tls_config: TLS configuration. See below.
+        :param pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict', 'outputs.IntegrationTlsConfig']] tls_config: TLS configuration. See below.
         :param pulumi.Input[_builtins.str] type: Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
         :param pulumi.Input[_builtins.str] uri: Input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`. For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint. e.g., `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:123456789012:function:my-func/invocations`. For private integrations, the URI parameter is not used for routing requests to your endpoint, but is used for setting the Host header and for certificate validation.
         """

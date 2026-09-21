@@ -343,7 +343,7 @@ class CustomKeyStore(pulumi.CustomResource):
                  key_store_password: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  trust_anchor_certificate: pulumi.Input[Optional[_builtins.str]] = None,
-                 xks_proxy_authentication_credential: pulumi.Input[Optional[Union['CustomKeyStoreXksProxyAuthenticationCredentialArgs', 'CustomKeyStoreXksProxyAuthenticationCredentialArgsDict']]] = None,
+                 xks_proxy_authentication_credential: pulumi.Input[Optional[Union['CustomKeyStoreXksProxyAuthenticationCredentialArgs', 'CustomKeyStoreXksProxyAuthenticationCredentialArgsDict', 'outputs.CustomKeyStoreXksProxyAuthenticationCredential']]] = None,
                  xks_proxy_connectivity: pulumi.Input[Optional[_builtins.str]] = None,
                  xks_proxy_uri_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  xks_proxy_uri_path: pulumi.Input[Optional[_builtins.str]] = None,
@@ -375,12 +375,12 @@ class CustomKeyStore(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kms.CustomKeyStore("example",
+            custom_key_store_name="example-vpc-xks",
+            custom_key_store_type="EXTERNAL_KEY_STORE",
             xks_proxy_authentication_credential={
                 "access_key_id": ephemeral_access_key_id,
                 "raw_secret_access_key": ephemeral_secret_access_key,
             },
-            custom_key_store_name="example-vpc-xks",
-            custom_key_store_type="EXTERNAL_KEY_STORE",
             xks_proxy_connectivity="VPC_ENDPOINT_SERVICE",
             xks_proxy_uri_endpoint="https://myproxy-private.xks.example.com",
             xks_proxy_uri_path="/kms/xks/v1",
@@ -394,12 +394,12 @@ class CustomKeyStore(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kms.CustomKeyStore("example",
+            custom_key_store_name="example-public-xks",
+            custom_key_store_type="EXTERNAL_KEY_STORE",
             xks_proxy_authentication_credential={
                 "access_key_id": ephemeral_access_key_id,
                 "raw_secret_access_key": ephemeral_secret_access_key,
             },
-            custom_key_store_name="example-public-xks",
-            custom_key_store_type="EXTERNAL_KEY_STORE",
             xks_proxy_connectivity="PUBLIC_ENDPOINT",
             xks_proxy_uri_endpoint="https://myproxy.xks.example.com",
             xks_proxy_uri_path="/kms/xks/v1")
@@ -454,12 +454,12 @@ class CustomKeyStore(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kms.CustomKeyStore("example",
+            custom_key_store_name="example-vpc-xks",
+            custom_key_store_type="EXTERNAL_KEY_STORE",
             xks_proxy_authentication_credential={
                 "access_key_id": ephemeral_access_key_id,
                 "raw_secret_access_key": ephemeral_secret_access_key,
             },
-            custom_key_store_name="example-vpc-xks",
-            custom_key_store_type="EXTERNAL_KEY_STORE",
             xks_proxy_connectivity="VPC_ENDPOINT_SERVICE",
             xks_proxy_uri_endpoint="https://myproxy-private.xks.example.com",
             xks_proxy_uri_path="/kms/xks/v1",
@@ -473,12 +473,12 @@ class CustomKeyStore(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kms.CustomKeyStore("example",
+            custom_key_store_name="example-public-xks",
+            custom_key_store_type="EXTERNAL_KEY_STORE",
             xks_proxy_authentication_credential={
                 "access_key_id": ephemeral_access_key_id,
                 "raw_secret_access_key": ephemeral_secret_access_key,
             },
-            custom_key_store_name="example-public-xks",
-            custom_key_store_type="EXTERNAL_KEY_STORE",
             xks_proxy_connectivity="PUBLIC_ENDPOINT",
             xks_proxy_uri_endpoint="https://myproxy.xks.example.com",
             xks_proxy_uri_path="/kms/xks/v1")
@@ -514,7 +514,7 @@ class CustomKeyStore(pulumi.CustomResource):
                  key_store_password: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  trust_anchor_certificate: pulumi.Input[Optional[_builtins.str]] = None,
-                 xks_proxy_authentication_credential: pulumi.Input[Optional[Union['CustomKeyStoreXksProxyAuthenticationCredentialArgs', 'CustomKeyStoreXksProxyAuthenticationCredentialArgsDict']]] = None,
+                 xks_proxy_authentication_credential: pulumi.Input[Optional[Union['CustomKeyStoreXksProxyAuthenticationCredentialArgs', 'CustomKeyStoreXksProxyAuthenticationCredentialArgsDict', 'outputs.CustomKeyStoreXksProxyAuthenticationCredential']]] = None,
                  xks_proxy_connectivity: pulumi.Input[Optional[_builtins.str]] = None,
                  xks_proxy_uri_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  xks_proxy_uri_path: pulumi.Input[Optional[_builtins.str]] = None,
@@ -557,7 +557,7 @@ class CustomKeyStore(pulumi.CustomResource):
             key_store_password: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             trust_anchor_certificate: pulumi.Input[Optional[_builtins.str]] = None,
-            xks_proxy_authentication_credential: pulumi.Input[Optional[Union['CustomKeyStoreXksProxyAuthenticationCredentialArgs', 'CustomKeyStoreXksProxyAuthenticationCredentialArgsDict']]] = None,
+            xks_proxy_authentication_credential: pulumi.Input[Optional[Union['CustomKeyStoreXksProxyAuthenticationCredentialArgs', 'CustomKeyStoreXksProxyAuthenticationCredentialArgsDict', 'outputs.CustomKeyStoreXksProxyAuthenticationCredential']]] = None,
             xks_proxy_connectivity: pulumi.Input[Optional[_builtins.str]] = None,
             xks_proxy_uri_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             xks_proxy_uri_path: pulumi.Input[Optional[_builtins.str]] = None,

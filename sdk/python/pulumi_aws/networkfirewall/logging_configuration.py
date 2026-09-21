@@ -170,7 +170,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enable_monitoring_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  firewall_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging_configuration: pulumi.Input[Optional[Union['LoggingConfigurationLoggingConfigurationArgs', 'LoggingConfigurationLoggingConfigurationArgsDict']]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['LoggingConfigurationLoggingConfigurationArgs', 'LoggingConfigurationLoggingConfigurationArgsDict', 'outputs.LoggingConfigurationLoggingConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -185,6 +185,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.LoggingConfiguration("example",
+            firewall_arn=example_aws_networkfirewall_firewall["arn"],
             logging_configuration={
                 "log_destination_configs": [{
                     "log_destination": {
@@ -194,8 +195,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                     "log_destination_type": "S3",
                     "log_type": "FLOW",
                 }],
-            },
-            firewall_arn=example_aws_networkfirewall_firewall["arn"])
+            })
         ```
 
         ### Logging to CloudWatch
@@ -205,6 +205,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.LoggingConfiguration("example",
+            firewall_arn=example_aws_networkfirewall_firewall["arn"],
             logging_configuration={
                 "log_destination_configs": [{
                     "log_destination": {
@@ -213,8 +214,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                     "log_destination_type": "CloudWatchLogs",
                     "log_type": "ALERT",
                 }],
-            },
-            firewall_arn=example_aws_networkfirewall_firewall["arn"])
+            })
         ```
 
         ### Logging to Kinesis Data Firehose
@@ -224,6 +224,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.LoggingConfiguration("example",
+            firewall_arn=example_aws_networkfirewall_firewall["arn"],
             logging_configuration={
                 "log_destination_configs": [{
                     "log_destination": {
@@ -232,8 +233,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                     "log_destination_type": "KinesisDataFirehose",
                     "log_type": "TLS",
                 }],
-            },
-            firewall_arn=example_aws_networkfirewall_firewall["arn"])
+            })
         ```
 
         ## Import
@@ -249,7 +249,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enable_monitoring_dashboard: Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
         :param pulumi.Input[_builtins.str] firewall_arn: ARN of the Network Firewall firewall.
-        :param pulumi.Input[Union['LoggingConfigurationLoggingConfigurationArgs', 'LoggingConfigurationLoggingConfigurationArgsDict']] logging_configuration: A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
+        :param pulumi.Input[Union['LoggingConfigurationLoggingConfigurationArgs', 'LoggingConfigurationLoggingConfigurationArgsDict', 'outputs.LoggingConfigurationLoggingConfiguration']] logging_configuration: A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -270,6 +270,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.LoggingConfiguration("example",
+            firewall_arn=example_aws_networkfirewall_firewall["arn"],
             logging_configuration={
                 "log_destination_configs": [{
                     "log_destination": {
@@ -279,8 +280,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                     "log_destination_type": "S3",
                     "log_type": "FLOW",
                 }],
-            },
-            firewall_arn=example_aws_networkfirewall_firewall["arn"])
+            })
         ```
 
         ### Logging to CloudWatch
@@ -290,6 +290,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.LoggingConfiguration("example",
+            firewall_arn=example_aws_networkfirewall_firewall["arn"],
             logging_configuration={
                 "log_destination_configs": [{
                     "log_destination": {
@@ -298,8 +299,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                     "log_destination_type": "CloudWatchLogs",
                     "log_type": "ALERT",
                 }],
-            },
-            firewall_arn=example_aws_networkfirewall_firewall["arn"])
+            })
         ```
 
         ### Logging to Kinesis Data Firehose
@@ -309,6 +309,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.LoggingConfiguration("example",
+            firewall_arn=example_aws_networkfirewall_firewall["arn"],
             logging_configuration={
                 "log_destination_configs": [{
                     "log_destination": {
@@ -317,8 +318,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                     "log_destination_type": "KinesisDataFirehose",
                     "log_type": "TLS",
                 }],
-            },
-            firewall_arn=example_aws_networkfirewall_firewall["arn"])
+            })
         ```
 
         ## Import
@@ -347,7 +347,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enable_monitoring_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  firewall_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging_configuration: pulumi.Input[Optional[Union['LoggingConfigurationLoggingConfigurationArgs', 'LoggingConfigurationLoggingConfigurationArgsDict']]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['LoggingConfigurationLoggingConfigurationArgs', 'LoggingConfigurationLoggingConfigurationArgsDict', 'outputs.LoggingConfigurationLoggingConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -378,7 +378,7 @@ class LoggingConfiguration(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             enable_monitoring_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
             firewall_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            logging_configuration: pulumi.Input[Optional[Union['LoggingConfigurationLoggingConfigurationArgs', 'LoggingConfigurationLoggingConfigurationArgsDict']]] = None,
+            logging_configuration: pulumi.Input[Optional[Union['LoggingConfigurationLoggingConfigurationArgs', 'LoggingConfigurationLoggingConfigurationArgsDict', 'outputs.LoggingConfigurationLoggingConfiguration']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'LoggingConfiguration':
         """
         Get an existing LoggingConfiguration resource's state with the given name, id, and optional extra
@@ -389,7 +389,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enable_monitoring_dashboard: Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
         :param pulumi.Input[_builtins.str] firewall_arn: ARN of the Network Firewall firewall.
-        :param pulumi.Input[Union['LoggingConfigurationLoggingConfigurationArgs', 'LoggingConfigurationLoggingConfigurationArgsDict']] logging_configuration: A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
+        :param pulumi.Input[Union['LoggingConfigurationLoggingConfigurationArgs', 'LoggingConfigurationLoggingConfigurationArgsDict', 'outputs.LoggingConfigurationLoggingConfiguration']] logging_configuration: A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

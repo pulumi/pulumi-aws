@@ -274,12 +274,12 @@ class ResourceLfTag(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 database: pulumi.Input[Optional[Union['ResourceLfTagDatabaseArgs', 'ResourceLfTagDatabaseArgsDict']]] = None,
-                 lf_tag: pulumi.Input[Optional[Union['ResourceLfTagLfTagArgs', 'ResourceLfTagLfTagArgsDict']]] = None,
+                 database: pulumi.Input[Optional[Union['ResourceLfTagDatabaseArgs', 'ResourceLfTagDatabaseArgsDict', 'outputs.ResourceLfTagDatabase']]] = None,
+                 lf_tag: pulumi.Input[Optional[Union['ResourceLfTagLfTagArgs', 'ResourceLfTagLfTagArgsDict', 'outputs.ResourceLfTagLfTag']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 table: pulumi.Input[Optional[Union['ResourceLfTagTableArgs', 'ResourceLfTagTableArgsDict']]] = None,
-                 table_with_columns: pulumi.Input[Optional[Union['ResourceLfTagTableWithColumnsArgs', 'ResourceLfTagTableWithColumnsArgsDict']]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ResourceLfTagTimeoutsArgs', 'ResourceLfTagTimeoutsArgsDict']]] = None,
+                 table: pulumi.Input[Optional[Union['ResourceLfTagTableArgs', 'ResourceLfTagTableArgsDict', 'outputs.ResourceLfTagTable']]] = None,
+                 table_with_columns: pulumi.Input[Optional[Union['ResourceLfTagTableWithColumnsArgs', 'ResourceLfTagTableWithColumnsArgsDict', 'outputs.ResourceLfTagTableWithColumns']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ResourceLfTagTimeoutsArgs', 'ResourceLfTagTimeoutsArgsDict', 'outputs.ResourceLfTagTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Lake Formation Resource LF Tag.
@@ -310,13 +310,13 @@ class ResourceLfTag(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-        :param pulumi.Input[Union['ResourceLfTagDatabaseArgs', 'ResourceLfTagDatabaseArgsDict']] database: Configuration block for a database resource. See Database for more details.
-        :param pulumi.Input[Union['ResourceLfTagLfTagArgs', 'ResourceLfTagLfTagArgsDict']] lf_tag: Set of LF-tags to attach to the resource. See LF Tag for more details.
+        :param pulumi.Input[Union['ResourceLfTagDatabaseArgs', 'ResourceLfTagDatabaseArgsDict', 'outputs.ResourceLfTagDatabase']] database: Configuration block for a database resource. See Database for more details.
+        :param pulumi.Input[Union['ResourceLfTagLfTagArgs', 'ResourceLfTagLfTagArgsDict', 'outputs.ResourceLfTagLfTag']] lf_tag: Set of LF-tags to attach to the resource. See LF Tag for more details.
                
                Exactly one of the following is required:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ResourceLfTagTableArgs', 'ResourceLfTagTableArgsDict']] table: Configuration block for a table resource. See Table for more details.
-        :param pulumi.Input[Union['ResourceLfTagTableWithColumnsArgs', 'ResourceLfTagTableWithColumnsArgsDict']] table_with_columns: Configuration block for a table with columns resource. See Table With Columns for more details.
+        :param pulumi.Input[Union['ResourceLfTagTableArgs', 'ResourceLfTagTableArgsDict', 'outputs.ResourceLfTagTable']] table: Configuration block for a table resource. See Table for more details.
+        :param pulumi.Input[Union['ResourceLfTagTableWithColumnsArgs', 'ResourceLfTagTableWithColumnsArgsDict', 'outputs.ResourceLfTagTableWithColumns']] table_with_columns: Configuration block for a table with columns resource. See Table With Columns for more details.
                
                The following arguments are optional:
         """
@@ -368,12 +368,12 @@ class ResourceLfTag(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 database: pulumi.Input[Optional[Union['ResourceLfTagDatabaseArgs', 'ResourceLfTagDatabaseArgsDict']]] = None,
-                 lf_tag: pulumi.Input[Optional[Union['ResourceLfTagLfTagArgs', 'ResourceLfTagLfTagArgsDict']]] = None,
+                 database: pulumi.Input[Optional[Union['ResourceLfTagDatabaseArgs', 'ResourceLfTagDatabaseArgsDict', 'outputs.ResourceLfTagDatabase']]] = None,
+                 lf_tag: pulumi.Input[Optional[Union['ResourceLfTagLfTagArgs', 'ResourceLfTagLfTagArgsDict', 'outputs.ResourceLfTagLfTag']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 table: pulumi.Input[Optional[Union['ResourceLfTagTableArgs', 'ResourceLfTagTableArgsDict']]] = None,
-                 table_with_columns: pulumi.Input[Optional[Union['ResourceLfTagTableWithColumnsArgs', 'ResourceLfTagTableWithColumnsArgsDict']]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ResourceLfTagTimeoutsArgs', 'ResourceLfTagTimeoutsArgsDict']]] = None,
+                 table: pulumi.Input[Optional[Union['ResourceLfTagTableArgs', 'ResourceLfTagTableArgsDict', 'outputs.ResourceLfTagTable']]] = None,
+                 table_with_columns: pulumi.Input[Optional[Union['ResourceLfTagTableWithColumnsArgs', 'ResourceLfTagTableWithColumnsArgsDict', 'outputs.ResourceLfTagTableWithColumns']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ResourceLfTagTimeoutsArgs', 'ResourceLfTagTimeoutsArgsDict', 'outputs.ResourceLfTagTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -403,12 +403,12 @@ class ResourceLfTag(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
-            database: pulumi.Input[Optional[Union['ResourceLfTagDatabaseArgs', 'ResourceLfTagDatabaseArgsDict']]] = None,
-            lf_tag: pulumi.Input[Optional[Union['ResourceLfTagLfTagArgs', 'ResourceLfTagLfTagArgsDict']]] = None,
+            database: pulumi.Input[Optional[Union['ResourceLfTagDatabaseArgs', 'ResourceLfTagDatabaseArgsDict', 'outputs.ResourceLfTagDatabase']]] = None,
+            lf_tag: pulumi.Input[Optional[Union['ResourceLfTagLfTagArgs', 'ResourceLfTagLfTagArgsDict', 'outputs.ResourceLfTagLfTag']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            table: pulumi.Input[Optional[Union['ResourceLfTagTableArgs', 'ResourceLfTagTableArgsDict']]] = None,
-            table_with_columns: pulumi.Input[Optional[Union['ResourceLfTagTableWithColumnsArgs', 'ResourceLfTagTableWithColumnsArgsDict']]] = None,
-            timeouts: pulumi.Input[Optional[Union['ResourceLfTagTimeoutsArgs', 'ResourceLfTagTimeoutsArgsDict']]] = None) -> 'ResourceLfTag':
+            table: pulumi.Input[Optional[Union['ResourceLfTagTableArgs', 'ResourceLfTagTableArgsDict', 'outputs.ResourceLfTagTable']]] = None,
+            table_with_columns: pulumi.Input[Optional[Union['ResourceLfTagTableWithColumnsArgs', 'ResourceLfTagTableWithColumnsArgsDict', 'outputs.ResourceLfTagTableWithColumns']]] = None,
+            timeouts: pulumi.Input[Optional[Union['ResourceLfTagTimeoutsArgs', 'ResourceLfTagTimeoutsArgsDict', 'outputs.ResourceLfTagTimeouts']]] = None) -> 'ResourceLfTag':
         """
         Get an existing ResourceLfTag resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -417,13 +417,13 @@ class ResourceLfTag(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-        :param pulumi.Input[Union['ResourceLfTagDatabaseArgs', 'ResourceLfTagDatabaseArgsDict']] database: Configuration block for a database resource. See Database for more details.
-        :param pulumi.Input[Union['ResourceLfTagLfTagArgs', 'ResourceLfTagLfTagArgsDict']] lf_tag: Set of LF-tags to attach to the resource. See LF Tag for more details.
+        :param pulumi.Input[Union['ResourceLfTagDatabaseArgs', 'ResourceLfTagDatabaseArgsDict', 'outputs.ResourceLfTagDatabase']] database: Configuration block for a database resource. See Database for more details.
+        :param pulumi.Input[Union['ResourceLfTagLfTagArgs', 'ResourceLfTagLfTagArgsDict', 'outputs.ResourceLfTagLfTag']] lf_tag: Set of LF-tags to attach to the resource. See LF Tag for more details.
                
                Exactly one of the following is required:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ResourceLfTagTableArgs', 'ResourceLfTagTableArgsDict']] table: Configuration block for a table resource. See Table for more details.
-        :param pulumi.Input[Union['ResourceLfTagTableWithColumnsArgs', 'ResourceLfTagTableWithColumnsArgsDict']] table_with_columns: Configuration block for a table with columns resource. See Table With Columns for more details.
+        :param pulumi.Input[Union['ResourceLfTagTableArgs', 'ResourceLfTagTableArgsDict', 'outputs.ResourceLfTagTable']] table: Configuration block for a table resource. See Table for more details.
+        :param pulumi.Input[Union['ResourceLfTagTableWithColumnsArgs', 'ResourceLfTagTableWithColumnsArgsDict', 'outputs.ResourceLfTagTableWithColumns']] table_with_columns: Configuration block for a table with columns resource. See Table With Columns for more details.
                
                The following arguments are optional:
         """

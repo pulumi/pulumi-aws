@@ -43,6 +43,10 @@ import * as utilities from "../utilities";
  *     tableBucketArn: exampleTableBucket.arn,
  * });
  * const example = new aws.s3tables.Table("example", {
+ *     name: "example_table",
+ *     namespace: exampleNamespace.namespace,
+ *     tableBucketArn: exampleNamespace.tableBucketArn,
+ *     format: "ICEBERG",
  *     metadata: {
  *         iceberg: {
  *             schema: {
@@ -71,10 +75,6 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
- *     name: "example_table",
- *     namespace: exampleNamespace.namespace,
- *     tableBucketArn: exampleNamespace.tableBucketArn,
- *     format: "ICEBERG",
  * });
  * ```
  *

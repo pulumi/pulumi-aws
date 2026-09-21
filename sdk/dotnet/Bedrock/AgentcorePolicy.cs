@@ -26,6 +26,9 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentcorePolicy("example", new()
     ///     {
+    ///         Name = "example_policy",
+    ///         PolicyEngineId = exampleAwsBedrockagentcorePolicyEngine.PolicyEngineId,
+    ///         Description = "Allow read access to example resources",
     ///         Definition = new Aws.Bedrock.Inputs.AgentcorePolicyDefinitionArgs
     ///         {
     ///             Cedar = new Aws.Bedrock.Inputs.AgentcorePolicyDefinitionCedarArgs
@@ -34,9 +37,6 @@ namespace Pulumi.Aws.Bedrock
     /// ",
     ///             },
     ///         },
-    ///         Name = "example_policy",
-    ///         PolicyEngineId = exampleAwsBedrockagentcorePolicyEngine.PolicyEngineId,
-    ///         Description = "Allow read access to example resources",
     ///     });
     /// 
     /// });

@@ -31,19 +31,19 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewFeatureGroup(ctx, "example", &sagemaker.FeatureGroupArgs{
-//				OnlineStoreConfig: &sagemaker.FeatureGroupOnlineStoreConfigArgs{
-//					EnableOnlineStore: pulumi.Bool(true),
-//				},
+//				FeatureGroupName:            pulumi.String("example"),
+//				RecordIdentifierFeatureName: pulumi.String("example"),
+//				EventTimeFeatureName:        pulumi.String("example"),
+//				RoleArn:                     pulumi.Any(test.Arn),
 //				FeatureDefinitions: sagemaker.FeatureGroupFeatureDefinitionArray{
 //					&sagemaker.FeatureGroupFeatureDefinitionArgs{
 //						FeatureName: pulumi.String("example"),
 //						FeatureType: pulumi.String("String"),
 //					},
 //				},
-//				FeatureGroupName:            pulumi.String("example"),
-//				RecordIdentifierFeatureName: pulumi.String("example"),
-//				EventTimeFeatureName:        pulumi.String("example"),
-//				RoleArn:                     pulumi.Any(test.Arn),
+//				OnlineStoreConfig: &sagemaker.FeatureGroupOnlineStoreConfigArgs{
+//					EnableOnlineStore: pulumi.Bool(true),
+//				},
 //			})
 //			if err != nil {
 //				return err

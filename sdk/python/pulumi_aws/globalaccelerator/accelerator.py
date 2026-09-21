@@ -334,7 +334,7 @@ class Accelerator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: pulumi.Input[Optional[Union['AcceleratorAttributesArgs', 'AcceleratorAttributesArgsDict']]] = None,
+                 attributes: pulumi.Input[Optional[Union['AcceleratorAttributesArgs', 'AcceleratorAttributesArgsDict', 'outputs.AcceleratorAttributes']]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -351,15 +351,15 @@ class Accelerator(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.globalaccelerator.Accelerator("example",
+            name="Example",
+            ip_address_type="IPV4",
+            ip_addresses=["1.2.3.4"],
+            enabled=True,
             attributes={
                 "flow_logs_enabled": True,
                 "flow_logs_s3_bucket": "example-bucket",
                 "flow_logs_s3_prefix": "flow-logs/",
-            },
-            name="Example",
-            ip_address_type="IPV4",
-            ip_addresses=["1.2.3.4"],
-            enabled=True)
+            })
         ```
 
         ## Import
@@ -379,7 +379,7 @@ class Accelerator(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AcceleratorAttributesArgs', 'AcceleratorAttributesArgsDict']] attributes: The attributes of the accelerator. Fields documented below.
+        :param pulumi.Input[Union['AcceleratorAttributesArgs', 'AcceleratorAttributesArgsDict', 'outputs.AcceleratorAttributes']] attributes: The attributes of the accelerator. Fields documented below.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         :param pulumi.Input[_builtins.str] ip_address_type: The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_addresses: The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
@@ -402,15 +402,15 @@ class Accelerator(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.globalaccelerator.Accelerator("example",
+            name="Example",
+            ip_address_type="IPV4",
+            ip_addresses=["1.2.3.4"],
+            enabled=True,
             attributes={
                 "flow_logs_enabled": True,
                 "flow_logs_s3_bucket": "example-bucket",
                 "flow_logs_s3_prefix": "flow-logs/",
-            },
-            name="Example",
-            ip_address_type="IPV4",
-            ip_addresses=["1.2.3.4"],
-            enabled=True)
+            })
         ```
 
         ## Import
@@ -443,7 +443,7 @@ class Accelerator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: pulumi.Input[Optional[Union['AcceleratorAttributesArgs', 'AcceleratorAttributesArgsDict']]] = None,
+                 attributes: pulumi.Input[Optional[Union['AcceleratorAttributesArgs', 'AcceleratorAttributesArgsDict', 'outputs.AcceleratorAttributes']]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -481,14 +481,14 @@ class Accelerator(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            attributes: pulumi.Input[Optional[Union['AcceleratorAttributesArgs', 'AcceleratorAttributesArgsDict']]] = None,
+            attributes: pulumi.Input[Optional[Union['AcceleratorAttributesArgs', 'AcceleratorAttributesArgsDict', 'outputs.AcceleratorAttributes']]] = None,
             dns_name: pulumi.Input[Optional[_builtins.str]] = None,
             dual_stack_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
             ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
             ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            ip_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AcceleratorIpSetArgs', 'AcceleratorIpSetArgsDict']]]]] = None,
+            ip_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AcceleratorIpSetArgs', 'AcceleratorIpSetArgsDict', 'outputs.AcceleratorIpSet']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Accelerator':
@@ -500,7 +500,7 @@ class Accelerator(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the accelerator.
-        :param pulumi.Input[Union['AcceleratorAttributesArgs', 'AcceleratorAttributesArgsDict']] attributes: The attributes of the accelerator. Fields documented below.
+        :param pulumi.Input[Union['AcceleratorAttributesArgs', 'AcceleratorAttributesArgsDict', 'outputs.AcceleratorAttributes']] attributes: The attributes of the accelerator. Fields documented below.
         :param pulumi.Input[_builtins.str] dns_name: The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
         :param pulumi.Input[_builtins.str] dual_stack_dns_name: DNS name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
@@ -509,7 +509,7 @@ class Accelerator(pulumi.CustomResource):
                   is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
         :param pulumi.Input[_builtins.str] ip_address_type: The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_addresses: The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AcceleratorIpSetArgs', 'AcceleratorIpSetArgsDict']]]] ip_sets: IP address set associated with the accelerator.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AcceleratorIpSetArgs', 'AcceleratorIpSetArgsDict', 'outputs.AcceleratorIpSet']]]] ip_sets: IP address set associated with the accelerator.
         :param pulumi.Input[_builtins.str] name: The name of the accelerator.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

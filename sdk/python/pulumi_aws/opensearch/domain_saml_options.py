@@ -147,7 +147,7 @@ class DomainSamlOptions(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 saml_options: pulumi.Input[Optional[Union['DomainSamlOptionsSamlOptionsArgs', 'DomainSamlOptionsSamlOptionsArgsDict']]] = None,
+                 saml_options: pulumi.Input[Optional[Union['DomainSamlOptionsSamlOptionsArgs', 'DomainSamlOptionsSamlOptionsArgsDict', 'outputs.DomainSamlOptionsSamlOptions']]] = None,
                  __props__=None):
         """
         Manages SAML authentication options for an AWS OpenSearch Domain.
@@ -162,26 +162,26 @@ class DomainSamlOptions(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.opensearch.Domain("example",
+            domain_name="example",
+            engine_version="OpenSearch_1.1",
             cluster_config={
                 "instance_type": "r4.large.search",
             },
             snapshot_options={
                 "automated_snapshot_start_hour": 23,
             },
-            domain_name="example",
-            engine_version="OpenSearch_1.1",
             tags={
                 "Domain": "TestDomain",
             })
         example_domain_saml_options = aws.opensearch.DomainSamlOptions("example",
+            domain_name=example.domain_name,
             saml_options={
+                "enabled": True,
                 "idp": {
                     "entity_id": "https://example.com",
                     "metadata_content": std.file(input="./saml-metadata.xml").result,
                 },
-                "enabled": True,
-            },
-            domain_name=example.domain_name)
+            })
         ```
 
         ## Import
@@ -199,7 +199,7 @@ class DomainSamlOptions(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DomainSamlOptionsSamlOptionsArgs', 'DomainSamlOptionsSamlOptionsArgsDict']] saml_options: SAML authentication options for an AWS OpenSearch Domain.
+        :param pulumi.Input[Union['DomainSamlOptionsSamlOptionsArgs', 'DomainSamlOptionsSamlOptionsArgsDict', 'outputs.DomainSamlOptionsSamlOptions']] saml_options: SAML authentication options for an AWS OpenSearch Domain.
         """
         ...
     @overload
@@ -220,26 +220,26 @@ class DomainSamlOptions(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.opensearch.Domain("example",
+            domain_name="example",
+            engine_version="OpenSearch_1.1",
             cluster_config={
                 "instance_type": "r4.large.search",
             },
             snapshot_options={
                 "automated_snapshot_start_hour": 23,
             },
-            domain_name="example",
-            engine_version="OpenSearch_1.1",
             tags={
                 "Domain": "TestDomain",
             })
         example_domain_saml_options = aws.opensearch.DomainSamlOptions("example",
+            domain_name=example.domain_name,
             saml_options={
+                "enabled": True,
                 "idp": {
                     "entity_id": "https://example.com",
                     "metadata_content": std.file(input="./saml-metadata.xml").result,
                 },
-                "enabled": True,
-            },
-            domain_name=example.domain_name)
+            })
         ```
 
         ## Import
@@ -268,7 +268,7 @@ class DomainSamlOptions(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 saml_options: pulumi.Input[Optional[Union['DomainSamlOptionsSamlOptionsArgs', 'DomainSamlOptionsSamlOptionsArgsDict']]] = None,
+                 saml_options: pulumi.Input[Optional[Union['DomainSamlOptionsSamlOptionsArgs', 'DomainSamlOptionsSamlOptionsArgsDict', 'outputs.DomainSamlOptionsSamlOptions']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -295,7 +295,7 @@ class DomainSamlOptions(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             domain_name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            saml_options: pulumi.Input[Optional[Union['DomainSamlOptionsSamlOptionsArgs', 'DomainSamlOptionsSamlOptionsArgsDict']]] = None) -> 'DomainSamlOptions':
+            saml_options: pulumi.Input[Optional[Union['DomainSamlOptionsSamlOptionsArgs', 'DomainSamlOptionsSamlOptionsArgsDict', 'outputs.DomainSamlOptionsSamlOptions']]] = None) -> 'DomainSamlOptions':
         """
         Get an existing DomainSamlOptions resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -307,7 +307,7 @@ class DomainSamlOptions(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DomainSamlOptionsSamlOptionsArgs', 'DomainSamlOptionsSamlOptionsArgsDict']] saml_options: SAML authentication options for an AWS OpenSearch Domain.
+        :param pulumi.Input[Union['DomainSamlOptionsSamlOptionsArgs', 'DomainSamlOptionsSamlOptionsArgsDict', 'outputs.DomainSamlOptionsSamlOptions']] saml_options: SAML authentication options for an AWS OpenSearch Domain.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

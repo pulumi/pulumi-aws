@@ -119,8 +119,7 @@ def get_ipam_preview_next_cidr(disallowed_cidrs: Optional[Sequence[_builtins.str
         netmask_length=28)
     test_vpc_ipam_pool_cidr_allocation = aws.ec2.VpcIpamPoolCidrAllocation("test",
         ipam_pool_id=test_aws_vpc_ipam_pool["id"],
-        cidr=test.cidr,
-        opts = pulumi.ResourceOptions(ignore_changes=["cidr"]))
+        cidr=test.cidr)
     ```
 
 
@@ -166,8 +165,7 @@ def get_ipam_preview_next_cidr_output(disallowed_cidrs: pulumi.Input[Optional[Op
         netmask_length=28)
     test_vpc_ipam_pool_cidr_allocation = aws.ec2.VpcIpamPoolCidrAllocation("test",
         ipam_pool_id=test_aws_vpc_ipam_pool["id"],
-        cidr=test.cidr,
-        opts = pulumi.ResourceOptions(ignore_changes=["cidr"]))
+        cidr=test.cidr)
     ```
 
 

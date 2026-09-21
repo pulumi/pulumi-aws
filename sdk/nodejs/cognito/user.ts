@@ -29,6 +29,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cognito.UserPool("example", {
+ *     name: "mypool",
  *     schemas: [
  *         {
  *             name: "example",
@@ -38,15 +39,14 @@ import * as utilities from "../utilities";
  *             developerOnlyAttribute: false,
  *         },
  *         {
- *             stringAttributeConstraints: {},
  *             name: "foo",
  *             attributeDataType: "String",
  *             mutable: false,
  *             required: false,
  *             developerOnlyAttribute: false,
+ *             stringAttributeConstraints: {},
  *         },
  *     ],
- *     name: "mypool",
  * });
  * const exampleUser = new aws.cognito.User("example", {
  *     userPoolId: example.id,

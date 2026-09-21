@@ -38,6 +38,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
  *
  * export = async () => {
  *     const example = new aws.securityhub.Account("example", {});
@@ -45,9 +46,11 @@ import * as utilities from "../utilities";
  *         securityControlId: "IAM.1",
  *     });
  *     const iam1StandardsControlAssociation: aws.securityhub.StandardsControlAssociation[] = [];
- *     for (const range of Object.entries(.reduce((__obj, entry) => ({ ...__obj, [entry]: entry }), {})).sort().map(([k, v]) => ({key: k, value: v}))) {
+ *     for (const range of std.toset({
+ *         input: iam1.standardsControlAssociations.map(__item => __item.standardsArn),
+ *     }).result.map((v, k) => ({key: k, value: v}))) {
  *         iam1StandardsControlAssociation.push(new aws.securityhub.StandardsControlAssociation(`iam_1-${range.key}`, {
- *             standardsArn: range.key,
+ *             standardsArn: String(range.key),
  *             securityControlId: iam1.securityControlId,
  *             associationStatus: "DISABLED",
  *             updatedReason: "Not needed",

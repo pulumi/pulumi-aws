@@ -48,6 +48,11 @@ namespace Pulumi.Aws.WorkSpacesWeb
     /// {
     ///     var example = new Aws.WorkSpacesWeb.UserSettings("example", new()
     ///     {
+    ///         CopyAllowed = "Enabled",
+    ///         DownloadAllowed = "Enabled",
+    ///         PasteAllowed = "Enabled",
+    ///         PrintAllowed = "Enabled",
+    ///         UploadAllowed = "Enabled",
     ///         ToolbarConfiguration = new Aws.WorkSpacesWeb.Inputs.UserSettingsToolbarConfigurationArgs
     ///         {
     ///             ToolbarType = "Docked",
@@ -58,11 +63,6 @@ namespace Pulumi.Aws.WorkSpacesWeb
     ///                 "Microphone",
     ///             },
     ///         },
-    ///         CopyAllowed = "Enabled",
-    ///         DownloadAllowed = "Enabled",
-    ///         PasteAllowed = "Enabled",
-    ///         PrintAllowed = "Enabled",
-    ///         UploadAllowed = "Enabled",
     ///     });
     /// 
     /// });
@@ -86,6 +86,19 @@ namespace Pulumi.Aws.WorkSpacesWeb
     /// 
     ///     var exampleUserSettings = new Aws.WorkSpacesWeb.UserSettings("example", new()
     ///     {
+    ///         CopyAllowed = "Enabled",
+    ///         DownloadAllowed = "Enabled",
+    ///         PasteAllowed = "Enabled",
+    ///         PrintAllowed = "Enabled",
+    ///         UploadAllowed = "Enabled",
+    ///         DeepLinkAllowed = "Enabled",
+    ///         DisconnectTimeoutInMinutes = 30,
+    ///         IdleDisconnectTimeoutInMinutes = 15,
+    ///         CustomerManagedKey = example.Arn,
+    ///         AdditionalEncryptionContext = 
+    ///         {
+    ///             { "Environment", "Production" },
+    ///         },
     ///         ToolbarConfiguration = new Aws.WorkSpacesWeb.Inputs.UserSettingsToolbarConfigurationArgs
     ///         {
     ///             ToolbarType = "Docked",
@@ -114,19 +127,6 @@ namespace Pulumi.Aws.WorkSpacesWeb
     ///                     Domain = "blocked.com",
     ///                 },
     ///             },
-    ///         },
-    ///         CopyAllowed = "Enabled",
-    ///         DownloadAllowed = "Enabled",
-    ///         PasteAllowed = "Enabled",
-    ///         PrintAllowed = "Enabled",
-    ///         UploadAllowed = "Enabled",
-    ///         DeepLinkAllowed = "Enabled",
-    ///         DisconnectTimeoutInMinutes = 30,
-    ///         IdleDisconnectTimeoutInMinutes = 15,
-    ///         CustomerManagedKey = example.Arn,
-    ///         AdditionalEncryptionContext = 
-    ///         {
-    ///             { "Environment", "Production" },
     ///         },
     ///         Tags = 
     ///         {

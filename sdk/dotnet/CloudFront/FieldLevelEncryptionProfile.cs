@@ -35,12 +35,16 @@ namespace Pulumi.Aws.CloudFront
     /// 
     ///     var test = new Aws.CloudFront.FieldLevelEncryptionProfile("test", new()
     ///     {
+    ///         Comment = "test comment",
+    ///         Name = "test profile",
     ///         EncryptionEntities = new Aws.CloudFront.Inputs.FieldLevelEncryptionProfileEncryptionEntitiesArgs
     ///         {
     ///             Items = new[]
     ///             {
     ///                 new Aws.CloudFront.Inputs.FieldLevelEncryptionProfileEncryptionEntitiesItemArgs
     ///                 {
+    ///                     PublicKeyId = example.Id,
+    ///                     ProviderId = "test provider",
     ///                     FieldPatterns = new Aws.CloudFront.Inputs.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs
     ///                     {
     ///                         Items = new[]
@@ -48,13 +52,9 @@ namespace Pulumi.Aws.CloudFront
     ///                             "DateOfBirth",
     ///                         },
     ///                     },
-    ///                     PublicKeyId = example.Id,
-    ///                     ProviderId = "test provider",
     ///                 },
     ///             },
     ///         },
-    ///         Comment = "test comment",
-    ///         Name = "test profile",
     ///     });
     /// 
     /// });

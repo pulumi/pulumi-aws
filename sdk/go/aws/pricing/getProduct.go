@@ -29,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := pricing.GetProduct(ctx, &pricing.GetProductArgs{
+//				ServiceCode: "AmazonEC2",
 //				Filters: []pricing.GetProductFilter{
 //					{
 //						Field: "instanceType",
@@ -59,7 +60,6 @@ import (
 //						Value: "Used",
 //					},
 //				},
-//				ServiceCode: "AmazonEC2",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -83,6 +83,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := pricing.GetProduct(ctx, &pricing.GetProductArgs{
+//				ServiceCode: "AmazonRedshift",
 //				Filters: []pricing.GetProductFilter{
 //					{
 //						Field: "instanceType",
@@ -93,7 +94,6 @@ import (
 //						Value: "US East (N. Virginia)",
 //					},
 //				},
-//				ServiceCode: "AmazonRedshift",
 //			}, nil)
 //			if err != nil {
 //				return err

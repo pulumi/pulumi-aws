@@ -66,17 +66,10 @@ import * as utilities from "../utilities";
  * });
  * // Create new function with similar configuration
  * const example = new aws.lambda.Function("example", {
- *     vpcConfig: {
- *         subnetIds: reference.then(reference => reference.vpcConfig?.subnetIds),
- *         securityGroupIds: reference.then(reference => reference.vpcConfig?.securityGroupIds),
- *     },
- *     environment: {
- *         variables: reference.then(reference => reference.environment?.variables),
- *     },
- *     durableConfig: singleOrNone(reference.then(reference => .map(entry => ({
- *         executionTimeout: entry.executionTimeout,
- *         retentionPeriod: entry.retentionPeriod,
- *     })))),
+ *     durableConfig: singleOrNone(.map(entry => ({
+ *         executionTimeout: entry.value.executionTimeout,
+ *         retentionPeriod: entry.value.retentionPeriod,
+ *     }))),
  *     code: new pulumi.asset.FileArchive("new-function.zip"),
  *     name: "new-function",
  *     role: reference.then(reference => reference.role),
@@ -85,6 +78,13 @@ import * as utilities from "../utilities";
  *     memorySize: reference.then(reference => reference.memorySize),
  *     timeout: reference.then(reference => reference.timeout),
  *     architectures: reference.then(reference => reference.architectures),
+ *     vpcConfig: {
+ *         subnetIds: reference.then(reference => reference.vpcConfig?.subnetIds),
+ *         securityGroupIds: reference.then(reference => reference.vpcConfig?.securityGroupIds),
+ *     },
+ *     environment: {
+ *         variables: reference.then(reference => reference.environment?.variables),
+ *     },
  * });
  * ```
  *
@@ -378,17 +378,10 @@ export interface GetFunctionResult {
  * });
  * // Create new function with similar configuration
  * const example = new aws.lambda.Function("example", {
- *     vpcConfig: {
- *         subnetIds: reference.then(reference => reference.vpcConfig?.subnetIds),
- *         securityGroupIds: reference.then(reference => reference.vpcConfig?.securityGroupIds),
- *     },
- *     environment: {
- *         variables: reference.then(reference => reference.environment?.variables),
- *     },
- *     durableConfig: singleOrNone(reference.then(reference => .map(entry => ({
- *         executionTimeout: entry.executionTimeout,
- *         retentionPeriod: entry.retentionPeriod,
- *     })))),
+ *     durableConfig: singleOrNone(.map(entry => ({
+ *         executionTimeout: entry.value.executionTimeout,
+ *         retentionPeriod: entry.value.retentionPeriod,
+ *     }))),
  *     code: new pulumi.asset.FileArchive("new-function.zip"),
  *     name: "new-function",
  *     role: reference.then(reference => reference.role),
@@ -397,6 +390,13 @@ export interface GetFunctionResult {
  *     memorySize: reference.then(reference => reference.memorySize),
  *     timeout: reference.then(reference => reference.timeout),
  *     architectures: reference.then(reference => reference.architectures),
+ *     vpcConfig: {
+ *         subnetIds: reference.then(reference => reference.vpcConfig?.subnetIds),
+ *         securityGroupIds: reference.then(reference => reference.vpcConfig?.securityGroupIds),
+ *     },
+ *     environment: {
+ *         variables: reference.then(reference => reference.environment?.variables),
+ *     },
  * });
  * ```
  *

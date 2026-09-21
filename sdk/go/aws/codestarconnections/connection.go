@@ -43,6 +43,7 @@ import (
 //				},
 //				Stages: codepipeline.PipelineStageArray{
 //					&codepipeline.PipelineStageArgs{
+//						Name: pulumi.String("Source"),
 //						Actions: codepipeline.PipelineStageActionArray{
 //							&codepipeline.PipelineStageActionArgs{
 //								Name:     pulumi.String("Source"),
@@ -60,7 +61,6 @@ import (
 //								},
 //							},
 //						},
-//						Name: pulumi.String("Source"),
 //					},
 //					&codepipeline.PipelineStageArgs{
 //						Actions: codepipeline.PipelineStageActionArray{

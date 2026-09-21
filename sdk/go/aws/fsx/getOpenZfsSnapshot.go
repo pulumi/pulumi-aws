@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.LookupOpenZfsSnapshot(ctx, &fsx.LookupOpenZfsSnapshotArgs{
+//				MostRecent: pulumi.BoolRef(true),
 //				Filters: []fsx.GetOpenZfsSnapshotFilter{
 //					{
 //						Name: "volume-id",
@@ -38,7 +39,6 @@ import (
 //						},
 //					},
 //				},
-//				MostRecent: pulumi.BoolRef(true),
 //			}, nil)
 //			if err != nil {
 //				return err

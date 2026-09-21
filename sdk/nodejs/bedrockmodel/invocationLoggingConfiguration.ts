@@ -24,11 +24,6 @@ import * as utilities from "../utilities";
  * const example = new aws.s3.Bucket("example", {
  *     bucket: "example",
  *     forceDestroy: true,
- * }, {
- *     ignoreChanges: [
- *         "tags[\"CreatorId\"]",
- *         "tags[\"CreatorName\"]",
- *     ],
  * });
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
  *     bucket: example.bucket,
@@ -60,14 +55,14 @@ import * as utilities from "../utilities";
  * `),
  * });
  * const exampleInvocationLoggingConfiguration = new aws.bedrockmodel.InvocationLoggingConfiguration("example", {loggingConfig: {
- *     s3Config: {
- *         bucketName: example.id,
- *         keyPrefix: "bedrock",
- *     },
  *     embeddingDataDeliveryEnabled: true,
  *     imageDataDeliveryEnabled: true,
  *     textDataDeliveryEnabled: true,
  *     videoDataDeliveryEnabled: true,
+ *     s3Config: {
+ *         bucketName: example.id,
+ *         keyPrefix: "bedrock",
+ *     },
  * }}, {
  *     dependsOn: [exampleBucketPolicy],
  * });

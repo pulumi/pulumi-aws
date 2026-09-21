@@ -90,9 +90,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Environment("test", EnvironmentArgs.builder()
- *             .highAvailabilityConfig(EnvironmentHighAvailabilityConfigArgs.builder()
- *                 .desiredCapacity(2)
- *                 .build())
  *             .name("test-env")
  *             .engineType("bluage")
  *             .instanceType("M2.m5.large")
@@ -100,6 +97,9 @@ import javax.annotation.Nullable;
  *             .subnetIds(            
  *                 "subnet-01234567890abcdef",
  *                 "subnet-01234567890abcdea")
+ *             .highAvailabilityConfig(EnvironmentHighAvailabilityConfigArgs.builder()
+ *                 .desiredCapacity(2)
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -134,12 +134,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Environment("test", EnvironmentArgs.builder()
- *             .storageConfiguration(EnvironmentStorageConfigurationArgs.builder()
- *                 .efs(EnvironmentStorageConfigurationEfsArgs.builder()
- *                     .fileSystemId("fs-01234567890abcdef")
- *                     .mountPoint("/m2/mount/example")
- *                     .build())
- *                 .build())
  *             .name("test-env")
  *             .engineType("bluage")
  *             .instanceType("M2.m5.large")
@@ -147,6 +141,12 @@ import javax.annotation.Nullable;
  *             .subnetIds(            
  *                 "subnet-01234567890abcdef",
  *                 "subnet-01234567890abcdea")
+ *             .storageConfiguration(EnvironmentStorageConfigurationArgs.builder()
+ *                 .efs(EnvironmentStorageConfigurationEfsArgs.builder()
+ *                     .fileSystemId("fs-01234567890abcdef")
+ *                     .mountPoint("/m2/mount/example")
+ *                     .build())
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -181,12 +181,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Environment("test", EnvironmentArgs.builder()
- *             .storageConfiguration(EnvironmentStorageConfigurationArgs.builder()
- *                 .fsx(EnvironmentStorageConfigurationFsxArgs.builder()
- *                     .fileSystemId("fs-01234567890abcdef")
- *                     .mountPoint("/m2/mount/example")
- *                     .build())
- *                 .build())
  *             .name("test-env")
  *             .engineType("bluage")
  *             .instanceType("M2.m5.large")
@@ -194,6 +188,12 @@ import javax.annotation.Nullable;
  *             .subnetIds(            
  *                 "subnet-01234567890abcdef",
  *                 "subnet-01234567890abcdea")
+ *             .storageConfiguration(EnvironmentStorageConfigurationArgs.builder()
+ *                 .fsx(EnvironmentStorageConfigurationFsxArgs.builder()
+ *                     .fileSystemId("fs-01234567890abcdef")
+ *                     .mountPoint("/m2/mount/example")
+ *                     .build())
+ *                 .build())
  *             .build());
  * 
  *     }

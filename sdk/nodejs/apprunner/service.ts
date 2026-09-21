@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apprunner.Service("example", {
+ *     serviceName: "example",
  *     sourceConfiguration: {
  *         authenticationConfiguration: {
  *             connectionArn: exampleAwsApprunnerConnection.arn,
@@ -33,11 +34,11 @@ import * as utilities from "../utilities";
  *                 },
  *                 configurationSource: "API",
  *             },
+ *             repositoryUrl: "https://github.com/example/my-example-python-app",
  *             sourceCodeVersion: {
  *                 type: "BRANCH",
  *                 value: "main",
  *             },
- *             repositoryUrl: "https://github.com/example/my-example-python-app",
  *         },
  *     },
  *     networkConfiguration: {
@@ -46,7 +47,6 @@ import * as utilities from "../utilities";
  *             vpcConnectorArn: connector.arn,
  *         },
  *     },
- *     serviceName: "example",
  *     tags: {
  *         Name: "example-apprunner-service",
  *     },
@@ -60,6 +60,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apprunner.Service("example", {
+ *     serviceName: "example",
  *     sourceConfiguration: {
  *         imageRepository: {
  *             imageConfiguration: {
@@ -70,7 +71,6 @@ import * as utilities from "../utilities";
  *         },
  *         autoDeploymentsEnabled: false,
  *     },
- *     serviceName: "example",
  *     tags: {
  *         Name: "example-apprunner-service",
  *     },
@@ -84,12 +84,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleObservabilityConfiguration = new aws.apprunner.ObservabilityConfiguration("example", {
+ *     observabilityConfigurationName: "example",
  *     traceConfiguration: {
  *         vendor: "AWSXRAY",
  *     },
- *     observabilityConfigurationName: "example",
  * });
  * const example = new aws.apprunner.Service("example", {
+ *     serviceName: "example",
  *     observabilityConfiguration: {
  *         observabilityConfigurationArn: exampleObservabilityConfiguration.arn,
  *         observabilityEnabled: true,
@@ -104,7 +105,6 @@ import * as utilities from "../utilities";
  *         },
  *         autoDeploymentsEnabled: false,
  *     },
- *     serviceName: "example",
  *     tags: {
  *         Name: "example-apprunner-service",
  *     },

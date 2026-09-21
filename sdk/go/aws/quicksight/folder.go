@@ -58,6 +58,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewFolder(ctx, "example", &quicksight.FolderArgs{
+//				FolderId: pulumi.String("example-id"),
+//				Name:     pulumi.String("example-name"),
 //				Permissions: quicksight.FolderPermissionArray{
 //					&quicksight.FolderPermissionArgs{
 //						Actions: pulumi.StringArray{
@@ -73,8 +75,6 @@ import (
 //						Principal: pulumi.Any(exampleAwsQuicksightUser.Arn),
 //					},
 //				},
-//				FolderId: pulumi.String("example-id"),
-//				Name:     pulumi.String("example-name"),
 //			})
 //			if err != nil {
 //				return err

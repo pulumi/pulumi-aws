@@ -19,6 +19,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appfabric.AppAuthorization("example", {
+ *     app: "TERRAFORMCLOUD",
+ *     appBundleArn: arn,
+ *     authType: "apiKey",
  *     credential: {
  *         apiKeyCredentials: [{
  *             apiKey: "exampleapikeytoken",
@@ -28,9 +31,6 @@ import * as utilities from "../utilities";
  *         tenantDisplayName: "example",
  *         tenantIdentifier: "example",
  *     }],
- *     app: "TERRAFORMCLOUD",
- *     appBundleArn: arn,
- *     authType: "apiKey",
  * });
  * ```
  */

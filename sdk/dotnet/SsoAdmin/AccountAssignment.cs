@@ -34,6 +34,7 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     ///     var exampleGetGroup = Aws.IdentityStore.GetGroup.Invoke(new()
     ///     {
+    ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
     ///         AlternateIdentifier = new Aws.IdentityStore.Inputs.GetGroupAlternateIdentifierInputArgs
     ///         {
     ///             UniqueAttribute = new Aws.IdentityStore.Inputs.GetGroupAlternateIdentifierUniqueAttributeInputArgs
@@ -42,7 +43,6 @@ namespace Pulumi.Aws.SsoAdmin
     ///                 AttributeValue = "ExampleGroup",
     ///             },
     ///         },
-    ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
     ///     });
     /// 
     ///     var exampleAccountAssignment = new Aws.SsoAdmin.AccountAssignment("example", new()

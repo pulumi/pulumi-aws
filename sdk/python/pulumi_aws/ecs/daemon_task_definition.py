@@ -400,7 +400,7 @@ class DaemonTaskDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DaemonTaskDefinitionContainerDefinitionArgs', 'DaemonTaskDefinitionContainerDefinitionArgsDict']]]]] = None,
+                 container_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DaemonTaskDefinitionContainerDefinitionArgs', 'DaemonTaskDefinitionContainerDefinitionArgsDict', 'outputs.DaemonTaskDefinitionContainerDefinition']]]]] = None,
                  cpu: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  family: pulumi.Input[Optional[_builtins.str]] = None,
@@ -408,7 +408,7 @@ class DaemonTaskDefinition(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  task_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DaemonTaskDefinitionVolumeArgs', 'DaemonTaskDefinitionVolumeArgsDict']]]]] = None,
+                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DaemonTaskDefinitionVolumeArgs', 'DaemonTaskDefinitionVolumeArgsDict', 'outputs.DaemonTaskDefinitionVolume']]]]] = None,
                  __props__=None):
         """
         Manages a revision of an ECS daemon task definition for use with daemon scheduling strategy.
@@ -422,16 +422,16 @@ class DaemonTaskDefinition(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.DaemonTaskDefinition("example",
+            family="my-daemon-service",
+            cpu="512",
+            memory="1024",
             container_definitions=[{
                 "name": "app",
                 "image": "nginx:latest",
                 "cpu": 256,
                 "memory": 512,
                 "essential": True,
-            }],
-            family="my-daemon-service",
-            cpu="512",
-            memory="1024")
+            }])
         ```
 
         ### With IAM Roles
@@ -466,18 +466,18 @@ class DaemonTaskDefinition(pulumi.CustomResource):
                 }],
             }))
         example = aws.ecs.DaemonTaskDefinition("example",
+            family="my-daemon-service",
+            execution_role_arn=task_execution.arn,
+            task_role_arn=task.arn,
+            cpu="512",
+            memory="1024",
             container_definitions=[{
                 "name": "app",
                 "image": "nginx:latest",
                 "cpu": 256,
                 "memory": 512,
                 "essential": True,
-            }],
-            family="my-daemon-service",
-            execution_role_arn=task_execution.arn,
-            task_role_arn=task.arn,
-            cpu="512",
-            memory="1024")
+            }])
         ```
 
         ### With Volumes
@@ -487,6 +487,9 @@ class DaemonTaskDefinition(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.DaemonTaskDefinition("example",
+            family="my-daemon-service",
+            cpu="512",
+            memory="1024",
             container_definitions=[{
                 "name": "app",
                 "image": "nginx:latest",
@@ -496,21 +499,18 @@ class DaemonTaskDefinition(pulumi.CustomResource):
             }],
             volumes=[
                 {
+                    "name": "data-volume",
                     "hosts": [{
                         "source_path": "/data",
                     }],
-                    "name": "data-volume",
                 },
                 {
+                    "name": "logs-volume",
                     "hosts": [{
                         "source_path": "/var/log",
                     }],
-                    "name": "logs-volume",
                 },
-            ],
-            family="my-daemon-service",
-            cpu="512",
-            memory="1024")
+            ])
         ```
 
         ### With Multiple Containers
@@ -520,6 +520,9 @@ class DaemonTaskDefinition(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.DaemonTaskDefinition("example",
+            family="my-daemon-service",
+            cpu="512",
+            memory="1024",
             container_definitions=[
                 {
                     "name": "app",
@@ -535,10 +538,7 @@ class DaemonTaskDefinition(pulumi.CustomResource):
                     "memory": 256,
                     "essential": False,
                 },
-            ],
-            family="my-daemon-service",
-            cpu="512",
-            memory="1024")
+            ])
         ```
 
         ## Import
@@ -558,7 +558,7 @@ class DaemonTaskDefinition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DaemonTaskDefinitionContainerDefinitionArgs', 'DaemonTaskDefinitionContainerDefinitionArgsDict']]]] container_definitions: One or more container definition blocks. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DaemonTaskDefinitionContainerDefinitionArgs', 'DaemonTaskDefinitionContainerDefinitionArgsDict', 'outputs.DaemonTaskDefinitionContainerDefinition']]]] container_definitions: One or more container definition blocks. Detailed below.
         :param pulumi.Input[_builtins.str] cpu: Number of CPU units used by the task.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
         :param pulumi.Input[_builtins.str] family: Unique name for your daemon task definition.
@@ -568,7 +568,7 @@ class DaemonTaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] task_role_arn: ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DaemonTaskDefinitionVolumeArgs', 'DaemonTaskDefinitionVolumeArgsDict']]]] volumes: Repeatable configuration block for volumes that containers in your task may use. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DaemonTaskDefinitionVolumeArgs', 'DaemonTaskDefinitionVolumeArgsDict', 'outputs.DaemonTaskDefinitionVolume']]]] volumes: Repeatable configuration block for volumes that containers in your task may use. Detailed below.
         """
         ...
     @overload
@@ -588,16 +588,16 @@ class DaemonTaskDefinition(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.DaemonTaskDefinition("example",
+            family="my-daemon-service",
+            cpu="512",
+            memory="1024",
             container_definitions=[{
                 "name": "app",
                 "image": "nginx:latest",
                 "cpu": 256,
                 "memory": 512,
                 "essential": True,
-            }],
-            family="my-daemon-service",
-            cpu="512",
-            memory="1024")
+            }])
         ```
 
         ### With IAM Roles
@@ -632,18 +632,18 @@ class DaemonTaskDefinition(pulumi.CustomResource):
                 }],
             }))
         example = aws.ecs.DaemonTaskDefinition("example",
+            family="my-daemon-service",
+            execution_role_arn=task_execution.arn,
+            task_role_arn=task.arn,
+            cpu="512",
+            memory="1024",
             container_definitions=[{
                 "name": "app",
                 "image": "nginx:latest",
                 "cpu": 256,
                 "memory": 512,
                 "essential": True,
-            }],
-            family="my-daemon-service",
-            execution_role_arn=task_execution.arn,
-            task_role_arn=task.arn,
-            cpu="512",
-            memory="1024")
+            }])
         ```
 
         ### With Volumes
@@ -653,6 +653,9 @@ class DaemonTaskDefinition(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.DaemonTaskDefinition("example",
+            family="my-daemon-service",
+            cpu="512",
+            memory="1024",
             container_definitions=[{
                 "name": "app",
                 "image": "nginx:latest",
@@ -662,21 +665,18 @@ class DaemonTaskDefinition(pulumi.CustomResource):
             }],
             volumes=[
                 {
+                    "name": "data-volume",
                     "hosts": [{
                         "source_path": "/data",
                     }],
-                    "name": "data-volume",
                 },
                 {
+                    "name": "logs-volume",
                     "hosts": [{
                         "source_path": "/var/log",
                     }],
-                    "name": "logs-volume",
                 },
-            ],
-            family="my-daemon-service",
-            cpu="512",
-            memory="1024")
+            ])
         ```
 
         ### With Multiple Containers
@@ -686,6 +686,9 @@ class DaemonTaskDefinition(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.DaemonTaskDefinition("example",
+            family="my-daemon-service",
+            cpu="512",
+            memory="1024",
             container_definitions=[
                 {
                     "name": "app",
@@ -701,10 +704,7 @@ class DaemonTaskDefinition(pulumi.CustomResource):
                     "memory": 256,
                     "essential": False,
                 },
-            ],
-            family="my-daemon-service",
-            cpu="512",
-            memory="1024")
+            ])
         ```
 
         ## Import
@@ -737,7 +737,7 @@ class DaemonTaskDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DaemonTaskDefinitionContainerDefinitionArgs', 'DaemonTaskDefinitionContainerDefinitionArgsDict']]]]] = None,
+                 container_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DaemonTaskDefinitionContainerDefinitionArgs', 'DaemonTaskDefinitionContainerDefinitionArgsDict', 'outputs.DaemonTaskDefinitionContainerDefinition']]]]] = None,
                  cpu: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  family: pulumi.Input[Optional[_builtins.str]] = None,
@@ -745,7 +745,7 @@ class DaemonTaskDefinition(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  task_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DaemonTaskDefinitionVolumeArgs', 'DaemonTaskDefinitionVolumeArgsDict']]]]] = None,
+                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DaemonTaskDefinitionVolumeArgs', 'DaemonTaskDefinitionVolumeArgsDict', 'outputs.DaemonTaskDefinitionVolume']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -783,7 +783,7 @@ class DaemonTaskDefinition(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            container_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DaemonTaskDefinitionContainerDefinitionArgs', 'DaemonTaskDefinitionContainerDefinitionArgsDict']]]]] = None,
+            container_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DaemonTaskDefinitionContainerDefinitionArgs', 'DaemonTaskDefinitionContainerDefinitionArgsDict', 'outputs.DaemonTaskDefinitionContainerDefinition']]]]] = None,
             cpu: pulumi.Input[Optional[_builtins.str]] = None,
             execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             family: pulumi.Input[Optional[_builtins.str]] = None,
@@ -794,7 +794,7 @@ class DaemonTaskDefinition(pulumi.CustomResource):
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             task_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DaemonTaskDefinitionVolumeArgs', 'DaemonTaskDefinitionVolumeArgsDict']]]]] = None) -> 'DaemonTaskDefinition':
+            volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DaemonTaskDefinitionVolumeArgs', 'DaemonTaskDefinitionVolumeArgsDict', 'outputs.DaemonTaskDefinitionVolume']]]]] = None) -> 'DaemonTaskDefinition':
         """
         Get an existing DaemonTaskDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -803,7 +803,7 @@ class DaemonTaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: Full ARN of the Daemon Task Definition (including both `family` and `revision`).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DaemonTaskDefinitionContainerDefinitionArgs', 'DaemonTaskDefinitionContainerDefinitionArgsDict']]]] container_definitions: One or more container definition blocks. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DaemonTaskDefinitionContainerDefinitionArgs', 'DaemonTaskDefinitionContainerDefinitionArgsDict', 'outputs.DaemonTaskDefinitionContainerDefinition']]]] container_definitions: One or more container definition blocks. Detailed below.
         :param pulumi.Input[_builtins.str] cpu: Number of CPU units used by the task.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
         :param pulumi.Input[_builtins.str] family: Unique name for your daemon task definition.
@@ -816,7 +816,7 @@ class DaemonTaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] task_role_arn: ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DaemonTaskDefinitionVolumeArgs', 'DaemonTaskDefinitionVolumeArgsDict']]]] volumes: Repeatable configuration block for volumes that containers in your task may use. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DaemonTaskDefinitionVolumeArgs', 'DaemonTaskDefinitionVolumeArgsDict', 'outputs.DaemonTaskDefinitionVolume']]]] volumes: Repeatable configuration block for volumes that containers in your task may use. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

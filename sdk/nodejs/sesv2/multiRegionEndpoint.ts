@@ -19,12 +19,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sesv2.MultiRegionEndpoint("example", {
+ *     endpointName: "example",
  *     details: {
  *         routesDetails: {
  *             region: "example-alternate-region",
  *         },
  *     },
- *     endpointName: "example",
  * });
  * ```
  */

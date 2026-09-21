@@ -298,7 +298,7 @@ class CustomPlugin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict', 'outputs.CustomPluginLocation']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -320,14 +320,14 @@ class CustomPlugin(pulumi.CustomResource):
             key="debezium.zip",
             source=pulumi.FileAsset("debezium.zip"))
         example_custom_plugin = aws.mskconnect.CustomPlugin("example",
+            name="debezium-example",
+            content_type="ZIP",
             location={
                 "s3": {
                     "bucket_arn": example.arn,
                     "file_key": example_bucket_objectv2.key,
                 },
-            },
-            name="debezium-example",
-            content_type="ZIP")
+            })
         ```
 
         ## Import
@@ -343,7 +343,7 @@ class CustomPlugin(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
         :param pulumi.Input[_builtins.str] description: A summary description of the custom plugin.
-        :param pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']] location: Information about the location of a custom plugin. See `location` Block for details.
+        :param pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict', 'outputs.CustomPluginLocation']] location: Information about the location of a custom plugin. See `location` Block for details.
         :param pulumi.Input[_builtins.str] name: The name of the custom plugin..
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -371,14 +371,14 @@ class CustomPlugin(pulumi.CustomResource):
             key="debezium.zip",
             source=pulumi.FileAsset("debezium.zip"))
         example_custom_plugin = aws.mskconnect.CustomPlugin("example",
+            name="debezium-example",
+            content_type="ZIP",
             location={
                 "s3": {
                     "bucket_arn": example.arn,
                     "file_key": example_bucket_objectv2.key,
                 },
-            },
-            name="debezium-example",
-            content_type="ZIP")
+            })
         ```
 
         ## Import
@@ -407,7 +407,7 @@ class CustomPlugin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict', 'outputs.CustomPluginLocation']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -448,7 +448,7 @@ class CustomPlugin(pulumi.CustomResource):
             content_type: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             latest_revision: pulumi.Input[Optional[_builtins.int]] = None,
-            location: pulumi.Input[Optional[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']]] = None,
+            location: pulumi.Input[Optional[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict', 'outputs.CustomPluginLocation']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             state: pulumi.Input[Optional[_builtins.str]] = None,
@@ -465,7 +465,7 @@ class CustomPlugin(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
         :param pulumi.Input[_builtins.str] description: A summary description of the custom plugin.
         :param pulumi.Input[_builtins.int] latest_revision: an ID of the latest successfully created revision of the custom plugin.
-        :param pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']] location: Information about the location of a custom plugin. See `location` Block for details.
+        :param pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict', 'outputs.CustomPluginLocation']] location: Information about the location of a custom plugin. See `location` Block for details.
         :param pulumi.Input[_builtins.str] name: The name of the custom plugin..
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] state: the state of the custom plugin.

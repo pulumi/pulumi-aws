@@ -767,7 +767,6 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.ClusterArgs;
      * import com.pulumi.aws.rds.ClusterInstance;
      * import com.pulumi.aws.rds.ClusterInstanceArgs;
-     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -792,9 +791,7 @@ public final class RdsFunctions {
      *             .clusterIdentifier("development_cluster")
      *             .snapshotIdentifier(developmentFinalSnapshot.id())
      *             .dbSubnetGroupName("my_db_subnet_group")
-     *             .build(), CustomResourceOptions.builder()
-     *                 .ignoreChanges("snapshotIdentifier")
-     *                 .build());
+     *             .build());
      * 
      *         var auroraClusterInstance = new ClusterInstance("auroraClusterInstance", ClusterInstanceArgs.builder()
      *             .clusterIdentifier(aurora.id())
@@ -832,7 +829,6 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.ClusterArgs;
      * import com.pulumi.aws.rds.ClusterInstance;
      * import com.pulumi.aws.rds.ClusterInstanceArgs;
-     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -857,9 +853,7 @@ public final class RdsFunctions {
      *             .clusterIdentifier("development_cluster")
      *             .snapshotIdentifier(developmentFinalSnapshot.id())
      *             .dbSubnetGroupName("my_db_subnet_group")
-     *             .build(), CustomResourceOptions.builder()
-     *                 .ignoreChanges("snapshotIdentifier")
-     *                 .build());
+     *             .build());
      * 
      *         var auroraClusterInstance = new ClusterInstance("auroraClusterInstance", ClusterInstanceArgs.builder()
      *             .clusterIdentifier(aurora.id())
@@ -897,7 +891,6 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.ClusterArgs;
      * import com.pulumi.aws.rds.ClusterInstance;
      * import com.pulumi.aws.rds.ClusterInstanceArgs;
-     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -922,9 +915,7 @@ public final class RdsFunctions {
      *             .clusterIdentifier("development_cluster")
      *             .snapshotIdentifier(developmentFinalSnapshot.id())
      *             .dbSubnetGroupName("my_db_subnet_group")
-     *             .build(), CustomResourceOptions.builder()
-     *                 .ignoreChanges("snapshotIdentifier")
-     *                 .build());
+     *             .build());
      * 
      *         var auroraClusterInstance = new ClusterInstance("auroraClusterInstance", ClusterInstanceArgs.builder()
      *             .clusterIdentifier(aurora.id())
@@ -962,7 +953,6 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.ClusterArgs;
      * import com.pulumi.aws.rds.ClusterInstance;
      * import com.pulumi.aws.rds.ClusterInstanceArgs;
-     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -987,9 +977,7 @@ public final class RdsFunctions {
      *             .clusterIdentifier("development_cluster")
      *             .snapshotIdentifier(developmentFinalSnapshot.id())
      *             .dbSubnetGroupName("my_db_subnet_group")
-     *             .build(), CustomResourceOptions.builder()
-     *                 .ignoreChanges("snapshotIdentifier")
-     *                 .build());
+     *             .build());
      * 
      *         var auroraClusterInstance = new ClusterInstance("auroraClusterInstance", ClusterInstanceArgs.builder()
      *             .clusterIdentifier(aurora.id())
@@ -1027,7 +1015,6 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.ClusterArgs;
      * import com.pulumi.aws.rds.ClusterInstance;
      * import com.pulumi.aws.rds.ClusterInstanceArgs;
-     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1052,9 +1039,7 @@ public final class RdsFunctions {
      *             .clusterIdentifier("development_cluster")
      *             .snapshotIdentifier(developmentFinalSnapshot.id())
      *             .dbSubnetGroupName("my_db_subnet_group")
-     *             .build(), CustomResourceOptions.builder()
-     *                 .ignoreChanges("snapshotIdentifier")
-     *                 .build());
+     *             .build());
      * 
      *         var auroraClusterInstance = new ClusterInstance("auroraClusterInstance", ClusterInstanceArgs.builder()
      *             .clusterIdentifier(aurora.id())
@@ -1092,7 +1077,6 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.ClusterArgs;
      * import com.pulumi.aws.rds.ClusterInstance;
      * import com.pulumi.aws.rds.ClusterInstanceArgs;
-     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1117,9 +1101,7 @@ public final class RdsFunctions {
      *             .clusterIdentifier("development_cluster")
      *             .snapshotIdentifier(developmentFinalSnapshot.id())
      *             .dbSubnetGroupName("my_db_subnet_group")
-     *             .build(), CustomResourceOptions.builder()
-     *                 .ignoreChanges("snapshotIdentifier")
-     *                 .build());
+     *             .build());
      * 
      *         var auroraClusterInstance = new ClusterInstance("auroraClusterInstance", ClusterInstanceArgs.builder()
      *             .clusterIdentifier(aurora.id())
@@ -1157,7 +1139,6 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.ClusterArgs;
      * import com.pulumi.aws.rds.ClusterInstance;
      * import com.pulumi.aws.rds.ClusterInstanceArgs;
-     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1182,9 +1163,7 @@ public final class RdsFunctions {
      *             .clusterIdentifier("development_cluster")
      *             .snapshotIdentifier(developmentFinalSnapshot.id())
      *             .dbSubnetGroupName("my_db_subnet_group")
-     *             .build(), CustomResourceOptions.builder()
-     *                 .ignoreChanges("snapshotIdentifier")
-     *                 .build());
+     *             .build());
      * 
      *         var auroraClusterInstance = new ClusterInstance("auroraClusterInstance", ClusterInstanceArgs.builder()
      *             .clusterIdentifier(aurora.id())
@@ -1590,13 +1569,13 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+     *             .engine("aurora-postgresql")
+     *             .version("10.14")
+     *             .includeAll(true)
      *             .filters(GetEngineVersionFilterArgs.builder()
      *                 .name("engine-mode")
      *                 .values("serverless")
      *                 .build())
-     *             .engine("aurora-postgresql")
-     *             .version("10.14")
-     *             .includeAll(true)
      *             .build());
      * 
      *     }
@@ -1675,13 +1654,13 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+     *             .engine("aurora-postgresql")
+     *             .version("10.14")
+     *             .includeAll(true)
      *             .filters(GetEngineVersionFilterArgs.builder()
      *                 .name("engine-mode")
      *                 .values("serverless")
      *                 .build())
-     *             .engine("aurora-postgresql")
-     *             .version("10.14")
-     *             .includeAll(true)
      *             .build());
      * 
      *     }
@@ -1760,13 +1739,13 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+     *             .engine("aurora-postgresql")
+     *             .version("10.14")
+     *             .includeAll(true)
      *             .filters(GetEngineVersionFilterArgs.builder()
      *                 .name("engine-mode")
      *                 .values("serverless")
      *                 .build())
-     *             .engine("aurora-postgresql")
-     *             .version("10.14")
-     *             .includeAll(true)
      *             .build());
      * 
      *     }
@@ -1845,13 +1824,13 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+     *             .engine("aurora-postgresql")
+     *             .version("10.14")
+     *             .includeAll(true)
      *             .filters(GetEngineVersionFilterArgs.builder()
      *                 .name("engine-mode")
      *                 .values("serverless")
      *                 .build())
-     *             .engine("aurora-postgresql")
-     *             .version("10.14")
-     *             .includeAll(true)
      *             .build());
      * 
      *     }
@@ -1930,13 +1909,13 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+     *             .engine("aurora-postgresql")
+     *             .version("10.14")
+     *             .includeAll(true)
      *             .filters(GetEngineVersionFilterArgs.builder()
      *                 .name("engine-mode")
      *                 .values("serverless")
      *                 .build())
-     *             .engine("aurora-postgresql")
-     *             .version("10.14")
-     *             .includeAll(true)
      *             .build());
      * 
      *     }
@@ -4992,7 +4971,6 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
-     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5028,9 +5006,7 @@ public final class RdsFunctions {
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
-     *             .build(), CustomResourceOptions.builder()
-     *                 .ignoreChanges("snapshotIdentifier")
-     *                 .build());
+     *             .build());
      * 
      *     }
      * }
@@ -5060,7 +5036,6 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
-     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5096,9 +5071,7 @@ public final class RdsFunctions {
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
-     *             .build(), CustomResourceOptions.builder()
-     *                 .ignoreChanges("snapshotIdentifier")
-     *                 .build());
+     *             .build());
      * 
      *     }
      * }
@@ -5128,7 +5101,6 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
-     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5164,9 +5136,7 @@ public final class RdsFunctions {
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
-     *             .build(), CustomResourceOptions.builder()
-     *                 .ignoreChanges("snapshotIdentifier")
-     *                 .build());
+     *             .build());
      * 
      *     }
      * }
@@ -5196,7 +5166,6 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
-     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5232,9 +5201,7 @@ public final class RdsFunctions {
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
-     *             .build(), CustomResourceOptions.builder()
-     *                 .ignoreChanges("snapshotIdentifier")
-     *                 .build());
+     *             .build());
      * 
      *     }
      * }
@@ -5264,7 +5231,6 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
-     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5300,9 +5266,7 @@ public final class RdsFunctions {
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
-     *             .build(), CustomResourceOptions.builder()
-     *                 .ignoreChanges("snapshotIdentifier")
-     *                 .build());
+     *             .build());
      * 
      *     }
      * }
@@ -5332,7 +5296,6 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
-     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5368,9 +5331,7 @@ public final class RdsFunctions {
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
-     *             .build(), CustomResourceOptions.builder()
-     *                 .ignoreChanges("snapshotIdentifier")
-     *                 .build());
+     *             .build());
      * 
      *     }
      * }
@@ -5400,7 +5361,6 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
-     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5436,9 +5396,7 @@ public final class RdsFunctions {
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
-     *             .build(), CustomResourceOptions.builder()
-     *                 .ignoreChanges("snapshotIdentifier")
-     *                 .build());
+     *             .build());
      * 
      *     }
      * }

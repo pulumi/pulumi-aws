@@ -168,7 +168,7 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: pulumi.Input[Optional[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict']]] = None,
+                 definition: pulumi.Input[Optional[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict', 'outputs.PolicyDefinition']]] = None,
                  policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -184,12 +184,12 @@ class Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.verifiedpermissions.Policy("test",
+            policy_store_id=test_aws_verifiedpermissions_policy_store["id"],
             definition={
                 "static": {
                     "statement": "permit (principal, action == Action::\\"view\\", resource in Album:: \\"test_album\\");",
                 },
-            },
-            policy_store_id=test_aws_verifiedpermissions_policy_store["id"])
+            })
         ```
 
         ## Import
@@ -203,7 +203,7 @@ class Policy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict']] definition: The definition of the policy. See Definition below.
+        :param pulumi.Input[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict', 'outputs.PolicyDefinition']] definition: The definition of the policy. See Definition below.
         :param pulumi.Input[_builtins.str] policy_store_id: The Policy Store ID of the policy store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -225,12 +225,12 @@ class Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.verifiedpermissions.Policy("test",
+            policy_store_id=test_aws_verifiedpermissions_policy_store["id"],
             definition={
                 "static": {
                     "statement": "permit (principal, action == Action::\\"view\\", resource in Album:: \\"test_album\\");",
                 },
-            },
-            policy_store_id=test_aws_verifiedpermissions_policy_store["id"])
+            })
         ```
 
         ## Import
@@ -257,7 +257,7 @@ class Policy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: pulumi.Input[Optional[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict']]] = None,
+                 definition: pulumi.Input[Optional[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict', 'outputs.PolicyDefinition']]] = None,
                  policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -289,7 +289,7 @@ class Policy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             created_date: pulumi.Input[Optional[_builtins.str]] = None,
-            definition: pulumi.Input[Optional[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict']]] = None,
+            definition: pulumi.Input[Optional[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict', 'outputs.PolicyDefinition']]] = None,
             policy_id: pulumi.Input[Optional[_builtins.str]] = None,
             policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'Policy':
@@ -301,7 +301,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] created_date: The date the policy was created.
-        :param pulumi.Input[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict']] definition: The definition of the policy. See Definition below.
+        :param pulumi.Input[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict', 'outputs.PolicyDefinition']] definition: The definition of the policy. See Definition below.
         :param pulumi.Input[_builtins.str] policy_id: The Policy ID of the policy.
         :param pulumi.Input[_builtins.str] policy_store_id: The Policy Store ID of the policy store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

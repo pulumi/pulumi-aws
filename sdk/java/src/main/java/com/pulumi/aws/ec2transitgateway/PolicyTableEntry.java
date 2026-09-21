@@ -82,20 +82,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PolicyTableEntry("example", PolicyTableEntryArgs.builder()
+ *             .transitGatewayPolicyTableId(exampleAwsEc2TransitGatewayPolicyTable.id())
+ *             .policyRuleNumber("200")
+ *             .targetRouteTableId(exampleAwsEc2TransitGatewayRouteTable.id())
  *             .policyRule(PolicyTableEntryPolicyRuleArgs.builder()
- *                 .metadata(PolicyTableEntryPolicyRuleMetadataArgs.builder()
- *                     .key("test")
- *                     .value("test")
- *                     .build())
  *                 .sourceCidrBlock("10.0.1.0/24")
  *                 .sourcePortRange("*")
  *                 .destinationCidrBlock("10.0.2.0/24")
  *                 .destinationPortRange("443")
  *                 .protocol("6")
+ *                 .metadata(PolicyTableEntryPolicyRuleMetadataArgs.builder()
+ *                     .key("test")
+ *                     .value("test")
+ *                     .build())
  *                 .build())
- *             .transitGatewayPolicyTableId(exampleAwsEc2TransitGatewayPolicyTable.id())
- *             .policyRuleNumber("200")
- *             .targetRouteTableId(exampleAwsEc2TransitGatewayRouteTable.id())
  *             .build());
  * 
  *     }

@@ -678,11 +678,11 @@ class Policy(pulumi.CustomResource):
                  min_adjustment_magnitude: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 predictive_scaling_configuration: pulumi.Input[Optional[Union['PolicyPredictiveScalingConfigurationArgs', 'PolicyPredictiveScalingConfigurationArgsDict']]] = None,
+                 predictive_scaling_configuration: pulumi.Input[Optional[Union['PolicyPredictiveScalingConfigurationArgs', 'PolicyPredictiveScalingConfigurationArgsDict', 'outputs.PolicyPredictiveScalingConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  scaling_adjustment: pulumi.Input[Optional[_builtins.int]] = None,
-                 step_adjustments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyStepAdjustmentArgs', 'PolicyStepAdjustmentArgsDict']]]]] = None,
-                 target_tracking_configuration: pulumi.Input[Optional[Union['PolicyTargetTrackingConfigurationArgs', 'PolicyTargetTrackingConfigurationArgsDict']]] = None,
+                 step_adjustments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyStepAdjustmentArgs', 'PolicyStepAdjustmentArgsDict', 'outputs.PolicyStepAdjustment']]]]] = None,
+                 target_tracking_configuration: pulumi.Input[Optional[Union['PolicyTargetTrackingConfigurationArgs', 'PolicyTargetTrackingConfigurationArgsDict', 'outputs.PolicyTargetTrackingConfiguration']]] = None,
                  __props__=None):
         """
         Provides an AutoScaling Scaling Policy resource.
@@ -723,41 +723,45 @@ class Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.autoscaling.Policy("example",
+            autoscaling_group_name="my-test-asg",
+            name="foo",
+            policy_type="TargetTrackingScaling",
             target_tracking_configuration={
+                "target_value": float(100),
                 "customized_metric_specification": {
                     "metrics": [
                         {
+                            "label": "Get the queue size (the number of messages waiting to be processed)",
+                            "id": "m1",
                             "metric_stat": {
                                 "metric": {
+                                    "namespace": "AWS/SQS",
+                                    "metric_name": "ApproximateNumberOfMessagesVisible",
                                     "dimensions": [{
                                         "name": "QueueName",
                                         "value": "my-queue",
                                     }],
-                                    "namespace": "AWS/SQS",
-                                    "metric_name": "ApproximateNumberOfMessagesVisible",
                                 },
                                 "stat": "Sum",
                                 "period": 10,
                             },
-                            "label": "Get the queue size (the number of messages waiting to be processed)",
-                            "id": "m1",
                             "return_data": False,
                         },
                         {
+                            "label": "Get the group size (the number of InService instances)",
+                            "id": "m2",
                             "metric_stat": {
                                 "metric": {
+                                    "namespace": "AWS/AutoScaling",
+                                    "metric_name": "GroupInServiceInstances",
                                     "dimensions": [{
                                         "name": "AutoScalingGroupName",
                                         "value": "my-asg",
                                     }],
-                                    "namespace": "AWS/AutoScaling",
-                                    "metric_name": "GroupInServiceInstances",
                                 },
                                 "stat": "Average",
                                 "period": 10,
                             },
-                            "label": "Get the group size (the number of InService instances)",
-                            "id": "m2",
                             "return_data": False,
                         },
                         {
@@ -768,11 +772,7 @@ class Policy(pulumi.CustomResource):
                         },
                     ],
                 },
-                "target_value": float(100),
-            },
-            autoscaling_group_name="my-test-asg",
-            name="foo",
-            policy_type="TargetTrackingScaling")
+            })
         ```
 
         ### Create predictive scaling policy using customized metrics
@@ -782,8 +782,12 @@ class Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.autoscaling.Policy("example",
+            autoscaling_group_name="my-test-asg",
+            name="foo",
+            policy_type="PredictiveScaling",
             predictive_scaling_configuration={
                 "metric_specification": {
+                    "target_value": float(10),
                     "customized_load_metric_specification": {
                         "metric_data_queries": [{
                             "id": "load_sum",
@@ -814,12 +818,8 @@ class Policy(pulumi.CustomResource):
                             },
                         ],
                     },
-                    "target_value": float(10),
                 },
-            },
-            autoscaling_group_name="my-test-asg",
-            name="foo",
-            policy_type="PredictiveScaling")
+            })
         ```
 
         ### Create predictive scaling policy using customized scaling and predefined load metric
@@ -829,34 +829,34 @@ class Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.autoscaling.Policy("example",
+            autoscaling_group_name="my-test-asg",
+            name="foo",
+            policy_type="PredictiveScaling",
             predictive_scaling_configuration={
                 "metric_specification": {
+                    "target_value": float(10),
                     "predefined_load_metric_specification": {
                         "predefined_metric_type": "ASGTotalCPUUtilization",
                         "resource_label": "app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff",
                     },
                     "customized_scaling_metric_specification": {
                         "metric_data_queries": [{
+                            "id": "scaling",
                             "metric_stat": {
                                 "metric": {
+                                    "metric_name": "CPUUtilization",
+                                    "namespace": "AWS/EC2",
                                     "dimensions": [{
                                         "name": "AutoScalingGroupName",
                                         "value": "my-test-asg",
                                     }],
-                                    "metric_name": "CPUUtilization",
-                                    "namespace": "AWS/EC2",
                                 },
                                 "stat": "Average",
                             },
-                            "id": "scaling",
                         }],
                     },
-                    "target_value": float(10),
                 },
-            },
-            autoscaling_group_name="my-test-asg",
-            name="foo",
-            policy_type="PredictiveScaling")
+            })
         ```
 
         ## Import
@@ -895,12 +895,12 @@ class Policy(pulumi.CustomResource):
                The following arguments are only available to "SimpleScaling" type policies:
         :param pulumi.Input[_builtins.str] name: Name of the policy.
         :param pulumi.Input[_builtins.str] policy_type: Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
-        :param pulumi.Input[Union['PolicyPredictiveScalingConfigurationArgs', 'PolicyPredictiveScalingConfigurationArgsDict']] predictive_scaling_configuration: Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+        :param pulumi.Input[Union['PolicyPredictiveScalingConfigurationArgs', 'PolicyPredictiveScalingConfigurationArgsDict', 'outputs.PolicyPredictiveScalingConfiguration']] predictive_scaling_configuration: Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] scaling_adjustment: Number of members by which to
                scale, when the adjustment bounds are breached. A positive value scales
                up. A negative value scales down.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyStepAdjustmentArgs', 'PolicyStepAdjustmentArgsDict']]]] step_adjustments: Set of adjustments that manage
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyStepAdjustmentArgs', 'PolicyStepAdjustmentArgsDict', 'outputs.PolicyStepAdjustment']]]] step_adjustments: Set of adjustments that manage
                group scaling. These have the following structure:
                
                ```python
@@ -922,7 +922,7 @@ class Policy(pulumi.CustomResource):
                ```
                
                The following fields are available in step adjustments:
-        :param pulumi.Input[Union['PolicyTargetTrackingConfigurationArgs', 'PolicyTargetTrackingConfigurationArgsDict']] target_tracking_configuration: Target tracking policy. These have the following structure:
+        :param pulumi.Input[Union['PolicyTargetTrackingConfigurationArgs', 'PolicyTargetTrackingConfigurationArgsDict', 'outputs.PolicyTargetTrackingConfiguration']] target_tracking_configuration: Target tracking policy. These have the following structure:
                
                ```python
                import pulumi
@@ -983,41 +983,45 @@ class Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.autoscaling.Policy("example",
+            autoscaling_group_name="my-test-asg",
+            name="foo",
+            policy_type="TargetTrackingScaling",
             target_tracking_configuration={
+                "target_value": float(100),
                 "customized_metric_specification": {
                     "metrics": [
                         {
+                            "label": "Get the queue size (the number of messages waiting to be processed)",
+                            "id": "m1",
                             "metric_stat": {
                                 "metric": {
+                                    "namespace": "AWS/SQS",
+                                    "metric_name": "ApproximateNumberOfMessagesVisible",
                                     "dimensions": [{
                                         "name": "QueueName",
                                         "value": "my-queue",
                                     }],
-                                    "namespace": "AWS/SQS",
-                                    "metric_name": "ApproximateNumberOfMessagesVisible",
                                 },
                                 "stat": "Sum",
                                 "period": 10,
                             },
-                            "label": "Get the queue size (the number of messages waiting to be processed)",
-                            "id": "m1",
                             "return_data": False,
                         },
                         {
+                            "label": "Get the group size (the number of InService instances)",
+                            "id": "m2",
                             "metric_stat": {
                                 "metric": {
+                                    "namespace": "AWS/AutoScaling",
+                                    "metric_name": "GroupInServiceInstances",
                                     "dimensions": [{
                                         "name": "AutoScalingGroupName",
                                         "value": "my-asg",
                                     }],
-                                    "namespace": "AWS/AutoScaling",
-                                    "metric_name": "GroupInServiceInstances",
                                 },
                                 "stat": "Average",
                                 "period": 10,
                             },
-                            "label": "Get the group size (the number of InService instances)",
-                            "id": "m2",
                             "return_data": False,
                         },
                         {
@@ -1028,11 +1032,7 @@ class Policy(pulumi.CustomResource):
                         },
                     ],
                 },
-                "target_value": float(100),
-            },
-            autoscaling_group_name="my-test-asg",
-            name="foo",
-            policy_type="TargetTrackingScaling")
+            })
         ```
 
         ### Create predictive scaling policy using customized metrics
@@ -1042,8 +1042,12 @@ class Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.autoscaling.Policy("example",
+            autoscaling_group_name="my-test-asg",
+            name="foo",
+            policy_type="PredictiveScaling",
             predictive_scaling_configuration={
                 "metric_specification": {
+                    "target_value": float(10),
                     "customized_load_metric_specification": {
                         "metric_data_queries": [{
                             "id": "load_sum",
@@ -1074,12 +1078,8 @@ class Policy(pulumi.CustomResource):
                             },
                         ],
                     },
-                    "target_value": float(10),
                 },
-            },
-            autoscaling_group_name="my-test-asg",
-            name="foo",
-            policy_type="PredictiveScaling")
+            })
         ```
 
         ### Create predictive scaling policy using customized scaling and predefined load metric
@@ -1089,34 +1089,34 @@ class Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.autoscaling.Policy("example",
+            autoscaling_group_name="my-test-asg",
+            name="foo",
+            policy_type="PredictiveScaling",
             predictive_scaling_configuration={
                 "metric_specification": {
+                    "target_value": float(10),
                     "predefined_load_metric_specification": {
                         "predefined_metric_type": "ASGTotalCPUUtilization",
                         "resource_label": "app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff",
                     },
                     "customized_scaling_metric_specification": {
                         "metric_data_queries": [{
+                            "id": "scaling",
                             "metric_stat": {
                                 "metric": {
+                                    "metric_name": "CPUUtilization",
+                                    "namespace": "AWS/EC2",
                                     "dimensions": [{
                                         "name": "AutoScalingGroupName",
                                         "value": "my-test-asg",
                                     }],
-                                    "metric_name": "CPUUtilization",
-                                    "namespace": "AWS/EC2",
                                 },
                                 "stat": "Average",
                             },
-                            "id": "scaling",
                         }],
                     },
-                    "target_value": float(10),
                 },
-            },
-            autoscaling_group_name="my-test-asg",
-            name="foo",
-            policy_type="PredictiveScaling")
+            })
         ```
 
         ## Import
@@ -1164,11 +1164,11 @@ class Policy(pulumi.CustomResource):
                  min_adjustment_magnitude: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 predictive_scaling_configuration: pulumi.Input[Optional[Union['PolicyPredictiveScalingConfigurationArgs', 'PolicyPredictiveScalingConfigurationArgsDict']]] = None,
+                 predictive_scaling_configuration: pulumi.Input[Optional[Union['PolicyPredictiveScalingConfigurationArgs', 'PolicyPredictiveScalingConfigurationArgsDict', 'outputs.PolicyPredictiveScalingConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  scaling_adjustment: pulumi.Input[Optional[_builtins.int]] = None,
-                 step_adjustments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyStepAdjustmentArgs', 'PolicyStepAdjustmentArgsDict']]]]] = None,
-                 target_tracking_configuration: pulumi.Input[Optional[Union['PolicyTargetTrackingConfigurationArgs', 'PolicyTargetTrackingConfigurationArgsDict']]] = None,
+                 step_adjustments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyStepAdjustmentArgs', 'PolicyStepAdjustmentArgsDict', 'outputs.PolicyStepAdjustment']]]]] = None,
+                 target_tracking_configuration: pulumi.Input[Optional[Union['PolicyTargetTrackingConfigurationArgs', 'PolicyTargetTrackingConfigurationArgsDict', 'outputs.PolicyTargetTrackingConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1215,11 +1215,11 @@ class Policy(pulumi.CustomResource):
             min_adjustment_magnitude: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             policy_type: pulumi.Input[Optional[_builtins.str]] = None,
-            predictive_scaling_configuration: pulumi.Input[Optional[Union['PolicyPredictiveScalingConfigurationArgs', 'PolicyPredictiveScalingConfigurationArgsDict']]] = None,
+            predictive_scaling_configuration: pulumi.Input[Optional[Union['PolicyPredictiveScalingConfigurationArgs', 'PolicyPredictiveScalingConfigurationArgsDict', 'outputs.PolicyPredictiveScalingConfiguration']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             scaling_adjustment: pulumi.Input[Optional[_builtins.int]] = None,
-            step_adjustments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyStepAdjustmentArgs', 'PolicyStepAdjustmentArgsDict']]]]] = None,
-            target_tracking_configuration: pulumi.Input[Optional[Union['PolicyTargetTrackingConfigurationArgs', 'PolicyTargetTrackingConfigurationArgsDict']]] = None) -> 'Policy':
+            step_adjustments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyStepAdjustmentArgs', 'PolicyStepAdjustmentArgsDict', 'outputs.PolicyStepAdjustment']]]]] = None,
+            target_tracking_configuration: pulumi.Input[Optional[Union['PolicyTargetTrackingConfigurationArgs', 'PolicyTargetTrackingConfigurationArgsDict', 'outputs.PolicyTargetTrackingConfiguration']]] = None) -> 'Policy':
         """
         Get an existing Policy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1241,12 +1241,12 @@ class Policy(pulumi.CustomResource):
                The following arguments are only available to "SimpleScaling" type policies:
         :param pulumi.Input[_builtins.str] name: Name of the policy.
         :param pulumi.Input[_builtins.str] policy_type: Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
-        :param pulumi.Input[Union['PolicyPredictiveScalingConfigurationArgs', 'PolicyPredictiveScalingConfigurationArgsDict']] predictive_scaling_configuration: Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+        :param pulumi.Input[Union['PolicyPredictiveScalingConfigurationArgs', 'PolicyPredictiveScalingConfigurationArgsDict', 'outputs.PolicyPredictiveScalingConfiguration']] predictive_scaling_configuration: Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] scaling_adjustment: Number of members by which to
                scale, when the adjustment bounds are breached. A positive value scales
                up. A negative value scales down.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyStepAdjustmentArgs', 'PolicyStepAdjustmentArgsDict']]]] step_adjustments: Set of adjustments that manage
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyStepAdjustmentArgs', 'PolicyStepAdjustmentArgsDict', 'outputs.PolicyStepAdjustment']]]] step_adjustments: Set of adjustments that manage
                group scaling. These have the following structure:
                
                ```python
@@ -1268,7 +1268,7 @@ class Policy(pulumi.CustomResource):
                ```
                
                The following fields are available in step adjustments:
-        :param pulumi.Input[Union['PolicyTargetTrackingConfigurationArgs', 'PolicyTargetTrackingConfigurationArgsDict']] target_tracking_configuration: Target tracking policy. These have the following structure:
+        :param pulumi.Input[Union['PolicyTargetTrackingConfigurationArgs', 'PolicyTargetTrackingConfigurationArgsDict', 'outputs.PolicyTargetTrackingConfiguration']] target_tracking_configuration: Target tracking policy. These have the following structure:
                
                ```python
                import pulumi

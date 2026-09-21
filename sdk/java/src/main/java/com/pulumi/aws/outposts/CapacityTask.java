@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCapacityTask = new CapacityTask("exampleCapacityTask", CapacityTaskArgs.builder()
+ *             .outpostIdentifier(example.arns()[0])
  *             .instancePools(CapacityTaskInstancePoolArgs.builder()
  *                 .instanceType("m5.large")
  *                 .count(2)
  *                 .build())
- *             .outpostIdentifier(example.arns()[0])
  *             .build());
  * 
  *     }
@@ -83,10 +83,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
  * import com.pulumi.aws.outposts.CapacityTask;
  * import com.pulumi.aws.outposts.CapacityTaskArgs;
- * import com.pulumi.aws.outposts.inputs.CapacityTaskInstancesToExcludeArgs;
  * import com.pulumi.aws.outposts.inputs.CapacityTaskInstancePoolArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import com.pulumi.resources.CustomTimeouts;
+ * import com.pulumi.aws.outposts.inputs.CapacityTaskInstancesToExcludeArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -105,11 +103,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCapacityTask = new CapacityTask("exampleCapacityTask", CapacityTaskArgs.builder()
- *             .instancesToExclude(CapacityTaskInstancesToExcludeArgs.builder()
- *                 .instances(                
- *                     "i-0123456789abcdef0",
- *                     "i-0fedcba9876543210")
- *                 .build())
+ *             .outpostIdentifier("op-1234567890abcdef")
+ *             .taskActionOnBlockingInstances("WAIT_FOR_EVACUATION")
+ *             .assetId(example.assetIds()[0])
  *             .instancePools(            
  *                 CapacityTaskInstancePoolArgs.builder()
  *                     .instanceType("m5.large")
@@ -119,15 +115,12 @@ import javax.annotation.Nullable;
  *                     .instanceType("c5.xlarge")
  *                     .count(2)
  *                     .build())
- *             .outpostIdentifier("op-1234567890abcdef")
- *             .taskActionOnBlockingInstances("WAIT_FOR_EVACUATION")
- *             .assetId(example.assetIds()[0])
- *             .build(), CustomResourceOptions.builder()
- *                 .customTimeouts(CustomTimeouts.builder()
- *                     .create(CustomTimeouts.parseTimeoutString("90m"))
- *                     .delete(CustomTimeouts.parseTimeoutString("15m"))
+ *             .instancesToExclude(CapacityTaskInstancesToExcludeArgs.builder()
+ *                 .instances(                
+ *                     "i-0123456789abcdef0",
+ *                     "i-0fedcba9876543210")
  *                 .build())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

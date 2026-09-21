@@ -88,6 +88,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataLakeSettings("example", DataLakeSettingsArgs.builder()
+ *             .admins(            
+ *                 test.arn(),
+ *                 testAwsIamRole.arn())
  *             .createDatabaseDefaultPermissions(DataLakeSettingsCreateDatabaseDefaultPermissionArgs.builder()
  *                 .permissions(                
  *                     "SELECT",
@@ -99,9 +102,6 @@ import javax.annotation.Nullable;
  *                 .permissions("ALL")
  *                 .principal(testAwsIamRole.arn())
  *                 .build())
- *             .admins(            
- *                 test.arn(),
- *                 testAwsIamRole.arn())
  *             .build());
  * 
  *     }
@@ -136,6 +136,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataLakeSettings("example", DataLakeSettingsArgs.builder()
+ *             .admins(            
+ *                 test.arn(),
+ *                 testAwsIamRole.arn())
  *             .createDatabaseDefaultPermissions(DataLakeSettingsCreateDatabaseDefaultPermissionArgs.builder()
  *                 .permissions(                
  *                     "SELECT",
@@ -147,9 +150,6 @@ import javax.annotation.Nullable;
  *                 .permissions("ALL")
  *                 .principal(testAwsIamRole.arn())
  *                 .build())
- *             .admins(            
- *                 test.arn(),
- *                 testAwsIamRole.arn())
  *             .allowExternalDataFiltering(true)
  *             .externalDataFilteringAllowLists(            
  *                 current.accountId(),

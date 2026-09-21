@@ -169,16 +169,8 @@ class TopicPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.sns.Topic("test", name="my-topic-with-policy")
-        sns_topic_policy = aws.iam.get_policy_document_output(statements=[{
-                "conditions": [{
-                    "test": "StringEquals",
-                    "variable": "AWS:SourceOwner",
-                    "values": [account_id],
-                }],
-                "principals": [{
-                    "type": "AWS",
-                    "identifiers": ["*"],
-                }],
+        sns_topic_policy = aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
+            statements=[{
                 "actions": [
                     "SNS:Subscribe",
                     "SNS:SetTopicAttributes",
@@ -190,11 +182,19 @@ class TopicPolicy(pulumi.CustomResource):
                     "SNS:DeleteTopic",
                     "SNS:AddPermission",
                 ],
+                "conditions": [{
+                    "test": "StringEquals",
+                    "variable": "AWS:SourceOwner",
+                    "values": [account_id],
+                }],
                 "effect": "Allow",
+                "principals": [{
+                    "type": "AWS",
+                    "identifiers": ["*"],
+                }],
                 "resources": [test.arn],
                 "sid": "__default_statement_ID",
-            }],
-            policy_id="__default_policy_ID")
+            }])
         default = aws.sns.TopicPolicy("default",
             arn=test.arn,
             policy=sns_topic_policy.json)
@@ -239,16 +239,8 @@ class TopicPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.sns.Topic("test", name="my-topic-with-policy")
-        sns_topic_policy = aws.iam.get_policy_document_output(statements=[{
-                "conditions": [{
-                    "test": "StringEquals",
-                    "variable": "AWS:SourceOwner",
-                    "values": [account_id],
-                }],
-                "principals": [{
-                    "type": "AWS",
-                    "identifiers": ["*"],
-                }],
+        sns_topic_policy = aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
+            statements=[{
                 "actions": [
                     "SNS:Subscribe",
                     "SNS:SetTopicAttributes",
@@ -260,11 +252,19 @@ class TopicPolicy(pulumi.CustomResource):
                     "SNS:DeleteTopic",
                     "SNS:AddPermission",
                 ],
+                "conditions": [{
+                    "test": "StringEquals",
+                    "variable": "AWS:SourceOwner",
+                    "values": [account_id],
+                }],
                 "effect": "Allow",
+                "principals": [{
+                    "type": "AWS",
+                    "identifiers": ["*"],
+                }],
                 "resources": [test.arn],
                 "sid": "__default_statement_ID",
-            }],
-            policy_id="__default_policy_ID")
+            }])
         default = aws.sns.TopicPolicy("default",
             arn=test.arn,
             policy=sns_topic_policy.json)

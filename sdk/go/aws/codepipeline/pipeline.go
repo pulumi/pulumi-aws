@@ -50,6 +50,7 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
+//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -58,7 +59,6 @@ import (
 //								},
 //							},
 //						},
-//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -82,18 +82,21 @@ import (
 //				return err
 //			}
 //			_, err = codepipeline.NewPipeline(ctx, "codepipeline", &codepipeline.PipelineArgs{
+//				Name:    pulumi.String("tf-test-pipeline"),
+//				RoleArn: codepipelineRole.Arn,
 //				ArtifactStores: codepipeline.PipelineArtifactStoreArray{
 //					&codepipeline.PipelineArtifactStoreArgs{
+//						Location: codepipelineBucket.Bucket,
+//						Type:     pulumi.String("S3"),
 //						EncryptionKey: &codepipeline.PipelineArtifactStoreEncryptionKeyArgs{
 //							Id:   pulumi.String(s3kmskey.Arn),
 //							Type: pulumi.String("KMS"),
 //						},
-//						Location: codepipelineBucket.Bucket,
-//						Type:     pulumi.String("S3"),
 //					},
 //				},
 //				Stages: codepipeline.PipelineStageArray{
 //					&codepipeline.PipelineStageArgs{
+//						Name: pulumi.String("Source"),
 //						Actions: codepipeline.PipelineStageActionArray{
 //							&codepipeline.PipelineStageActionArgs{
 //								Name:     pulumi.String("Source"),
@@ -111,9 +114,9 @@ import (
 //								},
 //							},
 //						},
-//						Name: pulumi.String("Source"),
 //					},
 //					&codepipeline.PipelineStageArgs{
+//						Name: pulumi.String("Build"),
 //						Actions: codepipeline.PipelineStageActionArray{
 //							&codepipeline.PipelineStageActionArgs{
 //								Name:     pulumi.String("Build"),
@@ -132,9 +135,9 @@ import (
 //								},
 //							},
 //						},
-//						Name: pulumi.String("Build"),
 //					},
 //					&codepipeline.PipelineStageArgs{
+//						Name: pulumi.String("Deploy"),
 //						Actions: codepipeline.PipelineStageActionArray{
 //							&codepipeline.PipelineStageActionArgs{
 //								Name:     pulumi.String("Deploy"),
@@ -154,11 +157,8 @@ import (
 //								},
 //							},
 //						},
-//						Name: pulumi.String("Deploy"),
 //					},
 //				},
-//				Name:    pulumi.String("tf-test-pipeline"),
-//				RoleArn: codepipelineRole.Arn,
 //			})
 //			if err != nil {
 //				return err

@@ -30,6 +30,8 @@ namespace Pulumi.Aws.Route53
         /// 
         ///     var example = Aws.Route53.GetTrafficPolicyDocument.Invoke(new()
         ///     {
+        ///         RecordType = "A",
+        ///         StartRule = "site_switch",
         ///         Endpoints = new[]
         ///         {
         ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentEndpointInputArgs
@@ -50,6 +52,8 @@ namespace Pulumi.Aws.Route53
         ///         {
         ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleInputArgs
         ///             {
+        ///                 Id = "site_switch",
+        ///                 Type = "failover",
         ///                 Primary = new Aws.Route53.Inputs.GetTrafficPolicyDocumentRulePrimaryInputArgs
         ///                 {
         ///                     EndpointReference = "my_elb",
@@ -58,12 +62,8 @@ namespace Pulumi.Aws.Route53
         ///                 {
         ///                     EndpointReference = "site_down_banner",
         ///                 },
-        ///                 Id = "site_switch",
-        ///                 Type = "failover",
         ///             },
         ///         },
-        ///         RecordType = "A",
-        ///         StartRule = "site_switch",
         ///     });
         /// 
         ///     var exampleTrafficPolicy = new Aws.Route53.TrafficPolicy("example", new()
@@ -90,6 +90,8 @@ namespace Pulumi.Aws.Route53
         /// {
         ///     var example = Aws.Route53.GetTrafficPolicyDocument.Invoke(new()
         ///     {
+        ///         RecordType = "A",
+        ///         StartRule = "geoproximity_rule",
         ///         Endpoints = new[]
         ///         {
         ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentEndpointInputArgs
@@ -121,6 +123,8 @@ namespace Pulumi.Aws.Route53
         ///         {
         ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleInputArgs
         ///             {
+        ///                 Id = "na_rule",
+        ///                 Type = "failover",
         ///                 Primary = new Aws.Route53.Inputs.GetTrafficPolicyDocumentRulePrimaryInputArgs
         ///                 {
         ///                     EndpointReference = "na_endpoint_a",
@@ -129,11 +133,11 @@ namespace Pulumi.Aws.Route53
         ///                 {
         ///                     EndpointReference = "na_endpoint_b",
         ///                 },
-        ///                 Id = "na_rule",
-        ///                 Type = "failover",
         ///             },
         ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleInputArgs
         ///             {
+        ///                 Id = "geoproximity_rule",
+        ///                 Type = "geoproximity",
         ///                 GeoProximityLocations = new[]
         ///                 {
         ///                     new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleGeoProximityLocationInputArgs
@@ -158,12 +162,8 @@ namespace Pulumi.Aws.Route53
         ///                         EndpointReference = "ap_endpoint",
         ///                     },
         ///                 },
-        ///                 Id = "geoproximity_rule",
-        ///                 Type = "geoproximity",
         ///             },
         ///         },
-        ///         RecordType = "A",
-        ///         StartRule = "geoproximity_rule",
         ///     });
         /// 
         ///     var exampleTrafficPolicy = new Aws.Route53.TrafficPolicy("example", new()
@@ -198,6 +198,8 @@ namespace Pulumi.Aws.Route53
         /// 
         ///     var example = Aws.Route53.GetTrafficPolicyDocument.Invoke(new()
         ///     {
+        ///         RecordType = "A",
+        ///         StartRule = "site_switch",
         ///         Endpoints = new[]
         ///         {
         ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentEndpointInputArgs
@@ -218,6 +220,8 @@ namespace Pulumi.Aws.Route53
         ///         {
         ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleInputArgs
         ///             {
+        ///                 Id = "site_switch",
+        ///                 Type = "failover",
         ///                 Primary = new Aws.Route53.Inputs.GetTrafficPolicyDocumentRulePrimaryInputArgs
         ///                 {
         ///                     EndpointReference = "my_elb",
@@ -226,12 +230,8 @@ namespace Pulumi.Aws.Route53
         ///                 {
         ///                     EndpointReference = "site_down_banner",
         ///                 },
-        ///                 Id = "site_switch",
-        ///                 Type = "failover",
         ///             },
         ///         },
-        ///         RecordType = "A",
-        ///         StartRule = "site_switch",
         ///     });
         /// 
         ///     var exampleTrafficPolicy = new Aws.Route53.TrafficPolicy("example", new()
@@ -258,6 +258,8 @@ namespace Pulumi.Aws.Route53
         /// {
         ///     var example = Aws.Route53.GetTrafficPolicyDocument.Invoke(new()
         ///     {
+        ///         RecordType = "A",
+        ///         StartRule = "geoproximity_rule",
         ///         Endpoints = new[]
         ///         {
         ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentEndpointInputArgs
@@ -289,6 +291,8 @@ namespace Pulumi.Aws.Route53
         ///         {
         ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleInputArgs
         ///             {
+        ///                 Id = "na_rule",
+        ///                 Type = "failover",
         ///                 Primary = new Aws.Route53.Inputs.GetTrafficPolicyDocumentRulePrimaryInputArgs
         ///                 {
         ///                     EndpointReference = "na_endpoint_a",
@@ -297,11 +301,11 @@ namespace Pulumi.Aws.Route53
         ///                 {
         ///                     EndpointReference = "na_endpoint_b",
         ///                 },
-        ///                 Id = "na_rule",
-        ///                 Type = "failover",
         ///             },
         ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleInputArgs
         ///             {
+        ///                 Id = "geoproximity_rule",
+        ///                 Type = "geoproximity",
         ///                 GeoProximityLocations = new[]
         ///                 {
         ///                     new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleGeoProximityLocationInputArgs
@@ -326,12 +330,8 @@ namespace Pulumi.Aws.Route53
         ///                         EndpointReference = "ap_endpoint",
         ///                     },
         ///                 },
-        ///                 Id = "geoproximity_rule",
-        ///                 Type = "geoproximity",
         ///             },
         ///         },
-        ///         RecordType = "A",
-        ///         StartRule = "geoproximity_rule",
         ///     });
         /// 
         ///     var exampleTrafficPolicy = new Aws.Route53.TrafficPolicy("example", new()
@@ -366,6 +366,8 @@ namespace Pulumi.Aws.Route53
         /// 
         ///     var example = Aws.Route53.GetTrafficPolicyDocument.Invoke(new()
         ///     {
+        ///         RecordType = "A",
+        ///         StartRule = "site_switch",
         ///         Endpoints = new[]
         ///         {
         ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentEndpointInputArgs
@@ -386,6 +388,8 @@ namespace Pulumi.Aws.Route53
         ///         {
         ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleInputArgs
         ///             {
+        ///                 Id = "site_switch",
+        ///                 Type = "failover",
         ///                 Primary = new Aws.Route53.Inputs.GetTrafficPolicyDocumentRulePrimaryInputArgs
         ///                 {
         ///                     EndpointReference = "my_elb",
@@ -394,12 +398,8 @@ namespace Pulumi.Aws.Route53
         ///                 {
         ///                     EndpointReference = "site_down_banner",
         ///                 },
-        ///                 Id = "site_switch",
-        ///                 Type = "failover",
         ///             },
         ///         },
-        ///         RecordType = "A",
-        ///         StartRule = "site_switch",
         ///     });
         /// 
         ///     var exampleTrafficPolicy = new Aws.Route53.TrafficPolicy("example", new()
@@ -426,6 +426,8 @@ namespace Pulumi.Aws.Route53
         /// {
         ///     var example = Aws.Route53.GetTrafficPolicyDocument.Invoke(new()
         ///     {
+        ///         RecordType = "A",
+        ///         StartRule = "geoproximity_rule",
         ///         Endpoints = new[]
         ///         {
         ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentEndpointInputArgs
@@ -457,6 +459,8 @@ namespace Pulumi.Aws.Route53
         ///         {
         ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleInputArgs
         ///             {
+        ///                 Id = "na_rule",
+        ///                 Type = "failover",
         ///                 Primary = new Aws.Route53.Inputs.GetTrafficPolicyDocumentRulePrimaryInputArgs
         ///                 {
         ///                     EndpointReference = "na_endpoint_a",
@@ -465,11 +469,11 @@ namespace Pulumi.Aws.Route53
         ///                 {
         ///                     EndpointReference = "na_endpoint_b",
         ///                 },
-        ///                 Id = "na_rule",
-        ///                 Type = "failover",
         ///             },
         ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleInputArgs
         ///             {
+        ///                 Id = "geoproximity_rule",
+        ///                 Type = "geoproximity",
         ///                 GeoProximityLocations = new[]
         ///                 {
         ///                     new Aws.Route53.Inputs.GetTrafficPolicyDocumentRuleGeoProximityLocationInputArgs
@@ -494,12 +498,8 @@ namespace Pulumi.Aws.Route53
         ///                         EndpointReference = "ap_endpoint",
         ///                     },
         ///                 },
-        ///                 Id = "geoproximity_rule",
-        ///                 Type = "geoproximity",
         ///             },
         ///         },
-        ///         RecordType = "A",
-        ///         StartRule = "geoproximity_rule",
         ///     });
         /// 
         ///     var exampleTrafficPolicy = new Aws.Route53.TrafficPolicy("example", new()

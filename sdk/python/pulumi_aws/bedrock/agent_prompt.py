@@ -360,7 +360,7 @@ class AgentPrompt(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentPromptVariantArgs', 'AgentPromptVariantArgsDict']]]]] = None,
+                 variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentPromptVariantArgs', 'AgentPromptVariantArgsDict', 'outputs.AgentPromptVariant']]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Bedrock Agents Prompt.
@@ -385,14 +385,21 @@ class AgentPrompt(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentPrompt("example",
+            name="MakePlaylist",
+            description="My first prompt.",
+            default_variant="Variant1",
             variants=[{
+                "name": "Variant1",
+                "model_id": "amazon.titan-text-express-v1",
                 "inference_configuration": {
                     "text": {
                         "temperature": 0.8,
                     },
                 },
+                "template_type": "TEXT",
                 "template_configuration": {
                     "text": {
+                        "text": "Make me a {{genre}} playlist consisting of the following number of songs: {{number}}.",
                         "input_variables": [
                             {
                                 "name": "genre",
@@ -401,16 +408,9 @@ class AgentPrompt(pulumi.CustomResource):
                                 "name": "number",
                             },
                         ],
-                        "text": "Make me a {{genre}} playlist consisting of the following number of songs: {{number}}.",
                     },
                 },
-                "name": "Variant1",
-                "model_id": "amazon.titan-text-express-v1",
-                "template_type": "TEXT",
-            }],
-            name="MakePlaylist",
-            description="My first prompt.",
-            default_variant="Variant1")
+            }])
         ```
 
         ## Import
@@ -432,7 +432,7 @@ class AgentPrompt(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentPromptVariantArgs', 'AgentPromptVariantArgsDict']]]] variants: A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentPromptVariantArgs', 'AgentPromptVariantArgsDict', 'outputs.AgentPromptVariant']]]] variants: A list of objects, each containing details about a variant of the prompt. See Variant for more information.
         """
         ...
     @overload
@@ -463,14 +463,21 @@ class AgentPrompt(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentPrompt("example",
+            name="MakePlaylist",
+            description="My first prompt.",
+            default_variant="Variant1",
             variants=[{
+                "name": "Variant1",
+                "model_id": "amazon.titan-text-express-v1",
                 "inference_configuration": {
                     "text": {
                         "temperature": 0.8,
                     },
                 },
+                "template_type": "TEXT",
                 "template_configuration": {
                     "text": {
+                        "text": "Make me a {{genre}} playlist consisting of the following number of songs: {{number}}.",
                         "input_variables": [
                             {
                                 "name": "genre",
@@ -479,16 +486,9 @@ class AgentPrompt(pulumi.CustomResource):
                                 "name": "number",
                             },
                         ],
-                        "text": "Make me a {{genre}} playlist consisting of the following number of songs: {{number}}.",
                     },
                 },
-                "name": "Variant1",
-                "model_id": "amazon.titan-text-express-v1",
-                "template_type": "TEXT",
-            }],
-            name="MakePlaylist",
-            description="My first prompt.",
-            default_variant="Variant1")
+            }])
         ```
 
         ## Import
@@ -521,7 +521,7 @@ class AgentPrompt(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentPromptVariantArgs', 'AgentPromptVariantArgsDict']]]]] = None,
+                 variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentPromptVariantArgs', 'AgentPromptVariantArgsDict', 'outputs.AgentPromptVariant']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -563,7 +563,7 @@ class AgentPrompt(pulumi.CustomResource):
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             updated_at: pulumi.Input[Optional[_builtins.str]] = None,
-            variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentPromptVariantArgs', 'AgentPromptVariantArgsDict']]]]] = None,
+            variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentPromptVariantArgs', 'AgentPromptVariantArgsDict', 'outputs.AgentPromptVariant']]]]] = None,
             version: pulumi.Input[Optional[_builtins.str]] = None) -> 'AgentPrompt':
         """
         Get an existing AgentPrompt resource's state with the given name, id, and optional extra
@@ -584,7 +584,7 @@ class AgentPrompt(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] updated_at: Time at which the prompt was last updated.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentPromptVariantArgs', 'AgentPromptVariantArgsDict']]]] variants: A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentPromptVariantArgs', 'AgentPromptVariantArgsDict', 'outputs.AgentPromptVariant']]]] variants: A list of objects, each containing details about a variant of the prompt. See Variant for more information.
         :param pulumi.Input[_builtins.str] version: Version of the prompt. When you create a prompt, the version created is the `DRAFT` version.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

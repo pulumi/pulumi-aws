@@ -38,6 +38,13 @@ import (
 //			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
+//						Actions: pulumi.StringArray{
+//							pulumi.String("SES:SendEmail"),
+//							pulumi.String("SES:SendRawEmail"),
+//						},
+//						Resources: pulumi.StringArray{
+//							exampleDomainIdentity.Arn,
+//						},
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Identifiers: pulumi.StringArray{
@@ -45,13 +52,6 @@ import (
 //								},
 //								Type: pulumi.String("AWS"),
 //							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("SES:SendEmail"),
-//							pulumi.String("SES:SendRawEmail"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleDomainIdentity.Arn,
 //						},
 //					},
 //				},

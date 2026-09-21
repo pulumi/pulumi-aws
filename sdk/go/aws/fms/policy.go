@@ -41,6 +41,10 @@ import (
 //				return err
 //			}
 //			_, err = fms.NewPolicy(ctx, "example", &fms.PolicyArgs{
+//				Name:                pulumi.String("FMS-Policy-Example"),
+//				ExcludeResourceTags: pulumi.Bool(false),
+//				RemediationEnabled:  pulumi.Bool(false),
+//				ResourceType:        pulumi.String("AWS::ElasticLoadBalancingV2::LoadBalancer"),
 //				SecurityServicePolicyData: &fms.PolicySecurityServicePolicyDataArgs{
 //					Type: pulumi.String("WAF"),
 //					ManagedServiceData: exampleRuleGroup.ID().ApplyT(func(id pulumi.ID) (pulumi.String, error) {
@@ -67,10 +71,6 @@ import (
 //						return pulumi.String(json0), nil
 //					}).(pulumi.StringOutput),
 //				},
-//				Name:                pulumi.String("FMS-Policy-Example"),
-//				ExcludeResourceTags: pulumi.Bool(false),
-//				RemediationEnabled:  pulumi.Bool(false),
-//				ResourceType:        pulumi.String("AWS::ElasticLoadBalancingV2::LoadBalancer"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example-fms-policy"),
 //				},

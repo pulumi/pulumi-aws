@@ -26,6 +26,12 @@ namespace Pulumi.Aws.DataSync
     /// {
     ///     var example = new Aws.DataSync.LocationHdfs("example", new()
     ///     {
+    ///         AgentArns = new[]
+    ///         {
+    ///             exampleAwsDatasyncAgent.Arn,
+    ///         },
+    ///         AuthenticationType = "SIMPLE",
+    ///         SimpleUser = "example",
     ///         NameNodes = new[]
     ///         {
     ///             new Aws.DataSync.Inputs.LocationHdfsNameNodeArgs
@@ -34,12 +40,6 @@ namespace Pulumi.Aws.DataSync
     ///                 Port = 80,
     ///             },
     ///         },
-    ///         AgentArns = new[]
-    ///         {
-    ///             exampleAwsDatasyncAgent.Arn,
-    ///         },
-    ///         AuthenticationType = "SIMPLE",
-    ///         SimpleUser = "example",
     ///     });
     /// 
     /// });
@@ -58,6 +58,11 @@ namespace Pulumi.Aws.DataSync
     /// {
     ///     var example = new Aws.DataSync.LocationHdfs("example", new()
     ///     {
+    ///         AgentArns = new[]
+    ///         {
+    ///             exampleAwsDatasyncAgent.Arn,
+    ///         },
+    ///         AuthenticationType = "KERBEROS",
     ///         NameNodes = new[]
     ///         {
     ///             new Aws.DataSync.Inputs.LocationHdfsNameNodeArgs
@@ -66,11 +71,6 @@ namespace Pulumi.Aws.DataSync
     ///                 Port = 80,
     ///             },
     ///         },
-    ///         AgentArns = new[]
-    ///         {
-    ///             exampleAwsDatasyncAgent.Arn,
-    ///         },
-    ///         AuthenticationType = "KERBEROS",
     ///         KerberosPrincipal = "user@example.com",
     ///         KerberosKeytabBase64 = Std.Filebase64.Invoke(new()
     ///         {

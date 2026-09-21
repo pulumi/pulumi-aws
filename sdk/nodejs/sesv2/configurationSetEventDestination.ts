@@ -20,6 +20,8 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.sesv2.ConfigurationSet("example", {configurationSetName: "example"});
  * const exampleConfigurationSetEventDestination = new aws.sesv2.ConfigurationSetEventDestination("example", {
+ *     configurationSetName: example.configurationSetName,
+ *     eventDestinationName: "example",
  *     eventDestination: {
  *         cloudWatchDestination: {
  *             dimensionConfigurations: [{
@@ -31,8 +33,6 @@ import * as utilities from "../utilities";
  *         enabled: true,
  *         matchingEventTypes: ["SEND"],
  *     },
- *     configurationSetName: example.configurationSetName,
- *     eventDestinationName: "example",
  * });
  * ```
  *
@@ -46,6 +46,8 @@ import * as utilities from "../utilities";
  *     name: "default",
  * });
  * const example = new aws.sesv2.ConfigurationSetEventDestination("example", {
+ *     configurationSetName: exampleAwsSesv2ConfigurationSet.configurationSetName,
+ *     eventDestinationName: "example",
  *     eventDestination: {
  *         eventBridgeDestination: {
  *             eventBusArn: _default.then(_default => _default.arn),
@@ -53,8 +55,6 @@ import * as utilities from "../utilities";
  *         enabled: true,
  *         matchingEventTypes: ["SEND"],
  *     },
- *     configurationSetName: exampleAwsSesv2ConfigurationSet.configurationSetName,
- *     eventDestinationName: "example",
  * });
  * ```
  *
@@ -66,6 +66,8 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.sesv2.ConfigurationSet("example", {configurationSetName: "example"});
  * const exampleConfigurationSetEventDestination = new aws.sesv2.ConfigurationSetEventDestination("example", {
+ *     configurationSetName: example.configurationSetName,
+ *     eventDestinationName: "example",
  *     eventDestination: {
  *         kinesisFirehoseDestination: {
  *             deliveryStreamArn: exampleAwsKinesisFirehoseDeliveryStream.arn,
@@ -74,8 +76,6 @@ import * as utilities from "../utilities";
  *         enabled: true,
  *         matchingEventTypes: ["SEND"],
  *     },
- *     configurationSetName: example.configurationSetName,
- *     eventDestinationName: "example",
  * });
  * ```
  *
@@ -87,6 +87,8 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.sesv2.ConfigurationSet("example", {configurationSetName: "example"});
  * const exampleConfigurationSetEventDestination = new aws.sesv2.ConfigurationSetEventDestination("example", {
+ *     configurationSetName: example.configurationSetName,
+ *     eventDestinationName: "example",
  *     eventDestination: {
  *         pinpointDestination: {
  *             applicationArn: exampleAwsPinpointApp.arn,
@@ -94,8 +96,6 @@ import * as utilities from "../utilities";
  *         enabled: true,
  *         matchingEventTypes: ["SEND"],
  *     },
- *     configurationSetName: example.configurationSetName,
- *     eventDestinationName: "example",
  * });
  * ```
  *
@@ -107,6 +107,8 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.sesv2.ConfigurationSet("example", {configurationSetName: "example"});
  * const exampleConfigurationSetEventDestination = new aws.sesv2.ConfigurationSetEventDestination("example", {
+ *     configurationSetName: example.configurationSetName,
+ *     eventDestinationName: "example",
  *     eventDestination: {
  *         snsDestination: {
  *             topicArn: exampleAwsSnsTopic.arn,
@@ -114,8 +116,6 @@ import * as utilities from "../utilities";
  *         enabled: true,
  *         matchingEventTypes: ["SEND"],
  *     },
- *     configurationSetName: example.configurationSetName,
- *     eventDestinationName: "example",
  * });
  * ```
  *

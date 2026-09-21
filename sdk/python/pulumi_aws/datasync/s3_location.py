@@ -310,7 +310,7 @@ class S3Location(pulumi.CustomResource):
                  agent_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  s3_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3_config: pulumi.Input[Optional[Union['S3LocationS3ConfigArgs', 'S3LocationS3ConfigArgsDict']]] = None,
+                 s3_config: pulumi.Input[Optional[Union['S3LocationS3ConfigArgs', 'S3LocationS3ConfigArgsDict', 'outputs.S3LocationS3Config']]] = None,
                  s3_storage_class: pulumi.Input[Optional[_builtins.str]] = None,
                  subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -327,11 +327,11 @@ class S3Location(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.S3Location("example",
+            s3_bucket_arn=example_aws_s3_bucket["arn"],
+            subdirectory="/example/prefix",
             s3_config={
                 "bucket_access_role_arn": example_aws_iam_role["arn"],
-            },
-            s3_bucket_arn=example_aws_s3_bucket["arn"],
-            subdirectory="/example/prefix")
+            })
         ```
 
         ### S3 Bucket on AWS Outposts
@@ -341,13 +341,13 @@ class S3Location(pulumi.CustomResource):
         import pulumi_aws as aws
 
         destination = aws.datasync.S3Location("destination",
-            s3_config={
-                "bucket_access_role_arn": example["arn"],
-            },
             agent_arns=[example_aws_datasync_agent["arn"]],
             s3_bucket_arn=example_aws_s3_access_point["arn"],
             s3_storage_class="OUTPOSTS",
-            subdirectory="/example/prefix")
+            subdirectory="/example/prefix",
+            s3_config={
+                "bucket_access_role_arn": example["arn"],
+            })
         ```
 
         ## Import
@@ -370,7 +370,7 @@ class S3Location(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: (Amazon S3 on Outposts only) ARN of the DataSync agent on the Outpost.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] s3_bucket_arn: ARN of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
-        :param pulumi.Input[Union['S3LocationS3ConfigArgs', 'S3LocationS3ConfigArgsDict']] s3_config: Configuration block containing information for connecting to S3.
+        :param pulumi.Input[Union['S3LocationS3ConfigArgs', 'S3LocationS3ConfigArgsDict', 'outputs.S3LocationS3Config']] s3_config: Configuration block containing information for connecting to S3.
         :param pulumi.Input[_builtins.str] s3_storage_class: Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
         :param pulumi.Input[_builtins.str] subdirectory: Prefix to perform actions as source or destination.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -393,11 +393,11 @@ class S3Location(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.S3Location("example",
+            s3_bucket_arn=example_aws_s3_bucket["arn"],
+            subdirectory="/example/prefix",
             s3_config={
                 "bucket_access_role_arn": example_aws_iam_role["arn"],
-            },
-            s3_bucket_arn=example_aws_s3_bucket["arn"],
-            subdirectory="/example/prefix")
+            })
         ```
 
         ### S3 Bucket on AWS Outposts
@@ -407,13 +407,13 @@ class S3Location(pulumi.CustomResource):
         import pulumi_aws as aws
 
         destination = aws.datasync.S3Location("destination",
-            s3_config={
-                "bucket_access_role_arn": example["arn"],
-            },
             agent_arns=[example_aws_datasync_agent["arn"]],
             s3_bucket_arn=example_aws_s3_access_point["arn"],
             s3_storage_class="OUTPOSTS",
-            subdirectory="/example/prefix")
+            subdirectory="/example/prefix",
+            s3_config={
+                "bucket_access_role_arn": example["arn"],
+            })
         ```
 
         ## Import
@@ -449,7 +449,7 @@ class S3Location(pulumi.CustomResource):
                  agent_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  s3_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3_config: pulumi.Input[Optional[Union['S3LocationS3ConfigArgs', 'S3LocationS3ConfigArgsDict']]] = None,
+                 s3_config: pulumi.Input[Optional[Union['S3LocationS3ConfigArgs', 'S3LocationS3ConfigArgsDict', 'outputs.S3LocationS3Config']]] = None,
                  s3_storage_class: pulumi.Input[Optional[_builtins.str]] = None,
                  subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -492,7 +492,7 @@ class S3Location(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             s3_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            s3_config: pulumi.Input[Optional[Union['S3LocationS3ConfigArgs', 'S3LocationS3ConfigArgsDict']]] = None,
+            s3_config: pulumi.Input[Optional[Union['S3LocationS3ConfigArgs', 'S3LocationS3ConfigArgsDict', 'outputs.S3LocationS3Config']]] = None,
             s3_storage_class: pulumi.Input[Optional[_builtins.str]] = None,
             subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -509,7 +509,7 @@ class S3Location(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the DataSync Location.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] s3_bucket_arn: ARN of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
-        :param pulumi.Input[Union['S3LocationS3ConfigArgs', 'S3LocationS3ConfigArgsDict']] s3_config: Configuration block containing information for connecting to S3.
+        :param pulumi.Input[Union['S3LocationS3ConfigArgs', 'S3LocationS3ConfigArgsDict', 'outputs.S3LocationS3Config']] s3_config: Configuration block containing information for connecting to S3.
         :param pulumi.Input[_builtins.str] s3_storage_class: Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
         :param pulumi.Input[_builtins.str] subdirectory: Prefix to perform actions as source or destination.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

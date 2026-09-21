@@ -330,7 +330,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
                  iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  protected_resource_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 protected_resource_conditions: pulumi.Input[Optional[Union['RestoreTestingSelectionProtectedResourceConditionsArgs', 'RestoreTestingSelectionProtectedResourceConditionsArgsDict']]] = None,
+                 protected_resource_conditions: pulumi.Input[Optional[Union['RestoreTestingSelectionProtectedResourceConditionsArgs', 'RestoreTestingSelectionProtectedResourceConditionsArgsDict', 'outputs.RestoreTestingSelectionProtectedResourceConditions']]] = None,
                  protected_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  restore_metadata_overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -363,16 +363,16 @@ class RestoreTestingSelection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.backup.RestoreTestingSelection("example",
+            name="ec2_selection",
+            restore_testing_plan_name=example_aws_backup_restore_testing_plan["name"],
+            protected_resource_type="EC2",
+            iam_role_arn=example_aws_iam_role["arn"],
             protected_resource_conditions={
                 "string_equals": [{
                     "key": "aws:ResourceTag/backup",
                     "value": "true",
                 }],
-            },
-            name="ec2_selection",
-            restore_testing_plan_name=example_aws_backup_restore_testing_plan["name"],
-            protected_resource_type="EC2",
-            iam_role_arn=example_aws_iam_role["arn"])
+            })
         ```
 
         ## Import
@@ -389,7 +389,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of the IAM role.
         :param pulumi.Input[_builtins.str] name: The name of the backup restore testing selection.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protected_resource_arns: The ARNs for the protected resources.
-        :param pulumi.Input[Union['RestoreTestingSelectionProtectedResourceConditionsArgs', 'RestoreTestingSelectionProtectedResourceConditionsArgsDict']] protected_resource_conditions: The conditions for the protected resource.
+        :param pulumi.Input[Union['RestoreTestingSelectionProtectedResourceConditionsArgs', 'RestoreTestingSelectionProtectedResourceConditionsArgsDict', 'outputs.RestoreTestingSelectionProtectedResourceConditions']] protected_resource_conditions: The conditions for the protected resource.
         :param pulumi.Input[_builtins.str] protected_resource_type: The type of the protected resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] restore_metadata_overrides: Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
@@ -428,16 +428,16 @@ class RestoreTestingSelection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.backup.RestoreTestingSelection("example",
+            name="ec2_selection",
+            restore_testing_plan_name=example_aws_backup_restore_testing_plan["name"],
+            protected_resource_type="EC2",
+            iam_role_arn=example_aws_iam_role["arn"],
             protected_resource_conditions={
                 "string_equals": [{
                     "key": "aws:ResourceTag/backup",
                     "value": "true",
                 }],
-            },
-            name="ec2_selection",
-            restore_testing_plan_name=example_aws_backup_restore_testing_plan["name"],
-            protected_resource_type="EC2",
-            iam_role_arn=example_aws_iam_role["arn"])
+            })
         ```
 
         ## Import
@@ -467,7 +467,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
                  iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  protected_resource_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 protected_resource_conditions: pulumi.Input[Optional[Union['RestoreTestingSelectionProtectedResourceConditionsArgs', 'RestoreTestingSelectionProtectedResourceConditionsArgsDict']]] = None,
+                 protected_resource_conditions: pulumi.Input[Optional[Union['RestoreTestingSelectionProtectedResourceConditionsArgs', 'RestoreTestingSelectionProtectedResourceConditionsArgsDict', 'outputs.RestoreTestingSelectionProtectedResourceConditions']]] = None,
                  protected_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  restore_metadata_overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -510,7 +510,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
             iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             protected_resource_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            protected_resource_conditions: pulumi.Input[Optional[Union['RestoreTestingSelectionProtectedResourceConditionsArgs', 'RestoreTestingSelectionProtectedResourceConditionsArgsDict']]] = None,
+            protected_resource_conditions: pulumi.Input[Optional[Union['RestoreTestingSelectionProtectedResourceConditionsArgs', 'RestoreTestingSelectionProtectedResourceConditionsArgsDict', 'outputs.RestoreTestingSelectionProtectedResourceConditions']]] = None,
             protected_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             restore_metadata_overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -526,7 +526,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of the IAM role.
         :param pulumi.Input[_builtins.str] name: The name of the backup restore testing selection.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protected_resource_arns: The ARNs for the protected resources.
-        :param pulumi.Input[Union['RestoreTestingSelectionProtectedResourceConditionsArgs', 'RestoreTestingSelectionProtectedResourceConditionsArgsDict']] protected_resource_conditions: The conditions for the protected resource.
+        :param pulumi.Input[Union['RestoreTestingSelectionProtectedResourceConditionsArgs', 'RestoreTestingSelectionProtectedResourceConditionsArgsDict', 'outputs.RestoreTestingSelectionProtectedResourceConditions']] protected_resource_conditions: The conditions for the protected resource.
         :param pulumi.Input[_builtins.str] protected_resource_type: The type of the protected resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] restore_metadata_overrides: Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .

@@ -37,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.redshiftserverless.inputs.WorkgroupConfigParameterArgs;
  * import com.pulumi.aws.rds.Integration;
  * import com.pulumi.aws.rds.IntegrationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -56,10 +55,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWorkgroup = new Workgroup("exampleWorkgroup", WorkgroupArgs.builder()
- *             .configParameters(WorkgroupConfigParameterArgs.builder()
- *                 .parameterKey("enable_case_sensitive_identifier")
- *                 .parameterValue("true")
- *                 .build())
  *             .namespaceName(example.namespaceName())
  *             .workgroupName("example-workspace")
  *             .baseCapacity(8)
@@ -68,15 +63,17 @@ import javax.annotation.Nullable;
  *                 example1.id(),
  *                 example2.id(),
  *                 example3.id())
+ *             .configParameters(WorkgroupConfigParameterArgs.builder()
+ *                 .parameterKey("enable_case_sensitive_identifier")
+ *                 .parameterValue("true")
+ *                 .build())
  *             .build());
  * 
  *         var exampleIntegration = new Integration("exampleIntegration", IntegrationArgs.builder()
  *             .integrationName("example")
  *             .sourceArn(exampleAwsRdsCluster.arn())
  *             .targetArn(example.arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .ignoreChanges("kmsKeyId")
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -121,20 +118,20 @@ import javax.annotation.Nullable;
  *         final var keyPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .actions("kms:*")
+ *                     .resources("*")
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type("AWS")
  *                         .identifiers(String.format("arn:aws:iam::%s:root", current.accountId()))
  *                         .build())
- *                     .actions("kms:*")
- *                     .resources("*")
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .actions("kms:CreateGrant")
+ *                     .resources("*")
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type("Service")
  *                         .identifiers("redshift.amazonaws.com")
  *                         .build())
- *                     .actions("kms:CreateGrant")
- *                     .resources("*")
  *                     .build())
  *             .build());
  * 

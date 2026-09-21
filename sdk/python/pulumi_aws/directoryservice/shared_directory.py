@@ -228,7 +228,7 @@ class SharedDirectory(pulumi.CustomResource):
                  method: pulumi.Input[Optional[_builtins.str]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 target: pulumi.Input[Optional[Union['SharedDirectoryTargetArgs', 'SharedDirectoryTargetArgsDict']]] = None,
+                 target: pulumi.Input[Optional[Union['SharedDirectoryTargetArgs', 'SharedDirectoryTargetArgsDict', 'outputs.SharedDirectoryTarget']]] = None,
                  __props__=None):
         """
         Manages a directory in your account (directory owner) shared with another account (directory consumer).
@@ -240,20 +240,20 @@ class SharedDirectory(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.directoryservice.Directory("example",
-            vpc_settings={
-                "vpc_id": example_aws_vpc["id"],
-                "subnet_ids": [__item["id"] for __item in example_aws_subnet],
-            },
             name="tf-example",
             password="SuperSecretPassw0rd",
             type="MicrosoftAD",
-            edition="Standard")
+            edition="Standard",
+            vpc_settings={
+                "vpc_id": example_aws_vpc["id"],
+                "subnet_ids": [__item["id"] for __item in example_aws_subnet],
+            })
         example_shared_directory = aws.directoryservice.SharedDirectory("example",
+            directory_id=example.id,
+            notes="You wanna have a catch?",
             target={
                 "id": receiver["accountId"],
-            },
-            directory_id=example.id,
-            notes="You wanna have a catch?")
+            })
         ```
 
         ## Import
@@ -271,7 +271,7 @@ class SharedDirectory(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] method: Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
         :param pulumi.Input[_builtins.str] notes: Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['SharedDirectoryTargetArgs', 'SharedDirectoryTargetArgsDict']] target: Identifier for the directory consumer account with whom the directory is to be shared. See below.
+        :param pulumi.Input[Union['SharedDirectoryTargetArgs', 'SharedDirectoryTargetArgsDict', 'outputs.SharedDirectoryTarget']] target: Identifier for the directory consumer account with whom the directory is to be shared. See below.
                
                The following arguments are optional:
         """
@@ -291,20 +291,20 @@ class SharedDirectory(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.directoryservice.Directory("example",
-            vpc_settings={
-                "vpc_id": example_aws_vpc["id"],
-                "subnet_ids": [__item["id"] for __item in example_aws_subnet],
-            },
             name="tf-example",
             password="SuperSecretPassw0rd",
             type="MicrosoftAD",
-            edition="Standard")
+            edition="Standard",
+            vpc_settings={
+                "vpc_id": example_aws_vpc["id"],
+                "subnet_ids": [__item["id"] for __item in example_aws_subnet],
+            })
         example_shared_directory = aws.directoryservice.SharedDirectory("example",
+            directory_id=example.id,
+            notes="You wanna have a catch?",
             target={
                 "id": receiver["accountId"],
-            },
-            directory_id=example.id,
-            notes="You wanna have a catch?")
+            })
         ```
 
         ## Import
@@ -335,7 +335,7 @@ class SharedDirectory(pulumi.CustomResource):
                  method: pulumi.Input[Optional[_builtins.str]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 target: pulumi.Input[Optional[Union['SharedDirectoryTargetArgs', 'SharedDirectoryTargetArgsDict']]] = None,
+                 target: pulumi.Input[Optional[Union['SharedDirectoryTargetArgs', 'SharedDirectoryTargetArgsDict', 'outputs.SharedDirectoryTarget']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -372,7 +372,7 @@ class SharedDirectory(pulumi.CustomResource):
             notes: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             shared_directory_id: pulumi.Input[Optional[_builtins.str]] = None,
-            target: pulumi.Input[Optional[Union['SharedDirectoryTargetArgs', 'SharedDirectoryTargetArgsDict']]] = None) -> 'SharedDirectory':
+            target: pulumi.Input[Optional[Union['SharedDirectoryTargetArgs', 'SharedDirectoryTargetArgsDict', 'outputs.SharedDirectoryTarget']]] = None) -> 'SharedDirectory':
         """
         Get an existing SharedDirectory resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -385,7 +385,7 @@ class SharedDirectory(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] notes: Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] shared_directory_id: Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-        :param pulumi.Input[Union['SharedDirectoryTargetArgs', 'SharedDirectoryTargetArgsDict']] target: Identifier for the directory consumer account with whom the directory is to be shared. See below.
+        :param pulumi.Input[Union['SharedDirectoryTargetArgs', 'SharedDirectoryTargetArgsDict', 'outputs.SharedDirectoryTarget']] target: Identifier for the directory consumer account with whom the directory is to be shared. See below.
                
                The following arguments are optional:
         """

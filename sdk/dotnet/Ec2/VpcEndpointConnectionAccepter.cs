@@ -36,12 +36,12 @@ namespace Pulumi.Aws.Ec2
     ///     var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("example", new()
     ///     {
     ///         VpcId = testAlternate.Id,
-    ///         ServiceName = test.ServiceName,
+    ///         ServiceName = testAwsVpcEndpointService.ServiceName,
     ///         VpcEndpointType = "Interface",
     ///         PrivateDnsEnabled = false,
     ///         SecurityGroupIds = new[]
     ///         {
-    ///             testAwsSecurityGroup.Id,
+    ///             test.Id,
     ///         },
     ///     });
     /// 

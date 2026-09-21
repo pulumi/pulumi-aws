@@ -40,8 +40,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.elastictranscoder.inputs.PresetAudioArgs;
  * import com.pulumi.aws.elastictranscoder.inputs.PresetAudioCodecOptionsArgs;
  * import com.pulumi.aws.elastictranscoder.inputs.PresetVideoArgs;
- * import com.pulumi.aws.elastictranscoder.inputs.PresetThumbnailsArgs;
  * import com.pulumi.aws.elastictranscoder.inputs.PresetVideoWatermarkArgs;
+ * import com.pulumi.aws.elastictranscoder.inputs.PresetThumbnailsArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -56,6 +56,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var bar = new Preset("bar", PresetArgs.builder()
+ *             .container("mp4")
+ *             .description("Sample Preset")
+ *             .name("sample_preset")
  *             .audio(PresetAudioArgs.builder()
  *                 .audioPackingMode("SingleTrack")
  *                 .bitRate("96")
@@ -79,14 +82,13 @@ import javax.annotation.Nullable;
  *                 .paddingPolicy("Pad")
  *                 .sizingPolicy("Fit")
  *                 .build())
- *             .thumbnails(PresetThumbnailsArgs.builder()
- *                 .format("png")
- *                 .interval("120")
- *                 .maxWidth("auto")
- *                 .maxHeight("auto")
- *                 .paddingPolicy("Pad")
- *                 .sizingPolicy("Fit")
- *                 .build())
+ *             .videoCodecOptions(Map.ofEntries(
+ *                 Map.entry("Profile", "main"),
+ *                 Map.entry("Level", "2.2"),
+ *                 Map.entry("MaxReferenceFrames", "3"),
+ *                 Map.entry("InterlacedMode", "Progressive"),
+ *                 Map.entry("ColorSpaceConversionMode", "None")
+ *             ))
  *             .videoWatermarks(PresetVideoWatermarkArgs.builder()
  *                 .id("Test")
  *                 .maxWidth("20%")
@@ -99,16 +101,14 @@ import javax.annotation.Nullable;
  *                 .opacity("55.5")
  *                 .target("Content")
  *                 .build())
- *             .container("mp4")
- *             .description("Sample Preset")
- *             .name("sample_preset")
- *             .videoCodecOptions(Map.ofEntries(
- *                 Map.entry("Profile", "main"),
- *                 Map.entry("Level", "2.2"),
- *                 Map.entry("MaxReferenceFrames", "3"),
- *                 Map.entry("InterlacedMode", "Progressive"),
- *                 Map.entry("ColorSpaceConversionMode", "None")
- *             ))
+ *             .thumbnails(PresetThumbnailsArgs.builder()
+ *                 .format("png")
+ *                 .interval("120")
+ *                 .maxWidth("auto")
+ *                 .maxHeight("auto")
+ *                 .paddingPolicy("Pad")
+ *                 .sizingPolicy("Fit")
+ *                 .build())
  *             .build());
  * 
  *     }

@@ -49,6 +49,12 @@ namespace Pulumi.Aws.NetworkManager
     /// {
     ///     var example = new Aws.NetworkManager.VpcAttachment("example", new()
     ///     {
+    ///         SubnetArns = new[]
+    ///         {
+    ///             exampleAwsSubnet.Arn,
+    ///         },
+    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
+    ///         VpcArn = exampleAwsVpc.Arn,
     ///         Options = new Aws.NetworkManager.Inputs.VpcAttachmentOptionsArgs
     ///         {
     ///             ApplianceModeSupport = false,
@@ -56,12 +62,6 @@ namespace Pulumi.Aws.NetworkManager
     ///             Ipv6Support = false,
     ///             SecurityGroupReferencingSupport = true,
     ///         },
-    ///         SubnetArns = new[]
-    ///         {
-    ///             exampleAwsSubnet.Arn,
-    ///         },
-    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
-    ///         VpcArn = exampleAwsVpc.Arn,
     ///     });
     /// 
     /// });

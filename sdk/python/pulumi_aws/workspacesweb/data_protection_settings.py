@@ -325,7 +325,7 @@ class DataProtectionSettings(pulumi.CustomResource):
                  customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 inline_redaction_configuration: pulumi.Input[Optional[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict']]] = None,
+                 inline_redaction_configuration: pulumi.Input[Optional[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict', 'outputs.DataProtectionSettingsInlineRedactionConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -350,20 +350,20 @@ class DataProtectionSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.workspacesweb.DataProtectionSettings("example",
+            display_name="example",
+            description="Example data protection settings",
             inline_redaction_configuration={
+                "global_confidence_level": 2,
+                "global_enforced_urls": ["https://example.com"],
                 "inline_redaction_patterns": [{
+                    "built_in_pattern_id": "ssn",
+                    "confidence_level": 3,
                     "redaction_place_holders": [{
                         "redaction_place_holder_type": "CustomText",
                         "redaction_place_holder_text": "REDACTED",
                     }],
-                    "built_in_pattern_id": "ssn",
-                    "confidence_level": 3,
                 }],
-                "global_confidence_level": 2,
-                "global_enforced_urls": ["https://example.com"],
-            },
-            display_name="example",
-            description="Example data protection settings")
+            })
         ```
 
         ### Complete Example
@@ -376,17 +376,29 @@ class DataProtectionSettings(pulumi.CustomResource):
             description="KMS key for WorkSpaces Web Data Protection Settings",
             deletion_window_in_days=7)
         example_data_protection_settings = aws.workspacesweb.DataProtectionSettings("example",
+            display_name="example-complete",
+            description="Complete example data protection settings",
+            customer_managed_key=example.arn,
+            additional_encryption_context={
+                "Environment": "Production",
+            },
             inline_redaction_configuration={
+                "global_confidence_level": 2,
+                "global_enforced_urls": [
+                    "https://example.com",
+                    "https://test.example.com",
+                ],
+                "global_exempt_urls": ["https://exempt.example.com"],
                 "inline_redaction_patterns": [
                     {
-                        "redaction_place_holders": [{
-                            "redaction_place_holder_type": "CustomText",
-                            "redaction_place_holder_text": "REDACTED-SSN",
-                        }],
                         "built_in_pattern_id": "ssn",
                         "confidence_level": 3,
                         "enforced_urls": ["https://pattern1.example.com"],
                         "exempt_urls": ["https://exempt-pattern1.example.com"],
+                        "redaction_place_holders": [{
+                            "redaction_place_holder_type": "CustomText",
+                            "redaction_place_holder_text": "REDACTED-SSN",
+                        }],
                     },
                     {
                         "custom_pattern": {
@@ -401,18 +413,6 @@ class DataProtectionSettings(pulumi.CustomResource):
                         }],
                     },
                 ],
-                "global_confidence_level": 2,
-                "global_enforced_urls": [
-                    "https://example.com",
-                    "https://test.example.com",
-                ],
-                "global_exempt_urls": ["https://exempt.example.com"],
-            },
-            display_name="example-complete",
-            description="Complete example data protection settings",
-            customer_managed_key=example.arn,
-            additional_encryption_context={
-                "Environment": "Production",
             },
             tags={
                 "Name": "example-data-protection-settings",
@@ -436,7 +436,7 @@ class DataProtectionSettings(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: The display name of the data protection settings.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict']] inline_redaction_configuration: The inline redaction configuration of the data protection settings. Detailed below.
+        :param pulumi.Input[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict', 'outputs.DataProtectionSettingsInlineRedactionConfiguration']] inline_redaction_configuration: The inline redaction configuration of the data protection settings. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -467,20 +467,20 @@ class DataProtectionSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.workspacesweb.DataProtectionSettings("example",
+            display_name="example",
+            description="Example data protection settings",
             inline_redaction_configuration={
+                "global_confidence_level": 2,
+                "global_enforced_urls": ["https://example.com"],
                 "inline_redaction_patterns": [{
+                    "built_in_pattern_id": "ssn",
+                    "confidence_level": 3,
                     "redaction_place_holders": [{
                         "redaction_place_holder_type": "CustomText",
                         "redaction_place_holder_text": "REDACTED",
                     }],
-                    "built_in_pattern_id": "ssn",
-                    "confidence_level": 3,
                 }],
-                "global_confidence_level": 2,
-                "global_enforced_urls": ["https://example.com"],
-            },
-            display_name="example",
-            description="Example data protection settings")
+            })
         ```
 
         ### Complete Example
@@ -493,17 +493,29 @@ class DataProtectionSettings(pulumi.CustomResource):
             description="KMS key for WorkSpaces Web Data Protection Settings",
             deletion_window_in_days=7)
         example_data_protection_settings = aws.workspacesweb.DataProtectionSettings("example",
+            display_name="example-complete",
+            description="Complete example data protection settings",
+            customer_managed_key=example.arn,
+            additional_encryption_context={
+                "Environment": "Production",
+            },
             inline_redaction_configuration={
+                "global_confidence_level": 2,
+                "global_enforced_urls": [
+                    "https://example.com",
+                    "https://test.example.com",
+                ],
+                "global_exempt_urls": ["https://exempt.example.com"],
                 "inline_redaction_patterns": [
                     {
-                        "redaction_place_holders": [{
-                            "redaction_place_holder_type": "CustomText",
-                            "redaction_place_holder_text": "REDACTED-SSN",
-                        }],
                         "built_in_pattern_id": "ssn",
                         "confidence_level": 3,
                         "enforced_urls": ["https://pattern1.example.com"],
                         "exempt_urls": ["https://exempt-pattern1.example.com"],
+                        "redaction_place_holders": [{
+                            "redaction_place_holder_type": "CustomText",
+                            "redaction_place_holder_text": "REDACTED-SSN",
+                        }],
                     },
                     {
                         "custom_pattern": {
@@ -518,18 +530,6 @@ class DataProtectionSettings(pulumi.CustomResource):
                         }],
                     },
                 ],
-                "global_confidence_level": 2,
-                "global_enforced_urls": [
-                    "https://example.com",
-                    "https://test.example.com",
-                ],
-                "global_exempt_urls": ["https://exempt.example.com"],
-            },
-            display_name="example-complete",
-            description="Complete example data protection settings",
-            customer_managed_key=example.arn,
-            additional_encryption_context={
-                "Environment": "Production",
             },
             tags={
                 "Name": "example-data-protection-settings",
@@ -564,7 +564,7 @@ class DataProtectionSettings(pulumi.CustomResource):
                  customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 inline_redaction_configuration: pulumi.Input[Optional[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict']]] = None,
+                 inline_redaction_configuration: pulumi.Input[Optional[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict', 'outputs.DataProtectionSettingsInlineRedactionConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -604,7 +604,7 @@ class DataProtectionSettings(pulumi.CustomResource):
             data_protection_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            inline_redaction_configuration: pulumi.Input[Optional[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict']]] = None,
+            inline_redaction_configuration: pulumi.Input[Optional[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict', 'outputs.DataProtectionSettingsInlineRedactionConfiguration']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'DataProtectionSettings':
@@ -623,7 +623,7 @@ class DataProtectionSettings(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: The display name of the data protection settings.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict']] inline_redaction_configuration: The inline redaction configuration of the data protection settings. Detailed below.
+        :param pulumi.Input[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict', 'outputs.DataProtectionSettingsInlineRedactionConfiguration']] inline_redaction_configuration: The inline redaction configuration of the data protection settings. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

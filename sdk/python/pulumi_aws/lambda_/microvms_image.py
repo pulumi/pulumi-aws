@@ -592,15 +592,15 @@ class MicrovmsImage(pulumi.CustomResource):
                  base_image_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  base_image_version: pulumi.Input[Optional[_builtins.str]] = None,
                  build_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 code_artifact: pulumi.Input[Optional[Union['MicrovmsImageCodeArtifactArgs', 'MicrovmsImageCodeArtifactArgsDict']]] = None,
-                 cpu_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MicrovmsImageCpuConfigurationArgs', 'MicrovmsImageCpuConfigurationArgsDict']]]]] = None,
+                 code_artifact: pulumi.Input[Optional[Union['MicrovmsImageCodeArtifactArgs', 'MicrovmsImageCodeArtifactArgsDict', 'outputs.MicrovmsImageCodeArtifact']]] = None,
+                 cpu_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MicrovmsImageCpuConfigurationArgs', 'MicrovmsImageCpuConfigurationArgsDict', 'outputs.MicrovmsImageCpuConfiguration']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  egress_network_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['MicrovmsImageTimeoutsArgs', 'MicrovmsImageTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['MicrovmsImageTimeoutsArgs', 'MicrovmsImageTimeoutsArgsDict', 'outputs.MicrovmsImageTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS Lambda MicroVMs Image. Use this resource to define the base image, application code, and runtime configuration from which MicroVMs are launched.
@@ -645,16 +645,16 @@ class MicrovmsImage(pulumi.CustomResource):
             key="code.zip",
             source=pulumi.FileAsset("code.zip"))
         example_image = aws.lambdamicrovms.Image("example",
+            name="example",
+            base_image_arn=f"arn:{current.partition}:lambda:{current_get_region.region}:aws:microvm-image:al2023-1",
+            build_role_arn=example.arn,
             code_artifact={
                 "uri": pulumi.Output.all(
                     bucket=example_bucket.bucket,
                     key=example_bucket_objectv2.key
         ).apply(lambda resolved_outputs: f"s3://{resolved_outputs['bucket']}/{resolved_outputs['key']}")
         ,
-            },
-            name="example",
-            base_image_arn=f"arn:{current.partition}:lambda:{current_get_region.region}:aws:microvm-image:al2023-1",
-            build_role_arn=example.arn)
+            })
         ```
 
         ## Import
@@ -678,8 +678,8 @@ class MicrovmsImage(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] base_image_arn: ARN of the base MicroVM image. AWS-managed base images use ARNs of the form `arn:aws:lambda:<region>:aws:microvm-image:al2023-1`.
         :param pulumi.Input[_builtins.str] base_image_version: Major version number of the base MicroVM image to use (e.g., `1`). If omitted, the service selects a version.
         :param pulumi.Input[_builtins.str] build_role_arn: ARN of the IAM role used to build the image. The role must be assumable by `lambda.amazonaws.com` and have access to the code artifact.
-        :param pulumi.Input[Union['MicrovmsImageCodeArtifactArgs', 'MicrovmsImageCodeArtifactArgsDict']] code_artifact: Code artifact containing the application code and metadata for the image. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MicrovmsImageCpuConfigurationArgs', 'MicrovmsImageCpuConfigurationArgsDict']]]] cpu_configurations: CPU configuration for the MicroVM. See `cpu_configuration` Block below.
+        :param pulumi.Input[Union['MicrovmsImageCodeArtifactArgs', 'MicrovmsImageCodeArtifactArgsDict', 'outputs.MicrovmsImageCodeArtifact']] code_artifact: Code artifact containing the application code and metadata for the image. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MicrovmsImageCpuConfigurationArgs', 'MicrovmsImageCpuConfigurationArgsDict', 'outputs.MicrovmsImageCpuConfiguration']]]] cpu_configurations: CPU configuration for the MicroVM. See `cpu_configuration` Block below.
         :param pulumi.Input[_builtins.str] description: Description of the MicroVM image.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] egress_network_connectors: List of egress network connectors available to the MicroVM at runtime. Defaults to `["INTERNET_EGRESS"]`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables set in the MicroVM runtime environment.
@@ -738,16 +738,16 @@ class MicrovmsImage(pulumi.CustomResource):
             key="code.zip",
             source=pulumi.FileAsset("code.zip"))
         example_image = aws.lambdamicrovms.Image("example",
+            name="example",
+            base_image_arn=f"arn:{current.partition}:lambda:{current_get_region.region}:aws:microvm-image:al2023-1",
+            build_role_arn=example.arn,
             code_artifact={
                 "uri": pulumi.Output.all(
                     bucket=example_bucket.bucket,
                     key=example_bucket_objectv2.key
         ).apply(lambda resolved_outputs: f"s3://{resolved_outputs['bucket']}/{resolved_outputs['key']}")
         ,
-            },
-            name="example",
-            base_image_arn=f"arn:{current.partition}:lambda:{current_get_region.region}:aws:microvm-image:al2023-1",
-            build_role_arn=example.arn)
+            })
         ```
 
         ## Import
@@ -784,15 +784,15 @@ class MicrovmsImage(pulumi.CustomResource):
                  base_image_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  base_image_version: pulumi.Input[Optional[_builtins.str]] = None,
                  build_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 code_artifact: pulumi.Input[Optional[Union['MicrovmsImageCodeArtifactArgs', 'MicrovmsImageCodeArtifactArgsDict']]] = None,
-                 cpu_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MicrovmsImageCpuConfigurationArgs', 'MicrovmsImageCpuConfigurationArgsDict']]]]] = None,
+                 code_artifact: pulumi.Input[Optional[Union['MicrovmsImageCodeArtifactArgs', 'MicrovmsImageCodeArtifactArgsDict', 'outputs.MicrovmsImageCodeArtifact']]] = None,
+                 cpu_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MicrovmsImageCpuConfigurationArgs', 'MicrovmsImageCpuConfigurationArgsDict', 'outputs.MicrovmsImageCpuConfiguration']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  egress_network_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['MicrovmsImageTimeoutsArgs', 'MicrovmsImageTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['MicrovmsImageTimeoutsArgs', 'MicrovmsImageTimeoutsArgsDict', 'outputs.MicrovmsImageTimeouts']]] = None,
                  __props__=None):
         pulumi.log.warn("""MicrovmsImage is deprecated: aws.lambda/microvmsimage.MicrovmsImage has been deprecated in favor of aws.lambdamicrovms/image.Image""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -845,8 +845,8 @@ class MicrovmsImage(pulumi.CustomResource):
             base_image_arn: pulumi.Input[Optional[_builtins.str]] = None,
             base_image_version: pulumi.Input[Optional[_builtins.str]] = None,
             build_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            code_artifact: pulumi.Input[Optional[Union['MicrovmsImageCodeArtifactArgs', 'MicrovmsImageCodeArtifactArgsDict']]] = None,
-            cpu_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MicrovmsImageCpuConfigurationArgs', 'MicrovmsImageCpuConfigurationArgsDict']]]]] = None,
+            code_artifact: pulumi.Input[Optional[Union['MicrovmsImageCodeArtifactArgs', 'MicrovmsImageCodeArtifactArgsDict', 'outputs.MicrovmsImageCodeArtifact']]] = None,
+            cpu_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MicrovmsImageCpuConfigurationArgs', 'MicrovmsImageCpuConfigurationArgsDict', 'outputs.MicrovmsImageCpuConfiguration']]]]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             egress_network_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -859,7 +859,7 @@ class MicrovmsImage(pulumi.CustomResource):
             state: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['MicrovmsImageTimeoutsArgs', 'MicrovmsImageTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['MicrovmsImageTimeoutsArgs', 'MicrovmsImageTimeoutsArgsDict', 'outputs.MicrovmsImageTimeouts']]] = None,
             updated_at: pulumi.Input[Optional[_builtins.str]] = None) -> 'MicrovmsImage':
         """
         Get an existing MicrovmsImage resource's state with the given name, id, and optional extra
@@ -873,8 +873,8 @@ class MicrovmsImage(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] base_image_arn: ARN of the base MicroVM image. AWS-managed base images use ARNs of the form `arn:aws:lambda:<region>:aws:microvm-image:al2023-1`.
         :param pulumi.Input[_builtins.str] base_image_version: Major version number of the base MicroVM image to use (e.g., `1`). If omitted, the service selects a version.
         :param pulumi.Input[_builtins.str] build_role_arn: ARN of the IAM role used to build the image. The role must be assumable by `lambda.amazonaws.com` and have access to the code artifact.
-        :param pulumi.Input[Union['MicrovmsImageCodeArtifactArgs', 'MicrovmsImageCodeArtifactArgsDict']] code_artifact: Code artifact containing the application code and metadata for the image. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MicrovmsImageCpuConfigurationArgs', 'MicrovmsImageCpuConfigurationArgsDict']]]] cpu_configurations: CPU configuration for the MicroVM. See `cpu_configuration` Block below.
+        :param pulumi.Input[Union['MicrovmsImageCodeArtifactArgs', 'MicrovmsImageCodeArtifactArgsDict', 'outputs.MicrovmsImageCodeArtifact']] code_artifact: Code artifact containing the application code and metadata for the image. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MicrovmsImageCpuConfigurationArgs', 'MicrovmsImageCpuConfigurationArgsDict', 'outputs.MicrovmsImageCpuConfiguration']]]] cpu_configurations: CPU configuration for the MicroVM. See `cpu_configuration` Block below.
         :param pulumi.Input[_builtins.str] created_at: RFC3339 timestamp when the image was created.
         :param pulumi.Input[_builtins.str] description: Description of the MicroVM image.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] egress_network_connectors: List of egress network connectors available to the MicroVM at runtime. Defaults to `["INTERNET_EGRESS"]`.

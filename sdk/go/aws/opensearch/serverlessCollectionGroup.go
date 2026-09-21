@@ -33,6 +33,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opensearch.NewServerlessCollectionGroup(ctx, "example", &opensearch.ServerlessCollectionGroupArgs{
+//				Name:            pulumi.String("example-group"),
+//				Description:     pulumi.String("Shared compute for production collections"),
+//				StandbyReplicas: pulumi.String("ENABLED"),
 //				CapacityLimits: opensearch.ServerlessCollectionGroupCapacityLimitArray{
 //					&opensearch.ServerlessCollectionGroupCapacityLimitArgs{
 //						MinIndexingCapacityInOcu: pulumi.Float64(2),
@@ -41,9 +44,6 @@ import (
 //						MaxSearchCapacityInOcu:   pulumi.Float64(16),
 //					},
 //				},
-//				Name:            pulumi.String("example-group"),
-//				Description:     pulumi.String("Shared compute for production collections"),
-//				StandbyReplicas: pulumi.String("ENABLED"),
 //			})
 //			if err != nil {
 //				return err

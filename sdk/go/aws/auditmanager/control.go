@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := auditmanager.NewControl(ctx, "example", &auditmanager.ControlArgs{
+//				Name: pulumi.String("example"),
 //				ControlMappingSources: auditmanager.ControlControlMappingSourceArray{
 //					&auditmanager.ControlControlMappingSourceArgs{
 //						SourceName:        pulumi.String("example"),
@@ -37,7 +38,6 @@ import (
 //						SourceType:        pulumi.String("MANUAL"),
 //					},
 //				},
-//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

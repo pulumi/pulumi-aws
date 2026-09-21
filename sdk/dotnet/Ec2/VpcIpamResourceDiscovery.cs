@@ -28,6 +28,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var main = new Aws.Ec2.VpcIpamResourceDiscovery("main", new()
     ///     {
+    ///         Description = "My IPAM Resource Discovery",
     ///         OperatingRegions = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.VpcIpamResourceDiscoveryOperatingRegionArgs
@@ -35,7 +36,6 @@ namespace Pulumi.Aws.Ec2
     ///                 RegionName = current.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///             },
     ///         },
-    ///         Description = "My IPAM Resource Discovery",
     ///         Tags = 
     ///         {
     ///             { "Test", "Main" },

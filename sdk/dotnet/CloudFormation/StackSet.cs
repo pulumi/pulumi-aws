@@ -35,6 +35,11 @@ namespace Pulumi.Aws.CloudFormation
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -46,11 +51,6 @@ namespace Pulumi.Aws.CloudFormation
     ///                         Type = "Service",
     ///                     },
     ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///                 Effect = "Allow",
     ///             },
     ///         },
     ///     });

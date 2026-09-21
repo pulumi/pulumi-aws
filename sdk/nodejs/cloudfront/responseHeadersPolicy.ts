@@ -22,7 +22,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudfront.ResponseHeadersPolicy("example", {
+ *     name: "example-policy",
+ *     comment: "test comment",
  *     corsConfig: {
+ *         accessControlAllowCredentials: true,
  *         accessControlAllowHeaders: {
  *             items: ["test"],
  *         },
@@ -32,11 +35,8 @@ import * as utilities from "../utilities";
  *         accessControlAllowOrigins: {
  *             items: ["test.example.comtest"],
  *         },
- *         accessControlAllowCredentials: true,
  *         originOverride: true,
  *     },
- *     name: "example-policy",
- *     comment: "test comment",
  * });
  * ```
  *
@@ -47,6 +47,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudfront.ResponseHeadersPolicy("example", {
+ *     name: "example-headers-policy",
  *     customHeadersConfig: {
  *         items: [
  *             {
@@ -61,7 +62,6 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     },
- *     name: "example-headers-policy",
  * });
  * ```
  *
@@ -74,6 +74,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudfront.ResponseHeadersPolicy("example", {
+ *     name: "example-headers-policy",
  *     customHeadersConfig: {
  *         items: [{
  *             header: "X-Permitted-Cross-Domain-Policies",
@@ -90,7 +91,6 @@ import * as utilities from "../utilities";
  *         enabled: true,
  *         samplingRate: 50,
  *     },
- *     name: "example-headers-policy",
  * });
  * ```
  *

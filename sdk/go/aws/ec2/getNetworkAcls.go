@@ -86,6 +86,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.GetNetworkAcls(ctx, &ec2.GetNetworkAclsArgs{
+//				VpcId: pulumi.StringRef(vpcId),
 //				Filters: []ec2.GetNetworkAclsFilter{
 //					{
 //						Name: "association.subnet-id",
@@ -94,7 +95,6 @@ import (
 //						},
 //					},
 //				},
-//				VpcId: pulumi.StringRef(vpcId),
 //			}, nil)
 //			if err != nil {
 //				return err

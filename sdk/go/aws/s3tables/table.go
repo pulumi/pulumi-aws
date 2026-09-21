@@ -86,6 +86,10 @@ import (
 //				return err
 //			}
 //			_, err = s3tables.NewTable(ctx, "example", &s3tables.TableArgs{
+//				Name:           pulumi.String("example_table"),
+//				Namespace:      exampleNamespace.Namespace,
+//				TableBucketArn: exampleNamespace.TableBucketArn,
+//				Format:         pulumi.String("ICEBERG"),
 //				Metadata: &s3tables.TableMetadataArgs{
 //					Iceberg: &s3tables.TableMetadataIcebergArgs{
 //						Schema: &s3tables.TableMetadataIcebergSchemaArgs{
@@ -114,10 +118,6 @@ import (
 //						},
 //					},
 //				},
-//				Name:           pulumi.String("example_table"),
-//				Namespace:      exampleNamespace.Namespace,
-//				TableBucketArn: exampleNamespace.TableBucketArn,
-//				Format:         pulumi.String("ICEBERG"),
 //			})
 //			if err != nil {
 //				return err

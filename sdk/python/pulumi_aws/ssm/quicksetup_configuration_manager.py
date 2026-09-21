@@ -281,12 +281,12 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_definition: pulumi.Input[Optional[Union['QuicksetupConfigurationManagerConfigurationDefinitionArgs', 'QuicksetupConfigurationManagerConfigurationDefinitionArgsDict']]] = None,
+                 configuration_definition: pulumi.Input[Optional[Union['QuicksetupConfigurationManagerConfigurationDefinitionArgs', 'QuicksetupConfigurationManagerConfigurationDefinitionArgsDict', 'outputs.QuicksetupConfigurationManagerConfigurationDefinition']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['QuicksetupConfigurationManagerTimeoutsArgs', 'QuicksetupConfigurationManagerTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['QuicksetupConfigurationManagerTimeoutsArgs', 'QuicksetupConfigurationManagerTimeoutsArgsDict', 'outputs.QuicksetupConfigurationManagerTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS SSM Quick Setup Configuration Manager.
@@ -313,6 +313,7 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
             "disabled": not baseline.default_baseline,
         } for baseline in example.baseline_identities})
         example_quicksetup_configuration_manager = aws.ssm.QuicksetupConfigurationManager("example",
+            name="example",
             configuration_definition={
                 "local_deployment_administration_role_arn": f"arn:{current_get_partition.partition}:iam::{current.account_id}:role/AWS-QuickSetup-PatchPolicy-LocalAdministrationRole",
                 "local_deployment_execution_role_name": "AWS-QuickSetup-PatchPolicy-LocalExecutionRole",
@@ -333,8 +334,7 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
                     "TargetRegions": current_get_region.region,
                     "TargetType": "*",
                 },
-            },
-            name="example")
+            })
         ```
 
         ## Import
@@ -348,7 +348,7 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['QuicksetupConfigurationManagerConfigurationDefinitionArgs', 'QuicksetupConfigurationManagerConfigurationDefinitionArgsDict']] configuration_definition: Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
+        :param pulumi.Input[Union['QuicksetupConfigurationManagerConfigurationDefinitionArgs', 'QuicksetupConfigurationManagerConfigurationDefinitionArgsDict', 'outputs.QuicksetupConfigurationManagerConfigurationDefinition']] configuration_definition: Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
         :param pulumi.Input[_builtins.str] description: Description of the configuration manager.
         :param pulumi.Input[_builtins.str] name: Configuration manager name.
                
@@ -387,6 +387,7 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
             "disabled": not baseline.default_baseline,
         } for baseline in example.baseline_identities})
         example_quicksetup_configuration_manager = aws.ssm.QuicksetupConfigurationManager("example",
+            name="example",
             configuration_definition={
                 "local_deployment_administration_role_arn": f"arn:{current_get_partition.partition}:iam::{current.account_id}:role/AWS-QuickSetup-PatchPolicy-LocalAdministrationRole",
                 "local_deployment_execution_role_name": "AWS-QuickSetup-PatchPolicy-LocalExecutionRole",
@@ -407,8 +408,7 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
                     "TargetRegions": current_get_region.region,
                     "TargetType": "*",
                 },
-            },
-            name="example")
+            })
         ```
 
         ## Import
@@ -435,12 +435,12 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_definition: pulumi.Input[Optional[Union['QuicksetupConfigurationManagerConfigurationDefinitionArgs', 'QuicksetupConfigurationManagerConfigurationDefinitionArgsDict']]] = None,
+                 configuration_definition: pulumi.Input[Optional[Union['QuicksetupConfigurationManagerConfigurationDefinitionArgs', 'QuicksetupConfigurationManagerConfigurationDefinitionArgsDict', 'outputs.QuicksetupConfigurationManagerConfigurationDefinition']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['QuicksetupConfigurationManagerTimeoutsArgs', 'QuicksetupConfigurationManagerTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['QuicksetupConfigurationManagerTimeoutsArgs', 'QuicksetupConfigurationManagerTimeoutsArgsDict', 'outputs.QuicksetupConfigurationManagerTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -471,15 +471,15 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            configuration_definition: pulumi.Input[Optional[Union['QuicksetupConfigurationManagerConfigurationDefinitionArgs', 'QuicksetupConfigurationManagerConfigurationDefinitionArgsDict']]] = None,
+            configuration_definition: pulumi.Input[Optional[Union['QuicksetupConfigurationManagerConfigurationDefinitionArgs', 'QuicksetupConfigurationManagerConfigurationDefinitionArgsDict', 'outputs.QuicksetupConfigurationManagerConfigurationDefinition']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             manager_arn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            status_summaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QuicksetupConfigurationManagerStatusSummaryArgs', 'QuicksetupConfigurationManagerStatusSummaryArgsDict']]]]] = None,
+            status_summaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QuicksetupConfigurationManagerStatusSummaryArgs', 'QuicksetupConfigurationManagerStatusSummaryArgsDict', 'outputs.QuicksetupConfigurationManagerStatusSummary']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['QuicksetupConfigurationManagerTimeoutsArgs', 'QuicksetupConfigurationManagerTimeoutsArgsDict']]] = None) -> 'QuicksetupConfigurationManager':
+            timeouts: pulumi.Input[Optional[Union['QuicksetupConfigurationManagerTimeoutsArgs', 'QuicksetupConfigurationManagerTimeoutsArgsDict', 'outputs.QuicksetupConfigurationManagerTimeouts']]] = None) -> 'QuicksetupConfigurationManager':
         """
         Get an existing QuicksetupConfigurationManager resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -487,14 +487,14 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['QuicksetupConfigurationManagerConfigurationDefinitionArgs', 'QuicksetupConfigurationManagerConfigurationDefinitionArgsDict']] configuration_definition: Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
+        :param pulumi.Input[Union['QuicksetupConfigurationManagerConfigurationDefinitionArgs', 'QuicksetupConfigurationManagerConfigurationDefinitionArgsDict', 'outputs.QuicksetupConfigurationManagerConfigurationDefinition']] configuration_definition: Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
         :param pulumi.Input[_builtins.str] description: Description of the configuration manager.
         :param pulumi.Input[_builtins.str] manager_arn: ARN of the Configuration Manager.
         :param pulumi.Input[_builtins.str] name: Configuration manager name.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['QuicksetupConfigurationManagerStatusSummaryArgs', 'QuicksetupConfigurationManagerStatusSummaryArgsDict']]]] status_summaries: A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `status_summaries` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['QuicksetupConfigurationManagerStatusSummaryArgs', 'QuicksetupConfigurationManagerStatusSummaryArgsDict', 'outputs.QuicksetupConfigurationManagerStatusSummary']]]] status_summaries: A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `status_summaries` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

@@ -86,6 +86,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var client = new ManagedLoginBranding("client", ManagedLoginBrandingArgs.builder()
+ *             .clientId(example.id())
+ *             .userPoolId(exampleAwsCognitoUserPool.id())
  *             .assets(ManagedLoginBrandingAssetArgs.builder()
  *                 .bytes(StdFunctions.filebase64(Filebase64Args.builder()
  *                     .input("login_branding_asset.svg")
@@ -94,8 +96,6 @@ import javax.annotation.Nullable;
  *                 .colorMode("DARK")
  *                 .extension("SVG")
  *                 .build())
- *             .clientId(example.id())
- *             .userPoolId(exampleAwsCognitoUserPool.id())
  *             .settings(serializeJson(
  *                 jsonObject(
  * 

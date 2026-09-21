@@ -29,6 +29,8 @@ namespace Pulumi.Aws.Iot
     /// 
     ///     var example = new Aws.Iot.ThingGroup("example", new()
     ///     {
+    ///         Name = "example",
+    ///         ParentGroupName = parent.Name,
     ///         Properties = new Aws.Iot.Inputs.ThingGroupPropertiesArgs
     ///         {
     ///             AttributePayload = new Aws.Iot.Inputs.ThingGroupPropertiesAttributePayloadArgs
@@ -41,8 +43,6 @@ namespace Pulumi.Aws.Iot
     ///             },
     ///             Description = "This is my thing group",
     ///         },
-    ///         Name = "example",
-    ///         ParentGroupName = parent.Name,
     ///         Tags = 
     ///         {
     ///             { "managed", "true" },

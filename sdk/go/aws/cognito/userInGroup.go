@@ -29,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
+//				Name: pulumi.String("example"),
 //				PasswordPolicy: &cognito.UserPoolPasswordPolicyArgs{
 //					TemporaryPasswordValidityDays: pulumi.Int(7),
 //					MinimumLength:                 pulumi.Int(6),
@@ -36,7 +37,6 @@ import (
 //					RequireSymbols:                pulumi.Bool(false),
 //					RequireNumbers:                pulumi.Bool(false),
 //				},
-//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

@@ -26,10 +26,13 @@ namespace Pulumi.Aws.Quicksight
     /// {
     ///     var example = new Aws.Quicksight.Analysis("example", new()
     ///     {
+    ///         AnalysisId = "example-id",
+    ///         Name = "example-name",
     ///         SourceEntity = new Aws.Quicksight.Inputs.AnalysisSourceEntityArgs
     ///         {
     ///             SourceTemplate = new Aws.Quicksight.Inputs.AnalysisSourceEntitySourceTemplateArgs
     ///             {
+    ///                 Arn = source.Arn,
     ///                 DataSetReferences = new[]
     ///                 {
     ///                     new Aws.Quicksight.Inputs.AnalysisSourceEntitySourceTemplateDataSetReferenceArgs
@@ -38,11 +41,8 @@ namespace Pulumi.Aws.Quicksight
     ///                         DataSetPlaceholder = "1",
     ///                     },
     ///                 },
-    ///                 Arn = source.Arn,
     ///             },
     ///         },
-    ///         AnalysisId = "example-id",
-    ///         Name = "example-name",
     ///     });
     /// 
     /// });
@@ -60,6 +60,8 @@ namespace Pulumi.Aws.Quicksight
     /// {
     ///     var example = new Aws.Quicksight.Analysis("example", new()
     ///     {
+    ///         AnalysisId = "example-id",
+    ///         Name = "example-name",
     ///         Definition = 
     ///         {
     ///             { "dataSetIdentifiersDeclarations", new[]
@@ -74,12 +76,15 @@ namespace Pulumi.Aws.Quicksight
     ///             {
     ///                 
     ///                 {
+    ///                     { "title", "Example" },
+    ///                     { "sheetId", "Example1" },
     ///                     { "visuals", new[]
     ///                     {
     ///                         
     ///                         {
     ///                             { "lineChartVisual", 
     ///                             {
+    ///                                 { "visualId", "LineChart" },
     ///                                 { "title", 
     ///                                 {
     ///                                     { "formatText", 
@@ -99,12 +104,12 @@ namespace Pulumi.Aws.Quicksight
     ///                                                 {
     ///                                                     { "categoricalDimensionField", 
     ///                                                     {
+    ///                                                         { "fieldId", "1" },
     ///                                                         { "column", 
     ///                                                         {
     ///                                                             { "dataSetIdentifier", "1" },
     ///                                                             { "columnName", "Column1" },
     ///                                                         } },
-    ///                                                         { "fieldId", "1" },
     ///                                                     } },
     ///                                                 },
     ///                                             } },
@@ -114,12 +119,12 @@ namespace Pulumi.Aws.Quicksight
     ///                                                 {
     ///                                                     { "categoricalMeasureField", 
     ///                                                     {
+    ///                                                         { "fieldId", "2" },
     ///                                                         { "column", 
     ///                                                         {
     ///                                                             { "dataSetIdentifier", "1" },
     ///                                                             { "columnName", "Column1" },
     ///                                                         } },
-    ///                                                         { "fieldId", "2" },
     ///                                                         { "aggregationFunction", "COUNT" },
     ///                                                     } },
     ///                                                 },
@@ -127,17 +132,12 @@ namespace Pulumi.Aws.Quicksight
     ///                                         } },
     ///                                     } },
     ///                                 } },
-    ///                                 { "visualId", "LineChart" },
     ///                             } },
     ///                         },
     ///                     } },
-    ///                     { "title", "Example" },
-    ///                     { "sheetId", "Example1" },
     ///                 },
     ///             } },
     ///         },
-    ///         AnalysisId = "example-id",
-    ///         Name = "example-name",
     ///     });
     /// 
     /// });

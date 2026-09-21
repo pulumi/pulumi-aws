@@ -33,6 +33,8 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     ///     var exampleUser = new Aws.MemoryDb.User("example", new()
     ///     {
+    ///         UserName = "my-user",
+    ///         AccessString = "on ~* &amp;* +@all",
     ///         AuthenticationMode = new Aws.MemoryDb.Inputs.UserAuthenticationModeArgs
     ///         {
     ///             Type = "password",
@@ -41,8 +43,6 @@ namespace Pulumi.Aws.MemoryDb
     ///                 example.Result,
     ///             },
     ///         },
-    ///         UserName = "my-user",
-    ///         AccessString = "on ~* &amp;* +@all",
     ///     });
     /// 
     /// });

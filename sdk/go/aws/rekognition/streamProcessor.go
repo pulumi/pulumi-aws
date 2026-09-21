@@ -79,6 +79,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name: pulumi.String("example-role"),
 //				InlinePolicies: iam.RoleInlinePolicyArray{
 //					&iam.RoleInlinePolicyArgs{
 //						Name: pulumi.String("Rekognition-Access"),
@@ -128,13 +129,14 @@ import (
 //						}).(pulumi.StringOutput),
 //					},
 //				},
-//				Name:             pulumi.String("example-role"),
 //				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = rekognition.NewStreamProcessor(ctx, "example", &rekognition.StreamProcessorArgs{
+//				RoleArn: exampleRole.Arn,
+//				Name:    pulumi.String("example-processor"),
 //				DataSharingPreference: &rekognition.StreamProcessorDataSharingPreferenceArgs{
 //					OptIn: pulumi.Bool(false),
 //				},
@@ -159,8 +161,6 @@ import (
 //				NotificationChannel: &rekognition.StreamProcessorNotificationChannelArgs{
 //					SnsTopicArn: exampleTopic.Arn,
 //				},
-//				RoleArn: exampleRole.Arn,
-//				Name:    pulumi.String("example-processor"),
 //			})
 //			if err != nil {
 //				return err
@@ -222,6 +222,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name: pulumi.String("example-role"),
 //				InlinePolicies: iam.RoleInlinePolicyArray{
 //					&iam.RoleInlinePolicyArgs{
 //						Name: pulumi.String("Rekognition-Access"),
@@ -261,7 +262,6 @@ import (
 //						}).(pulumi.StringOutput),
 //					},
 //				},
-//				Name:             pulumi.String("example-role"),
 //				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
@@ -274,23 +274,10 @@ import (
 //				return err
 //			}
 //			_, err = rekognition.NewStreamProcessor(ctx, "example", &rekognition.StreamProcessorArgs{
+//				RoleArn: exampleRole.Arn,
+//				Name:    pulumi.String("example-processor"),
 //				DataSharingPreference: &rekognition.StreamProcessorDataSharingPreferenceArgs{
 //					OptIn: pulumi.Bool(false),
-//				},
-//				Input: &rekognition.StreamProcessorInputTypeArgs{
-//					KinesisVideoStream: &rekognition.StreamProcessorInputKinesisVideoStreamArgs{
-//						Arn: example.Arn,
-//					},
-//				},
-//				Output: &rekognition.StreamProcessorOutputTypeArgs{
-//					KinesisDataStream: &rekognition.StreamProcessorOutputKinesisDataStreamArgs{
-//						Arn: exampleStream.Arn,
-//					},
-//				},
-//				Settings: &rekognition.StreamProcessorSettingsArgs{
-//					FaceSearch: &rekognition.StreamProcessorSettingsFaceSearchArgs{
-//						CollectionId: exampleCollection.ID().ToIDOutput().ToStringOutput(),
-//					},
 //				},
 //				RegionsOfInterests: rekognition.StreamProcessorRegionsOfInterestArray{
 //					&rekognition.StreamProcessorRegionsOfInterestArgs{
@@ -310,8 +297,21 @@ import (
 //						},
 //					},
 //				},
-//				RoleArn: exampleRole.Arn,
-//				Name:    pulumi.String("example-processor"),
+//				Input: &rekognition.StreamProcessorInputTypeArgs{
+//					KinesisVideoStream: &rekognition.StreamProcessorInputKinesisVideoStreamArgs{
+//						Arn: example.Arn,
+//					},
+//				},
+//				Output: &rekognition.StreamProcessorOutputTypeArgs{
+//					KinesisDataStream: &rekognition.StreamProcessorOutputKinesisDataStreamArgs{
+//						Arn: exampleStream.Arn,
+//					},
+//				},
+//				Settings: &rekognition.StreamProcessorSettingsArgs{
+//					FaceSearch: &rekognition.StreamProcessorSettingsFaceSearchArgs{
+//						CollectionId: exampleCollection.ID().ToIDOutput().ToStringOutput(),
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err

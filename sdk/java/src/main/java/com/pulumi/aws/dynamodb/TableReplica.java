@@ -39,7 +39,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
  * import com.pulumi.aws.dynamodb.TableReplica;
  * import com.pulumi.aws.dynamodb.TableReplicaArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -54,18 +53,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Table("example", TableArgs.builder()
- *             .attributes(TableAttributeArgs.builder()
- *                 .name("BrodoBaggins")
- *                 .type("S")
- *                 .build())
  *             .name("TestTable")
  *             .hashKey("BrodoBaggins")
  *             .billingMode("PAY_PER_REQUEST")
  *             .streamEnabled(true)
  *             .streamViewType("NEW_AND_OLD_IMAGES")
- *             .build(), CustomResourceOptions.builder()
- *                 .ignoreChanges("replicas")
- *                 .build());
+ *             .attributes(TableAttributeArgs.builder()
+ *                 .name("BrodoBaggins")
+ *                 .type("S")
+ *                 .build())
+ *             .build());
  * 
  *         var exampleTableReplica = new TableReplica("exampleTableReplica", TableReplicaArgs.builder()
  *             .globalTableArn(example.arn())

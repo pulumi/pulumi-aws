@@ -27,6 +27,10 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentAgentActionGroup("example", new()
     ///     {
+    ///         ActionGroupName = "example",
+    ///         AgentId = "GGRRAED6JP",
+    ///         AgentVersion = "DRAFT",
+    ///         SkipResourceInUseCheck = true,
     ///         ActionGroupExecutor = new Aws.Bedrock.Inputs.AgentAgentActionGroupActionGroupExecutorArgs
     ///         {
     ///             Lambda = "arn:aws:lambda:us-west-2:123456789012:function:example-function",
@@ -38,10 +42,6 @@ namespace Pulumi.Aws.Bedrock
     ///                 Input = "path/to/schema.yaml",
     ///             }).Apply(invoke =&gt; invoke.Result),
     ///         },
-    ///         ActionGroupName = "example",
-    ///         AgentId = "GGRRAED6JP",
-    ///         AgentVersion = "DRAFT",
-    ///         SkipResourceInUseCheck = true,
     ///     });
     /// 
     /// });
@@ -59,6 +59,10 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentAgentActionGroup("example", new()
     ///     {
+    ///         ActionGroupName = "example",
+    ///         AgentId = "GGRRAED6JP",
+    ///         AgentVersion = "DRAFT",
+    ///         SkipResourceInUseCheck = true,
     ///         ActionGroupExecutor = new Aws.Bedrock.Inputs.AgentAgentActionGroupActionGroupExecutorArgs
     ///         {
     ///             Lambda = "arn:aws:lambda:us-west-2:123456789012:function:example-function",
@@ -71,10 +75,6 @@ namespace Pulumi.Aws.Bedrock
     ///                 S3ObjectKey = "path/to/schema.json",
     ///             },
     ///         },
-    ///         ActionGroupName = "example",
-    ///         AgentId = "GGRRAED6JP",
-    ///         AgentVersion = "DRAFT",
-    ///         SkipResourceInUseCheck = true,
     ///     });
     /// 
     /// });
@@ -92,6 +92,10 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentAgentActionGroup("example", new()
     ///     {
+    ///         ActionGroupName = "example",
+    ///         AgentId = "GGRRAED6JP",
+    ///         AgentVersion = "DRAFT",
+    ///         SkipResourceInUseCheck = true,
     ///         ActionGroupExecutor = new Aws.Bedrock.Inputs.AgentAgentActionGroupActionGroupExecutorArgs
     ///         {
     ///             Lambda = "arn:aws:lambda:us-west-2:123456789012:function:example-function",
@@ -104,6 +108,8 @@ namespace Pulumi.Aws.Bedrock
     ///                 {
     ///                     new Aws.Bedrock.Inputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs
     ///                     {
+    ///                         Name = "example-function",
+    ///                         Description = "Example function",
     ///                         Parameters = new[]
     ///                         {
     ///                             new Aws.Bedrock.Inputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs
@@ -121,16 +127,10 @@ namespace Pulumi.Aws.Bedrock
     ///                                 Required = false,
     ///                             },
     ///                         },
-    ///                         Name = "example-function",
-    ///                         Description = "Example function",
     ///                     },
     ///                 },
     ///             },
     ///         },
-    ///         ActionGroupName = "example",
-    ///         AgentId = "GGRRAED6JP",
-    ///         AgentVersion = "DRAFT",
-    ///         SkipResourceInUseCheck = true,
     ///     });
     /// 
     /// });
@@ -149,6 +149,10 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentAgentActionGroup("example", new()
     ///     {
+    ///         ActionGroupName = "example",
+    ///         AgentId = "GGRRAED6JP",
+    ///         AgentVersion = "DRAFT",
+    ///         SkipResourceInUseCheck = true,
     ///         ActionGroupExecutor = new Aws.Bedrock.Inputs.AgentAgentActionGroupActionGroupExecutorArgs
     ///         {
     ///             CustomControl = "RETURN_CONTROL",
@@ -160,10 +164,6 @@ namespace Pulumi.Aws.Bedrock
     ///                 Input = "path/to/schema.yaml",
     ///             }).Apply(invoke =&gt; invoke.Result),
     ///         },
-    ///         ActionGroupName = "example",
-    ///         AgentId = "GGRRAED6JP",
-    ///         AgentVersion = "DRAFT",
-    ///         SkipResourceInUseCheck = true,
     ///     });
     /// 
     /// });

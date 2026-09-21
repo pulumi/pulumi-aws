@@ -427,11 +427,11 @@ class MigrationProject(pulumi.CustomResource):
                  instance_profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_conversion_application_attributes: pulumi.Input[Optional[Union['MigrationProjectSchemaConversionApplicationAttributesArgs', 'MigrationProjectSchemaConversionApplicationAttributesArgsDict']]] = None,
-                 source_data_provider_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MigrationProjectSourceDataProviderDescriptorArgs', 'MigrationProjectSourceDataProviderDescriptorArgsDict']]]]] = None,
+                 schema_conversion_application_attributes: pulumi.Input[Optional[Union['MigrationProjectSchemaConversionApplicationAttributesArgs', 'MigrationProjectSchemaConversionApplicationAttributesArgsDict', 'outputs.MigrationProjectSchemaConversionApplicationAttributes']]] = None,
+                 source_data_provider_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MigrationProjectSourceDataProviderDescriptorArgs', 'MigrationProjectSourceDataProviderDescriptorArgsDict', 'outputs.MigrationProjectSourceDataProviderDescriptor']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_data_provider_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MigrationProjectTargetDataProviderDescriptorArgs', 'MigrationProjectTargetDataProviderDescriptorArgsDict']]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['MigrationProjectTimeoutsArgs', 'MigrationProjectTimeoutsArgsDict']]] = None,
+                 target_data_provider_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MigrationProjectTargetDataProviderDescriptorArgs', 'MigrationProjectTargetDataProviderDescriptorArgsDict', 'outputs.MigrationProjectTargetDataProviderDescriptor']]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['MigrationProjectTimeoutsArgs', 'MigrationProjectTimeoutsArgsDict', 'outputs.MigrationProjectTimeouts']]] = None,
                  transformation_rules: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -448,13 +448,13 @@ class MigrationProject(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dms.MigrationProject("example",
+            instance_profile_arn=example_aws_dms_instance_profile["arn"],
             source_data_provider_descriptors=[{
                 "data_provider_arn": source["arn"],
             }],
             target_data_provider_descriptors=[{
                 "data_provider_arn": target["arn"],
-            }],
-            instance_profile_arn=example_aws_dms_instance_profile["arn"])
+            }])
         ```
 
         ### With Secrets Manager Credentials
@@ -464,10 +464,9 @@ class MigrationProject(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dms.MigrationProject("example",
-            schema_conversion_application_attributes={
-                "s3_bucket_path": "s3://example-bucket",
-                "s3_bucket_role_arn": example_aws_iam_role["arn"],
-            },
+            name="example",
+            description="Example migration project",
+            instance_profile_arn=example_aws_dms_instance_profile["arn"],
             source_data_provider_descriptors=[{
                 "data_provider_arn": source["arn"],
                 "secrets_manager_access_role_arn": example_aws_iam_role["arn"],
@@ -478,9 +477,10 @@ class MigrationProject(pulumi.CustomResource):
                 "secrets_manager_access_role_arn": example_aws_iam_role["arn"],
                 "secrets_manager_secret_id": target_aws_secretsmanager_secret["arn"],
             }],
-            name="example",
-            description="Example migration project",
-            instance_profile_arn=example_aws_dms_instance_profile["arn"],
+            schema_conversion_application_attributes={
+                "s3_bucket_path": "s3://example-bucket",
+                "s3_bucket_role_arn": example_aws_iam_role["arn"],
+            },
             tags={
                 "Environment": "example",
             })
@@ -507,10 +507,10 @@ class MigrationProject(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] instance_profile_arn: ARN of the instance profile associated with the migration project.
         :param pulumi.Input[_builtins.str] name: User-friendly name for the migration project.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['MigrationProjectSchemaConversionApplicationAttributesArgs', 'MigrationProjectSchemaConversionApplicationAttributesArgsDict']] schema_conversion_application_attributes: Schema conversion application attributes, including the S3 bucket path and S3 role ARN. See `schema_conversion_application_attributes` Block below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MigrationProjectSourceDataProviderDescriptorArgs', 'MigrationProjectSourceDataProviderDescriptorArgsDict']]]] source_data_provider_descriptors: Information about the source data provider. See `source_data_provider_descriptor` Block below.
+        :param pulumi.Input[Union['MigrationProjectSchemaConversionApplicationAttributesArgs', 'MigrationProjectSchemaConversionApplicationAttributesArgsDict', 'outputs.MigrationProjectSchemaConversionApplicationAttributes']] schema_conversion_application_attributes: Schema conversion application attributes, including the S3 bucket path and S3 role ARN. See `schema_conversion_application_attributes` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MigrationProjectSourceDataProviderDescriptorArgs', 'MigrationProjectSourceDataProviderDescriptorArgsDict', 'outputs.MigrationProjectSourceDataProviderDescriptor']]]] source_data_provider_descriptors: Information about the source data provider. See `source_data_provider_descriptor` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MigrationProjectTargetDataProviderDescriptorArgs', 'MigrationProjectTargetDataProviderDescriptorArgsDict']]]] target_data_provider_descriptors: Information about the target data provider. See `target_data_provider_descriptor` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MigrationProjectTargetDataProviderDescriptorArgs', 'MigrationProjectTargetDataProviderDescriptorArgsDict', 'outputs.MigrationProjectTargetDataProviderDescriptor']]]] target_data_provider_descriptors: Information about the target data provider. See `target_data_provider_descriptor` Block below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] transformation_rules: JSON string that specifies the transformation rules for the migration project. Homogeneous data migrations do not support transformation rules.
@@ -535,13 +535,13 @@ class MigrationProject(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dms.MigrationProject("example",
+            instance_profile_arn=example_aws_dms_instance_profile["arn"],
             source_data_provider_descriptors=[{
                 "data_provider_arn": source["arn"],
             }],
             target_data_provider_descriptors=[{
                 "data_provider_arn": target["arn"],
-            }],
-            instance_profile_arn=example_aws_dms_instance_profile["arn"])
+            }])
         ```
 
         ### With Secrets Manager Credentials
@@ -551,10 +551,9 @@ class MigrationProject(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dms.MigrationProject("example",
-            schema_conversion_application_attributes={
-                "s3_bucket_path": "s3://example-bucket",
-                "s3_bucket_role_arn": example_aws_iam_role["arn"],
-            },
+            name="example",
+            description="Example migration project",
+            instance_profile_arn=example_aws_dms_instance_profile["arn"],
             source_data_provider_descriptors=[{
                 "data_provider_arn": source["arn"],
                 "secrets_manager_access_role_arn": example_aws_iam_role["arn"],
@@ -565,9 +564,10 @@ class MigrationProject(pulumi.CustomResource):
                 "secrets_manager_access_role_arn": example_aws_iam_role["arn"],
                 "secrets_manager_secret_id": target_aws_secretsmanager_secret["arn"],
             }],
-            name="example",
-            description="Example migration project",
-            instance_profile_arn=example_aws_dms_instance_profile["arn"],
+            schema_conversion_application_attributes={
+                "s3_bucket_path": "s3://example-bucket",
+                "s3_bucket_role_arn": example_aws_iam_role["arn"],
+            },
             tags={
                 "Environment": "example",
             })
@@ -607,11 +607,11 @@ class MigrationProject(pulumi.CustomResource):
                  instance_profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_conversion_application_attributes: pulumi.Input[Optional[Union['MigrationProjectSchemaConversionApplicationAttributesArgs', 'MigrationProjectSchemaConversionApplicationAttributesArgsDict']]] = None,
-                 source_data_provider_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MigrationProjectSourceDataProviderDescriptorArgs', 'MigrationProjectSourceDataProviderDescriptorArgsDict']]]]] = None,
+                 schema_conversion_application_attributes: pulumi.Input[Optional[Union['MigrationProjectSchemaConversionApplicationAttributesArgs', 'MigrationProjectSchemaConversionApplicationAttributesArgsDict', 'outputs.MigrationProjectSchemaConversionApplicationAttributes']]] = None,
+                 source_data_provider_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MigrationProjectSourceDataProviderDescriptorArgs', 'MigrationProjectSourceDataProviderDescriptorArgsDict', 'outputs.MigrationProjectSourceDataProviderDescriptor']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_data_provider_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MigrationProjectTargetDataProviderDescriptorArgs', 'MigrationProjectTargetDataProviderDescriptorArgsDict']]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['MigrationProjectTimeoutsArgs', 'MigrationProjectTimeoutsArgsDict']]] = None,
+                 target_data_provider_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MigrationProjectTargetDataProviderDescriptorArgs', 'MigrationProjectTargetDataProviderDescriptorArgsDict', 'outputs.MigrationProjectTargetDataProviderDescriptor']]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['MigrationProjectTimeoutsArgs', 'MigrationProjectTimeoutsArgsDict', 'outputs.MigrationProjectTimeouts']]] = None,
                  transformation_rules: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -659,12 +659,12 @@ class MigrationProject(pulumi.CustomResource):
             instance_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            schema_conversion_application_attributes: pulumi.Input[Optional[Union['MigrationProjectSchemaConversionApplicationAttributesArgs', 'MigrationProjectSchemaConversionApplicationAttributesArgsDict']]] = None,
-            source_data_provider_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MigrationProjectSourceDataProviderDescriptorArgs', 'MigrationProjectSourceDataProviderDescriptorArgsDict']]]]] = None,
+            schema_conversion_application_attributes: pulumi.Input[Optional[Union['MigrationProjectSchemaConversionApplicationAttributesArgs', 'MigrationProjectSchemaConversionApplicationAttributesArgsDict', 'outputs.MigrationProjectSchemaConversionApplicationAttributes']]] = None,
+            source_data_provider_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MigrationProjectSourceDataProviderDescriptorArgs', 'MigrationProjectSourceDataProviderDescriptorArgsDict', 'outputs.MigrationProjectSourceDataProviderDescriptor']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            target_data_provider_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MigrationProjectTargetDataProviderDescriptorArgs', 'MigrationProjectTargetDataProviderDescriptorArgsDict']]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['MigrationProjectTimeoutsArgs', 'MigrationProjectTimeoutsArgsDict']]] = None,
+            target_data_provider_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MigrationProjectTargetDataProviderDescriptorArgs', 'MigrationProjectTargetDataProviderDescriptorArgsDict', 'outputs.MigrationProjectTargetDataProviderDescriptor']]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['MigrationProjectTimeoutsArgs', 'MigrationProjectTimeoutsArgsDict', 'outputs.MigrationProjectTimeouts']]] = None,
             transformation_rules: pulumi.Input[Optional[_builtins.str]] = None) -> 'MigrationProject':
         """
         Get an existing MigrationProject resource's state with the given name, id, and optional extra
@@ -680,11 +680,11 @@ class MigrationProject(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] instance_profile_name: Name of the associated instance profile.
         :param pulumi.Input[_builtins.str] name: User-friendly name for the migration project.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['MigrationProjectSchemaConversionApplicationAttributesArgs', 'MigrationProjectSchemaConversionApplicationAttributesArgsDict']] schema_conversion_application_attributes: Schema conversion application attributes, including the S3 bucket path and S3 role ARN. See `schema_conversion_application_attributes` Block below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MigrationProjectSourceDataProviderDescriptorArgs', 'MigrationProjectSourceDataProviderDescriptorArgsDict']]]] source_data_provider_descriptors: Information about the source data provider. See `source_data_provider_descriptor` Block below.
+        :param pulumi.Input[Union['MigrationProjectSchemaConversionApplicationAttributesArgs', 'MigrationProjectSchemaConversionApplicationAttributesArgsDict', 'outputs.MigrationProjectSchemaConversionApplicationAttributes']] schema_conversion_application_attributes: Schema conversion application attributes, including the S3 bucket path and S3 role ARN. See `schema_conversion_application_attributes` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MigrationProjectSourceDataProviderDescriptorArgs', 'MigrationProjectSourceDataProviderDescriptorArgsDict', 'outputs.MigrationProjectSourceDataProviderDescriptor']]]] source_data_provider_descriptors: Information about the source data provider. See `source_data_provider_descriptor` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MigrationProjectTargetDataProviderDescriptorArgs', 'MigrationProjectTargetDataProviderDescriptorArgsDict']]]] target_data_provider_descriptors: Information about the target data provider. See `target_data_provider_descriptor` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MigrationProjectTargetDataProviderDescriptorArgs', 'MigrationProjectTargetDataProviderDescriptorArgsDict', 'outputs.MigrationProjectTargetDataProviderDescriptor']]]] target_data_provider_descriptors: Information about the target data provider. See `target_data_provider_descriptor` Block below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] transformation_rules: JSON string that specifies the transformation rules for the migration project. Homogeneous data migrations do not support transformation rules.

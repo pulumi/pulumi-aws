@@ -244,7 +244,7 @@ class CrossAccountAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrossAccountAttachmentResourceArgs', 'CrossAccountAttachmentResourceArgsDict']]]]] = None,
+                 resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrossAccountAttachmentResourceArgs', 'CrossAccountAttachmentResourceArgsDict', 'outputs.CrossAccountAttachmentResource']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -268,12 +268,12 @@ class CrossAccountAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.globalaccelerator.CrossAccountAttachment("example",
+            name="example-cross-account-attachment",
+            principals=["123456789012"],
             resources=[{
                 "endpoint_id": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
                 "region": "us-west-2",
-            }],
-            name="example-cross-account-attachment",
-            principals=["123456789012"])
+            }])
         ```
 
         ## Import
@@ -297,7 +297,7 @@ class CrossAccountAttachment(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: List of AWS account IDs that are allowed to associate resources with the accelerator.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CrossAccountAttachmentResourceArgs', 'CrossAccountAttachmentResourceArgsDict']]]] resources: List of resources to be associated with the accelerator.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CrossAccountAttachmentResourceArgs', 'CrossAccountAttachmentResourceArgsDict', 'outputs.CrossAccountAttachmentResource']]]] resources: List of resources to be associated with the accelerator.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -327,12 +327,12 @@ class CrossAccountAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.globalaccelerator.CrossAccountAttachment("example",
+            name="example-cross-account-attachment",
+            principals=["123456789012"],
             resources=[{
                 "endpoint_id": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
                 "region": "us-west-2",
-            }],
-            name="example-cross-account-attachment",
-            principals=["123456789012"])
+            }])
         ```
 
         ## Import
@@ -367,7 +367,7 @@ class CrossAccountAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrossAccountAttachmentResourceArgs', 'CrossAccountAttachmentResourceArgsDict']]]]] = None,
+                 resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrossAccountAttachmentResourceArgs', 'CrossAccountAttachmentResourceArgsDict', 'outputs.CrossAccountAttachmentResource']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -401,7 +401,7 @@ class CrossAccountAttachment(pulumi.CustomResource):
             last_modified_time: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrossAccountAttachmentResourceArgs', 'CrossAccountAttachmentResourceArgsDict']]]]] = None,
+            resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CrossAccountAttachmentResourceArgs', 'CrossAccountAttachmentResourceArgsDict', 'outputs.CrossAccountAttachmentResource']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'CrossAccountAttachment':
         """
@@ -418,7 +418,7 @@ class CrossAccountAttachment(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: List of AWS account IDs that are allowed to associate resources with the accelerator.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CrossAccountAttachmentResourceArgs', 'CrossAccountAttachmentResourceArgsDict']]]] resources: List of resources to be associated with the accelerator.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CrossAccountAttachmentResourceArgs', 'CrossAccountAttachmentResourceArgsDict', 'outputs.CrossAccountAttachmentResource']]]] resources: List of resources to be associated with the accelerator.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

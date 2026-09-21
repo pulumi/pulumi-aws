@@ -466,8 +466,8 @@ class Function(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  request_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
                  response_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
-                 runtime: pulumi.Input[Optional[Union['FunctionRuntimeArgs', 'FunctionRuntimeArgsDict']]] = None,
-                 sync_config: pulumi.Input[Optional[Union['FunctionSyncConfigArgs', 'FunctionSyncConfigArgsDict']]] = None,
+                 runtime: pulumi.Input[Optional[Union['FunctionRuntimeArgs', 'FunctionRuntimeArgsDict', 'outputs.FunctionRuntime']]] = None,
+                 sync_config: pulumi.Input[Optional[Union['FunctionSyncConfigArgs', 'FunctionSyncConfigArgsDict', 'outputs.FunctionSyncConfig']]] = None,
                  __props__=None):
         """
         Provides an AppSync Function.
@@ -500,12 +500,12 @@ class Function(pulumi.CustomResource):
         }
         \"\"\")
         example_data_source = aws.appsync.DataSource("example",
-            http_config={
-                "endpoint": "http://example.com",
-            },
             api_id=example.id,
             name="example",
-            type="HTTP")
+            type="HTTP",
+            http_config={
+                "endpoint": "http://example.com",
+            })
         example_function = aws.appsync.Function("example",
             api_id=example.id,
             data_source=example_data_source.name,
@@ -535,14 +535,14 @@ class Function(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.appsync.Function("example",
-            runtime={
-                "name": "APPSYNC_JS",
-                "runtime_version": "1.0.0",
-            },
             api_id=example_aws_appsync_graphql_api["id"],
             data_source=example_aws_appsync_datasource["name"],
             name="example",
-            code=std.file(input="some-code-dir").result)
+            code=std.file(input="some-code-dir").result,
+            runtime={
+                "name": "APPSYNC_JS",
+                "runtime_version": "1.0.0",
+            })
         ```
 
         ## Import
@@ -566,8 +566,8 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] request_mapping_template: Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         :param pulumi.Input[_builtins.str] response_mapping_template: Function response mapping template.
-        :param pulumi.Input[Union['FunctionRuntimeArgs', 'FunctionRuntimeArgsDict']] runtime: Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
-        :param pulumi.Input[Union['FunctionSyncConfigArgs', 'FunctionSyncConfigArgsDict']] sync_config: Sync configuration for a resolver. See `sync_config` Block for details.
+        :param pulumi.Input[Union['FunctionRuntimeArgs', 'FunctionRuntimeArgsDict', 'outputs.FunctionRuntime']] runtime: Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
+        :param pulumi.Input[Union['FunctionSyncConfigArgs', 'FunctionSyncConfigArgsDict', 'outputs.FunctionSyncConfig']] sync_config: Sync configuration for a resolver. See `sync_config` Block for details.
         """
         ...
     @overload
@@ -606,12 +606,12 @@ class Function(pulumi.CustomResource):
         }
         \"\"\")
         example_data_source = aws.appsync.DataSource("example",
-            http_config={
-                "endpoint": "http://example.com",
-            },
             api_id=example.id,
             name="example",
-            type="HTTP")
+            type="HTTP",
+            http_config={
+                "endpoint": "http://example.com",
+            })
         example_function = aws.appsync.Function("example",
             api_id=example.id,
             data_source=example_data_source.name,
@@ -641,14 +641,14 @@ class Function(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.appsync.Function("example",
-            runtime={
-                "name": "APPSYNC_JS",
-                "runtime_version": "1.0.0",
-            },
             api_id=example_aws_appsync_graphql_api["id"],
             data_source=example_aws_appsync_datasource["name"],
             name="example",
-            code=std.file(input="some-code-dir").result)
+            code=std.file(input="some-code-dir").result,
+            runtime={
+                "name": "APPSYNC_JS",
+                "runtime_version": "1.0.0",
+            })
         ```
 
         ## Import
@@ -685,8 +685,8 @@ class Function(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  request_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
                  response_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
-                 runtime: pulumi.Input[Optional[Union['FunctionRuntimeArgs', 'FunctionRuntimeArgsDict']]] = None,
-                 sync_config: pulumi.Input[Optional[Union['FunctionSyncConfigArgs', 'FunctionSyncConfigArgsDict']]] = None,
+                 runtime: pulumi.Input[Optional[Union['FunctionRuntimeArgs', 'FunctionRuntimeArgsDict', 'outputs.FunctionRuntime']]] = None,
+                 sync_config: pulumi.Input[Optional[Union['FunctionSyncConfigArgs', 'FunctionSyncConfigArgsDict', 'outputs.FunctionSyncConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -736,8 +736,8 @@ class Function(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             request_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
             response_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
-            runtime: pulumi.Input[Optional[Union['FunctionRuntimeArgs', 'FunctionRuntimeArgsDict']]] = None,
-            sync_config: pulumi.Input[Optional[Union['FunctionSyncConfigArgs', 'FunctionSyncConfigArgsDict']]] = None) -> 'Function':
+            runtime: pulumi.Input[Optional[Union['FunctionRuntimeArgs', 'FunctionRuntimeArgsDict', 'outputs.FunctionRuntime']]] = None,
+            sync_config: pulumi.Input[Optional[Union['FunctionSyncConfigArgs', 'FunctionSyncConfigArgsDict', 'outputs.FunctionSyncConfig']]] = None) -> 'Function':
         """
         Get an existing Function resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -757,8 +757,8 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] request_mapping_template: Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         :param pulumi.Input[_builtins.str] response_mapping_template: Function response mapping template.
-        :param pulumi.Input[Union['FunctionRuntimeArgs', 'FunctionRuntimeArgsDict']] runtime: Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
-        :param pulumi.Input[Union['FunctionSyncConfigArgs', 'FunctionSyncConfigArgsDict']] sync_config: Sync configuration for a resolver. See `sync_config` Block for details.
+        :param pulumi.Input[Union['FunctionRuntimeArgs', 'FunctionRuntimeArgsDict', 'outputs.FunctionRuntime']] runtime: Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
+        :param pulumi.Input[Union['FunctionSyncConfigArgs', 'FunctionSyncConfigArgsDict', 'outputs.FunctionSyncConfig']] sync_config: Sync configuration for a resolver. See `sync_config` Block for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

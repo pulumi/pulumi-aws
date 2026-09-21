@@ -214,9 +214,9 @@ class IdentityNotificationTopic(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.ses.IdentityNotificationTopic("test",
-            topic_arn=example["arn"],
+            topic_arn=example_aws_sns_topic["arn"],
             notification_type="Bounce",
-            identity=example_aws_ses_domain_identity["domain"],
+            identity=example["domain"],
             include_original_headers=True)
         ```
 
@@ -253,9 +253,9 @@ class IdentityNotificationTopic(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.ses.IdentityNotificationTopic("test",
-            topic_arn=example["arn"],
+            topic_arn=example_aws_sns_topic["arn"],
             notification_type="Bounce",
-            identity=example_aws_ses_domain_identity["domain"],
+            identity=example["domain"],
             include_original_headers=True)
         ```
 

@@ -36,6 +36,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     ///     var exampleKeyvaluestoreKeysExclusive = new Aws.CloudFront.KeyvaluestoreKeysExclusive("example", new()
     ///     {
+    ///         KeyValueStoreArn = example.Arn,
     ///         ResourceKeyValuePairs = new[]
     ///         {
     ///             new Aws.CloudFront.Inputs.KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs
@@ -44,7 +45,6 @@ namespace Pulumi.Aws.CloudFront
     ///                 Value = "Test Value",
     ///             },
     ///         },
-    ///         KeyValueStoreArn = example.Arn,
     ///     });
     /// 
     /// });

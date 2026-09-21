@@ -31,6 +31,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appfabric.NewAppAuthorization(ctx, "example", &appfabric.AppAuthorizationArgs{
+//				App:          pulumi.String("TERRAFORMCLOUD"),
+//				AppBundleArn: pulumi.Any(arn),
+//				AuthType:     pulumi.String("apiKey"),
 //				Credential: &appfabric.AppAuthorizationCredentialArgs{
 //					ApiKeyCredentials: appfabric.AppAuthorizationCredentialApiKeyCredentialArray{
 //						&appfabric.AppAuthorizationCredentialApiKeyCredentialArgs{
@@ -44,9 +47,6 @@ import (
 //						TenantIdentifier:  pulumi.String("example"),
 //					},
 //				},
-//				App:          pulumi.String("TERRAFORMCLOUD"),
-//				AppBundleArn: pulumi.Any(arn),
-//				AuthType:     pulumi.String("apiKey"),
 //			})
 //			if err != nil {
 //				return err

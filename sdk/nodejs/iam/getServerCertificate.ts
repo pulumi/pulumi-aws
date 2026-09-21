@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  *     latest: true,
  * });
  * const elb = new aws.elb.LoadBalancer("elb", {
+ *     name: "my-domain-elb",
  *     listeners: [{
  *         instancePort: 8000,
  *         instanceProtocol: "https",
@@ -25,7 +26,6 @@ import * as utilities from "../utilities";
  *         lbProtocol: "https",
  *         sslCertificateId: my_domain.then(my_domain => my_domain.arn),
  *     }],
- *     name: "my-domain-elb",
  * });
  * ```
  */
@@ -113,6 +113,7 @@ export interface GetServerCertificateResult {
  *     latest: true,
  * });
  * const elb = new aws.elb.LoadBalancer("elb", {
+ *     name: "my-domain-elb",
  *     listeners: [{
  *         instancePort: 8000,
  *         instanceProtocol: "https",
@@ -120,7 +121,6 @@ export interface GetServerCertificateResult {
  *         lbProtocol: "https",
  *         sslCertificateId: my_domain.then(my_domain => my_domain.arn),
  *     }],
- *     name: "my-domain-elb",
  * });
  * ```
  */

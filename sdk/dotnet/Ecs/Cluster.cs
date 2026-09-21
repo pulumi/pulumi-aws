@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var foo = new Aws.Ecs.Cluster("foo", new()
     ///     {
+    ///         Name = "white-hart",
     ///         Settings = new[]
     ///         {
     ///             new Aws.Ecs.Inputs.ClusterSettingArgs
@@ -32,7 +33,6 @@ namespace Pulumi.Aws.Ecs
     ///                 Value = "enabled",
     ///             },
     ///         },
-    ///         Name = "white-hart",
     ///     });
     /// 
     /// });
@@ -61,20 +61,20 @@ namespace Pulumi.Aws.Ecs
     /// 
     ///     var test = new Aws.Ecs.Cluster("test", new()
     ///     {
+    ///         Name = "example",
     ///         Configuration = new Aws.Ecs.Inputs.ClusterConfigurationArgs
     ///         {
     ///             ExecuteCommandConfiguration = new Aws.Ecs.Inputs.ClusterConfigurationExecuteCommandConfigurationArgs
     ///             {
+    ///                 KmsKeyId = example.Arn,
+    ///                 Logging = "OVERRIDE",
     ///                 LogConfiguration = new Aws.Ecs.Inputs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs
     ///                 {
     ///                     CloudWatchEncryptionEnabled = true,
     ///                     CloudWatchLogGroupName = exampleLogGroup.Name,
     ///                 },
-    ///                 KmsKeyId = example.Arn,
-    ///                 Logging = "OVERRIDE",
     ///             },
     ///         },
-    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -188,6 +188,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     ///     var test = new Aws.Ecs.Cluster("test", new()
     ///     {
+    ///         Name = "example",
     ///         Configuration = new Aws.Ecs.Inputs.ClusterConfigurationArgs
     ///         {
     ///             ManagedStorageConfiguration = new Aws.Ecs.Inputs.ClusterConfigurationManagedStorageConfigurationArgs
@@ -195,7 +196,6 @@ namespace Pulumi.Aws.Ecs
     ///                 FargateEphemeralStorageKmsKeyId = example.Arn,
     ///             },
     ///         },
-    ///         Name = "example",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

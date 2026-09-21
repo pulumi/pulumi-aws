@@ -36,9 +36,7 @@ import (
 //			}
 //			exampleRepository, err := codecommit.NewRepository(ctx, "example", &codecommit.RepositoryArgs{
 //				RepositoryName: pulumi.String("example-repo"),
-//			}, pulumi.IgnoreChanges([]string{
-//				"tags[\"codeguru-reviewer\"]",
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

@@ -298,13 +298,13 @@ class AgentcoreRegistry(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 approval_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreRegistryApprovalConfigurationArgs', 'AgentcoreRegistryApprovalConfigurationArgsDict']]]]] = None,
-                 authorizer_configuration: pulumi.Input[Optional[Union['AgentcoreRegistryAuthorizerConfigurationArgs', 'AgentcoreRegistryAuthorizerConfigurationArgsDict']]] = None,
+                 approval_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreRegistryApprovalConfigurationArgs', 'AgentcoreRegistryApprovalConfigurationArgsDict', 'outputs.AgentcoreRegistryApprovalConfiguration']]]]] = None,
+                 authorizer_configuration: pulumi.Input[Optional[Union['AgentcoreRegistryAuthorizerConfigurationArgs', 'AgentcoreRegistryAuthorizerConfigurationArgsDict', 'outputs.AgentcoreRegistryAuthorizerConfiguration']]] = None,
                  authorizer_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentcoreRegistryTimeoutsArgs', 'AgentcoreRegistryTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcoreRegistryTimeoutsArgs', 'AgentcoreRegistryTimeoutsArgsDict', 'outputs.AgentcoreRegistryTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS Bedrock AgentCore Registry. A registry serves as a centralized catalog for organizing and managing registry records, including MCP servers, A2A agents, agent skills, and custom resource types.
@@ -341,15 +341,15 @@ class AgentcoreRegistry(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreRegistry("example",
+            name="example_registry",
+            authorizer_type="CUSTOM_JWT",
             authorizer_configuration={
                 "custom_jwt_authorizer": {
                     "discovery_url": "https://example.okta.com/.well-known/openid-configuration",
                     "allowed_audiences": ["audience-id"],
                     "allowed_clients": ["client-id"],
                 },
-            },
-            name="example_registry",
-            authorizer_type="CUSTOM_JWT")
+            })
         ```
 
         ## Import
@@ -374,8 +374,8 @@ class AgentcoreRegistry(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreRegistryApprovalConfigurationArgs', 'AgentcoreRegistryApprovalConfigurationArgsDict']]]] approval_configurations: Approval configuration for registry records. See below.
-        :param pulumi.Input[Union['AgentcoreRegistryAuthorizerConfigurationArgs', 'AgentcoreRegistryAuthorizerConfigurationArgsDict']] authorizer_configuration: Authorizer configuration for the registry. Required when `authorizer_type` is `CUSTOM_JWT`. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreRegistryApprovalConfigurationArgs', 'AgentcoreRegistryApprovalConfigurationArgsDict', 'outputs.AgentcoreRegistryApprovalConfiguration']]]] approval_configurations: Approval configuration for registry records. See below.
+        :param pulumi.Input[Union['AgentcoreRegistryAuthorizerConfigurationArgs', 'AgentcoreRegistryAuthorizerConfigurationArgsDict', 'outputs.AgentcoreRegistryAuthorizerConfiguration']] authorizer_configuration: Authorizer configuration for the registry. Required when `authorizer_type` is `CUSTOM_JWT`. See below.
         :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use for the registry. Valid values are `AWS_IAM` (default) and `CUSTOM_JWT`. This controls the authorization method for the Search and Invoke APIs used by consumers.
         :param pulumi.Input[_builtins.str] description: Description of the registry.
         :param pulumi.Input[_builtins.str] name: Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
@@ -424,15 +424,15 @@ class AgentcoreRegistry(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreRegistry("example",
+            name="example_registry",
+            authorizer_type="CUSTOM_JWT",
             authorizer_configuration={
                 "custom_jwt_authorizer": {
                     "discovery_url": "https://example.okta.com/.well-known/openid-configuration",
                     "allowed_audiences": ["audience-id"],
                     "allowed_clients": ["client-id"],
                 },
-            },
-            name="example_registry",
-            authorizer_type="CUSTOM_JWT")
+            })
         ```
 
         ## Import
@@ -470,13 +470,13 @@ class AgentcoreRegistry(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 approval_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreRegistryApprovalConfigurationArgs', 'AgentcoreRegistryApprovalConfigurationArgsDict']]]]] = None,
-                 authorizer_configuration: pulumi.Input[Optional[Union['AgentcoreRegistryAuthorizerConfigurationArgs', 'AgentcoreRegistryAuthorizerConfigurationArgsDict']]] = None,
+                 approval_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreRegistryApprovalConfigurationArgs', 'AgentcoreRegistryApprovalConfigurationArgsDict', 'outputs.AgentcoreRegistryApprovalConfiguration']]]]] = None,
+                 authorizer_configuration: pulumi.Input[Optional[Union['AgentcoreRegistryAuthorizerConfigurationArgs', 'AgentcoreRegistryAuthorizerConfigurationArgsDict', 'outputs.AgentcoreRegistryAuthorizerConfiguration']]] = None,
                  authorizer_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentcoreRegistryTimeoutsArgs', 'AgentcoreRegistryTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcoreRegistryTimeoutsArgs', 'AgentcoreRegistryTimeoutsArgsDict', 'outputs.AgentcoreRegistryTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -505,15 +505,15 @@ class AgentcoreRegistry(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            approval_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreRegistryApprovalConfigurationArgs', 'AgentcoreRegistryApprovalConfigurationArgsDict']]]]] = None,
-            authorizer_configuration: pulumi.Input[Optional[Union['AgentcoreRegistryAuthorizerConfigurationArgs', 'AgentcoreRegistryAuthorizerConfigurationArgsDict']]] = None,
+            approval_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreRegistryApprovalConfigurationArgs', 'AgentcoreRegistryApprovalConfigurationArgsDict', 'outputs.AgentcoreRegistryApprovalConfiguration']]]]] = None,
+            authorizer_configuration: pulumi.Input[Optional[Union['AgentcoreRegistryAuthorizerConfigurationArgs', 'AgentcoreRegistryAuthorizerConfigurationArgsDict', 'outputs.AgentcoreRegistryAuthorizerConfiguration']]] = None,
             authorizer_type: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             registry_arn: pulumi.Input[Optional[_builtins.str]] = None,
             registry_id: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['AgentcoreRegistryTimeoutsArgs', 'AgentcoreRegistryTimeoutsArgsDict']]] = None) -> 'AgentcoreRegistry':
+            timeouts: pulumi.Input[Optional[Union['AgentcoreRegistryTimeoutsArgs', 'AgentcoreRegistryTimeoutsArgsDict', 'outputs.AgentcoreRegistryTimeouts']]] = None) -> 'AgentcoreRegistry':
         """
         Get an existing AgentcoreRegistry resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -521,8 +521,8 @@ class AgentcoreRegistry(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreRegistryApprovalConfigurationArgs', 'AgentcoreRegistryApprovalConfigurationArgsDict']]]] approval_configurations: Approval configuration for registry records. See below.
-        :param pulumi.Input[Union['AgentcoreRegistryAuthorizerConfigurationArgs', 'AgentcoreRegistryAuthorizerConfigurationArgsDict']] authorizer_configuration: Authorizer configuration for the registry. Required when `authorizer_type` is `CUSTOM_JWT`. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreRegistryApprovalConfigurationArgs', 'AgentcoreRegistryApprovalConfigurationArgsDict', 'outputs.AgentcoreRegistryApprovalConfiguration']]]] approval_configurations: Approval configuration for registry records. See below.
+        :param pulumi.Input[Union['AgentcoreRegistryAuthorizerConfigurationArgs', 'AgentcoreRegistryAuthorizerConfigurationArgsDict', 'outputs.AgentcoreRegistryAuthorizerConfiguration']] authorizer_configuration: Authorizer configuration for the registry. Required when `authorizer_type` is `CUSTOM_JWT`. See below.
         :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use for the registry. Valid values are `AWS_IAM` (default) and `CUSTOM_JWT`. This controls the authorization method for the Search and Invoke APIs used by consumers.
         :param pulumi.Input[_builtins.str] description: Description of the registry.
         :param pulumi.Input[_builtins.str] name: Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.

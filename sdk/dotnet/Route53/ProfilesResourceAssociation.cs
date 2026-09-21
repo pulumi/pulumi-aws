@@ -36,6 +36,7 @@ namespace Pulumi.Aws.Route53
     /// 
     ///     var exampleZone = new Aws.Route53.Zone("example", new()
     ///     {
+    ///         Name = "example.com",
     ///         Vpcs = new[]
     ///         {
     ///             new Aws.Route53.Inputs.ZoneVpcArgs
@@ -43,7 +44,6 @@ namespace Pulumi.Aws.Route53
     ///                 VpcId = exampleVpc.Id,
     ///             },
     ///         },
-    ///         Name = "example.com",
     ///     });
     /// 
     ///     var exampleProfilesResourceAssociation = new Aws.Route53.ProfilesResourceAssociation("example", new()

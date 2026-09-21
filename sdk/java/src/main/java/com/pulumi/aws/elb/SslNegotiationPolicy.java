@@ -51,6 +51,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var lb = new LoadBalancer("lb", LoadBalancerArgs.builder()
+ *             .name("test-lb")
+ *             .availabilityZones("us-east-1a")
  *             .listeners(LoadBalancerListenerArgs.builder()
  *                 .instancePort(8000)
  *                 .instanceProtocol("https")
@@ -58,11 +60,12 @@ import javax.annotation.Nullable;
  *                 .lbProtocol("https")
  *                 .sslCertificateId("arn:aws:iam::123456789012:server-certificate/certName")
  *                 .build())
- *             .name("test-lb")
- *             .availabilityZones("us-east-1a")
  *             .build());
  * 
  *         var foo = new SslNegotiationPolicy("foo", SslNegotiationPolicyArgs.builder()
+ *             .name("foo-policy")
+ *             .loadBalancer(lb.id())
+ *             .lbPort(443)
  *             .attributes(            
  *                 SslNegotiationPolicyAttributeArgs.builder()
  *                     .name("Protocol-TLSv1")
@@ -92,9 +95,6 @@ import javax.annotation.Nullable;
  *                     .name("EDH-RSA-DES-CBC3-SHA")
  *                     .value("false")
  *                     .build())
- *             .name("foo-policy")
- *             .loadBalancer(lb.id())
- *             .lbPort(443)
  *             .build());
  * 
  *     }

@@ -31,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewTrustStore(ctx, "example", &cloudfront.TrustStoreArgs{
+//				Name: pulumi.String("example-trust-store"),
 //				CaCertificatesBundleSource: &cloudfront.TrustStoreCaCertificatesBundleSourceArgs{
 //					CaCertificatesBundleS3Location: &cloudfront.TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs{
 //						Bucket: pulumi.String("example-bucket"),
@@ -38,7 +39,6 @@ import (
 //						Region: pulumi.String("us-east-1"),
 //					},
 //				},
-//				Name: pulumi.String("example-trust-store"),
 //			})
 //			if err != nil {
 //				return err
@@ -64,6 +64,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewTrustStore(ctx, "example", &cloudfront.TrustStoreArgs{
+//				Name: pulumi.String("example-trust-store"),
 //				CaCertificatesBundleSource: &cloudfront.TrustStoreCaCertificatesBundleSourceArgs{
 //					CaCertificatesBundleS3Location: &cloudfront.TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs{
 //						Bucket:  pulumi.String("example-bucket"),
@@ -72,7 +73,6 @@ import (
 //						Version: pulumi.String("abc123"),
 //					},
 //				},
-//				Name: pulumi.String("example-trust-store"),
 //			})
 //			if err != nil {
 //				return err

@@ -38,6 +38,8 @@ namespace Pulumi.Aws.MskConnect
     /// 
     ///     var exampleCustomPlugin = new Aws.MskConnect.CustomPlugin("example", new()
     ///     {
+    ///         Name = "debezium-example",
+    ///         ContentType = "ZIP",
     ///         Location = new Aws.MskConnect.Inputs.CustomPluginLocationArgs
     ///         {
     ///             S3 = new Aws.MskConnect.Inputs.CustomPluginLocationS3Args
@@ -46,8 +48,6 @@ namespace Pulumi.Aws.MskConnect
     ///                 FileKey = exampleBucketObjectv2.Key,
     ///             },
     ///         },
-    ///         Name = "debezium-example",
-    ///         ContentType = "ZIP",
     ///     });
     /// 
     /// });

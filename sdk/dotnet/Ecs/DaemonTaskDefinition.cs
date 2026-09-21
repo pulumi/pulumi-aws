@@ -26,6 +26,9 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var example = new Aws.Ecs.DaemonTaskDefinition("example", new()
     ///     {
+    ///         Family = "my-daemon-service",
+    ///         Cpu = "512",
+    ///         Memory = "1024",
     ///         ContainerDefinitions = new[]
     ///         {
     ///             new Aws.Ecs.Inputs.DaemonTaskDefinitionContainerDefinitionArgs
@@ -37,9 +40,6 @@ namespace Pulumi.Aws.Ecs
     ///                 Essential = true,
     ///             },
     ///         },
-    ///         Family = "my-daemon-service",
-    ///         Cpu = "512",
-    ///         Memory = "1024",
     ///     });
     /// 
     /// });
@@ -100,6 +100,11 @@ namespace Pulumi.Aws.Ecs
     /// 
     ///     var example = new Aws.Ecs.DaemonTaskDefinition("example", new()
     ///     {
+    ///         Family = "my-daemon-service",
+    ///         ExecutionRoleArn = taskExecution.Arn,
+    ///         TaskRoleArn = task.Arn,
+    ///         Cpu = "512",
+    ///         Memory = "1024",
     ///         ContainerDefinitions = new[]
     ///         {
     ///             new Aws.Ecs.Inputs.DaemonTaskDefinitionContainerDefinitionArgs
@@ -111,11 +116,6 @@ namespace Pulumi.Aws.Ecs
     ///                 Essential = true,
     ///             },
     ///         },
-    ///         Family = "my-daemon-service",
-    ///         ExecutionRoleArn = taskExecution.Arn,
-    ///         TaskRoleArn = task.Arn,
-    ///         Cpu = "512",
-    ///         Memory = "1024",
     ///     });
     /// 
     /// });
@@ -133,6 +133,9 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var example = new Aws.Ecs.DaemonTaskDefinition("example", new()
     ///     {
+    ///         Family = "my-daemon-service",
+    ///         Cpu = "512",
+    ///         Memory = "1024",
     ///         ContainerDefinitions = new[]
     ///         {
     ///             new Aws.Ecs.Inputs.DaemonTaskDefinitionContainerDefinitionArgs
@@ -148,6 +151,7 @@ namespace Pulumi.Aws.Ecs
     ///         {
     ///             new Aws.Ecs.Inputs.DaemonTaskDefinitionVolumeArgs
     ///             {
+    ///                 Name = "data-volume",
     ///                 Hosts = new[]
     ///                 {
     ///                     new Aws.Ecs.Inputs.DaemonTaskDefinitionVolumeHostArgs
@@ -155,10 +159,10 @@ namespace Pulumi.Aws.Ecs
     ///                         SourcePath = "/data",
     ///                     },
     ///                 },
-    ///                 Name = "data-volume",
     ///             },
     ///             new Aws.Ecs.Inputs.DaemonTaskDefinitionVolumeArgs
     ///             {
+    ///                 Name = "logs-volume",
     ///                 Hosts = new[]
     ///                 {
     ///                     new Aws.Ecs.Inputs.DaemonTaskDefinitionVolumeHostArgs
@@ -166,12 +170,8 @@ namespace Pulumi.Aws.Ecs
     ///                         SourcePath = "/var/log",
     ///                     },
     ///                 },
-    ///                 Name = "logs-volume",
     ///             },
     ///         },
-    ///         Family = "my-daemon-service",
-    ///         Cpu = "512",
-    ///         Memory = "1024",
     ///     });
     /// 
     /// });
@@ -189,6 +189,9 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var example = new Aws.Ecs.DaemonTaskDefinition("example", new()
     ///     {
+    ///         Family = "my-daemon-service",
+    ///         Cpu = "512",
+    ///         Memory = "1024",
     ///         ContainerDefinitions = new[]
     ///         {
     ///             new Aws.Ecs.Inputs.DaemonTaskDefinitionContainerDefinitionArgs
@@ -208,9 +211,6 @@ namespace Pulumi.Aws.Ecs
     ///                 Essential = false,
     ///             },
     ///         },
-    ///         Family = "my-daemon-service",
-    ///         Cpu = "512",
-    ///         Memory = "1024",
     ///     });
     /// 
     /// });

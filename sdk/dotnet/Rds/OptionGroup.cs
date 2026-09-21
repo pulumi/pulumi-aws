@@ -29,10 +29,15 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var example = new Aws.Rds.OptionGroup("example", new()
     ///     {
+    ///         Name = "option-group-test",
+    ///         OptionGroupDescription = "Option Group",
+    ///         EngineName = "sqlserver-ee",
+    ///         MajorEngineVersion = "11.00",
     ///         Options = new[]
     ///         {
     ///             new Aws.Rds.Inputs.OptionGroupOptionArgs
     ///             {
+    ///                 OptionName = "Timezone",
     ///                 OptionSettings = new[]
     ///                 {
     ///                     new Aws.Rds.Inputs.OptionGroupOptionOptionSettingArgs
@@ -41,10 +46,10 @@ namespace Pulumi.Aws.Rds
     ///                         Value = "UTC",
     ///                     },
     ///                 },
-    ///                 OptionName = "Timezone",
     ///             },
     ///             new Aws.Rds.Inputs.OptionGroupOptionArgs
     ///             {
+    ///                 OptionName = "SQLSERVER_BACKUP_RESTORE",
     ///                 OptionSettings = new[]
     ///                 {
     ///                     new Aws.Rds.Inputs.OptionGroupOptionOptionSettingArgs
@@ -53,17 +58,12 @@ namespace Pulumi.Aws.Rds
     ///                         Value = exampleAwsIamRole.Arn,
     ///                     },
     ///                 },
-    ///                 OptionName = "SQLSERVER_BACKUP_RESTORE",
     ///             },
     ///             new Aws.Rds.Inputs.OptionGroupOptionArgs
     ///             {
     ///                 OptionName = "TDE",
     ///             },
     ///         },
-    ///         Name = "option-group-test",
-    ///         OptionGroupDescription = "Option Group",
-    ///         EngineName = "sqlserver-ee",
-    ///         MajorEngineVersion = "11.00",
     ///     });
     /// 
     /// });

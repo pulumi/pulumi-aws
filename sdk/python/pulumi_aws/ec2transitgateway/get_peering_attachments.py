@@ -81,7 +81,7 @@ class AwaitableGetPeeringAttachmentsResult(GetPeeringAttachmentsResult):
             region=self.region)
 
 
-def get_peering_attachments(filters: Optional[Sequence[Union['GetPeeringAttachmentsFilterArgs', 'GetPeeringAttachmentsFilterArgsDict']]] = None,
+def get_peering_attachments(filters: Optional[Sequence[Union['GetPeeringAttachmentsFilterArgs', 'GetPeeringAttachmentsFilterArgsDict', 'outputs.GetPeeringAttachmentsFilterResult']]] = None,
                             region: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeeringAttachmentsResult:
     """
@@ -112,7 +112,7 @@ def get_peering_attachments(filters: Optional[Sequence[Union['GetPeeringAttachme
     ```
 
 
-    :param Sequence[Union['GetPeeringAttachmentsFilterArgs', 'GetPeeringAttachmentsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetPeeringAttachmentsFilterArgs', 'GetPeeringAttachmentsFilterArgsDict', 'outputs.GetPeeringAttachmentsFilterResult']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -126,7 +126,7 @@ def get_peering_attachments(filters: Optional[Sequence[Union['GetPeeringAttachme
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
         region=pulumi.get(__ret__, 'region'))
-def get_peering_attachments_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetPeeringAttachmentsFilterArgs', 'GetPeeringAttachmentsFilterArgsDict']]]]] = None,
+def get_peering_attachments_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetPeeringAttachmentsFilterArgs', 'GetPeeringAttachmentsFilterArgsDict', 'outputs.GetPeeringAttachmentsFilterResult']]]]] = None,
                                    region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPeeringAttachmentsResult]:
     """
@@ -157,7 +157,7 @@ def get_peering_attachments_output(filters: pulumi.Input[Optional[Optional[Seque
     ```
 
 
-    :param Sequence[Union['GetPeeringAttachmentsFilterArgs', 'GetPeeringAttachmentsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetPeeringAttachmentsFilterArgs', 'GetPeeringAttachmentsFilterArgsDict', 'outputs.GetPeeringAttachmentsFilterResult']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

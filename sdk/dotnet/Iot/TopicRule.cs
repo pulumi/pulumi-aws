@@ -34,15 +34,11 @@ namespace Pulumi.Aws.Iot
     /// 
     ///     var rule = new Aws.Iot.TopicRule("rule", new()
     ///     {
-    ///         ErrorAction = new Aws.Iot.Inputs.TopicRuleErrorActionArgs
-    ///         {
-    ///             Sns = new Aws.Iot.Inputs.TopicRuleErrorActionSnsArgs
-    ///             {
-    ///                 MessageFormat = "RAW",
-    ///                 RoleArn = role.Arn,
-    ///                 TargetArn = myerrortopic.Arn,
-    ///             },
-    ///         },
+    ///         Name = "MyRule",
+    ///         Description = "Example rule",
+    ///         Enabled = true,
+    ///         Sql = "SELECT * FROM 'topic/test'",
+    ///         SqlVersion = "2016-03-23",
     ///         Sns = new[]
     ///         {
     ///             new Aws.Iot.Inputs.TopicRuleSnsArgs
@@ -52,11 +48,15 @@ namespace Pulumi.Aws.Iot
     ///                 TargetArn = mytopic.Arn,
     ///             },
     ///         },
-    ///         Name = "MyRule",
-    ///         Description = "Example rule",
-    ///         Enabled = true,
-    ///         Sql = "SELECT * FROM 'topic/test'",
-    ///         SqlVersion = "2016-03-23",
+    ///         ErrorAction = new Aws.Iot.Inputs.TopicRuleErrorActionArgs
+    ///         {
+    ///             Sns = new Aws.Iot.Inputs.TopicRuleErrorActionSnsArgs
+    ///             {
+    ///                 MessageFormat = "RAW",
+    ///                 RoleArn = role.Arn,
+    ///                 TargetArn = myerrortopic.Arn,
+    ///             },
+    ///         },
     ///     });
     /// 
     ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -65,6 +65,7 @@ namespace Pulumi.Aws.Iot
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -76,7 +77,6 @@ namespace Pulumi.Aws.Iot
     ///                         },
     ///                     },
     ///                 },
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",

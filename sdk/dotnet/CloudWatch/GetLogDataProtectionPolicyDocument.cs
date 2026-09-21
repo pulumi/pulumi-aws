@@ -28,10 +28,17 @@ namespace Pulumi.Aws.CloudWatch
         /// {
         ///     var example = Aws.CloudWatch.GetLogDataProtectionPolicyDocument.Invoke(new()
         ///     {
+        ///         Name = "Example",
         ///         Statements = new[]
         ///         {
         ///             new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementInputArgs
         ///             {
+        ///                 Sid = "Audit",
+        ///                 DataIdentifiers = new[]
+        ///                 {
+        ///                     "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+        ///                     "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
+        ///                 },
         ///                 Operation = new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementOperationInputArgs
         ///                 {
         ///                     Audit = new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditInputArgs
@@ -53,15 +60,15 @@ namespace Pulumi.Aws.CloudWatch
         ///                         },
         ///                     },
         ///                 },
-        ///                 Sid = "Audit",
+        ///             },
+        ///             new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "Deidentify",
         ///                 DataIdentifiers = new[]
         ///                 {
         ///                     "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
         ///                     "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
         ///                 },
-        ///             },
-        ///             new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementInputArgs
-        ///             {
         ///                 Operation = new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementOperationInputArgs
         ///                 {
         ///                     Deidentify = new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyInputArgs
@@ -69,15 +76,8 @@ namespace Pulumi.Aws.CloudWatch
         ///                         MaskConfig = null,
         ///                     },
         ///                 },
-        ///                 Sid = "Deidentify",
-        ///                 DataIdentifiers = new[]
-        ///                 {
-        ///                     "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-        ///                     "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
-        ///                 },
         ///             },
         ///         },
-        ///         Name = "Example",
         ///     });
         /// 
         ///     var exampleLogDataProtectionPolicy = new Aws.CloudWatch.LogDataProtectionPolicy("example", new()
@@ -109,10 +109,17 @@ namespace Pulumi.Aws.CloudWatch
         /// {
         ///     var example = Aws.CloudWatch.GetLogDataProtectionPolicyDocument.Invoke(new()
         ///     {
+        ///         Name = "Example",
         ///         Statements = new[]
         ///         {
         ///             new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementInputArgs
         ///             {
+        ///                 Sid = "Audit",
+        ///                 DataIdentifiers = new[]
+        ///                 {
+        ///                     "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+        ///                     "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
+        ///                 },
         ///                 Operation = new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementOperationInputArgs
         ///                 {
         ///                     Audit = new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditInputArgs
@@ -134,15 +141,15 @@ namespace Pulumi.Aws.CloudWatch
         ///                         },
         ///                     },
         ///                 },
-        ///                 Sid = "Audit",
+        ///             },
+        ///             new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "Deidentify",
         ///                 DataIdentifiers = new[]
         ///                 {
         ///                     "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
         ///                     "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
         ///                 },
-        ///             },
-        ///             new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementInputArgs
-        ///             {
         ///                 Operation = new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementOperationInputArgs
         ///                 {
         ///                     Deidentify = new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyInputArgs
@@ -150,15 +157,8 @@ namespace Pulumi.Aws.CloudWatch
         ///                         MaskConfig = null,
         ///                     },
         ///                 },
-        ///                 Sid = "Deidentify",
-        ///                 DataIdentifiers = new[]
-        ///                 {
-        ///                     "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-        ///                     "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
-        ///                 },
         ///             },
         ///         },
-        ///         Name = "Example",
         ///     });
         /// 
         ///     var exampleLogDataProtectionPolicy = new Aws.CloudWatch.LogDataProtectionPolicy("example", new()
@@ -190,10 +190,17 @@ namespace Pulumi.Aws.CloudWatch
         /// {
         ///     var example = Aws.CloudWatch.GetLogDataProtectionPolicyDocument.Invoke(new()
         ///     {
+        ///         Name = "Example",
         ///         Statements = new[]
         ///         {
         ///             new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementInputArgs
         ///             {
+        ///                 Sid = "Audit",
+        ///                 DataIdentifiers = new[]
+        ///                 {
+        ///                     "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+        ///                     "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
+        ///                 },
         ///                 Operation = new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementOperationInputArgs
         ///                 {
         ///                     Audit = new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditInputArgs
@@ -215,15 +222,15 @@ namespace Pulumi.Aws.CloudWatch
         ///                         },
         ///                     },
         ///                 },
-        ///                 Sid = "Audit",
+        ///             },
+        ///             new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "Deidentify",
         ///                 DataIdentifiers = new[]
         ///                 {
         ///                     "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
         ///                     "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
         ///                 },
-        ///             },
-        ///             new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementInputArgs
-        ///             {
         ///                 Operation = new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementOperationInputArgs
         ///                 {
         ///                     Deidentify = new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyInputArgs
@@ -231,15 +238,8 @@ namespace Pulumi.Aws.CloudWatch
         ///                         MaskConfig = null,
         ///                     },
         ///                 },
-        ///                 Sid = "Deidentify",
-        ///                 DataIdentifiers = new[]
-        ///                 {
-        ///                     "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-        ///                     "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
-        ///                 },
         ///             },
         ///         },
-        ///         Name = "Example",
         ///     });
         /// 
         ///     var exampleLogDataProtectionPolicy = new Aws.CloudWatch.LogDataProtectionPolicy("example", new()

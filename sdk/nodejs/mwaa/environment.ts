@@ -21,13 +21,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.mwaa.Environment("example", {
+ *     dagS3Path: "dags/",
+ *     executionRoleArn: exampleAwsIamRole.arn,
+ *     name: "example",
  *     networkConfiguration: {
  *         securityGroupIds: [exampleAwsSecurityGroup.id],
  *         subnetIds: _private.map(__item => __item.id),
  *     },
- *     dagS3Path: "dags/",
- *     executionRoleArn: exampleAwsIamRole.arn,
- *     name: "example",
  *     sourceBucketArn: exampleAwsS3Bucket.arn,
  * });
  * ```
@@ -39,10 +39,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.mwaa.Environment("example", {
- *     networkConfiguration: {
- *         securityGroupIds: [exampleAwsSecurityGroup.id],
- *         subnetIds: _private.map(__item => __item.id),
- *     },
  *     airflowConfigurationOptions: {
  *         "core.default_task_retries": "16",
  *         "core.parallelism": "1",
@@ -50,6 +46,10 @@ import * as utilities from "../utilities";
  *     dagS3Path: "dags/",
  *     executionRoleArn: exampleAwsIamRole.arn,
  *     name: "example",
+ *     networkConfiguration: {
+ *         securityGroupIds: [exampleAwsSecurityGroup.id],
+ *         subnetIds: _private.map(__item => __item.id),
+ *     },
  *     sourceBucketArn: exampleAwsS3Bucket.arn,
  * });
  * ```
@@ -63,6 +63,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.mwaa.Environment("example", {
+ *     dagS3Path: "dags/",
+ *     executionRoleArn: exampleAwsIamRole.arn,
  *     loggingConfiguration: {
  *         dagProcessingLogs: {
  *             enabled: true,
@@ -85,13 +87,11 @@ import * as utilities from "../utilities";
  *             logLevel: "CRITICAL",
  *         },
  *     },
+ *     name: "example",
  *     networkConfiguration: {
  *         securityGroupIds: [exampleAwsSecurityGroup.id],
  *         subnetIds: _private.map(__item => __item.id),
  *     },
- *     dagS3Path: "dags/",
- *     executionRoleArn: exampleAwsIamRole.arn,
- *     name: "example",
  *     sourceBucketArn: exampleAwsS3Bucket.arn,
  * });
  * ```
@@ -103,13 +103,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.mwaa.Environment("example", {
+ *     dagS3Path: "dags/",
+ *     executionRoleArn: exampleAwsIamRole.arn,
+ *     name: "example",
  *     networkConfiguration: {
  *         securityGroupIds: [exampleAwsSecurityGroup.id],
  *         subnetIds: _private.map(__item => __item.id),
  *     },
- *     dagS3Path: "dags/",
- *     executionRoleArn: exampleAwsIamRole.arn,
- *     name: "example",
  *     sourceBucketArn: exampleAwsS3Bucket.arn,
  *     tags: {
  *         Name: "example",

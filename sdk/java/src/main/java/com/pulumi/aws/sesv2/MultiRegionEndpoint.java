@@ -51,12 +51,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new MultiRegionEndpoint("example", MultiRegionEndpointArgs.builder()
+ *             .endpointName("example")
  *             .details(MultiRegionEndpointDetailsArgs.builder()
  *                 .routesDetails(MultiRegionEndpointDetailsRoutesDetailsArgs.builder()
  *                     .region("example-alternate-region")
  *                     .build())
  *                 .build())
- *             .endpointName("example")
  *             .build());
  * 
  *     }

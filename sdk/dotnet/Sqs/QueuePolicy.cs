@@ -37,18 +37,8 @@ namespace Pulumi.Aws.Sqs
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "ArnEquals",
-    ///                         Variable = "aws:SourceArn",
-    ///                         Values = new[]
-    ///                         {
-    ///                             example.Arn,
-    ///                         },
-    ///                     },
-    ///                 },
+    ///                 Sid = "First",
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -60,8 +50,6 @@ namespace Pulumi.Aws.Sqs
     ///                         },
     ///                     },
     ///                 },
-    ///                 Sid = "First",
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sqs:SendMessage",
@@ -69,6 +57,18 @@ namespace Pulumi.Aws.Sqs
     ///                 Resources = new[]
     ///                 {
     ///                     q.Arn,
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "ArnEquals",
+    ///                         Variable = "aws:SourceArn",
+    ///                         Values = new[]
+    ///                         {
+    ///                             example.Arn,
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
     ///         },

@@ -184,7 +184,7 @@ class BucketAbac(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 abac_status: pulumi.Input[Optional[Union['BucketAbacAbacStatusArgs', 'BucketAbacAbacStatusArgsDict']]] = None,
+                 abac_status: pulumi.Input[Optional[Union['BucketAbacAbacStatusArgs', 'BucketAbacAbacStatusArgsDict', 'outputs.BucketAbacAbacStatus']]] = None,
                  bucket: pulumi.Input[Optional[_builtins.str]] = None,
                  expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -203,10 +203,10 @@ class BucketAbac(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="bucket-name")
         example_bucket_abac = aws.s3.BucketAbac("example",
+            bucket=example.bucket,
             abac_status={
                 "status": "Enabled",
-            },
-            bucket=example.bucket)
+            })
         ```
 
         ## Import
@@ -230,7 +230,7 @@ class BucketAbac(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['BucketAbacAbacStatusArgs', 'BucketAbacAbacStatusArgsDict']] abac_status: ABAC status configuration. See `abac_status` Block for details.
+        :param pulumi.Input[Union['BucketAbacAbacStatusArgs', 'BucketAbacAbacStatusArgsDict', 'outputs.BucketAbacAbacStatus']] abac_status: ABAC status configuration. See `abac_status` Block for details.
         :param pulumi.Input[_builtins.str] bucket: General purpose bucket that you want to create the metadata configuration for.
                
                The following arguments are optional:
@@ -257,10 +257,10 @@ class BucketAbac(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="bucket-name")
         example_bucket_abac = aws.s3.BucketAbac("example",
+            bucket=example.bucket,
             abac_status={
                 "status": "Enabled",
-            },
-            bucket=example.bucket)
+            })
         ```
 
         ## Import
@@ -297,7 +297,7 @@ class BucketAbac(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 abac_status: pulumi.Input[Optional[Union['BucketAbacAbacStatusArgs', 'BucketAbacAbacStatusArgsDict']]] = None,
+                 abac_status: pulumi.Input[Optional[Union['BucketAbacAbacStatusArgs', 'BucketAbacAbacStatusArgsDict', 'outputs.BucketAbacAbacStatus']]] = None,
                  bucket: pulumi.Input[Optional[_builtins.str]] = None,
                  expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -328,7 +328,7 @@ class BucketAbac(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            abac_status: pulumi.Input[Optional[Union['BucketAbacAbacStatusArgs', 'BucketAbacAbacStatusArgsDict']]] = None,
+            abac_status: pulumi.Input[Optional[Union['BucketAbacAbacStatusArgs', 'BucketAbacAbacStatusArgsDict', 'outputs.BucketAbacAbacStatus']]] = None,
             bucket: pulumi.Input[Optional[_builtins.str]] = None,
             expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'BucketAbac':
@@ -339,7 +339,7 @@ class BucketAbac(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['BucketAbacAbacStatusArgs', 'BucketAbacAbacStatusArgsDict']] abac_status: ABAC status configuration. See `abac_status` Block for details.
+        :param pulumi.Input[Union['BucketAbacAbacStatusArgs', 'BucketAbacAbacStatusArgsDict', 'outputs.BucketAbacAbacStatus']] abac_status: ABAC status configuration. See `abac_status` Block for details.
         :param pulumi.Input[_builtins.str] bucket: General purpose bucket that you want to create the metadata configuration for.
                
                The following arguments are optional:

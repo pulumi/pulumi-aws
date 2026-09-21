@@ -41,11 +41,11 @@ import (
 //			}
 //			exampleVpcEndpoint, err := ec2.NewVpcEndpoint(ctx, "example", &ec2.VpcEndpointArgs{
 //				VpcId:             pulumi.Any(testAlternate.Id),
-//				ServiceName:       pulumi.Any(test.ServiceName),
+//				ServiceName:       pulumi.Any(testAwsVpcEndpointService.ServiceName),
 //				VpcEndpointType:   pulumi.String("Interface"),
 //				PrivateDnsEnabled: pulumi.Bool(false),
 //				SecurityGroupIds: pulumi.StringArray{
-//					testAwsSecurityGroup.Id,
+//					test.Id,
 //				},
 //			})
 //			if err != nil {

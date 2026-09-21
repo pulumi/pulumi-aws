@@ -42,6 +42,10 @@ import (
 //			ad_log_policy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
+//						Actions: pulumi.StringArray{
+//							pulumi.String("logs:CreateLogStream"),
+//							pulumi.String("logs:PutLogEvents"),
+//						},
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Identifiers: pulumi.StringArray{
@@ -49,10 +53,6 @@ import (
 //								},
 //								Type: pulumi.String("Service"),
 //							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("logs:CreateLogStream"),
-//							pulumi.String("logs:PutLogEvents"),
 //						},
 //						Resources: pulumi.StringArray{
 //							example.Arn.ApplyT(func(arn string) (string, error) {

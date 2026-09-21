@@ -24,13 +24,6 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.Firewall("example", new()
     ///     {
-    ///         SubnetMappings = new[]
-    ///         {
-    ///             new Aws.NetworkFirewall.Inputs.FirewallSubnetMappingArgs
-    ///             {
-    ///                 SubnetId = exampleAwsSubnet.Id,
-    ///             },
-    ///         },
     ///         Name = "example",
     ///         FirewallPolicyArn = exampleAwsNetworkfirewallFirewallPolicy.Arn,
     ///         VpcId = exampleAwsVpc.Id,
@@ -38,6 +31,13 @@ namespace Pulumi.Aws.NetworkFirewall
     ///         {
     ///             "TLS_SNI",
     ///             "HTTP_HOST",
+    ///         },
+    ///         SubnetMappings = new[]
+    ///         {
+    ///             new Aws.NetworkFirewall.Inputs.FirewallSubnetMappingArgs
+    ///             {
+    ///                 SubnetId = exampleAwsSubnet.Id,
+    ///             },
     ///         },
     ///         Tags = 
     ///         {
@@ -66,6 +66,9 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     ///     var exampleFirewall = new Aws.NetworkFirewall.Firewall("example", new()
     ///     {
+    ///         Name = "example",
+    ///         FirewallPolicyArn = exampleAwsNetworkfirewallFirewallPolicy.Arn,
+    ///         TransitGatewayId = exampleAwsEc2TransitGateway.Id,
     ///         AvailabilityZoneMappings = new[]
     ///         {
     ///             new Aws.NetworkFirewall.Inputs.FirewallAvailabilityZoneMappingArgs
@@ -77,9 +80,6 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                 AvailabilityZoneId = example.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.ZoneIds[1]),
     ///             },
     ///         },
-    ///         Name = "example",
-    ///         FirewallPolicyArn = exampleAwsNetworkfirewallFirewallPolicy.Arn,
-    ///         TransitGatewayId = exampleAwsEc2TransitGateway.Id,
     ///     });
     /// 
     /// });

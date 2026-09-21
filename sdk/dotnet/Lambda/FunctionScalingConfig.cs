@@ -30,6 +30,7 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.CapacityProvider("example", new()
     ///     {
+    ///         Name = "example",
     ///         VpcConfig = new Aws.Lambda.Inputs.CapacityProviderVpcConfigArgs
     ///         {
     ///             SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
@@ -42,18 +43,10 @@ namespace Pulumi.Aws.Lambda
     ///         {
     ///             CapacityProviderOperatorRoleArn = exampleAwsIamRole.Arn,
     ///         },
-    ///         Name = "example",
     ///     });
     /// 
     ///     var exampleFunction = new Aws.Lambda.Function("example", new()
     ///     {
-    ///         CapacityProviderConfig = new Aws.Lambda.Inputs.FunctionCapacityProviderConfigArgs
-    ///         {
-    ///             LambdaManagedInstancesCapacityProviderConfig = new Aws.Lambda.Inputs.FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs
-    ///             {
-    ///                 CapacityProviderArn = example.Arn,
-    ///             },
-    ///         },
     ///         Code = new FileArchive("lambda_function.zip"),
     ///         Name = "example",
     ///         Role = exampleAwsIamRole.Arn,
@@ -62,17 +55,24 @@ namespace Pulumi.Aws.Lambda
     ///         MemorySize = 32768,
     ///         Publish = true,
     ///         PublishTo = "LATEST_PUBLISHED",
+    ///         CapacityProviderConfig = new Aws.Lambda.Inputs.FunctionCapacityProviderConfigArgs
+    ///         {
+    ///             LambdaManagedInstancesCapacityProviderConfig = new Aws.Lambda.Inputs.FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs
+    ///             {
+    ///                 CapacityProviderArn = example.Arn,
+    ///             },
+    ///         },
     ///     });
     /// 
     ///     var exampleFunctionScalingConfig = new Aws.Lambda.FunctionScalingConfig("example", new()
     ///     {
+    ///         FunctionName = exampleFunction.Name,
+    ///         Qualifier = "$LATEST.PUBLISHED",
     ///         FunctionScalingConfigDetails = new Aws.Lambda.Inputs.FunctionScalingConfigFunctionScalingConfigArgs
     ///         {
     ///             MinExecutionEnvironments = 3,
     ///             MaxExecutionEnvironments = 100,
     ///         },
-    ///         FunctionName = exampleFunction.Name,
-    ///         Qualifier = "$LATEST.PUBLISHED",
     ///     });
     /// 
     /// });

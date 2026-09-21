@@ -219,8 +219,8 @@ class Scope(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScopeTargetArgs', 'ScopeTargetArgsDict']]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ScopeTimeoutsArgs', 'ScopeTimeoutsArgsDict']]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScopeTargetArgs', 'ScopeTargetArgsDict', 'outputs.ScopeTarget']]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ScopeTimeoutsArgs', 'ScopeTimeoutsArgsDict', 'outputs.ScopeTimeouts']]] = None,
                  __props__=None):
         """
         Manages a Network Flow Monitor Scope.
@@ -236,13 +236,13 @@ class Scope(pulumi.CustomResource):
         current = aws.get_caller_identity()
         example = aws.networkflowmonitor.Scope("example",
             targets=[{
+                "region": "us-east-1",
                 "target_identifier": {
+                    "target_type": "ACCOUNT",
                     "target_id": {
                         "account_id": current.account_id,
                     },
-                    "target_type": "ACCOUNT",
                 },
-                "region": "us-east-1",
             }],
             tags={
                 "Name": "example",
@@ -262,7 +262,7 @@ class Scope(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ScopeTargetArgs', 'ScopeTargetArgsDict']]]] targets: The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScopeTargetArgs', 'ScopeTargetArgsDict', 'outputs.ScopeTarget']]]] targets: The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
                
                The following arguments are optional:
         """
@@ -286,13 +286,13 @@ class Scope(pulumi.CustomResource):
         current = aws.get_caller_identity()
         example = aws.networkflowmonitor.Scope("example",
             targets=[{
+                "region": "us-east-1",
                 "target_identifier": {
+                    "target_type": "ACCOUNT",
                     "target_id": {
                         "account_id": current.account_id,
                     },
-                    "target_type": "ACCOUNT",
                 },
-                "region": "us-east-1",
             }],
             tags={
                 "Name": "example",
@@ -325,8 +325,8 @@ class Scope(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScopeTargetArgs', 'ScopeTargetArgsDict']]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ScopeTimeoutsArgs', 'ScopeTimeoutsArgsDict']]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScopeTargetArgs', 'ScopeTargetArgsDict', 'outputs.ScopeTarget']]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ScopeTimeoutsArgs', 'ScopeTimeoutsArgsDict', 'outputs.ScopeTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -360,8 +360,8 @@ class Scope(pulumi.CustomResource):
             scope_id: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScopeTargetArgs', 'ScopeTargetArgsDict']]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['ScopeTimeoutsArgs', 'ScopeTimeoutsArgsDict']]] = None) -> 'Scope':
+            targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScopeTargetArgs', 'ScopeTargetArgsDict', 'outputs.ScopeTarget']]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ScopeTimeoutsArgs', 'ScopeTimeoutsArgsDict', 'outputs.ScopeTimeouts']]] = None) -> 'Scope':
         """
         Get an existing Scope resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -374,7 +374,7 @@ class Scope(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] scope_id: The identifier for the scope that includes the resources you want to get data results for.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ScopeTargetArgs', 'ScopeTargetArgsDict']]]] targets: The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScopeTargetArgs', 'ScopeTargetArgsDict', 'outputs.ScopeTarget']]]] targets: The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
                
                The following arguments are optional:
         """

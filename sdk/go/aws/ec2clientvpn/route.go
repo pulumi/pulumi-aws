@@ -30,18 +30,18 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			exampleEndpoint, err := ec2clientvpn.NewEndpoint(ctx, "example", &ec2clientvpn.EndpointArgs{
-//				ConnectionLogOptions: &ec2clientvpn.EndpointConnectionLogOptionsArgs{
-//					Enabled: pulumi.Bool(false),
-//				},
+//				Description:          pulumi.String("Example Client VPN endpoint"),
+//				ServerCertificateArn: pulumi.Any(exampleAwsAcmCertificate.Arn),
+//				ClientCidrBlock:      pulumi.String("10.0.0.0/16"),
 //				AuthenticationOptions: ec2clientvpn.EndpointAuthenticationOptionArray{
 //					&ec2clientvpn.EndpointAuthenticationOptionArgs{
 //						Type:                    pulumi.String("certificate-authentication"),
 //						RootCertificateChainArn: pulumi.Any(exampleAwsAcmCertificate.Arn),
 //					},
 //				},
-//				Description:          pulumi.String("Example Client VPN endpoint"),
-//				ServerCertificateArn: pulumi.Any(exampleAwsAcmCertificate.Arn),
-//				ClientCidrBlock:      pulumi.String("10.0.0.0/16"),
+//				ConnectionLogOptions: &ec2clientvpn.EndpointConnectionLogOptionsArgs{
+//					Enabled: pulumi.Bool(false),
+//				},
 //			})
 //			if err != nil {
 //				return err

@@ -19,16 +19,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rbin.Rule("example", {
- *     retentionPeriod: {
- *         retentionPeriodValue: 10,
- *         retentionPeriodUnit: "DAYS",
- *     },
+ *     description: "Example tag-level retention rule",
+ *     resourceType: "EBS_SNAPSHOT",
  *     resourceTags: [{
  *         resourceTagKey: "tag_key",
  *         resourceTagValue: "tag_value",
  *     }],
- *     description: "Example tag-level retention rule",
- *     resourceType: "EBS_SNAPSHOT",
+ *     retentionPeriod: {
+ *         retentionPeriodValue: 10,
+ *         retentionPeriodUnit: "DAYS",
+ *     },
  *     tags: {
  *         test_tag_key: "test_tag_value",
  *     },
@@ -42,16 +42,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rbin.Rule("example", {
- *     retentionPeriod: {
- *         retentionPeriodValue: 10,
- *         retentionPeriodUnit: "DAYS",
- *     },
+ *     description: "Example region-level retention rule with exclusion tags",
+ *     resourceType: "EC2_IMAGE",
  *     excludeResourceTags: [{
  *         resourceTagKey: "tag_key",
  *         resourceTagValue: "tag_value",
  *     }],
- *     description: "Example region-level retention rule with exclusion tags",
- *     resourceType: "EC2_IMAGE",
+ *     retentionPeriod: {
+ *         retentionPeriodValue: 10,
+ *         retentionPeriodUnit: "DAYS",
+ *     },
  *     tags: {
  *         test_tag_key: "test_tag_value",
  *     },

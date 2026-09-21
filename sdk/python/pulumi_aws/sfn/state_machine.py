@@ -509,15 +509,15 @@ class StateMachine(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  definition: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['StateMachineEncryptionConfigurationArgs', 'StateMachineEncryptionConfigurationArgsDict']]] = None,
-                 logging_configuration: pulumi.Input[Optional[Union['StateMachineLoggingConfigurationArgs', 'StateMachineLoggingConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['StateMachineEncryptionConfigurationArgs', 'StateMachineEncryptionConfigurationArgsDict', 'outputs.StateMachineEncryptionConfiguration']]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['StateMachineLoggingConfigurationArgs', 'StateMachineLoggingConfigurationArgsDict', 'outputs.StateMachineLoggingConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  publish: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tracing_configuration: pulumi.Input[Optional[Union['StateMachineTracingConfigurationArgs', 'StateMachineTracingConfigurationArgsDict']]] = None,
+                 tracing_configuration: pulumi.Input[Optional[Union['StateMachineTracingConfigurationArgs', 'StateMachineTracingConfigurationArgsDict', 'outputs.StateMachineTracingConfiguration']]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -610,11 +610,6 @@ class StateMachine(pulumi.CustomResource):
 
         # ...
         sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
-            logging_configuration={
-                "log_destination": f"{log_group_for_sfn['arn']}:*",
-                "include_execution_data": True,
-                "level": "ERROR",
-            },
             name="my-state-machine",
             role_arn=iam_for_sfn["arn"],
             definition=f\"\"\"{{
@@ -628,7 +623,12 @@ class StateMachine(pulumi.CustomResource):
             }}
           }}
         }}
-        \"\"\")
+        \"\"\",
+            logging_configuration={
+                "log_destination": f"{log_group_for_sfn['arn']}:*",
+                "include_execution_data": True,
+                "level": "ERROR",
+            })
         ```
 
         ### Encryption
@@ -641,11 +641,6 @@ class StateMachine(pulumi.CustomResource):
 
         # ...
         sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
-            encryption_configuration={
-                "kms_key_id": kms_key_for_sfn["arn"],
-                "type": "CUSTOMER_MANAGED_KMS_KEY",
-                "kms_data_key_reuse_period_seconds": 900,
-            },
             name="my-state-machine",
             role_arn=iam_for_sfn["arn"],
             definition=f\"\"\"{{
@@ -659,7 +654,12 @@ class StateMachine(pulumi.CustomResource):
             }}
           }}
         }}
-        \"\"\")
+        \"\"\",
+            encryption_configuration={
+                "kms_key_id": kms_key_for_sfn["arn"],
+                "type": "CUSTOMER_MANAGED_KMS_KEY",
+                "kms_data_key_reuse_period_seconds": 900,
+            })
         ```
 
         ## Import
@@ -680,15 +680,15 @@ class StateMachine(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] definition: The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
-        :param pulumi.Input[Union['StateMachineEncryptionConfigurationArgs', 'StateMachineEncryptionConfigurationArgsDict']] encryption_configuration: Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
-        :param pulumi.Input[Union['StateMachineLoggingConfigurationArgs', 'StateMachineLoggingConfigurationArgsDict']] logging_configuration: Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is valid when `type` is set to `STANDARD` or `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html), [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) and [Logging Configuration](https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateStateMachine.html) in the AWS Step Functions User Guide.
+        :param pulumi.Input[Union['StateMachineEncryptionConfigurationArgs', 'StateMachineEncryptionConfigurationArgsDict', 'outputs.StateMachineEncryptionConfiguration']] encryption_configuration: Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
+        :param pulumi.Input[Union['StateMachineLoggingConfigurationArgs', 'StateMachineLoggingConfigurationArgsDict', 'outputs.StateMachineLoggingConfiguration']] logging_configuration: Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is valid when `type` is set to `STANDARD` or `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html), [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) and [Logging Configuration](https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateStateMachine.html) in the AWS Step Functions User Guide.
         :param pulumi.Input[_builtins.str] name: The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.bool] publish: Set to true to publish a version of the state machine during creation. Default: false.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role to use for this state machine.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['StateMachineTracingConfigurationArgs', 'StateMachineTracingConfigurationArgsDict']] tracing_configuration: Selects whether AWS X-Ray tracing is enabled.
+        :param pulumi.Input[Union['StateMachineTracingConfigurationArgs', 'StateMachineTracingConfigurationArgsDict', 'outputs.StateMachineTracingConfiguration']] tracing_configuration: Selects whether AWS X-Ray tracing is enabled.
         :param pulumi.Input[_builtins.str] type: Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
         """
         ...
@@ -787,11 +787,6 @@ class StateMachine(pulumi.CustomResource):
 
         # ...
         sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
-            logging_configuration={
-                "log_destination": f"{log_group_for_sfn['arn']}:*",
-                "include_execution_data": True,
-                "level": "ERROR",
-            },
             name="my-state-machine",
             role_arn=iam_for_sfn["arn"],
             definition=f\"\"\"{{
@@ -805,7 +800,12 @@ class StateMachine(pulumi.CustomResource):
             }}
           }}
         }}
-        \"\"\")
+        \"\"\",
+            logging_configuration={
+                "log_destination": f"{log_group_for_sfn['arn']}:*",
+                "include_execution_data": True,
+                "level": "ERROR",
+            })
         ```
 
         ### Encryption
@@ -818,11 +818,6 @@ class StateMachine(pulumi.CustomResource):
 
         # ...
         sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
-            encryption_configuration={
-                "kms_key_id": kms_key_for_sfn["arn"],
-                "type": "CUSTOMER_MANAGED_KMS_KEY",
-                "kms_data_key_reuse_period_seconds": 900,
-            },
             name="my-state-machine",
             role_arn=iam_for_sfn["arn"],
             definition=f\"\"\"{{
@@ -836,7 +831,12 @@ class StateMachine(pulumi.CustomResource):
             }}
           }}
         }}
-        \"\"\")
+        \"\"\",
+            encryption_configuration={
+                "kms_key_id": kms_key_for_sfn["arn"],
+                "type": "CUSTOMER_MANAGED_KMS_KEY",
+                "kms_data_key_reuse_period_seconds": 900,
+            })
         ```
 
         ## Import
@@ -870,15 +870,15 @@ class StateMachine(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  definition: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['StateMachineEncryptionConfigurationArgs', 'StateMachineEncryptionConfigurationArgsDict']]] = None,
-                 logging_configuration: pulumi.Input[Optional[Union['StateMachineLoggingConfigurationArgs', 'StateMachineLoggingConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['StateMachineEncryptionConfigurationArgs', 'StateMachineEncryptionConfigurationArgsDict', 'outputs.StateMachineEncryptionConfiguration']]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['StateMachineLoggingConfigurationArgs', 'StateMachineLoggingConfigurationArgsDict', 'outputs.StateMachineLoggingConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  publish: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tracing_configuration: pulumi.Input[Optional[Union['StateMachineTracingConfigurationArgs', 'StateMachineTracingConfigurationArgsDict']]] = None,
+                 tracing_configuration: pulumi.Input[Optional[Union['StateMachineTracingConfigurationArgs', 'StateMachineTracingConfigurationArgsDict', 'outputs.StateMachineTracingConfiguration']]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -926,8 +926,8 @@ class StateMachine(pulumi.CustomResource):
             creation_date: pulumi.Input[Optional[_builtins.str]] = None,
             definition: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            encryption_configuration: pulumi.Input[Optional[Union['StateMachineEncryptionConfigurationArgs', 'StateMachineEncryptionConfigurationArgsDict']]] = None,
-            logging_configuration: pulumi.Input[Optional[Union['StateMachineLoggingConfigurationArgs', 'StateMachineLoggingConfigurationArgsDict']]] = None,
+            encryption_configuration: pulumi.Input[Optional[Union['StateMachineEncryptionConfigurationArgs', 'StateMachineEncryptionConfigurationArgsDict', 'outputs.StateMachineEncryptionConfiguration']]] = None,
+            logging_configuration: pulumi.Input[Optional[Union['StateMachineLoggingConfigurationArgs', 'StateMachineLoggingConfigurationArgsDict', 'outputs.StateMachineLoggingConfiguration']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
             publish: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -938,7 +938,7 @@ class StateMachine(pulumi.CustomResource):
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tracing_configuration: pulumi.Input[Optional[Union['StateMachineTracingConfigurationArgs', 'StateMachineTracingConfigurationArgsDict']]] = None,
+            tracing_configuration: pulumi.Input[Optional[Union['StateMachineTracingConfigurationArgs', 'StateMachineTracingConfigurationArgsDict', 'outputs.StateMachineTracingConfiguration']]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
             version_description: pulumi.Input[Optional[_builtins.str]] = None) -> 'StateMachine':
         """
@@ -951,8 +951,8 @@ class StateMachine(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: The ARN of the state machine.
         :param pulumi.Input[_builtins.str] creation_date: The date the state machine was created.
         :param pulumi.Input[_builtins.str] definition: The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
-        :param pulumi.Input[Union['StateMachineEncryptionConfigurationArgs', 'StateMachineEncryptionConfigurationArgsDict']] encryption_configuration: Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
-        :param pulumi.Input[Union['StateMachineLoggingConfigurationArgs', 'StateMachineLoggingConfigurationArgsDict']] logging_configuration: Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is valid when `type` is set to `STANDARD` or `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html), [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) and [Logging Configuration](https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateStateMachine.html) in the AWS Step Functions User Guide.
+        :param pulumi.Input[Union['StateMachineEncryptionConfigurationArgs', 'StateMachineEncryptionConfigurationArgsDict', 'outputs.StateMachineEncryptionConfiguration']] encryption_configuration: Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
+        :param pulumi.Input[Union['StateMachineLoggingConfigurationArgs', 'StateMachineLoggingConfigurationArgsDict', 'outputs.StateMachineLoggingConfiguration']] logging_configuration: Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is valid when `type` is set to `STANDARD` or `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html), [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) and [Logging Configuration](https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateStateMachine.html) in the AWS Step Functions User Guide.
         :param pulumi.Input[_builtins.str] name: The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.bool] publish: Set to true to publish a version of the state machine during creation. Default: false.
@@ -962,7 +962,7 @@ class StateMachine(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] status: The current status of the state machine. Either `ACTIVE` or `DELETING`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['StateMachineTracingConfigurationArgs', 'StateMachineTracingConfigurationArgsDict']] tracing_configuration: Selects whether AWS X-Ray tracing is enabled.
+        :param pulumi.Input[Union['StateMachineTracingConfigurationArgs', 'StateMachineTracingConfigurationArgsDict', 'outputs.StateMachineTracingConfiguration']] tracing_configuration: Selects whether AWS X-Ray tracing is enabled.
         :param pulumi.Input[_builtins.str] type: Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

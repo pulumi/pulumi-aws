@@ -58,7 +58,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewCatalogTable(ctx, "example", &glue.CatalogTableArgs{
+//				Name:         pulumi.String("MyCatalogTable"),
+//				DatabaseName: pulumi.String("MyCatalogDatabase"),
+//				TableType:    pulumi.String("EXTERNAL_TABLE"),
+//				Parameters: pulumi.StringMap{
+//					"EXTERNAL":            pulumi.String("TRUE"),
+//					"parquet.compression": pulumi.String("SNAPPY"),
+//				},
 //				StorageDescriptor: &glue.CatalogTableStorageDescriptorArgs{
+//					Location:     pulumi.String("s3://my-bucket/event-streams/my-stream"),
+//					InputFormat:  pulumi.String("org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat"),
+//					OutputFormat: pulumi.String("org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat"),
 //					SerDeInfo: &glue.CatalogTableStorageDescriptorSerDeInfoArgs{
 //						Name:                 pulumi.String("my-stream"),
 //						SerializationLibrary: pulumi.String("org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe"),
@@ -91,16 +101,6 @@ import (
 //							Comment: pulumi.String(""),
 //						},
 //					},
-//					Location:     pulumi.String("s3://my-bucket/event-streams/my-stream"),
-//					InputFormat:  pulumi.String("org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat"),
-//					OutputFormat: pulumi.String("org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat"),
-//				},
-//				Name:         pulumi.String("MyCatalogTable"),
-//				DatabaseName: pulumi.String("MyCatalogDatabase"),
-//				TableType:    pulumi.String("EXTERNAL_TABLE"),
-//				Parameters: pulumi.StringMap{
-//					"EXTERNAL":            pulumi.String("TRUE"),
-//					"parquet.compression": pulumi.String("SNAPPY"),
 //				},
 //			})
 //			if err != nil {
@@ -127,10 +127,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewCatalogTable(ctx, "example", &glue.CatalogTableArgs{
+//				Name:         pulumi.String("transactiontable1"),
+//				DatabaseName: pulumi.String("bankdata_icebergdb"),
 //				OpenTableFormatInput: &glue.CatalogTableOpenTableFormatInputArgs{
 //					IcebergInput: &glue.CatalogTableOpenTableFormatInputIcebergInputArgs{
+//						MetadataOperation: pulumi.String("CREATE"),
+//						Version:           pulumi.String("2"),
 //						IcebergTableInput: &glue.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs{
+//							Location: pulumi.String("s3://sampledatabucket/bankdataiceberg/transactiontable1/"),
 //							Schema: &glue.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs{
+//								SchemaId: pulumi.Int(0),
+//								Type:     pulumi.String("struct"),
 //								Fields: glue.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArray{
 //									&glue.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs{
 //										Id:       pulumi.Int(1),
@@ -151,8 +158,6 @@ import (
 //										Type:     pulumi.String("            \\\"float\\\"\n"),
 //									},
 //								},
-//								SchemaId: pulumi.Int(0),
-//								Type:     pulumi.String("struct"),
 //							},
 //							PartitionSpec: &glue.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs{
 //								Fields: glue.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArray{
@@ -175,14 +180,9 @@ import (
 //								},
 //								OrderId: pulumi.Int(1),
 //							},
-//							Location: pulumi.String("s3://sampledatabucket/bankdataiceberg/transactiontable1/"),
 //						},
-//						MetadataOperation: pulumi.String("CREATE"),
-//						Version:           pulumi.String("2"),
 //					},
 //				},
-//				Name:         pulumi.String("transactiontable1"),
-//				DatabaseName: pulumi.String("bankdata_icebergdb"),
 //			})
 //			if err != nil {
 //				return err
@@ -208,7 +208,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewCatalogTable(ctx, "example", &glue.CatalogTableArgs{
+//				Name:         pulumi.String("multidialect_view"),
+//				DatabaseName: pulumi.String("catalog_database"),
+//				TableType:    pulumi.String("VIRTUAL_VIEW"),
 //				ViewDefinition: &glue.CatalogTableViewDefinitionArgs{
+//					IsProtected: pulumi.Bool(true),
 //					Representations: glue.CatalogTableViewDefinitionRepresentationArray{
 //						&glue.CatalogTableViewDefinitionRepresentationArgs{
 //							Dialect:              pulumi.String("ATHENA"),
@@ -217,11 +221,7 @@ import (
 //							ValidationConnection: pulumi.Any(exampleAwsGlueConnection.Name),
 //						},
 //					},
-//					IsProtected: pulumi.Bool(true),
 //				},
-//				Name:         pulumi.String("multidialect_view"),
-//				DatabaseName: pulumi.String("catalog_database"),
-//				TableType:    pulumi.String("VIRTUAL_VIEW"),
 //			})
 //			if err != nil {
 //				return err

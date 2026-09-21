@@ -29,8 +29,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := costexplorer.NewCostCategory(ctx, "test", &costexplorer.CostCategoryArgs{
+//				Name:        pulumi.String("NAME"),
+//				RuleVersion: pulumi.String("CostCategoryExpression.v1"),
 //				Rules: costexplorer.CostCategoryRuleArray{
 //					&costexplorer.CostCategoryRuleArgs{
+//						Value: pulumi.String("production"),
 //						Rule: &costexplorer.CostCategoryRuleRuleArgs{
 //							Dimension: &costexplorer.CostCategoryRuleRuleDimensionArgs{
 //								Key: pulumi.String("LINKED_ACCOUNT_NAME"),
@@ -42,9 +45,9 @@ import (
 //								},
 //							},
 //						},
-//						Value: pulumi.String("production"),
 //					},
 //					&costexplorer.CostCategoryRuleArgs{
+//						Value: pulumi.String("staging"),
 //						Rule: &costexplorer.CostCategoryRuleRuleArgs{
 //							Dimension: &costexplorer.CostCategoryRuleRuleDimensionArgs{
 //								Key: pulumi.String("LINKED_ACCOUNT_NAME"),
@@ -56,9 +59,9 @@ import (
 //								},
 //							},
 //						},
-//						Value: pulumi.String("staging"),
 //					},
 //					&costexplorer.CostCategoryRuleArgs{
+//						Value: pulumi.String("testing"),
 //						Rule: &costexplorer.CostCategoryRuleRuleArgs{
 //							Dimension: &costexplorer.CostCategoryRuleRuleDimensionArgs{
 //								Key: pulumi.String("LINKED_ACCOUNT_NAME"),
@@ -70,11 +73,8 @@ import (
 //								},
 //							},
 //						},
-//						Value: pulumi.String("testing"),
 //					},
 //				},
-//				Name:        pulumi.String("NAME"),
-//				RuleVersion: pulumi.String("CostCategoryExpression.v1"),
 //			})
 //			if err != nil {
 //				return err

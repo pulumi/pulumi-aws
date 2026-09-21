@@ -374,7 +374,7 @@ class SecondarySubnet(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  secondary_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['SecondarySubnetTimeoutsArgs', 'SecondarySubnetTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['SecondarySubnetTimeoutsArgs', 'SecondarySubnetTimeoutsArgsDict', 'outputs.SecondarySubnetTimeouts']]] = None,
                  __props__=None):
         """
         Provides an EC2 Secondary Subnet resource.
@@ -410,11 +410,11 @@ class SecondarySubnet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        available = aws.get_availability_zones(filters=[{
+        available = aws.get_availability_zones(state="available",
+            filters=[{
                 "name": "opt-in-status",
                 "values": ["opt-in-not-required"],
-            }],
-            state="available")
+            }])
         example = aws.ec2.SecondaryNetwork("example",
             ipv4_cidr_block="10.0.0.0/16",
             network_type="rdma",
@@ -499,11 +499,11 @@ class SecondarySubnet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        available = aws.get_availability_zones(filters=[{
+        available = aws.get_availability_zones(state="available",
+            filters=[{
                 "name": "opt-in-status",
                 "values": ["opt-in-not-required"],
-            }],
-            state="available")
+            }])
         example = aws.ec2.SecondaryNetwork("example",
             ipv4_cidr_block="10.0.0.0/16",
             network_type="rdma",
@@ -560,7 +560,7 @@ class SecondarySubnet(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  secondary_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['SecondarySubnetTimeoutsArgs', 'SecondarySubnetTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['SecondarySubnetTimeoutsArgs', 'SecondarySubnetTimeoutsArgsDict', 'outputs.SecondarySubnetTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -602,7 +602,7 @@ class SecondarySubnet(pulumi.CustomResource):
             availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
             availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
             ipv4_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
-            ipv4_cidr_block_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecondarySubnetIpv4CidrBlockAssociationArgs', 'SecondarySubnetIpv4CidrBlockAssociationArgsDict']]]]] = None,
+            ipv4_cidr_block_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecondarySubnetIpv4CidrBlockAssociationArgs', 'SecondarySubnetIpv4CidrBlockAssociationArgsDict', 'outputs.SecondarySubnetIpv4CidrBlockAssociation']]]]] = None,
             owner_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             secondary_network_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -611,7 +611,7 @@ class SecondarySubnet(pulumi.CustomResource):
             state: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['SecondarySubnetTimeoutsArgs', 'SecondarySubnetTimeoutsArgsDict']]] = None) -> 'SecondarySubnet':
+            timeouts: pulumi.Input[Optional[Union['SecondarySubnetTimeoutsArgs', 'SecondarySubnetTimeoutsArgsDict', 'outputs.SecondarySubnetTimeouts']]] = None) -> 'SecondarySubnet':
         """
         Get an existing SecondarySubnet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -623,7 +623,7 @@ class SecondarySubnet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] availability_zone: Availability Zone for the secondary subnet. Cannot be specified with `availability_zone_id`.
         :param pulumi.Input[_builtins.str] availability_zone_id: ID of the Availability Zone for the secondary subnet. This option is preferred over `availability_zone` as it provides a consistent identifier across AWS accounts. Cannot be specified with `availability_zone`.
         :param pulumi.Input[_builtins.str] ipv4_cidr_block: IPv4 CIDR block for the secondary subnet. The CIDR block size must be between `/12` and `/28`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SecondarySubnetIpv4CidrBlockAssociationArgs', 'SecondarySubnetIpv4CidrBlockAssociationArgsDict']]]] ipv4_cidr_block_associations: A list of IPv4 CIDR block associations for the secondary network.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecondarySubnetIpv4CidrBlockAssociationArgs', 'SecondarySubnetIpv4CidrBlockAssociationArgsDict', 'outputs.SecondarySubnetIpv4CidrBlockAssociation']]]] ipv4_cidr_block_associations: A list of IPv4 CIDR block associations for the secondary network.
         :param pulumi.Input[_builtins.str] owner_id: ID of the AWS account that owns the secondary subnet.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] secondary_network_id: ID of the secondary network in which to create the secondary subnet.

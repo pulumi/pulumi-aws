@@ -24,6 +24,7 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.FilesAccessPoint("example", new()
     ///     {
+    ///         FileSystemId = exampleAwsS3filesFileSystem.Id,
     ///         PosixUsers = new[]
     ///         {
     ///             new Aws.S3.Inputs.FilesAccessPointPosixUserArgs
@@ -32,7 +33,6 @@ namespace Pulumi.Aws.S3
     ///                 Uid = 1001,
     ///             },
     ///         },
-    ///         FileSystemId = exampleAwsS3filesFileSystem.Id,
     ///     });
     /// 
     /// });

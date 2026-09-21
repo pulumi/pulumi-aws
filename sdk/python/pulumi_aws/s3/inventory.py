@@ -335,14 +335,14 @@ class Inventory(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: pulumi.Input[Optional[_builtins.str]] = None,
-                 destination: pulumi.Input[Optional[Union['InventoryDestinationArgs', 'InventoryDestinationArgsDict']]] = None,
+                 destination: pulumi.Input[Optional[Union['InventoryDestinationArgs', 'InventoryDestinationArgsDict', 'outputs.InventoryDestination']]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 filter: pulumi.Input[Optional[Union['InventoryFilterArgs', 'InventoryFilterArgsDict']]] = None,
+                 filter: pulumi.Input[Optional[Union['InventoryFilterArgs', 'InventoryFilterArgsDict', 'outputs.InventoryFilter']]] = None,
                  included_object_versions: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  optional_fields: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional[Union['InventoryScheduleArgs', 'InventoryScheduleArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['InventoryScheduleArgs', 'InventoryScheduleArgsDict', 'outputs.InventorySchedule']]] = None,
                  __props__=None):
         """
         Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
@@ -358,6 +358,9 @@ class Inventory(pulumi.CustomResource):
         test = aws.s3.Bucket("test", bucket="my-tf-test-bucket")
         inventory = aws.s3.Bucket("inventory", bucket="my-tf-inventory-bucket")
         test_inventory = aws.s3.Inventory("test",
+            bucket=test.id,
+            name="EntireBucketDaily",
+            included_object_versions="All",
             schedule={
                 "frequency": "Daily",
             },
@@ -366,10 +369,7 @@ class Inventory(pulumi.CustomResource):
                     "format": "ORC",
                     "bucket_arn": inventory.arn,
                 },
-            },
-            bucket=test.id,
-            name="EntireBucketDaily",
-            included_object_versions="All")
+            })
         ```
 
         ### Add inventory configuration with S3 object prefix
@@ -381,6 +381,9 @@ class Inventory(pulumi.CustomResource):
         test = aws.s3.Bucket("test", bucket="my-tf-test-bucket")
         inventory = aws.s3.Bucket("inventory", bucket="my-tf-inventory-bucket")
         test_prefix = aws.s3.Inventory("test-prefix",
+            bucket=test.id,
+            name="DocumentsWeekly",
+            included_object_versions="All",
             schedule={
                 "frequency": "Daily",
             },
@@ -393,10 +396,7 @@ class Inventory(pulumi.CustomResource):
                     "bucket_arn": inventory.arn,
                     "prefix": "inventory",
                 },
-            },
-            bucket=test.id,
-            name="DocumentsWeekly",
-            included_object_versions="All")
+            })
         ```
 
         ## Import
@@ -411,14 +411,14 @@ class Inventory(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
-        :param pulumi.Input[Union['InventoryDestinationArgs', 'InventoryDestinationArgsDict']] destination: Where to publish the inventory results. See `destination` Block below.
+        :param pulumi.Input[Union['InventoryDestinationArgs', 'InventoryDestinationArgsDict', 'outputs.InventoryDestination']] destination: Where to publish the inventory results. See `destination` Block below.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable the inventory.
-        :param pulumi.Input[Union['InventoryFilterArgs', 'InventoryFilterArgsDict']] filter: Inventory filter. The inventory only includes objects that meet the filter's criteria. See `filter` Block below.
+        :param pulumi.Input[Union['InventoryFilterArgs', 'InventoryFilterArgsDict', 'outputs.InventoryFilter']] filter: Inventory filter. The inventory only includes objects that meet the filter's criteria. See `filter` Block below.
         :param pulumi.Input[_builtins.str] included_object_versions: Object versions to include in the inventory list. Valid values: `All`, `Current`.
         :param pulumi.Input[_builtins.str] name: Unique identifier of the inventory configuration for the bucket.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] optional_fields: List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['InventoryScheduleArgs', 'InventoryScheduleArgsDict']] schedule: Schedule for generating inventory results. See `schedule` Block below.
+        :param pulumi.Input[Union['InventoryScheduleArgs', 'InventoryScheduleArgsDict', 'outputs.InventorySchedule']] schedule: Schedule for generating inventory results. See `schedule` Block below.
                
                The following arguments are optional:
         """
@@ -442,6 +442,9 @@ class Inventory(pulumi.CustomResource):
         test = aws.s3.Bucket("test", bucket="my-tf-test-bucket")
         inventory = aws.s3.Bucket("inventory", bucket="my-tf-inventory-bucket")
         test_inventory = aws.s3.Inventory("test",
+            bucket=test.id,
+            name="EntireBucketDaily",
+            included_object_versions="All",
             schedule={
                 "frequency": "Daily",
             },
@@ -450,10 +453,7 @@ class Inventory(pulumi.CustomResource):
                     "format": "ORC",
                     "bucket_arn": inventory.arn,
                 },
-            },
-            bucket=test.id,
-            name="EntireBucketDaily",
-            included_object_versions="All")
+            })
         ```
 
         ### Add inventory configuration with S3 object prefix
@@ -465,6 +465,9 @@ class Inventory(pulumi.CustomResource):
         test = aws.s3.Bucket("test", bucket="my-tf-test-bucket")
         inventory = aws.s3.Bucket("inventory", bucket="my-tf-inventory-bucket")
         test_prefix = aws.s3.Inventory("test-prefix",
+            bucket=test.id,
+            name="DocumentsWeekly",
+            included_object_versions="All",
             schedule={
                 "frequency": "Daily",
             },
@@ -477,10 +480,7 @@ class Inventory(pulumi.CustomResource):
                     "bucket_arn": inventory.arn,
                     "prefix": "inventory",
                 },
-            },
-            bucket=test.id,
-            name="DocumentsWeekly",
-            included_object_versions="All")
+            })
         ```
 
         ## Import
@@ -508,14 +508,14 @@ class Inventory(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: pulumi.Input[Optional[_builtins.str]] = None,
-                 destination: pulumi.Input[Optional[Union['InventoryDestinationArgs', 'InventoryDestinationArgsDict']]] = None,
+                 destination: pulumi.Input[Optional[Union['InventoryDestinationArgs', 'InventoryDestinationArgsDict', 'outputs.InventoryDestination']]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 filter: pulumi.Input[Optional[Union['InventoryFilterArgs', 'InventoryFilterArgsDict']]] = None,
+                 filter: pulumi.Input[Optional[Union['InventoryFilterArgs', 'InventoryFilterArgsDict', 'outputs.InventoryFilter']]] = None,
                  included_object_versions: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  optional_fields: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional[Union['InventoryScheduleArgs', 'InventoryScheduleArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['InventoryScheduleArgs', 'InventoryScheduleArgsDict', 'outputs.InventorySchedule']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -553,14 +553,14 @@ class Inventory(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             bucket: pulumi.Input[Optional[_builtins.str]] = None,
-            destination: pulumi.Input[Optional[Union['InventoryDestinationArgs', 'InventoryDestinationArgsDict']]] = None,
+            destination: pulumi.Input[Optional[Union['InventoryDestinationArgs', 'InventoryDestinationArgsDict', 'outputs.InventoryDestination']]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            filter: pulumi.Input[Optional[Union['InventoryFilterArgs', 'InventoryFilterArgsDict']]] = None,
+            filter: pulumi.Input[Optional[Union['InventoryFilterArgs', 'InventoryFilterArgsDict', 'outputs.InventoryFilter']]] = None,
             included_object_versions: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             optional_fields: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            schedule: pulumi.Input[Optional[Union['InventoryScheduleArgs', 'InventoryScheduleArgsDict']]] = None) -> 'Inventory':
+            schedule: pulumi.Input[Optional[Union['InventoryScheduleArgs', 'InventoryScheduleArgsDict', 'outputs.InventorySchedule']]] = None) -> 'Inventory':
         """
         Get an existing Inventory resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -569,14 +569,14 @@ class Inventory(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
-        :param pulumi.Input[Union['InventoryDestinationArgs', 'InventoryDestinationArgsDict']] destination: Where to publish the inventory results. See `destination` Block below.
+        :param pulumi.Input[Union['InventoryDestinationArgs', 'InventoryDestinationArgsDict', 'outputs.InventoryDestination']] destination: Where to publish the inventory results. See `destination` Block below.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable the inventory.
-        :param pulumi.Input[Union['InventoryFilterArgs', 'InventoryFilterArgsDict']] filter: Inventory filter. The inventory only includes objects that meet the filter's criteria. See `filter` Block below.
+        :param pulumi.Input[Union['InventoryFilterArgs', 'InventoryFilterArgsDict', 'outputs.InventoryFilter']] filter: Inventory filter. The inventory only includes objects that meet the filter's criteria. See `filter` Block below.
         :param pulumi.Input[_builtins.str] included_object_versions: Object versions to include in the inventory list. Valid values: `All`, `Current`.
         :param pulumi.Input[_builtins.str] name: Unique identifier of the inventory configuration for the bucket.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] optional_fields: List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['InventoryScheduleArgs', 'InventoryScheduleArgsDict']] schedule: Schedule for generating inventory results. See `schedule` Block below.
+        :param pulumi.Input[Union['InventoryScheduleArgs', 'InventoryScheduleArgsDict', 'outputs.InventorySchedule']] schedule: Schedule for generating inventory results. See `schedule` Block below.
                
                The following arguments are optional:
         """

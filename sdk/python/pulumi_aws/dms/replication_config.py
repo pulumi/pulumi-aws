@@ -452,7 +452,7 @@ class ReplicationConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_config: pulumi.Input[Optional[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict']]] = None,
+                 compute_config: pulumi.Input[Optional[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict', 'outputs.ReplicationConfigComputeConfig']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  replication_config_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  replication_settings: pulumi.Input[Optional[_builtins.str]] = None,
@@ -477,12 +477,6 @@ class ReplicationConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         name = aws.dms.ReplicationConfig("name",
-            compute_config={
-                "replication_subnet_group_id": default["replicationSubnetGroupId"],
-                "max_capacity_units": 64,
-                "min_capacity_units": 2,
-                "preferred_maintenance_window": "sun:23:45-mon:00:30",
-            },
             replication_config_identifier="test-dms-serverless-replication-tf",
             resource_identifier="test-dms-serverless-replication-tf",
             replication_type="cdc",
@@ -492,7 +486,13 @@ class ReplicationConfig(pulumi.CustomResource):
             \\"rules\\":[{\\"rule-type\\":\\"selection\\",\\"rule-id\\":\\"1\\",\\"rule-name\\":\\"1\\",\\"rule-action\\":\\"include\\",\\"object-locator\\":{\\"schema-name\\":\\"%%\\",\\"table-name\\":\\"%%\\"}}]
           }
         \"\"\",
-            start_replication=True)
+            start_replication=True,
+            compute_config={
+                "replication_subnet_group_id": default["replicationSubnetGroupId"],
+                "max_capacity_units": 64,
+                "min_capacity_units": 2,
+                "preferred_maintenance_window": "sun:23:45-mon:00:30",
+            })
         ```
 
         ## Import
@@ -512,7 +512,7 @@ class ReplicationConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict']] compute_config: Configuration block for provisioning an DMS Serverless replication.
+        :param pulumi.Input[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict', 'outputs.ReplicationConfigComputeConfig']] compute_config: Configuration block for provisioning an DMS Serverless replication.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] replication_config_identifier: Unique identifier that you want to use to create the config.
         :param pulumi.Input[_builtins.str] replication_settings: An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)
@@ -543,12 +543,6 @@ class ReplicationConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         name = aws.dms.ReplicationConfig("name",
-            compute_config={
-                "replication_subnet_group_id": default["replicationSubnetGroupId"],
-                "max_capacity_units": 64,
-                "min_capacity_units": 2,
-                "preferred_maintenance_window": "sun:23:45-mon:00:30",
-            },
             replication_config_identifier="test-dms-serverless-replication-tf",
             resource_identifier="test-dms-serverless-replication-tf",
             replication_type="cdc",
@@ -558,7 +552,13 @@ class ReplicationConfig(pulumi.CustomResource):
             \\"rules\\":[{\\"rule-type\\":\\"selection\\",\\"rule-id\\":\\"1\\",\\"rule-name\\":\\"1\\",\\"rule-action\\":\\"include\\",\\"object-locator\\":{\\"schema-name\\":\\"%%\\",\\"table-name\\":\\"%%\\"}}]
           }
         \"\"\",
-            start_replication=True)
+            start_replication=True,
+            compute_config={
+                "replication_subnet_group_id": default["replicationSubnetGroupId"],
+                "max_capacity_units": 64,
+                "min_capacity_units": 2,
+                "preferred_maintenance_window": "sun:23:45-mon:00:30",
+            })
         ```
 
         ## Import
@@ -591,7 +591,7 @@ class ReplicationConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_config: pulumi.Input[Optional[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict']]] = None,
+                 compute_config: pulumi.Input[Optional[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict', 'outputs.ReplicationConfigComputeConfig']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  replication_config_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  replication_settings: pulumi.Input[Optional[_builtins.str]] = None,
@@ -649,7 +649,7 @@ class ReplicationConfig(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            compute_config: pulumi.Input[Optional[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict']]] = None,
+            compute_config: pulumi.Input[Optional[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict', 'outputs.ReplicationConfigComputeConfig']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             replication_config_identifier: pulumi.Input[Optional[_builtins.str]] = None,
             replication_settings: pulumi.Input[Optional[_builtins.str]] = None,
@@ -670,7 +670,7 @@ class ReplicationConfig(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN for the serverless replication config.
-        :param pulumi.Input[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict']] compute_config: Configuration block for provisioning an DMS Serverless replication.
+        :param pulumi.Input[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict', 'outputs.ReplicationConfigComputeConfig']] compute_config: Configuration block for provisioning an DMS Serverless replication.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] replication_config_identifier: Unique identifier that you want to use to create the config.
         :param pulumi.Input[_builtins.str] replication_settings: An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)

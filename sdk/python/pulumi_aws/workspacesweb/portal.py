@@ -603,7 +603,7 @@ class Portal(pulumi.CustomResource):
                  max_concurrent_sessions: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['PortalTimeoutsArgs', 'PortalTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['PortalTimeoutsArgs', 'PortalTimeoutsArgsDict', 'outputs.PortalTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS WorkSpaces Web Portal.
@@ -641,8 +641,7 @@ class Portal(pulumi.CustomResource):
             },
             tags={
                 "Name": "example-portal",
-            },
-            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(create="10m", update="10m", delete="10m")))
+            })
         ```
 
         ## Import
@@ -708,8 +707,7 @@ class Portal(pulumi.CustomResource):
             },
             tags={
                 "Name": "example-portal",
-            },
-            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(create="10m", update="10m", delete="10m")))
+            })
         ```
 
         ## Import
@@ -745,7 +743,7 @@ class Portal(pulumi.CustomResource):
                  max_concurrent_sessions: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['PortalTimeoutsArgs', 'PortalTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['PortalTimeoutsArgs', 'PortalTimeoutsArgsDict', 'outputs.PortalTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -811,7 +809,7 @@ class Portal(pulumi.CustomResource):
             status_reason: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['PortalTimeoutsArgs', 'PortalTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['PortalTimeoutsArgs', 'PortalTimeoutsArgsDict', 'outputs.PortalTimeouts']]] = None,
             trust_store_arn: pulumi.Input[Optional[_builtins.str]] = None,
             user_access_logging_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
             user_settings_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'Portal':

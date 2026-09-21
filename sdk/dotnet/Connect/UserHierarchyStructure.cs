@@ -27,6 +27,7 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.UserHierarchyStructure("example", new()
     ///     {
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
     ///         HierarchyStructure = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureArgs
     ///         {
     ///             LevelOne = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelOneArgs
@@ -34,7 +35,6 @@ namespace Pulumi.Aws.Connect
     ///                 Name = "levelone",
     ///             },
     ///         },
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
     ///     });
     /// 
     /// });
@@ -52,6 +52,7 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.UserHierarchyStructure("example", new()
     ///     {
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
     ///         HierarchyStructure = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureArgs
     ///         {
     ///             LevelOne = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelOneArgs
@@ -75,7 +76,6 @@ namespace Pulumi.Aws.Connect
     ///                 Name = "levelfive",
     ///             },
     ///         },
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
     ///     });
     /// 
     /// });

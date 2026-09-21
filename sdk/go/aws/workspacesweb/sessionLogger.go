@@ -43,6 +43,7 @@ import (
 //			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("Service"),
@@ -51,7 +52,6 @@ import (
 //								},
 //							},
 //						},
-//						Effect: pulumi.String("Allow"),
 //						Actions: pulumi.StringArray{
 //							pulumi.String("s3:PutObject"),
 //						},
@@ -71,6 +71,7 @@ import (
 //				return err
 //			}
 //			_, err = workspacesweb.NewSessionLogger(ctx, "example", &workspacesweb.SessionLoggerArgs{
+//				DisplayName: pulumi.String("example-session-logger"),
 //				EventFilter: &workspacesweb.SessionLoggerEventFilterArgs{
 //					All: &workspacesweb.SessionLoggerEventFilterAllArgs{},
 //				},
@@ -81,7 +82,6 @@ import (
 //						LogFileFormat:   pulumi.String("Json"),
 //					},
 //				},
-//				DisplayName: pulumi.String("example-session-logger"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleBucketPolicy,
 //			}))
@@ -124,6 +124,7 @@ import (
 //			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("Service"),
@@ -132,7 +133,6 @@ import (
 //								},
 //							},
 //						},
-//						Effect: pulumi.String("Allow"),
 //						Actions: pulumi.StringArray{
 //							pulumi.String("s3:PutObject"),
 //						},
@@ -210,6 +210,12 @@ import (
 //				return err
 //			}
 //			_, err = workspacesweb.NewSessionLogger(ctx, "example", &workspacesweb.SessionLoggerArgs{
+//				DisplayName:        pulumi.String("example-session-logger"),
+//				CustomerManagedKey: exampleKey.Arn,
+//				AdditionalEncryptionContext: pulumi.StringMap{
+//					"Environment": pulumi.String("Production"),
+//					"Application": pulumi.String("WorkSpacesWeb"),
+//				},
 //				EventFilter: &workspacesweb.SessionLoggerEventFilterArgs{
 //					Includes: pulumi.StringArray{
 //						pulumi.String("SessionStart"),
@@ -224,12 +230,6 @@ import (
 //						KeyPrefix:       pulumi.String("workspaces-web-logs/"),
 //						LogFileFormat:   pulumi.String("JsonLines"),
 //					},
-//				},
-//				DisplayName:        pulumi.String("example-session-logger"),
-//				CustomerManagedKey: exampleKey.Arn,
-//				AdditionalEncryptionContext: pulumi.StringMap{
-//					"Environment": pulumi.String("Production"),
-//					"Application": pulumi.String("WorkSpacesWeb"),
 //				},
 //				Tags: pulumi.StringMap{
 //					"Name":        pulumi.String("example-session-logger"),

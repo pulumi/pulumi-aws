@@ -294,7 +294,7 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['LogicallyAirGappedVaultTimeoutsArgs', 'LogicallyAirGappedVaultTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['LogicallyAirGappedVaultTimeoutsArgs', 'LogicallyAirGappedVaultTimeoutsArgsDict', 'outputs.LogicallyAirGappedVaultTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Backup Logically Air Gapped Vault.
@@ -384,7 +384,7 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['LogicallyAirGappedVaultTimeoutsArgs', 'LogicallyAirGappedVaultTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['LogicallyAirGappedVaultTimeoutsArgs', 'LogicallyAirGappedVaultTimeoutsArgsDict', 'outputs.LogicallyAirGappedVaultTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -425,7 +425,7 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['LogicallyAirGappedVaultTimeoutsArgs', 'LogicallyAirGappedVaultTimeoutsArgsDict']]] = None) -> 'LogicallyAirGappedVault':
+            timeouts: pulumi.Input[Optional[Union['LogicallyAirGappedVaultTimeoutsArgs', 'LogicallyAirGappedVaultTimeoutsArgsDict', 'outputs.LogicallyAirGappedVaultTimeouts']]] = None) -> 'LogicallyAirGappedVault':
         """
         Get an existing LogicallyAirGappedVault resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

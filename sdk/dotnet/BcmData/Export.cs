@@ -32,6 +32,7 @@ namespace Pulumi.Aws.BcmData
     ///     {
     ///         ExportDetails = new Aws.BcmData.Inputs.ExportExportArgs
     ///         {
+    ///             Name = "testexample",
     ///             DataQueries = new[]
     ///             {
     ///                 new Aws.BcmData.Inputs.ExportExportDataQueryArgs
@@ -63,6 +64,9 @@ namespace Pulumi.Aws.BcmData
     ///                     {
     ///                         new Aws.BcmData.Inputs.ExportExportDestinationConfigurationS3DestinationArgs
     ///                         {
+    ///                             S3Bucket = testAwsS3Bucket.Bucket,
+    ///                             S3Prefix = testAwsS3Bucket.BucketPrefix,
+    ///                             S3Region = testAwsS3Bucket.Region,
     ///                             S3OutputConfigurations = new[]
     ///                             {
     ///                                 new Aws.BcmData.Inputs.ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs
@@ -73,9 +77,6 @@ namespace Pulumi.Aws.BcmData
     ///                                     OutputType = "CUSTOM",
     ///                                 },
     ///                             },
-    ///                             S3Bucket = testAwsS3Bucket.Bucket,
-    ///                             S3Prefix = testAwsS3Bucket.BucketPrefix,
-    ///                             S3Region = testAwsS3Bucket.Region,
     ///                         },
     ///                     },
     ///                 },
@@ -87,7 +88,6 @@ namespace Pulumi.Aws.BcmData
     ///                     Frequency = "SYNCHRONOUS",
     ///                 },
     ///             },
-    ///             Name = "testexample",
     ///         },
     ///     });
     /// 

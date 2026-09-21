@@ -30,6 +30,7 @@ namespace Pulumi.Aws.IdentityStore
         /// 
         ///     var exampleGetGroup = Aws.IdentityStore.GetGroup.Invoke(new()
         ///     {
+        ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
         ///         AlternateIdentifier = new Aws.IdentityStore.Inputs.GetGroupAlternateIdentifierInputArgs
         ///         {
         ///             UniqueAttribute = new Aws.IdentityStore.Inputs.GetGroupAlternateIdentifierUniqueAttributeInputArgs
@@ -38,7 +39,6 @@ namespace Pulumi.Aws.IdentityStore
         ///                 AttributeValue = "ExampleGroup",
         ///             },
         ///         },
-        ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
         ///     });
         /// 
         ///     var exampleGetGroupMemberships = Aws.IdentityStore.GetGroupMemberships.Invoke(new()
@@ -72,6 +72,7 @@ namespace Pulumi.Aws.IdentityStore
         /// 
         ///     var exampleGetGroup = Aws.IdentityStore.GetGroup.Invoke(new()
         ///     {
+        ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
         ///         AlternateIdentifier = new Aws.IdentityStore.Inputs.GetGroupAlternateIdentifierInputArgs
         ///         {
         ///             UniqueAttribute = new Aws.IdentityStore.Inputs.GetGroupAlternateIdentifierUniqueAttributeInputArgs
@@ -80,7 +81,6 @@ namespace Pulumi.Aws.IdentityStore
         ///                 AttributeValue = "ExampleGroup",
         ///             },
         ///         },
-        ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
         ///     });
         /// 
         ///     var exampleGetGroupMemberships = Aws.IdentityStore.GetGroupMemberships.Invoke(new()
@@ -114,6 +114,7 @@ namespace Pulumi.Aws.IdentityStore
         /// 
         ///     var exampleGetGroup = Aws.IdentityStore.GetGroup.Invoke(new()
         ///     {
+        ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
         ///         AlternateIdentifier = new Aws.IdentityStore.Inputs.GetGroupAlternateIdentifierInputArgs
         ///         {
         ///             UniqueAttribute = new Aws.IdentityStore.Inputs.GetGroupAlternateIdentifierUniqueAttributeInputArgs
@@ -122,7 +123,6 @@ namespace Pulumi.Aws.IdentityStore
         ///                 AttributeValue = "ExampleGroup",
         ///             },
         ///         },
-        ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
         ///     });
         /// 
         ///     var exampleGetGroupMemberships = Aws.IdentityStore.GetGroupMemberships.Invoke(new()

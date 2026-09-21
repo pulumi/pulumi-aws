@@ -26,6 +26,7 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var test = new Aws.Sagemaker.AppImageConfig("test", new()
     ///     {
+    ///         AppImageConfigName = "example",
     ///         KernelGatewayImageConfig = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigArgs
     ///         {
     ///             KernelSpecs = new[]
@@ -36,7 +37,6 @@ namespace Pulumi.Aws.Sagemaker
     ///                 },
     ///             },
     ///         },
-    ///         AppImageConfigName = "example",
     ///     });
     /// 
     /// });
@@ -54,8 +54,8 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var test = new Aws.Sagemaker.AppImageConfig("test", new()
     ///     {
-    ///         CodeEditorAppImageConfig = null,
     ///         AppImageConfigName = "example",
+    ///         CodeEditorAppImageConfig = null,
     ///     });
     /// 
     /// });
@@ -73,9 +73,9 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var test = new Aws.Sagemaker.AppImageConfig("test", new()
     ///     {
+    ///         AppImageConfigName = "example",
     ///         KernelGatewayImageConfig = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigArgs
     ///         {
-    ///             FileSystemConfig = null,
     ///             KernelSpecs = new[]
     ///             {
     ///                 new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs
@@ -83,8 +83,8 @@ namespace Pulumi.Aws.Sagemaker
     ///                     Name = "example",
     ///                 },
     ///             },
+    ///             FileSystemConfig = null,
     ///         },
-    ///         AppImageConfigName = "example",
     ///     });
     /// 
     /// });

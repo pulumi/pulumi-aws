@@ -24,6 +24,8 @@ namespace Pulumi.Aws.Route53Domains
     /// {
     ///     var example = new Aws.Route53Domains.Domain("example", new()
     ///     {
+    ///         DomainName = "example.com",
+    ///         AutoRenew = false,
     ///         AdminContact = new Aws.Route53Domains.Inputs.DomainAdminContactArgs
     ///         {
     ///             AddressLine1 = "101 Main Street",
@@ -69,8 +71,6 @@ namespace Pulumi.Aws.Route53Domains
     ///             State = "CA",
     ///             ZipCode = "94105",
     ///         },
-    ///         DomainName = "example.com",
-    ///         AutoRenew = false,
     ///         Tags = 
     ///         {
     ///             { "Environment", "test" },

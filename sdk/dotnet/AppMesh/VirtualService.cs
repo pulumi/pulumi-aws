@@ -26,6 +26,8 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var servicea = new Aws.AppMesh.VirtualService("servicea", new()
     ///     {
+    ///         Name = "servicea.simpleapp.local",
+    ///         MeshName = simple.Id,
     ///         Spec = new Aws.AppMesh.Inputs.VirtualServiceSpecArgs
     ///         {
     ///             Provider = new Aws.AppMesh.Inputs.VirtualServiceSpecProviderArgs
@@ -36,8 +38,6 @@ namespace Pulumi.Aws.AppMesh
     ///                 },
     ///             },
     ///         },
-    ///         Name = "servicea.simpleapp.local",
-    ///         MeshName = simple.Id,
     ///     });
     /// 
     /// });
@@ -55,6 +55,8 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var servicea = new Aws.AppMesh.VirtualService("servicea", new()
     ///     {
+    ///         Name = "servicea.simpleapp.local",
+    ///         MeshName = simple.Id,
     ///         Spec = new Aws.AppMesh.Inputs.VirtualServiceSpecArgs
     ///         {
     ///             Provider = new Aws.AppMesh.Inputs.VirtualServiceSpecProviderArgs
@@ -65,8 +67,6 @@ namespace Pulumi.Aws.AppMesh
     ///                 },
     ///             },
     ///         },
-    ///         Name = "servicea.simpleapp.local",
-    ///         MeshName = simple.Id,
     ///     });
     /// 
     /// });

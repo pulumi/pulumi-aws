@@ -320,11 +320,11 @@ class ContainerAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_association_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 container_monitoring_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerAssociationContainerMonitoringConfigurationArgs', 'ContainerAssociationContainerMonitoringConfigurationArgsDict']]]]] = None,
+                 container_monitoring_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerAssociationContainerMonitoringConfigurationArgs', 'ContainerAssociationContainerMonitoringConfigurationArgsDict', 'outputs.ContainerAssociationContainerMonitoringConfiguration']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ContainerAssociationTimeoutsArgs', 'ContainerAssociationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ContainerAssociationTimeoutsArgs', 'ContainerAssociationTimeoutsArgsDict', 'outputs.ContainerAssociationTimeouts']]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -339,16 +339,16 @@ class ContainerAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.ContainerAssociation("example",
+            container_association_name="example-eks-association",
+            type="EKS",
+            description="Association for production EKS cluster",
             container_monitoring_configurations=[{
+                "cluster_arn": example_aws_eks_cluster["arn"],
                 "attribute_filters": [{
                     "key": "app",
                     "value": "backend",
                 }],
-                "cluster_arn": example_aws_eks_cluster["arn"],
             }],
-            container_association_name="example-eks-association",
-            type="EKS",
-            description="Association for production EKS cluster",
             tags={
                 "Name": "example",
                 "Environment": "production",
@@ -362,11 +362,11 @@ class ContainerAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.ContainerAssociation("example",
+            container_association_name="example-ecs-association",
+            type="ECS",
             container_monitoring_configurations=[{
                 "cluster_arn": example_aws_ecs_cluster["arn"],
-            }],
-            container_association_name="example-ecs-association",
-            type="ECS")
+            }])
         ```
 
         ## Import
@@ -387,7 +387,7 @@ class ContainerAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] container_association_name: Name of the container association. You can't change the name after creation. Must be between 1 and 128 characters and contain only alphanumeric characters and hyphens.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerAssociationContainerMonitoringConfigurationArgs', 'ContainerAssociationContainerMonitoringConfigurationArgsDict']]]] container_monitoring_configurations: One or more monitoring configurations, up to 5. See `container_monitoring_configuration` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerAssociationContainerMonitoringConfigurationArgs', 'ContainerAssociationContainerMonitoringConfigurationArgsDict', 'outputs.ContainerAssociationContainerMonitoringConfiguration']]]] container_monitoring_configurations: One or more monitoring configurations, up to 5. See `container_monitoring_configuration` Block below.
         :param pulumi.Input[_builtins.str] description: Description of the container association.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -411,16 +411,16 @@ class ContainerAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.ContainerAssociation("example",
+            container_association_name="example-eks-association",
+            type="EKS",
+            description="Association for production EKS cluster",
             container_monitoring_configurations=[{
+                "cluster_arn": example_aws_eks_cluster["arn"],
                 "attribute_filters": [{
                     "key": "app",
                     "value": "backend",
                 }],
-                "cluster_arn": example_aws_eks_cluster["arn"],
             }],
-            container_association_name="example-eks-association",
-            type="EKS",
-            description="Association for production EKS cluster",
             tags={
                 "Name": "example",
                 "Environment": "production",
@@ -434,11 +434,11 @@ class ContainerAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.ContainerAssociation("example",
+            container_association_name="example-ecs-association",
+            type="ECS",
             container_monitoring_configurations=[{
                 "cluster_arn": example_aws_ecs_cluster["arn"],
-            }],
-            container_association_name="example-ecs-association",
-            type="ECS")
+            }])
         ```
 
         ## Import
@@ -472,11 +472,11 @@ class ContainerAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_association_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 container_monitoring_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerAssociationContainerMonitoringConfigurationArgs', 'ContainerAssociationContainerMonitoringConfigurationArgsDict']]]]] = None,
+                 container_monitoring_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerAssociationContainerMonitoringConfigurationArgs', 'ContainerAssociationContainerMonitoringConfigurationArgsDict', 'outputs.ContainerAssociationContainerMonitoringConfiguration']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ContainerAssociationTimeoutsArgs', 'ContainerAssociationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ContainerAssociationTimeoutsArgs', 'ContainerAssociationTimeoutsArgsDict', 'outputs.ContainerAssociationTimeouts']]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -516,13 +516,13 @@ class ContainerAssociation(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             container_association_arn: pulumi.Input[Optional[_builtins.str]] = None,
             container_association_name: pulumi.Input[Optional[_builtins.str]] = None,
-            container_monitoring_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerAssociationContainerMonitoringConfigurationArgs', 'ContainerAssociationContainerMonitoringConfigurationArgsDict']]]]] = None,
+            container_monitoring_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerAssociationContainerMonitoringConfigurationArgs', 'ContainerAssociationContainerMonitoringConfigurationArgsDict', 'outputs.ContainerAssociationContainerMonitoringConfiguration']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             resolved_cidr_count: pulumi.Input[Optional[_builtins.int]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['ContainerAssociationTimeoutsArgs', 'ContainerAssociationTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['ContainerAssociationTimeoutsArgs', 'ContainerAssociationTimeoutsArgsDict', 'outputs.ContainerAssociationTimeouts']]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
             update_token: pulumi.Input[Optional[_builtins.str]] = None) -> 'ContainerAssociation':
         """
@@ -534,7 +534,7 @@ class ContainerAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] container_association_arn: ARN of the container association.
         :param pulumi.Input[_builtins.str] container_association_name: Name of the container association. You can't change the name after creation. Must be between 1 and 128 characters and contain only alphanumeric characters and hyphens.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerAssociationContainerMonitoringConfigurationArgs', 'ContainerAssociationContainerMonitoringConfigurationArgsDict']]]] container_monitoring_configurations: One or more monitoring configurations, up to 5. See `container_monitoring_configuration` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerAssociationContainerMonitoringConfigurationArgs', 'ContainerAssociationContainerMonitoringConfigurationArgsDict', 'outputs.ContainerAssociationContainerMonitoringConfiguration']]]] container_monitoring_configurations: One or more monitoring configurations, up to 5. See `container_monitoring_configuration` Block below.
         :param pulumi.Input[_builtins.str] description: Description of the container association.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] resolved_cidr_count: Number of CIDR blocks resolved from the monitored containers for this container association.

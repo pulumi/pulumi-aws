@@ -80,7 +80,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.athena.Database;
  * import com.pulumi.aws.athena.DatabaseArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -97,9 +96,7 @@ import javax.annotation.Nullable;
  *         var example = new Database("example", DatabaseArgs.builder()
  *             .name("database_name")
  *             .bucket(exampleAwsS3Bucket.id())
- *             .build(), CustomResourceOptions.builder()
- *                 .ignoreChanges("bucket")
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

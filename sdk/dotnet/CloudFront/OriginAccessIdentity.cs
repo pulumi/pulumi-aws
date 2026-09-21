@@ -91,6 +91,14 @@ namespace Pulumi.Aws.CloudFront
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:GetObject",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"{exampleAwsS3Bucket.Arn}/*",
+    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -101,14 +109,6 @@ namespace Pulumi.Aws.CloudFront
     ///                             exampleAwsCloudfrontOriginAccessIdentity.IamArn,
     ///                         },
     ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "s3:GetObject",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     $"{exampleAwsS3Bucket.Arn}/*",
     ///                 },
     ///             },
     ///         },

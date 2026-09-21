@@ -39,6 +39,16 @@ namespace Pulumi.Aws.Sagemaker
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Sid = "AddPermModelPackageGroup",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sagemaker:DescribeModelPackage",
+    ///                     "sagemaker:ListModelPackages",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     exampleModelPackageGroup.Arn,
+    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -49,16 +59,6 @@ namespace Pulumi.Aws.Sagemaker
     ///                         },
     ///                         Type = "AWS",
     ///                     },
-    ///                 },
-    ///                 Sid = "AddPermModelPackageGroup",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sagemaker:DescribeModelPackage",
-    ///                     "sagemaker:ListModelPackages",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     exampleModelPackageGroup.Arn,
     ///                 },
     ///             },
     ///         },

@@ -24,6 +24,10 @@ namespace Pulumi.Aws.AppSync
     /// {
     ///     var exampleTable = new Aws.DynamoDB.Table("example", new()
     ///     {
+    ///         Name = "example",
+    ///         ReadCapacity = 1,
+    ///         WriteCapacity = 1,
+    ///         HashKey = "UserId",
     ///         Attributes = new[]
     ///         {
     ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
@@ -32,10 +36,6 @@ namespace Pulumi.Aws.AppSync
     ///                 Type = "S",
     ///             },
     ///         },
-    ///         Name = "example",
-    ///         ReadCapacity = 1,
-    ///         WriteCapacity = 1,
-    ///         HashKey = "UserId",
     ///     });
     /// 
     ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -44,6 +44,7 @@ namespace Pulumi.Aws.AppSync
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -55,7 +56,6 @@ namespace Pulumi.Aws.AppSync
     ///                         },
     ///                     },
     ///                 },
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -104,14 +104,14 @@ namespace Pulumi.Aws.AppSync
     /// 
     ///     var exampleDataSource = new Aws.AppSync.DataSource("example", new()
     ///     {
-    ///         DynamodbConfig = new Aws.AppSync.Inputs.DataSourceDynamodbConfigArgs
-    ///         {
-    ///             TableName = exampleTable.Name,
-    ///         },
     ///         ApiId = exampleGraphQLApi.Id,
     ///         Name = "my_appsync_example",
     ///         ServiceRoleArn = exampleRole.Arn,
     ///         Type = "AMAZON_DYNAMODB",
+    ///         DynamodbConfig = new Aws.AppSync.Inputs.DataSourceDynamodbConfigArgs
+    ///         {
+    ///             TableName = exampleTable.Name,
+    ///         },
     ///     });
     /// 
     /// });

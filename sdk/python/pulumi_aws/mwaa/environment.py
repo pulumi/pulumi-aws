@@ -1051,13 +1051,13 @@ class Environment(pulumi.CustomResource):
                  environment_class: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging_configuration: pulumi.Input[Optional[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict']]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict', 'outputs.EnvironmentLoggingConfiguration']]] = None,
                  max_webservers: pulumi.Input[Optional[_builtins.int]] = None,
                  max_workers: pulumi.Input[Optional[_builtins.int]] = None,
                  min_webservers: pulumi.Input[Optional[_builtins.int]] = None,
                  min_workers: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_configuration: pulumi.Input[Optional[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict']]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict', 'outputs.EnvironmentNetworkConfiguration']]] = None,
                  plugins_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
                  plugins_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1086,13 +1086,13 @@ class Environment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mwaa.Environment("example",
+            dag_s3_path="dags/",
+            execution_role_arn=example_aws_iam_role["arn"],
+            name="example",
             network_configuration={
                 "security_group_ids": [example_aws_security_group["id"]],
                 "subnet_ids": [__item["id"] for __item in private],
             },
-            dag_s3_path="dags/",
-            execution_role_arn=example_aws_iam_role["arn"],
-            name="example",
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
 
@@ -1103,10 +1103,6 @@ class Environment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mwaa.Environment("example",
-            network_configuration={
-                "security_group_ids": [example_aws_security_group["id"]],
-                "subnet_ids": [__item["id"] for __item in private],
-            },
             airflow_configuration_options={
                 "core.default_task_retries": "16",
                 "core.parallelism": "1",
@@ -1114,6 +1110,10 @@ class Environment(pulumi.CustomResource):
             dag_s3_path="dags/",
             execution_role_arn=example_aws_iam_role["arn"],
             name="example",
+            network_configuration={
+                "security_group_ids": [example_aws_security_group["id"]],
+                "subnet_ids": [__item["id"] for __item in private],
+            },
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
 
@@ -1126,6 +1126,8 @@ class Environment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mwaa.Environment("example",
+            dag_s3_path="dags/",
+            execution_role_arn=example_aws_iam_role["arn"],
             logging_configuration={
                 "dag_processing_logs": {
                     "enabled": True,
@@ -1148,13 +1150,11 @@ class Environment(pulumi.CustomResource):
                     "log_level": "CRITICAL",
                 },
             },
+            name="example",
             network_configuration={
                 "security_group_ids": [example_aws_security_group["id"]],
                 "subnet_ids": [__item["id"] for __item in private],
             },
-            dag_s3_path="dags/",
-            execution_role_arn=example_aws_iam_role["arn"],
-            name="example",
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
 
@@ -1165,13 +1165,13 @@ class Environment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mwaa.Environment("example",
+            dag_s3_path="dags/",
+            execution_role_arn=example_aws_iam_role["arn"],
+            name="example",
             network_configuration={
                 "security_group_ids": [example_aws_security_group["id"]],
                 "subnet_ids": [__item["id"] for __item in private],
             },
-            dag_s3_path="dags/",
-            execution_role_arn=example_aws_iam_role["arn"],
-            name="example",
             source_bucket_arn=example_aws_s3_bucket["arn"],
             tags={
                 "Name": "example",
@@ -1197,13 +1197,13 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] environment_class: Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
         :param pulumi.Input[_builtins.str] kms_key: ARN of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
-        :param pulumi.Input[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict']] logging_configuration: The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
+        :param pulumi.Input[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict', 'outputs.EnvironmentLoggingConfiguration']] logging_configuration: The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
         :param pulumi.Input[_builtins.int] max_webservers: The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
         :param pulumi.Input[_builtins.int] max_workers: The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
         :param pulumi.Input[_builtins.int] min_webservers: The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
         :param pulumi.Input[_builtins.int] min_workers: The minimum number of workers that you want to run in your environment. Will be `1` by default.
         :param pulumi.Input[_builtins.str] name: The name of the Apache Airflow Environment
-        :param pulumi.Input[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict']] network_configuration: Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
+        :param pulumi.Input[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict', 'outputs.EnvironmentNetworkConfiguration']] network_configuration: Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
         :param pulumi.Input[_builtins.str] plugins_s3_object_version: The plugins.zip file version you want to use.
         :param pulumi.Input[_builtins.str] plugins_s3_path: The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -1238,13 +1238,13 @@ class Environment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mwaa.Environment("example",
+            dag_s3_path="dags/",
+            execution_role_arn=example_aws_iam_role["arn"],
+            name="example",
             network_configuration={
                 "security_group_ids": [example_aws_security_group["id"]],
                 "subnet_ids": [__item["id"] for __item in private],
             },
-            dag_s3_path="dags/",
-            execution_role_arn=example_aws_iam_role["arn"],
-            name="example",
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
 
@@ -1255,10 +1255,6 @@ class Environment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mwaa.Environment("example",
-            network_configuration={
-                "security_group_ids": [example_aws_security_group["id"]],
-                "subnet_ids": [__item["id"] for __item in private],
-            },
             airflow_configuration_options={
                 "core.default_task_retries": "16",
                 "core.parallelism": "1",
@@ -1266,6 +1262,10 @@ class Environment(pulumi.CustomResource):
             dag_s3_path="dags/",
             execution_role_arn=example_aws_iam_role["arn"],
             name="example",
+            network_configuration={
+                "security_group_ids": [example_aws_security_group["id"]],
+                "subnet_ids": [__item["id"] for __item in private],
+            },
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
 
@@ -1278,6 +1278,8 @@ class Environment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mwaa.Environment("example",
+            dag_s3_path="dags/",
+            execution_role_arn=example_aws_iam_role["arn"],
             logging_configuration={
                 "dag_processing_logs": {
                     "enabled": True,
@@ -1300,13 +1302,11 @@ class Environment(pulumi.CustomResource):
                     "log_level": "CRITICAL",
                 },
             },
+            name="example",
             network_configuration={
                 "security_group_ids": [example_aws_security_group["id"]],
                 "subnet_ids": [__item["id"] for __item in private],
             },
-            dag_s3_path="dags/",
-            execution_role_arn=example_aws_iam_role["arn"],
-            name="example",
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
 
@@ -1317,13 +1317,13 @@ class Environment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mwaa.Environment("example",
+            dag_s3_path="dags/",
+            execution_role_arn=example_aws_iam_role["arn"],
+            name="example",
             network_configuration={
                 "security_group_ids": [example_aws_security_group["id"]],
                 "subnet_ids": [__item["id"] for __item in private],
             },
-            dag_s3_path="dags/",
-            execution_role_arn=example_aws_iam_role["arn"],
-            name="example",
             source_bucket_arn=example_aws_s3_bucket["arn"],
             tags={
                 "Name": "example",
@@ -1362,13 +1362,13 @@ class Environment(pulumi.CustomResource):
                  environment_class: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging_configuration: pulumi.Input[Optional[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict']]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict', 'outputs.EnvironmentLoggingConfiguration']]] = None,
                  max_webservers: pulumi.Input[Optional[_builtins.int]] = None,
                  max_workers: pulumi.Input[Optional[_builtins.int]] = None,
                  min_webservers: pulumi.Input[Optional[_builtins.int]] = None,
                  min_workers: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_configuration: pulumi.Input[Optional[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict']]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict', 'outputs.EnvironmentNetworkConfiguration']]] = None,
                  plugins_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
                  plugins_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1457,14 +1457,14 @@ class Environment(pulumi.CustomResource):
             environment_class: pulumi.Input[Optional[_builtins.str]] = None,
             execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             kms_key: pulumi.Input[Optional[_builtins.str]] = None,
-            last_updateds: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentLastUpdatedArgs', 'EnvironmentLastUpdatedArgsDict']]]]] = None,
-            logging_configuration: pulumi.Input[Optional[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict']]] = None,
+            last_updateds: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentLastUpdatedArgs', 'EnvironmentLastUpdatedArgsDict', 'outputs.EnvironmentLastUpdated']]]]] = None,
+            logging_configuration: pulumi.Input[Optional[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict', 'outputs.EnvironmentLoggingConfiguration']]] = None,
             max_webservers: pulumi.Input[Optional[_builtins.int]] = None,
             max_workers: pulumi.Input[Optional[_builtins.int]] = None,
             min_webservers: pulumi.Input[Optional[_builtins.int]] = None,
             min_workers: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            network_configuration: pulumi.Input[Optional[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict']]] = None,
+            network_configuration: pulumi.Input[Optional[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict', 'outputs.EnvironmentNetworkConfiguration']]] = None,
             plugins_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
             plugins_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1501,13 +1501,13 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] environment_class: Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
         :param pulumi.Input[_builtins.str] kms_key: ARN of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
-        :param pulumi.Input[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict']] logging_configuration: The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
+        :param pulumi.Input[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict', 'outputs.EnvironmentLoggingConfiguration']] logging_configuration: The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
         :param pulumi.Input[_builtins.int] max_webservers: The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
         :param pulumi.Input[_builtins.int] max_workers: The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
         :param pulumi.Input[_builtins.int] min_webservers: The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
         :param pulumi.Input[_builtins.int] min_workers: The minimum number of workers that you want to run in your environment. Will be `1` by default.
         :param pulumi.Input[_builtins.str] name: The name of the Apache Airflow Environment
-        :param pulumi.Input[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict']] network_configuration: Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
+        :param pulumi.Input[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict', 'outputs.EnvironmentNetworkConfiguration']] network_configuration: Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
         :param pulumi.Input[_builtins.str] plugins_s3_object_version: The plugins.zip file version you want to use.
         :param pulumi.Input[_builtins.str] plugins_s3_path: The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

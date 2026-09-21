@@ -87,7 +87,7 @@ class AwaitableGetHostsResult(GetHostsResult):
             tags=self.tags)
 
 
-def get_hosts(filters: Optional[Sequence[Union['GetHostsFilterArgs', 'GetHostsFilterArgsDict']]] = None,
+def get_hosts(filters: Optional[Sequence[Union['GetHostsFilterArgs', 'GetHostsFilterArgsDict', 'outputs.GetHostsFilterResult']]] = None,
               outpost_arn: Optional[_builtins.str] = None,
               region: Optional[_builtins.str] = None,
               tags: Optional[Mapping[str, _builtins.str]] = None,
@@ -123,15 +123,15 @@ def get_hosts(filters: Optional[Sequence[Union['GetHostsFilterArgs', 'GetHostsFi
     import pulumi
     import pulumi_aws as aws
 
-    outpost = aws.ec2.get_hosts(filters=[{
+    outpost = aws.ec2.get_hosts(outpost_arn=example["arn"],
+        filters=[{
             "name": "state",
             "values": ["available"],
-        }],
-        outpost_arn=example["arn"])
+        }])
     ```
 
 
-    :param Sequence[Union['GetHostsFilterArgs', 'GetHostsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html) for supported filters. Detailed below.
+    :param Sequence[Union['GetHostsFilterArgs', 'GetHostsFilterArgsDict', 'outputs.GetHostsFilterResult']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html) for supported filters. Detailed below.
     :param _builtins.str outpost_arn: ARN of the AWS Outpost. Filters results client-side to only include hosts allocated on this Outpost.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Key-value map of resource tags, each pair of which must exactly match a pair on the desired Dedicated Hosts.
@@ -150,7 +150,7 @@ def get_hosts(filters: Optional[Sequence[Union['GetHostsFilterArgs', 'GetHostsFi
         outpost_arn=pulumi.get(__ret__, 'outpost_arn'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_hosts_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetHostsFilterArgs', 'GetHostsFilterArgsDict']]]]] = None,
+def get_hosts_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetHostsFilterArgs', 'GetHostsFilterArgsDict', 'outputs.GetHostsFilterResult']]]]] = None,
                      outpost_arn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
@@ -186,15 +186,15 @@ def get_hosts_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['Get
     import pulumi
     import pulumi_aws as aws
 
-    outpost = aws.ec2.get_hosts(filters=[{
+    outpost = aws.ec2.get_hosts(outpost_arn=example["arn"],
+        filters=[{
             "name": "state",
             "values": ["available"],
-        }],
-        outpost_arn=example["arn"])
+        }])
     ```
 
 
-    :param Sequence[Union['GetHostsFilterArgs', 'GetHostsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html) for supported filters. Detailed below.
+    :param Sequence[Union['GetHostsFilterArgs', 'GetHostsFilterArgsDict', 'outputs.GetHostsFilterResult']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html) for supported filters. Detailed below.
     :param _builtins.str outpost_arn: ARN of the AWS Outpost. Filters results client-side to only include hosts allocated on this Outpost.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Key-value map of resource tags, each pair of which must exactly match a pair on the desired Dedicated Hosts.

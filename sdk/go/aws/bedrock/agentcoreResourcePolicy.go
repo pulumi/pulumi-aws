@@ -38,14 +38,10 @@ import (
 //			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
-//							&iam.GetPolicyDocumentStatementConditionArgs{
-//								Test:     pulumi.String("StringEquals"),
-//								Variable: pulumi.String("aws:SourceVpc"),
-//								Values: pulumi.StringArray{
-//									pulumi.String("vpc-1a2b3c4d"),
-//								},
-//							},
+//						Sid:    pulumi.String("AllowOAuthFromVPC"),
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("bedrock-agentcore:InvokeAgentRuntime"),
 //						},
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
@@ -55,13 +51,17 @@ import (
 //								},
 //							},
 //						},
-//						Sid:    pulumi.String("AllowOAuthFromVPC"),
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("bedrock-agentcore:InvokeAgentRuntime"),
-//						},
 //						Resources: pulumi.StringArray{
 //							exampleAgentcoreAgentRuntime.AgentRuntimeArn,
+//						},
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("StringEquals"),
+//								Variable: pulumi.String("aws:SourceVpc"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("vpc-1a2b3c4d"),
+//								},
+//							},
 //						},
 //					},
 //				},

@@ -232,10 +232,10 @@ class FunctionScalingConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  function_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 function_scaling_config: pulumi.Input[Optional[Union['FunctionScalingConfigFunctionScalingConfigArgs', 'FunctionScalingConfigFunctionScalingConfigArgsDict']]] = None,
+                 function_scaling_config: pulumi.Input[Optional[Union['FunctionScalingConfigFunctionScalingConfigArgs', 'FunctionScalingConfigFunctionScalingConfigArgsDict', 'outputs.FunctionScalingConfigFunctionScalingConfig']]] = None,
                  qualifier: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['FunctionScalingConfigTimeoutsArgs', 'FunctionScalingConfigTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['FunctionScalingConfigTimeoutsArgs', 'FunctionScalingConfigTimeoutsArgsDict', 'outputs.FunctionScalingConfigTimeouts']]] = None,
                  __props__=None):
         """
         Manages the scaling configuration for an AWS Lambda function. The scaling configuration defines the minimum and maximum number of execution environments that can be provisioned for the function, allowing you to control scaling behavior and resource allocation.
@@ -253,20 +253,15 @@ class FunctionScalingConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.CapacityProvider("example",
+            name="example",
             vpc_config={
                 "subnet_ids": [__item["id"] for __item in example_aws_subnet],
                 "security_group_ids": [example_aws_security_group["id"]],
             },
             permissions_config={
                 "capacity_provider_operator_role_arn": example_aws_iam_role["arn"],
-            },
-            name="example")
+            })
         example_function = aws.lambda_.Function("example",
-            capacity_provider_config={
-                "lambda_managed_instances_capacity_provider_config": {
-                    "capacity_provider_arn": example.arn,
-                },
-            },
             code=pulumi.FileArchive("lambda_function.zip"),
             name="example",
             role=example_aws_iam_role["arn"],
@@ -274,14 +269,19 @@ class FunctionScalingConfig(pulumi.CustomResource):
             runtime=aws.lambda_.Runtime.PYTHON3D14,
             memory_size=32768,
             publish=True,
-            publish_to="LATEST_PUBLISHED")
+            publish_to="LATEST_PUBLISHED",
+            capacity_provider_config={
+                "lambda_managed_instances_capacity_provider_config": {
+                    "capacity_provider_arn": example.arn,
+                },
+            })
         example_function_scaling_config = aws.lambda_.FunctionScalingConfig("example",
+            function_name=example_function.name,
+            qualifier="$LATEST.PUBLISHED",
             function_scaling_config={
                 "min_execution_environments": 3,
                 "max_execution_environments": 100,
-            },
-            function_name=example_function.name,
-            qualifier="$LATEST.PUBLISHED")
+            })
         ```
 
         ## Import
@@ -308,7 +308,7 @@ class FunctionScalingConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] function_name: Name or ARN of the Lambda function. Changing this forces a new resource.
-        :param pulumi.Input[Union['FunctionScalingConfigFunctionScalingConfigArgs', 'FunctionScalingConfigFunctionScalingConfigArgsDict']] function_scaling_config: Scaling configuration block. See `function_scaling_config` Block below.
+        :param pulumi.Input[Union['FunctionScalingConfigFunctionScalingConfigArgs', 'FunctionScalingConfigFunctionScalingConfigArgsDict', 'outputs.FunctionScalingConfigFunctionScalingConfig']] function_scaling_config: Scaling configuration block. See `function_scaling_config` Block below.
         :param pulumi.Input[_builtins.str] qualifier: Qualifier for the scaling configuration. Valid values: `$LATEST.PUBLISHED` to target the latest published version, or a specific numeric version number (e.g., `1`). Changing this forces a new resource.
                
                The following arguments are optional:
@@ -336,20 +336,15 @@ class FunctionScalingConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.CapacityProvider("example",
+            name="example",
             vpc_config={
                 "subnet_ids": [__item["id"] for __item in example_aws_subnet],
                 "security_group_ids": [example_aws_security_group["id"]],
             },
             permissions_config={
                 "capacity_provider_operator_role_arn": example_aws_iam_role["arn"],
-            },
-            name="example")
+            })
         example_function = aws.lambda_.Function("example",
-            capacity_provider_config={
-                "lambda_managed_instances_capacity_provider_config": {
-                    "capacity_provider_arn": example.arn,
-                },
-            },
             code=pulumi.FileArchive("lambda_function.zip"),
             name="example",
             role=example_aws_iam_role["arn"],
@@ -357,14 +352,19 @@ class FunctionScalingConfig(pulumi.CustomResource):
             runtime=aws.lambda_.Runtime.PYTHON3D14,
             memory_size=32768,
             publish=True,
-            publish_to="LATEST_PUBLISHED")
+            publish_to="LATEST_PUBLISHED",
+            capacity_provider_config={
+                "lambda_managed_instances_capacity_provider_config": {
+                    "capacity_provider_arn": example.arn,
+                },
+            })
         example_function_scaling_config = aws.lambda_.FunctionScalingConfig("example",
+            function_name=example_function.name,
+            qualifier="$LATEST.PUBLISHED",
             function_scaling_config={
                 "min_execution_environments": 3,
                 "max_execution_environments": 100,
-            },
-            function_name=example_function.name,
-            qualifier="$LATEST.PUBLISHED")
+            })
         ```
 
         ## Import
@@ -404,10 +404,10 @@ class FunctionScalingConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  function_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 function_scaling_config: pulumi.Input[Optional[Union['FunctionScalingConfigFunctionScalingConfigArgs', 'FunctionScalingConfigFunctionScalingConfigArgsDict']]] = None,
+                 function_scaling_config: pulumi.Input[Optional[Union['FunctionScalingConfigFunctionScalingConfigArgs', 'FunctionScalingConfigFunctionScalingConfigArgsDict', 'outputs.FunctionScalingConfigFunctionScalingConfig']]] = None,
                  qualifier: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['FunctionScalingConfigTimeoutsArgs', 'FunctionScalingConfigTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['FunctionScalingConfigTimeoutsArgs', 'FunctionScalingConfigTimeoutsArgsDict', 'outputs.FunctionScalingConfigTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -442,11 +442,11 @@ class FunctionScalingConfig(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             function_arn: pulumi.Input[Optional[_builtins.str]] = None,
             function_name: pulumi.Input[Optional[_builtins.str]] = None,
-            function_scaling_config: pulumi.Input[Optional[Union['FunctionScalingConfigFunctionScalingConfigArgs', 'FunctionScalingConfigFunctionScalingConfigArgsDict']]] = None,
+            function_scaling_config: pulumi.Input[Optional[Union['FunctionScalingConfigFunctionScalingConfigArgs', 'FunctionScalingConfigFunctionScalingConfigArgsDict', 'outputs.FunctionScalingConfigFunctionScalingConfig']]] = None,
             function_state: pulumi.Input[Optional[_builtins.str]] = None,
             qualifier: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['FunctionScalingConfigTimeoutsArgs', 'FunctionScalingConfigTimeoutsArgsDict']]] = None) -> 'FunctionScalingConfig':
+            timeouts: pulumi.Input[Optional[Union['FunctionScalingConfigTimeoutsArgs', 'FunctionScalingConfigTimeoutsArgsDict', 'outputs.FunctionScalingConfigTimeouts']]] = None) -> 'FunctionScalingConfig':
         """
         Get an existing FunctionScalingConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -456,7 +456,7 @@ class FunctionScalingConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] function_arn: ARN of the Lambda function.
         :param pulumi.Input[_builtins.str] function_name: Name or ARN of the Lambda function. Changing this forces a new resource.
-        :param pulumi.Input[Union['FunctionScalingConfigFunctionScalingConfigArgs', 'FunctionScalingConfigFunctionScalingConfigArgsDict']] function_scaling_config: Scaling configuration block. See `function_scaling_config` Block below.
+        :param pulumi.Input[Union['FunctionScalingConfigFunctionScalingConfigArgs', 'FunctionScalingConfigFunctionScalingConfigArgsDict', 'outputs.FunctionScalingConfigFunctionScalingConfig']] function_scaling_config: Scaling configuration block. See `function_scaling_config` Block below.
         :param pulumi.Input[_builtins.str] function_state: State of the function after the scaling configuration was applied. This reflects the state reported by the most recent create or update and is not refreshed on read.
         :param pulumi.Input[_builtins.str] qualifier: Qualifier for the scaling configuration. Valid values: `$LATEST.PUBLISHED` to target the latest published version, or a specific numeric version number (e.g., `1`). Changing this forces a new resource.
                

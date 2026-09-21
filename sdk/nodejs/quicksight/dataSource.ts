@@ -19,6 +19,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.quicksight.DataSource("default", {
+ *     dataSourceId: "example-id",
+ *     name: "My Cool Data in S3",
  *     parameters: {
  *         s3: {
  *             manifestFileLocation: {
@@ -27,8 +29,6 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
- *     dataSourceId: "example-id",
- *     name: "My Cool Data in S3",
  *     type: "S3",
  * });
  * ```
@@ -100,6 +100,8 @@ import * as utilities from "../utilities";
  *     role: exampleRole.name,
  * });
  * const exampleDataSource = new aws.quicksight.DataSource("example", {
+ *     dataSourceId: "example-id",
+ *     name: "manifest in S3",
  *     parameters: {
  *         s3: {
  *             manifestFileLocation: {
@@ -109,8 +111,6 @@ import * as utilities from "../utilities";
  *             roleArn: exampleRole.arn,
  *         },
  *     },
- *     dataSourceId: "example-id",
- *     name: "manifest in S3",
  *     type: "S3",
  * });
  * ```

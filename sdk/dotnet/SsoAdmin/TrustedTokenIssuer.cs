@@ -28,6 +28,9 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     ///     var exampleTrustedTokenIssuer = new Aws.SsoAdmin.TrustedTokenIssuer("example", new()
     ///     {
+    ///         Name = "example",
+    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
+    ///         TrustedTokenIssuerType = "OIDC_JWT",
     ///         TrustedTokenIssuerConfiguration = new Aws.SsoAdmin.Inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs
     ///         {
     ///             OidcJwtConfiguration = new Aws.SsoAdmin.Inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs
@@ -38,9 +41,6 @@ namespace Pulumi.Aws.SsoAdmin
     ///                 JwksRetrievalOption = "OPEN_ID_DISCOVERY",
     ///             },
     ///         },
-    ///         Name = "example",
-    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
-    ///         TrustedTokenIssuerType = "OIDC_JWT",
     ///     });
     /// 
     /// });

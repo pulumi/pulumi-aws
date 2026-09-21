@@ -60,6 +60,8 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     ///     var test = new Aws.CodeArtifact.Repository("test", new()
     ///     {
+    ///         RepositoryName = "example",
+    ///         Domain = example.Domain,
     ///         Upstreams = new[]
     ///         {
     ///             new Aws.CodeArtifact.Inputs.RepositoryUpstreamArgs
@@ -67,8 +69,6 @@ namespace Pulumi.Aws.CodeArtifact
     ///                 RepositoryName = upstream.RepositoryName,
     ///             },
     ///         },
-    ///         RepositoryName = "example",
-    ///         Domain = example.Domain,
     ///     });
     /// 
     /// });
@@ -92,12 +92,12 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     ///     var test = new Aws.CodeArtifact.Repository("test", new()
     ///     {
+    ///         RepositoryName = "example",
+    ///         Domain = example.Domain,
     ///         ExternalConnections = new Aws.CodeArtifact.Inputs.RepositoryExternalConnectionsArgs
     ///         {
     ///             ExternalConnectionName = "public:npmjs",
     ///         },
-    ///         RepositoryName = "example",
-    ///         Domain = example.Domain,
     ///     });
     /// 
     /// });

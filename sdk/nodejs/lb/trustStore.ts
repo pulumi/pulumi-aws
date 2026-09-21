@@ -21,15 +21,15 @@ import * as utilities from "../utilities";
  *     caCertificatesBundleS3Key: "...",
  * });
  * const example = new aws.lb.Listener("example", {
- *     mutualAuthentication: {
- *         mode: "verify",
- *         trustStoreArn: test.arn,
- *     },
+ *     loadBalancerArn: exampleAwsLb.id,
  *     defaultActions: [{
  *         targetGroupArn: exampleAwsLbTargetGroup.id,
  *         type: "forward",
  *     }],
- *     loadBalancerArn: exampleAwsLb.id,
+ *     mutualAuthentication: {
+ *         mode: "verify",
+ *         trustStoreArn: test.arn,
+ *     },
  * });
  * ```
  *

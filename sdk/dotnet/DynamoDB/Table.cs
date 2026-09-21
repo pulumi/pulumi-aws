@@ -36,11 +36,12 @@ namespace Pulumi.Aws.DynamoDB
     /// {
     ///     var basic_dynamodb_table = new Aws.DynamoDB.Table("basic-dynamodb-table", new()
     ///     {
-    ///         Ttl = new Aws.DynamoDB.Inputs.TableTtlArgs
-    ///         {
-    ///             AttributeName = "TimeToExist",
-    ///             Enabled = true,
-    ///         },
+    ///         Name = "GameScores",
+    ///         BillingMode = "PROVISIONED",
+    ///         ReadCapacity = 20,
+    ///         WriteCapacity = 20,
+    ///         HashKey = "UserId",
+    ///         RangeKey = "GameTitle",
     ///         Attributes = new[]
     ///         {
     ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
@@ -59,6 +60,11 @@ namespace Pulumi.Aws.DynamoDB
     ///                 Type = "N",
     ///             },
     ///         },
+    ///         Ttl = new Aws.DynamoDB.Inputs.TableTtlArgs
+    ///         {
+    ///             AttributeName = "TimeToExist",
+    ///             Enabled = true,
+    ///         },
     ///         GlobalSecondaryIndexes = new[]
     ///         {
     ///             new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexArgs
@@ -75,12 +81,6 @@ namespace Pulumi.Aws.DynamoDB
     ///                 },
     ///             },
     ///         },
-    ///         Name = "GameScores",
-    ///         BillingMode = "PROVISIONED",
-    ///         ReadCapacity = 20,
-    ///         WriteCapacity = 20,
-    ///         HashKey = "UserId",
-    ///         RangeKey = "GameTitle",
     ///         Tags = 
     ///         {
     ///             { "Name", "dynamodb-table-1" },
@@ -107,11 +107,11 @@ namespace Pulumi.Aws.DynamoDB
     /// {
     ///     var basic_dynamodb_table = new Aws.DynamoDB.Table("basic-dynamodb-table", new()
     ///     {
-    ///         Ttl = new Aws.DynamoDB.Inputs.TableTtlArgs
-    ///         {
-    ///             AttributeName = "TimeToExist",
-    ///             Enabled = true,
-    ///         },
+    ///         Name = "TournamentMatches",
+    ///         BillingMode = "PROVISIONED",
+    ///         ReadCapacity = 20,
+    ///         WriteCapacity = 20,
+    ///         HashKey = "matchId",
     ///         Attributes = new[]
     ///         {
     ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
@@ -150,10 +150,16 @@ namespace Pulumi.Aws.DynamoDB
     ///                 Type = "S",
     ///             },
     ///         },
+    ///         Ttl = new Aws.DynamoDB.Inputs.TableTtlArgs
+    ///         {
+    ///             AttributeName = "TimeToExist",
+    ///             Enabled = true,
+    ///         },
     ///         GlobalSecondaryIndexes = new[]
     ///         {
     ///             new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexArgs
     ///             {
+    ///                 Name = "TournamentRegionIndex",
     ///                 KeySchemas = new[]
     ///                 {
     ///                     new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexKeySchemaArgs
@@ -182,13 +188,13 @@ namespace Pulumi.Aws.DynamoDB
     ///                         KeyType = "RANGE",
     ///                     },
     ///                 },
-    ///                 Name = "TournamentRegionIndex",
     ///                 WriteCapacity = 10,
     ///                 ReadCapacity = 10,
     ///                 ProjectionType = "ALL",
     ///             },
     ///             new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexArgs
     ///             {
+    ///                 Name = "PlayerMatchHistoryIndex",
     ///                 KeySchemas = new[]
     ///                 {
     ///                     new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexKeySchemaArgs
@@ -207,17 +213,11 @@ namespace Pulumi.Aws.DynamoDB
     ///                         KeyType = "RANGE",
     ///                     },
     ///                 },
-    ///                 Name = "PlayerMatchHistoryIndex",
     ///                 WriteCapacity = 10,
     ///                 ReadCapacity = 10,
     ///                 ProjectionType = "ALL",
     ///             },
     ///         },
-    ///         Name = "TournamentMatches",
-    ///         BillingMode = "PROVISIONED",
-    ///         ReadCapacity = 20,
-    ///         WriteCapacity = 20,
-    ///         HashKey = "matchId",
     ///         Tags = 
     ///         {
     ///             { "Name", "dynamodb-table-1" },
@@ -244,6 +244,11 @@ namespace Pulumi.Aws.DynamoDB
     /// {
     ///     var example = new Aws.DynamoDB.Table("example", new()
     ///     {
+    ///         Name = "example",
+    ///         HashKey = "TestTableHashKey",
+    ///         BillingMode = "PAY_PER_REQUEST",
+    ///         StreamEnabled = true,
+    ///         StreamViewType = "NEW_AND_OLD_IMAGES",
     ///         Attributes = new[]
     ///         {
     ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
@@ -263,11 +268,6 @@ namespace Pulumi.Aws.DynamoDB
     ///                 RegionName = "us-west-2",
     ///             },
     ///         },
-    ///         Name = "example",
-    ///         HashKey = "TestTableHashKey",
-    ///         BillingMode = "PAY_PER_REQUEST",
-    ///         StreamEnabled = true,
-    ///         StreamViewType = "NEW_AND_OLD_IMAGES",
     ///     });
     /// 
     /// });
@@ -295,6 +295,11 @@ namespace Pulumi.Aws.DynamoDB
     /// {
     ///     var example = new Aws.DynamoDB.Table("example", new()
     ///     {
+    ///         Name = "example",
+    ///         HashKey = "TestTableHashKey",
+    ///         BillingMode = "PAY_PER_REQUEST",
+    ///         StreamEnabled = true,
+    ///         StreamViewType = "NEW_AND_OLD_IMAGES",
     ///         Attributes = new[]
     ///         {
     ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
@@ -316,11 +321,6 @@ namespace Pulumi.Aws.DynamoDB
     ///                 ConsistencyMode = "STRONG",
     ///             },
     ///         },
-    ///         Name = "example",
-    ///         HashKey = "TestTableHashKey",
-    ///         BillingMode = "PAY_PER_REQUEST",
-    ///         StreamEnabled = true,
-    ///         StreamViewType = "NEW_AND_OLD_IMAGES",
     ///     });
     /// 
     /// });
@@ -338,10 +338,11 @@ namespace Pulumi.Aws.DynamoDB
     /// {
     ///     var example = new Aws.DynamoDB.Table("example", new()
     ///     {
-    ///         GlobalTableWitness = new Aws.DynamoDB.Inputs.TableGlobalTableWitnessArgs
-    ///         {
-    ///             RegionName = "us-west-2",
-    ///         },
+    ///         Name = "example",
+    ///         HashKey = "TestTableHashKey",
+    ///         BillingMode = "PAY_PER_REQUEST",
+    ///         StreamEnabled = true,
+    ///         StreamViewType = "NEW_AND_OLD_IMAGES",
     ///         Attributes = new[]
     ///         {
     ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
@@ -358,11 +359,10 @@ namespace Pulumi.Aws.DynamoDB
     ///                 ConsistencyMode = "STRONG",
     ///             },
     ///         },
-    ///         Name = "example",
-    ///         HashKey = "TestTableHashKey",
-    ///         BillingMode = "PAY_PER_REQUEST",
-    ///         StreamEnabled = true,
-    ///         StreamViewType = "NEW_AND_OLD_IMAGES",
+    ///         GlobalTableWitness = new Aws.DynamoDB.Inputs.TableGlobalTableWitnessArgs
+    ///         {
+    ///             RegionName = "us-west-2",
+    ///         },
     ///     });
     /// 
     /// });
@@ -389,6 +389,11 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     ///     var example = new Aws.DynamoDB.Table("example", new()
     ///     {
+    ///         BillingMode = "PAY_PER_REQUEST",
+    ///         HashKey = "TestTableHashKey",
+    ///         Name = "example-13281",
+    ///         StreamEnabled = true,
+    ///         StreamViewType = "NEW_AND_OLD_IMAGES",
     ///         Attributes = new[]
     ///         {
     ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
@@ -409,11 +414,6 @@ namespace Pulumi.Aws.DynamoDB
     ///                 PropagateTags = true,
     ///             },
     ///         },
-    ///         BillingMode = "PAY_PER_REQUEST",
-    ///         HashKey = "TestTableHashKey",
-    ///         Name = "example-13281",
-    ///         StreamEnabled = true,
-    ///         StreamViewType = "NEW_AND_OLD_IMAGES",
     ///         Tags = 
     ///         {
     ///             { "Architect", "Eleanor" },

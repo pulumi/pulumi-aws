@@ -347,11 +347,11 @@ class Repository(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_owner: pulumi.Input[Optional[_builtins.str]] = None,
-                 external_connections: pulumi.Input[Optional[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict']]] = None,
+                 external_connections: pulumi.Input[Optional[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict', 'outputs.RepositoryExternalConnections']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  repository: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 upstreams: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryUpstreamArgs', 'RepositoryUpstreamArgsDict']]]]] = None,
+                 upstreams: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryUpstreamArgs', 'RepositoryUpstreamArgsDict', 'outputs.RepositoryUpstream']]]]] = None,
                  __props__=None):
         """
         Provides a CodeArtifact Repository Resource.
@@ -381,11 +381,11 @@ class Repository(pulumi.CustomResource):
             repository="upstream",
             domain=test_aws_codeartifact_domain["domain"])
         test = aws.codeartifact.Repository("test",
+            repository="example",
+            domain=example["domain"],
             upstreams=[{
                 "repository_name": upstream.repository,
-            }],
-            repository="example",
-            domain=example["domain"])
+            }])
         ```
 
         ### Example Usage with external connection
@@ -398,11 +398,11 @@ class Repository(pulumi.CustomResource):
             repository="upstream",
             domain=test_aws_codeartifact_domain["domain"])
         test = aws.codeartifact.Repository("test",
+            repository="example",
+            domain=example["domain"],
             external_connections={
                 "external_connection_name": "public:npmjs",
-            },
-            repository="example",
-            domain=example["domain"])
+            })
         ```
 
         ## Import
@@ -425,11 +425,11 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the repository.
         :param pulumi.Input[_builtins.str] domain: The domain that contains the created repository.
         :param pulumi.Input[_builtins.str] domain_owner: The account number of the AWS account that owns the domain.
-        :param pulumi.Input[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict']] external_connections: An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
+        :param pulumi.Input[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict', 'outputs.RepositoryExternalConnections']] external_connections: An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] repository: The name of the repository to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryUpstreamArgs', 'RepositoryUpstreamArgsDict']]]] upstreams: A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryUpstreamArgs', 'RepositoryUpstreamArgsDict', 'outputs.RepositoryUpstream']]]] upstreams: A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
         """
         ...
     @overload
@@ -465,11 +465,11 @@ class Repository(pulumi.CustomResource):
             repository="upstream",
             domain=test_aws_codeartifact_domain["domain"])
         test = aws.codeartifact.Repository("test",
+            repository="example",
+            domain=example["domain"],
             upstreams=[{
                 "repository_name": upstream.repository,
-            }],
-            repository="example",
-            domain=example["domain"])
+            }])
         ```
 
         ### Example Usage with external connection
@@ -482,11 +482,11 @@ class Repository(pulumi.CustomResource):
             repository="upstream",
             domain=test_aws_codeartifact_domain["domain"])
         test = aws.codeartifact.Repository("test",
+            repository="example",
+            domain=example["domain"],
             external_connections={
                 "external_connection_name": "public:npmjs",
-            },
-            repository="example",
-            domain=example["domain"])
+            })
         ```
 
         ## Import
@@ -522,11 +522,11 @@ class Repository(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_owner: pulumi.Input[Optional[_builtins.str]] = None,
-                 external_connections: pulumi.Input[Optional[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict']]] = None,
+                 external_connections: pulumi.Input[Optional[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict', 'outputs.RepositoryExternalConnections']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  repository: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 upstreams: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryUpstreamArgs', 'RepositoryUpstreamArgsDict']]]]] = None,
+                 upstreams: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryUpstreamArgs', 'RepositoryUpstreamArgsDict', 'outputs.RepositoryUpstream']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -566,12 +566,12 @@ class Repository(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             domain: pulumi.Input[Optional[_builtins.str]] = None,
             domain_owner: pulumi.Input[Optional[_builtins.str]] = None,
-            external_connections: pulumi.Input[Optional[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict']]] = None,
+            external_connections: pulumi.Input[Optional[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict', 'outputs.RepositoryExternalConnections']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             repository: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            upstreams: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryUpstreamArgs', 'RepositoryUpstreamArgsDict']]]]] = None) -> 'Repository':
+            upstreams: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryUpstreamArgs', 'RepositoryUpstreamArgsDict', 'outputs.RepositoryUpstream']]]]] = None) -> 'Repository':
         """
         Get an existing Repository resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -584,12 +584,12 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the repository.
         :param pulumi.Input[_builtins.str] domain: The domain that contains the created repository.
         :param pulumi.Input[_builtins.str] domain_owner: The account number of the AWS account that owns the domain.
-        :param pulumi.Input[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict']] external_connections: An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
+        :param pulumi.Input[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict', 'outputs.RepositoryExternalConnections']] external_connections: An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] repository: The name of the repository to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryUpstreamArgs', 'RepositoryUpstreamArgsDict']]]] upstreams: A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryUpstreamArgs', 'RepositoryUpstreamArgsDict', 'outputs.RepositoryUpstream']]]] upstreams: A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

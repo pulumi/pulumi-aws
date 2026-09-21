@@ -337,8 +337,8 @@ class AutomationRuleV2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: pulumi.Input[Optional[Union['AutomationRuleV2ActionArgs', 'AutomationRuleV2ActionArgsDict']]] = None,
-                 criteria: pulumi.Input[Optional[Union['AutomationRuleV2CriteriaArgs', 'AutomationRuleV2CriteriaArgsDict']]] = None,
+                 action: pulumi.Input[Optional[Union['AutomationRuleV2ActionArgs', 'AutomationRuleV2ActionArgsDict', 'outputs.AutomationRuleV2Action']]] = None,
+                 criteria: pulumi.Input[Optional[Union['AutomationRuleV2CriteriaArgs', 'AutomationRuleV2CriteriaArgsDict', 'outputs.AutomationRuleV2Criteria']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -364,6 +364,10 @@ class AutomationRuleV2(pulumi.CustomResource):
         example_aggregator_v2 = aws.securityhub.AggregatorV2("example", region_linking_mode="ALL_REGIONS",
         opts = pulumi.ResourceOptions(depends_on=[example]))
         example_automation_rule_v2 = aws.securityhub.AutomationRuleV2("example",
+            rule_name="suppress-guardduty-low",
+            description="Suppress low severity GuardDuty findings",
+            rule_order=float(100),
+            rule_status="ENABLED",
             criteria={
                 "ocsf_finding_criteria_json": json.dumps({
                     "CompositeFilters": [{
@@ -379,17 +383,13 @@ class AutomationRuleV2(pulumi.CustomResource):
                 }),
             },
             action={
+                "type": "FINDING_FIELDS_UPDATE",
                 "finding_fields_update": {
                     "severity_id": 99,
                     "status_id": 3,
                     "comment": "Low severity GuardDuty finding suppressed",
                 },
-                "type": "FINDING_FIELDS_UPDATE",
             },
-            rule_name="suppress-guardduty-low",
-            description="Suppress low severity GuardDuty findings",
-            rule_order=float(100),
-            rule_status="ENABLED",
             opts = pulumi.ResourceOptions(depends_on=[example_aggregator_v2]))
         ```
 
@@ -410,8 +410,8 @@ class AutomationRuleV2(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AutomationRuleV2ActionArgs', 'AutomationRuleV2ActionArgsDict']] action: Actions to take when the rule matches. Maximum of 1 action block. See `action` below.
-        :param pulumi.Input[Union['AutomationRuleV2CriteriaArgs', 'AutomationRuleV2CriteriaArgsDict']] criteria: Filtering type and configuration of the automation rule. See `criteria` below.
+        :param pulumi.Input[Union['AutomationRuleV2ActionArgs', 'AutomationRuleV2ActionArgsDict', 'outputs.AutomationRuleV2Action']] action: Actions to take when the rule matches. Maximum of 1 action block. See `action` below.
+        :param pulumi.Input[Union['AutomationRuleV2CriteriaArgs', 'AutomationRuleV2CriteriaArgsDict', 'outputs.AutomationRuleV2Criteria']] criteria: Filtering type and configuration of the automation rule. See `criteria` below.
         :param pulumi.Input[_builtins.str] description: A description of the automation rule.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] rule_name: The name of the automation rule.
@@ -443,6 +443,10 @@ class AutomationRuleV2(pulumi.CustomResource):
         example_aggregator_v2 = aws.securityhub.AggregatorV2("example", region_linking_mode="ALL_REGIONS",
         opts = pulumi.ResourceOptions(depends_on=[example]))
         example_automation_rule_v2 = aws.securityhub.AutomationRuleV2("example",
+            rule_name="suppress-guardduty-low",
+            description="Suppress low severity GuardDuty findings",
+            rule_order=float(100),
+            rule_status="ENABLED",
             criteria={
                 "ocsf_finding_criteria_json": json.dumps({
                     "CompositeFilters": [{
@@ -458,17 +462,13 @@ class AutomationRuleV2(pulumi.CustomResource):
                 }),
             },
             action={
+                "type": "FINDING_FIELDS_UPDATE",
                 "finding_fields_update": {
                     "severity_id": 99,
                     "status_id": 3,
                     "comment": "Low severity GuardDuty finding suppressed",
                 },
-                "type": "FINDING_FIELDS_UPDATE",
             },
-            rule_name="suppress-guardduty-low",
-            description="Suppress low severity GuardDuty findings",
-            rule_order=float(100),
-            rule_status="ENABLED",
             opts = pulumi.ResourceOptions(depends_on=[example_aggregator_v2]))
         ```
 
@@ -502,8 +502,8 @@ class AutomationRuleV2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: pulumi.Input[Optional[Union['AutomationRuleV2ActionArgs', 'AutomationRuleV2ActionArgsDict']]] = None,
-                 criteria: pulumi.Input[Optional[Union['AutomationRuleV2CriteriaArgs', 'AutomationRuleV2CriteriaArgsDict']]] = None,
+                 action: pulumi.Input[Optional[Union['AutomationRuleV2ActionArgs', 'AutomationRuleV2ActionArgsDict', 'outputs.AutomationRuleV2Action']]] = None,
+                 criteria: pulumi.Input[Optional[Union['AutomationRuleV2CriteriaArgs', 'AutomationRuleV2CriteriaArgsDict', 'outputs.AutomationRuleV2Criteria']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -550,9 +550,9 @@ class AutomationRuleV2(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action: pulumi.Input[Optional[Union['AutomationRuleV2ActionArgs', 'AutomationRuleV2ActionArgsDict']]] = None,
+            action: pulumi.Input[Optional[Union['AutomationRuleV2ActionArgs', 'AutomationRuleV2ActionArgsDict', 'outputs.AutomationRuleV2Action']]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            criteria: pulumi.Input[Optional[Union['AutomationRuleV2CriteriaArgs', 'AutomationRuleV2CriteriaArgsDict']]] = None,
+            criteria: pulumi.Input[Optional[Union['AutomationRuleV2CriteriaArgs', 'AutomationRuleV2CriteriaArgsDict', 'outputs.AutomationRuleV2Criteria']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             rule_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -568,8 +568,8 @@ class AutomationRuleV2(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AutomationRuleV2ActionArgs', 'AutomationRuleV2ActionArgsDict']] action: Actions to take when the rule matches. Maximum of 1 action block. See `action` below.
-        :param pulumi.Input[Union['AutomationRuleV2CriteriaArgs', 'AutomationRuleV2CriteriaArgsDict']] criteria: Filtering type and configuration of the automation rule. See `criteria` below.
+        :param pulumi.Input[Union['AutomationRuleV2ActionArgs', 'AutomationRuleV2ActionArgsDict', 'outputs.AutomationRuleV2Action']] action: Actions to take when the rule matches. Maximum of 1 action block. See `action` below.
+        :param pulumi.Input[Union['AutomationRuleV2CriteriaArgs', 'AutomationRuleV2CriteriaArgsDict', 'outputs.AutomationRuleV2Criteria']] criteria: Filtering type and configuration of the automation rule. See `criteria` below.
         :param pulumi.Input[_builtins.str] description: A description of the automation rule.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] rule_id: ID of the automation rule.

@@ -46,8 +46,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.VpcArgs;
  * import com.pulumi.aws.ec2.DefaultNetworkAcl;
  * import com.pulumi.aws.ec2.DefaultNetworkAclArgs;
- * import com.pulumi.aws.ec2.inputs.DefaultNetworkAclEgressArgs;
  * import com.pulumi.aws.ec2.inputs.DefaultNetworkAclIngressArgs;
+ * import com.pulumi.aws.ec2.inputs.DefaultNetworkAclEgressArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -66,14 +66,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var default_ = new DefaultNetworkAcl("default", DefaultNetworkAclArgs.builder()
- *             .egress(DefaultNetworkAclEgressArgs.builder()
- *                 .protocol("-1")
- *                 .ruleNo(100)
- *                 .action("allow")
- *                 .cidrBlock("0.0.0.0/0")
- *                 .fromPort(0)
- *                 .toPort(0)
- *                 .build())
+ *             .defaultNetworkAclId(mainvpc.defaultNetworkAclId())
  *             .ingress(DefaultNetworkAclIngressArgs.builder()
  *                 .protocol("-1")
  *                 .ruleNo(100)
@@ -82,7 +75,14 @@ import javax.annotation.Nullable;
  *                 .fromPort(0)
  *                 .toPort(0)
  *                 .build())
- *             .defaultNetworkAclId(mainvpc.defaultNetworkAclId())
+ *             .egress(DefaultNetworkAclEgressArgs.builder()
+ *                 .protocol("-1")
+ *                 .ruleNo(100)
+ *                 .action("allow")
+ *                 .cidrBlock("0.0.0.0/0")
+ *                 .fromPort(0)
+ *                 .toPort(0)
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -124,6 +124,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var default_ = new DefaultNetworkAcl("default", DefaultNetworkAclArgs.builder()
+ *             .defaultNetworkAclId(mainvpc.defaultNetworkAclId())
  *             .ingress(DefaultNetworkAclIngressArgs.builder()
  *                 .protocol("-1")
  *                 .ruleNo(100)
@@ -132,7 +133,6 @@ import javax.annotation.Nullable;
  *                 .fromPort(0)
  *                 .toPort(0)
  *                 .build())
- *             .defaultNetworkAclId(mainvpc.defaultNetworkAclId())
  *             .build());
  * 
  *     }
@@ -199,8 +199,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.DefaultNetworkAcl;
- * import com.pulumi.aws.ec2.DefaultNetworkAclArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -214,9 +212,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new DefaultNetworkAcl("default", DefaultNetworkAclArgs.Empty, CustomResourceOptions.builder()
- *             .ignoreChanges("subnetIds")
- *             .build());
+ *         var default_ = new DefaultNetworkAcl("default");
  * 
  *     }
  * }

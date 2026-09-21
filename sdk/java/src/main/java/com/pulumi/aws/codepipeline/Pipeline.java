@@ -79,11 +79,11 @@ import javax.annotation.Nullable;
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("codepipeline.amazonaws.com")
  *                     .build())
- *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -98,16 +98,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var codepipeline = new Pipeline("codepipeline", PipelineArgs.builder()
+ *             .name("tf-test-pipeline")
+ *             .roleArn(codepipelineRole.arn())
  *             .artifactStores(PipelineArtifactStoreArgs.builder()
+ *                 .location(codepipelineBucket.bucket())
+ *                 .type("S3")
  *                 .encryptionKey(PipelineArtifactStoreEncryptionKeyArgs.builder()
  *                     .id(s3kmskey.arn())
  *                     .type("KMS")
  *                     .build())
- *                 .location(codepipelineBucket.bucket())
- *                 .type("S3")
  *                 .build())
  *             .stages(            
  *                 PipelineStageArgs.builder()
+ *                     .name("Source")
  *                     .actions(PipelineStageActionArgs.builder()
  *                         .name("Source")
  *                         .category("Source")
@@ -121,9 +124,9 @@ import javax.annotation.Nullable;
  *                             Map.entry("BranchName", "main")
  *                         ))
  *                         .build())
- *                     .name("Source")
  *                     .build(),
  *                 PipelineStageArgs.builder()
+ *                     .name("Build")
  *                     .actions(PipelineStageActionArgs.builder()
  *                         .name("Build")
  *                         .category("Build")
@@ -134,9 +137,9 @@ import javax.annotation.Nullable;
  *                         .version("1")
  *                         .configuration(Map.of("ProjectName", "test"))
  *                         .build())
- *                     .name("Build")
  *                     .build(),
  *                 PipelineStageArgs.builder()
+ *                     .name("Deploy")
  *                     .actions(PipelineStageActionArgs.builder()
  *                         .name("Deploy")
  *                         .category("Deploy")
@@ -152,10 +155,7 @@ import javax.annotation.Nullable;
  *                             Map.entry("TemplatePath", "build_output::sam-templated.yaml")
  *                         ))
  *                         .build())
- *                     .name("Deploy")
  *                     .build())
- *             .name("tf-test-pipeline")
- *             .roleArn(codepipelineRole.arn())
  *             .build());
  * 
  *         var codepipelineBucketPab = new BucketPublicAccessBlock("codepipelineBucketPab", BucketPublicAccessBlockArgs.builder()

@@ -446,7 +446,7 @@ class Organization(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrganizationAccountArgs', 'OrganizationAccountArgsDict']]]]] = None,
+            accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrganizationAccountArgs', 'OrganizationAccountArgsDict', 'outputs.OrganizationAccount']]]]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             aws_service_access_principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             enabled_policy_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -455,9 +455,9 @@ class Organization(pulumi.CustomResource):
             master_account_email: pulumi.Input[Optional[_builtins.str]] = None,
             master_account_id: pulumi.Input[Optional[_builtins.str]] = None,
             master_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-            non_master_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrganizationNonMasterAccountArgs', 'OrganizationNonMasterAccountArgsDict']]]]] = None,
+            non_master_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrganizationNonMasterAccountArgs', 'OrganizationNonMasterAccountArgsDict', 'outputs.OrganizationNonMasterAccount']]]]] = None,
             return_organization_only: pulumi.Input[Optional[_builtins.bool]] = None,
-            roots: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrganizationRootArgs', 'OrganizationRootArgsDict']]]]] = None) -> 'Organization':
+            roots: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrganizationRootArgs', 'OrganizationRootArgsDict', 'outputs.OrganizationRoot']]]]] = None) -> 'Organization':
         """
         Get an existing Organization resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -465,7 +465,7 @@ class Organization(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationAccountArgs', 'OrganizationAccountArgsDict']]]] accounts: List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationAccountArgs', 'OrganizationAccountArgsDict', 'outputs.OrganizationAccount']]]] accounts: List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
         :param pulumi.Input[_builtins.str] arn: ARN of the root.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_service_access_principals: List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_policy_types: List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `BEDROCK_POLICY`, `CHATBOT_POLICY`, `DECLARATIVE_POLICY_EC2`, `INSPECTOR_POLICY`, `RESOURCE_CONTROL_POLICY`, `S3_POLICY`, `SECURITYHUB_POLICY`, `SERVICE_CONTROL_POLICY`, `TAG_POLICY` and `UPGRADE_ROLLOUT_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html). To enable `INSPECTOR_POLICY`, `aws_service_access_principals` must include `inspector2.amazonaws.com`. To enable `SECURITYHUB_POLICY`, `aws_service_access_principals` must include `securityhub.amazonaws.com`.
@@ -474,9 +474,9 @@ class Organization(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] master_account_email: Email address of the master account.
         :param pulumi.Input[_builtins.str] master_account_id: Identifier of the master account.
         :param pulumi.Input[_builtins.str] master_account_name: Name of the master account.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationNonMasterAccountArgs', 'OrganizationNonMasterAccountArgsDict']]]] non_master_accounts: List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationNonMasterAccountArgs', 'OrganizationNonMasterAccountArgsDict', 'outputs.OrganizationNonMasterAccount']]]] non_master_accounts: List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
         :param pulumi.Input[_builtins.bool] return_organization_only: Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `feature_set`, `master_account_arn`, `master_account_email` and `master_account_id` attributes will be returned. All others will be empty. Default: `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationRootArgs', 'OrganizationRootArgsDict']]]] roots: List of organization roots. All elements have these attributes:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationRootArgs', 'OrganizationRootArgsDict', 'outputs.OrganizationRoot']]]] roots: List of organization roots. All elements have these attributes:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

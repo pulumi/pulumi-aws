@@ -31,6 +31,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.Folder("example", {
+ *     folderId: "example-id",
+ *     name: "example-name",
  *     permissions: [{
  *         actions: [
  *             "quicksight:CreateFolder",
@@ -44,8 +46,6 @@ import * as utilities from "../utilities";
  *         ],
  *         principal: exampleAwsQuicksightUser.arn,
  *     }],
- *     folderId: "example-id",
- *     name: "example-name",
  * });
  * ```
  *

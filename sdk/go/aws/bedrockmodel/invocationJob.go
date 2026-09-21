@@ -35,6 +35,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrockmodel.NewInvocationJob(ctx, "example", &bedrockmodel.InvocationJobArgs{
+//				JobName: pulumi.String("example-job"),
+//				ModelId: pulumi.String("us.amazon.nova-2-lite-v1:0"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				InputDataConfig: &bedrockmodel.InvocationJobInputDataConfigArgs{
 //					S3InputDataConfig: &bedrockmodel.InvocationJobInputDataConfigS3InputDataConfigArgs{
 //						S3Uri: pulumi.Sprintf("s3://%v/input/", exampleAwsS3Bucket.Id),
@@ -45,9 +48,6 @@ import (
 //						S3Uri: pulumi.Sprintf("s3://%v/output/", exampleAwsS3Bucket.Id),
 //					},
 //				},
-//				JobName: pulumi.String("example-job"),
-//				ModelId: pulumi.String("us.amazon.nova-2-lite-v1:0"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err

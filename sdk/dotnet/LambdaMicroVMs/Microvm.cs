@@ -46,6 +46,17 @@ namespace Pulumi.Aws.LambdaMicroVMs
     /// {
     ///     var example = new Aws.LambdaMicroVMs.Microvm("example", new()
     ///     {
+    ///         ImageArn = exampleAwsLambdamicrovmsImage.Arn,
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
+    ///         MaximumDurationInSeconds = 14400,
+    ///         EgressNetworkConnectors = new[]
+    ///         {
+    ///             "arn:aws:lambda:us-east-1:aws:network-connector:aws-network-connector:INTERNET_EGRESS",
+    ///         },
+    ///         IngressNetworkConnectors = new[]
+    ///         {
+    ///             "arn:aws:lambda:us-east-1:aws:network-connector:aws-network-connector:ALL_INGRESS",
+    ///         },
     ///         IdlePolicy = new Aws.LambdaMicroVMs.Inputs.MicrovmIdlePolicyArgs
     ///         {
     ///             AutoResumeEnabled = true,
@@ -58,17 +69,6 @@ namespace Pulumi.Aws.LambdaMicroVMs
     ///             {
     ///                 LogGroup = exampleAwsCloudwatchLogGroup.Name,
     ///             },
-    ///         },
-    ///         ImageArn = exampleAwsLambdamicrovmsImage.Arn,
-    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
-    ///         MaximumDurationInSeconds = 14400,
-    ///         EgressNetworkConnectors = new[]
-    ///         {
-    ///             "arn:aws:lambda:us-east-1:aws:network-connector:aws-network-connector:INTERNET_EGRESS",
-    ///         },
-    ///         IngressNetworkConnectors = new[]
-    ///         {
-    ///             "arn:aws:lambda:us-east-1:aws:network-connector:aws-network-connector:ALL_INGRESS",
     ///         },
     ///     });
     /// 

@@ -26,12 +26,12 @@ namespace Pulumi.Aws.ElasticSearch
     /// {
     ///     var example = new Aws.ElasticSearch.Domain("example", new()
     ///     {
+    ///         DomainName = "example",
+    ///         ElasticsearchVersion = "7.10",
     ///         ClusterConfig = new Aws.ElasticSearch.Inputs.DomainClusterConfigArgs
     ///         {
     ///             InstanceType = "r4.large.elasticsearch",
     ///         },
-    ///         DomainName = "example",
-    ///         ElasticsearchVersion = "7.10",
     ///         Tags = 
     ///         {
     ///             { "Domain", "TestDomain" },
@@ -108,6 +108,7 @@ namespace Pulumi.Aws.ElasticSearch
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -119,7 +120,6 @@ namespace Pulumi.Aws.ElasticSearch
     ///                         },
     ///                     },
     ///                 },
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "logs:PutLogEvents",
@@ -201,6 +201,9 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     ///     var es = new Aws.Ec2.SecurityGroup("es", new()
     ///     {
+    ///         Name = $"{vpc}-elasticsearch-{domain}",
+    ///         Description = "Managed by Pulumi",
+    ///         VpcId = selected.Apply(getVpcResult =&gt; getVpcResult.Id),
     ///         Ingress = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.SecurityGroupIngressArgs
@@ -214,9 +217,6 @@ namespace Pulumi.Aws.ElasticSearch
     ///                 },
     ///             },
     ///         },
-    ///         Name = $"{vpc}-elasticsearch-{domain}",
-    ///         Description = "Managed by Pulumi",
-    ///         VpcId = selected.Apply(getVpcResult =&gt; getVpcResult.Id),
     ///     });
     /// 
     ///     var esServiceLinkedRole = new Aws.Iam.ServiceLinkedRole("es", new()
@@ -226,6 +226,8 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     ///     var esDomain = new Aws.ElasticSearch.Domain("es", new()
     ///     {
+    ///         DomainName = domain,
+    ///         ElasticsearchVersion = "6.3",
     ///         ClusterConfig = new Aws.ElasticSearch.Inputs.DomainClusterConfigArgs
     ///         {
     ///             InstanceType = "m4.large.elasticsearch",
@@ -243,8 +245,6 @@ namespace Pulumi.Aws.ElasticSearch
     ///                 es.Id,
     ///             },
     ///         },
-    ///         DomainName = domain,
-    ///         ElasticsearchVersion = "6.3",
     ///         AdvancedOptions = 
     ///         {
     ///             { "rest.action.multi.allow_explicit_index", "true" },

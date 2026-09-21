@@ -26,6 +26,9 @@ namespace Pulumi.Aws.Lex
     /// {
     ///     var example = new Aws.Lex.V2modelsBot("example", new()
     ///     {
+    ///         Name = "example",
+    ///         IdleSessionTtlInSeconds = 60,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         DataPrivacies = new[]
     ///         {
     ///             new Aws.Lex.Inputs.V2modelsBotDataPrivacyArgs
@@ -33,9 +36,6 @@ namespace Pulumi.Aws.Lex
     ///                 ChildDirected = true,
     ///             },
     ///         },
-    ///         Name = "example",
-    ///         IdleSessionTtlInSeconds = 60,
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     ///     var exampleV2modelsBotLocale = new Aws.Lex.V2modelsBotLocale("example", new()
@@ -81,8 +81,13 @@ namespace Pulumi.Aws.Lex
     /// {
     ///     var example = new Aws.Lex.V2modelsSlotType("example", new()
     ///     {
+    ///         BotId = exampleAwsLexv2modelsBot.Id,
+    ///         BotVersion = exampleAwsLexv2modelsBotLocale.BotVersion,
+    ///         Name = "example",
+    ///         LocaleId = exampleAwsLexv2modelsBotLocale.LocaleId,
     ///         ValueSelectionSetting = new Aws.Lex.Inputs.V2modelsSlotTypeValueSelectionSettingArgs
     ///         {
+    ///             ResolutionStrategy = "OriginalValue",
     ///             AdvancedRecognitionSettings = new[]
     ///             {
     ///                 new Aws.Lex.Inputs.V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs
@@ -90,7 +95,6 @@ namespace Pulumi.Aws.Lex
     ///                     AudioRecognitionStrategy = "UseSlotValuesAsCustomVocabulary",
     ///                 },
     ///             },
-    ///             ResolutionStrategy = "OriginalValue",
     ///         },
     ///         SlotTypeValues = new[]
     ///         {
@@ -105,10 +109,6 @@ namespace Pulumi.Aws.Lex
     ///                 },
     ///             },
     ///         },
-    ///         BotId = exampleAwsLexv2modelsBot.Id,
-    ///         BotVersion = exampleAwsLexv2modelsBotLocale.BotVersion,
-    ///         Name = "example",
-    ///         LocaleId = exampleAwsLexv2modelsBotLocale.LocaleId,
     ///     });
     /// 
     /// });

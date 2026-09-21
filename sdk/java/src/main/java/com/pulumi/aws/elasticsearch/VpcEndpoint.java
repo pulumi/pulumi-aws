@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new VpcEndpoint("foo", VpcEndpointArgs.builder()
+ *             .domainArn(domain1.arn())
  *             .vpcOptions(VpcEndpointVpcOptionsArgs.builder()
  *                 .securityGroupIds(                
  *                     test.id(),
@@ -53,7 +54,6 @@ import javax.annotation.Nullable;
  *                     testAwsSubnet.id(),
  *                     test2AwsSubnet.id())
  *                 .build())
- *             .domainArn(domain1.arn())
  *             .build());
  * 
  *     }

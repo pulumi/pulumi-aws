@@ -53,10 +53,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Registry("example", RegistryArgs.builder()
+ *             .name("example-registry")
  *             .discoveryConfiguration(RegistryDiscoveryConfigurationArgs.builder()
  *                 .authorizerType("AWS_IAM")
  *                 .build())
- *             .name("example-registry")
  *             .build());
  * 
  *     }
@@ -90,11 +90,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Registry("example", RegistryArgs.builder()
+ *             .name("example-registry")
+ *             .description("Example agent registry")
  *             .discoveryConfiguration(RegistryDiscoveryConfigurationArgs.builder()
  *                 .authorizerType("AWS_IAM")
  *                 .build())
- *             .name("example-registry")
- *             .description("Example agent registry")
  *             .build());
  * 
  *     }
@@ -129,13 +129,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Registry("example", RegistryArgs.builder()
+ *             .name("example-registry")
  *             .approvalConfiguration(RegistryApprovalConfigurationArgs.builder()
  *                 .autoApprovalRules("APPROVE_ALL")
  *                 .build())
  *             .discoveryConfiguration(RegistryDiscoveryConfigurationArgs.builder()
  *                 .authorizerType("AWS_IAM")
  *                 .build())
- *             .name("example-registry")
  *             .build());
  * 
  *     }
@@ -174,30 +174,30 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Registry("example", RegistryArgs.builder()
+ *             .name("example-registry")
  *             .discoveryConfiguration(RegistryDiscoveryConfigurationArgs.builder()
+ *                 .authorizerType("CUSTOM_JWT")
  *                 .authorizerConfiguration(RegistryDiscoveryConfigurationAuthorizerConfigurationArgs.builder()
  *                     .customJwtAuthorizer(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerArgs.builder()
- *                         .customClaims(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs.builder()
- *                             .authorizingClaimMatchValue(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs.builder()
- *                                 .claimMatchValue(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs.builder()
- *                                     .matchValueString("authorized-user")
- *                                     .build())
- *                                 .claimMatchOperator("EQUALS")
- *                                 .build())
- *                             .inboundTokenClaimName("sub")
- *                             .inboundTokenClaimValueType("STRING")
- *                             .build())
  *                         .discoveryUrl("https://example.com/.well-known/openid-configuration")
  *                         .allowedAudiences("https://api.example.com")
  *                         .allowedClients("client-id-1")
  *                         .allowedScopes(                        
  *                             "read",
  *                             "write")
+ *                         .customClaims(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs.builder()
+ *                             .inboundTokenClaimName("sub")
+ *                             .inboundTokenClaimValueType("STRING")
+ *                             .authorizingClaimMatchValue(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs.builder()
+ *                                 .claimMatchOperator("EQUALS")
+ *                                 .claimMatchValue(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs.builder()
+ *                                     .matchValueString("authorized-user")
+ *                                     .build())
+ *                                 .build())
+ *                             .build())
  *                         .build())
  *                     .build())
- *                 .authorizerType("CUSTOM_JWT")
  *                 .build())
- *             .name("example-registry")
  *             .build());
  * 
  *     }

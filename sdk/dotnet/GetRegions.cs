@@ -61,6 +61,7 @@ namespace Pulumi.Aws
         /// {
         ///     var current = Aws.GetRegions.Invoke(new()
         ///     {
+        ///         AllRegions = true,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Inputs.GetRegionsFilterInputArgs
@@ -72,7 +73,6 @@ namespace Pulumi.Aws
         ///                 },
         ///             },
         ///         },
-        ///         AllRegions = true,
         ///     });
         /// 
         /// });
@@ -131,6 +131,7 @@ namespace Pulumi.Aws
         /// {
         ///     var current = Aws.GetRegions.Invoke(new()
         ///     {
+        ///         AllRegions = true,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Inputs.GetRegionsFilterInputArgs
@@ -142,7 +143,6 @@ namespace Pulumi.Aws
         ///                 },
         ///             },
         ///         },
-        ///         AllRegions = true,
         ///     });
         /// 
         /// });
@@ -201,6 +201,7 @@ namespace Pulumi.Aws
         /// {
         ///     var current = Aws.GetRegions.Invoke(new()
         ///     {
+        ///         AllRegions = true,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Inputs.GetRegionsFilterInputArgs
@@ -212,7 +213,6 @@ namespace Pulumi.Aws
         ///                 },
         ///             },
         ///         },
-        ///         AllRegions = true,
         ///     });
         /// 
         /// });

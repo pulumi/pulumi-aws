@@ -55,14 +55,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleListener = new Listener("exampleListener", ListenerArgs.builder()
+ *             .name("example")
+ *             .protocol("HTTPS")
+ *             .serviceIdentifier(example.id())
  *             .defaultAction(ListenerDefaultActionArgs.builder()
  *                 .fixedResponse(ListenerDefaultActionFixedResponseArgs.builder()
  *                     .statusCode(404)
  *                     .build())
  *                 .build())
- *             .name("example")
- *             .protocol("HTTPS")
- *             .serviceIdentifier(example.id())
  *             .build());
  * 
  *     }
@@ -107,16 +107,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTargetGroup = new TargetGroup("exampleTargetGroup", TargetGroupArgs.builder()
+ *             .name("example-target-group-1")
+ *             .type("INSTANCE")
  *             .config(TargetGroupConfigArgs.builder()
  *                 .port(80)
  *                 .protocol("HTTP")
  *                 .vpcIdentifier(exampleAwsVpc.id())
  *                 .build())
- *             .name("example-target-group-1")
- *             .type("INSTANCE")
  *             .build());
  * 
  *         var exampleListener = new Listener("exampleListener", ListenerArgs.builder()
+ *             .name("example")
+ *             .protocol("HTTP")
+ *             .serviceIdentifier(example.id())
  *             .defaultAction(ListenerDefaultActionArgs.builder()
  *                 .forwards(ListenerDefaultActionForwardArgs.builder()
  *                     .targetGroups(ListenerDefaultActionForwardTargetGroupArgs.builder()
@@ -124,9 +127,6 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .name("example")
- *             .protocol("HTTP")
- *             .serviceIdentifier(example.id())
  *             .build());
  * 
  *     }
@@ -171,26 +171,29 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example1 = new TargetGroup("example1", TargetGroupArgs.builder()
+ *             .name("example-target-group-1")
+ *             .type("INSTANCE")
  *             .config(TargetGroupConfigArgs.builder()
  *                 .port(80)
  *                 .protocol("HTTP")
  *                 .vpcIdentifier(exampleAwsVpc.id())
  *                 .build())
- *             .name("example-target-group-1")
- *             .type("INSTANCE")
  *             .build());
  * 
  *         var example2 = new TargetGroup("example2", TargetGroupArgs.builder()
+ *             .name("example-target-group-2")
+ *             .type("INSTANCE")
  *             .config(TargetGroupConfigArgs.builder()
  *                 .port(8080)
  *                 .protocol("HTTP")
  *                 .vpcIdentifier(exampleAwsVpc.id())
  *                 .build())
- *             .name("example-target-group-2")
- *             .type("INSTANCE")
  *             .build());
  * 
  *         var exampleListener = new Listener("exampleListener", ListenerArgs.builder()
+ *             .name("example")
+ *             .protocol("HTTP")
+ *             .serviceIdentifier(example.id())
  *             .defaultAction(ListenerDefaultActionArgs.builder()
  *                 .forwards(ListenerDefaultActionForwardArgs.builder()
  *                     .targetGroups(                    
@@ -204,9 +207,6 @@ import javax.annotation.Nullable;
  *                             .build())
  *                     .build())
  *                 .build())
- *             .name("example")
- *             .protocol("HTTP")
- *             .serviceIdentifier(example.id())
  *             .build());
  * 
  *     }

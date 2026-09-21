@@ -78,22 +78,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testDataSource = new DataSource("testDataSource", DataSourceArgs.builder()
- *             .httpConfig(DataSourceHttpConfigArgs.builder()
- *                 .endpoint("http://example.com")
- *                 .build())
  *             .apiId(test.id())
  *             .name("my_example")
  *             .type("HTTP")
+ *             .httpConfig(DataSourceHttpConfigArgs.builder()
+ *                 .endpoint("http://example.com")
+ *                 .build())
  *             .build());
  * 
  *         // UNIT type resolver (default)
  *         var testResolver = new Resolver("testResolver", ResolverArgs.builder()
- *             .cachingConfig(ResolverCachingConfigArgs.builder()
- *                 .cachingKeys(                
- *                     "$context.identity.sub",
- *                     "$context.arguments.id")
- *                 .ttl(60)
- *                 .build())
  *             .apiId(test.id())
  *             .field("singlePost")
  *             .type("Query")
@@ -115,22 +109,28 @@ import javax.annotation.Nullable;
  *     $utils.appendError($ctx.result.body, $ctx.result.statusCode)
  * #end
  *             """)
+ *             .cachingConfig(ResolverCachingConfigArgs.builder()
+ *                 .cachingKeys(                
+ *                     "$context.identity.sub",
+ *                     "$context.arguments.id")
+ *                 .ttl(60)
+ *                 .build())
  *             .build());
  * 
  *         // PIPELINE type resolver
  *         var mutationPipelineTest = new Resolver("mutationPipelineTest", ResolverArgs.builder()
- *             .pipelineConfig(ResolverPipelineConfigArgs.builder()
- *                 .functions(                
- *                     test1.functionId(),
- *                     test2.functionId(),
- *                     test3.functionId())
- *                 .build())
  *             .type("Mutation")
  *             .apiId(test.id())
  *             .field("pipelineTest")
  *             .requestTemplate("{}")
  *             .responseTemplate("$util.toJson($ctx.result)")
  *             .kind("PIPELINE")
+ *             .pipelineConfig(ResolverPipelineConfigArgs.builder()
+ *                 .functions(                
+ *                     test1.functionId(),
+ *                     test2.functionId(),
+ *                     test3.functionId())
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -167,13 +167,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Resolver("example", ResolverArgs.builder()
- *             .runtime(ResolverRuntimeArgs.builder()
- *                 .name("APPSYNC_JS")
- *                 .runtimeVersion("1.0.0")
- *                 .build())
- *             .pipelineConfig(ResolverPipelineConfigArgs.builder()
- *                 .functions(test.functionId())
- *                 .build())
  *             .type("Query")
  *             .apiId(testAwsAppsyncGraphqlApi.id())
  *             .field("pipelineTest")
@@ -181,6 +174,13 @@ import javax.annotation.Nullable;
  *             .code(StdFunctions.file(FileArgs.builder()
  *                 .input("some-code-dir")
  *                 .build()).result())
+ *             .runtime(ResolverRuntimeArgs.builder()
+ *                 .name("APPSYNC_JS")
+ *                 .runtimeVersion("1.0.0")
+ *                 .build())
+ *             .pipelineConfig(ResolverPipelineConfigArgs.builder()
+ *                 .functions(test.functionId())
+ *                 .build())
  *             .build());
  * 
  *     }

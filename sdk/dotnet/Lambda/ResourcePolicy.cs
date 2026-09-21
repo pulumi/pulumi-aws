@@ -34,18 +34,8 @@ namespace Pulumi.Aws.Lambda
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "StringEquals",
-    ///                         Variable = "aws:SourceAccount",
-    ///                         Values = new[]
-    ///                         {
-    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///                         },
-    ///                     },
-    ///                 },
+    ///                 Sid = "AllowInvokeFromS3",
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -57,8 +47,6 @@ namespace Pulumi.Aws.Lambda
     ///                         },
     ///                     },
     ///                 },
-    ///                 Sid = "AllowInvokeFromS3",
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "lambda:InvokeFunction",
@@ -66,6 +54,18 @@ namespace Pulumi.Aws.Lambda
     ///                 Resources = new[]
     ///                 {
     ///                     exampleAwsLambdaFunction.Arn,
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = "aws:SourceAccount",
+    ///                         Values = new[]
+    ///                         {
+    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
     ///         },
@@ -96,6 +96,8 @@ namespace Pulumi.Aws.Lambda
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Sid = "AllowCrossAccountInvoke",
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -108,8 +110,6 @@ namespace Pulumi.Aws.Lambda
     ///                         },
     ///                     },
     ///                 },
-    ///                 Sid = "AllowCrossAccountInvoke",
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "lambda:InvokeFunction",
@@ -121,18 +121,8 @@ namespace Pulumi.Aws.Lambda
     ///             },
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "StringEquals",
-    ///                         Variable = "aws:PrincipalOrgID",
-    ///                         Values = new[]
-    ///                         {
-    ///                             "o-1234567890",
-    ///                         },
-    ///                     },
-    ///                 },
+    ///                 Sid = "AllowOrganizationInvoke",
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -144,8 +134,6 @@ namespace Pulumi.Aws.Lambda
     ///                         },
     ///                     },
     ///                 },
-    ///                 Sid = "AllowOrganizationInvoke",
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "lambda:InvokeFunction",
@@ -153,6 +141,18 @@ namespace Pulumi.Aws.Lambda
     ///                 Resources = new[]
     ///                 {
     ///                     exampleAwsLambdaFunction.Arn,
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = "aws:PrincipalOrgID",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "o-1234567890",
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
     ///         },

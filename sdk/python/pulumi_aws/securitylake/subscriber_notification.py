@@ -172,7 +172,7 @@ class SubscriberNotification(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['SubscriberNotificationConfigurationArgs', 'SubscriberNotificationConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['SubscriberNotificationConfigurationArgs', 'SubscriberNotificationConfigurationArgsDict', 'outputs.SubscriberNotificationConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  subscriber_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -188,10 +188,10 @@ class SubscriberNotification(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.SubscriberNotification("example",
+            subscriber_id=example_aws_securitylake_subscriber["id"],
             configuration={
                 "sqs_notification_configuration": {},
-            },
-            subscriber_id=example_aws_securitylake_subscriber["id"])
+            })
         ```
 
         ### HTTPS Notification
@@ -201,19 +201,19 @@ class SubscriberNotification(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.SubscriberNotification("example",
+            subscriber_id=example_aws_securitylake_subscriber["id"],
             configuration={
                 "https_notification_configuration": {
                     "endpoint": test["apiEndpoint"],
                     "target_role_arn": event_bridge["arn"],
                 },
-            },
-            subscriber_id=example_aws_securitylake_subscriber["id"])
+            })
         ```
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SubscriberNotificationConfigurationArgs', 'SubscriberNotificationConfigurationArgsDict']] configuration: Specify the configuration using which you want to create the subscriber notification..
+        :param pulumi.Input[Union['SubscriberNotificationConfigurationArgs', 'SubscriberNotificationConfigurationArgsDict', 'outputs.SubscriberNotificationConfiguration']] configuration: Specify the configuration using which you want to create the subscriber notification..
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] subscriber_id: The subscriber ID for the notification subscription.
         """
@@ -235,10 +235,10 @@ class SubscriberNotification(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.SubscriberNotification("example",
+            subscriber_id=example_aws_securitylake_subscriber["id"],
             configuration={
                 "sqs_notification_configuration": {},
-            },
-            subscriber_id=example_aws_securitylake_subscriber["id"])
+            })
         ```
 
         ### HTTPS Notification
@@ -248,13 +248,13 @@ class SubscriberNotification(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.SubscriberNotification("example",
+            subscriber_id=example_aws_securitylake_subscriber["id"],
             configuration={
                 "https_notification_configuration": {
                     "endpoint": test["apiEndpoint"],
                     "target_role_arn": event_bridge["arn"],
                 },
-            },
-            subscriber_id=example_aws_securitylake_subscriber["id"])
+            })
         ```
 
 
@@ -273,7 +273,7 @@ class SubscriberNotification(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['SubscriberNotificationConfigurationArgs', 'SubscriberNotificationConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['SubscriberNotificationConfigurationArgs', 'SubscriberNotificationConfigurationArgsDict', 'outputs.SubscriberNotificationConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  subscriber_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -304,7 +304,7 @@ class SubscriberNotification(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            configuration: pulumi.Input[Optional[Union['SubscriberNotificationConfigurationArgs', 'SubscriberNotificationConfigurationArgsDict']]] = None,
+            configuration: pulumi.Input[Optional[Union['SubscriberNotificationConfigurationArgs', 'SubscriberNotificationConfigurationArgsDict', 'outputs.SubscriberNotificationConfiguration']]] = None,
             endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             subscriber_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
@@ -316,7 +316,7 @@ class SubscriberNotification(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SubscriberNotificationConfigurationArgs', 'SubscriberNotificationConfigurationArgsDict']] configuration: Specify the configuration using which you want to create the subscriber notification..
+        :param pulumi.Input[Union['SubscriberNotificationConfigurationArgs', 'SubscriberNotificationConfigurationArgsDict', 'outputs.SubscriberNotificationConfiguration']] configuration: Specify the configuration using which you want to create the subscriber notification..
         :param pulumi.Input[_builtins.str] endpoint_id: (**Deprecated**) The subscriber endpoint to which exception messages are posted.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] subscriber_endpoint: The subscriber endpoint to which exception messages are posted.

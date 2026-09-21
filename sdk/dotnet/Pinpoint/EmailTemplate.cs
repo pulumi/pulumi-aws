@@ -26,10 +26,13 @@ namespace Pulumi.Aws.Pinpoint
     /// {
     ///     var test = new Aws.Pinpoint.EmailTemplate("test", new()
     ///     {
+    ///         TemplateName = "testing",
     ///         EmailTemplates = new[]
     ///         {
     ///             new Aws.Pinpoint.Inputs.EmailTemplateEmailTemplateArgs
     ///             {
+    ///                 Subject = "testing",
+    ///                 TextPart = "we are testing template text part",
     ///                 Headers = new[]
     ///                 {
     ///                     new Aws.Pinpoint.Inputs.EmailTemplateEmailTemplateHeaderArgs
@@ -38,11 +41,8 @@ namespace Pulumi.Aws.Pinpoint
     ///                         Value = "testingvalue",
     ///                     },
     ///                 },
-    ///                 Subject = "testing",
-    ///                 TextPart = "we are testing template text part",
     ///             },
     ///         },
-    ///         TemplateName = "testing",
     ///     });
     /// 
     /// });

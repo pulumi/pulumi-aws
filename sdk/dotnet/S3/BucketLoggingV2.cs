@@ -43,18 +43,6 @@ namespace Pulumi.Aws.S3
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "StringEquals",
-    ///                         Variable = "aws:SourceAccount",
-    ///                         Values = new[]
-    ///                         {
-    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///                         },
-    ///                     },
-    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -74,6 +62,18 @@ namespace Pulumi.Aws.S3
     ///                 {
     ///                     $"{logging.Arn}/*",
     ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = "aws:SourceAccount",
+    ///                         Values = new[]
+    ///                         {
+    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///                         },
+    ///                     },
+    ///                 },
     ///             },
     ///         },
     ///     });
@@ -91,6 +91,9 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var exampleBucketLogging = new Aws.S3.BucketLogging("example", new()
     ///     {
+    ///         Bucket = example.BucketName,
+    ///         TargetBucket = logging.BucketName,
+    ///         TargetPrefix = "log/",
     ///         TargetObjectKeyFormat = new Aws.S3.Inputs.BucketLoggingTargetObjectKeyFormatArgs
     ///         {
     ///             PartitionedPrefix = new Aws.S3.Inputs.BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs
@@ -98,9 +101,6 @@ namespace Pulumi.Aws.S3
     ///                 PartitionDateSource = "EventTime",
     ///             },
     ///         },
-    ///         Bucket = example.BucketName,
-    ///         TargetBucket = logging.BucketName,
-    ///         TargetPrefix = "log/",
     ///     });
     /// 
     /// });

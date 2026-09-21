@@ -17,21 +17,25 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.vpclattice.ListenerRule("example", {
+ *     name: "example",
+ *     listenerIdentifier: exampleAwsVpclatticeListener.listenerId,
+ *     serviceIdentifier: exampleAwsVpclatticeService.id,
+ *     priority: 20,
  *     match: {
  *         httpMatch: {
- *             pathMatch: {
- *                 match: {
- *                     prefix: "/example-path",
- *                 },
- *                 caseSensitive: true,
- *             },
  *             headerMatches: [{
+ *                 name: "example-header",
+ *                 caseSensitive: false,
  *                 match: {
  *                     exact: "example-contains",
  *                 },
- *                 name: "example-header",
- *                 caseSensitive: false,
  *             }],
+ *             pathMatch: {
+ *                 caseSensitive: true,
+ *                 match: {
+ *                     prefix: "/example-path",
+ *                 },
+ *             },
  *         },
  *     },
  *     action: {
@@ -48,10 +52,6 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     },
- *     name: "example",
- *     listenerIdentifier: exampleAwsVpclatticeListener.listenerId,
- *     serviceIdentifier: exampleAwsVpclatticeService.id,
- *     priority: 20,
  * });
  * ```
  *
@@ -62,13 +62,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.vpclattice.ListenerRule("example", {
+ *     name: "example",
+ *     listenerIdentifier: exampleAwsVpclatticeListener.listenerId,
+ *     serviceIdentifier: exampleAwsVpclatticeService.id,
+ *     priority: 10,
  *     match: {
  *         httpMatch: {
  *             pathMatch: {
+ *                 caseSensitive: false,
  *                 match: {
  *                     exact: "/example-path",
  *                 },
- *                 caseSensitive: false,
  *             },
  *         },
  *     },
@@ -77,10 +81,6 @@ import * as utilities from "../utilities";
  *             statusCode: 404,
  *         },
  *     },
- *     name: "example",
- *     listenerIdentifier: exampleAwsVpclatticeListener.listenerId,
- *     serviceIdentifier: exampleAwsVpclatticeService.id,
- *     priority: 10,
  * });
  * ```
  *

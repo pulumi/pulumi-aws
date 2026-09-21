@@ -62,6 +62,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example_entire_bucket = new AnalyticsConfiguration("example-entire-bucket", AnalyticsConfigurationArgs.builder()
+ *             .bucket(example.id())
+ *             .name("EntireBucket")
  *             .storageClassAnalysis(AnalyticsConfigurationStorageClassAnalysisArgs.builder()
  *                 .dataExport(AnalyticsConfigurationStorageClassAnalysisDataExportArgs.builder()
  *                     .destination(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs.builder()
@@ -71,8 +73,6 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .bucket(example.id())
- *             .name("EntireBucket")
  *             .build());
  * 
  *     }
@@ -112,6 +112,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example_filtered = new AnalyticsConfiguration("example-filtered", AnalyticsConfigurationArgs.builder()
+ *             .bucket(example.id())
+ *             .name("ImportantBlueDocuments")
  *             .filter(AnalyticsConfigurationFilterArgs.builder()
  *                 .prefix("documents/")
  *                 .tags(Map.ofEntries(
@@ -119,8 +121,6 @@ import javax.annotation.Nullable;
  *                     Map.entry("class", "blue")
  *                 ))
  *                 .build())
- *             .bucket(example.id())
- *             .name("ImportantBlueDocuments")
  *             .build());
  * 
  *     }

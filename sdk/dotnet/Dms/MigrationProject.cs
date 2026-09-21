@@ -28,6 +28,7 @@ namespace Pulumi.Aws.Dms
     /// {
     ///     var example = new Aws.Dms.MigrationProject("example", new()
     ///     {
+    ///         InstanceProfileArn = exampleAwsDmsInstanceProfile.Arn,
     ///         SourceDataProviderDescriptors = new[]
     ///         {
     ///             new Aws.Dms.Inputs.MigrationProjectSourceDataProviderDescriptorArgs
@@ -42,7 +43,6 @@ namespace Pulumi.Aws.Dms
     ///                 DataProviderArn = target.Arn,
     ///             },
     ///         },
-    ///         InstanceProfileArn = exampleAwsDmsInstanceProfile.Arn,
     ///     });
     /// 
     /// });
@@ -60,11 +60,9 @@ namespace Pulumi.Aws.Dms
     /// {
     ///     var example = new Aws.Dms.MigrationProject("example", new()
     ///     {
-    ///         SchemaConversionApplicationAttributes = new Aws.Dms.Inputs.MigrationProjectSchemaConversionApplicationAttributesArgs
-    ///         {
-    ///             S3BucketPath = "s3://example-bucket",
-    ///             S3BucketRoleArn = exampleAwsIamRole.Arn,
-    ///         },
+    ///         Name = "example",
+    ///         Description = "Example migration project",
+    ///         InstanceProfileArn = exampleAwsDmsInstanceProfile.Arn,
     ///         SourceDataProviderDescriptors = new[]
     ///         {
     ///             new Aws.Dms.Inputs.MigrationProjectSourceDataProviderDescriptorArgs
@@ -83,9 +81,11 @@ namespace Pulumi.Aws.Dms
     ///                 SecretsManagerSecretId = targetAwsSecretsmanagerSecret.Arn,
     ///             },
     ///         },
-    ///         Name = "example",
-    ///         Description = "Example migration project",
-    ///         InstanceProfileArn = exampleAwsDmsInstanceProfile.Arn,
+    ///         SchemaConversionApplicationAttributes = new Aws.Dms.Inputs.MigrationProjectSchemaConversionApplicationAttributesArgs
+    ///         {
+    ///             S3BucketPath = "s3://example-bucket",
+    ///             S3BucketRoleArn = exampleAwsIamRole.Arn,
+    ///         },
     ///         Tags = 
     ///         {
     ///             { "Environment", "example" },

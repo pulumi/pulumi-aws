@@ -46,6 +46,9 @@ import (
 //			notifAccess := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
+//						Actions: pulumi.StringArray{
+//							pulumi.String("sns:Publish"),
+//						},
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("Service"),
@@ -53,9 +56,6 @@ import (
 //									pulumi.String("codestar-notifications.amazonaws.com"),
 //								},
 //							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("sns:Publish"),
 //						},
 //						Resources: pulumi.StringArray{
 //							notif.Arn,
@@ -71,17 +71,17 @@ import (
 //				return err
 //			}
 //			_, err = codestarnotifications.NewNotificationRule(ctx, "commits", &codestarnotifications.NotificationRuleArgs{
-//				Targets: codestarnotifications.NotificationRuleTargetArray{
-//					&codestarnotifications.NotificationRuleTargetArgs{
-//						Address: notif.Arn,
-//					},
-//				},
 //				DetailType: pulumi.String("BASIC"),
 //				EventTypeIds: pulumi.StringArray{
 //					pulumi.String("codecommit-repository-comments-on-commits"),
 //				},
 //				Name:     pulumi.String("example-code-repo-commits"),
 //				Resource: code.Arn,
+//				Targets: codestarnotifications.NotificationRuleTargetArray{
+//					&codestarnotifications.NotificationRuleTargetArgs{
+//						Address: notif.Arn,
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err

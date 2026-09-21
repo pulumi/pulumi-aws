@@ -56,6 +56,8 @@ namespace Pulumi.Aws.Cognito
     /// 
     ///     var resource = new Aws.Cognito.ResourceServer("resource", new()
     ///     {
+    ///         Identifier = "https://example.com",
+    ///         Name = "example",
     ///         Scopes = new[]
     ///         {
     ///             new Aws.Cognito.Inputs.ResourceServerScopeArgs
@@ -64,8 +66,6 @@ namespace Pulumi.Aws.Cognito
     ///                 ScopeDescription = "a Sample Scope Description",
     ///             },
     ///         },
-    ///         Identifier = "https://example.com",
-    ///         Name = "example",
     ///         UserPoolId = pool.Id,
     ///     });
     /// 

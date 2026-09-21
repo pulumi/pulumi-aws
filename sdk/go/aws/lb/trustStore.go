@@ -39,17 +39,17 @@ import (
 //				return err
 //			}
 //			_, err = lb.NewListener(ctx, "example", &lb.ListenerArgs{
-//				MutualAuthentication: &lb.ListenerMutualAuthenticationArgs{
-//					Mode:          pulumi.String("verify"),
-//					TrustStoreArn: test.Arn,
-//				},
+//				LoadBalancerArn: pulumi.Any(exampleAwsLb.Id),
 //				DefaultActions: lb.ListenerDefaultActionArray{
 //					&lb.ListenerDefaultActionArgs{
 //						TargetGroupArn: pulumi.Any(exampleAwsLbTargetGroup.Id),
 //						Type:           pulumi.String("forward"),
 //					},
 //				},
-//				LoadBalancerArn: pulumi.Any(exampleAwsLb.Id),
+//				MutualAuthentication: &lb.ListenerMutualAuthenticationArgs{
+//					Mode:          pulumi.String("verify"),
+//					TrustStoreArn: test.Arn,
+//				},
 //			})
 //			if err != nil {
 //				return err

@@ -58,12 +58,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleConnectAttachment = new ConnectAttachment("exampleConnectAttachment", ConnectAttachmentArgs.builder()
- *             .options(ConnectAttachmentOptionsArgs.builder()
- *                 .protocol("GRE")
- *                 .build())
  *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
  *             .transportAttachmentId(example.id())
  *             .edgeLocation(example.edgeLocation())
+ *             .options(ConnectAttachmentOptionsArgs.builder()
+ *                 .protocol("GRE")
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -113,12 +113,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleConnectAttachment = new ConnectAttachment("exampleConnectAttachment", ConnectAttachmentArgs.builder()
- *             .options(ConnectAttachmentOptionsArgs.builder()
- *                 .protocol("GRE")
- *                 .build())
  *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
  *             .transportAttachmentId(example.id())
  *             .edgeLocation(example.edgeLocation())
+ *             .options(ConnectAttachmentOptionsArgs.builder()
+ *                 .protocol("GRE")
+ *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAttachmentAccepter)
  *                 .build());

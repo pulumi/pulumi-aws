@@ -24,10 +24,7 @@ namespace Pulumi.Aws.GameLift
     /// {
     ///     var example = new Aws.GameLift.GameServerGroup("example", new()
     ///     {
-    ///         LaunchTemplate = new Aws.GameLift.Inputs.GameServerGroupLaunchTemplateArgs
-    ///         {
-    ///             Id = exampleAwsLaunchTemplate.Id,
-    ///         },
+    ///         GameServerGroupName = "example",
     ///         InstanceDefinitions = new[]
     ///         {
     ///             new Aws.GameLift.Inputs.GameServerGroupInstanceDefinitionArgs
@@ -39,7 +36,10 @@ namespace Pulumi.Aws.GameLift
     ///                 InstanceType = "c5a.large",
     ///             },
     ///         },
-    ///         GameServerGroupName = "example",
+    ///         LaunchTemplate = new Aws.GameLift.Inputs.GameServerGroupLaunchTemplateArgs
+    ///         {
+    ///             Id = exampleAwsLaunchTemplate.Id,
+    ///         },
     ///         MaxSize = 1,
     ///         MinSize = 1,
     ///         RoleArn = exampleAwsIamRole.Arn,
@@ -68,17 +68,15 @@ namespace Pulumi.Aws.GameLift
     ///     {
     ///         AutoScalingPolicy = new Aws.GameLift.Inputs.GameServerGroupAutoScalingPolicyArgs
     ///         {
+    ///             EstimatedInstanceWarmup = 60,
     ///             TargetTrackingConfiguration = new Aws.GameLift.Inputs.GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs
     ///             {
     ///                 TargetValue = 75,
     ///             },
-    ///             EstimatedInstanceWarmup = 60,
     ///         },
-    ///         LaunchTemplate = new Aws.GameLift.Inputs.GameServerGroupLaunchTemplateArgs
-    ///         {
-    ///             Id = exampleAwsLaunchTemplate.Id,
-    ///             Version = "1",
-    ///         },
+    ///         BalancingStrategy = "SPOT_ONLY",
+    ///         GameServerGroupName = "example",
+    ///         GameServerProtectionPolicy = "FULL_PROTECTION",
     ///         InstanceDefinitions = new[]
     ///         {
     ///             new Aws.GameLift.Inputs.GameServerGroupInstanceDefinitionArgs
@@ -92,9 +90,11 @@ namespace Pulumi.Aws.GameLift
     ///                 WeightedCapacity = "2",
     ///             },
     ///         },
-    ///         BalancingStrategy = "SPOT_ONLY",
-    ///         GameServerGroupName = "example",
-    ///         GameServerProtectionPolicy = "FULL_PROTECTION",
+    ///         LaunchTemplate = new Aws.GameLift.Inputs.GameServerGroupLaunchTemplateArgs
+    ///         {
+    ///             Id = exampleAwsLaunchTemplate.Id,
+    ///             Version = "1",
+    ///         },
     ///         MaxSize = 1,
     ///         MinSize = 1,
     ///         RoleArn = exampleAwsIamRole.Arn,
@@ -136,6 +136,7 @@ namespace Pulumi.Aws.GameLift
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -148,7 +149,6 @@ namespace Pulumi.Aws.GameLift
     ///                         },
     ///                     },
     ///                 },
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",

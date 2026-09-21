@@ -561,12 +561,12 @@ class Workgroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  base_capacity: pulumi.Input[Optional[_builtins.int]] = None,
-                 config_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict']]]]] = None,
+                 config_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict', 'outputs.WorkgroupConfigParameter']]]]] = None,
                  enhanced_vpc_routing: pulumi.Input[Optional[_builtins.bool]] = None,
                  max_capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
-                 price_performance_target: pulumi.Input[Optional[Union['WorkgroupPricePerformanceTargetArgs', 'WorkgroupPricePerformanceTargetArgsDict']]] = None,
+                 price_performance_target: pulumi.Input[Optional[Union['WorkgroupPricePerformanceTargetArgs', 'WorkgroupPricePerformanceTargetArgsDict', 'outputs.WorkgroupPricePerformanceTarget']]] = None,
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -601,12 +601,12 @@ class Workgroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] base_capacity: The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict']]]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict', 'outputs.WorkgroupConfigParameter']]]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
         :param pulumi.Input[_builtins.bool] enhanced_vpc_routing: Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
         :param pulumi.Input[_builtins.int] max_capacity: The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
         :param pulumi.Input[_builtins.str] namespace_name: The name of the namespace.
         :param pulumi.Input[_builtins.int] port: The port number on which the cluster accepts incoming connections.
-        :param pulumi.Input[Union['WorkgroupPricePerformanceTargetArgs', 'WorkgroupPricePerformanceTargetArgsDict']] price_performance_target: Price-performance scaling for the workgroup. See `Price Performance Target` below.
+        :param pulumi.Input[Union['WorkgroupPricePerformanceTargetArgs', 'WorkgroupPricePerformanceTargetArgsDict', 'outputs.WorkgroupPricePerformanceTarget']] price_performance_target: Price-performance scaling for the workgroup. See `Price Performance Target` below.
         :param pulumi.Input[_builtins.bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
@@ -662,12 +662,12 @@ class Workgroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  base_capacity: pulumi.Input[Optional[_builtins.int]] = None,
-                 config_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict']]]]] = None,
+                 config_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict', 'outputs.WorkgroupConfigParameter']]]]] = None,
                  enhanced_vpc_routing: pulumi.Input[Optional[_builtins.bool]] = None,
                  max_capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
-                 price_performance_target: pulumi.Input[Optional[Union['WorkgroupPricePerformanceTargetArgs', 'WorkgroupPricePerformanceTargetArgsDict']]] = None,
+                 price_performance_target: pulumi.Input[Optional[Union['WorkgroupPricePerformanceTargetArgs', 'WorkgroupPricePerformanceTargetArgsDict', 'outputs.WorkgroupPricePerformanceTarget']]] = None,
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -718,13 +718,13 @@ class Workgroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             base_capacity: pulumi.Input[Optional[_builtins.int]] = None,
-            config_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict']]]]] = None,
-            endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkgroupEndpointArgs', 'WorkgroupEndpointArgsDict']]]]] = None,
+            config_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict', 'outputs.WorkgroupConfigParameter']]]]] = None,
+            endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkgroupEndpointArgs', 'WorkgroupEndpointArgsDict', 'outputs.WorkgroupEndpoint']]]]] = None,
             enhanced_vpc_routing: pulumi.Input[Optional[_builtins.bool]] = None,
             max_capacity: pulumi.Input[Optional[_builtins.int]] = None,
             namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
             port: pulumi.Input[Optional[_builtins.int]] = None,
-            price_performance_target: pulumi.Input[Optional[Union['WorkgroupPricePerformanceTargetArgs', 'WorkgroupPricePerformanceTargetArgsDict']]] = None,
+            price_performance_target: pulumi.Input[Optional[Union['WorkgroupPricePerformanceTargetArgs', 'WorkgroupPricePerformanceTargetArgsDict', 'outputs.WorkgroupPricePerformanceTarget']]] = None,
             publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -743,13 +743,13 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Redshift Serverless Workgroup.
         :param pulumi.Input[_builtins.int] base_capacity: The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict']]]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkgroupEndpointArgs', 'WorkgroupEndpointArgsDict']]]] endpoints: The endpoint that is created from the workgroup. See `Endpoint` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict', 'outputs.WorkgroupConfigParameter']]]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkgroupEndpointArgs', 'WorkgroupEndpointArgsDict', 'outputs.WorkgroupEndpoint']]]] endpoints: The endpoint that is created from the workgroup. See `Endpoint` below.
         :param pulumi.Input[_builtins.bool] enhanced_vpc_routing: Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
         :param pulumi.Input[_builtins.int] max_capacity: The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
         :param pulumi.Input[_builtins.str] namespace_name: The name of the namespace.
         :param pulumi.Input[_builtins.int] port: The port number on which the cluster accepts incoming connections.
-        :param pulumi.Input[Union['WorkgroupPricePerformanceTargetArgs', 'WorkgroupPricePerformanceTargetArgsDict']] price_performance_target: Price-performance scaling for the workgroup. See `Price Performance Target` below.
+        :param pulumi.Input[Union['WorkgroupPricePerformanceTargetArgs', 'WorkgroupPricePerformanceTargetArgsDict', 'outputs.WorkgroupPricePerformanceTarget']] price_performance_target: Price-performance scaling for the workgroup. See `Price Performance Target` below.
         :param pulumi.Input[_builtins.bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: An array of security group IDs to associate with the workgroup.

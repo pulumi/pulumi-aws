@@ -30,18 +30,18 @@ namespace Pulumi.Aws.Scheduler
     /// {
     ///     var example = new Aws.Scheduler.Schedule("example", new()
     ///     {
+    ///         Name = "my-schedule",
+    ///         GroupName = "default",
     ///         FlexibleTimeWindow = new Aws.Scheduler.Inputs.ScheduleFlexibleTimeWindowArgs
     ///         {
     ///             Mode = "OFF",
     ///         },
+    ///         ScheduleExpression = "rate(1 hours)",
     ///         Target = new Aws.Scheduler.Inputs.ScheduleTargetArgs
     ///         {
     ///             Arn = exampleAwsSqsQueue.Arn,
     ///             RoleArn = exampleAwsIamRole.Arn,
     ///         },
-    ///         Name = "my-schedule",
-    ///         GroupName = "default",
-    ///         ScheduleExpression = "rate(1 hours)",
     ///     });
     /// 
     /// });
@@ -62,10 +62,12 @@ namespace Pulumi.Aws.Scheduler
     /// 
     ///     var exampleSchedule = new Aws.Scheduler.Schedule("example", new()
     ///     {
+    ///         Name = "my-schedule",
     ///         FlexibleTimeWindow = new Aws.Scheduler.Inputs.ScheduleFlexibleTimeWindowArgs
     ///         {
     ///             Mode = "OFF",
     ///         },
+    ///         ScheduleExpression = "rate(1 hours)",
     ///         Target = new Aws.Scheduler.Inputs.ScheduleTargetArgs
     ///         {
     ///             Arn = "arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
@@ -76,8 +78,6 @@ namespace Pulumi.Aws.Scheduler
     ///                 ["QueueUrl"] = example.Url,
     ///             })),
     ///         },
-    ///         Name = "my-schedule",
-    ///         ScheduleExpression = "rate(1 hours)",
     ///     });
     /// 
     /// });

@@ -133,7 +133,7 @@ class AwaitableGetUserResult(GetUserResult):
 
 
 def get_user(access_string: Optional[_builtins.str] = None,
-             authentication_modes: Optional[Sequence[Union['GetUserAuthenticationModeArgs', 'GetUserAuthenticationModeArgsDict']]] = None,
+             authentication_modes: Optional[Sequence[Union['GetUserAuthenticationModeArgs', 'GetUserAuthenticationModeArgsDict', 'outputs.GetUserAuthenticationModeResult']]] = None,
              engine: Optional[_builtins.str] = None,
              no_password_required: Optional[_builtins.bool] = None,
              passwords: Optional[Sequence[_builtins.str]] = None,
@@ -182,7 +182,7 @@ def get_user(access_string: Optional[_builtins.str] = None,
         user_id=pulumi.get(__ret__, 'user_id'),
         user_name=pulumi.get(__ret__, 'user_name'))
 def get_user_output(access_string: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                    authentication_modes: pulumi.Input[Optional[Optional[Sequence[Union['GetUserAuthenticationModeArgs', 'GetUserAuthenticationModeArgsDict']]]]] = None,
+                    authentication_modes: pulumi.Input[Optional[Optional[Sequence[Union['GetUserAuthenticationModeArgs', 'GetUserAuthenticationModeArgsDict', 'outputs.GetUserAuthenticationModeResult']]]]] = None,
                     engine: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                     no_password_required: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                     passwords: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,

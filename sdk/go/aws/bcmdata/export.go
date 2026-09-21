@@ -40,6 +40,7 @@ import (
 //			}
 //			_, err = bcmdata.NewExport(ctx, "test", &bcmdata.ExportArgs{
 //				Export: &bcmdata.ExportExportArgs{
+//					Name: pulumi.String("testexample"),
 //					DataQueries: bcmdata.ExportExportDataQueryArray{
 //						&bcmdata.ExportExportDataQueryArgs{
 //							QueryStatement: pulumi.String("SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT"),
@@ -58,6 +59,9 @@ import (
 //						&bcmdata.ExportExportDestinationConfigurationArgs{
 //							S3Destinations: bcmdata.ExportExportDestinationConfigurationS3DestinationArray{
 //								&bcmdata.ExportExportDestinationConfigurationS3DestinationArgs{
+//									S3Bucket: pulumi.Any(testAwsS3Bucket.Bucket),
+//									S3Prefix: pulumi.Any(testAwsS3Bucket.BucketPrefix),
+//									S3Region: pulumi.Any(testAwsS3Bucket.Region),
 //									S3OutputConfigurations: bcmdata.ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArray{
 //										&bcmdata.ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs{
 //											Overwrite:   pulumi.String("OVERWRITE_REPORT"),
@@ -66,9 +70,6 @@ import (
 //											OutputType:  pulumi.String("CUSTOM"),
 //										},
 //									},
-//									S3Bucket: pulumi.Any(testAwsS3Bucket.Bucket),
-//									S3Prefix: pulumi.Any(testAwsS3Bucket.BucketPrefix),
-//									S3Region: pulumi.Any(testAwsS3Bucket.Region),
 //								},
 //							},
 //						},
@@ -78,7 +79,6 @@ import (
 //							Frequency: pulumi.String("SYNCHRONOUS"),
 //						},
 //					},
-//					Name: pulumi.String("testexample"),
 //				},
 //			})
 //			if err != nil {

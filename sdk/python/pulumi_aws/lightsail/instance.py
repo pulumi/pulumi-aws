@@ -527,7 +527,7 @@ class Instance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 add_on: pulumi.Input[Optional[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict']]] = None,
+                 add_on: pulumi.Input[Optional[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict', 'outputs.InstanceAddOn']]] = None,
                  availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  blueprint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -585,15 +585,15 @@ class Instance(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lightsail.Instance("example",
+            name="example",
+            availability_zone="us-east-1b",
+            blueprint_id="amazon_linux_2",
+            bundle_id="nano_3_0",
             add_on={
                 "type": "AutoSnapshot",
                 "snapshot_time": "06:00",
                 "status": "Enabled",
             },
-            name="example",
-            availability_zone="us-east-1b",
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_3_0",
             tags={
                 "foo": "bar",
             })
@@ -610,7 +610,7 @@ class Instance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict']] add_on: Add-on configuration for the instance. See below.
+        :param pulumi.Input[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict', 'outputs.InstanceAddOn']] add_on: Add-on configuration for the instance. See below.
         :param pulumi.Input[_builtins.str] availability_zone: Availability Zone in which to create your instance. A list of available zones can be obtained using the AWS CLI command: [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
         :param pulumi.Input[_builtins.str] blueprint_id: ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
         :param pulumi.Input[_builtins.str] bundle_id: Bundle of specification information. A list of available bundle IDs can be obtained using the AWS CLI command: [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
@@ -676,15 +676,15 @@ class Instance(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lightsail.Instance("example",
+            name="example",
+            availability_zone="us-east-1b",
+            blueprint_id="amazon_linux_2",
+            bundle_id="nano_3_0",
             add_on={
                 "type": "AutoSnapshot",
                 "snapshot_time": "06:00",
                 "status": "Enabled",
             },
-            name="example",
-            availability_zone="us-east-1b",
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_3_0",
             tags={
                 "foo": "bar",
             })
@@ -714,7 +714,7 @@ class Instance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 add_on: pulumi.Input[Optional[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict']]] = None,
+                 add_on: pulumi.Input[Optional[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict', 'outputs.InstanceAddOn']]] = None,
                  availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  blueprint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -769,7 +769,7 @@ class Instance(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            add_on: pulumi.Input[Optional[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict']]] = None,
+            add_on: pulumi.Input[Optional[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict', 'outputs.InstanceAddOn']]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
             blueprint_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -796,7 +796,7 @@ class Instance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict']] add_on: Add-on configuration for the instance. See below.
+        :param pulumi.Input[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict', 'outputs.InstanceAddOn']] add_on: Add-on configuration for the instance. See below.
         :param pulumi.Input[_builtins.str] arn: ARN of the Lightsail instance (matches `id`).
         :param pulumi.Input[_builtins.str] availability_zone: Availability Zone in which to create your instance. A list of available zones can be obtained using the AWS CLI command: [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
         :param pulumi.Input[_builtins.str] blueprint_id: ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).

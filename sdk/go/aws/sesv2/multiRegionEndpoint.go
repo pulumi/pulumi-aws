@@ -31,12 +31,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sesv2.NewMultiRegionEndpoint(ctx, "example", &sesv2.MultiRegionEndpointArgs{
+//				EndpointName: pulumi.String("example"),
 //				Details: &sesv2.MultiRegionEndpointDetailsArgs{
 //					RoutesDetails: &sesv2.MultiRegionEndpointDetailsRoutesDetailsArgs{
 //						Region: pulumi.String("example-alternate-region"),
 //					},
 //				},
-//				EndpointName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

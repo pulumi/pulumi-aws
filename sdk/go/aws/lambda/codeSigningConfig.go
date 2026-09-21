@@ -56,6 +56,7 @@ import (
 //			}
 //			// Code signing configuration with enforcement
 //			_, err = lambda.NewCodeSigningConfig(ctx, "example", &lambda.CodeSigningConfigArgs{
+//				Description: pulumi.String("Code signing configuration for Lambda functions"),
 //				AllowedPublishers: &lambda.CodeSigningConfigAllowedPublishersArgs{
 //					SigningProfileVersionArns: pulumi.StringArray{
 //						prod.VersionArn,
@@ -65,7 +66,6 @@ import (
 //				Policies: &lambda.CodeSigningConfigPoliciesArgs{
 //					UntrustedArtifactOnDeployment: pulumi.String("Enforce"),
 //				},
-//				Description: pulumi.String("Code signing configuration for Lambda functions"),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("production"),
 //					"Purpose":     pulumi.String("code-signing"),
@@ -95,6 +95,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewCodeSigningConfig(ctx, "example", &lambda.CodeSigningConfigArgs{
+//				Description: pulumi.String("Development code signing configuration"),
 //				AllowedPublishers: &lambda.CodeSigningConfigAllowedPublishersArgs{
 //					SigningProfileVersionArns: pulumi.StringArray{
 //						dev.VersionArn,
@@ -103,7 +104,6 @@ import (
 //				Policies: &lambda.CodeSigningConfigPoliciesArgs{
 //					UntrustedArtifactOnDeployment: pulumi.String("Warn"),
 //				},
-//				Description: pulumi.String("Development code signing configuration"),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("development"),
 //					"Purpose":     pulumi.String("code-signing"),
@@ -134,6 +134,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Production signing configuration
 //			_, err := lambda.NewCodeSigningConfig(ctx, "prod", &lambda.CodeSigningConfigArgs{
+//				Description: pulumi.String("Production code signing configuration with strict enforcement"),
 //				AllowedPublishers: &lambda.CodeSigningConfigAllowedPublishersArgs{
 //					SigningProfileVersionArns: pulumi.StringArray{
 //						prodAwsSignerSigningProfile.VersionArn,
@@ -142,7 +143,6 @@ import (
 //				Policies: &lambda.CodeSigningConfigPoliciesArgs{
 //					UntrustedArtifactOnDeployment: pulumi.String("Enforce"),
 //				},
-//				Description: pulumi.String("Production code signing configuration with strict enforcement"),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("production"),
 //					"Security":    pulumi.String("strict"),
@@ -153,6 +153,7 @@ import (
 //			}
 //			// Development signing configuration
 //			_, err = lambda.NewCodeSigningConfig(ctx, "dev", &lambda.CodeSigningConfigArgs{
+//				Description: pulumi.String("Development code signing configuration with warnings"),
 //				AllowedPublishers: &lambda.CodeSigningConfigAllowedPublishersArgs{
 //					SigningProfileVersionArns: pulumi.StringArray{
 //						devAwsSignerSigningProfile.VersionArn,
@@ -162,7 +163,6 @@ import (
 //				Policies: &lambda.CodeSigningConfigPoliciesArgs{
 //					UntrustedArtifactOnDeployment: pulumi.String("Warn"),
 //				},
-//				Description: pulumi.String("Development code signing configuration with warnings"),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("development"),
 //					"Security":    pulumi.String("flexible"),

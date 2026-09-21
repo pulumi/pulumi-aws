@@ -299,12 +299,12 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
-                 cors_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyCorsConfigArgs', 'ResponseHeadersPolicyCorsConfigArgsDict']]] = None,
-                 custom_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyCustomHeadersConfigArgs', 'ResponseHeadersPolicyCustomHeadersConfigArgsDict']]] = None,
+                 cors_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyCorsConfigArgs', 'ResponseHeadersPolicyCorsConfigArgsDict', 'outputs.ResponseHeadersPolicyCorsConfig']]] = None,
+                 custom_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyCustomHeadersConfigArgs', 'ResponseHeadersPolicyCustomHeadersConfigArgsDict', 'outputs.ResponseHeadersPolicyCustomHeadersConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 remove_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyRemoveHeadersConfigArgs', 'ResponseHeadersPolicyRemoveHeadersConfigArgsDict']]] = None,
-                 security_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicySecurityHeadersConfigArgs', 'ResponseHeadersPolicySecurityHeadersConfigArgsDict']]] = None,
-                 server_timing_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyServerTimingHeadersConfigArgs', 'ResponseHeadersPolicyServerTimingHeadersConfigArgsDict']]] = None,
+                 remove_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyRemoveHeadersConfigArgs', 'ResponseHeadersPolicyRemoveHeadersConfigArgsDict', 'outputs.ResponseHeadersPolicyRemoveHeadersConfig']]] = None,
+                 security_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicySecurityHeadersConfigArgs', 'ResponseHeadersPolicySecurityHeadersConfigArgsDict', 'outputs.ResponseHeadersPolicySecurityHeadersConfig']]] = None,
+                 server_timing_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyServerTimingHeadersConfigArgs', 'ResponseHeadersPolicyServerTimingHeadersConfigArgsDict', 'outputs.ResponseHeadersPolicyServerTimingHeadersConfig']]] = None,
                  __props__=None):
         """
         Provides a CloudFront response headers policy resource.
@@ -321,7 +321,10 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.ResponseHeadersPolicy("example",
+            name="example-policy",
+            comment="test comment",
             cors_config={
+                "access_control_allow_credentials": True,
                 "access_control_allow_headers": {
                     "items": ["test"],
                 },
@@ -331,11 +334,8 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                 "access_control_allow_origins": {
                     "items": ["test.example.comtest"],
                 },
-                "access_control_allow_credentials": True,
                 "origin_override": True,
-            },
-            name="example-policy",
-            comment="test comment")
+            })
         ```
 
         ### Custom Headers Config Usage
@@ -345,6 +345,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.ResponseHeadersPolicy("example",
+            name="example-headers-policy",
             custom_headers_config={
                 "items": [
                     {
@@ -358,8 +359,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                         "value": "none",
                     },
                 ],
-            },
-            name="example-headers-policy")
+            })
         ```
 
         ### Mixed Config Usage
@@ -371,6 +371,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.ResponseHeadersPolicy("example",
+            name="example-headers-policy",
             custom_headers_config={
                 "items": [{
                     "header": "X-Permitted-Cross-Domain-Policies",
@@ -386,8 +387,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
             server_timing_headers_config={
                 "enabled": True,
                 "sampling_rate": float(50),
-            },
-            name="example-headers-policy")
+            })
         ```
 
         ## Import
@@ -402,12 +402,12 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
-        :param pulumi.Input[Union['ResponseHeadersPolicyCorsConfigArgs', 'ResponseHeadersPolicyCorsConfigArgsDict']] cors_config: A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See CORS Config for more information.
-        :param pulumi.Input[Union['ResponseHeadersPolicyCustomHeadersConfigArgs', 'ResponseHeadersPolicyCustomHeadersConfigArgsDict']] custom_headers_config: Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
+        :param pulumi.Input[Union['ResponseHeadersPolicyCorsConfigArgs', 'ResponseHeadersPolicyCorsConfigArgsDict', 'outputs.ResponseHeadersPolicyCorsConfig']] cors_config: A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See CORS Config for more information.
+        :param pulumi.Input[Union['ResponseHeadersPolicyCustomHeadersConfigArgs', 'ResponseHeadersPolicyCustomHeadersConfigArgsDict', 'outputs.ResponseHeadersPolicyCustomHeadersConfig']] custom_headers_config: Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
         :param pulumi.Input[_builtins.str] name: A unique name to identify the response headers policy.
-        :param pulumi.Input[Union['ResponseHeadersPolicyRemoveHeadersConfigArgs', 'ResponseHeadersPolicyRemoveHeadersConfigArgsDict']] remove_headers_config: A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
-        :param pulumi.Input[Union['ResponseHeadersPolicySecurityHeadersConfigArgs', 'ResponseHeadersPolicySecurityHeadersConfigArgsDict']] security_headers_config: A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
-        :param pulumi.Input[Union['ResponseHeadersPolicyServerTimingHeadersConfigArgs', 'ResponseHeadersPolicyServerTimingHeadersConfigArgsDict']] server_timing_headers_config: A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+        :param pulumi.Input[Union['ResponseHeadersPolicyRemoveHeadersConfigArgs', 'ResponseHeadersPolicyRemoveHeadersConfigArgsDict', 'outputs.ResponseHeadersPolicyRemoveHeadersConfig']] remove_headers_config: A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
+        :param pulumi.Input[Union['ResponseHeadersPolicySecurityHeadersConfigArgs', 'ResponseHeadersPolicySecurityHeadersConfigArgsDict', 'outputs.ResponseHeadersPolicySecurityHeadersConfig']] security_headers_config: A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
+        :param pulumi.Input[Union['ResponseHeadersPolicyServerTimingHeadersConfigArgs', 'ResponseHeadersPolicyServerTimingHeadersConfigArgsDict', 'outputs.ResponseHeadersPolicyServerTimingHeadersConfig']] server_timing_headers_config: A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
         """
         ...
     @overload
@@ -430,7 +430,10 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.ResponseHeadersPolicy("example",
+            name="example-policy",
+            comment="test comment",
             cors_config={
+                "access_control_allow_credentials": True,
                 "access_control_allow_headers": {
                     "items": ["test"],
                 },
@@ -440,11 +443,8 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                 "access_control_allow_origins": {
                     "items": ["test.example.comtest"],
                 },
-                "access_control_allow_credentials": True,
                 "origin_override": True,
-            },
-            name="example-policy",
-            comment="test comment")
+            })
         ```
 
         ### Custom Headers Config Usage
@@ -454,6 +454,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.ResponseHeadersPolicy("example",
+            name="example-headers-policy",
             custom_headers_config={
                 "items": [
                     {
@@ -467,8 +468,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                         "value": "none",
                     },
                 ],
-            },
-            name="example-headers-policy")
+            })
         ```
 
         ### Mixed Config Usage
@@ -480,6 +480,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.ResponseHeadersPolicy("example",
+            name="example-headers-policy",
             custom_headers_config={
                 "items": [{
                     "header": "X-Permitted-Cross-Domain-Policies",
@@ -495,8 +496,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
             server_timing_headers_config={
                 "enabled": True,
                 "sampling_rate": float(50),
-            },
-            name="example-headers-policy")
+            })
         ```
 
         ## Import
@@ -524,12 +524,12 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
-                 cors_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyCorsConfigArgs', 'ResponseHeadersPolicyCorsConfigArgsDict']]] = None,
-                 custom_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyCustomHeadersConfigArgs', 'ResponseHeadersPolicyCustomHeadersConfigArgsDict']]] = None,
+                 cors_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyCorsConfigArgs', 'ResponseHeadersPolicyCorsConfigArgsDict', 'outputs.ResponseHeadersPolicyCorsConfig']]] = None,
+                 custom_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyCustomHeadersConfigArgs', 'ResponseHeadersPolicyCustomHeadersConfigArgsDict', 'outputs.ResponseHeadersPolicyCustomHeadersConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 remove_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyRemoveHeadersConfigArgs', 'ResponseHeadersPolicyRemoveHeadersConfigArgsDict']]] = None,
-                 security_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicySecurityHeadersConfigArgs', 'ResponseHeadersPolicySecurityHeadersConfigArgsDict']]] = None,
-                 server_timing_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyServerTimingHeadersConfigArgs', 'ResponseHeadersPolicyServerTimingHeadersConfigArgsDict']]] = None,
+                 remove_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyRemoveHeadersConfigArgs', 'ResponseHeadersPolicyRemoveHeadersConfigArgsDict', 'outputs.ResponseHeadersPolicyRemoveHeadersConfig']]] = None,
+                 security_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicySecurityHeadersConfigArgs', 'ResponseHeadersPolicySecurityHeadersConfigArgsDict', 'outputs.ResponseHeadersPolicySecurityHeadersConfig']]] = None,
+                 server_timing_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyServerTimingHeadersConfigArgs', 'ResponseHeadersPolicyServerTimingHeadersConfigArgsDict', 'outputs.ResponseHeadersPolicyServerTimingHeadersConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -560,13 +560,13 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
-            cors_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyCorsConfigArgs', 'ResponseHeadersPolicyCorsConfigArgsDict']]] = None,
-            custom_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyCustomHeadersConfigArgs', 'ResponseHeadersPolicyCustomHeadersConfigArgsDict']]] = None,
+            cors_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyCorsConfigArgs', 'ResponseHeadersPolicyCorsConfigArgsDict', 'outputs.ResponseHeadersPolicyCorsConfig']]] = None,
+            custom_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyCustomHeadersConfigArgs', 'ResponseHeadersPolicyCustomHeadersConfigArgsDict', 'outputs.ResponseHeadersPolicyCustomHeadersConfig']]] = None,
             etag: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            remove_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyRemoveHeadersConfigArgs', 'ResponseHeadersPolicyRemoveHeadersConfigArgsDict']]] = None,
-            security_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicySecurityHeadersConfigArgs', 'ResponseHeadersPolicySecurityHeadersConfigArgsDict']]] = None,
-            server_timing_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyServerTimingHeadersConfigArgs', 'ResponseHeadersPolicyServerTimingHeadersConfigArgsDict']]] = None) -> 'ResponseHeadersPolicy':
+            remove_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyRemoveHeadersConfigArgs', 'ResponseHeadersPolicyRemoveHeadersConfigArgsDict', 'outputs.ResponseHeadersPolicyRemoveHeadersConfig']]] = None,
+            security_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicySecurityHeadersConfigArgs', 'ResponseHeadersPolicySecurityHeadersConfigArgsDict', 'outputs.ResponseHeadersPolicySecurityHeadersConfig']]] = None,
+            server_timing_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyServerTimingHeadersConfigArgs', 'ResponseHeadersPolicyServerTimingHeadersConfigArgsDict', 'outputs.ResponseHeadersPolicyServerTimingHeadersConfig']]] = None) -> 'ResponseHeadersPolicy':
         """
         Get an existing ResponseHeadersPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -576,13 +576,13 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The response headers policy ARN.
         :param pulumi.Input[_builtins.str] comment: A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
-        :param pulumi.Input[Union['ResponseHeadersPolicyCorsConfigArgs', 'ResponseHeadersPolicyCorsConfigArgsDict']] cors_config: A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See CORS Config for more information.
-        :param pulumi.Input[Union['ResponseHeadersPolicyCustomHeadersConfigArgs', 'ResponseHeadersPolicyCustomHeadersConfigArgsDict']] custom_headers_config: Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
+        :param pulumi.Input[Union['ResponseHeadersPolicyCorsConfigArgs', 'ResponseHeadersPolicyCorsConfigArgsDict', 'outputs.ResponseHeadersPolicyCorsConfig']] cors_config: A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See CORS Config for more information.
+        :param pulumi.Input[Union['ResponseHeadersPolicyCustomHeadersConfigArgs', 'ResponseHeadersPolicyCustomHeadersConfigArgsDict', 'outputs.ResponseHeadersPolicyCustomHeadersConfig']] custom_headers_config: Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
         :param pulumi.Input[_builtins.str] etag: The current version of the response headers policy.
         :param pulumi.Input[_builtins.str] name: A unique name to identify the response headers policy.
-        :param pulumi.Input[Union['ResponseHeadersPolicyRemoveHeadersConfigArgs', 'ResponseHeadersPolicyRemoveHeadersConfigArgsDict']] remove_headers_config: A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
-        :param pulumi.Input[Union['ResponseHeadersPolicySecurityHeadersConfigArgs', 'ResponseHeadersPolicySecurityHeadersConfigArgsDict']] security_headers_config: A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
-        :param pulumi.Input[Union['ResponseHeadersPolicyServerTimingHeadersConfigArgs', 'ResponseHeadersPolicyServerTimingHeadersConfigArgsDict']] server_timing_headers_config: A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+        :param pulumi.Input[Union['ResponseHeadersPolicyRemoveHeadersConfigArgs', 'ResponseHeadersPolicyRemoveHeadersConfigArgsDict', 'outputs.ResponseHeadersPolicyRemoveHeadersConfig']] remove_headers_config: A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
+        :param pulumi.Input[Union['ResponseHeadersPolicySecurityHeadersConfigArgs', 'ResponseHeadersPolicySecurityHeadersConfigArgsDict', 'outputs.ResponseHeadersPolicySecurityHeadersConfig']] security_headers_config: A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
+        :param pulumi.Input[Union['ResponseHeadersPolicyServerTimingHeadersConfigArgs', 'ResponseHeadersPolicyServerTimingHeadersConfigArgsDict', 'outputs.ResponseHeadersPolicyServerTimingHeadersConfig']] server_timing_headers_config: A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

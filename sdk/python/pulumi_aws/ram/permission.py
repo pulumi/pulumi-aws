@@ -309,7 +309,7 @@ class Permission(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['PermissionTimeoutsArgs', 'PermissionTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['PermissionTimeoutsArgs', 'PermissionTimeoutsArgsDict', 'outputs.PermissionTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS RAM (Resource Access Manager) Permission.
@@ -433,7 +433,7 @@ class Permission(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['PermissionTimeoutsArgs', 'PermissionTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['PermissionTimeoutsArgs', 'PermissionTimeoutsArgsDict', 'outputs.PermissionTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -477,7 +477,7 @@ class Permission(pulumi.CustomResource):
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['PermissionTimeoutsArgs', 'PermissionTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['PermissionTimeoutsArgs', 'PermissionTimeoutsArgsDict', 'outputs.PermissionTimeouts']]] = None,
             version: pulumi.Input[Optional[_builtins.str]] = None) -> 'Permission':
         """
         Get an existing Permission resource's state with the given name, id, and optional extra

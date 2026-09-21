@@ -29,6 +29,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+//				ExecutableUsers: []string{
+//					"self",
+//				},
+//				MostRecent: pulumi.BoolRef(true),
+//				NameRegex:  pulumi.StringRef("^myami-[0-9]{3}"),
+//				Owners: []string{
+//					"self",
+//				},
 //				Filters: []ec2.GetAmiFilter{
 //					{
 //						Name: "name",
@@ -48,14 +56,6 @@ import (
 //							"hvm",
 //						},
 //					},
-//				},
-//				ExecutableUsers: []string{
-//					"self",
-//				},
-//				MostRecent: pulumi.BoolRef(true),
-//				NameRegex:  pulumi.StringRef("^myami-[0-9]{3}"),
-//				Owners: []string{
-//					"self",
 //				},
 //			}, nil)
 //			if err != nil {

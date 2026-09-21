@@ -29,37 +29,37 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewCachePolicy(ctx, "example", &cloudfront.CachePolicyArgs{
-//				ParametersInCacheKeyAndForwardedToOrigin: &cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs{
-//					CookiesConfig: &cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs{
-//						Cookies: &cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs{
-//							Items: pulumi.StringArray{
-//								pulumi.String("example"),
-//							},
-//						},
-//						CookieBehavior: pulumi.String("whitelist"),
-//					},
-//					HeadersConfig: &cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs{
-//						Headers: &cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs{
-//							Items: pulumi.StringArray{
-//								pulumi.String("example"),
-//							},
-//						},
-//						HeaderBehavior: pulumi.String("whitelist"),
-//					},
-//					QueryStringsConfig: &cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs{
-//						QueryStrings: &cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs{
-//							Items: pulumi.StringArray{
-//								pulumi.String("example"),
-//							},
-//						},
-//						QueryStringBehavior: pulumi.String("whitelist"),
-//					},
-//				},
 //				Name:       pulumi.String("example-policy"),
 //				Comment:    pulumi.String("test comment"),
 //				DefaultTtl: pulumi.Int(50),
 //				MaxTtl:     pulumi.Int(100),
 //				MinTtl:     pulumi.Int(1),
+//				ParametersInCacheKeyAndForwardedToOrigin: &cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs{
+//					CookiesConfig: &cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs{
+//						CookieBehavior: pulumi.String("whitelist"),
+//						Cookies: &cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs{
+//							Items: pulumi.StringArray{
+//								pulumi.String("example"),
+//							},
+//						},
+//					},
+//					HeadersConfig: &cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs{
+//						HeaderBehavior: pulumi.String("whitelist"),
+//						Headers: &cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs{
+//							Items: pulumi.StringArray{
+//								pulumi.String("example"),
+//							},
+//						},
+//					},
+//					QueryStringsConfig: &cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs{
+//						QueryStringBehavior: pulumi.String("whitelist"),
+//						QueryStrings: &cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs{
+//							Items: pulumi.StringArray{
+//								pulumi.String("example"),
+//							},
+//						},
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err

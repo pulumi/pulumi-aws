@@ -46,22 +46,22 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// {
     ///     var example = new Aws.Ec2TransitGateway.PolicyTableEntry("example", new()
     ///     {
+    ///         TransitGatewayPolicyTableId = exampleAwsEc2TransitGatewayPolicyTable.Id,
+    ///         PolicyRuleNumber = "200",
+    ///         TargetRouteTableId = exampleAwsEc2TransitGatewayRouteTable.Id,
     ///         PolicyRule = new Aws.Ec2TransitGateway.Inputs.PolicyTableEntryPolicyRuleArgs
     ///         {
-    ///             Metadata = new Aws.Ec2TransitGateway.Inputs.PolicyTableEntryPolicyRuleMetadataArgs
-    ///             {
-    ///                 Key = "test",
-    ///                 Value = "test",
-    ///             },
     ///             SourceCidrBlock = "10.0.1.0/24",
     ///             SourcePortRange = "*",
     ///             DestinationCidrBlock = "10.0.2.0/24",
     ///             DestinationPortRange = "443",
     ///             Protocol = "6",
+    ///             Metadata = new Aws.Ec2TransitGateway.Inputs.PolicyTableEntryPolicyRuleMetadataArgs
+    ///             {
+    ///                 Key = "test",
+    ///                 Value = "test",
+    ///             },
     ///         },
-    ///         TransitGatewayPolicyTableId = exampleAwsEc2TransitGatewayPolicyTable.Id,
-    ///         PolicyRuleNumber = "200",
-    ///         TargetRouteTableId = exampleAwsEc2TransitGatewayRouteTable.Id,
     ///     });
     /// 
     /// });

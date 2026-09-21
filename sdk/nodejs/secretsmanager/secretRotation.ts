@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.secretsmanager.SecretRotation("example", {
+ *     secretId: exampleAwsSecretsmanagerSecret.id,
+ *     rotationLambdaArn: exampleAwsLambdaFunction.arn,
  *     rotationRules: {
  *         automaticallyAfterDays: 30,
  *     },
- *     secretId: exampleAwsSecretsmanagerSecret.id,
- *     rotationLambdaArn: exampleAwsLambdaFunction.arn,
  * });
  * ```
  *
@@ -40,9 +40,8 @@ import * as utilities from "../utilities";
  *     type: "SalesforceClientSecret",
  * });
  * const exampleSecretRotation = new aws.secretsmanager.SecretRotation("example", {
- *     rotationRules: {
- *         automaticallyAfterDays: Number(rotationDays),
- *     },
+ *     secretId: example.id,
+ *     externalSecretRotationRoleArn: exampleAwsIamRole.arn,
  *     externalSecretRotationMetadatas: [
  *         {
  *             key: "adminSecretArn",
@@ -53,8 +52,9 @@ import * as utilities from "../utilities";
  *             value: "v65.0",
  *         },
  *     ],
- *     secretId: example.id,
- *     externalSecretRotationRoleArn: exampleAwsIamRole.arn,
+ *     rotationRules: {
+ *         automaticallyAfterDays: Number(rotationDays),
+ *     },
  * });
  * ```
  *
@@ -93,9 +93,9 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const rotationEnabled = config.getBoolean("rotationEnabled") || true;
  * const example = new aws.secretsmanager.SecretRotation("example", {
- *     rotationRules: singleOrNone(rotationEnabled ? [{
+ *     rotationRules: singleOrNone((rotationEnabled ? [1] : []).map((v, k) => ({key: k, value: v})).map(entry => ({
  *         automaticallyAfterDays: 30,
- *     }] : []),
+ *     }))),
  *     secretId: exampleAwsDbInstance.masterUserSecret[0].secretArn,
  *     rotationEnabled: rotationEnabled,
  * });

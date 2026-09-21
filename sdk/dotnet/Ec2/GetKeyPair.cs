@@ -28,6 +28,8 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = Aws.Ec2.GetKeyPair.Invoke(new()
         ///     {
+        ///         KeyName = "test",
+        ///         IncludePublicKey = true,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetKeyPairFilterInputArgs
@@ -39,8 +41,6 @@ namespace Pulumi.Aws.Ec2
         ///                 },
         ///             },
         ///         },
-        ///         KeyName = "test",
-        ///         IncludePublicKey = true,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -72,6 +72,8 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = Aws.Ec2.GetKeyPair.Invoke(new()
         ///     {
+        ///         KeyName = "test",
+        ///         IncludePublicKey = true,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetKeyPairFilterInputArgs
@@ -83,8 +85,6 @@ namespace Pulumi.Aws.Ec2
         ///                 },
         ///             },
         ///         },
-        ///         KeyName = "test",
-        ///         IncludePublicKey = true,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -116,6 +116,8 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = Aws.Ec2.GetKeyPair.Invoke(new()
         ///     {
+        ///         KeyName = "test",
+        ///         IncludePublicKey = true,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetKeyPairFilterInputArgs
@@ -127,8 +129,6 @@ namespace Pulumi.Aws.Ec2
         ///                 },
         ///             },
         ///         },
-        ///         KeyName = "test",
-        ///         IncludePublicKey = true,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

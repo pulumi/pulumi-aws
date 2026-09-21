@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ParameterGroup("example", ParameterGroupArgs.builder()
+ *             .name("example")
  *             .parameters(            
  *                 ParameterGroupParameterArgs.builder()
  *                     .name("query-ttl-millis")
@@ -54,7 +55,6 @@ import javax.annotation.Nullable;
  *                     .name("record-ttl-millis")
  *                     .value("100000")
  *                     .build())
- *             .name("example")
  *             .build());
  * 
  *     }

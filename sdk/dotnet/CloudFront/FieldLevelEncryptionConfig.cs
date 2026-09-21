@@ -24,8 +24,10 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var test = new Aws.CloudFront.FieldLevelEncryptionConfig("test", new()
     ///     {
+    ///         Comment = "test comment",
     ///         ContentTypeProfileConfig = new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigContentTypeProfileConfigArgs
     ///         {
+    ///             ForwardWhenContentTypeIsUnknown = true,
     ///             ContentTypeProfiles = new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs
     ///             {
     ///                 Items = new[]
@@ -37,10 +39,10 @@ namespace Pulumi.Aws.CloudFront
     ///                     },
     ///                 },
     ///             },
-    ///             ForwardWhenContentTypeIsUnknown = true,
     ///         },
     ///         QueryArgProfileConfig = new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigQueryArgProfileConfigArgs
     ///         {
+    ///             ForwardWhenQueryArgProfileIsUnknown = true,
     ///             QueryArgProfiles = new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs
     ///             {
     ///                 Items = new[]
@@ -52,9 +54,7 @@ namespace Pulumi.Aws.CloudFront
     ///                     },
     ///                 },
     ///             },
-    ///             ForwardWhenQueryArgProfileIsUnknown = true,
     ///         },
-    ///         Comment = "test comment",
     ///     });
     /// 
     /// });

@@ -268,7 +268,7 @@ class Script(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_location: pulumi.Input[Optional[Union['ScriptStorageLocationArgs', 'ScriptStorageLocationArgsDict']]] = None,
+                 storage_location: pulumi.Input[Optional[Union['ScriptStorageLocationArgs', 'ScriptStorageLocationArgsDict', 'outputs.ScriptStorageLocation']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
                  zip_file: pulumi.Input[Optional[_builtins.str]] = None,
@@ -283,12 +283,12 @@ class Script(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.gamelift.Script("example",
+            name="example-script",
             storage_location={
                 "bucket": example_aws_s3_bucket["id"],
                 "key": example_aws_s3_object["key"],
                 "role_arn": example_aws_iam_role["arn"],
-            },
-            name="example-script")
+            })
         ```
 
         ## Import
@@ -304,7 +304,7 @@ class Script(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the script
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ScriptStorageLocationArgs', 'ScriptStorageLocationArgsDict']] storage_location: Information indicating where your game script files are stored. See below.
+        :param pulumi.Input[Union['ScriptStorageLocationArgs', 'ScriptStorageLocationArgsDict', 'outputs.ScriptStorageLocation']] storage_location: Information indicating where your game script files are stored. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] version: Version that is associated with this script.
         :param pulumi.Input[_builtins.str] zip_file: A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
@@ -325,12 +325,12 @@ class Script(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.gamelift.Script("example",
+            name="example-script",
             storage_location={
                 "bucket": example_aws_s3_bucket["id"],
                 "key": example_aws_s3_object["key"],
                 "role_arn": example_aws_iam_role["arn"],
-            },
-            name="example-script")
+            })
         ```
 
         ## Import
@@ -359,7 +359,7 @@ class Script(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_location: pulumi.Input[Optional[Union['ScriptStorageLocationArgs', 'ScriptStorageLocationArgsDict']]] = None,
+                 storage_location: pulumi.Input[Optional[Union['ScriptStorageLocationArgs', 'ScriptStorageLocationArgsDict', 'outputs.ScriptStorageLocation']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
                  zip_file: pulumi.Input[Optional[_builtins.str]] = None,
@@ -393,7 +393,7 @@ class Script(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            storage_location: pulumi.Input[Optional[Union['ScriptStorageLocationArgs', 'ScriptStorageLocationArgsDict']]] = None,
+            storage_location: pulumi.Input[Optional[Union['ScriptStorageLocationArgs', 'ScriptStorageLocationArgsDict', 'outputs.ScriptStorageLocation']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -408,7 +408,7 @@ class Script(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: GameLift Script ARN.
         :param pulumi.Input[_builtins.str] name: Name of the script
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ScriptStorageLocationArgs', 'ScriptStorageLocationArgsDict']] storage_location: Information indicating where your game script files are stored. See below.
+        :param pulumi.Input[Union['ScriptStorageLocationArgs', 'ScriptStorageLocationArgsDict', 'outputs.ScriptStorageLocation']] storage_location: Information indicating where your game script files are stored. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] version: Version that is associated with this script.

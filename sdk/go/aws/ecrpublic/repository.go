@@ -38,6 +38,7 @@ import (
 //				return err
 //			}
 //			_, err = ecrpublic.NewRepository(ctx, "foo", &ecrpublic.RepositoryArgs{
+//				RepositoryName: pulumi.String("bar"),
 //				CatalogData: &ecrpublic.RepositoryCatalogDataArgs{
 //					AboutText: pulumi.String("About Text"),
 //					Architectures: pulumi.StringArray{
@@ -50,7 +51,6 @@ import (
 //					},
 //					UsageText: pulumi.String("Usage Text"),
 //				},
-//				RepositoryName: pulumi.String("bar"),
 //				Tags: pulumi.StringMap{
 //					"env": pulumi.String("production"),
 //				},

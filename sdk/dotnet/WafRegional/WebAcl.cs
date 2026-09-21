@@ -26,6 +26,7 @@ namespace Pulumi.Aws.WafRegional
     /// {
     ///     var ipset = new Aws.WafRegional.IpSet("ipset", new()
     ///     {
+    ///         Name = "tfIPSet",
     ///         IpSetDescriptors = new[]
     ///         {
     ///             new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs
@@ -34,11 +35,12 @@ namespace Pulumi.Aws.WafRegional
     ///                 Value = "192.0.7.0/24",
     ///             },
     ///         },
-    ///         Name = "tfIPSet",
     ///     });
     /// 
     ///     var wafrule = new Aws.WafRegional.Rule("wafrule", new()
     ///     {
+    ///         Name = "tfWAFRule",
+    ///         MetricName = "tfWAFRule",
     ///         Predicates = new[]
     ///         {
     ///             new Aws.WafRegional.Inputs.RulePredicateArgs
@@ -48,12 +50,12 @@ namespace Pulumi.Aws.WafRegional
     ///                 Type = "IPMatch",
     ///             },
     ///         },
-    ///         Name = "tfWAFRule",
-    ///         MetricName = "tfWAFRule",
     ///     });
     /// 
     ///     var wafacl = new Aws.WafRegional.WebAcl("wafacl", new()
     ///     {
+    ///         Name = "tfWebACL",
+    ///         MetricName = "tfWebACL",
     ///         DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
     ///         {
     ///             Type = "ALLOW",
@@ -71,8 +73,6 @@ namespace Pulumi.Aws.WafRegional
     ///                 Type = "REGULAR",
     ///             },
     ///         },
-    ///         Name = "tfWebACL",
-    ///         MetricName = "tfWebACL",
     ///     });
     /// 
     /// });
@@ -90,6 +90,8 @@ namespace Pulumi.Aws.WafRegional
     /// {
     ///     var example = new Aws.WafRegional.WebAcl("example", new()
     ///     {
+    ///         Name = "example",
+    ///         MetricName = "example",
     ///         DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
     ///         {
     ///             Type = "ALLOW",
@@ -98,17 +100,15 @@ namespace Pulumi.Aws.WafRegional
     ///         {
     ///             new Aws.WafRegional.Inputs.WebAclRuleArgs
     ///             {
+    ///                 Priority = 1,
+    ///                 RuleId = exampleAwsWafregionalRuleGroup.Id,
+    ///                 Type = "GROUP",
     ///                 OverrideAction = new Aws.WafRegional.Inputs.WebAclRuleOverrideActionArgs
     ///                 {
     ///                     Type = "NONE",
     ///                 },
-    ///                 Priority = 1,
-    ///                 RuleId = exampleAwsWafregionalRuleGroup.Id,
-    ///                 Type = "GROUP",
     ///             },
     ///         },
-    ///         Name = "example",
-    ///         MetricName = "example",
     ///     });
     /// 
     /// });
@@ -130,6 +130,7 @@ namespace Pulumi.Aws.WafRegional
     ///     {
     ///         LoggingConfiguration = new Aws.WafRegional.Inputs.WebAclLoggingConfigurationArgs
     ///         {
+    ///             LogDestination = exampleAwsKinesisFirehoseDeliveryStream.Arn,
     ///             RedactedFields = new Aws.WafRegional.Inputs.WebAclLoggingConfigurationRedactedFieldsArgs
     ///             {
     ///                 FieldToMatches = new[]
@@ -145,7 +146,6 @@ namespace Pulumi.Aws.WafRegional
     ///                     },
     ///                 },
     ///             },
-    ///             LogDestination = exampleAwsKinesisFirehoseDeliveryStream.Arn,
     ///         },
     ///     });
     /// 

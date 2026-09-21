@@ -207,7 +207,7 @@ class PolicyTableEntry(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_rule: pulumi.Input[Optional[Union['PolicyTableEntryPolicyRuleArgs', 'PolicyTableEntryPolicyRuleArgsDict']]] = None,
+                 policy_rule: pulumi.Input[Optional[Union['PolicyTableEntryPolicyRuleArgs', 'PolicyTableEntryPolicyRuleArgsDict', 'outputs.PolicyTableEntryPolicyRule']]] = None,
                  policy_rule_number: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  target_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -237,20 +237,20 @@ class PolicyTableEntry(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.PolicyTableEntry("example",
+            transit_gateway_policy_table_id=example_aws_ec2_transit_gateway_policy_table["id"],
+            policy_rule_number="200",
+            target_route_table_id=example_aws_ec2_transit_gateway_route_table["id"],
             policy_rule={
-                "metadata": {
-                    "key": "test",
-                    "value": "test",
-                },
                 "source_cidr_block": "10.0.1.0/24",
                 "source_port_range": "*",
                 "destination_cidr_block": "10.0.2.0/24",
                 "destination_port_range": "443",
                 "protocol": "6",
-            },
-            transit_gateway_policy_table_id=example_aws_ec2_transit_gateway_policy_table["id"],
-            policy_rule_number="200",
-            target_route_table_id=example_aws_ec2_transit_gateway_route_table["id"])
+                "metadata": {
+                    "key": "test",
+                    "value": "test",
+                },
+            })
         ```
 
         ## Import
@@ -276,7 +276,7 @@ class PolicyTableEntry(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['PolicyTableEntryPolicyRuleArgs', 'PolicyTableEntryPolicyRuleArgsDict']] policy_rule: Matching criteria for the policy table entry. See below.
+        :param pulumi.Input[Union['PolicyTableEntryPolicyRuleArgs', 'PolicyTableEntryPolicyRuleArgsDict', 'outputs.PolicyTableEntryPolicyRule']] policy_rule: Matching criteria for the policy table entry. See below.
         :param pulumi.Input[_builtins.str] policy_rule_number: Rule number for this entry. Changing this value forces a new resource. Lower numbers are evaluated first and take precedence. Enter an integer from 1 to 50,000. Leave gaps between numbers (for example, 100, 110, 120) so you can insert rules later without renumbering.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] target_route_table_id: ID of the transit gateway route table to use for traffic matching this rule.
@@ -314,20 +314,20 @@ class PolicyTableEntry(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.PolicyTableEntry("example",
+            transit_gateway_policy_table_id=example_aws_ec2_transit_gateway_policy_table["id"],
+            policy_rule_number="200",
+            target_route_table_id=example_aws_ec2_transit_gateway_route_table["id"],
             policy_rule={
-                "metadata": {
-                    "key": "test",
-                    "value": "test",
-                },
                 "source_cidr_block": "10.0.1.0/24",
                 "source_port_range": "*",
                 "destination_cidr_block": "10.0.2.0/24",
                 "destination_port_range": "443",
                 "protocol": "6",
-            },
-            transit_gateway_policy_table_id=example_aws_ec2_transit_gateway_policy_table["id"],
-            policy_rule_number="200",
-            target_route_table_id=example_aws_ec2_transit_gateway_route_table["id"])
+                "metadata": {
+                    "key": "test",
+                    "value": "test",
+                },
+            })
         ```
 
         ## Import
@@ -366,7 +366,7 @@ class PolicyTableEntry(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_rule: pulumi.Input[Optional[Union['PolicyTableEntryPolicyRuleArgs', 'PolicyTableEntryPolicyRuleArgsDict']]] = None,
+                 policy_rule: pulumi.Input[Optional[Union['PolicyTableEntryPolicyRuleArgs', 'PolicyTableEntryPolicyRuleArgsDict', 'outputs.PolicyTableEntryPolicyRule']]] = None,
                  policy_rule_number: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  target_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -401,7 +401,7 @@ class PolicyTableEntry(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            policy_rule: pulumi.Input[Optional[Union['PolicyTableEntryPolicyRuleArgs', 'PolicyTableEntryPolicyRuleArgsDict']]] = None,
+            policy_rule: pulumi.Input[Optional[Union['PolicyTableEntryPolicyRuleArgs', 'PolicyTableEntryPolicyRuleArgsDict', 'outputs.PolicyTableEntryPolicyRule']]] = None,
             policy_rule_number: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             target_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -413,7 +413,7 @@ class PolicyTableEntry(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['PolicyTableEntryPolicyRuleArgs', 'PolicyTableEntryPolicyRuleArgsDict']] policy_rule: Matching criteria for the policy table entry. See below.
+        :param pulumi.Input[Union['PolicyTableEntryPolicyRuleArgs', 'PolicyTableEntryPolicyRuleArgsDict', 'outputs.PolicyTableEntryPolicyRule']] policy_rule: Matching criteria for the policy table entry. See below.
         :param pulumi.Input[_builtins.str] policy_rule_number: Rule number for this entry. Changing this value forces a new resource. Lower numbers are evaluated first and take precedence. Enter an integer from 1 to 50,000. Leave gaps between numbers (for example, 100, 110, 120) so you can insert rules later without renumbering.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] target_route_table_id: ID of the transit gateway route table to use for traffic matching this rule.

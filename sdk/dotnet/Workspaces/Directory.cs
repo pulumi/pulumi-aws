@@ -45,6 +45,9 @@ namespace Pulumi.Aws.Workspaces
     /// 
     ///     var exampleDirectory = new Aws.DirectoryService.Directory("example", new()
     ///     {
+    ///         Name = "corp.example.com",
+    ///         Password = "#S1ncerely",
+    ///         Size = "Small",
     ///         VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
     ///         {
     ///             VpcId = exampleVpc.Id,
@@ -54,9 +57,6 @@ namespace Pulumi.Aws.Workspaces
     ///                 exampleB.Id,
     ///             },
     ///         },
-    ///         Name = "corp.example.com",
-    ///         Password = "#S1ncerely",
-    ///         Size = "Small",
     ///     });
     /// 
     ///     var workspaces = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -65,6 +65,10 @@ namespace Pulumi.Aws.Workspaces
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -75,10 +79,6 @@ namespace Pulumi.Aws.Workspaces
     ///                             "workspaces.amazonaws.com",
     ///                         },
     ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
     ///                 },
     ///             },
     ///         },
@@ -118,6 +118,16 @@ namespace Pulumi.Aws.Workspaces
     /// 
     ///     var example = new Aws.Workspaces.Directory("example", new()
     ///     {
+    ///         DirectoryId = exampleDirectory.Id,
+    ///         SubnetIds = new[]
+    ///         {
+    ///             exampleC.Id,
+    ///             exampleD.Id,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Example", "true" },
+    ///         },
     ///         CertificateBasedAuthProperties = new Aws.Workspaces.Inputs.DirectoryCertificateBasedAuthPropertiesArgs
     ///         {
     ///             CertificateAuthorityArn = "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
@@ -155,16 +165,6 @@ namespace Pulumi.Aws.Workspaces
     ///             EnableMaintenanceMode = true,
     ///             UserEnabledAsLocalAdministrator = true,
     ///         },
-    ///         DirectoryId = exampleDirectory.Id,
-    ///         SubnetIds = new[]
-    ///         {
-    ///             exampleC.Id,
-    ///             exampleD.Id,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Example", "true" },
-    ///         },
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -189,6 +189,15 @@ namespace Pulumi.Aws.Workspaces
     /// {
     ///     var example = new Aws.Workspaces.Directory("example", new()
     ///     {
+    ///         SubnetIds = new[]
+    ///         {
+    ///             exampleC.Id,
+    ///             exampleD.Id,
+    ///         },
+    ///         WorkspaceType = "POOLS",
+    ///         WorkspaceDirectoryName = "Pool directory",
+    ///         WorkspaceDirectoryDescription = "WorkSpaces Pools directory",
+    ///         UserIdentityType = "CUSTOMER_MANAGED",
     ///         ActiveDirectoryConfig = new Aws.Workspaces.Inputs.DirectoryActiveDirectoryConfigArgs
     ///         {
     ///             DomainName = "example.internal",
@@ -217,15 +226,6 @@ namespace Pulumi.Aws.Workspaces
     ///             UserAccessUrl = "https://sso.example.com/",
     ///             Status = "ENABLED",
     ///         },
-    ///         SubnetIds = new[]
-    ///         {
-    ///             exampleC.Id,
-    ///             exampleD.Id,
-    ///         },
-    ///         WorkspaceType = "POOLS",
-    ///         WorkspaceDirectoryName = "Pool directory",
-    ///         WorkspaceDirectoryDescription = "WorkSpaces Pools directory",
-    ///         UserIdentityType = "CUSTOMER_MANAGED",
     ///     });
     /// 
     /// });
@@ -295,8 +295,10 @@ namespace Pulumi.Aws.Workspaces
     /// 
     ///     var example = new Aws.Workspaces.Directory("example", new()
     ///     {
+    ///         DirectoryId = exampleAwsDirectoryServiceDirectory.Id,
     ///         WorkspaceAccessProperties = new Aws.Workspaces.Inputs.DirectoryWorkspaceAccessPropertiesArgs
     ///         {
+    ///             DeviceTypeWindows = "ALLOW",
     ///             AccessEndpointConfig = new Aws.Workspaces.Inputs.DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs
     ///             {
     ///                 AccessEndpoints = new[]
@@ -312,9 +314,7 @@ namespace Pulumi.Aws.Workspaces
     ///                     "PCOIP",
     ///                 },
     ///             },
-    ///             DeviceTypeWindows = "ALLOW",
     ///         },
-    ///         DirectoryId = exampleAwsDirectoryServiceDirectory.Id,
     ///     });
     /// 
     ///     var workspacesStreamingTcp443 = new Aws.Vpc.SecurityGroupIngressRule("workspaces_streaming_tcp_443", new()

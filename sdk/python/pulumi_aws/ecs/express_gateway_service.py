@@ -601,14 +601,14 @@ class ExpressGatewayService(pulumi.CustomResource):
                  health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
                  infrastructure_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  memory: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExpressGatewayServiceNetworkConfigurationArgs', 'ExpressGatewayServiceNetworkConfigurationArgsDict']]]]] = None,
-                 primary_container: pulumi.Input[Optional[Union['ExpressGatewayServicePrimaryContainerArgs', 'ExpressGatewayServicePrimaryContainerArgsDict']]] = None,
+                 network_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExpressGatewayServiceNetworkConfigurationArgs', 'ExpressGatewayServiceNetworkConfigurationArgsDict', 'outputs.ExpressGatewayServiceNetworkConfiguration']]]]] = None,
+                 primary_container: pulumi.Input[Optional[Union['ExpressGatewayServicePrimaryContainerArgs', 'ExpressGatewayServicePrimaryContainerArgsDict', 'outputs.ExpressGatewayServicePrimaryContainer']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 scaling_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExpressGatewayServiceScalingTargetArgs', 'ExpressGatewayServiceScalingTargetArgsDict']]]]] = None,
+                 scaling_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExpressGatewayServiceScalingTargetArgs', 'ExpressGatewayServiceScalingTargetArgsDict', 'outputs.ExpressGatewayServiceScalingTarget']]]]] = None,
                  service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  task_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ExpressGatewayServiceTimeoutsArgs', 'ExpressGatewayServiceTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ExpressGatewayServiceTimeoutsArgs', 'ExpressGatewayServiceTimeoutsArgsDict', 'outputs.ExpressGatewayServiceTimeouts']]] = None,
                  wait_for_steady_state: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -625,11 +625,11 @@ class ExpressGatewayService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.ExpressGatewayService("example",
+            execution_role_arn=execution["arn"],
+            infrastructure_role_arn=infrastructure["arn"],
             primary_container={
                 "image": "nginx:latest",
-            },
-            execution_role_arn=execution["arn"],
-            infrastructure_role_arn=infrastructure["arn"])
+            })
         ```
 
         ### Container Logging, Environment Variables, and Secrets
@@ -639,7 +639,13 @@ class ExpressGatewayService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.ExpressGatewayService("example",
+            execution_role_arn=execution["arn"],
+            infrastructure_role_arn=infrastructure["arn"],
+            health_check_path="/health",
             primary_container={
+                "image": "my-app:latest",
+                "container_port": 8080,
+                "commands": ["./start.sh"],
                 "aws_logs_configurations": [{
                     "log_group": app["name"],
                 }],
@@ -657,13 +663,7 @@ class ExpressGatewayService(pulumi.CustomResource):
                     "name": "DB_PASSWORD",
                     "value_from": db_password["arn"],
                 }],
-                "image": "my-app:latest",
-                "container_port": 8080,
-                "commands": ["./start.sh"],
-            },
-            execution_role_arn=execution["arn"],
-            infrastructure_role_arn=infrastructure["arn"],
-            health_check_path="/health")
+            })
         ```
 
         ### Custom Networking
@@ -673,6 +673,12 @@ class ExpressGatewayService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.ExpressGatewayService("example",
+            service_name="my-express-service",
+            cluster=main["name"],
+            execution_role_arn=execution["arn"],
+            infrastructure_role_arn=infrastructure["arn"],
+            cpu="256",
+            memory="512",
             primary_container={
                 "image": "nginx:latest",
                 "container_port": 80,
@@ -683,13 +689,7 @@ class ExpressGatewayService(pulumi.CustomResource):
                     private_b["id"],
                 ],
                 "security_groups": [app["id"]],
-            }],
-            service_name="my-express-service",
-            cluster=main["name"],
-            execution_role_arn=execution["arn"],
-            infrastructure_role_arn=infrastructure["arn"],
-            cpu="256",
-            memory="512")
+            }])
         ```
 
         ### Service Updates and Deletion
@@ -721,9 +721,9 @@ class ExpressGatewayService(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] memory: Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExpressGatewayServiceNetworkConfigurationArgs', 'ExpressGatewayServiceNetworkConfigurationArgsDict']]]] network_configurations: Network configuration for the service. See `network_configuration` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExpressGatewayServiceNetworkConfigurationArgs', 'ExpressGatewayServiceNetworkConfigurationArgsDict', 'outputs.ExpressGatewayServiceNetworkConfiguration']]]] network_configurations: Network configuration for the service. See `network_configuration` Block below.
         :param pulumi.Input[_builtins.str] region: AWS region where the service will be created. If not specified, the region configured in the provider will be used.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExpressGatewayServiceScalingTargetArgs', 'ExpressGatewayServiceScalingTargetArgsDict']]]] scaling_targets: Auto-scaling configuration for the service. See `scaling_target` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExpressGatewayServiceScalingTargetArgs', 'ExpressGatewayServiceScalingTargetArgsDict', 'outputs.ExpressGatewayServiceScalingTarget']]]] scaling_targets: Auto-scaling configuration for the service. See `scaling_target` Block below.
         :param pulumi.Input[_builtins.str] service_name: Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] task_role_arn: ARN of the IAM role that allows your Amazon ECS container task to make calls to other AWS services.
@@ -749,11 +749,11 @@ class ExpressGatewayService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.ExpressGatewayService("example",
+            execution_role_arn=execution["arn"],
+            infrastructure_role_arn=infrastructure["arn"],
             primary_container={
                 "image": "nginx:latest",
-            },
-            execution_role_arn=execution["arn"],
-            infrastructure_role_arn=infrastructure["arn"])
+            })
         ```
 
         ### Container Logging, Environment Variables, and Secrets
@@ -763,7 +763,13 @@ class ExpressGatewayService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.ExpressGatewayService("example",
+            execution_role_arn=execution["arn"],
+            infrastructure_role_arn=infrastructure["arn"],
+            health_check_path="/health",
             primary_container={
+                "image": "my-app:latest",
+                "container_port": 8080,
+                "commands": ["./start.sh"],
                 "aws_logs_configurations": [{
                     "log_group": app["name"],
                 }],
@@ -781,13 +787,7 @@ class ExpressGatewayService(pulumi.CustomResource):
                     "name": "DB_PASSWORD",
                     "value_from": db_password["arn"],
                 }],
-                "image": "my-app:latest",
-                "container_port": 8080,
-                "commands": ["./start.sh"],
-            },
-            execution_role_arn=execution["arn"],
-            infrastructure_role_arn=infrastructure["arn"],
-            health_check_path="/health")
+            })
         ```
 
         ### Custom Networking
@@ -797,6 +797,12 @@ class ExpressGatewayService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.ExpressGatewayService("example",
+            service_name="my-express-service",
+            cluster=main["name"],
+            execution_role_arn=execution["arn"],
+            infrastructure_role_arn=infrastructure["arn"],
+            cpu="256",
+            memory="512",
             primary_container={
                 "image": "nginx:latest",
                 "container_port": 80,
@@ -807,13 +813,7 @@ class ExpressGatewayService(pulumi.CustomResource):
                     private_b["id"],
                 ],
                 "security_groups": [app["id"]],
-            }],
-            service_name="my-express-service",
-            cluster=main["name"],
-            execution_role_arn=execution["arn"],
-            infrastructure_role_arn=infrastructure["arn"],
-            cpu="256",
-            memory="512")
+            }])
         ```
 
         ### Service Updates and Deletion
@@ -856,14 +856,14 @@ class ExpressGatewayService(pulumi.CustomResource):
                  health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
                  infrastructure_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  memory: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExpressGatewayServiceNetworkConfigurationArgs', 'ExpressGatewayServiceNetworkConfigurationArgsDict']]]]] = None,
-                 primary_container: pulumi.Input[Optional[Union['ExpressGatewayServicePrimaryContainerArgs', 'ExpressGatewayServicePrimaryContainerArgsDict']]] = None,
+                 network_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExpressGatewayServiceNetworkConfigurationArgs', 'ExpressGatewayServiceNetworkConfigurationArgsDict', 'outputs.ExpressGatewayServiceNetworkConfiguration']]]]] = None,
+                 primary_container: pulumi.Input[Optional[Union['ExpressGatewayServicePrimaryContainerArgs', 'ExpressGatewayServicePrimaryContainerArgsDict', 'outputs.ExpressGatewayServicePrimaryContainer']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 scaling_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExpressGatewayServiceScalingTargetArgs', 'ExpressGatewayServiceScalingTargetArgsDict']]]]] = None,
+                 scaling_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExpressGatewayServiceScalingTargetArgs', 'ExpressGatewayServiceScalingTargetArgsDict', 'outputs.ExpressGatewayServiceScalingTarget']]]]] = None,
                  service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  task_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ExpressGatewayServiceTimeoutsArgs', 'ExpressGatewayServiceTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ExpressGatewayServiceTimeoutsArgs', 'ExpressGatewayServiceTimeoutsArgsDict', 'outputs.ExpressGatewayServiceTimeouts']]] = None,
                  wait_for_steady_state: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -916,19 +916,19 @@ class ExpressGatewayService(pulumi.CustomResource):
             execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
             infrastructure_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            ingress_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExpressGatewayServiceIngressPathArgs', 'ExpressGatewayServiceIngressPathArgsDict']]]]] = None,
+            ingress_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExpressGatewayServiceIngressPathArgs', 'ExpressGatewayServiceIngressPathArgsDict', 'outputs.ExpressGatewayServiceIngressPath']]]]] = None,
             memory: pulumi.Input[Optional[_builtins.str]] = None,
-            network_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExpressGatewayServiceNetworkConfigurationArgs', 'ExpressGatewayServiceNetworkConfigurationArgsDict']]]]] = None,
-            primary_container: pulumi.Input[Optional[Union['ExpressGatewayServicePrimaryContainerArgs', 'ExpressGatewayServicePrimaryContainerArgsDict']]] = None,
+            network_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExpressGatewayServiceNetworkConfigurationArgs', 'ExpressGatewayServiceNetworkConfigurationArgsDict', 'outputs.ExpressGatewayServiceNetworkConfiguration']]]]] = None,
+            primary_container: pulumi.Input[Optional[Union['ExpressGatewayServicePrimaryContainerArgs', 'ExpressGatewayServicePrimaryContainerArgsDict', 'outputs.ExpressGatewayServicePrimaryContainer']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            scaling_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExpressGatewayServiceScalingTargetArgs', 'ExpressGatewayServiceScalingTargetArgsDict']]]]] = None,
+            scaling_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExpressGatewayServiceScalingTargetArgs', 'ExpressGatewayServiceScalingTargetArgsDict', 'outputs.ExpressGatewayServiceScalingTarget']]]]] = None,
             service_arn: pulumi.Input[Optional[_builtins.str]] = None,
             service_name: pulumi.Input[Optional[_builtins.str]] = None,
             service_revision_arn: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             task_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['ExpressGatewayServiceTimeoutsArgs', 'ExpressGatewayServiceTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['ExpressGatewayServiceTimeoutsArgs', 'ExpressGatewayServiceTimeoutsArgsDict', 'outputs.ExpressGatewayServiceTimeouts']]] = None,
             wait_for_steady_state: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ExpressGatewayService':
         """
         Get an existing ExpressGatewayService resource's state with the given name, id, and optional extra
@@ -945,11 +945,11 @@ class ExpressGatewayService(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] infrastructure_role_arn: ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExpressGatewayServiceIngressPathArgs', 'ExpressGatewayServiceIngressPathArgsDict']]]] ingress_paths: List of ingress paths for the service. See `ingress_paths` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExpressGatewayServiceIngressPathArgs', 'ExpressGatewayServiceIngressPathArgsDict', 'outputs.ExpressGatewayServiceIngressPath']]]] ingress_paths: List of ingress paths for the service. See `ingress_paths` Block below.
         :param pulumi.Input[_builtins.str] memory: Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExpressGatewayServiceNetworkConfigurationArgs', 'ExpressGatewayServiceNetworkConfigurationArgsDict']]]] network_configurations: Network configuration for the service. See `network_configuration` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExpressGatewayServiceNetworkConfigurationArgs', 'ExpressGatewayServiceNetworkConfigurationArgsDict', 'outputs.ExpressGatewayServiceNetworkConfiguration']]]] network_configurations: Network configuration for the service. See `network_configuration` Block below.
         :param pulumi.Input[_builtins.str] region: AWS region where the service will be created. If not specified, the region configured in the provider will be used.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExpressGatewayServiceScalingTargetArgs', 'ExpressGatewayServiceScalingTargetArgsDict']]]] scaling_targets: Auto-scaling configuration for the service. See `scaling_target` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExpressGatewayServiceScalingTargetArgs', 'ExpressGatewayServiceScalingTargetArgsDict', 'outputs.ExpressGatewayServiceScalingTarget']]]] scaling_targets: Auto-scaling configuration for the service. See `scaling_target` Block below.
         :param pulumi.Input[_builtins.str] service_arn: ARN of the Express Gateway Service.
         :param pulumi.Input[_builtins.str] service_name: Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_revision_arn: ARN of the service revision.

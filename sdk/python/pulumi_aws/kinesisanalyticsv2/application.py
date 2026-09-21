@@ -488,9 +488,9 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_configuration: pulumi.Input[Optional[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict']]] = None,
+                 application_configuration: pulumi.Input[Optional[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict', 'outputs.ApplicationApplicationConfiguration']]] = None,
                  application_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 cloudwatch_logging_options: pulumi.Input[Optional[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict']]] = None,
+                 cloudwatch_logging_options: pulumi.Input[Optional[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict', 'outputs.ApplicationCloudwatchLoggingOptions']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  force_stop: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -520,6 +520,9 @@ class Application(pulumi.CustomResource):
             key="example-flink-application",
             source=pulumi.FileAsset("flink-app.jar"))
         example_application = aws.kinesisanalyticsv2.Application("example",
+            name="example-flink-application",
+            runtime_environment="FLINK-1_8",
+            service_execution_role=example_aws_iam_role["arn"],
             application_configuration={
                 "application_code_configuration": {
                     "code_content": {
@@ -564,9 +567,6 @@ class Application(pulumi.CustomResource):
                     },
                 },
             },
-            name="example-flink-application",
-            runtime_environment="FLINK-1_8",
-            service_execution_role=example_aws_iam_role["arn"],
             tags={
                 "Environment": "test",
             })
@@ -583,6 +583,9 @@ class Application(pulumi.CustomResource):
             name="example-sql-application",
             log_group_name=example.name)
         example_application = aws.kinesisanalyticsv2.Application("example",
+            name="example-sql-application",
+            runtime_environment="SQL-1_0",
+            service_execution_role=example_aws_iam_role["arn"],
             application_configuration={
                 "application_code_configuration": {
                     "code_content": {
@@ -592,19 +595,11 @@ class Application(pulumi.CustomResource):
                 },
                 "sql_application_configuration": {
                     "input": {
+                        "name_prefix": "PREFIX_1",
                         "input_parallelism": {
                             "count": 3,
                         },
                         "input_schema": {
-                            "record_format": {
-                                "mapping_parameters": {
-                                    "csv_mapping_parameters": {
-                                        "record_column_delimiter": ",",
-                                        "record_row_delimiter": "\\n",
-                                    },
-                                },
-                                "record_format_type": "CSV",
-                            },
                             "record_columns": [
                                 {
                                     "name": "COLUMN_1",
@@ -617,61 +612,66 @@ class Application(pulumi.CustomResource):
                                 },
                             ],
                             "record_encoding": "UTF-8",
+                            "record_format": {
+                                "record_format_type": "CSV",
+                                "mapping_parameters": {
+                                    "csv_mapping_parameters": {
+                                        "record_column_delimiter": ",",
+                                        "record_row_delimiter": "\\n",
+                                    },
+                                },
+                            },
                         },
                         "kinesis_streams_input": {
                             "resource_arn": example_aws_kinesis_stream["arn"],
                         },
-                        "name_prefix": "PREFIX_1",
-                    },
-                    "reference_data_source": {
-                        "reference_schema": {
-                            "record_format": {
-                                "mapping_parameters": {
-                                    "json_mapping_parameters": {
-                                        "record_row_path": "$",
-                                    },
-                                },
-                                "record_format_type": "JSON",
-                            },
-                            "record_columns": [{
-                                "name": "COLUMN_1",
-                                "sql_type": "INTEGER",
-                            }],
-                        },
-                        "s3_reference_data_source": {
-                            "bucket_arn": example_aws_s3_bucket["arn"],
-                            "file_key": "KEY-1",
-                        },
-                        "table_name": "TABLE-1",
                     },
                     "outputs": [
                         {
+                            "name": "OUTPUT_1",
                             "destination_schema": {
                                 "record_format_type": "JSON",
                             },
                             "lambda_output": {
                                 "resource_arn": example_aws_lambda_function["arn"],
                             },
-                            "name": "OUTPUT_1",
                         },
                         {
+                            "name": "OUTPUT_2",
                             "destination_schema": {
                                 "record_format_type": "CSV",
                             },
                             "kinesis_firehose_output": {
                                 "resource_arn": example_aws_kinesis_firehose_delivery_stream["arn"],
                             },
-                            "name": "OUTPUT_2",
                         },
                     ],
+                    "reference_data_source": {
+                        "table_name": "TABLE-1",
+                        "reference_schema": {
+                            "record_columns": [{
+                                "name": "COLUMN_1",
+                                "sql_type": "INTEGER",
+                            }],
+                            "record_format": {
+                                "record_format_type": "JSON",
+                                "mapping_parameters": {
+                                    "json_mapping_parameters": {
+                                        "record_row_path": "$",
+                                    },
+                                },
+                            },
+                        },
+                        "s3_reference_data_source": {
+                            "bucket_arn": example_aws_s3_bucket["arn"],
+                            "file_key": "KEY-1",
+                        },
+                    },
                 },
             },
             cloudwatch_logging_options={
                 "log_stream_arn": example_log_stream.arn,
-            },
-            name="example-sql-application",
-            runtime_environment="SQL-1_0",
-            service_execution_role=example_aws_iam_role["arn"])
+            })
         ```
 
         ### VPC Configuration
@@ -686,6 +686,9 @@ class Application(pulumi.CustomResource):
             key="example-flink-application",
             source=pulumi.FileAsset("flink-app.jar"))
         example_application = aws.kinesisanalyticsv2.Application("example",
+            name="example-flink-application",
+            runtime_environment="FLINK-1_8",
+            service_execution_role=example_aws_iam_role["arn"],
             application_configuration={
                 "application_code_configuration": {
                     "code_content": {
@@ -703,10 +706,7 @@ class Application(pulumi.CustomResource):
                     ],
                     "subnet_ids": [example_aws_subnet["id"]],
                 },
-            },
-            name="example-flink-application",
-            runtime_environment="FLINK-1_8",
-            service_execution_role=example_aws_iam_role["arn"])
+            })
         ```
 
         ## Import
@@ -720,9 +720,9 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict']] application_configuration: The application's configuration
+        :param pulumi.Input[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict', 'outputs.ApplicationApplicationConfiguration']] application_configuration: The application's configuration
         :param pulumi.Input[_builtins.str] application_mode: The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
-        :param pulumi.Input[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict']] cloudwatch_logging_options: A CloudWatch log stream to monitor application configuration errors.
+        :param pulumi.Input[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict', 'outputs.ApplicationCloudwatchLoggingOptions']] cloudwatch_logging_options: A CloudWatch log stream to monitor application configuration errors.
         :param pulumi.Input[_builtins.str] description: A summary description of the application.
         :param pulumi.Input[_builtins.bool] force_stop: Whether to force stop an unresponsive Flink-based application.
         :param pulumi.Input[_builtins.str] name: The name of the application.
@@ -758,6 +758,9 @@ class Application(pulumi.CustomResource):
             key="example-flink-application",
             source=pulumi.FileAsset("flink-app.jar"))
         example_application = aws.kinesisanalyticsv2.Application("example",
+            name="example-flink-application",
+            runtime_environment="FLINK-1_8",
+            service_execution_role=example_aws_iam_role["arn"],
             application_configuration={
                 "application_code_configuration": {
                     "code_content": {
@@ -802,9 +805,6 @@ class Application(pulumi.CustomResource):
                     },
                 },
             },
-            name="example-flink-application",
-            runtime_environment="FLINK-1_8",
-            service_execution_role=example_aws_iam_role["arn"],
             tags={
                 "Environment": "test",
             })
@@ -821,6 +821,9 @@ class Application(pulumi.CustomResource):
             name="example-sql-application",
             log_group_name=example.name)
         example_application = aws.kinesisanalyticsv2.Application("example",
+            name="example-sql-application",
+            runtime_environment="SQL-1_0",
+            service_execution_role=example_aws_iam_role["arn"],
             application_configuration={
                 "application_code_configuration": {
                     "code_content": {
@@ -830,19 +833,11 @@ class Application(pulumi.CustomResource):
                 },
                 "sql_application_configuration": {
                     "input": {
+                        "name_prefix": "PREFIX_1",
                         "input_parallelism": {
                             "count": 3,
                         },
                         "input_schema": {
-                            "record_format": {
-                                "mapping_parameters": {
-                                    "csv_mapping_parameters": {
-                                        "record_column_delimiter": ",",
-                                        "record_row_delimiter": "\\n",
-                                    },
-                                },
-                                "record_format_type": "CSV",
-                            },
                             "record_columns": [
                                 {
                                     "name": "COLUMN_1",
@@ -855,61 +850,66 @@ class Application(pulumi.CustomResource):
                                 },
                             ],
                             "record_encoding": "UTF-8",
+                            "record_format": {
+                                "record_format_type": "CSV",
+                                "mapping_parameters": {
+                                    "csv_mapping_parameters": {
+                                        "record_column_delimiter": ",",
+                                        "record_row_delimiter": "\\n",
+                                    },
+                                },
+                            },
                         },
                         "kinesis_streams_input": {
                             "resource_arn": example_aws_kinesis_stream["arn"],
                         },
-                        "name_prefix": "PREFIX_1",
-                    },
-                    "reference_data_source": {
-                        "reference_schema": {
-                            "record_format": {
-                                "mapping_parameters": {
-                                    "json_mapping_parameters": {
-                                        "record_row_path": "$",
-                                    },
-                                },
-                                "record_format_type": "JSON",
-                            },
-                            "record_columns": [{
-                                "name": "COLUMN_1",
-                                "sql_type": "INTEGER",
-                            }],
-                        },
-                        "s3_reference_data_source": {
-                            "bucket_arn": example_aws_s3_bucket["arn"],
-                            "file_key": "KEY-1",
-                        },
-                        "table_name": "TABLE-1",
                     },
                     "outputs": [
                         {
+                            "name": "OUTPUT_1",
                             "destination_schema": {
                                 "record_format_type": "JSON",
                             },
                             "lambda_output": {
                                 "resource_arn": example_aws_lambda_function["arn"],
                             },
-                            "name": "OUTPUT_1",
                         },
                         {
+                            "name": "OUTPUT_2",
                             "destination_schema": {
                                 "record_format_type": "CSV",
                             },
                             "kinesis_firehose_output": {
                                 "resource_arn": example_aws_kinesis_firehose_delivery_stream["arn"],
                             },
-                            "name": "OUTPUT_2",
                         },
                     ],
+                    "reference_data_source": {
+                        "table_name": "TABLE-1",
+                        "reference_schema": {
+                            "record_columns": [{
+                                "name": "COLUMN_1",
+                                "sql_type": "INTEGER",
+                            }],
+                            "record_format": {
+                                "record_format_type": "JSON",
+                                "mapping_parameters": {
+                                    "json_mapping_parameters": {
+                                        "record_row_path": "$",
+                                    },
+                                },
+                            },
+                        },
+                        "s3_reference_data_source": {
+                            "bucket_arn": example_aws_s3_bucket["arn"],
+                            "file_key": "KEY-1",
+                        },
+                    },
                 },
             },
             cloudwatch_logging_options={
                 "log_stream_arn": example_log_stream.arn,
-            },
-            name="example-sql-application",
-            runtime_environment="SQL-1_0",
-            service_execution_role=example_aws_iam_role["arn"])
+            })
         ```
 
         ### VPC Configuration
@@ -924,6 +924,9 @@ class Application(pulumi.CustomResource):
             key="example-flink-application",
             source=pulumi.FileAsset("flink-app.jar"))
         example_application = aws.kinesisanalyticsv2.Application("example",
+            name="example-flink-application",
+            runtime_environment="FLINK-1_8",
+            service_execution_role=example_aws_iam_role["arn"],
             application_configuration={
                 "application_code_configuration": {
                     "code_content": {
@@ -941,10 +944,7 @@ class Application(pulumi.CustomResource):
                     ],
                     "subnet_ids": [example_aws_subnet["id"]],
                 },
-            },
-            name="example-flink-application",
-            runtime_environment="FLINK-1_8",
-            service_execution_role=example_aws_iam_role["arn"])
+            })
         ```
 
         ## Import
@@ -971,9 +971,9 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_configuration: pulumi.Input[Optional[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict']]] = None,
+                 application_configuration: pulumi.Input[Optional[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict', 'outputs.ApplicationApplicationConfiguration']]] = None,
                  application_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 cloudwatch_logging_options: pulumi.Input[Optional[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict']]] = None,
+                 cloudwatch_logging_options: pulumi.Input[Optional[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict', 'outputs.ApplicationCloudwatchLoggingOptions']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  force_stop: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1022,10 +1022,10 @@ class Application(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_configuration: pulumi.Input[Optional[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict']]] = None,
+            application_configuration: pulumi.Input[Optional[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict', 'outputs.ApplicationApplicationConfiguration']]] = None,
             application_mode: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            cloudwatch_logging_options: pulumi.Input[Optional[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict']]] = None,
+            cloudwatch_logging_options: pulumi.Input[Optional[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict', 'outputs.ApplicationCloudwatchLoggingOptions']]] = None,
             create_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             force_stop: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1046,10 +1046,10 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict']] application_configuration: The application's configuration
+        :param pulumi.Input[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict', 'outputs.ApplicationApplicationConfiguration']] application_configuration: The application's configuration
         :param pulumi.Input[_builtins.str] application_mode: The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
         :param pulumi.Input[_builtins.str] arn: The ARN of the application.
-        :param pulumi.Input[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict']] cloudwatch_logging_options: A CloudWatch log stream to monitor application configuration errors.
+        :param pulumi.Input[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict', 'outputs.ApplicationCloudwatchLoggingOptions']] cloudwatch_logging_options: A CloudWatch log stream to monitor application configuration errors.
         :param pulumi.Input[_builtins.str] create_timestamp: The current timestamp when the application was created.
         :param pulumi.Input[_builtins.str] description: A summary description of the application.
         :param pulumi.Input[_builtins.bool] force_stop: Whether to force stop an unresponsive Flink-based application.

@@ -374,8 +374,7 @@ def get_snapshot(db_instance_identifier: Optional[_builtins.str] = None,
     dev = aws.rds.Instance("dev",
         instance_class=aws.rds.InstanceType.T2_MICRO,
         db_name="mydbdev",
-        snapshot_identifier=latest_prod_snapshot.id,
-        opts = pulumi.ResourceOptions(ignore_changes=["snapshotIdentifier"]))
+        snapshot_identifier=latest_prod_snapshot.id)
     ```
 
 
@@ -467,8 +466,7 @@ def get_snapshot_output(db_instance_identifier: pulumi.Input[Optional[Optional[_
     dev = aws.rds.Instance("dev",
         instance_class=aws.rds.InstanceType.T2_MICRO,
         db_name="mydbdev",
-        snapshot_identifier=latest_prod_snapshot.id,
-        opts = pulumi.ResourceOptions(ignore_changes=["snapshotIdentifier"]))
+        snapshot_identifier=latest_prod_snapshot.id)
     ```
 
 

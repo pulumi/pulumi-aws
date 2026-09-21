@@ -272,6 +272,7 @@ class Connection(pulumi.CustomResource):
             artifact_stores=[{}],
             stages=[
                 {
+                    "name": "Source",
                     "actions": [{
                         "name": "Source",
                         "category": "Source",
@@ -285,7 +286,6 @@ class Connection(pulumi.CustomResource):
                             "BranchName": "main",
                         },
                     }],
-                    "name": "Source",
                 },
                 {
                     "actions": [{}],
@@ -347,6 +347,7 @@ class Connection(pulumi.CustomResource):
             artifact_stores=[{}],
             stages=[
                 {
+                    "name": "Source",
                     "actions": [{
                         "name": "Source",
                         "category": "Source",
@@ -360,7 +361,6 @@ class Connection(pulumi.CustomResource):
                             "BranchName": "main",
                         },
                     }],
-                    "name": "Source",
                 },
                 {
                     "actions": [{}],

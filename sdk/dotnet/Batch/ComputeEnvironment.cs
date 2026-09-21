@@ -36,6 +36,7 @@ namespace Pulumi.Aws.Batch
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -47,7 +48,6 @@ namespace Pulumi.Aws.Batch
     ///                         },
     ///                     },
     ///                 },
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -80,6 +80,7 @@ namespace Pulumi.Aws.Batch
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -91,7 +92,6 @@ namespace Pulumi.Aws.Batch
     ///                         },
     ///                     },
     ///                 },
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -114,6 +114,7 @@ namespace Pulumi.Aws.Batch
     /// 
     ///     var sample = new Aws.Ec2.SecurityGroup("sample", new()
     ///     {
+    ///         Name = "aws_batch_compute_environment_security_group",
     ///         Egress = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.SecurityGroupEgressArgs
@@ -127,7 +128,6 @@ namespace Pulumi.Aws.Batch
     ///                 },
     ///             },
     ///         },
-    ///         Name = "aws_batch_compute_environment_security_group",
     ///     });
     /// 
     ///     var sampleVpc = new Aws.Ec2.Vpc("sample", new()
@@ -149,6 +149,7 @@ namespace Pulumi.Aws.Batch
     /// 
     ///     var sampleComputeEnvironment = new Aws.Batch.ComputeEnvironment("sample", new()
     ///     {
+    ///         Name = "sample",
     ///         ComputeResources = new Aws.Batch.Inputs.ComputeEnvironmentComputeResourcesArgs
     ///         {
     ///             InstanceRole = ecsInstanceRoleInstanceProfile.Arn,
@@ -169,7 +170,6 @@ namespace Pulumi.Aws.Batch
     ///             },
     ///             Type = "EC2",
     ///         },
-    ///         Name = "sample",
     ///         ServiceRole = awsBatchServiceRole.Arn,
     ///         Type = "MANAGED",
     ///     }, new CustomResourceOptions
@@ -195,6 +195,7 @@ namespace Pulumi.Aws.Batch
     /// {
     ///     var sample = new Aws.Batch.ComputeEnvironment("sample", new()
     ///     {
+    ///         Name = "sample",
     ///         ComputeResources = new Aws.Batch.Inputs.ComputeEnvironmentComputeResourcesArgs
     ///         {
     ///             MaxVcpus = 16,
@@ -208,7 +209,6 @@ namespace Pulumi.Aws.Batch
     ///             },
     ///             Type = "FARGATE",
     ///         },
-    ///         Name = "sample",
     ///         ServiceRole = awsBatchServiceRoleAwsIamRole.Arn,
     ///         Type = "MANAGED",
     ///     }, new CustomResourceOptions
@@ -234,6 +234,7 @@ namespace Pulumi.Aws.Batch
     /// {
     ///     var sample = new Aws.Batch.ComputeEnvironment("sample", new()
     ///     {
+    ///         Name = "sample",
     ///         ComputeResources = new Aws.Batch.Inputs.ComputeEnvironmentComputeResourcesArgs
     ///         {
     ///             AllocationStrategy = "BEST_FIT_PROGRESSIVE",
@@ -259,7 +260,6 @@ namespace Pulumi.Aws.Batch
     ///             JobExecutionTimeoutMinutes = 30,
     ///             TerminateJobsOnUpdate = false,
     ///         },
-    ///         Name = "sample",
     ///         Type = "MANAGED",
     ///     });
     /// 

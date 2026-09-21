@@ -19,11 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const cloudwatch = new aws.ses.EventDestination("cloudwatch", {
- *     cloudwatchDestinations: [{
- *         defaultValue: "default",
- *         dimensionName: "dimension",
- *         valueSource: "emailHeader",
- *     }],
  *     name: "event-destination-cloudwatch",
  *     configurationSetName: example.name,
  *     enabled: true,
@@ -31,6 +26,11 @@ import * as utilities from "../utilities";
  *         "bounce",
  *         "send",
  *     ],
+ *     cloudwatchDestinations: [{
+ *         defaultValue: "default",
+ *         dimensionName: "dimension",
+ *         valueSource: "emailHeader",
+ *     }],
  * });
  * ```
  *
@@ -41,10 +41,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const kinesis = new aws.ses.EventDestination("kinesis", {
- *     kinesisDestination: {
- *         streamArn: example.arn,
- *         roleArn: exampleAwsIamRole.arn,
- *     },
  *     name: "event-destination-kinesis",
  *     configurationSetName: exampleAwsSesConfigurationSet.name,
  *     enabled: true,
@@ -52,6 +48,10 @@ import * as utilities from "../utilities";
  *         "bounce",
  *         "send",
  *     ],
+ *     kinesisDestination: {
+ *         streamArn: exampleAwsKinesisFirehoseDeliveryStream.arn,
+ *         roleArn: example.arn,
+ *     },
  * });
  * ```
  *
@@ -62,9 +62,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const sns = new aws.ses.EventDestination("sns", {
- *     snsDestination: {
- *         topicArn: example.arn,
- *     },
  *     name: "event-destination-sns",
  *     configurationSetName: exampleAwsSesConfigurationSet.name,
  *     enabled: true,
@@ -72,6 +69,9 @@ import * as utilities from "../utilities";
  *         "bounce",
  *         "send",
  *     ],
+ *     snsDestination: {
+ *         topicArn: example.arn,
+ *     },
  * });
  * ```
  *

@@ -26,6 +26,8 @@ namespace Pulumi.Aws.S3Tables
     /// {
     ///     var example = new Aws.S3Tables.TableBucketReplication("example", new()
     ///     {
+    ///         TableBucketArn = source.Arn,
+    ///         Role = exampleAwsIamRole.Arn,
     ///         Rule = new Aws.S3Tables.Inputs.TableBucketReplicationRuleArgs
     ///         {
     ///             Destinations = new[]
@@ -36,8 +38,6 @@ namespace Pulumi.Aws.S3Tables
     ///                 },
     ///             },
     ///         },
-    ///         TableBucketArn = source.Arn,
-    ///         Role = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });

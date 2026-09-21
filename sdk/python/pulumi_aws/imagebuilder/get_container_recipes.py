@@ -102,7 +102,7 @@ class AwaitableGetContainerRecipesResult(GetContainerRecipesResult):
             region=self.region)
 
 
-def get_container_recipes(filters: Optional[Sequence[Union['GetContainerRecipesFilterArgs', 'GetContainerRecipesFilterArgsDict']]] = None,
+def get_container_recipes(filters: Optional[Sequence[Union['GetContainerRecipesFilterArgs', 'GetContainerRecipesFilterArgsDict', 'outputs.GetContainerRecipesFilterResult']]] = None,
                           owner: Optional[_builtins.str] = None,
                           region: Optional[_builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerRecipesResult:
@@ -115,15 +115,15 @@ def get_container_recipes(filters: Optional[Sequence[Union['GetContainerRecipesF
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.imagebuilder.get_container_recipes(filters=[{
+    example = aws.imagebuilder.get_container_recipes(owner="Self",
+        filters=[{
             "name": "platform",
             "values": ["Linux"],
-        }],
-        owner="Self")
+        }])
     ```
 
 
-    :param Sequence[Union['GetContainerRecipesFilterArgs', 'GetContainerRecipesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetContainerRecipesFilterArgs', 'GetContainerRecipesFilterArgsDict', 'outputs.GetContainerRecipesFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str owner: Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
@@ -141,7 +141,7 @@ def get_container_recipes(filters: Optional[Sequence[Union['GetContainerRecipesF
         names=pulumi.get(__ret__, 'names'),
         owner=pulumi.get(__ret__, 'owner'),
         region=pulumi.get(__ret__, 'region'))
-def get_container_recipes_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetContainerRecipesFilterArgs', 'GetContainerRecipesFilterArgsDict']]]]] = None,
+def get_container_recipes_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetContainerRecipesFilterArgs', 'GetContainerRecipesFilterArgsDict', 'outputs.GetContainerRecipesFilterResult']]]]] = None,
                                  owner: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerRecipesResult]:
@@ -154,15 +154,15 @@ def get_container_recipes_output(filters: pulumi.Input[Optional[Optional[Sequenc
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.imagebuilder.get_container_recipes(filters=[{
+    example = aws.imagebuilder.get_container_recipes(owner="Self",
+        filters=[{
             "name": "platform",
             "values": ["Linux"],
-        }],
-        owner="Self")
+        }])
     ```
 
 
-    :param Sequence[Union['GetContainerRecipesFilterArgs', 'GetContainerRecipesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetContainerRecipesFilterArgs', 'GetContainerRecipesFilterArgsDict', 'outputs.GetContainerRecipesFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str owner: Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """

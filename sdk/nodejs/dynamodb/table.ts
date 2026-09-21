@@ -29,10 +29,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const basic_dynamodb_table = new aws.dynamodb.Table("basic-dynamodb-table", {
- *     ttl: {
- *         attributeName: "TimeToExist",
- *         enabled: true,
- *     },
+ *     name: "GameScores",
+ *     billingMode: "PROVISIONED",
+ *     readCapacity: 20,
+ *     writeCapacity: 20,
+ *     hashKey: "UserId",
+ *     rangeKey: "GameTitle",
  *     attributes: [
  *         {
  *             name: "UserId",
@@ -47,6 +49,10 @@ import * as utilities from "../utilities";
  *             type: "N",
  *         },
  *     ],
+ *     ttl: {
+ *         attributeName: "TimeToExist",
+ *         enabled: true,
+ *     },
  *     globalSecondaryIndexes: [{
  *         name: "GameTitleIndex",
  *         hashKey: "GameTitle",
@@ -56,12 +62,6 @@ import * as utilities from "../utilities";
  *         projectionType: "INCLUDE",
  *         nonKeyAttributes: ["UserId"],
  *     }],
- *     name: "GameScores",
- *     billingMode: "PROVISIONED",
- *     readCapacity: 20,
- *     writeCapacity: 20,
- *     hashKey: "UserId",
- *     rangeKey: "GameTitle",
  *     tags: {
  *         Name: "dynamodb-table-1",
  *         Environment: "production",
@@ -80,10 +80,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const basic_dynamodb_table = new aws.dynamodb.Table("basic-dynamodb-table", {
- *     ttl: {
- *         attributeName: "TimeToExist",
- *         enabled: true,
- *     },
+ *     name: "TournamentMatches",
+ *     billingMode: "PROVISIONED",
+ *     readCapacity: 20,
+ *     writeCapacity: 20,
+ *     hashKey: "matchId",
  *     attributes: [
  *         {
  *             name: "matchId",
@@ -114,8 +115,13 @@ import * as utilities from "../utilities";
  *             type: "S",
  *         },
  *     ],
+ *     ttl: {
+ *         attributeName: "TimeToExist",
+ *         enabled: true,
+ *     },
  *     globalSecondaryIndexes: [
  *         {
+ *             name: "TournamentRegionIndex",
  *             keySchemas: [
  *                 {
  *                     attributeName: "tournamentId",
@@ -138,12 +144,12 @@ import * as utilities from "../utilities";
  *                     keyType: "RANGE",
  *                 },
  *             ],
- *             name: "TournamentRegionIndex",
  *             writeCapacity: 10,
  *             readCapacity: 10,
  *             projectionType: "ALL",
  *         },
  *         {
+ *             name: "PlayerMatchHistoryIndex",
  *             keySchemas: [
  *                 {
  *                     attributeName: "playerId",
@@ -158,17 +164,11 @@ import * as utilities from "../utilities";
  *                     keyType: "RANGE",
  *                 },
  *             ],
- *             name: "PlayerMatchHistoryIndex",
  *             writeCapacity: 10,
  *             readCapacity: 10,
  *             projectionType: "ALL",
  *         },
  *     ],
- *     name: "TournamentMatches",
- *     billingMode: "PROVISIONED",
- *     readCapacity: 20,
- *     writeCapacity: 20,
- *     hashKey: "matchId",
  *     tags: {
  *         Name: "dynamodb-table-1",
  *         Environment: "production",
@@ -187,6 +187,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.dynamodb.Table("example", {
+ *     name: "example",
+ *     hashKey: "TestTableHashKey",
+ *     billingMode: "PAY_PER_REQUEST",
+ *     streamEnabled: true,
+ *     streamViewType: "NEW_AND_OLD_IMAGES",
  *     attributes: [{
  *         name: "TestTableHashKey",
  *         type: "S",
@@ -199,11 +204,6 @@ import * as utilities from "../utilities";
  *             regionName: "us-west-2",
  *         },
  *     ],
- *     name: "example",
- *     hashKey: "TestTableHashKey",
- *     billingMode: "PAY_PER_REQUEST",
- *     streamEnabled: true,
- *     streamViewType: "NEW_AND_OLD_IMAGES",
  * });
  * ```
  *
@@ -224,6 +224,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.dynamodb.Table("example", {
+ *     name: "example",
+ *     hashKey: "TestTableHashKey",
+ *     billingMode: "PAY_PER_REQUEST",
+ *     streamEnabled: true,
+ *     streamViewType: "NEW_AND_OLD_IMAGES",
  *     attributes: [{
  *         name: "TestTableHashKey",
  *         type: "S",
@@ -238,11 +243,6 @@ import * as utilities from "../utilities";
  *             consistencyMode: "STRONG",
  *         },
  *     ],
- *     name: "example",
- *     hashKey: "TestTableHashKey",
- *     billingMode: "PAY_PER_REQUEST",
- *     streamEnabled: true,
- *     streamViewType: "NEW_AND_OLD_IMAGES",
  * });
  * ```
  *
@@ -253,9 +253,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.dynamodb.Table("example", {
- *     globalTableWitness: {
- *         regionName: "us-west-2",
- *     },
+ *     name: "example",
+ *     hashKey: "TestTableHashKey",
+ *     billingMode: "PAY_PER_REQUEST",
+ *     streamEnabled: true,
+ *     streamViewType: "NEW_AND_OLD_IMAGES",
  *     attributes: [{
  *         name: "TestTableHashKey",
  *         type: "S",
@@ -264,11 +266,9 @@ import * as utilities from "../utilities";
  *         regionName: "us-east-2",
  *         consistencyMode: "STRONG",
  *     }],
- *     name: "example",
- *     hashKey: "TestTableHashKey",
- *     billingMode: "PAY_PER_REQUEST",
- *     streamEnabled: true,
- *     streamViewType: "NEW_AND_OLD_IMAGES",
+ *     globalTableWitness: {
+ *         regionName: "us-west-2",
+ *     },
  * });
  * ```
  *
@@ -285,6 +285,11 @@ import * as utilities from "../utilities";
  * const alternate = aws.getRegion({});
  * const third = aws.getRegion({});
  * const example = new aws.dynamodb.Table("example", {
+ *     billingMode: "PAY_PER_REQUEST",
+ *     hashKey: "TestTableHashKey",
+ *     name: "example-13281",
+ *     streamEnabled: true,
+ *     streamViewType: "NEW_AND_OLD_IMAGES",
  *     attributes: [{
  *         name: "TestTableHashKey",
  *         type: "S",
@@ -298,11 +303,6 @@ import * as utilities from "../utilities";
  *             propagateTags: true,
  *         },
  *     ],
- *     billingMode: "PAY_PER_REQUEST",
- *     hashKey: "TestTableHashKey",
- *     name: "example-13281",
- *     streamEnabled: true,
- *     streamViewType: "NEW_AND_OLD_IMAGES",
  *     tags: {
  *         Architect: "Eleanor",
  *         Zone: "SW",

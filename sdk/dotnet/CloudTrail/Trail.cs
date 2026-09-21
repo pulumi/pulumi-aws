@@ -49,6 +49,27 @@ namespace Pulumi.Aws.CloudTrail
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Sid = "AWSCloudTrailAclCheck",
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "cloudtrail.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:GetBucketAcl",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     exampleBucket.Arn,
+    ///                 },
     ///                 Conditions = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -61,6 +82,11 @@ namespace Pulumi.Aws.CloudTrail
     ///                         },
     ///                     },
     ///                 },
+    ///             },
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "AWSCloudTrailWrite",
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -72,19 +98,14 @@ namespace Pulumi.Aws.CloudTrail
     ///                         },
     ///                     },
     ///                 },
-    ///                 Sid = "AWSCloudTrailAclCheck",
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
-    ///                     "s3:GetBucketAcl",
+    ///                     "s3:PutObject",
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     exampleBucket.Arn,
+    ///                     $"{exampleBucket.Arn}/prefix/AWSLogs/{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}/*",
     ///                 },
-    ///             },
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
     ///                 Conditions = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -105,27 +126,6 @@ namespace Pulumi.Aws.CloudTrail
     ///                             $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:cloudtrail:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:trail/example",
     ///                         },
     ///                     },
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "cloudtrail.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Sid = "AWSCloudTrailWrite",
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "s3:PutObject",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     $"{exampleBucket.Arn}/prefix/AWSLogs/{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}/*",
     ///                 },
     ///             },
     ///         },
@@ -177,6 +177,8 @@ namespace Pulumi.Aws.CloudTrail
     ///         {
     ///             new Aws.CloudTrail.Inputs.TrailEventSelectorArgs
     ///             {
+    ///                 ReadWriteType = "All",
+    ///                 IncludeManagementEvents = true,
     ///                 DataResources = new[]
     ///                 {
     ///                     new Aws.CloudTrail.Inputs.TrailEventSelectorDataResourceArgs
@@ -188,8 +190,6 @@ namespace Pulumi.Aws.CloudTrail
     ///                         },
     ///                     },
     ///                 },
-    ///                 ReadWriteType = "All",
-    ///                 IncludeManagementEvents = true,
     ///             },
     ///         },
     ///     });
@@ -213,6 +213,8 @@ namespace Pulumi.Aws.CloudTrail
     ///         {
     ///             new Aws.CloudTrail.Inputs.TrailEventSelectorArgs
     ///             {
+    ///                 ReadWriteType = "All",
+    ///                 IncludeManagementEvents = true,
     ///                 DataResources = new[]
     ///                 {
     ///                     new Aws.CloudTrail.Inputs.TrailEventSelectorDataResourceArgs
@@ -224,8 +226,6 @@ namespace Pulumi.Aws.CloudTrail
     ///                         },
     ///                     },
     ///                 },
-    ///                 ReadWriteType = "All",
-    ///                 IncludeManagementEvents = true,
     ///             },
     ///         },
     ///     });
@@ -254,6 +254,8 @@ namespace Pulumi.Aws.CloudTrail
     ///         {
     ///             new Aws.CloudTrail.Inputs.TrailEventSelectorArgs
     ///             {
+    ///                 ReadWriteType = "All",
+    ///                 IncludeManagementEvents = true,
     ///                 DataResources = new[]
     ///                 {
     ///                     new Aws.CloudTrail.Inputs.TrailEventSelectorDataResourceArgs
@@ -265,8 +267,6 @@ namespace Pulumi.Aws.CloudTrail
     ///                         },
     ///                     },
     ///                 },
-    ///                 ReadWriteType = "All",
-    ///                 IncludeManagementEvents = true,
     ///             },
     ///         },
     ///     });
@@ -300,6 +300,7 @@ namespace Pulumi.Aws.CloudTrail
     ///         {
     ///             new Aws.CloudTrail.Inputs.TrailAdvancedEventSelectorArgs
     ///             {
+    ///                 Name = "Log all S3 objects events except for two S3 buckets",
     ///                 FieldSelectors = new[]
     ///                 {
     ///                     new Aws.CloudTrail.Inputs.TrailAdvancedEventSelectorFieldSelectorArgs
@@ -328,10 +329,10 @@ namespace Pulumi.Aws.CloudTrail
     ///                         },
     ///                     },
     ///                 },
-    ///                 Name = "Log all S3 objects events except for two S3 buckets",
     ///             },
     ///             new Aws.CloudTrail.Inputs.TrailAdvancedEventSelectorArgs
     ///             {
+    ///                 Name = "Log readOnly and writeOnly management events",
     ///                 FieldSelectors = new[]
     ///                 {
     ///                     new Aws.CloudTrail.Inputs.TrailAdvancedEventSelectorFieldSelectorArgs
@@ -343,7 +344,6 @@ namespace Pulumi.Aws.CloudTrail
     ///                         },
     ///                     },
     ///                 },
-    ///                 Name = "Log readOnly and writeOnly management events",
     ///             },
     ///         },
     ///     });
@@ -382,6 +382,7 @@ namespace Pulumi.Aws.CloudTrail
     ///         {
     ///             new Aws.CloudTrail.Inputs.TrailAdvancedEventSelectorArgs
     ///             {
+    ///                 Name = "Log PutObject and DeleteObject events for two S3 buckets",
     ///                 FieldSelectors = new[]
     ///                 {
     ///                     new Aws.CloudTrail.Inputs.TrailAdvancedEventSelectorFieldSelectorArgs
@@ -427,10 +428,10 @@ namespace Pulumi.Aws.CloudTrail
     ///                         },
     ///                     },
     ///                 },
-    ///                 Name = "Log PutObject and DeleteObject events for two S3 buckets",
     ///             },
     ///             new Aws.CloudTrail.Inputs.TrailAdvancedEventSelectorArgs
     ///             {
+    ///                 Name = "Log Delete* events for one S3 bucket",
     ///                 FieldSelectors = new[]
     ///                 {
     ///                     new Aws.CloudTrail.Inputs.TrailAdvancedEventSelectorFieldSelectorArgs
@@ -474,7 +475,6 @@ namespace Pulumi.Aws.CloudTrail
     ///                         },
     ///                     },
     ///                 },
-    ///                 Name = "Log Delete* events for one S3 bucket",
     ///             },
     ///         },
     ///     });

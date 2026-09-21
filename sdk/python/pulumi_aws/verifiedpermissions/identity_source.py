@@ -168,7 +168,7 @@ class IdentitySource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict', 'outputs.IdentitySourceConfiguration']]] = None,
                  policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                  principal_entity_type: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -193,13 +193,13 @@ class IdentitySource(pulumi.CustomResource):
             user_pool_id=example_user_pool.id,
             explicit_auth_flows=["ADMIN_NO_SRP_AUTH"])
         example_identity_source = aws.verifiedpermissions.IdentitySource("example",
+            policy_store_id=example.id,
             configuration={
                 "cognito_user_pool_configuration": {
                     "user_pool_arn": example_user_pool.arn,
                     "client_ids": [example_user_pool_client.id],
                 },
-            },
-            policy_store_id=example.id)
+            })
         ```
 
         ### OpenID Connect Configuration Usage
@@ -212,23 +212,23 @@ class IdentitySource(pulumi.CustomResource):
             "mode": "STRICT",
         })
         example_identity_source = aws.verifiedpermissions.IdentitySource("example",
+            policy_store_id=example.id,
             configuration={
                 "open_id_connect_configuration": {
+                    "issuer": "https://auth.example.com",
                     "token_selection": {
                         "access_token_only": {
                             "audiences": ["https://myapp.example.com"],
                             "principal_id_claim": "sub",
                         },
                     },
+                    "entity_id_prefix": "MyOIDCProvider",
                     "group_configuration": {
                         "group_claim": "groups",
                         "group_entity_type": "MyCorp::UserGroup",
                     },
-                    "issuer": "https://auth.example.com",
-                    "entity_id_prefix": "MyOIDCProvider",
                 },
             },
-            policy_store_id=example.id,
             principal_entity_type="MyCorp::User")
         ```
 
@@ -243,7 +243,7 @@ class IdentitySource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict']] configuration: Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
+        :param pulumi.Input[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict', 'outputs.IdentitySourceConfiguration']] configuration: Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
         :param pulumi.Input[_builtins.str] policy_store_id: Specifies the ID of the policy store in which you want to store this identity source.
         :param pulumi.Input[_builtins.str] principal_entity_type: Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -274,13 +274,13 @@ class IdentitySource(pulumi.CustomResource):
             user_pool_id=example_user_pool.id,
             explicit_auth_flows=["ADMIN_NO_SRP_AUTH"])
         example_identity_source = aws.verifiedpermissions.IdentitySource("example",
+            policy_store_id=example.id,
             configuration={
                 "cognito_user_pool_configuration": {
                     "user_pool_arn": example_user_pool.arn,
                     "client_ids": [example_user_pool_client.id],
                 },
-            },
-            policy_store_id=example.id)
+            })
         ```
 
         ### OpenID Connect Configuration Usage
@@ -293,23 +293,23 @@ class IdentitySource(pulumi.CustomResource):
             "mode": "STRICT",
         })
         example_identity_source = aws.verifiedpermissions.IdentitySource("example",
+            policy_store_id=example.id,
             configuration={
                 "open_id_connect_configuration": {
+                    "issuer": "https://auth.example.com",
                     "token_selection": {
                         "access_token_only": {
                             "audiences": ["https://myapp.example.com"],
                             "principal_id_claim": "sub",
                         },
                     },
+                    "entity_id_prefix": "MyOIDCProvider",
                     "group_configuration": {
                         "group_claim": "groups",
                         "group_entity_type": "MyCorp::UserGroup",
                     },
-                    "issuer": "https://auth.example.com",
-                    "entity_id_prefix": "MyOIDCProvider",
                 },
             },
-            policy_store_id=example.id,
             principal_entity_type="MyCorp::User")
         ```
 
@@ -337,7 +337,7 @@ class IdentitySource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict', 'outputs.IdentitySourceConfiguration']]] = None,
                  policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                  principal_entity_type: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -368,7 +368,7 @@ class IdentitySource(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            configuration: pulumi.Input[Optional[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict']]] = None,
+            configuration: pulumi.Input[Optional[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict', 'outputs.IdentitySourceConfiguration']]] = None,
             policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
             principal_entity_type: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'IdentitySource':
@@ -379,7 +379,7 @@ class IdentitySource(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict']] configuration: Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
+        :param pulumi.Input[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict', 'outputs.IdentitySourceConfiguration']] configuration: Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
         :param pulumi.Input[_builtins.str] policy_store_id: Specifies the ID of the policy store in which you want to store this identity source.
         :param pulumi.Input[_builtins.str] principal_entity_type: Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

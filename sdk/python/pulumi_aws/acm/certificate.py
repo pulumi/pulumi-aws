@@ -624,7 +624,7 @@ class Certificate(pulumi.CustomResource):
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  early_renewal_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  key_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Union['CertificateOptionsArgs', 'CertificateOptionsArgsDict']]] = None,
+                 options: pulumi.Input[Optional[Union['CertificateOptionsArgs', 'CertificateOptionsArgsDict', 'outputs.CertificateOptions']]] = None,
                  private_key: pulumi.Input[Optional[_builtins.str]] = None,
                  private_key_wo: pulumi.Input[Optional[_builtins.str]] = None,
                  private_key_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
@@ -632,7 +632,7 @@ class Certificate(pulumi.CustomResource):
                  subject_alternative_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  validation_method: pulumi.Input[Optional[_builtins.str]] = None,
-                 validation_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateValidationOptionArgs', 'CertificateValidationOptionArgsDict']]]]] = None,
+                 validation_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateValidationOptionArgs', 'CertificateValidationOptionArgsDict', 'outputs.CertificateValidationOption']]]]] = None,
                  __props__=None):
         """
         The ACM certificate resource allows requesting and management of certificates
@@ -658,12 +658,12 @@ class Certificate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         cert = aws.acm.Certificate("cert",
+            domain_name="testing.example.com",
+            validation_method="EMAIL",
             validation_options=[{
                 "domain_name": "testing.example.com",
                 "validation_domain": "example.com",
-            }],
-            domain_name="testing.example.com",
-            validation_method="EMAIL")
+            }])
         ```
 
         ### Existing Certificate Body Import
@@ -675,12 +675,12 @@ class Certificate(pulumi.CustomResource):
 
         example = tls.PrivateKey("example", algorithm="RSA")
         example_self_signed_cert = tls.SelfSignedCert("example",
+            key_algorithm="RSA",
+            private_key_pem=example.private_key_pem,
             subject=[{
                 "commonName": "example.com",
                 "organization": "ACME Examples, Inc",
             }],
-            key_algorithm="RSA",
-            private_key_pem=example.private_key_pem,
             validity_period_hours=12,
             allowed_uses=[
                 "key_encipherment",
@@ -701,12 +701,12 @@ class Certificate(pulumi.CustomResource):
 
         example = tls.PrivateKey("example", algorithm="RSA")
         example_self_signed_cert = tls.SelfSignedCert("example",
+            key_algorithm="RSA",
+            private_key_pem=example.private_key_pem,
             subject=[{
                 "commonName": "example.com",
                 "organization": "ACME Examples, Inc",
             }],
-            key_algorithm="RSA",
-            private_key_pem=example.private_key_pem,
             validity_period_hours=12,
             allowed_uses=[
                 "key_encipherment",
@@ -796,12 +796,12 @@ class Certificate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         cert = aws.acm.Certificate("cert",
+            domain_name="testing.example.com",
+            validation_method="EMAIL",
             validation_options=[{
                 "domain_name": "testing.example.com",
                 "validation_domain": "example.com",
-            }],
-            domain_name="testing.example.com",
-            validation_method="EMAIL")
+            }])
         ```
 
         ### Existing Certificate Body Import
@@ -813,12 +813,12 @@ class Certificate(pulumi.CustomResource):
 
         example = tls.PrivateKey("example", algorithm="RSA")
         example_self_signed_cert = tls.SelfSignedCert("example",
+            key_algorithm="RSA",
+            private_key_pem=example.private_key_pem,
             subject=[{
                 "commonName": "example.com",
                 "organization": "ACME Examples, Inc",
             }],
-            key_algorithm="RSA",
-            private_key_pem=example.private_key_pem,
             validity_period_hours=12,
             allowed_uses=[
                 "key_encipherment",
@@ -839,12 +839,12 @@ class Certificate(pulumi.CustomResource):
 
         example = tls.PrivateKey("example", algorithm="RSA")
         example_self_signed_cert = tls.SelfSignedCert("example",
+            key_algorithm="RSA",
+            private_key_pem=example.private_key_pem,
             subject=[{
                 "commonName": "example.com",
                 "organization": "ACME Examples, Inc",
             }],
-            key_algorithm="RSA",
-            private_key_pem=example.private_key_pem,
             validity_period_hours=12,
             allowed_uses=[
                 "key_encipherment",
@@ -917,7 +917,7 @@ class Certificate(pulumi.CustomResource):
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  early_renewal_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  key_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Union['CertificateOptionsArgs', 'CertificateOptionsArgsDict']]] = None,
+                 options: pulumi.Input[Optional[Union['CertificateOptionsArgs', 'CertificateOptionsArgsDict', 'outputs.CertificateOptions']]] = None,
                  private_key: pulumi.Input[Optional[_builtins.str]] = None,
                  private_key_wo: pulumi.Input[Optional[_builtins.str]] = None,
                  private_key_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
@@ -925,7 +925,7 @@ class Certificate(pulumi.CustomResource):
                  subject_alternative_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  validation_method: pulumi.Input[Optional[_builtins.str]] = None,
-                 validation_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateValidationOptionArgs', 'CertificateValidationOptionArgsDict']]]]] = None,
+                 validation_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateValidationOptionArgs', 'CertificateValidationOptionArgsDict', 'outputs.CertificateValidationOption']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -978,19 +978,19 @@ class Certificate(pulumi.CustomResource):
             certificate_body: pulumi.Input[Optional[_builtins.str]] = None,
             certificate_chain: pulumi.Input[Optional[_builtins.str]] = None,
             domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-            domain_validation_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateDomainValidationOptionArgs', 'CertificateDomainValidationOptionArgsDict']]]]] = None,
+            domain_validation_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateDomainValidationOptionArgs', 'CertificateDomainValidationOptionArgsDict', 'outputs.CertificateDomainValidationOption']]]]] = None,
             early_renewal_duration: pulumi.Input[Optional[_builtins.str]] = None,
             key_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
             not_after: pulumi.Input[Optional[_builtins.str]] = None,
             not_before: pulumi.Input[Optional[_builtins.str]] = None,
-            options: pulumi.Input[Optional[Union['CertificateOptionsArgs', 'CertificateOptionsArgsDict']]] = None,
+            options: pulumi.Input[Optional[Union['CertificateOptionsArgs', 'CertificateOptionsArgsDict', 'outputs.CertificateOptions']]] = None,
             pending_renewal: pulumi.Input[Optional[_builtins.bool]] = None,
             private_key: pulumi.Input[Optional[_builtins.str]] = None,
             private_key_wo: pulumi.Input[Optional[_builtins.str]] = None,
             private_key_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             renewal_eligibility: pulumi.Input[Optional[_builtins.str]] = None,
-            renewal_summaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateRenewalSummaryArgs', 'CertificateRenewalSummaryArgsDict']]]]] = None,
+            renewal_summaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateRenewalSummaryArgs', 'CertificateRenewalSummaryArgsDict', 'outputs.CertificateRenewalSummary']]]]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             subject_alternative_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -998,7 +998,7 @@ class Certificate(pulumi.CustomResource):
             type: pulumi.Input[Optional[_builtins.str]] = None,
             validation_emails: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             validation_method: pulumi.Input[Optional[_builtins.str]] = None,
-            validation_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateValidationOptionArgs', 'CertificateValidationOptionArgsDict']]]]] = None) -> 'Certificate':
+            validation_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateValidationOptionArgs', 'CertificateValidationOptionArgsDict', 'outputs.CertificateValidationOption']]]]] = None) -> 'Certificate':
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1008,7 +1008,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the certificate
         :param pulumi.Input[_builtins.str] domain_name: Domain to be validated
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateDomainValidationOptionArgs', 'CertificateDomainValidationOptionArgsDict']]]] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateDomainValidationOptionArgs', 'CertificateDomainValidationOptionArgsDict', 'outputs.CertificateDomainValidationOption']]]] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation.
                Can have more than one element, e.g., if SANs are defined.
                Only set if `DNS`-validation was used.
         :param pulumi.Input[_builtins.str] not_after: Expiration date and time of the certificate.
@@ -1018,7 +1018,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
                * Creating an Amazon issued certificate
         :param pulumi.Input[_builtins.str] renewal_eligibility: Whether the certificate is eligible for managed renewal.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateRenewalSummaryArgs', 'CertificateRenewalSummaryArgsDict']]]] renewal_summaries: Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateRenewalSummaryArgs', 'CertificateRenewalSummaryArgsDict', 'outputs.CertificateRenewalSummary']]]] renewal_summaries: Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
         :param pulumi.Input[_builtins.str] status: Status of the certificate.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

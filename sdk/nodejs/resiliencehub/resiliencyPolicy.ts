@@ -17,6 +17,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.resiliencehub.ResiliencyPolicy("example", {
+ *     name: "testexample",
+ *     description: "testexample",
+ *     tier: "NonCritical",
+ *     dataLocationConstraint: "AnyLocation",
  *     policy: {
  *         region: {
  *             rpo: "24h",
@@ -35,10 +39,6 @@ import * as utilities from "../utilities";
  *             rto: "24h",
  *         },
  *     },
- *     name: "testexample",
- *     description: "testexample",
- *     tier: "NonCritical",
- *     dataLocationConstraint: "AnyLocation",
  * });
  * ```
  *

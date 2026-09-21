@@ -32,6 +32,7 @@ namespace Pulumi.Aws.Outposts
     /// 
     ///     var exampleCapacityTask = new Aws.Outposts.CapacityTask("example", new()
     ///     {
+    ///         OutpostIdentifier = example.Apply(getOutpostsResult =&gt; getOutpostsResult.Arns[0]),
     ///         InstancePools = new[]
     ///         {
     ///             new Aws.Outposts.Inputs.CapacityTaskInstancePoolArgs
@@ -40,7 +41,6 @@ namespace Pulumi.Aws.Outposts
     ///                 Count = 2,
     ///             },
     ///         },
-    ///         OutpostIdentifier = example.Apply(getOutpostsResult =&gt; getOutpostsResult.Arns[0]),
     ///     });
     /// 
     /// });
@@ -63,14 +63,9 @@ namespace Pulumi.Aws.Outposts
     /// 
     ///     var exampleCapacityTask = new Aws.Outposts.CapacityTask("example", new()
     ///     {
-    ///         InstancesToExclude = new Aws.Outposts.Inputs.CapacityTaskInstancesToExcludeArgs
-    ///         {
-    ///             Instances = new[]
-    ///             {
-    ///                 "i-0123456789abcdef0",
-    ///                 "i-0fedcba9876543210",
-    ///             },
-    ///         },
+    ///         OutpostIdentifier = "op-1234567890abcdef",
+    ///         TaskActionOnBlockingInstances = "WAIT_FOR_EVACUATION",
+    ///         AssetId = example.Apply(getAssetsResult =&gt; getAssetsResult.AssetIds[0]),
     ///         InstancePools = new[]
     ///         {
     ///             new Aws.Outposts.Inputs.CapacityTaskInstancePoolArgs
@@ -84,9 +79,14 @@ namespace Pulumi.Aws.Outposts
     ///                 Count = 2,
     ///             },
     ///         },
-    ///         OutpostIdentifier = "op-1234567890abcdef",
-    ///         TaskActionOnBlockingInstances = "WAIT_FOR_EVACUATION",
-    ///         AssetId = example.Apply(getAssetsResult =&gt; getAssetsResult.AssetIds[0]),
+    ///         InstancesToExclude = new Aws.Outposts.Inputs.CapacityTaskInstancesToExcludeArgs
+    ///         {
+    ///             Instances = new[]
+    ///             {
+    ///                 "i-0123456789abcdef0",
+    ///                 "i-0fedcba9876543210",
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });

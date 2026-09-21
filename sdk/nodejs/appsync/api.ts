@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appsync.Api("example", {
+ *     name: "example-event-api",
  *     eventConfig: {
  *         authProviders: [{
  *             authType: "API_KEY",
@@ -33,7 +34,6 @@ import * as utilities from "../utilities";
  *             authType: "API_KEY",
  *         }],
  *     },
- *     name: "example-event-api",
  * });
  * ```
  *
@@ -46,13 +46,14 @@ import * as utilities from "../utilities";
  * const example = new aws.cognito.UserPool("example", {name: "example-user-pool"});
  * const current = aws.getRegion({});
  * const exampleApi = new aws.appsync.Api("example", {
+ *     name: "example-event-api",
  *     eventConfig: {
  *         authProviders: [{
+ *             authType: "AMAZON_COGNITO_USER_POOLS",
  *             cognitoConfig: {
  *                 userPoolId: example.id,
  *                 awsRegion: current.then(current => current.region),
  *             },
- *             authType: "AMAZON_COGNITO_USER_POOLS",
  *         }],
  *         connectionAuthModes: [{
  *             authType: "AMAZON_COGNITO_USER_POOLS",
@@ -64,7 +65,6 @@ import * as utilities from "../utilities";
  *             authType: "AMAZON_COGNITO_USER_POOLS",
  *         }],
  *     },
- *     name: "example-event-api",
  * });
  * ```
  *
@@ -75,13 +75,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appsync.Api("example", {
+ *     name: "example-event-api",
  *     eventConfig: {
  *         authProviders: [{
+ *             authType: "AWS_LAMBDA",
  *             lambdaAuthorizerConfig: {
  *                 authorizerUri: exampleAwsLambdaFunction.arn,
  *                 authorizerResultTtlInSeconds: 300,
  *             },
- *             authType: "AWS_LAMBDA",
  *         }],
  *         connectionAuthModes: [{
  *             authType: "AWS_LAMBDA",
@@ -93,7 +94,6 @@ import * as utilities from "../utilities";
  *             authType: "AWS_LAMBDA",
  *         }],
  *     },
- *     name: "example-event-api",
  * });
  * ```
  *

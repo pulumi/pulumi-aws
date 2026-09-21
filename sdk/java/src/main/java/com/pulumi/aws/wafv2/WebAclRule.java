@@ -58,7 +58,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementGeoMatchStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -73,6 +72,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WebAcl("example", WebAclArgs.builder()
+ *             .name("example")
+ *             .scope("REGIONAL")
  *             .defaultAction(WebAclDefaultActionArgs.builder()
  *                 .allow(WebAclDefaultActionAllowArgs.builder()
  *                     .build())
@@ -82,14 +83,13 @@ import javax.annotation.Nullable;
  *                 .metricName("example")
  *                 .sampledRequestsEnabled(false)
  *                 .build())
- *             .name("example")
- *             .scope("REGIONAL")
- *             .build(), CustomResourceOptions.builder()
- *                 .ignoreChanges("rules")
- *                 .build());
+ *             .build());
  * 
  *         // Separate rule resource with identical configuration
  *         var blockCountries = new WebAclRule("blockCountries", WebAclRuleArgs.builder()
+ *             .name("block-countries")
+ *             .priority(1)
+ *             .webAclArn(example.arn())
  *             .action(WebAclRuleActionArgs.builder()
  *                 .block(WebAclRuleActionBlockArgs.builder()
  *                     .build())
@@ -106,9 +106,6 @@ import javax.annotation.Nullable;
  *                 .metricName("block-countries")
  *                 .sampledRequestsEnabled(false)
  *                 .build())
- *             .name("block-countries")
- *             .priority(1)
- *             .webAclArn(example.arn())
  *             .build());
  * 
  *     }
@@ -145,7 +142,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementGeoMatchStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -160,6 +156,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WebAcl("example", WebAclArgs.builder()
+ *             .name("example")
+ *             .scope("REGIONAL")
  *             .defaultAction(WebAclDefaultActionArgs.builder()
  *                 .allow(WebAclDefaultActionAllowArgs.builder()
  *                     .build())
@@ -169,13 +167,12 @@ import javax.annotation.Nullable;
  *                 .metricName("example")
  *                 .sampledRequestsEnabled(false)
  *                 .build())
- *             .name("example")
- *             .scope("REGIONAL")
- *             .build(), CustomResourceOptions.builder()
- *                 .ignoreChanges("rules")
- *                 .build());
+ *             .build());
  * 
  *         var blockCountries = new WebAclRule("blockCountries", WebAclRuleArgs.builder()
+ *             .name("block-countries")
+ *             .priority(1)
+ *             .webAclArn(example.arn())
  *             .action(WebAclRuleActionArgs.builder()
  *                 .block(WebAclRuleActionBlockArgs.builder()
  *                     .build())
@@ -192,9 +189,6 @@ import javax.annotation.Nullable;
  *                 .metricName("block-countries")
  *                 .sampledRequestsEnabled(false)
  *                 .build())
- *             .name("block-countries")
- *             .priority(1)
- *             .webAclArn(example.arn())
  *             .build());
  * 
  *     }
@@ -227,7 +221,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementIpSetReferenceStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -251,6 +244,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new WebAcl("example", WebAclArgs.builder()
+ *             .name("example")
+ *             .scope("REGIONAL")
  *             .defaultAction(WebAclDefaultActionArgs.builder()
  *                 .allow(WebAclDefaultActionAllowArgs.builder()
  *                     .build())
@@ -260,13 +255,12 @@ import javax.annotation.Nullable;
  *                 .metricName("example")
  *                 .sampledRequestsEnabled(true)
  *                 .build())
- *             .name("example")
- *             .scope("REGIONAL")
- *             .build(), CustomResourceOptions.builder()
- *                 .ignoreChanges("rules")
- *                 .build());
+ *             .build());
  * 
  *         var blockIps = new WebAclRule("blockIps", WebAclRuleArgs.builder()
+ *             .name("block-bad-ips")
+ *             .priority(1)
+ *             .webAclArn(example.arn())
  *             .action(WebAclRuleActionArgs.builder()
  *                 .block(WebAclRuleActionBlockArgs.builder()
  *                     .build())
@@ -281,9 +275,6 @@ import javax.annotation.Nullable;
  *                 .metricName("block-bad-ips")
  *                 .sampledRequestsEnabled(true)
  *                 .build())
- *             .name("block-bad-ips")
- *             .priority(1)
- *             .webAclArn(example.arn())
  *             .build());
  * 
  *     }
@@ -321,6 +312,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var rateLimit = new WebAclRule("rateLimit", WebAclRuleArgs.builder()
+ *             .name("rate-limit")
+ *             .priority(2)
+ *             .webAclArn(example.arn())
  *             .action(WebAclRuleActionArgs.builder()
  *                 .block(WebAclRuleActionBlockArgs.builder()
  *                     .build())
@@ -336,9 +330,6 @@ import javax.annotation.Nullable;
  *                 .metricName("rate-limit")
  *                 .sampledRequestsEnabled(true)
  *                 .build())
- *             .name("rate-limit")
- *             .priority(2)
- *             .webAclArn(example.arn())
  *             .build());
  * 
  *     }
@@ -376,6 +367,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var awsManagedRules = new WebAclRule("awsManagedRules", WebAclRuleArgs.builder()
+ *             .name("aws-managed-rules")
+ *             .priority(3)
+ *             .webAclArn(example.arn())
  *             .overrideAction(WebAclRuleOverrideActionArgs.builder()
  *                 .none(WebAclRuleOverrideActionNoneArgs.builder()
  *                     .build())
@@ -391,9 +385,6 @@ import javax.annotation.Nullable;
  *                 .metricName("aws-managed-rules")
  *                 .sampledRequestsEnabled(true)
  *                 .build())
- *             .name("aws-managed-rules")
- *             .priority(3)
- *             .webAclArn(example.arn())
  *             .build());
  * 
  *     }
@@ -433,6 +424,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var captchaWithHeaders = new WebAclRule("captchaWithHeaders", WebAclRuleArgs.builder()
+ *             .name("captcha-with-headers")
+ *             .priority(4)
+ *             .webAclArn(example.arn())
  *             .action(WebAclRuleActionArgs.builder()
  *                 .captcha(WebAclRuleActionCaptchaArgs.builder()
  *                     .customRequestHandling(WebAclRuleActionCaptchaCustomRequestHandlingArgs.builder()
@@ -453,9 +447,6 @@ import javax.annotation.Nullable;
  *                 .metricName("captcha-with-headers")
  *                 .sampledRequestsEnabled(true)
  *                 .build())
- *             .name("captcha-with-headers")
- *             .priority(4)
- *             .webAclArn(example.arn())
  *             .build());
  * 
  *     }
@@ -493,6 +484,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var blockedIps = new WebAclRule("blockedIps", WebAclRuleArgs.builder()
+ *             .name("blocked-ips")
+ *             .priority(1)
+ *             .webAclArn(example.arn())
  *             .action(WebAclRuleActionArgs.builder()
  *                 .block(WebAclRuleActionBlockArgs.builder()
  *                     .build())
@@ -507,9 +501,6 @@ import javax.annotation.Nullable;
  *                 .metricName("block-bad-ips")
  *                 .sampledRequestsEnabled(true)
  *                 .build())
- *             .name("blocked-ips")
- *             .priority(1)
- *             .webAclArn(example.arn())
  *             .build());
  * 
  *     }
@@ -561,6 +552,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var blockSuspicious = new WebAclRule("blockSuspicious", WebAclRuleArgs.builder()
+ *             .name("block-suspicious")
+ *             .priority(1)
+ *             .webAclArn(example.arn())
  *             .action(WebAclRuleActionArgs.builder()
  *                 .block(WebAclRuleActionBlockArgs.builder()
  *                     .build())
@@ -574,6 +568,8 @@ import javax.annotation.Nullable;
  *                         .build(),
  *                     WebAclRuleStatementArgs.builder()
  *                         .byteMatchStatement(WebAclRuleStatementByteMatchStatementArgs.builder()
+ *                             .searchString("admin")
+ *                             .positionalConstraint("CONTAINS")
  *                             .fieldToMatch(WebAclRuleStatementByteMatchStatementFieldToMatchArgs.builder()
  *                                 .uriPath(WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs.builder()
  *                                     .build())
@@ -582,8 +578,6 @@ import javax.annotation.Nullable;
  *                                 .priority(0)
  *                                 .type("LOWERCASE")
  *                                 .build())
- *                             .searchString("admin")
- *                             .positionalConstraint("CONTAINS")
  *                             .build())
  *                         .build())))
  *                 .build())
@@ -592,9 +586,6 @@ import javax.annotation.Nullable;
  *                 .metricName("block-suspicious")
  *                 .sampledRequestsEnabled(true)
  *                 .build())
- *             .name("block-suspicious")
- *             .priority(1)
- *             .webAclArn(example.arn())
  *             .build());
  * 
  *     }
@@ -635,6 +626,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var blockCountries = new WebAclRule("blockCountries", WebAclRuleArgs.builder()
+ *             .name("block-countries")
+ *             .priority(2)
+ *             .webAclArn(example.arn())
  *             .action(WebAclRuleActionArgs.builder()
  *                 .block(WebAclRuleActionBlockArgs.builder()
  *                     .build())
@@ -657,9 +651,6 @@ import javax.annotation.Nullable;
  *                 .metricName("block-countries")
  *                 .sampledRequestsEnabled(true)
  *                 .build())
- *             .name("block-countries")
- *             .priority(2)
- *             .webAclArn(example.arn())
  *             .build());
  * 
  *     }
@@ -700,29 +691,27 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var allowOnlyUs = new WebAclRule("allowOnlyUs", WebAclRuleArgs.builder()
+ *             .name("allow-only-us")
+ *             .priority(3)
+ *             .webAclArn(example.arn())
  *             .action(WebAclRuleActionArgs.builder()
  *                 .block(WebAclRuleActionBlockArgs.builder()
  *                     .build())
  *                 .build())
  *             .statement(WebAclRuleStatementArgs.builder()
- *                 .notStatement(WebAclRuleStatementNotStatementArgs.builder()
- *                     .statement(WebAclRuleStatementArgs.builder()
- *                         .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
- *                             .countryCodes(                            
- *                                 "US",
- *                                 "CA")
- *                             .build())
+ *                 .notStatement(Map.of("statement", WebAclRuleStatementArgs.builder()
+ *                     .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
+ *                         .countryCodes(                        
+ *                             "US",
+ *                             "CA")
  *                         .build())
- *                     .build())
+ *                     .build()))
  *                 .build())
  *             .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
  *                 .cloudwatchMetricsEnabled(true)
  *                 .metricName("allow-only-us")
  *                 .sampledRequestsEnabled(true)
  *                 .build())
- *             .name("allow-only-us")
- *             .priority(3)
- *             .webAclArn(example.arn())
  *             .build());
  * 
  *     }

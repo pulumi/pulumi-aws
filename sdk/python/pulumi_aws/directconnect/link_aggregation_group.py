@@ -542,7 +542,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
             provider_name: pulumi.Input[Optional[_builtins.str]] = None,
-            rate_limiter_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkAggregationGroupRateLimiterStatusArgs', 'LinkAggregationGroupRateLimiterStatusArgsDict']]]]] = None,
+            rate_limiter_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkAggregationGroupRateLimiterStatusArgs', 'LinkAggregationGroupRateLimiterStatusArgsDict', 'outputs.LinkAggregationGroupRateLimiterStatus']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'LinkAggregationGroup':
@@ -563,7 +563,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the LAG.
         :param pulumi.Input[_builtins.str] owner_account_id: The ID of the AWS account that owns the LAG.
         :param pulumi.Input[_builtins.str] provider_name: The name of the service provider associated with the LAG.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LinkAggregationGroupRateLimiterStatusArgs', 'LinkAggregationGroupRateLimiterStatusArgsDict']]]] rate_limiter_statuses: Rate limiter status for the LAG. See `rate_limiter_status` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinkAggregationGroupRateLimiterStatusArgs', 'LinkAggregationGroupRateLimiterStatusArgsDict', 'outputs.LinkAggregationGroupRateLimiterStatus']]]] rate_limiter_statuses: Rate limiter status for the LAG. See `rate_limiter_status` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

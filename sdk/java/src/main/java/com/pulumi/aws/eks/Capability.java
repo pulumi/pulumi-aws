@@ -50,6 +50,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Capability("example", CapabilityArgs.builder()
+ *             .clusterName(exampleAwsEksCluster.name())
+ *             .capabilityName("argocd")
+ *             .type("ARGOCD")
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .deletePropagationPolicy("RETAIN")
  *             .configuration(CapabilityConfigurationArgs.builder()
  *                 .argoCd(CapabilityConfigurationArgoCdArgs.builder()
  *                     .awsIdc(CapabilityConfigurationArgoCdAwsIdcArgs.builder()
@@ -58,11 +63,6 @@ import javax.annotation.Nullable;
  *                     .namespace("argocd")
  *                     .build())
  *                 .build())
- *             .clusterName(exampleAwsEksCluster.name())
- *             .capabilityName("argocd")
- *             .type("ARGOCD")
- *             .roleArn(exampleAwsIamRole.arn())
- *             .deletePropagationPolicy("RETAIN")
  *             .tags(Map.of("Name", "example-capability"))
  *             .build());
  * 
@@ -125,10 +125,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var ackLogDeliveryDestination = new LogDeliveryDestination("ackLogDeliveryDestination", LogDeliveryDestinationArgs.builder()
+ *             .name("eks-capability-ack-logs")
  *             .deliveryDestinationConfiguration(LogDeliveryDestinationDeliveryDestinationConfigurationArgs.builder()
  *                 .destinationResourceArn(ack.arn())
  *                 .build())
- *             .name("eks-capability-ack-logs")
  *             .build());
  * 
  *         var ackLogDelivery = new LogDelivery("ackLogDelivery", LogDeliveryArgs.builder()

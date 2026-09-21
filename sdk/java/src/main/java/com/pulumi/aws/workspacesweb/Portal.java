@@ -69,8 +69,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.workspacesweb.Portal;
  * import com.pulumi.aws.workspacesweb.PortalArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import com.pulumi.resources.CustomTimeouts;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -97,13 +95,7 @@ import javax.annotation.Nullable;
  *             .maxConcurrentSessions(10)
  *             .additionalEncryptionContext(Map.of("Environment", "Production"))
  *             .tags(Map.of("Name", "example-portal"))
- *             .build(), CustomResourceOptions.builder()
- *                 .customTimeouts(CustomTimeouts.builder()
- *                     .create(CustomTimeouts.parseTimeoutString("10m"))
- *                     .update(CustomTimeouts.parseTimeoutString("10m"))
- *                     .delete(CustomTimeouts.parseTimeoutString("10m"))
- *                 .build())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

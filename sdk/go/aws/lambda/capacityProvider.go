@@ -30,8 +30,9 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := lambda.NewCapacityProvider(ctx, "example", &lambda.CapacityProviderArgs{
+// Name: pulumi.String("example"),
 // VpcConfig: &lambda.CapacityProviderVpcConfigArgs{
-// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:2,24-46)),
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:3,24-46)),
 // SecurityGroupIds: pulumi.StringArray{
 // exampleAwsSecurityGroup.Id,
 // },
@@ -39,7 +40,6 @@ import (
 // PermissionsConfig: &lambda.CapacityProviderPermissionsConfigArgs{
 // CapacityProviderOperatorRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 // },
-// Name: pulumi.String("example"),
 // })
 // if err != nil {
 // return err
@@ -63,25 +63,15 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := lambda.NewCapacityProvider(ctx, "example", &lambda.CapacityProviderArgs{
+// Name: pulumi.String("example"),
 // VpcConfig: &lambda.CapacityProviderVpcConfigArgs{
-// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:2,24-46)),
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:3,24-46)),
 // SecurityGroupIds: pulumi.StringArray{
 // exampleAwsSecurityGroup.Id,
 // },
 // },
 // PermissionsConfig: &lambda.CapacityProviderPermissionsConfigArgs{
 // CapacityProviderOperatorRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-// },
-// CapacityProviderScalingConfigs: lambda.CapacityProviderCapacityProviderScalingConfigArray{
-// &lambda.CapacityProviderCapacityProviderScalingConfigArgs{
-// ScalingMode: pulumi.String("Manual"),
-// ScalingPolicies: lambda.CapacityProviderCapacityProviderScalingConfigScalingPolicyArray{
-// &lambda.CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs{
-// PredefinedMetricType: pulumi.String("LambdaCapacityProviderAverageCPUUtilization"),
-// TargetValue: pulumi.Float64(50),
-// },
-// },
-// },
 // },
 // InstanceRequirements: lambda.CapacityProviderInstanceRequirementArray{
 // &lambda.CapacityProviderInstanceRequirementArgs{
@@ -94,7 +84,17 @@ import (
 // },
 // },
 // },
-// Name: pulumi.String("example"),
+// CapacityProviderScalingConfigs: lambda.CapacityProviderCapacityProviderScalingConfigArray{
+// &lambda.CapacityProviderCapacityProviderScalingConfigArgs{
+// ScalingMode: pulumi.String("Manual"),
+// ScalingPolicies: lambda.CapacityProviderCapacityProviderScalingConfigScalingPolicyArray{
+// &lambda.CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs{
+// PredefinedMetricType: pulumi.String("LambdaCapacityProviderAverageCPUUtilization"),
+// TargetValue: pulumi.Float64(50),
+// },
+// },
+// },
+// },
 // })
 // if err != nil {
 // return err

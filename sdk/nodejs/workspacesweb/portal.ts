@@ -46,12 +46,6 @@ import * as utilities from "../utilities";
  *     tags: {
  *         Name: "example-portal",
  *     },
- * }, {
- *     customTimeouts: {
- *         create: "10m",
- *         update: "10m",
- *         "delete": "10m",
- *     },
  * });
  * ```
  *

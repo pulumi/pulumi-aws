@@ -135,7 +135,7 @@ class AwaitableGetInstancesResult(GetInstancesResult):
             region=self.region)
 
 
-def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']]] = None,
+def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict', 'outputs.GetInstancesFilterResult']]] = None,
                   instance_state_names: Optional[Sequence[_builtins.str]] = None,
                   instance_tags: Optional[Mapping[str, _builtins.str]] = None,
                   region: Optional[_builtins.str] = None,
@@ -156,13 +156,13 @@ def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'Ge
     from typing import Any
     import pulumi_aws as aws
 
-    test = aws.ec2.get_instances(filters=[{
+    test = aws.ec2.get_instances(instance_tags={
+            "Role": "HardWorker",
+        },
+        filters=[{
             "name": "instance.group-id",
             "values": ["sg-12345678"],
         }],
-        instance_tags={
-            "Role": "HardWorker",
-        },
         instance_state_names=[
             "running",
             "stopped",
@@ -176,7 +176,7 @@ def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'Ge
     ```
 
 
-    :param Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']] filters: One or more filters to apply to the search.
+    :param Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict', 'outputs.GetInstancesFilterResult']] filters: One or more filters to apply to the search.
            If multiple `filter` blocks are provided, they all must be true.
            For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
            See `filter` Block below.
@@ -203,7 +203,7 @@ def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'Ge
         private_ips=pulumi.get(__ret__, 'private_ips'),
         public_ips=pulumi.get(__ret__, 'public_ips'),
         region=pulumi.get(__ret__, 'region'))
-def get_instances_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']]]]] = None,
+def get_instances_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict', 'outputs.GetInstancesFilterResult']]]]] = None,
                          instance_state_names: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                          instance_tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -224,13 +224,13 @@ def get_instances_output(filters: pulumi.Input[Optional[Optional[Sequence[Union[
     from typing import Any
     import pulumi_aws as aws
 
-    test = aws.ec2.get_instances(filters=[{
+    test = aws.ec2.get_instances(instance_tags={
+            "Role": "HardWorker",
+        },
+        filters=[{
             "name": "instance.group-id",
             "values": ["sg-12345678"],
         }],
-        instance_tags={
-            "Role": "HardWorker",
-        },
         instance_state_names=[
             "running",
             "stopped",
@@ -244,7 +244,7 @@ def get_instances_output(filters: pulumi.Input[Optional[Optional[Sequence[Union[
     ```
 
 
-    :param Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']] filters: One or more filters to apply to the search.
+    :param Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict', 'outputs.GetInstancesFilterResult']] filters: One or more filters to apply to the search.
            If multiple `filter` blocks are provided, they all must be true.
            For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
            See `filter` Block below.

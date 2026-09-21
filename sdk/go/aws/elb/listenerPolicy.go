@@ -31,6 +31,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			wu_tang, err := elb.NewLoadBalancer(ctx, "wu-tang", &elb.LoadBalancerArgs{
+//				Name: pulumi.String("wu-tang"),
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.String("us-east-1a"),
+//				},
 //				Listeners: elb.LoadBalancerListenerArray{
 //					&elb.LoadBalancerListenerArgs{
 //						InstancePort:     pulumi.Int(443),
@@ -40,10 +44,6 @@ import (
 //						SslCertificateId: pulumi.String("arn:aws:iam::000000000000:server-certificate/wu-tang.net"),
 //					},
 //				},
-//				Name: pulumi.String("wu-tang"),
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1a"),
-//				},
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("wu-tang"),
 //				},
@@ -52,6 +52,9 @@ import (
 //				return err
 //			}
 //			wu_tang_ssl, err := elb.NewLoadBalancerPolicy(ctx, "wu-tang-ssl", &elb.LoadBalancerPolicyArgs{
+//				LoadBalancerName: wu_tang.Name,
+//				PolicyName:       pulumi.String("wu-tang-ssl"),
+//				PolicyTypeName:   pulumi.String("SSLNegotiationPolicyType"),
 //				PolicyAttributes: elb.LoadBalancerPolicyPolicyAttributeArray{
 //					&elb.LoadBalancerPolicyPolicyAttributeArgs{
 //						Name:  pulumi.String("ECDHE-ECDSA-AES128-GCM-SHA256"),
@@ -62,9 +65,6 @@ import (
 //						Value: pulumi.String("true"),
 //					},
 //				},
-//				LoadBalancerName: wu_tang.Name,
-//				PolicyName:       pulumi.String("wu-tang-ssl"),
-//				PolicyTypeName:   pulumi.String("SSLNegotiationPolicyType"),
 //			})
 //			if err != nil {
 //				return err
@@ -102,6 +102,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			wu_tang, err := elb.NewLoadBalancer(ctx, "wu-tang", &elb.LoadBalancerArgs{
+//				Name: pulumi.String("wu-tang"),
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.String("us-east-1a"),
+//				},
 //				Listeners: elb.LoadBalancerListenerArray{
 //					&elb.LoadBalancerListenerArgs{
 //						InstancePort:     pulumi.Int(443),
@@ -111,10 +115,6 @@ import (
 //						SslCertificateId: pulumi.String("arn:aws:iam::000000000000:server-certificate/wu-tang.net"),
 //					},
 //				},
-//				Name: pulumi.String("wu-tang"),
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1a"),
-//				},
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("wu-tang"),
 //				},
@@ -123,15 +123,15 @@ import (
 //				return err
 //			}
 //			wu_tang_ssl_tls_1_1, err := elb.NewLoadBalancerPolicy(ctx, "wu-tang-ssl-tls-1-1", &elb.LoadBalancerPolicyArgs{
+//				LoadBalancerName: wu_tang.Name,
+//				PolicyName:       pulumi.String("wu-tang-ssl"),
+//				PolicyTypeName:   pulumi.String("SSLNegotiationPolicyType"),
 //				PolicyAttributes: elb.LoadBalancerPolicyPolicyAttributeArray{
 //					&elb.LoadBalancerPolicyPolicyAttributeArgs{
 //						Name:  pulumi.String("Reference-Security-Policy"),
 //						Value: pulumi.String("ELBSecurityPolicy-TLS-1-1-2017-01"),
 //					},
 //				},
-//				LoadBalancerName: wu_tang.Name,
-//				PolicyName:       pulumi.String("wu-tang-ssl"),
-//				PolicyTypeName:   pulumi.String("SSLNegotiationPolicyType"),
 //			})
 //			if err != nil {
 //				return err

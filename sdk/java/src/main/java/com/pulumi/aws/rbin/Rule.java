@@ -36,8 +36,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.rbin.Rule;
  * import com.pulumi.aws.rbin.RuleArgs;
- * import com.pulumi.aws.rbin.inputs.RuleRetentionPeriodArgs;
  * import com.pulumi.aws.rbin.inputs.RuleResourceTagArgs;
+ * import com.pulumi.aws.rbin.inputs.RuleRetentionPeriodArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -52,16 +52,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Rule("example", RuleArgs.builder()
- *             .retentionPeriod(RuleRetentionPeriodArgs.builder()
- *                 .retentionPeriodValue(10)
- *                 .retentionPeriodUnit("DAYS")
- *                 .build())
+ *             .description("Example tag-level retention rule")
+ *             .resourceType("EBS_SNAPSHOT")
  *             .resourceTags(RuleResourceTagArgs.builder()
  *                 .resourceTagKey("tag_key")
  *                 .resourceTagValue("tag_value")
  *                 .build())
- *             .description("Example tag-level retention rule")
- *             .resourceType("EBS_SNAPSHOT")
+ *             .retentionPeriod(RuleRetentionPeriodArgs.builder()
+ *                 .retentionPeriodValue(10)
+ *                 .retentionPeriodUnit("DAYS")
+ *                 .build())
  *             .tags(Map.of("test_tag_key", "test_tag_value"))
  *             .build());
  * 
@@ -81,8 +81,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.rbin.Rule;
  * import com.pulumi.aws.rbin.RuleArgs;
- * import com.pulumi.aws.rbin.inputs.RuleRetentionPeriodArgs;
  * import com.pulumi.aws.rbin.inputs.RuleExcludeResourceTagArgs;
+ * import com.pulumi.aws.rbin.inputs.RuleRetentionPeriodArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -97,16 +97,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Rule("example", RuleArgs.builder()
- *             .retentionPeriod(RuleRetentionPeriodArgs.builder()
- *                 .retentionPeriodValue(10)
- *                 .retentionPeriodUnit("DAYS")
- *                 .build())
+ *             .description("Example region-level retention rule with exclusion tags")
+ *             .resourceType("EC2_IMAGE")
  *             .excludeResourceTags(RuleExcludeResourceTagArgs.builder()
  *                 .resourceTagKey("tag_key")
  *                 .resourceTagValue("tag_value")
  *                 .build())
- *             .description("Example region-level retention rule with exclusion tags")
- *             .resourceType("EC2_IMAGE")
+ *             .retentionPeriod(RuleRetentionPeriodArgs.builder()
+ *                 .retentionPeriodValue(10)
+ *                 .retentionPeriodUnit("DAYS")
+ *                 .build())
  *             .tags(Map.of("test_tag_key", "test_tag_value"))
  *             .build());
  * 

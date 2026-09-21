@@ -637,16 +637,16 @@ class AgentAgent(pulumi.CustomResource):
                  customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  foundation_model: pulumi.Input[Optional[_builtins.str]] = None,
-                 guardrail_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict']]]]] = None,
+                 guardrail_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict', 'outputs.AgentAgentGuardrailConfiguration']]]]] = None,
                  idle_session_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  instruction: pulumi.Input[Optional[_builtins.str]] = None,
-                 memory_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict']]]]] = None,
+                 memory_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict', 'outputs.AgentAgentMemoryConfiguration']]]]] = None,
                  prepare_agent: pulumi.Input[Optional[_builtins.bool]] = None,
-                 prompt_override_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]]] = None,
+                 prompt_override_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict', 'outputs.AgentAgentPromptOverrideConfiguration']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  skip_resource_in_use_check: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentAgentTimeoutsArgs', 'AgentAgentTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentAgentTimeoutsArgs', 'AgentAgentTimeoutsArgsDict', 'outputs.AgentAgentTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Agents for Amazon Bedrock Agent.
@@ -663,6 +663,11 @@ class AgentAgent(pulumi.CustomResource):
         current_get_partition = aws.get_partition()
         current_get_region = aws.get_region()
         example_agent_trust = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "identifiers": ["bedrock.amazonaws.com"],
+                "type": "Service",
+            }],
             "conditions": [
                 {
                     "test": "StringEquals",
@@ -675,11 +680,6 @@ class AgentAgent(pulumi.CustomResource):
                     "variable": "AWS:SourceArn",
                 },
             ],
-            "principals": [{
-                "identifiers": ["bedrock.amazonaws.com"],
-                "type": "Service",
-            }],
-            "actions": ["sts:AssumeRole"],
         }])
         example_agent_permissions = aws.iam.get_policy_document(statements=[{
             "actions": ["bedrock:InvokeModel"],
@@ -718,12 +718,12 @@ class AgentAgent(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] foundation_model: Foundation model used for orchestration by the agent.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict']]]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict', 'outputs.AgentAgentGuardrailConfiguration']]]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         :param pulumi.Input[_builtins.int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         :param pulumi.Input[_builtins.str] instruction: Instructions that tell the agent what it should do and how it should interact with users. If `prepare_agent` is `true` this argument is required. The valid range is 40 - 20000 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict']]]] memory_configurations: Configurations for the agent's ability to retain the conversational context.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict', 'outputs.AgentAgentMemoryConfiguration']]]] memory_configurations: Configurations for the agent's ability to retain the conversational context.
         :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict', 'outputs.AgentAgentPromptOverrideConfiguration']]]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -749,6 +749,11 @@ class AgentAgent(pulumi.CustomResource):
         current_get_partition = aws.get_partition()
         current_get_region = aws.get_region()
         example_agent_trust = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "identifiers": ["bedrock.amazonaws.com"],
+                "type": "Service",
+            }],
             "conditions": [
                 {
                     "test": "StringEquals",
@@ -761,11 +766,6 @@ class AgentAgent(pulumi.CustomResource):
                     "variable": "AWS:SourceArn",
                 },
             ],
-            "principals": [{
-                "identifiers": ["bedrock.amazonaws.com"],
-                "type": "Service",
-            }],
-            "actions": ["sts:AssumeRole"],
         }])
         example_agent_permissions = aws.iam.get_policy_document(statements=[{
             "actions": ["bedrock:InvokeModel"],
@@ -815,16 +815,16 @@ class AgentAgent(pulumi.CustomResource):
                  customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  foundation_model: pulumi.Input[Optional[_builtins.str]] = None,
-                 guardrail_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict']]]]] = None,
+                 guardrail_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict', 'outputs.AgentAgentGuardrailConfiguration']]]]] = None,
                  idle_session_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  instruction: pulumi.Input[Optional[_builtins.str]] = None,
-                 memory_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict']]]]] = None,
+                 memory_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict', 'outputs.AgentAgentMemoryConfiguration']]]]] = None,
                  prepare_agent: pulumi.Input[Optional[_builtins.bool]] = None,
-                 prompt_override_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]]] = None,
+                 prompt_override_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict', 'outputs.AgentAgentPromptOverrideConfiguration']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  skip_resource_in_use_check: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentAgentTimeoutsArgs', 'AgentAgentTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentAgentTimeoutsArgs', 'AgentAgentTimeoutsArgsDict', 'outputs.AgentAgentTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -880,18 +880,18 @@ class AgentAgent(pulumi.CustomResource):
             customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             foundation_model: pulumi.Input[Optional[_builtins.str]] = None,
-            guardrail_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict']]]]] = None,
+            guardrail_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict', 'outputs.AgentAgentGuardrailConfiguration']]]]] = None,
             idle_session_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
             instruction: pulumi.Input[Optional[_builtins.str]] = None,
-            memory_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict']]]]] = None,
+            memory_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict', 'outputs.AgentAgentMemoryConfiguration']]]]] = None,
             prepare_agent: pulumi.Input[Optional[_builtins.bool]] = None,
             prepared_at: pulumi.Input[Optional[_builtins.str]] = None,
-            prompt_override_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]]] = None,
+            prompt_override_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict', 'outputs.AgentAgentPromptOverrideConfiguration']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             skip_resource_in_use_check: pulumi.Input[Optional[_builtins.bool]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['AgentAgentTimeoutsArgs', 'AgentAgentTimeoutsArgsDict']]] = None) -> 'AgentAgent':
+            timeouts: pulumi.Input[Optional[Union['AgentAgentTimeoutsArgs', 'AgentAgentTimeoutsArgsDict', 'outputs.AgentAgentTimeouts']]] = None) -> 'AgentAgent':
         """
         Get an existing AgentAgent resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -910,13 +910,13 @@ class AgentAgent(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] foundation_model: Foundation model used for orchestration by the agent.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict']]]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict', 'outputs.AgentAgentGuardrailConfiguration']]]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         :param pulumi.Input[_builtins.int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         :param pulumi.Input[_builtins.str] instruction: Instructions that tell the agent what it should do and how it should interact with users. If `prepare_agent` is `true` this argument is required. The valid range is 40 - 20000 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict']]]] memory_configurations: Configurations for the agent's ability to retain the conversational context.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict', 'outputs.AgentAgentMemoryConfiguration']]]] memory_configurations: Configurations for the agent's ability to retain the conversational context.
         :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[_builtins.str] prepared_at: Timestamp of when the agent was last prepared.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict', 'outputs.AgentAgentPromptOverrideConfiguration']]]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

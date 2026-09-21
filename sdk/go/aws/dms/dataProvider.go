@@ -31,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dms.NewDataProvider(ctx, "example", &dms.DataProviderArgs{
+//				Engine: pulumi.String("postgres"),
 //				Settings: &dms.DataProviderSettingsArgs{
 //					PostgresqlSettings: &dms.DataProviderSettingsPostgresqlSettingsArgs{
 //						ServerName:   pulumi.String("example.com"),
@@ -39,7 +40,6 @@ import (
 //						SslMode:      pulumi.String("none"),
 //					},
 //				},
-//				Engine: pulumi.String("postgres"),
 //			})
 //			if err != nil {
 //				return err
@@ -65,6 +65,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dms.NewDataProvider(ctx, "example", &dms.DataProviderArgs{
+//				Name:        pulumi.String("example-mysql"),
+//				Description: pulumi.String("Example MySQL data provider"),
+//				Engine:      pulumi.String("mysql"),
 //				Settings: &dms.DataProviderSettingsArgs{
 //					MysqlSettings: &dms.DataProviderSettingsMysqlSettingsArgs{
 //						ServerName: pulumi.String("mysql.example.com"),
@@ -72,9 +75,6 @@ import (
 //						SslMode:    pulumi.String("require"),
 //					},
 //				},
-//				Name:        pulumi.String("example-mysql"),
-//				Description: pulumi.String("Example MySQL data provider"),
-//				Engine:      pulumi.String("mysql"),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("example"),
 //				},

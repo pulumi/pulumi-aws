@@ -23,6 +23,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrockmodel.InvocationJob("example", {
+ *     jobName: "example-job",
+ *     modelId: "us.amazon.nova-2-lite-v1:0",
+ *     roleArn: exampleAwsIamRole.arn,
  *     inputDataConfig: {
  *         s3InputDataConfig: {
  *             s3Uri: `s3://${exampleAwsS3Bucket.id}/input/`,
@@ -33,9 +36,6 @@ import * as utilities from "../utilities";
  *             s3Uri: `s3://${exampleAwsS3Bucket.id}/output/`,
  *         },
  *     },
- *     jobName: "example-job",
- *     modelId: "us.amazon.nova-2-lite-v1:0",
- *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *

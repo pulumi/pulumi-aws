@@ -260,7 +260,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SslNegotiationPolicyAttributeArgs', 'SslNegotiationPolicyAttributeArgsDict']]]]] = None,
+                 attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SslNegotiationPolicyAttributeArgs', 'SslNegotiationPolicyAttributeArgsDict', 'outputs.SslNegotiationPolicyAttribute']]]]] = None,
                  lb_port: pulumi.Input[Optional[_builtins.int]] = None,
                  load_balancer: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -277,16 +277,19 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         lb = aws.elb.LoadBalancer("lb",
+            name="test-lb",
+            availability_zones=["us-east-1a"],
             listeners=[{
                 "instance_port": 8000,
                 "instance_protocol": "https",
                 "lb_port": 443,
                 "lb_protocol": "https",
                 "ssl_certificate_id": "arn:aws:iam::123456789012:server-certificate/certName",
-            }],
-            name="test-lb",
-            availability_zones=["us-east-1a"])
+            }])
         foo = aws.elb.SslNegotiationPolicy("foo",
+            name="foo-policy",
+            load_balancer=lb.id,
+            lb_port=443,
             attributes=[
                 {
                     "name": "Protocol-TLSv1",
@@ -316,16 +319,13 @@ class SslNegotiationPolicy(pulumi.CustomResource):
                     "name": "EDH-RSA-DES-CBC3-SHA",
                     "value": "false",
                 },
-            ],
-            name="foo-policy",
-            load_balancer=lb.id,
-            lb_port=443)
+            ])
         ```
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SslNegotiationPolicyAttributeArgs', 'SslNegotiationPolicyAttributeArgsDict']]]] attributes: An SSL Negotiation policy attribute. Each has two properties:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SslNegotiationPolicyAttributeArgs', 'SslNegotiationPolicyAttributeArgsDict', 'outputs.SslNegotiationPolicyAttribute']]]] attributes: An SSL Negotiation policy attribute. Each has two properties:
         :param pulumi.Input[_builtins.int] lb_port: The load balancer port to which the policy
                should be applied. This must be an active listener on the load
                balancer.
@@ -355,16 +355,19 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         lb = aws.elb.LoadBalancer("lb",
+            name="test-lb",
+            availability_zones=["us-east-1a"],
             listeners=[{
                 "instance_port": 8000,
                 "instance_protocol": "https",
                 "lb_port": 443,
                 "lb_protocol": "https",
                 "ssl_certificate_id": "arn:aws:iam::123456789012:server-certificate/certName",
-            }],
-            name="test-lb",
-            availability_zones=["us-east-1a"])
+            }])
         foo = aws.elb.SslNegotiationPolicy("foo",
+            name="foo-policy",
+            load_balancer=lb.id,
+            lb_port=443,
             attributes=[
                 {
                     "name": "Protocol-TLSv1",
@@ -394,10 +397,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
                     "name": "EDH-RSA-DES-CBC3-SHA",
                     "value": "false",
                 },
-            ],
-            name="foo-policy",
-            load_balancer=lb.id,
-            lb_port=443)
+            ])
         ```
 
 
@@ -416,7 +416,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SslNegotiationPolicyAttributeArgs', 'SslNegotiationPolicyAttributeArgsDict']]]]] = None,
+                 attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SslNegotiationPolicyAttributeArgs', 'SslNegotiationPolicyAttributeArgsDict', 'outputs.SslNegotiationPolicyAttribute']]]]] = None,
                  lb_port: pulumi.Input[Optional[_builtins.int]] = None,
                  load_balancer: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -453,7 +453,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SslNegotiationPolicyAttributeArgs', 'SslNegotiationPolicyAttributeArgsDict']]]]] = None,
+            attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SslNegotiationPolicyAttributeArgs', 'SslNegotiationPolicyAttributeArgsDict', 'outputs.SslNegotiationPolicyAttribute']]]]] = None,
             lb_port: pulumi.Input[Optional[_builtins.int]] = None,
             load_balancer: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -466,7 +466,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SslNegotiationPolicyAttributeArgs', 'SslNegotiationPolicyAttributeArgsDict']]]] attributes: An SSL Negotiation policy attribute. Each has two properties:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SslNegotiationPolicyAttributeArgs', 'SslNegotiationPolicyAttributeArgsDict', 'outputs.SslNegotiationPolicyAttribute']]]] attributes: An SSL Negotiation policy attribute. Each has two properties:
         :param pulumi.Input[_builtins.int] lb_port: The load balancer port to which the policy
                should be applied. This must be an active listener on the load
                balancer.

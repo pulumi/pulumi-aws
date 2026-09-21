@@ -561,22 +561,22 @@ class TopicSubscription(pulumi.CustomResource):
         import pulumi_aws as aws
 
         user_updates = aws.sns.Topic("user_updates", name="user-updates-topic")
-        sqs_queue_policy = aws.iam.get_policy_document_output(statements=[{
+        sqs_queue_policy = aws.iam.get_policy_document_output(policy_id="arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy",
+            statements=[{
+                "sid": "user_updates_sqs_target",
+                "effect": "Allow",
+                "principals": [{
+                    "type": "Service",
+                    "identifiers": ["sns.amazonaws.com"],
+                }],
+                "actions": ["SQS:SendMessage"],
+                "resources": ["arn:aws:sqs:us-west-2:123456789012:user-updates-queue"],
                 "conditions": [{
                     "test": "ArnEquals",
                     "variable": "aws:SourceArn",
                     "values": [user_updates.arn],
                 }],
-                "principals": [{
-                    "type": "Service",
-                    "identifiers": ["sns.amazonaws.com"],
-                }],
-                "sid": "user_updates_sqs_target",
-                "effect": "Allow",
-                "actions": ["SQS:SendMessage"],
-                "resources": ["arn:aws:sqs:us-west-2:123456789012:user-updates-queue"],
-            }],
-            policy_id="arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy")
+            }])
         user_updates_queue = aws.sqs.Queue("user_updates_queue",
             name="user-updates-queue",
             policy=sqs_queue_policy.json)
@@ -612,17 +612,9 @@ class TopicSubscription(pulumi.CustomResource):
                 "region": "us-east-1",
                 "role-name": "service/service",
             }
-        sns_topic_policy = aws.iam.get_policy_document(statements=[
+        sns_topic_policy = aws.iam.get_policy_document(policy_id="__default_policy_ID",
+            statements=[
                 {
-                    "conditions": [{
-                        "test": "StringEquals",
-                        "variable": "AWS:SourceOwner",
-                        "values": [sns["account-id"]],
-                    }],
-                    "principals": [{
-                        "type": "AWS",
-                        "identifiers": ["*"],
-                    }],
                     "actions": [
                         "SNS:Subscribe",
                         "SNS:SetTopicAttributes",
@@ -633,46 +625,54 @@ class TopicSubscription(pulumi.CustomResource):
                         "SNS:DeleteTopic",
                         "SNS:AddPermission",
                     ],
+                    "conditions": [{
+                        "test": "StringEquals",
+                        "variable": "AWS:SourceOwner",
+                        "values": [sns["account-id"]],
+                    }],
                     "effect": "Allow",
+                    "principals": [{
+                        "type": "AWS",
+                        "identifiers": ["*"],
+                    }],
                     "resources": [f"arn:aws:sns:{sns['region']}:{sns['account-id']}:{sns['name']}"],
                     "sid": "__default_statement_ID",
                 },
                 {
+                    "actions": [
+                        "SNS:Subscribe",
+                        "SNS:Receive",
+                    ],
                     "conditions": [{
                         "test": "StringLike",
                         "variable": "SNS:Endpoint",
                         "values": [f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}"],
                     }],
+                    "effect": "Allow",
                     "principals": [{
                         "type": "AWS",
                         "identifiers": ["*"],
                     }],
-                    "actions": [
-                        "SNS:Subscribe",
-                        "SNS:Receive",
-                    ],
-                    "effect": "Allow",
                     "resources": [f"arn:aws:sns:{sns['region']}:{sns['account-id']}:{sns['name']}"],
                     "sid": "__console_sub_0",
                 },
-            ],
-            policy_id="__default_policy_ID")
-        sqs_queue_policy = aws.iam.get_policy_document(statements=[{
+            ])
+        sqs_queue_policy = aws.iam.get_policy_document(policy_id=f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}/SQSDefaultPolicy",
+            statements=[{
+                "sid": "example-sns-topic",
+                "effect": "Allow",
+                "principals": [{
+                    "type": "AWS",
+                    "identifiers": ["*"],
+                }],
+                "actions": ["SQS:SendMessage"],
+                "resources": [f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}"],
                 "conditions": [{
                     "test": "ArnEquals",
                     "variable": "aws:SourceArn",
                     "values": [f"arn:aws:sns:{sns['region']}:{sns['account-id']}:{sns['name']}"],
                 }],
-                "principals": [{
-                    "type": "AWS",
-                    "identifiers": ["*"],
-                }],
-                "sid": "example-sns-topic",
-                "effect": "Allow",
-                "actions": ["SQS:SendMessage"],
-                "resources": [f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}"],
-            }],
-            policy_id=f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}/SQSDefaultPolicy")
+            }])
         sns_topic = aws.sns.Topic("sns_topic",
             name=sns["name"],
             display_name=sns["display_name"],
@@ -780,22 +780,22 @@ class TopicSubscription(pulumi.CustomResource):
         import pulumi_aws as aws
 
         user_updates = aws.sns.Topic("user_updates", name="user-updates-topic")
-        sqs_queue_policy = aws.iam.get_policy_document_output(statements=[{
+        sqs_queue_policy = aws.iam.get_policy_document_output(policy_id="arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy",
+            statements=[{
+                "sid": "user_updates_sqs_target",
+                "effect": "Allow",
+                "principals": [{
+                    "type": "Service",
+                    "identifiers": ["sns.amazonaws.com"],
+                }],
+                "actions": ["SQS:SendMessage"],
+                "resources": ["arn:aws:sqs:us-west-2:123456789012:user-updates-queue"],
                 "conditions": [{
                     "test": "ArnEquals",
                     "variable": "aws:SourceArn",
                     "values": [user_updates.arn],
                 }],
-                "principals": [{
-                    "type": "Service",
-                    "identifiers": ["sns.amazonaws.com"],
-                }],
-                "sid": "user_updates_sqs_target",
-                "effect": "Allow",
-                "actions": ["SQS:SendMessage"],
-                "resources": ["arn:aws:sqs:us-west-2:123456789012:user-updates-queue"],
-            }],
-            policy_id="arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy")
+            }])
         user_updates_queue = aws.sqs.Queue("user_updates_queue",
             name="user-updates-queue",
             policy=sqs_queue_policy.json)
@@ -831,17 +831,9 @@ class TopicSubscription(pulumi.CustomResource):
                 "region": "us-east-1",
                 "role-name": "service/service",
             }
-        sns_topic_policy = aws.iam.get_policy_document(statements=[
+        sns_topic_policy = aws.iam.get_policy_document(policy_id="__default_policy_ID",
+            statements=[
                 {
-                    "conditions": [{
-                        "test": "StringEquals",
-                        "variable": "AWS:SourceOwner",
-                        "values": [sns["account-id"]],
-                    }],
-                    "principals": [{
-                        "type": "AWS",
-                        "identifiers": ["*"],
-                    }],
                     "actions": [
                         "SNS:Subscribe",
                         "SNS:SetTopicAttributes",
@@ -852,46 +844,54 @@ class TopicSubscription(pulumi.CustomResource):
                         "SNS:DeleteTopic",
                         "SNS:AddPermission",
                     ],
+                    "conditions": [{
+                        "test": "StringEquals",
+                        "variable": "AWS:SourceOwner",
+                        "values": [sns["account-id"]],
+                    }],
                     "effect": "Allow",
+                    "principals": [{
+                        "type": "AWS",
+                        "identifiers": ["*"],
+                    }],
                     "resources": [f"arn:aws:sns:{sns['region']}:{sns['account-id']}:{sns['name']}"],
                     "sid": "__default_statement_ID",
                 },
                 {
+                    "actions": [
+                        "SNS:Subscribe",
+                        "SNS:Receive",
+                    ],
                     "conditions": [{
                         "test": "StringLike",
                         "variable": "SNS:Endpoint",
                         "values": [f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}"],
                     }],
+                    "effect": "Allow",
                     "principals": [{
                         "type": "AWS",
                         "identifiers": ["*"],
                     }],
-                    "actions": [
-                        "SNS:Subscribe",
-                        "SNS:Receive",
-                    ],
-                    "effect": "Allow",
                     "resources": [f"arn:aws:sns:{sns['region']}:{sns['account-id']}:{sns['name']}"],
                     "sid": "__console_sub_0",
                 },
-            ],
-            policy_id="__default_policy_ID")
-        sqs_queue_policy = aws.iam.get_policy_document(statements=[{
+            ])
+        sqs_queue_policy = aws.iam.get_policy_document(policy_id=f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}/SQSDefaultPolicy",
+            statements=[{
+                "sid": "example-sns-topic",
+                "effect": "Allow",
+                "principals": [{
+                    "type": "AWS",
+                    "identifiers": ["*"],
+                }],
+                "actions": ["SQS:SendMessage"],
+                "resources": [f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}"],
                 "conditions": [{
                     "test": "ArnEquals",
                     "variable": "aws:SourceArn",
                     "values": [f"arn:aws:sns:{sns['region']}:{sns['account-id']}:{sns['name']}"],
                 }],
-                "principals": [{
-                    "type": "AWS",
-                    "identifiers": ["*"],
-                }],
-                "sid": "example-sns-topic",
-                "effect": "Allow",
-                "actions": ["SQS:SendMessage"],
-                "resources": [f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}"],
-            }],
-            policy_id=f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}/SQSDefaultPolicy")
+            }])
         sns_topic = aws.sns.Topic("sns_topic",
             name=sns["name"],
             display_name=sns["display_name"],

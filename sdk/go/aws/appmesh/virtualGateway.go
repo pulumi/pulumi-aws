@@ -31,6 +31,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewVirtualGateway(ctx, "example", &appmesh.VirtualGatewayArgs{
+//				Name:     pulumi.String("example-virtual-gateway"),
+//				MeshName: pulumi.String("example-service-mesh"),
 //				Spec: &appmesh.VirtualGatewaySpecArgs{
 //					Listeners: appmesh.VirtualGatewaySpecListenerArray{
 //						&appmesh.VirtualGatewaySpecListenerArgs{
@@ -41,8 +43,6 @@ import (
 //						},
 //					},
 //				},
-//				Name:     pulumi.String("example-virtual-gateway"),
-//				MeshName: pulumi.String("example-service-mesh"),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("test"),
 //				},
@@ -71,14 +71,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewVirtualGateway(ctx, "example", &appmesh.VirtualGatewayArgs{
+//				Name:     pulumi.String("example-virtual-gateway"),
+//				MeshName: pulumi.String("example-service-mesh"),
 //				Spec: &appmesh.VirtualGatewaySpecArgs{
-//					Logging: &appmesh.VirtualGatewaySpecLoggingArgs{
-//						AccessLog: &appmesh.VirtualGatewaySpecLoggingAccessLogArgs{
-//							File: &appmesh.VirtualGatewaySpecLoggingAccessLogFileArgs{
-//								Path: pulumi.String("/var/log/access.log"),
-//							},
-//						},
-//					},
 //					Listeners: appmesh.VirtualGatewaySpecListenerArray{
 //						&appmesh.VirtualGatewaySpecListenerArgs{
 //							PortMapping: &appmesh.VirtualGatewaySpecListenerPortMappingArgs{
@@ -95,9 +90,14 @@ import (
 //							},
 //						},
 //					},
+//					Logging: &appmesh.VirtualGatewaySpecLoggingArgs{
+//						AccessLog: &appmesh.VirtualGatewaySpecLoggingAccessLogArgs{
+//							File: &appmesh.VirtualGatewaySpecLoggingAccessLogFileArgs{
+//								Path: pulumi.String("/var/log/access.log"),
+//							},
+//						},
+//					},
 //				},
-//				Name:     pulumi.String("example-virtual-gateway"),
-//				MeshName: pulumi.String("example-service-mesh"),
 //			})
 //			if err != nil {
 //				return err

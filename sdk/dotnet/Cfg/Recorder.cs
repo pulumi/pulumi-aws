@@ -32,6 +32,7 @@ namespace Pulumi.Aws.Cfg
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -43,7 +44,6 @@ namespace Pulumi.Aws.Cfg
     ///                         },
     ///                     },
     ///                 },
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -79,8 +79,11 @@ namespace Pulumi.Aws.Cfg
     /// {
     ///     var foo = new Aws.Cfg.Recorder("foo", new()
     ///     {
+    ///         Name = "example",
+    ///         RoleArn = r.Arn,
     ///         RecordingGroup = new Aws.Cfg.Inputs.RecorderRecordingGroupArgs
     ///         {
+    ///             AllSupported = false,
     ///             ExclusionByResourceTypes = new[]
     ///             {
     ///                 new Aws.Cfg.Inputs.RecorderRecordingGroupExclusionByResourceTypeArgs
@@ -98,10 +101,7 @@ namespace Pulumi.Aws.Cfg
     ///                     UseOnly = "EXCLUSION_BY_RESOURCE_TYPES",
     ///                 },
     ///             },
-    ///             AllSupported = false,
     ///         },
-    ///         Name = "example",
-    ///         RoleArn = r.Arn,
     ///     });
     /// 
     /// });
@@ -119,6 +119,8 @@ namespace Pulumi.Aws.Cfg
     /// {
     ///     var foo = new Aws.Cfg.Recorder("foo", new()
     ///     {
+    ///         Name = "example",
+    ///         RoleArn = r.Arn,
     ///         RecordingGroup = new Aws.Cfg.Inputs.RecorderRecordingGroupArgs
     ///         {
     ///             AllSupported = false,
@@ -131,6 +133,7 @@ namespace Pulumi.Aws.Cfg
     ///         },
     ///         RecordingMode = new Aws.Cfg.Inputs.RecorderRecordingModeArgs
     ///         {
+    ///             RecordingFrequency = "CONTINUOUS",
     ///             RecordingModeOverride = new Aws.Cfg.Inputs.RecorderRecordingModeRecordingModeOverrideArgs
     ///             {
     ///                 Description = "Only record EC2 network interfaces daily",
@@ -140,10 +143,7 @@ namespace Pulumi.Aws.Cfg
     ///                 },
     ///                 RecordingFrequency = "DAILY",
     ///             },
-    ///             RecordingFrequency = "CONTINUOUS",
     ///         },
-    ///         Name = "example",
-    ///         RoleArn = r.Arn,
     ///     });
     /// 
     /// });

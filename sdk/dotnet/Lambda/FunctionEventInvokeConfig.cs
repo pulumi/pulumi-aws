@@ -53,6 +53,9 @@ namespace Pulumi.Aws.Lambda
     ///     // Complete event invoke configuration
     ///     var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
     ///     {
+    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
+    ///         MaximumEventAgeInSeconds = 300,
+    ///         MaximumRetryAttempts = 1,
     ///         DestinationConfig = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigArgs
     ///         {
     ///             OnFailure = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs
@@ -64,9 +67,6 @@ namespace Pulumi.Aws.Lambda
     ///                 Destination = success.Arn,
     ///             },
     ///         },
-    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
-    ///         MaximumEventAgeInSeconds = 300,
-    ///         MaximumRetryAttempts = 1,
     ///     });
     /// 
     /// });
@@ -112,6 +112,10 @@ namespace Pulumi.Aws.Lambda
     /// 
     ///     var exampleFunctionEventInvokeConfig = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
     ///     {
+    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
+    ///         Qualifier = example.Name,
+    ///         MaximumEventAgeInSeconds = 1800,
+    ///         MaximumRetryAttempts = 2,
     ///         DestinationConfig = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigArgs
     ///         {
     ///             OnFailure = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs
@@ -119,10 +123,6 @@ namespace Pulumi.Aws.Lambda
     ///                 Destination = productionDlq.Arn,
     ///             },
     ///         },
-    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
-    ///         Qualifier = example.Name,
-    ///         MaximumEventAgeInSeconds = 1800,
-    ///         MaximumRetryAttempts = 2,
     ///     });
     /// 
     /// });
@@ -140,6 +140,10 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
     ///     {
+    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
+    ///         Qualifier = exampleAwsLambdaFunction.Version,
+    ///         MaximumEventAgeInSeconds = 21600,
+    ///         MaximumRetryAttempts = 2,
     ///         DestinationConfig = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigArgs
     ///         {
     ///             OnFailure = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs
@@ -151,10 +155,6 @@ namespace Pulumi.Aws.Lambda
     ///                 Destination = versionSuccess.Arn,
     ///             },
     ///         },
-    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
-    ///         Qualifier = exampleAwsLambdaFunction.Version,
-    ///         MaximumEventAgeInSeconds = 21600,
-    ///         MaximumRetryAttempts = 2,
     ///     });
     /// 
     /// });
@@ -172,6 +172,10 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
     ///     {
+    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
+    ///         Qualifier = "$LATEST",
+    ///         MaximumEventAgeInSeconds = 120,
+    ///         MaximumRetryAttempts = 0,
     ///         DestinationConfig = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigArgs
     ///         {
     ///             OnFailure = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs
@@ -179,10 +183,6 @@ namespace Pulumi.Aws.Lambda
     ///                 Destination = devDlq.Arn,
     ///             },
     ///         },
-    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
-    ///         Qualifier = "$LATEST",
-    ///         MaximumEventAgeInSeconds = 120,
-    ///         MaximumRetryAttempts = 0,
     ///     });
     /// 
     /// });
@@ -212,6 +212,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     ///     var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
     ///     {
+    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
     ///         DestinationConfig = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigArgs
     ///         {
     ///             OnFailure = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs
@@ -223,7 +224,6 @@ namespace Pulumi.Aws.Lambda
     ///                 Destination = lambdaSuccessArchive.Arn,
     ///             },
     ///         },
-    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
     ///     });
     /// 
     /// });

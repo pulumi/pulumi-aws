@@ -429,9 +429,9 @@ class Collaboration(pulumi.CustomResource):
                  analytics_engine: pulumi.Input[Optional[_builtins.str]] = None,
                  creator_display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  creator_member_abilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_encryption_metadata: pulumi.Input[Optional[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict']]] = None,
+                 data_encryption_metadata: pulumi.Input[Optional[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict', 'outputs.CollaborationDataEncryptionMetadata']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CollaborationMemberArgs', 'CollaborationMemberArgsDict']]]]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CollaborationMemberArgs', 'CollaborationMemberArgsDict', 'outputs.CollaborationMember']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  query_log_status: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -448,6 +448,15 @@ class Collaboration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_collaboration = aws.cleanrooms.Collaboration("test_collaboration",
+            name="pulumi-example-collaboration",
+            creator_member_abilities=[
+                "CAN_QUERY",
+                "CAN_RECEIVE_RESULTS",
+            ],
+            creator_display_name="Creator ",
+            description="I made this collaboration with Pulumi!",
+            query_log_status="DISABLED",
+            analytics_engine="SPARK",
             data_encryption_metadata={
                 "allow_clear_text": True,
                 "allow_duplicates": True,
@@ -459,15 +468,6 @@ class Collaboration(pulumi.CustomResource):
                 "display_name": "Other member",
                 "member_abilities": [],
             }],
-            name="pulumi-example-collaboration",
-            creator_member_abilities=[
-                "CAN_QUERY",
-                "CAN_RECEIVE_RESULTS",
-            ],
-            creator_display_name="Creator ",
-            description="I made this collaboration with Pulumi!",
-            query_log_status="DISABLED",
-            analytics_engine="SPARK",
             tags={
                 "Project": "Pulumi",
             })
@@ -498,9 +498,9 @@ class Collaboration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] analytics_engine: Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
         :param pulumi.Input[_builtins.str] creator_display_name: Name for the member record for the collaboration creator.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] creator_member_abilities: List of member abilities for the creator of the collaboration. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
-        :param pulumi.Input[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict']] data_encryption_metadata: Collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration. See below.
+        :param pulumi.Input[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict', 'outputs.CollaborationDataEncryptionMetadata']] data_encryption_metadata: Collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration. See below.
         :param pulumi.Input[_builtins.str] description: Description for a collaboration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CollaborationMemberArgs', 'CollaborationMemberArgsDict']]]] members: Additional members of the collaboration which will be invited to join the collaboration. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CollaborationMemberArgs', 'CollaborationMemberArgsDict', 'outputs.CollaborationMember']]]] members: Additional members of the collaboration which will be invited to join the collaboration. See below.
         :param pulumi.Input[_builtins.str] name: Name of the collaboration.  Collaboration names do not need to be unique.
         :param pulumi.Input[_builtins.str] query_log_status: Whether members of the collaboration can enable query logs within their own memberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
                
@@ -525,6 +525,15 @@ class Collaboration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_collaboration = aws.cleanrooms.Collaboration("test_collaboration",
+            name="pulumi-example-collaboration",
+            creator_member_abilities=[
+                "CAN_QUERY",
+                "CAN_RECEIVE_RESULTS",
+            ],
+            creator_display_name="Creator ",
+            description="I made this collaboration with Pulumi!",
+            query_log_status="DISABLED",
+            analytics_engine="SPARK",
             data_encryption_metadata={
                 "allow_clear_text": True,
                 "allow_duplicates": True,
@@ -536,15 +545,6 @@ class Collaboration(pulumi.CustomResource):
                 "display_name": "Other member",
                 "member_abilities": [],
             }],
-            name="pulumi-example-collaboration",
-            creator_member_abilities=[
-                "CAN_QUERY",
-                "CAN_RECEIVE_RESULTS",
-            ],
-            creator_display_name="Creator ",
-            description="I made this collaboration with Pulumi!",
-            query_log_status="DISABLED",
-            analytics_engine="SPARK",
             tags={
                 "Project": "Pulumi",
             })
@@ -588,9 +588,9 @@ class Collaboration(pulumi.CustomResource):
                  analytics_engine: pulumi.Input[Optional[_builtins.str]] = None,
                  creator_display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  creator_member_abilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_encryption_metadata: pulumi.Input[Optional[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict']]] = None,
+                 data_encryption_metadata: pulumi.Input[Optional[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict', 'outputs.CollaborationDataEncryptionMetadata']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CollaborationMemberArgs', 'CollaborationMemberArgsDict']]]]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CollaborationMemberArgs', 'CollaborationMemberArgsDict', 'outputs.CollaborationMember']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  query_log_status: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -641,9 +641,9 @@ class Collaboration(pulumi.CustomResource):
             create_time: pulumi.Input[Optional[_builtins.str]] = None,
             creator_display_name: pulumi.Input[Optional[_builtins.str]] = None,
             creator_member_abilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            data_encryption_metadata: pulumi.Input[Optional[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict']]] = None,
+            data_encryption_metadata: pulumi.Input[Optional[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict', 'outputs.CollaborationDataEncryptionMetadata']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CollaborationMemberArgs', 'CollaborationMemberArgsDict']]]]] = None,
+            members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CollaborationMemberArgs', 'CollaborationMemberArgsDict', 'outputs.CollaborationMember']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             query_log_status: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -662,9 +662,9 @@ class Collaboration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] create_time: Date and time the collaboration was created.
         :param pulumi.Input[_builtins.str] creator_display_name: Name for the member record for the collaboration creator.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] creator_member_abilities: List of member abilities for the creator of the collaboration. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
-        :param pulumi.Input[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict']] data_encryption_metadata: Collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration. See below.
+        :param pulumi.Input[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict', 'outputs.CollaborationDataEncryptionMetadata']] data_encryption_metadata: Collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration. See below.
         :param pulumi.Input[_builtins.str] description: Description for a collaboration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CollaborationMemberArgs', 'CollaborationMemberArgsDict']]]] members: Additional members of the collaboration which will be invited to join the collaboration. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CollaborationMemberArgs', 'CollaborationMemberArgsDict', 'outputs.CollaborationMember']]]] members: Additional members of the collaboration which will be invited to join the collaboration. See below.
         :param pulumi.Input[_builtins.str] name: Name of the collaboration.  Collaboration names do not need to be unique.
         :param pulumi.Input[_builtins.str] query_log_status: Whether members of the collaboration can enable query logs within their own memberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
                

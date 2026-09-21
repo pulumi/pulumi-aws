@@ -29,6 +29,12 @@ namespace Pulumi.Aws.Glue
     /// 
     ///     var exampleUserDefinedFunction = new Aws.Glue.UserDefinedFunction("example", new()
     ///     {
+    ///         Name = "my_func",
+    ///         CatalogId = example.CatalogId,
+    ///         DatabaseName = example.Name,
+    ///         ClassName = "class",
+    ///         OwnerName = "owner",
+    ///         OwnerType = "GROUP",
     ///         ResourceUris = new[]
     ///         {
     ///             new Aws.Glue.Inputs.UserDefinedFunctionResourceUriArgs
@@ -37,12 +43,6 @@ namespace Pulumi.Aws.Glue
     ///                 Uri = "uri",
     ///             },
     ///         },
-    ///         Name = "my_func",
-    ///         CatalogId = example.CatalogId,
-    ///         DatabaseName = example.Name,
-    ///         ClassName = "class",
-    ///         OwnerName = "owner",
-    ///         OwnerType = "GROUP",
     ///     });
     /// 
     /// });

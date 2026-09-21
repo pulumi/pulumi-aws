@@ -186,8 +186,8 @@ class VpcOrigin(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['VpcOriginTimeoutsArgs', 'VpcOriginTimeoutsArgsDict']]] = None,
-                 vpc_origin_endpoint_config: pulumi.Input[Optional[Union['VpcOriginVpcOriginEndpointConfigArgs', 'VpcOriginVpcOriginEndpointConfigArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['VpcOriginTimeoutsArgs', 'VpcOriginTimeoutsArgsDict', 'outputs.VpcOriginTimeouts']]] = None,
+                 vpc_origin_endpoint_config: pulumi.Input[Optional[Union['VpcOriginVpcOriginEndpointConfigArgs', 'VpcOriginVpcOriginEndpointConfigArgsDict', 'outputs.VpcOriginVpcOriginEndpointConfig']]] = None,
                  __props__=None):
         """
         Creates an Amazon CloudFront VPC origin.
@@ -206,15 +206,15 @@ class VpcOrigin(pulumi.CustomResource):
         import pulumi_aws as aws
 
         alb = aws.cloudfront.VpcOrigin("alb", vpc_origin_endpoint_config={
-            "origin_ssl_protocols": {
-                "items": ["TLSv1.2"],
-                "quantity": 1,
-            },
             "name": "example-vpc-origin",
             "arn": this["arn"],
             "http_port": 8080,
             "https_port": 8443,
             "origin_protocol_policy": "https-only",
+            "origin_ssl_protocols": {
+                "items": ["TLSv1.2"],
+                "quantity": 1,
+            },
         })
         ```
 
@@ -230,7 +230,7 @@ class VpcOrigin(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['VpcOriginVpcOriginEndpointConfigArgs', 'VpcOriginVpcOriginEndpointConfigArgsDict']] vpc_origin_endpoint_config: The VPC origin endpoint configuration.
+        :param pulumi.Input[Union['VpcOriginVpcOriginEndpointConfigArgs', 'VpcOriginVpcOriginEndpointConfigArgsDict', 'outputs.VpcOriginVpcOriginEndpointConfig']] vpc_origin_endpoint_config: The VPC origin endpoint configuration.
                
                The following arguments are optional:
         """
@@ -257,15 +257,15 @@ class VpcOrigin(pulumi.CustomResource):
         import pulumi_aws as aws
 
         alb = aws.cloudfront.VpcOrigin("alb", vpc_origin_endpoint_config={
-            "origin_ssl_protocols": {
-                "items": ["TLSv1.2"],
-                "quantity": 1,
-            },
             "name": "example-vpc-origin",
             "arn": this["arn"],
             "http_port": 8080,
             "https_port": 8443,
             "origin_protocol_policy": "https-only",
+            "origin_ssl_protocols": {
+                "items": ["TLSv1.2"],
+                "quantity": 1,
+            },
         })
         ```
 
@@ -294,8 +294,8 @@ class VpcOrigin(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['VpcOriginTimeoutsArgs', 'VpcOriginTimeoutsArgsDict']]] = None,
-                 vpc_origin_endpoint_config: pulumi.Input[Optional[Union['VpcOriginVpcOriginEndpointConfigArgs', 'VpcOriginVpcOriginEndpointConfigArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['VpcOriginTimeoutsArgs', 'VpcOriginTimeoutsArgsDict', 'outputs.VpcOriginTimeouts']]] = None,
+                 vpc_origin_endpoint_config: pulumi.Input[Optional[Union['VpcOriginVpcOriginEndpointConfigArgs', 'VpcOriginVpcOriginEndpointConfigArgsDict', 'outputs.VpcOriginVpcOriginEndpointConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -327,8 +327,8 @@ class VpcOrigin(pulumi.CustomResource):
             etag: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['VpcOriginTimeoutsArgs', 'VpcOriginTimeoutsArgsDict']]] = None,
-            vpc_origin_endpoint_config: pulumi.Input[Optional[Union['VpcOriginVpcOriginEndpointConfigArgs', 'VpcOriginVpcOriginEndpointConfigArgsDict']]] = None) -> 'VpcOrigin':
+            timeouts: pulumi.Input[Optional[Union['VpcOriginTimeoutsArgs', 'VpcOriginTimeoutsArgsDict', 'outputs.VpcOriginTimeouts']]] = None,
+            vpc_origin_endpoint_config: pulumi.Input[Optional[Union['VpcOriginVpcOriginEndpointConfigArgs', 'VpcOriginVpcOriginEndpointConfigArgsDict', 'outputs.VpcOriginVpcOriginEndpointConfig']]] = None) -> 'VpcOrigin':
         """
         Get an existing VpcOrigin resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -340,7 +340,7 @@ class VpcOrigin(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] etag: The current version of the origin.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['VpcOriginVpcOriginEndpointConfigArgs', 'VpcOriginVpcOriginEndpointConfigArgsDict']] vpc_origin_endpoint_config: The VPC origin endpoint configuration.
+        :param pulumi.Input[Union['VpcOriginVpcOriginEndpointConfigArgs', 'VpcOriginVpcOriginEndpointConfigArgsDict', 'outputs.VpcOriginVpcOriginEndpointConfig']] vpc_origin_endpoint_config: The VPC origin endpoint configuration.
                
                The following arguments are optional:
         """

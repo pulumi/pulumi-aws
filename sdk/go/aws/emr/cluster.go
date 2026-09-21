@@ -31,27 +31,43 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
-//				Ec2Attributes: &emr.ClusterEc2AttributesArgs{
-//					SubnetId:                      pulumi.Any(main.Id),
-//					EmrManagedMasterSecurityGroup: pulumi.Any(sg.Id),
-//					EmrManagedSlaveSecurityGroup:  pulumi.Any(sg.Id),
-//					InstanceProfile:               pulumi.Any(emrProfile.Arn),
+//				Name:         pulumi.String("emr-test-arn"),
+//				ReleaseLabel: pulumi.String("emr-4.6.0"),
+//				Applications: pulumi.StringArray{
+//					pulumi.String("Spark"),
 //				},
-//				MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
-//					InstanceType: pulumi.String("m4.large"),
-//				},
-//				CoreInstanceGroup: &emr.ClusterCoreInstanceGroupArgs{
-//					EbsConfigs: emr.ClusterCoreInstanceGroupEbsConfigArray{
-//						&emr.ClusterCoreInstanceGroupEbsConfigArgs{
-//							Size:               pulumi.Int(40),
-//							Type:               pulumi.String("gp2"),
-//							VolumesPerInstance: pulumi.Int(1),
-//						},
-//					},
-//					InstanceType:  pulumi.String("c4.large"),
-//					InstanceCount: pulumi.Int(1),
-//					BidPrice:      pulumi.String("0.30"),
-//					AutoscalingPolicy: pulumi.String(`{
+//				AdditionalInfo: pulumi.String(`{
+//	  \"instanceAwsClientConfiguration\": {
+//	    \"proxyPort\": 8099,
+//	    \"proxyHost\": \"myproxy.example.com\"
+//	  }
+//	}
+//
+// `),
+//
+//	TerminationProtection:       pulumi.Bool(false),
+//	KeepJobFlowAliveWhenNoSteps: pulumi.Bool(true),
+//	Ec2Attributes: &emr.ClusterEc2AttributesArgs{
+//		SubnetId:                      pulumi.Any(main.Id),
+//		EmrManagedMasterSecurityGroup: pulumi.Any(sg.Id),
+//		EmrManagedSlaveSecurityGroup:  pulumi.Any(sg.Id),
+//		InstanceProfile:               pulumi.Any(emrProfile.Arn),
+//	},
+//	MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
+//		InstanceType: pulumi.String("m4.large"),
+//	},
+//	CoreInstanceGroup: &emr.ClusterCoreInstanceGroupArgs{
+//		InstanceType:  pulumi.String("c4.large"),
+//		InstanceCount: pulumi.Int(1),
+//		EbsConfigs: emr.ClusterCoreInstanceGroupEbsConfigArray{
+//			&emr.ClusterCoreInstanceGroupEbsConfigArgs{
+//				Size:               pulumi.Int(40),
+//				Type:               pulumi.String("gp2"),
+//				VolumesPerInstance: pulumi.Int(1),
+//			},
+//		},
+//		BidPrice: pulumi.String("0.30"),
+//		AutoscalingPolicy: pulumi.String(`{
 //
 //	\"Constraints\": {
 //	  \"MinCapacity\": 1,
@@ -89,6 +105,11 @@ import (
 // `),
 //
 //				},
+//				EbsRootVolumeSize: pulumi.Int(100),
+//				Tags: pulumi.StringMap{
+//					"role": pulumi.String("rolename"),
+//					"env":  pulumi.String("env"),
+//				},
 //				BootstrapActions: emr.ClusterBootstrapActionArray{
 //					&emr.ClusterBootstrapActionArgs{
 //						Path: pulumi.String("s3://elasticmapreduce/bootstrap-actions/run-if"),
@@ -98,27 +119,6 @@ import (
 //							pulumi.String("echo running on master node"),
 //						},
 //					},
-//				},
-//				Name:         pulumi.String("emr-test-arn"),
-//				ReleaseLabel: pulumi.String("emr-4.6.0"),
-//				Applications: pulumi.StringArray{
-//					pulumi.String("Spark"),
-//				},
-//				AdditionalInfo: pulumi.String(`{
-//	  \"instanceAwsClientConfiguration\": {
-//	    \"proxyPort\": 8099,
-//	    \"proxyHost\": \"myproxy.example.com\"
-//	  }
-//	}
-//
-// `),
-//
-//				TerminationProtection:       pulumi.Bool(false),
-//				KeepJobFlowAliveWhenNoSteps: pulumi.Bool(true),
-//				EbsRootVolumeSize:           pulumi.Int(100),
-//				Tags: pulumi.StringMap{
-//					"role": pulumi.String("rolename"),
-//					"env":  pulumi.String("env"),
 //				},
 //				ConfigurationsJson: pulumi.String(`  [
 //	    {
@@ -188,6 +188,44 @@ import (
 //					TargetOnDemandCapacity: pulumi.Int(1),
 //				},
 //				CoreInstanceFleet: &emr.ClusterCoreInstanceFleetArgs{
+//					InstanceTypeConfigs: emr.ClusterCoreInstanceFleetInstanceTypeConfigArray{
+//						&emr.ClusterCoreInstanceFleetInstanceTypeConfigArgs{
+//							BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(80),
+//							EbsConfigs: emr.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArray{
+//								&emr.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs{
+//									Size:               pulumi.Int(100),
+//									Type:               pulumi.String("gp2"),
+//									VolumesPerInstance: pulumi.Int(1),
+//								},
+//							},
+//							InstanceType:     pulumi.String("m3.xlarge"),
+//							WeightedCapacity: pulumi.Int(1),
+//						},
+//						&emr.ClusterCoreInstanceFleetInstanceTypeConfigArgs{
+//							BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
+//							EbsConfigs: emr.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArray{
+//								&emr.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs{
+//									Size:               pulumi.Int(100),
+//									Type:               pulumi.String("gp2"),
+//									VolumesPerInstance: pulumi.Int(1),
+//								},
+//							},
+//							InstanceType:     pulumi.String("m4.xlarge"),
+//							WeightedCapacity: pulumi.Int(1),
+//						},
+//						&emr.ClusterCoreInstanceFleetInstanceTypeConfigArgs{
+//							BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
+//							EbsConfigs: emr.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArray{
+//								&emr.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs{
+//									Size:               pulumi.Int(100),
+//									Type:               pulumi.String("gp2"),
+//									VolumesPerInstance: pulumi.Int(1),
+//								},
+//							},
+//							InstanceType:     pulumi.String("m4.2xlarge"),
+//							WeightedCapacity: pulumi.Int(2),
+//						},
+//					},
 //					LaunchSpecifications: &emr.ClusterCoreInstanceFleetLaunchSpecificationsArgs{
 //						SpotSpecifications: emr.ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArray{
 //							&emr.ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs{
@@ -196,44 +234,6 @@ import (
 //								TimeoutAction:          pulumi.String("SWITCH_TO_ON_DEMAND"),
 //								TimeoutDurationMinutes: pulumi.Int(10),
 //							},
-//						},
-//					},
-//					InstanceTypeConfigs: emr.ClusterCoreInstanceFleetInstanceTypeConfigArray{
-//						&emr.ClusterCoreInstanceFleetInstanceTypeConfigArgs{
-//							EbsConfigs: emr.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArray{
-//								&emr.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs{
-//									Size:               pulumi.Int(100),
-//									Type:               pulumi.String("gp2"),
-//									VolumesPerInstance: pulumi.Int(1),
-//								},
-//							},
-//							BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(80),
-//							InstanceType:                        pulumi.String("m3.xlarge"),
-//							WeightedCapacity:                    pulumi.Int(1),
-//						},
-//						&emr.ClusterCoreInstanceFleetInstanceTypeConfigArgs{
-//							EbsConfigs: emr.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArray{
-//								&emr.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs{
-//									Size:               pulumi.Int(100),
-//									Type:               pulumi.String("gp2"),
-//									VolumesPerInstance: pulumi.Int(1),
-//								},
-//							},
-//							BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
-//							InstanceType:                        pulumi.String("m4.xlarge"),
-//							WeightedCapacity:                    pulumi.Int(1),
-//						},
-//						&emr.ClusterCoreInstanceFleetInstanceTypeConfigArgs{
-//							EbsConfigs: emr.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArray{
-//								&emr.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs{
-//									Size:               pulumi.Int(100),
-//									Type:               pulumi.String("gp2"),
-//									VolumesPerInstance: pulumi.Int(1),
-//								},
-//							},
-//							BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
-//							InstanceType:                        pulumi.String("m4.2xlarge"),
-//							WeightedCapacity:                    pulumi.Int(2),
 //						},
 //					},
 //					Name:                   pulumi.String("core fleet"),
@@ -245,6 +245,33 @@ import (
 //				return err
 //			}
 //			_, err = emr.NewInstanceFleet(ctx, "task", &emr.InstanceFleetArgs{
+//				ClusterId: example.ID().ToIDOutput().ToStringOutput(),
+//				InstanceTypeConfigs: emr.InstanceFleetInstanceTypeConfigArray{
+//					&emr.InstanceFleetInstanceTypeConfigArgs{
+//						BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
+//						EbsConfigs: emr.InstanceFleetInstanceTypeConfigEbsConfigArray{
+//							&emr.InstanceFleetInstanceTypeConfigEbsConfigArgs{
+//								Size:               pulumi.Int(100),
+//								Type:               pulumi.String("gp2"),
+//								VolumesPerInstance: pulumi.Int(1),
+//							},
+//						},
+//						InstanceType:     pulumi.String("m4.xlarge"),
+//						WeightedCapacity: pulumi.Int(1),
+//					},
+//					&emr.InstanceFleetInstanceTypeConfigArgs{
+//						BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
+//						EbsConfigs: emr.InstanceFleetInstanceTypeConfigEbsConfigArray{
+//							&emr.InstanceFleetInstanceTypeConfigEbsConfigArgs{
+//								Size:               pulumi.Int(100),
+//								Type:               pulumi.String("gp2"),
+//								VolumesPerInstance: pulumi.Int(1),
+//							},
+//						},
+//						InstanceType:     pulumi.String("m4.2xlarge"),
+//						WeightedCapacity: pulumi.Int(2),
+//					},
+//				},
 //				LaunchSpecifications: &emr.InstanceFleetLaunchSpecificationsArgs{
 //					SpotSpecifications: emr.InstanceFleetLaunchSpecificationsSpotSpecificationArray{
 //						&emr.InstanceFleetLaunchSpecificationsSpotSpecificationArgs{
@@ -255,33 +282,6 @@ import (
 //						},
 //					},
 //				},
-//				InstanceTypeConfigs: emr.InstanceFleetInstanceTypeConfigArray{
-//					&emr.InstanceFleetInstanceTypeConfigArgs{
-//						EbsConfigs: emr.InstanceFleetInstanceTypeConfigEbsConfigArray{
-//							&emr.InstanceFleetInstanceTypeConfigEbsConfigArgs{
-//								Size:               pulumi.Int(100),
-//								Type:               pulumi.String("gp2"),
-//								VolumesPerInstance: pulumi.Int(1),
-//							},
-//						},
-//						BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
-//						InstanceType:                        pulumi.String("m4.xlarge"),
-//						WeightedCapacity:                    pulumi.Int(1),
-//					},
-//					&emr.InstanceFleetInstanceTypeConfigArgs{
-//						EbsConfigs: emr.InstanceFleetInstanceTypeConfigEbsConfigArray{
-//							&emr.InstanceFleetInstanceTypeConfigEbsConfigArgs{
-//								Size:               pulumi.Int(100),
-//								Type:               pulumi.String("gp2"),
-//								VolumesPerInstance: pulumi.Int(1),
-//							},
-//						},
-//						BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
-//						InstanceType:                        pulumi.String("m4.2xlarge"),
-//						WeightedCapacity:                    pulumi.Int(2),
-//					},
-//				},
-//				ClusterId:              example.ID().ToIDOutput().ToStringOutput(),
 //				Name:                   pulumi.String("task fleet"),
 //				TargetOnDemandCapacity: pulumi.Int(1),
 //				TargetSpotCapacity:     pulumi.Int(1),
@@ -314,19 +314,17 @@ import (
 //			_, err := emr.NewCluster(ctx, "example", &emr.ClusterArgs{
 //				Steps: emr.ClusterStepArray{
 //					&emr.ClusterStepArgs{
+//						ActionOnFailure: pulumi.String("TERMINATE_CLUSTER"),
+//						Name:            pulumi.String("Setup Hadoop Debugging"),
 //						HadoopJarStep: &emr.ClusterStepHadoopJarStepArgs{
 //							Jar: pulumi.String("command-runner.jar"),
 //							Args: pulumi.StringArray{
 //								pulumi.String("state-pusher-script"),
 //							},
 //						},
-//						ActionOnFailure: pulumi.String("TERMINATE_CLUSTER"),
-//						Name:            pulumi.String("Setup Hadoop Debugging"),
 //					},
 //				},
-//			}, pulumi.IgnoreChanges([]string{
-//				"steps",
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -363,15 +361,15 @@ import (
 //				return err
 //			}
 //			_, err = emr.NewCluster(ctx, "example", &emr.ClusterArgs{
+//				ReleaseLabel:          pulumi.String("emr-5.24.1"),
+//				TerminationProtection: pulumi.Bool(true),
 //				Ec2Attributes: &emr.ClusterEc2AttributesArgs{
 //					SubnetId: example.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
 //					InstanceCount: pulumi.Int(3),
 //				},
-//				CoreInstanceGroup:     &emr.ClusterCoreInstanceGroupArgs{},
-//				ReleaseLabel:          pulumi.String("emr-5.24.1"),
-//				TerminationProtection: pulumi.Bool(true),
+//				CoreInstanceGroup: &emr.ClusterCoreInstanceGroupArgs{},
 //			})
 //			if err != nil {
 //				return err
@@ -404,9 +402,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emr.NewCluster(ctx, "example", nil, pulumi.IgnoreChanges([]string{
-//				"kerberosAttributes",
-//			}))
+//			_, err := emr.NewCluster(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}

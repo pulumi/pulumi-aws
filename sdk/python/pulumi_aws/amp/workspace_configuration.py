@@ -265,12 +265,12 @@ class WorkspaceConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 limits_per_label_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceConfigurationLimitsPerLabelSetArgs', 'WorkspaceConfigurationLimitsPerLabelSetArgsDict']]]]] = None,
+                 limits_per_label_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceConfigurationLimitsPerLabelSetArgs', 'WorkspaceConfigurationLimitsPerLabelSetArgsDict', 'outputs.WorkspaceConfigurationLimitsPerLabelSet']]]]] = None,
                  out_of_order_time_window_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  rule_query_offset_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-                 timeouts: pulumi.Input[Optional[Union['WorkspaceConfigurationTimeoutsArgs', 'WorkspaceConfigurationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['WorkspaceConfigurationTimeoutsArgs', 'WorkspaceConfigurationTimeoutsArgsDict', 'outputs.WorkspaceConfigurationTimeouts']]] = None,
                  workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -286,26 +286,26 @@ class WorkspaceConfiguration(pulumi.CustomResource):
 
         example = aws.amp.Workspace("example")
         example_workspace_configuration = aws.amp.WorkspaceConfiguration("example",
+            workspace_id=example.id,
+            retention_period_in_days=60,
             limits_per_label_sets=[
                 {
-                    "limits": {
-                        "max_series": 100000,
-                    },
                     "label_set": {
                         "env": "dev",
                     },
+                    "limits": {
+                        "max_series": 100000,
+                    },
                 },
                 {
-                    "limits": {
-                        "max_series": 400000,
-                    },
                     "label_set": {
                         "env": "prod",
                     },
+                    "limits": {
+                        "max_series": 400000,
+                    },
                 },
-            ],
-            workspace_id=example.id,
-            retention_period_in_days=60)
+            ])
         ```
 
         ### Setting up default bucket
@@ -320,13 +320,13 @@ class WorkspaceConfiguration(pulumi.CustomResource):
 
         example = aws.amp.Workspace("example")
         example_workspace_configuration = aws.amp.WorkspaceConfiguration("example",
+            workspace_id=example.id,
             limits_per_label_sets=[{
+                "label_set": {},
                 "limits": {
                     "max_series": 50000,
                 },
-                "label_set": {},
-            }],
-            workspace_id=example.id)
+            }])
         ```
 
         ### With out-of-order and rule query configuration
@@ -354,7 +354,7 @@ class WorkspaceConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceConfigurationLimitsPerLabelSetArgs', 'WorkspaceConfigurationLimitsPerLabelSetArgsDict']]]] limits_per_label_sets: Configuration block for setting limits on metrics with specific label sets. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceConfigurationLimitsPerLabelSetArgs', 'WorkspaceConfigurationLimitsPerLabelSetArgsDict', 'outputs.WorkspaceConfigurationLimitsPerLabelSet']]]] limits_per_label_sets: Configuration block for setting limits on metrics with specific label sets. Detailed below.
         :param pulumi.Input[_builtins.int] out_of_order_time_window_in_seconds: Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] retention_period_in_days: Number of days to retain metric data in the workspace.
@@ -382,26 +382,26 @@ class WorkspaceConfiguration(pulumi.CustomResource):
 
         example = aws.amp.Workspace("example")
         example_workspace_configuration = aws.amp.WorkspaceConfiguration("example",
+            workspace_id=example.id,
+            retention_period_in_days=60,
             limits_per_label_sets=[
                 {
-                    "limits": {
-                        "max_series": 100000,
-                    },
                     "label_set": {
                         "env": "dev",
                     },
+                    "limits": {
+                        "max_series": 100000,
+                    },
                 },
                 {
-                    "limits": {
-                        "max_series": 400000,
-                    },
                     "label_set": {
                         "env": "prod",
                     },
+                    "limits": {
+                        "max_series": 400000,
+                    },
                 },
-            ],
-            workspace_id=example.id,
-            retention_period_in_days=60)
+            ])
         ```
 
         ### Setting up default bucket
@@ -416,13 +416,13 @@ class WorkspaceConfiguration(pulumi.CustomResource):
 
         example = aws.amp.Workspace("example")
         example_workspace_configuration = aws.amp.WorkspaceConfiguration("example",
+            workspace_id=example.id,
             limits_per_label_sets=[{
+                "label_set": {},
                 "limits": {
                     "max_series": 50000,
                 },
-                "label_set": {},
-            }],
-            workspace_id=example.id)
+            }])
         ```
 
         ### With out-of-order and rule query configuration
@@ -463,12 +463,12 @@ class WorkspaceConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 limits_per_label_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceConfigurationLimitsPerLabelSetArgs', 'WorkspaceConfigurationLimitsPerLabelSetArgsDict']]]]] = None,
+                 limits_per_label_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceConfigurationLimitsPerLabelSetArgs', 'WorkspaceConfigurationLimitsPerLabelSetArgsDict', 'outputs.WorkspaceConfigurationLimitsPerLabelSet']]]]] = None,
                  out_of_order_time_window_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  rule_query_offset_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-                 timeouts: pulumi.Input[Optional[Union['WorkspaceConfigurationTimeoutsArgs', 'WorkspaceConfigurationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['WorkspaceConfigurationTimeoutsArgs', 'WorkspaceConfigurationTimeoutsArgsDict', 'outputs.WorkspaceConfigurationTimeouts']]] = None,
                  workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -498,12 +498,12 @@ class WorkspaceConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            limits_per_label_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceConfigurationLimitsPerLabelSetArgs', 'WorkspaceConfigurationLimitsPerLabelSetArgsDict']]]]] = None,
+            limits_per_label_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceConfigurationLimitsPerLabelSetArgs', 'WorkspaceConfigurationLimitsPerLabelSetArgsDict', 'outputs.WorkspaceConfigurationLimitsPerLabelSet']]]]] = None,
             out_of_order_time_window_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             retention_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
             rule_query_offset_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-            timeouts: pulumi.Input[Optional[Union['WorkspaceConfigurationTimeoutsArgs', 'WorkspaceConfigurationTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['WorkspaceConfigurationTimeoutsArgs', 'WorkspaceConfigurationTimeoutsArgsDict', 'outputs.WorkspaceConfigurationTimeouts']]] = None,
             workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkspaceConfiguration':
         """
         Get an existing WorkspaceConfiguration resource's state with the given name, id, and optional extra
@@ -512,7 +512,7 @@ class WorkspaceConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceConfigurationLimitsPerLabelSetArgs', 'WorkspaceConfigurationLimitsPerLabelSetArgsDict']]]] limits_per_label_sets: Configuration block for setting limits on metrics with specific label sets. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceConfigurationLimitsPerLabelSetArgs', 'WorkspaceConfigurationLimitsPerLabelSetArgsDict', 'outputs.WorkspaceConfigurationLimitsPerLabelSet']]]] limits_per_label_sets: Configuration block for setting limits on metrics with specific label sets. Detailed below.
         :param pulumi.Input[_builtins.int] out_of_order_time_window_in_seconds: Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] retention_period_in_days: Number of days to retain metric data in the workspace.

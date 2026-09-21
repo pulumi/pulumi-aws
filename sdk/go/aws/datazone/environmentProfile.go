@@ -40,25 +40,6 @@ import (
 //				"Statement": []map[string]interface{}{
 //					map[string]interface{}{
 //						"Action": []string{
-//							"datazone:*",
-//							"ram:*",
-//							"sso:*",
-//							"kms:*",
-//						},
-//						"Effect":   "Allow",
-//						"Resource": "*",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			tmpJSON1, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
 //							"sts:AssumeRole",
 //							"sts:TagSession",
 //						},
@@ -82,16 +63,35 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			json0 := string(tmpJSON0)
+//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Action": []string{
+//							"datazone:*",
+//							"ram:*",
+//							"sso:*",
+//							"kms:*",
+//						},
+//						"Effect":   "Allow",
+//						"Resource": "*",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			json1 := string(tmpJSON1)
 //			domainExecutionRole, err := iam.NewRole(ctx, "domain_execution_role", &iam.RoleArgs{
+//				Name:             pulumi.String("example-name"),
+//				AssumeRolePolicy: pulumi.String(json0),
 //				InlinePolicies: iam.RoleInlinePolicyArray{
 //					&iam.RoleInlinePolicyArgs{
 //						Name:   pulumi.String("example-name"),
-//						Policy: pulumi.String(json0),
+//						Policy: pulumi.String(json1),
 //					},
 //				},
-//				Name:             pulumi.String("example-name"),
-//				AssumeRolePolicy: pulumi.String(json1),
 //			})
 //			if err != nil {
 //				return err
@@ -146,12 +146,6 @@ import (
 //				return err
 //			}
 //			_, err = datazone.NewEnvironmentProfile(ctx, "test", &datazone.EnvironmentProfileArgs{
-//				UserParameters: datazone.EnvironmentProfileUserParameterArray{
-//					&datazone.EnvironmentProfileUserParameterArgs{
-//						Name:  pulumi.String("consumerGlueDbName"),
-//						Value: pulumi.String("value"),
-//					},
-//				},
 //				AwsAccountId:                   pulumi.String(test.AccountId),
 //				AwsAccountRegion:               pulumi.String(testGetRegion.Region),
 //				Description:                    pulumi.String("description"),
@@ -159,6 +153,12 @@ import (
 //				Name:                           pulumi.String("example-name"),
 //				ProjectIdentifier:              testProject.ID().ToIDOutput().ToStringOutput(),
 //				DomainIdentifier:               testDomain.ID().ToIDOutput().ToStringOutput(),
+//				UserParameters: datazone.EnvironmentProfileUserParameterArray{
+//					&datazone.EnvironmentProfileUserParameterArgs{
+//						Name:  pulumi.String("consumerGlueDbName"),
+//						Value: pulumi.String("value"),
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err

@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
  * const primary = new aws.s3.Bucket("primary", {bucket: "example-bucket-primary"});
  * const secondary = new aws.s3.Bucket("secondary", {bucket: "example-bucket-secondary"});
  * const example = new aws.s3control.MultiRegionAccessPoint("example", {details: {
+ *     name: "example",
  *     regions: [
  *         {
  *             bucket: primary.bucket,
@@ -31,9 +32,9 @@ import * as utilities from "../utilities";
  *             bucket: secondary.bucket,
  *         },
  *     ],
- *     name: "example",
  * }});
  * const exampleMultiRegionAccessPointRoutes = new aws.s3control.MultiRegionAccessPointRoutes("example", {
+ *     mrap: example.arn,
  *     routes: [
  *         {
  *             bucket: primary.bucket,
@@ -46,7 +47,6 @@ import * as utilities from "../utilities";
  *             trafficDialPercentage: 100,
  *         },
  *     ],
- *     mrap: example.arn,
  * });
  * ```
  *
@@ -57,6 +57,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3control.MultiRegionAccessPointRoutes("example", {
+ *     mrap: exampleAwsS3controlMultiRegionAccessPoint.arn,
  *     routes: [
  *         {
  *             bucket: primary.bucket,
@@ -69,7 +70,6 @@ import * as utilities from "../utilities";
  *             trafficDialPercentage: 100,
  *         },
  *     ],
- *     mrap: exampleAwsS3controlMultiRegionAccessPoint.arn,
  * });
  * ```
  *

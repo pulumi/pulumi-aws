@@ -35,6 +35,10 @@ import (
 //			gatewayAssume, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -42,10 +46,6 @@ import (
 //									"bedrock-agentcore.amazonaws.com",
 //								},
 //							},
-//						},
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"sts:AssumeRole",
 //						},
 //					},
 //				},
@@ -63,6 +63,10 @@ import (
 //			lambdaAssume, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -70,10 +74,6 @@ import (
 //									"lambda.amazonaws.com",
 //								},
 //							},
-//						},
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"sts:AssumeRole",
 //						},
 //					},
 //				},
@@ -99,28 +99,36 @@ import (
 //				return err
 //			}
 //			exampleAgentcoreGateway, err := bedrock.NewAgentcoreGateway(ctx, "example", &bedrock.AgentcoreGatewayArgs{
+//				Name:    pulumi.String("example-gateway"),
+//				RoleArn: gatewayRole.Arn,
 //				AuthorizerConfiguration: &bedrock.AgentcoreGatewayAuthorizerConfigurationArgs{
 //					CustomJwtAuthorizer: &bedrock.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs{
 //						DiscoveryUrl: pulumi.String("https://accounts.google.com/.well-known/openid-configuration"),
 //					},
 //				},
-//				Name:    pulumi.String("example-gateway"),
-//				RoleArn: gatewayRole.Arn,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = bedrock.NewAgentcoreGatewayTarget(ctx, "example", &bedrock.AgentcoreGatewayTargetArgs{
+//				Name:              pulumi.String("example-target"),
+//				GatewayIdentifier: exampleAgentcoreGateway.GatewayId,
+//				Description:       pulumi.String("Lambda function target for processing requests"),
 //				CredentialProviderConfiguration: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationArgs{
 //					GatewayIamRole: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs{},
 //				},
 //				TargetConfiguration: &bedrock.AgentcoreGatewayTargetTargetConfigurationArgs{
 //					Mcp: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpArgs{
 //						Lambda: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs{
+//							LambdaArn: example.Arn,
 //							ToolSchema: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs{
 //								InlinePayloads: bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArray{
 //									&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs{
+//										Name:        pulumi.String("process_request"),
+//										Description: pulumi.String("Process incoming requests"),
 //										InputSchema: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs{
+//											Type:        pulumi.String("object"),
+//											Description: pulumi.String("Request processing schema"),
 //											Properties: bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArray{
 //												&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs{
 //													Name:        pulumi.String("message"),
@@ -129,29 +137,28 @@ import (
 //													Required:    pulumi.Bool(true),
 //												},
 //												&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs{
+//													Name: pulumi.String("options"),
+//													Type: pulumi.String("object"),
 //													Properties: bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArray{
 //														&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs{
 //															Name: pulumi.String("priority"),
 //															Type: pulumi.String("string"),
 //														},
 //														&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs{
+//															Name: pulumi.String("tags"),
+//															Type: pulumi.String("array"),
 //															Items: []map[string]string{
 //																{
 //																	"type": "string",
 //																},
 //															},
-//															Name: pulumi.String("tags"),
-//															Type: pulumi.String("array"),
 //														},
 //													},
-//													Name: pulumi.String("options"),
-//													Type: pulumi.String("object"),
 //												},
 //											},
-//											Type:        pulumi.String("object"),
-//											Description: pulumi.String("Request processing schema"),
 //										},
 //										OutputSchema: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs{
+//											Type: pulumi.String("object"),
 //											Properties: bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArray{
 //												&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgs{
 //													Name:     pulumi.String("status"),
@@ -163,20 +170,13 @@ import (
 //													Type: pulumi.String("string"),
 //												},
 //											},
-//											Type: pulumi.String("object"),
 //										},
-//										Name:        pulumi.String("process_request"),
-//										Description: pulumi.String("Process incoming requests"),
 //									},
 //								},
 //							},
-//							LambdaArn: example.Arn,
 //						},
 //					},
 //				},
-//				Name:              pulumi.String("example-target"),
-//				GatewayIdentifier: exampleAgentcoreGateway.GatewayId,
-//				Description:       pulumi.String("Lambda function target for processing requests"),
 //			})
 //			if err != nil {
 //				return err
@@ -202,6 +202,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreGatewayTarget(ctx, "api_key_example", &bedrock.AgentcoreGatewayTargetArgs{
+//				Name:              pulumi.String("api-target"),
+//				GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
+//				Description:       pulumi.String("External API target with API key authentication"),
 //				CredentialProviderConfiguration: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationArgs{
 //					ApiKey: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs{
 //						ProviderArn:             pulumi.String("arn:aws:iam::123456789012:oidc-provider/example.com"),
@@ -213,25 +216,22 @@ import (
 //				TargetConfiguration: &bedrock.AgentcoreGatewayTargetTargetConfigurationArgs{
 //					Mcp: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpArgs{
 //						Lambda: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs{
+//							LambdaArn: pulumi.Any(example.Arn),
 //							ToolSchema: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs{
 //								InlinePayloads: bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArray{
 //									&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs{
+//										Name:        pulumi.String("api_tool"),
+//										Description: pulumi.String("External API integration tool"),
 //										InputSchema: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs{
 //											Type:        pulumi.String("string"),
 //											Description: pulumi.String("Simple string input for API calls"),
 //										},
-//										Name:        pulumi.String("api_tool"),
-//										Description: pulumi.String("External API integration tool"),
 //									},
 //								},
 //							},
-//							LambdaArn: pulumi.Any(example.Arn),
 //						},
 //					},
 //				},
-//				Name:              pulumi.String("api-target"),
-//				GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
-//				Description:       pulumi.String("External API target with API key authentication"),
 //			})
 //			if err != nil {
 //				return err
@@ -257,6 +257,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreGatewayTarget(ctx, "oauth_example", &bedrock.AgentcoreGatewayTargetArgs{
+//				Name:              pulumi.String("oauth-target"),
+//				GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
 //				CredentialProviderConfiguration: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationArgs{
 //					Oauth: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs{
 //						ProviderArn: pulumi.String("arn:aws:iam::123456789012:oidc-provider/oauth.example.com"),
@@ -274,11 +276,16 @@ import (
 //				TargetConfiguration: &bedrock.AgentcoreGatewayTargetTargetConfigurationArgs{
 //					Mcp: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpArgs{
 //						Lambda: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs{
+//							LambdaArn: pulumi.Any(example.Arn),
 //							ToolSchema: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs{
 //								InlinePayloads: bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArray{
 //									&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs{
+//										Name:        pulumi.String("oauth_tool"),
+//										Description: pulumi.String("OAuth-authenticated service"),
 //										InputSchema: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs{
+//											Type: pulumi.String("array"),
 //											Items: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs{
+//												Type: pulumi.String("object"),
 //												Properties: bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArray{
 //													&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs{
 //														Name:     pulumi.String("id"),
@@ -290,21 +297,14 @@ import (
 //														Type: pulumi.String("number"),
 //													},
 //												},
-//												Type: pulumi.String("object"),
 //											},
-//											Type: pulumi.String("array"),
 //										},
-//										Name:        pulumi.String("oauth_tool"),
-//										Description: pulumi.String("OAuth-authenticated service"),
 //									},
 //								},
 //							},
-//							LambdaArn: pulumi.Any(example.Arn),
 //						},
 //					},
 //				},
-//				Name:              pulumi.String("oauth-target"),
-//				GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
 //			})
 //			if err != nil {
 //				return err
@@ -332,6 +332,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreGatewayTarget(ctx, "sigv4_example", &bedrock.AgentcoreGatewayTargetArgs{
+//				Name:              pulumi.String("sigv4-target"),
+//				GatewayIdentifier: pulumi.Any(example.GatewayId),
 //				CredentialProviderConfiguration: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationArgs{
 //					GatewayIamRole: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs{
 //						Service: pulumi.String("bedrock-agentcore"),
@@ -344,8 +346,6 @@ import (
 //						},
 //					},
 //				},
-//				Name:              pulumi.String("sigv4-target"),
-//				GatewayIdentifier: pulumi.Any(example.GatewayId),
 //			})
 //			if err != nil {
 //				return err
@@ -397,18 +397,26 @@ import (
 //			}
 //			json1 := string(tmpJSON1)
 //			_, err = bedrock.NewAgentcoreGatewayTarget(ctx, "complex_schema", &bedrock.AgentcoreGatewayTargetArgs{
+//				Name:              pulumi.String("complex-target"),
+//				GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
 //				CredentialProviderConfiguration: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationArgs{
 //					GatewayIamRole: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs{},
 //				},
 //				TargetConfiguration: &bedrock.AgentcoreGatewayTargetTargetConfigurationArgs{
 //					Mcp: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpArgs{
 //						Lambda: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs{
+//							LambdaArn: pulumi.Any(example.Arn),
 //							ToolSchema: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs{
 //								InlinePayloads: bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArray{
 //									&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs{
+//										Name:        pulumi.String("complex_tool"),
+//										Description: pulumi.String("Tool with complex nested schema"),
 //										InputSchema: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs{
+//											Type: pulumi.String("object"),
 //											Properties: bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArray{
 //												&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs{
+//													Name: pulumi.String("profile"),
+//													Type: pulumi.String("object"),
 //													Properties: bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArray{
 //														&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs{
 //															Name:      pulumi.String("nested_tags"),
@@ -421,23 +429,15 @@ import (
 //															PropertiesJson: pulumi.String(json1),
 //														},
 //													},
-//													Name: pulumi.String("profile"),
-//													Type: pulumi.String("object"),
 //												},
 //											},
-//											Type: pulumi.String("object"),
 //										},
-//										Name:        pulumi.String("complex_tool"),
-//										Description: pulumi.String("Tool with complex nested schema"),
 //									},
 //								},
 //							},
-//							LambdaArn: pulumi.Any(example.Arn),
 //						},
 //					},
 //				},
-//				Name:              pulumi.String("complex-target"),
-//				GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
 //			})
 //			if err != nil {
 //				return err
@@ -463,6 +463,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreGatewayTarget(ctx, "mcp_with_headers", &bedrock.AgentcoreGatewayTargetArgs{
+//				Name:              pulumi.String("mcp-target-with-headers"),
+//				GatewayIdentifier: pulumi.Any(example.GatewayId),
+//				Description:       pulumi.String("MCP server target with header propagation"),
 //				TargetConfiguration: &bedrock.AgentcoreGatewayTargetTargetConfigurationArgs{
 //					Mcp: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpArgs{
 //						McpServer: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs{
@@ -482,9 +485,6 @@ import (
 //						pulumi.String("version"),
 //					},
 //				},
-//				Name:              pulumi.String("mcp-target-with-headers"),
-//				GatewayIdentifier: pulumi.Any(example.GatewayId),
-//				Description:       pulumi.String("MCP server target with header propagation"),
 //			})
 //			if err != nil {
 //				return err
@@ -509,6 +509,8 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := bedrock.NewAgentcoreGatewayTarget(ctx, "example", &bedrock.AgentcoreGatewayTargetArgs{
+// GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
+// Name: pulumi.String("my-private-mcp-target"),
 // TargetConfiguration: &bedrock.AgentcoreGatewayTargetTargetConfigurationArgs{
 // Mcp: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpArgs{
 // McpServer: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs{
@@ -519,15 +521,13 @@ import (
 // PrivateEndpoint: &bedrock.AgentcoreGatewayTargetPrivateEndpointArgs{
 // ManagedVpcResource: &bedrock.AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgs{
 // VpcIdentifier: pulumi.Any(exampleAwsVpc.Id),
-// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:13,31-53)),
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:15,31-53)),
 // EndpointIpAddressType: pulumi.String("IPV4"),
 // SecurityGroupIds: pulumi.StringArray{
 // mcpLattice.Id,
 // },
 // },
 // },
-// GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
-// Name: pulumi.String("my-private-mcp-target"),
 // })
 // if err != nil {
 // return err
@@ -553,6 +553,8 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := bedrock.NewAgentcoreGatewayTarget(ctx, "example", &bedrock.AgentcoreGatewayTargetArgs{
+// GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
+// Name: pulumi.String("my-private-mcp-via-alb"),
 // TargetConfiguration: &bedrock.AgentcoreGatewayTargetTargetConfigurationArgs{
 // Mcp: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpArgs{
 // McpServer: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs{
@@ -563,13 +565,11 @@ import (
 // PrivateEndpoint: &bedrock.AgentcoreGatewayTargetPrivateEndpointArgs{
 // ManagedVpcResource: &bedrock.AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgs{
 // VpcIdentifier: pulumi.Any(exampleAwsVpc.Id),
-// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:13,31-53)),
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:15,31-53)),
 // EndpointIpAddressType: pulumi.String("IPV4"),
 // RoutingDomain: pulumi.Any(mcpAlb.DnsName),
 // },
 // },
-// GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
-// Name: pulumi.String("my-private-mcp-via-alb"),
 // })
 // if err != nil {
 // return err
@@ -594,6 +594,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreGatewayTarget(ctx, "example", &bedrock.AgentcoreGatewayTargetArgs{
+//				GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
+//				Name:              pulumi.String("my-private-mcp-self-managed"),
 //				TargetConfiguration: &bedrock.AgentcoreGatewayTargetTargetConfigurationArgs{
 //					Mcp: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpArgs{
 //						McpServer: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs{
@@ -606,8 +608,6 @@ import (
 //						ResourceConfigurationIdentifier: pulumi.Any(mcp.Arn),
 //					},
 //				},
-//				GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
-//				Name:              pulumi.String("my-private-mcp-self-managed"),
 //			})
 //			if err != nil {
 //				return err

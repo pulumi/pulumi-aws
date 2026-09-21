@@ -34,6 +34,7 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
+//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -42,7 +43,6 @@ import (
 //								},
 //							},
 //						},
-//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -87,18 +87,18 @@ import (
 //				return err
 //			}
 //			_, err = cloudfront.NewRealtimeLogConfig(ctx, "example", &cloudfront.RealtimeLogConfigArgs{
-//				Endpoint: &cloudfront.RealtimeLogConfigEndpointArgs{
-//					KinesisStreamConfig: &cloudfront.RealtimeLogConfigEndpointKinesisStreamConfigArgs{
-//						RoleArn:   exampleRole.Arn,
-//						StreamArn: pulumi.Any(exampleAwsKinesisStream.Arn),
-//					},
-//					StreamType: pulumi.String("Kinesis"),
-//				},
 //				Name:         pulumi.String("example"),
 //				SamplingRate: pulumi.Int(75),
 //				Fields: pulumi.StringArray{
 //					pulumi.String("timestamp"),
 //					pulumi.String("c-ip"),
+//				},
+//				Endpoint: &cloudfront.RealtimeLogConfigEndpointArgs{
+//					StreamType: pulumi.String("Kinesis"),
+//					KinesisStreamConfig: &cloudfront.RealtimeLogConfigEndpointKinesisStreamConfigArgs{
+//						RoleArn:   exampleRole.Arn,
+//						StreamArn: pulumi.Any(exampleAwsKinesisStream.Arn),
+//					},
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleRolePolicy,
@@ -147,13 +147,6 @@ import (
 //				return err
 //			}
 //			_, err = cloudfront.NewRealtimeLogConfig(ctx, "example", &cloudfront.RealtimeLogConfigArgs{
-//				Endpoint: &cloudfront.RealtimeLogConfigEndpointArgs{
-//					KinesisStreamConfig: &cloudfront.RealtimeLogConfigEndpointKinesisStreamConfigArgs{
-//						RoleArn:   pulumi.Any(exampleAwsIamRole.Arn),
-//						StreamArn: pulumi.Any(exampleAwsKinesisStream.Arn),
-//					},
-//					StreamType: pulumi.String("Kinesis"),
-//				},
 //				Name:         pulumi.String("example"),
 //				SamplingRate: pulumi.Int(100),
 //				Fields: pulumi.StringArray{
@@ -162,6 +155,13 @@ import (
 //					pulumi.String("sc-status"),
 //					pulumi.String("viewer-request-log-data"),
 //					pulumi.String("viewer-response-log-data"),
+//				},
+//				Endpoint: &cloudfront.RealtimeLogConfigEndpointArgs{
+//					StreamType: pulumi.String("Kinesis"),
+//					KinesisStreamConfig: &cloudfront.RealtimeLogConfigEndpointKinesisStreamConfigArgs{
+//						RoleArn:   pulumi.Any(exampleAwsIamRole.Arn),
+//						StreamArn: pulumi.Any(exampleAwsKinesisStream.Arn),
+//					},
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAwsIamRolePolicy,

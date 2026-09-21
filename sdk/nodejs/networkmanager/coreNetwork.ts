@@ -67,11 +67,11 @@ import * as utilities from "../utilities";
  * const exampleGlobalNetwork = new aws.networkmanager.GlobalNetwork("example", {});
  * const base = aws.networkmanager.getCoreNetworkPolicyDocument({
  *     coreNetworkConfigurations: [{
+ *         asnRanges: ["65022-65534"],
  *         edgeLocations: [{
  *             location: "us-west-2",
  *             asn: "65500",
  *         }],
- *         asnRanges: ["65022-65534"],
  *     }],
  *     segments: [{
  *         name: "segment",
@@ -89,20 +89,20 @@ import * as utilities from "../utilities";
  * });
  * const example = aws.networkmanager.getCoreNetworkPolicyDocumentOutput({
  *     coreNetworkConfigurations: [{
+ *         asnRanges: ["65022-65534"],
  *         edgeLocations: [{
  *             location: "us-west-2",
  *             asn: "65500",
  *         }],
- *         asnRanges: ["65022-65534"],
+ *     }],
+ *     segments: [{
+ *         name: "segment",
  *     }],
  *     segmentActions: [{
  *         action: "create-route",
  *         segment: "segment",
  *         destinationCidrBlocks: ["0.0.0.0/0"],
  *         destinations: [exampleVpcAttachment.id],
- *     }],
- *     segments: [{
- *         name: "segment",
  *     }],
  * });
  * const exampleCoreNetworkPolicyAttachment = new aws.networkmanager.CoreNetworkPolicyAttachment("example", {
@@ -129,19 +129,19 @@ import * as utilities from "../utilities";
  * });
  * const example = aws.networkmanager.getCoreNetworkPolicyDocumentOutput({
  *     coreNetworkConfigurations: [{
+ *         asnRanges: ["65022-65534"],
  *         edgeLocations: [{
  *             location: "us-west-2",
  *         }],
- *         asnRanges: ["65022-65534"],
+ *     }],
+ *     segments: [{
+ *         name: "segment",
  *     }],
  *     segmentActions: [{
  *         action: "create-route",
  *         segment: "segment",
  *         destinationCidrBlocks: ["0.0.0.0/0"],
  *         destinations: [exampleVpcAttachment.id],
- *     }],
- *     segments: [{
- *         name: "segment",
  *     }],
  * });
  * const exampleCoreNetworkPolicyAttachment = new aws.networkmanager.CoreNetworkPolicyAttachment("example", {
@@ -166,6 +166,7 @@ import * as utilities from "../utilities";
  * const exampleGlobalNetwork = new aws.networkmanager.GlobalNetwork("example", {});
  * const base = aws.networkmanager.getCoreNetworkPolicyDocument({
  *     coreNetworkConfigurations: [{
+ *         asnRanges: ["65022-65534"],
  *         edgeLocations: [
  *             {
  *                 location: "us-west-2",
@@ -176,7 +177,6 @@ import * as utilities from "../utilities";
  *                 asn: "65501",
  *             },
  *         ],
- *         asnRanges: ["65022-65534"],
  *     }],
  *     segments: [{
  *         name: "segment",
@@ -199,6 +199,7 @@ import * as utilities from "../utilities";
  * });
  * const example = aws.networkmanager.getCoreNetworkPolicyDocumentOutput({
  *     coreNetworkConfigurations: [{
+ *         asnRanges: ["65022-65534"],
  *         edgeLocations: [
  *             {
  *                 location: "us-west-2",
@@ -209,8 +210,15 @@ import * as utilities from "../utilities";
  *                 asn: "65501",
  *             },
  *         ],
- *         asnRanges: ["65022-65534"],
  *     }],
+ *     segments: [
+ *         {
+ *             name: "segment",
+ *         },
+ *         {
+ *             name: "segment2",
+ *         },
+ *     ],
  *     segmentActions: [
  *         {
  *             action: "create-route",
@@ -223,14 +231,6 @@ import * as utilities from "../utilities";
  *             segment: "segment",
  *             destinationCidrBlocks: ["10.1.0.0/16"],
  *             destinations: [exampleUsEast1.id],
- *         },
- *     ],
- *     segments: [
- *         {
- *             name: "segment",
- *         },
- *         {
- *             name: "segment2",
  *         },
  *     ],
  * });
@@ -267,6 +267,7 @@ import * as utilities from "../utilities";
  * });
  * const example = aws.networkmanager.getCoreNetworkPolicyDocumentOutput({
  *     coreNetworkConfigurations: [{
+ *         asnRanges: ["65022-65534"],
  *         edgeLocations: [
  *             {
  *                 location: "us-west-2",
@@ -275,8 +276,15 @@ import * as utilities from "../utilities";
  *                 location: "us-east-1",
  *             },
  *         ],
- *         asnRanges: ["65022-65534"],
  *     }],
+ *     segments: [
+ *         {
+ *             name: "segment",
+ *         },
+ *         {
+ *             name: "segment2",
+ *         },
+ *     ],
  *     segmentActions: [
  *         {
  *             action: "create-route",
@@ -289,14 +297,6 @@ import * as utilities from "../utilities";
  *             segment: "segment",
  *             destinationCidrBlocks: ["10.1.0.0/16"],
  *             destinations: [exampleUsEast1.id],
- *         },
- *     ],
- *     segments: [
- *         {
- *             name: "segment",
- *         },
- *         {
- *             name: "segment2",
  *         },
  *     ],
  * });

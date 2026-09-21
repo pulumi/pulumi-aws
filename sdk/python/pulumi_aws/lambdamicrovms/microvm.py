@@ -459,15 +459,15 @@ class Microvm(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  egress_network_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 idle_policy: pulumi.Input[Optional[Union['MicrovmIdlePolicyArgs', 'MicrovmIdlePolicyArgsDict']]] = None,
+                 idle_policy: pulumi.Input[Optional[Union['MicrovmIdlePolicyArgs', 'MicrovmIdlePolicyArgsDict', 'outputs.MicrovmIdlePolicy']]] = None,
                  image_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  image_version: pulumi.Input[Optional[_builtins.str]] = None,
                  ingress_network_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 logging: pulumi.Input[Optional[Union['MicrovmLoggingArgs', 'MicrovmLoggingArgsDict']]] = None,
+                 logging: pulumi.Input[Optional[Union['MicrovmLoggingArgs', 'MicrovmLoggingArgsDict', 'outputs.MicrovmLogging']]] = None,
                  maximum_duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  run_hook_payload: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['MicrovmTimeoutsArgs', 'MicrovmTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['MicrovmTimeoutsArgs', 'MicrovmTimeoutsArgsDict', 'outputs.MicrovmTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS Lambda MicroVMs MicroVM. Use this resource to run a MicroVM from a MicroVM image, which provisions a dedicated HTTPS endpoint and starts your application from the image snapshot.
@@ -492,6 +492,11 @@ class Microvm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambdamicrovms.Microvm("example",
+            image_arn=example_aws_lambdamicrovms_image["arn"],
+            execution_role_arn=example_aws_iam_role["arn"],
+            maximum_duration_in_seconds=14400,
+            egress_network_connectors=["arn:aws:lambda:us-east-1:aws:network-connector:aws-network-connector:INTERNET_EGRESS"],
+            ingress_network_connectors=["arn:aws:lambda:us-east-1:aws:network-connector:aws-network-connector:ALL_INGRESS"],
             idle_policy={
                 "auto_resume_enabled": True,
                 "max_idle_duration_seconds": 900,
@@ -501,12 +506,7 @@ class Microvm(pulumi.CustomResource):
                 "cloudwatch": {
                     "log_group": example_aws_cloudwatch_log_group["name"],
                 },
-            },
-            image_arn=example_aws_lambdamicrovms_image["arn"],
-            execution_role_arn=example_aws_iam_role["arn"],
-            maximum_duration_in_seconds=14400,
-            egress_network_connectors=["arn:aws:lambda:us-east-1:aws:network-connector:aws-network-connector:INTERNET_EGRESS"],
-            ingress_network_connectors=["arn:aws:lambda:us-east-1:aws:network-connector:aws-network-connector:ALL_INGRESS"])
+            })
         ```
 
         ## Import
@@ -533,13 +533,13 @@ class Microvm(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] egress_network_connectors: List of egress network connector ARNs for outbound connectivity. Changing this value creates a new resource.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role assumed by the MicroVM during execution. Changing this value creates a new resource.
-        :param pulumi.Input[Union['MicrovmIdlePolicyArgs', 'MicrovmIdlePolicyArgsDict']] idle_policy: Configuration controlling automatic suspend and resume behavior. See below. Changing this value creates a new resource.
+        :param pulumi.Input[Union['MicrovmIdlePolicyArgs', 'MicrovmIdlePolicyArgsDict', 'outputs.MicrovmIdlePolicy']] idle_policy: Configuration controlling automatic suspend and resume behavior. See below. Changing this value creates a new resource.
         :param pulumi.Input[_builtins.str] image_arn: ARN of the MicroVM image to run. Changing this value creates a new resource.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] image_version: Version of the MicroVM image to run. Defaults to the latest active version. Changing this value creates a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ingress_network_connectors: List of ingress network connector ARNs for inbound connectivity. Changing this value creates a new resource.
-        :param pulumi.Input[Union['MicrovmLoggingArgs', 'MicrovmLoggingArgsDict']] logging: Logging configuration for the MicroVM. See below. Changing this value creates a new resource.
+        :param pulumi.Input[Union['MicrovmLoggingArgs', 'MicrovmLoggingArgsDict', 'outputs.MicrovmLogging']] logging: Logging configuration for the MicroVM. See below. Changing this value creates a new resource.
         :param pulumi.Input[_builtins.int] maximum_duration_in_seconds: Maximum duration in seconds that the MicroVM can exist before the platform terminates it. Valid range: `1`–`28800` (8 hours). Changing this value creates a new resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] run_hook_payload: String payload (maximum 16 KB) delivered to the `/run` lifecycle hook when the MicroVM starts. Changing this value creates a new resource.
@@ -573,6 +573,11 @@ class Microvm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambdamicrovms.Microvm("example",
+            image_arn=example_aws_lambdamicrovms_image["arn"],
+            execution_role_arn=example_aws_iam_role["arn"],
+            maximum_duration_in_seconds=14400,
+            egress_network_connectors=["arn:aws:lambda:us-east-1:aws:network-connector:aws-network-connector:INTERNET_EGRESS"],
+            ingress_network_connectors=["arn:aws:lambda:us-east-1:aws:network-connector:aws-network-connector:ALL_INGRESS"],
             idle_policy={
                 "auto_resume_enabled": True,
                 "max_idle_duration_seconds": 900,
@@ -582,12 +587,7 @@ class Microvm(pulumi.CustomResource):
                 "cloudwatch": {
                     "log_group": example_aws_cloudwatch_log_group["name"],
                 },
-            },
-            image_arn=example_aws_lambdamicrovms_image["arn"],
-            execution_role_arn=example_aws_iam_role["arn"],
-            maximum_duration_in_seconds=14400,
-            egress_network_connectors=["arn:aws:lambda:us-east-1:aws:network-connector:aws-network-connector:INTERNET_EGRESS"],
-            ingress_network_connectors=["arn:aws:lambda:us-east-1:aws:network-connector:aws-network-connector:ALL_INGRESS"])
+            })
         ```
 
         ## Import
@@ -627,15 +627,15 @@ class Microvm(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  egress_network_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 idle_policy: pulumi.Input[Optional[Union['MicrovmIdlePolicyArgs', 'MicrovmIdlePolicyArgsDict']]] = None,
+                 idle_policy: pulumi.Input[Optional[Union['MicrovmIdlePolicyArgs', 'MicrovmIdlePolicyArgsDict', 'outputs.MicrovmIdlePolicy']]] = None,
                  image_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  image_version: pulumi.Input[Optional[_builtins.str]] = None,
                  ingress_network_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 logging: pulumi.Input[Optional[Union['MicrovmLoggingArgs', 'MicrovmLoggingArgsDict']]] = None,
+                 logging: pulumi.Input[Optional[Union['MicrovmLoggingArgs', 'MicrovmLoggingArgsDict', 'outputs.MicrovmLogging']]] = None,
                  maximum_duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  run_hook_payload: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['MicrovmTimeoutsArgs', 'MicrovmTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['MicrovmTimeoutsArgs', 'MicrovmTimeoutsArgsDict', 'outputs.MicrovmTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -675,18 +675,18 @@ class Microvm(pulumi.CustomResource):
             egress_network_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            idle_policy: pulumi.Input[Optional[Union['MicrovmIdlePolicyArgs', 'MicrovmIdlePolicyArgsDict']]] = None,
+            idle_policy: pulumi.Input[Optional[Union['MicrovmIdlePolicyArgs', 'MicrovmIdlePolicyArgsDict', 'outputs.MicrovmIdlePolicy']]] = None,
             image_arn: pulumi.Input[Optional[_builtins.str]] = None,
             image_version: pulumi.Input[Optional[_builtins.str]] = None,
             ingress_network_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            logging: pulumi.Input[Optional[Union['MicrovmLoggingArgs', 'MicrovmLoggingArgsDict']]] = None,
+            logging: pulumi.Input[Optional[Union['MicrovmLoggingArgs', 'MicrovmLoggingArgsDict', 'outputs.MicrovmLogging']]] = None,
             maximum_duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
             microvm_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             run_hook_payload: pulumi.Input[Optional[_builtins.str]] = None,
             started_at: pulumi.Input[Optional[_builtins.str]] = None,
             state: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['MicrovmTimeoutsArgs', 'MicrovmTimeoutsArgsDict']]] = None) -> 'Microvm':
+            timeouts: pulumi.Input[Optional[Union['MicrovmTimeoutsArgs', 'MicrovmTimeoutsArgsDict', 'outputs.MicrovmTimeouts']]] = None) -> 'Microvm':
         """
         Get an existing Microvm resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -697,13 +697,13 @@ class Microvm(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] egress_network_connectors: List of egress network connector ARNs for outbound connectivity. Changing this value creates a new resource.
         :param pulumi.Input[_builtins.str] endpoint: HTTPS endpoint URL for communicating with the MicroVM.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role assumed by the MicroVM during execution. Changing this value creates a new resource.
-        :param pulumi.Input[Union['MicrovmIdlePolicyArgs', 'MicrovmIdlePolicyArgsDict']] idle_policy: Configuration controlling automatic suspend and resume behavior. See below. Changing this value creates a new resource.
+        :param pulumi.Input[Union['MicrovmIdlePolicyArgs', 'MicrovmIdlePolicyArgsDict', 'outputs.MicrovmIdlePolicy']] idle_policy: Configuration controlling automatic suspend and resume behavior. See below. Changing this value creates a new resource.
         :param pulumi.Input[_builtins.str] image_arn: ARN of the MicroVM image to run. Changing this value creates a new resource.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] image_version: Version of the MicroVM image to run. Defaults to the latest active version. Changing this value creates a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ingress_network_connectors: List of ingress network connector ARNs for inbound connectivity. Changing this value creates a new resource.
-        :param pulumi.Input[Union['MicrovmLoggingArgs', 'MicrovmLoggingArgsDict']] logging: Logging configuration for the MicroVM. See below. Changing this value creates a new resource.
+        :param pulumi.Input[Union['MicrovmLoggingArgs', 'MicrovmLoggingArgsDict', 'outputs.MicrovmLogging']] logging: Logging configuration for the MicroVM. See below. Changing this value creates a new resource.
         :param pulumi.Input[_builtins.int] maximum_duration_in_seconds: Maximum duration in seconds that the MicroVM can exist before the platform terminates it. Valid range: `1`–`28800` (8 hours). Changing this value creates a new resource.
         :param pulumi.Input[_builtins.str] microvm_id: Unique identifier of the MicroVM.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

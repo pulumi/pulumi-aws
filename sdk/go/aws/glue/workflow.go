@@ -36,19 +36,22 @@ import (
 //				return err
 //			}
 //			_, err = glue.NewTrigger(ctx, "example-start", &glue.TriggerArgs{
+//				Name:         pulumi.String("trigger-start"),
+//				Type:         pulumi.String("ON_DEMAND"),
+//				WorkflowName: example.Name,
 //				Actions: glue.TriggerActionArray{
 //					&glue.TriggerActionArgs{
 //						JobName: pulumi.String("example-job"),
 //					},
 //				},
-//				Name:         pulumi.String("trigger-start"),
-//				Type:         pulumi.String("ON_DEMAND"),
-//				WorkflowName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = glue.NewTrigger(ctx, "example-inner", &glue.TriggerArgs{
+//				Name:         pulumi.String("trigger-inner"),
+//				Type:         pulumi.String("CONDITIONAL"),
+//				WorkflowName: example.Name,
 //				Predicate: &glue.TriggerPredicateArgs{
 //					Conditions: glue.TriggerPredicateConditionArray{
 //						&glue.TriggerPredicateConditionArgs{
@@ -62,9 +65,6 @@ import (
 //						JobName: pulumi.String("another-example-job"),
 //					},
 //				},
-//				Name:         pulumi.String("trigger-inner"),
-//				Type:         pulumi.String("CONDITIONAL"),
-//				WorkflowName: example.Name,
 //			})
 //			if err != nil {
 //				return err

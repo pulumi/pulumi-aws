@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.glue.getScript({
+ *     language: "PYTHON",
  *     dagEdges: [
  *         {
  *             source: "datasource0",
@@ -39,6 +40,8 @@ import * as utilities from "../utilities";
  *     ],
  *     dagNodes: [
  *         {
+ *             id: "datasource0",
+ *             nodeType: "DataSource",
  *             args: [
  *                 {
  *                     name: "database",
@@ -49,26 +52,26 @@ import * as utilities from "../utilities";
  *                     value: `"${sourceAwsGlueCatalogTable.name}"`,
  *                 },
  *             ],
- *             id: "datasource0",
- *             nodeType: "DataSource",
  *         },
  *         {
+ *             id: "applymapping1",
+ *             nodeType: "ApplyMapping",
  *             args: [{
  *                 name: "mapping",
  *                 value: "[(\"column1\", \"string\", \"column1\", \"string\")]",
  *             }],
- *             id: "applymapping1",
- *             nodeType: "ApplyMapping",
  *         },
  *         {
+ *             id: "selectfields2",
+ *             nodeType: "SelectFields",
  *             args: [{
  *                 name: "paths",
  *                 value: "[\"column1\"]",
  *             }],
- *             id: "selectfields2",
- *             nodeType: "SelectFields",
  *         },
  *         {
+ *             id: "resolvechoice3",
+ *             nodeType: "ResolveChoice",
  *             args: [
  *                 {
  *                     name: "choice",
@@ -83,10 +86,10 @@ import * as utilities from "../utilities";
  *                     value: `"${destinationAwsGlueCatalogTable.name}"`,
  *                 },
  *             ],
- *             id: "resolvechoice3",
- *             nodeType: "ResolveChoice",
  *         },
  *         {
+ *             id: "datasink4",
+ *             nodeType: "DataSink",
  *             args: [
  *                 {
  *                     name: "database",
@@ -97,11 +100,8 @@ import * as utilities from "../utilities";
  *                     value: `"${destinationAwsGlueCatalogTable.name}"`,
  *                 },
  *             ],
- *             id: "datasink4",
- *             nodeType: "DataSink",
  *         },
  *     ],
- *     language: "PYTHON",
  * });
  * export const pythonScript = example.then(example => example.pythonScript);
  * ```
@@ -113,6 +113,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.glue.getScript({
+ *     language: "SCALA",
  *     dagEdges: [
  *         {
  *             source: "datasource0",
@@ -133,6 +134,8 @@ import * as utilities from "../utilities";
  *     ],
  *     dagNodes: [
  *         {
+ *             id: "datasource0",
+ *             nodeType: "DataSource",
  *             args: [
  *                 {
  *                     name: "database",
@@ -143,26 +146,26 @@ import * as utilities from "../utilities";
  *                     value: `"${sourceAwsGlueCatalogTable.name}"`,
  *                 },
  *             ],
- *             id: "datasource0",
- *             nodeType: "DataSource",
  *         },
  *         {
+ *             id: "applymapping1",
+ *             nodeType: "ApplyMapping",
  *             args: [{
  *                 name: "mappings",
  *                 value: "[(\"column1\", \"string\", \"column1\", \"string\")]",
  *             }],
- *             id: "applymapping1",
- *             nodeType: "ApplyMapping",
  *         },
  *         {
+ *             id: "selectfields2",
+ *             nodeType: "SelectFields",
  *             args: [{
  *                 name: "paths",
  *                 value: "[\"column1\"]",
  *             }],
- *             id: "selectfields2",
- *             nodeType: "SelectFields",
  *         },
  *         {
+ *             id: "resolvechoice3",
+ *             nodeType: "ResolveChoice",
  *             args: [
  *                 {
  *                     name: "choice",
@@ -177,10 +180,10 @@ import * as utilities from "../utilities";
  *                     value: `"${destinationAwsGlueCatalogTable.name}"`,
  *                 },
  *             ],
- *             id: "resolvechoice3",
- *             nodeType: "ResolveChoice",
  *         },
  *         {
+ *             id: "datasink4",
+ *             nodeType: "DataSink",
  *             args: [
  *                 {
  *                     name: "database",
@@ -191,11 +194,8 @@ import * as utilities from "../utilities";
  *                     value: `"${destinationAwsGlueCatalogTable.name}"`,
  *                 },
  *             ],
- *             id: "datasink4",
- *             nodeType: "DataSink",
  *         },
  *     ],
- *     language: "SCALA",
  * });
  * export const scalaCode = example.then(example => example.scalaCode);
  * ```
@@ -265,6 +265,7 @@ export interface GetScriptResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.glue.getScript({
+ *     language: "PYTHON",
  *     dagEdges: [
  *         {
  *             source: "datasource0",
@@ -285,6 +286,8 @@ export interface GetScriptResult {
  *     ],
  *     dagNodes: [
  *         {
+ *             id: "datasource0",
+ *             nodeType: "DataSource",
  *             args: [
  *                 {
  *                     name: "database",
@@ -295,26 +298,26 @@ export interface GetScriptResult {
  *                     value: `"${sourceAwsGlueCatalogTable.name}"`,
  *                 },
  *             ],
- *             id: "datasource0",
- *             nodeType: "DataSource",
  *         },
  *         {
+ *             id: "applymapping1",
+ *             nodeType: "ApplyMapping",
  *             args: [{
  *                 name: "mapping",
  *                 value: "[(\"column1\", \"string\", \"column1\", \"string\")]",
  *             }],
- *             id: "applymapping1",
- *             nodeType: "ApplyMapping",
  *         },
  *         {
+ *             id: "selectfields2",
+ *             nodeType: "SelectFields",
  *             args: [{
  *                 name: "paths",
  *                 value: "[\"column1\"]",
  *             }],
- *             id: "selectfields2",
- *             nodeType: "SelectFields",
  *         },
  *         {
+ *             id: "resolvechoice3",
+ *             nodeType: "ResolveChoice",
  *             args: [
  *                 {
  *                     name: "choice",
@@ -329,10 +332,10 @@ export interface GetScriptResult {
  *                     value: `"${destinationAwsGlueCatalogTable.name}"`,
  *                 },
  *             ],
- *             id: "resolvechoice3",
- *             nodeType: "ResolveChoice",
  *         },
  *         {
+ *             id: "datasink4",
+ *             nodeType: "DataSink",
  *             args: [
  *                 {
  *                     name: "database",
@@ -343,11 +346,8 @@ export interface GetScriptResult {
  *                     value: `"${destinationAwsGlueCatalogTable.name}"`,
  *                 },
  *             ],
- *             id: "datasink4",
- *             nodeType: "DataSink",
  *         },
  *     ],
- *     language: "PYTHON",
  * });
  * export const pythonScript = example.then(example => example.pythonScript);
  * ```
@@ -359,6 +359,7 @@ export interface GetScriptResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.glue.getScript({
+ *     language: "SCALA",
  *     dagEdges: [
  *         {
  *             source: "datasource0",
@@ -379,6 +380,8 @@ export interface GetScriptResult {
  *     ],
  *     dagNodes: [
  *         {
+ *             id: "datasource0",
+ *             nodeType: "DataSource",
  *             args: [
  *                 {
  *                     name: "database",
@@ -389,26 +392,26 @@ export interface GetScriptResult {
  *                     value: `"${sourceAwsGlueCatalogTable.name}"`,
  *                 },
  *             ],
- *             id: "datasource0",
- *             nodeType: "DataSource",
  *         },
  *         {
+ *             id: "applymapping1",
+ *             nodeType: "ApplyMapping",
  *             args: [{
  *                 name: "mappings",
  *                 value: "[(\"column1\", \"string\", \"column1\", \"string\")]",
  *             }],
- *             id: "applymapping1",
- *             nodeType: "ApplyMapping",
  *         },
  *         {
+ *             id: "selectfields2",
+ *             nodeType: "SelectFields",
  *             args: [{
  *                 name: "paths",
  *                 value: "[\"column1\"]",
  *             }],
- *             id: "selectfields2",
- *             nodeType: "SelectFields",
  *         },
  *         {
+ *             id: "resolvechoice3",
+ *             nodeType: "ResolveChoice",
  *             args: [
  *                 {
  *                     name: "choice",
@@ -423,10 +426,10 @@ export interface GetScriptResult {
  *                     value: `"${destinationAwsGlueCatalogTable.name}"`,
  *                 },
  *             ],
- *             id: "resolvechoice3",
- *             nodeType: "ResolveChoice",
  *         },
  *         {
+ *             id: "datasink4",
+ *             nodeType: "DataSink",
  *             args: [
  *                 {
  *                     name: "database",
@@ -437,11 +440,8 @@ export interface GetScriptResult {
  *                     value: `"${destinationAwsGlueCatalogTable.name}"`,
  *                 },
  *             ],
- *             id: "datasink4",
- *             nodeType: "DataSink",
  *         },
  *     ],
- *     language: "SCALA",
  * });
  * export const scalaCode = example.then(example => example.scalaCode);
  * ```

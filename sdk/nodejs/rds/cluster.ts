@@ -132,11 +132,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rds.Cluster("example", {
- *     serverlessv2ScalingConfiguration: {
- *         maxCapacity: 1,
- *         minCapacity: 0,
- *         secondsUntilAutoPause: 3600,
- *     },
  *     clusterIdentifier: "example",
  *     engine: aws.rds.EngineType.AuroraPostgresql,
  *     engineMode: aws.rds.EngineMode.Provisioned,
@@ -145,6 +140,11 @@ import * as utilities from "../utilities";
  *     masterUsername: "test",
  *     masterPassword: "must_be_eight_characters",
  *     storageEncrypted: true,
+ *     serverlessv2ScalingConfiguration: {
+ *         maxCapacity: 1,
+ *         minCapacity: 0,
+ *         secondsUntilAutoPause: 3600,
+ *     },
  * });
  * const exampleClusterInstance = new aws.rds.ClusterInstance("example", {
  *     clusterIdentifier: example.id,
@@ -238,11 +238,6 @@ import * as utilities from "../utilities";
  *     engineVersion: "5.6.mysql_aurora.1.22.4",
  *     clusterIdentifier: "example",
  *     snapshotIdentifier: example.then(example => example.id),
- * }, {
- *     ignoreChanges: [
- *         "snapshotIdentifier",
- *         "globalClusterIdentifier",
- *     ],
  * });
  * const exampleGlobalCluster = new aws.rds.GlobalCluster("example", {
  *     globalClusterIdentifier: "example",
@@ -262,6 +257,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const db = new aws.rds.Cluster("db", {
+ *     engine: aws.rds.EngineType.Aurora,
  *     s3Import: {
  *         sourceEngine: "mysql",
  *         sourceEngineVersion: "5.6",
@@ -269,7 +265,6 @@ import * as utilities from "../utilities";
  *         bucketPrefix: "backups",
  *         ingestionRole: "arn:aws:iam::1234567890:role/role-xtrabackup-rds-restore",
  *     },
- *     engine: aws.rds.EngineType.Aurora,
  * });
  * ```
  *
@@ -293,6 +288,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rds.Cluster("example", {
+ *     engineMode: aws.rds.EngineMode.Serverless,
  *     scalingConfiguration: {
  *         autoPause: true,
  *         maxCapacity: 256,
@@ -301,7 +297,6 @@ import * as utilities from "../utilities";
  *         secondsUntilAutoPause: 300,
  *         timeoutAction: "ForceApplyCapacityChange",
  *     },
- *     engineMode: aws.rds.EngineMode.Serverless,
  * });
  * ```
  *

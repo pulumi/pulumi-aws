@@ -46,6 +46,7 @@ import (
 //				return err
 //			}
 //			testWorkgroup, err := athena.NewWorkgroup(ctx, "test", &athena.WorkgroupArgs{
+//				Name: pulumi.String("example"),
 //				Configuration: &athena.WorkgroupConfigurationArgs{
 //					ResultConfiguration: &athena.WorkgroupConfigurationResultConfigurationArgs{
 //						EncryptionConfiguration: &athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{
@@ -54,7 +55,6 @@ import (
 //						},
 //					},
 //				},
-//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

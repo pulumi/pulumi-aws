@@ -31,6 +31,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elastictranscoder.NewPreset(ctx, "bar", &elastictranscoder.PresetArgs{
+//				Container:   pulumi.String("mp4"),
+//				Description: pulumi.String("Sample Preset"),
+//				Name:        pulumi.String("sample_preset"),
 //				Audio: &elastictranscoder.PresetAudioArgs{
 //					AudioPackingMode: pulumi.String("SingleTrack"),
 //					BitRate:          pulumi.String("96"),
@@ -54,13 +57,12 @@ import (
 //					PaddingPolicy:      pulumi.String("Pad"),
 //					SizingPolicy:       pulumi.String("Fit"),
 //				},
-//				Thumbnails: &elastictranscoder.PresetThumbnailsArgs{
-//					Format:        pulumi.String("png"),
-//					Interval:      pulumi.String("120"),
-//					MaxWidth:      pulumi.String("auto"),
-//					MaxHeight:     pulumi.String("auto"),
-//					PaddingPolicy: pulumi.String("Pad"),
-//					SizingPolicy:  pulumi.String("Fit"),
+//				VideoCodecOptions: pulumi.StringMap{
+//					"Profile":                  pulumi.String("main"),
+//					"Level":                    pulumi.String("2.2"),
+//					"MaxReferenceFrames":       pulumi.String("3"),
+//					"InterlacedMode":           pulumi.String("Progressive"),
+//					"ColorSpaceConversionMode": pulumi.String("None"),
 //				},
 //				VideoWatermarks: elastictranscoder.PresetVideoWatermarkArray{
 //					&elastictranscoder.PresetVideoWatermarkArgs{
@@ -76,15 +78,13 @@ import (
 //						Target:           pulumi.String("Content"),
 //					},
 //				},
-//				Container:   pulumi.String("mp4"),
-//				Description: pulumi.String("Sample Preset"),
-//				Name:        pulumi.String("sample_preset"),
-//				VideoCodecOptions: pulumi.StringMap{
-//					"Profile":                  pulumi.String("main"),
-//					"Level":                    pulumi.String("2.2"),
-//					"MaxReferenceFrames":       pulumi.String("3"),
-//					"InterlacedMode":           pulumi.String("Progressive"),
-//					"ColorSpaceConversionMode": pulumi.String("None"),
+//				Thumbnails: &elastictranscoder.PresetThumbnailsArgs{
+//					Format:        pulumi.String("png"),
+//					Interval:      pulumi.String("120"),
+//					MaxWidth:      pulumi.String("auto"),
+//					MaxHeight:     pulumi.String("auto"),
+//					PaddingPolicy: pulumi.String("Pad"),
+//					SizingPolicy:  pulumi.String("Fit"),
 //				},
 //			})
 //			if err != nil {

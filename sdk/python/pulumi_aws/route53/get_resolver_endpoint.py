@@ -195,7 +195,7 @@ class AwaitableGetResolverEndpointResult(GetResolverEndpointResult):
             vpc_id=self.vpc_id)
 
 
-def get_resolver_endpoint(filters: Optional[Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict']]] = None,
+def get_resolver_endpoint(filters: Optional[Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict', 'outputs.GetResolverEndpointFilterResult']]] = None,
                           region: Optional[_builtins.str] = None,
                           resolver_endpoint_id: Optional[_builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverEndpointResult:
@@ -224,7 +224,7 @@ def get_resolver_endpoint(filters: Optional[Sequence[Union['GetResolverEndpointF
     ```
 
 
-    :param Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are
+    :param Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict', 'outputs.GetResolverEndpointFilterResult']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [Route53resolver Filter value in the AWS API reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html).
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -252,7 +252,7 @@ def get_resolver_endpoint(filters: Optional[Sequence[Union['GetResolverEndpointF
         status=pulumi.get(__ret__, 'status'),
         target_name_server_metrics_enabled=pulumi.get(__ret__, 'target_name_server_metrics_enabled'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_resolver_endpoint_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict']]]]] = None,
+def get_resolver_endpoint_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict', 'outputs.GetResolverEndpointFilterResult']]]]] = None,
                                  region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  resolver_endpoint_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverEndpointResult]:
@@ -281,7 +281,7 @@ def get_resolver_endpoint_output(filters: pulumi.Input[Optional[Optional[Sequenc
     ```
 
 
-    :param Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are
+    :param Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict', 'outputs.GetResolverEndpointFilterResult']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [Route53resolver Filter value in the AWS API reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html).
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

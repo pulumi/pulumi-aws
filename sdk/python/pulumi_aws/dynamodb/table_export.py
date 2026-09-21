@@ -511,7 +511,7 @@ class TableExport(pulumi.CustomResource):
                  export_format: pulumi.Input[Optional[_builtins.str]] = None,
                  export_time: pulumi.Input[Optional[_builtins.str]] = None,
                  export_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 incremental_export_specification: pulumi.Input[Optional[Union['TableExportIncrementalExportSpecificationArgs', 'TableExportIncrementalExportSpecificationArgsDict']]] = None,
+                 incremental_export_specification: pulumi.Input[Optional[Union['TableExportIncrementalExportSpecificationArgs', 'TableExportIncrementalExportSpecificationArgsDict', 'outputs.TableExportIncrementalExportSpecification']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
                  s3_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
@@ -541,16 +541,16 @@ class TableExport(pulumi.CustomResource):
             bucket_prefix="example",
             force_destroy=True)
         example_table = aws.dynamodb.Table("example",
-            point_in_time_recovery={
-                "enabled": True,
-            },
+            name="example-table-1",
+            billing_mode="PAY_PER_REQUEST",
+            hash_key="user_id",
             attributes=[{
                 "name": "user_id",
                 "type": "S",
             }],
-            name="example-table-1",
-            billing_mode="PAY_PER_REQUEST",
-            hash_key="user_id")
+            point_in_time_recovery={
+                "enabled": True,
+            })
         example_table_export = aws.dynamodb.TableExport("example",
             table_arn=example_table.arn,
             s3_bucket=example.id)
@@ -575,13 +575,13 @@ class TableExport(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dynamodb.TableExport("example",
+            export_type="INCREMENTAL_EXPORT",
+            s3_bucket=example_aws_s3_bucket["id"],
+            table_arn=example_aws_dynamodb_table["arn"],
             incremental_export_specification={
                 "export_from_time": "2025-02-09T12:00:00+01:00",
                 "export_to_time": "2025-02-09T13:00:00+01:00",
-            },
-            export_type="INCREMENTAL_EXPORT",
-            s3_bucket=example_aws_s3_bucket["id"],
-            table_arn=example_aws_dynamodb_table["arn"])
+            })
         ```
 
         ## Import
@@ -642,16 +642,16 @@ class TableExport(pulumi.CustomResource):
             bucket_prefix="example",
             force_destroy=True)
         example_table = aws.dynamodb.Table("example",
-            point_in_time_recovery={
-                "enabled": True,
-            },
+            name="example-table-1",
+            billing_mode="PAY_PER_REQUEST",
+            hash_key="user_id",
             attributes=[{
                 "name": "user_id",
                 "type": "S",
             }],
-            name="example-table-1",
-            billing_mode="PAY_PER_REQUEST",
-            hash_key="user_id")
+            point_in_time_recovery={
+                "enabled": True,
+            })
         example_table_export = aws.dynamodb.TableExport("example",
             table_arn=example_table.arn,
             s3_bucket=example.id)
@@ -676,13 +676,13 @@ class TableExport(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dynamodb.TableExport("example",
+            export_type="INCREMENTAL_EXPORT",
+            s3_bucket=example_aws_s3_bucket["id"],
+            table_arn=example_aws_dynamodb_table["arn"],
             incremental_export_specification={
                 "export_from_time": "2025-02-09T12:00:00+01:00",
                 "export_to_time": "2025-02-09T13:00:00+01:00",
-            },
-            export_type="INCREMENTAL_EXPORT",
-            s3_bucket=example_aws_s3_bucket["id"],
-            table_arn=example_aws_dynamodb_table["arn"])
+            })
         ```
 
         ## Import
@@ -718,7 +718,7 @@ class TableExport(pulumi.CustomResource):
                  export_format: pulumi.Input[Optional[_builtins.str]] = None,
                  export_time: pulumi.Input[Optional[_builtins.str]] = None,
                  export_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 incremental_export_specification: pulumi.Input[Optional[Union['TableExportIncrementalExportSpecificationArgs', 'TableExportIncrementalExportSpecificationArgsDict']]] = None,
+                 incremental_export_specification: pulumi.Input[Optional[Union['TableExportIncrementalExportSpecificationArgs', 'TableExportIncrementalExportSpecificationArgsDict', 'outputs.TableExportIncrementalExportSpecification']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
                  s3_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
@@ -774,7 +774,7 @@ class TableExport(pulumi.CustomResource):
             export_status: pulumi.Input[Optional[_builtins.str]] = None,
             export_time: pulumi.Input[Optional[_builtins.str]] = None,
             export_type: pulumi.Input[Optional[_builtins.str]] = None,
-            incremental_export_specification: pulumi.Input[Optional[Union['TableExportIncrementalExportSpecificationArgs', 'TableExportIncrementalExportSpecificationArgsDict']]] = None,
+            incremental_export_specification: pulumi.Input[Optional[Union['TableExportIncrementalExportSpecificationArgs', 'TableExportIncrementalExportSpecificationArgsDict', 'outputs.TableExportIncrementalExportSpecification']]] = None,
             item_count: pulumi.Input[Optional[_builtins.int]] = None,
             manifest_files_s3_key: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,

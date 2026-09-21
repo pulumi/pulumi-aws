@@ -24,18 +24,11 @@ namespace Pulumi.Aws.AppStream
     /// {
     ///     var testFleet = new Aws.AppStream.Fleet("test_fleet", new()
     ///     {
+    ///         Name = "test-fleet",
     ///         ComputeCapacity = new Aws.AppStream.Inputs.FleetComputeCapacityArgs
     ///         {
     ///             DesiredInstances = 1,
     ///         },
-    ///         VpcConfig = new Aws.AppStream.Inputs.FleetVpcConfigArgs
-    ///         {
-    ///             SubnetIds = new[]
-    ///             {
-    ///                 "subnet-06e9b13400c225127",
-    ///             },
-    ///         },
-    ///         Name = "test-fleet",
     ///         Description = "test fleet",
     ///         IdleDisconnectTimeoutInSeconds = 60,
     ///         DisplayName = "test-fleet",
@@ -44,6 +37,13 @@ namespace Pulumi.Aws.AppStream
     ///         ImageName = "Amazon-AppStream2-Sample-Image-03-11-2023",
     ///         InstanceType = "stream.standard.large",
     ///         MaxUserDurationInSeconds = 600,
+    ///         VpcConfig = new Aws.AppStream.Inputs.FleetVpcConfigArgs
+    ///         {
+    ///             SubnetIds = new[]
+    ///             {
+    ///                 "subnet-06e9b13400c225127",
+    ///             },
+    ///         },
     ///         Tags = 
     ///         {
     ///             { "TagName", "tag-value" },

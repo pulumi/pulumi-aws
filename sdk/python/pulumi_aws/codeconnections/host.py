@@ -281,8 +281,8 @@ class Host(pulumi.CustomResource):
                  provider_type: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['HostTimeoutsArgs', 'HostTimeoutsArgsDict']]] = None,
-                 vpc_configuration: pulumi.Input[Optional[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['HostTimeoutsArgs', 'HostTimeoutsArgsDict', 'outputs.HostTimeouts']]] = None,
+                 vpc_configuration: pulumi.Input[Optional[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict', 'outputs.HostVpcConfiguration']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS CodeConnections Host.
@@ -324,7 +324,7 @@ class Host(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] provider_endpoint: The endpoint of the infrastructure to be represented by the host after it is created.
         :param pulumi.Input[_builtins.str] provider_type: The name of the external provider where your third-party code repository is configured.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']] vpc_configuration: The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
+        :param pulumi.Input[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict', 'outputs.HostVpcConfiguration']] vpc_configuration: The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         """
         ...
     @overload
@@ -386,8 +386,8 @@ class Host(pulumi.CustomResource):
                  provider_type: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['HostTimeoutsArgs', 'HostTimeoutsArgsDict']]] = None,
-                 vpc_configuration: pulumi.Input[Optional[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['HostTimeoutsArgs', 'HostTimeoutsArgsDict', 'outputs.HostTimeouts']]] = None,
+                 vpc_configuration: pulumi.Input[Optional[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict', 'outputs.HostVpcConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -427,8 +427,8 @@ class Host(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['HostTimeoutsArgs', 'HostTimeoutsArgsDict']]] = None,
-            vpc_configuration: pulumi.Input[Optional[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']]] = None) -> 'Host':
+            timeouts: pulumi.Input[Optional[Union['HostTimeoutsArgs', 'HostTimeoutsArgsDict', 'outputs.HostTimeouts']]] = None,
+            vpc_configuration: pulumi.Input[Optional[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict', 'outputs.HostVpcConfiguration']]] = None) -> 'Host':
         """
         Get an existing Host resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -441,7 +441,7 @@ class Host(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] provider_endpoint: The endpoint of the infrastructure to be represented by the host after it is created.
         :param pulumi.Input[_builtins.str] provider_type: The name of the external provider where your third-party code repository is configured.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']] vpc_configuration: The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
+        :param pulumi.Input[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict', 'outputs.HostVpcConfiguration']] vpc_configuration: The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

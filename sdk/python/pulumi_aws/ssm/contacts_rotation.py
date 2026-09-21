@@ -305,7 +305,7 @@ class ContactsRotation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 recurrence: pulumi.Input[Optional[Union['ContactsRotationRecurrenceArgs', 'ContactsRotationRecurrenceArgsDict']]] = None,
+                 recurrence: pulumi.Input[Optional[Union['ContactsRotationRecurrenceArgs', 'ContactsRotationRecurrenceArgsDict', 'outputs.ContactsRotationRecurrence']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  start_time: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -325,16 +325,16 @@ class ContactsRotation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.ContactsRotation("example",
+            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
+            name="rotation",
             recurrence={
+                "number_of_on_calls": 1,
+                "recurrence_multiplier": 1,
                 "daily_settings": [{
                     "hour_of_day": 9,
                     "minute_of_hour": 0,
                 }],
-                "number_of_on_calls": 1,
-                "recurrence_multiplier": 1,
             },
-            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
-            name="rotation",
             time_zone_id="Australia/Sydney",
             opts = pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
         ```
@@ -346,8 +346,29 @@ class ContactsRotation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.ContactsRotation("example",
+            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
+            name="rotation",
             recurrence={
+                "number_of_on_calls": 1,
+                "recurrence_multiplier": 1,
+                "weekly_settings": [
+                    {
+                        "day_of_week": "WED",
+                        "hand_off_time": {
+                            "hour_of_day": 4,
+                            "minute_of_hour": 25,
+                        },
+                    },
+                    {
+                        "day_of_week": "FRI",
+                        "hand_off_time": {
+                            "hour_of_day": 15,
+                            "minute_of_hour": 57,
+                        },
+                    },
+                ],
                 "shift_coverages": [{
+                    "map_block_key": "MON",
                     "coverage_times": [{
                         "start": {
                             "hour_of_day": 1,
@@ -358,29 +379,8 @@ class ContactsRotation(pulumi.CustomResource):
                             "minute_of_hour": 0,
                         },
                     }],
-                    "map_block_key": "MON",
                 }],
-                "weekly_settings": [
-                    {
-                        "hand_off_time": {
-                            "hour_of_day": 4,
-                            "minute_of_hour": 25,
-                        },
-                        "day_of_week": "WED",
-                    },
-                    {
-                        "hand_off_time": {
-                            "hour_of_day": 15,
-                            "minute_of_hour": 57,
-                        },
-                        "day_of_week": "FRI",
-                    },
-                ],
-                "number_of_on_calls": 1,
-                "recurrence_multiplier": 1,
             },
-            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
-            name="rotation",
             start_time="2023-07-20T02:21:49+00:00",
             time_zone_id="Australia/Sydney",
             tags={
@@ -397,28 +397,28 @@ class ContactsRotation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.ContactsRotation("example",
+            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
+            name="rotation",
             recurrence={
+                "number_of_on_calls": 1,
+                "recurrence_multiplier": 1,
                 "monthly_settings": [
                     {
+                        "day_of_month": 20,
                         "hand_off_time": {
                             "hour_of_day": 8,
                             "minute_of_hour": 0,
                         },
-                        "day_of_month": 20,
                     },
                     {
+                        "day_of_month": 13,
                         "hand_off_time": {
                             "hour_of_day": 12,
                             "minute_of_hour": 34,
                         },
-                        "day_of_month": 13,
                     },
                 ],
-                "number_of_on_calls": 1,
-                "recurrence_multiplier": 1,
             },
-            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
-            name="rotation",
             time_zone_id="Australia/Sydney",
             opts = pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
         ```
@@ -442,7 +442,7 @@ class ContactsRotation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] contact_ids: ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
         :param pulumi.Input[_builtins.str] name: The name for the rotation.
-        :param pulumi.Input[Union['ContactsRotationRecurrenceArgs', 'ContactsRotationRecurrenceArgsDict']] recurrence: Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `daily_settings`, `monthly_settings`, or `weekly_settings` must be populated. See Recurrence for more details.
+        :param pulumi.Input[Union['ContactsRotationRecurrenceArgs', 'ContactsRotationRecurrenceArgsDict', 'outputs.ContactsRotationRecurrence']] recurrence: Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `daily_settings`, `monthly_settings`, or `weekly_settings` must be populated. See Recurrence for more details.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -470,16 +470,16 @@ class ContactsRotation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.ContactsRotation("example",
+            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
+            name="rotation",
             recurrence={
+                "number_of_on_calls": 1,
+                "recurrence_multiplier": 1,
                 "daily_settings": [{
                     "hour_of_day": 9,
                     "minute_of_hour": 0,
                 }],
-                "number_of_on_calls": 1,
-                "recurrence_multiplier": 1,
             },
-            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
-            name="rotation",
             time_zone_id="Australia/Sydney",
             opts = pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
         ```
@@ -491,8 +491,29 @@ class ContactsRotation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.ContactsRotation("example",
+            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
+            name="rotation",
             recurrence={
+                "number_of_on_calls": 1,
+                "recurrence_multiplier": 1,
+                "weekly_settings": [
+                    {
+                        "day_of_week": "WED",
+                        "hand_off_time": {
+                            "hour_of_day": 4,
+                            "minute_of_hour": 25,
+                        },
+                    },
+                    {
+                        "day_of_week": "FRI",
+                        "hand_off_time": {
+                            "hour_of_day": 15,
+                            "minute_of_hour": 57,
+                        },
+                    },
+                ],
                 "shift_coverages": [{
+                    "map_block_key": "MON",
                     "coverage_times": [{
                         "start": {
                             "hour_of_day": 1,
@@ -503,29 +524,8 @@ class ContactsRotation(pulumi.CustomResource):
                             "minute_of_hour": 0,
                         },
                     }],
-                    "map_block_key": "MON",
                 }],
-                "weekly_settings": [
-                    {
-                        "hand_off_time": {
-                            "hour_of_day": 4,
-                            "minute_of_hour": 25,
-                        },
-                        "day_of_week": "WED",
-                    },
-                    {
-                        "hand_off_time": {
-                            "hour_of_day": 15,
-                            "minute_of_hour": 57,
-                        },
-                        "day_of_week": "FRI",
-                    },
-                ],
-                "number_of_on_calls": 1,
-                "recurrence_multiplier": 1,
             },
-            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
-            name="rotation",
             start_time="2023-07-20T02:21:49+00:00",
             time_zone_id="Australia/Sydney",
             tags={
@@ -542,28 +542,28 @@ class ContactsRotation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.ContactsRotation("example",
+            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
+            name="rotation",
             recurrence={
+                "number_of_on_calls": 1,
+                "recurrence_multiplier": 1,
                 "monthly_settings": [
                     {
+                        "day_of_month": 20,
                         "hand_off_time": {
                             "hour_of_day": 8,
                             "minute_of_hour": 0,
                         },
-                        "day_of_month": 20,
                     },
                     {
+                        "day_of_month": 13,
                         "hand_off_time": {
                             "hour_of_day": 12,
                             "minute_of_hour": 34,
                         },
-                        "day_of_month": 13,
                     },
                 ],
-                "number_of_on_calls": 1,
-                "recurrence_multiplier": 1,
             },
-            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
-            name="rotation",
             time_zone_id="Australia/Sydney",
             opts = pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
         ```
@@ -600,7 +600,7 @@ class ContactsRotation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 recurrence: pulumi.Input[Optional[Union['ContactsRotationRecurrenceArgs', 'ContactsRotationRecurrenceArgsDict']]] = None,
+                 recurrence: pulumi.Input[Optional[Union['ContactsRotationRecurrenceArgs', 'ContactsRotationRecurrenceArgsDict', 'outputs.ContactsRotationRecurrence']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  start_time: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -642,7 +642,7 @@ class ContactsRotation(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             contact_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            recurrence: pulumi.Input[Optional[Union['ContactsRotationRecurrenceArgs', 'ContactsRotationRecurrenceArgsDict']]] = None,
+            recurrence: pulumi.Input[Optional[Union['ContactsRotationRecurrenceArgs', 'ContactsRotationRecurrenceArgsDict', 'outputs.ContactsRotationRecurrence']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             start_time: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -658,7 +658,7 @@ class ContactsRotation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the rotation.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] contact_ids: ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
         :param pulumi.Input[_builtins.str] name: The name for the rotation.
-        :param pulumi.Input[Union['ContactsRotationRecurrenceArgs', 'ContactsRotationRecurrenceArgsDict']] recurrence: Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `daily_settings`, `monthly_settings`, or `weekly_settings` must be populated. See Recurrence for more details.
+        :param pulumi.Input[Union['ContactsRotationRecurrenceArgs', 'ContactsRotationRecurrenceArgsDict', 'outputs.ContactsRotationRecurrence']] recurrence: Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `daily_settings`, `monthly_settings`, or `weekly_settings` must be populated. See Recurrence for more details.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

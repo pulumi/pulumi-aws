@@ -93,7 +93,7 @@ class AwaitableGetClustersResult(GetClustersResult):
             region=self.region)
 
 
-def get_clusters(filters: Optional[Sequence[Union['GetClustersFilterArgs', 'GetClustersFilterArgsDict']]] = None,
+def get_clusters(filters: Optional[Sequence[Union['GetClustersFilterArgs', 'GetClustersFilterArgsDict', 'outputs.GetClustersFilterResult']]] = None,
                  region: Optional[_builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClustersResult:
     """
@@ -114,7 +114,7 @@ def get_clusters(filters: Optional[Sequence[Union['GetClustersFilterArgs', 'GetC
     ```
 
 
-    :param Sequence[Union['GetClustersFilterArgs', 'GetClustersFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetClustersFilterArgs', 'GetClustersFilterArgsDict', 'outputs.GetClustersFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -129,7 +129,7 @@ def get_clusters(filters: Optional[Sequence[Union['GetClustersFilterArgs', 'GetC
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_clusters_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetClustersFilterArgs', 'GetClustersFilterArgsDict']]]]] = None,
+def get_clusters_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetClustersFilterArgs', 'GetClustersFilterArgsDict', 'outputs.GetClustersFilterResult']]]]] = None,
                         region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClustersResult]:
     """
@@ -150,7 +150,7 @@ def get_clusters_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['
     ```
 
 
-    :param Sequence[Union['GetClustersFilterArgs', 'GetClustersFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetClustersFilterArgs', 'GetClustersFilterArgsDict', 'outputs.GetClustersFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

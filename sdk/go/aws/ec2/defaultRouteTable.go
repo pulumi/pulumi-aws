@@ -35,6 +35,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewDefaultRouteTable(ctx, "example", &ec2.DefaultRouteTableArgs{
+//				DefaultRouteTableId: pulumi.Any(exampleAwsVpc.DefaultRouteTableId),
 //				Routes: ec2.DefaultRouteTableRouteArray{
 //					&ec2.DefaultRouteTableRouteArgs{
 //						CidrBlock: pulumi.String("10.0.1.0/24"),
@@ -45,7 +46,6 @@ import (
 //						EgressOnlyGatewayId: pulumi.Any(exampleAwsEgressOnlyInternetGateway.Id),
 //					},
 //				},
-//				DefaultRouteTableId: pulumi.Any(exampleAwsVpc.DefaultRouteTableId),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example"),
 //				},

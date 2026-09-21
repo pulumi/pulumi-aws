@@ -298,12 +298,12 @@ class Domain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_options: pulumi.Input[Optional[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict']]] = None,
-                 index_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainIndexFieldArgs', 'DomainIndexFieldArgsDict']]]]] = None,
+                 endpoint_options: pulumi.Input[Optional[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict', 'outputs.DomainEndpointOptions']]] = None,
+                 index_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainIndexFieldArgs', 'DomainIndexFieldArgsDict', 'outputs.DomainIndexField']]]]] = None,
                  multi_az: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 scaling_parameters: pulumi.Input[Optional[Union['DomainScalingParametersArgs', 'DomainScalingParametersArgsDict']]] = None,
+                 scaling_parameters: pulumi.Input[Optional[Union['DomainScalingParametersArgs', 'DomainScalingParametersArgsDict', 'outputs.DomainScalingParameters']]] = None,
                  __props__=None):
         """
         Provides an CloudSearch domain resource.
@@ -317,6 +317,7 @@ class Domain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudsearch.Domain("example",
+            name="example-domain",
             scaling_parameters={
                 "desired_instance_type": "search.medium",
             },
@@ -339,8 +340,7 @@ class Domain(pulumi.CustomResource):
                     "sort": True,
                     "source_fields": "headline",
                 },
-            ],
-            name="example-domain")
+            ])
         ```
 
         ## Import
@@ -354,12 +354,12 @@ class Domain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict']] endpoint_options: Domain endpoint options. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DomainIndexFieldArgs', 'DomainIndexFieldArgsDict']]]] index_fields: The index fields for documents added to the domain. Documented below.
+        :param pulumi.Input[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict', 'outputs.DomainEndpointOptions']] endpoint_options: Domain endpoint options. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DomainIndexFieldArgs', 'DomainIndexFieldArgsDict', 'outputs.DomainIndexField']]]] index_fields: The index fields for documents added to the domain. Documented below.
         :param pulumi.Input[_builtins.bool] multi_az: Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
         :param pulumi.Input[_builtins.str] name: The name of the CloudSearch domain.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DomainScalingParametersArgs', 'DomainScalingParametersArgsDict']] scaling_parameters: Domain scaling parameters. Documented below.
+        :param pulumi.Input[Union['DomainScalingParametersArgs', 'DomainScalingParametersArgsDict', 'outputs.DomainScalingParameters']] scaling_parameters: Domain scaling parameters. Documented below.
         """
         ...
     @overload
@@ -379,6 +379,7 @@ class Domain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudsearch.Domain("example",
+            name="example-domain",
             scaling_parameters={
                 "desired_instance_type": "search.medium",
             },
@@ -401,8 +402,7 @@ class Domain(pulumi.CustomResource):
                     "sort": True,
                     "source_fields": "headline",
                 },
-            ],
-            name="example-domain")
+            ])
         ```
 
         ## Import
@@ -429,12 +429,12 @@ class Domain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_options: pulumi.Input[Optional[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict']]] = None,
-                 index_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainIndexFieldArgs', 'DomainIndexFieldArgsDict']]]]] = None,
+                 endpoint_options: pulumi.Input[Optional[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict', 'outputs.DomainEndpointOptions']]] = None,
+                 index_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainIndexFieldArgs', 'DomainIndexFieldArgsDict', 'outputs.DomainIndexField']]]]] = None,
                  multi_az: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 scaling_parameters: pulumi.Input[Optional[Union['DomainScalingParametersArgs', 'DomainScalingParametersArgsDict']]] = None,
+                 scaling_parameters: pulumi.Input[Optional[Union['DomainScalingParametersArgs', 'DomainScalingParametersArgsDict', 'outputs.DomainScalingParameters']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -467,12 +467,12 @@ class Domain(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             document_service_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             domain_id: pulumi.Input[Optional[_builtins.str]] = None,
-            endpoint_options: pulumi.Input[Optional[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict']]] = None,
-            index_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainIndexFieldArgs', 'DomainIndexFieldArgsDict']]]]] = None,
+            endpoint_options: pulumi.Input[Optional[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict', 'outputs.DomainEndpointOptions']]] = None,
+            index_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainIndexFieldArgs', 'DomainIndexFieldArgsDict', 'outputs.DomainIndexField']]]]] = None,
             multi_az: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            scaling_parameters: pulumi.Input[Optional[Union['DomainScalingParametersArgs', 'DomainScalingParametersArgsDict']]] = None,
+            scaling_parameters: pulumi.Input[Optional[Union['DomainScalingParametersArgs', 'DomainScalingParametersArgsDict', 'outputs.DomainScalingParameters']]] = None,
             search_service_endpoint: pulumi.Input[Optional[_builtins.str]] = None) -> 'Domain':
         """
         Get an existing Domain resource's state with the given name, id, and optional extra
@@ -484,12 +484,12 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: The domain's ARN.
         :param pulumi.Input[_builtins.str] document_service_endpoint: The service endpoint for updating documents in a search domain.
         :param pulumi.Input[_builtins.str] domain_id: An internally generated unique identifier for the domain.
-        :param pulumi.Input[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict']] endpoint_options: Domain endpoint options. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DomainIndexFieldArgs', 'DomainIndexFieldArgsDict']]]] index_fields: The index fields for documents added to the domain. Documented below.
+        :param pulumi.Input[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict', 'outputs.DomainEndpointOptions']] endpoint_options: Domain endpoint options. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DomainIndexFieldArgs', 'DomainIndexFieldArgsDict', 'outputs.DomainIndexField']]]] index_fields: The index fields for documents added to the domain. Documented below.
         :param pulumi.Input[_builtins.bool] multi_az: Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
         :param pulumi.Input[_builtins.str] name: The name of the CloudSearch domain.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DomainScalingParametersArgs', 'DomainScalingParametersArgsDict']] scaling_parameters: Domain scaling parameters. Documented below.
+        :param pulumi.Input[Union['DomainScalingParametersArgs', 'DomainScalingParametersArgsDict', 'outputs.DomainScalingParameters']] scaling_parameters: Domain scaling parameters. Documented below.
         :param pulumi.Input[_builtins.str] search_service_endpoint: The service endpoint for requesting search results from a search domain.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

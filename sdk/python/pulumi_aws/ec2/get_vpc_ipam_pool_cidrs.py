@@ -90,7 +90,7 @@ class AwaitableGetVpcIpamPoolCidrsResult(GetVpcIpamPoolCidrsResult):
             region=self.region)
 
 
-def get_vpc_ipam_pool_cidrs(filters: Optional[Sequence[Union['GetVpcIpamPoolCidrsFilterArgs', 'GetVpcIpamPoolCidrsFilterArgsDict']]] = None,
+def get_vpc_ipam_pool_cidrs(filters: Optional[Sequence[Union['GetVpcIpamPoolCidrsFilterArgs', 'GetVpcIpamPoolCidrsFilterArgsDict', 'outputs.GetVpcIpamPoolCidrsFilterResult']]] = None,
                             ipam_pool_id: Optional[_builtins.str] = None,
                             region: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcIpamPoolCidrsResult:
@@ -126,24 +126,24 @@ def get_vpc_ipam_pool_cidrs(filters: Optional[Sequence[Union['GetVpcIpamPoolCidr
     import pulumi
     import pulumi_aws as aws
 
-    c = aws.ec2.get_vpc_ipam_pool_cidrs(filters=[{
+    c = aws.ec2.get_vpc_ipam_pool_cidrs(ipam_pool_id="ipam-pool-123",
+        filters=[{
             "name": "cidr",
             "values": ["10.*"],
-        }],
-        ipam_pool_id="ipam-pool-123")
+        }])
     mycidrs = [cidr.cidr for cidr in c.ipam_pool_cidrs if cidr.state == "provisioned"]
     pls = aws.ec2.ManagedPrefixList("pls",
-        entries=[{
-            "cidr": entry,
-            "description": entry,
-        } for entry in mycidrs],
+        entries=[{"key": k, "value": v} for k, v in sorted(mycidrs.items())].apply(lambda entries: [aws.ec2.ManagedPrefixListEntryArgs(
+            cidr=entry["value"],
+            description=entry["value"],
+        ) for entry in entries]),
         name=f"IPAM Pool ({test['id']}) Cidrs",
         address_family="IPv4",
         max_entries=len(mycidrs))
     ```
 
 
-    :param Sequence[Union['GetVpcIpamPoolCidrsFilterArgs', 'GetVpcIpamPoolCidrsFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetVpcIpamPoolCidrsFilterArgs', 'GetVpcIpamPoolCidrsFilterArgsDict', 'outputs.GetVpcIpamPoolCidrsFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str ipam_pool_id: ID of the IPAM pool you would like the list of provisioned CIDRs.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
@@ -160,7 +160,7 @@ def get_vpc_ipam_pool_cidrs(filters: Optional[Sequence[Union['GetVpcIpamPoolCidr
         ipam_pool_cidrs=pulumi.get(__ret__, 'ipam_pool_cidrs'),
         ipam_pool_id=pulumi.get(__ret__, 'ipam_pool_id'),
         region=pulumi.get(__ret__, 'region'))
-def get_vpc_ipam_pool_cidrs_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpcIpamPoolCidrsFilterArgs', 'GetVpcIpamPoolCidrsFilterArgsDict']]]]] = None,
+def get_vpc_ipam_pool_cidrs_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpcIpamPoolCidrsFilterArgs', 'GetVpcIpamPoolCidrsFilterArgsDict', 'outputs.GetVpcIpamPoolCidrsFilterResult']]]]] = None,
                                    ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                                    region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcIpamPoolCidrsResult]:
@@ -196,24 +196,24 @@ def get_vpc_ipam_pool_cidrs_output(filters: pulumi.Input[Optional[Optional[Seque
     import pulumi
     import pulumi_aws as aws
 
-    c = aws.ec2.get_vpc_ipam_pool_cidrs(filters=[{
+    c = aws.ec2.get_vpc_ipam_pool_cidrs(ipam_pool_id="ipam-pool-123",
+        filters=[{
             "name": "cidr",
             "values": ["10.*"],
-        }],
-        ipam_pool_id="ipam-pool-123")
+        }])
     mycidrs = [cidr.cidr for cidr in c.ipam_pool_cidrs if cidr.state == "provisioned"]
     pls = aws.ec2.ManagedPrefixList("pls",
-        entries=[{
-            "cidr": entry,
-            "description": entry,
-        } for entry in mycidrs],
+        entries=[{"key": k, "value": v} for k, v in sorted(mycidrs.items())].apply(lambda entries: [aws.ec2.ManagedPrefixListEntryArgs(
+            cidr=entry["value"],
+            description=entry["value"],
+        ) for entry in entries]),
         name=f"IPAM Pool ({test['id']}) Cidrs",
         address_family="IPv4",
         max_entries=len(mycidrs))
     ```
 
 
-    :param Sequence[Union['GetVpcIpamPoolCidrsFilterArgs', 'GetVpcIpamPoolCidrsFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetVpcIpamPoolCidrsFilterArgs', 'GetVpcIpamPoolCidrsFilterArgsDict', 'outputs.GetVpcIpamPoolCidrsFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str ipam_pool_id: ID of the IPAM pool you would like the list of provisioned CIDRs.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """

@@ -43,6 +43,9 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewInventory(ctx, "test", &s3.InventoryArgs{
+//				Bucket:                 test.ID().ToIDOutput().ToStringOutput(),
+//				Name:                   pulumi.String("EntireBucketDaily"),
+//				IncludedObjectVersions: pulumi.String("All"),
 //				Schedule: &s3.InventoryScheduleArgs{
 //					Frequency: pulumi.String("Daily"),
 //				},
@@ -52,9 +55,6 @@ import (
 //						BucketArn: inventory.Arn,
 //					},
 //				},
-//				Bucket:                 test.ID().ToIDOutput().ToStringOutput(),
-//				Name:                   pulumi.String("EntireBucketDaily"),
-//				IncludedObjectVersions: pulumi.String("All"),
 //			})
 //			if err != nil {
 //				return err
@@ -92,6 +92,9 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewInventory(ctx, "test-prefix", &s3.InventoryArgs{
+//				Bucket:                 test.ID().ToIDOutput().ToStringOutput(),
+//				Name:                   pulumi.String("DocumentsWeekly"),
+//				IncludedObjectVersions: pulumi.String("All"),
 //				Schedule: &s3.InventoryScheduleArgs{
 //					Frequency: pulumi.String("Daily"),
 //				},
@@ -105,9 +108,6 @@ import (
 //						Prefix:    pulumi.String("inventory"),
 //					},
 //				},
-//				Bucket:                 test.ID().ToIDOutput().ToStringOutput(),
-//				Name:                   pulumi.String("DocumentsWeekly"),
-//				IncludedObjectVersions: pulumi.String("All"),
 //			})
 //			if err != nil {
 //				return err

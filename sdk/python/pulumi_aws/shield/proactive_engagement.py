@@ -104,7 +104,7 @@ class ProactiveEngagement(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 emergency_contacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProactiveEngagementEmergencyContactArgs', 'ProactiveEngagementEmergencyContactArgsDict']]]]] = None,
+                 emergency_contacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProactiveEngagementEmergencyContactArgs', 'ProactiveEngagementEmergencyContactArgsDict', 'outputs.ProactiveEngagementEmergencyContact']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -135,6 +135,7 @@ class ProactiveEngagement(pulumi.CustomResource):
             }))
         example_drt_access_role_arn_association = aws.shield.DrtAccessRoleArnAssociation("example", role_arn=example_role.arn)
         example = aws.shield.ProactiveEngagement("example",
+            enabled=True,
             emergency_contacts=[
                 {
                     "contact_notes": "Notes",
@@ -147,7 +148,6 @@ class ProactiveEngagement(pulumi.CustomResource):
                     "phone_number": "+12358132134",
                 },
             ],
-            enabled=True,
             opts = pulumi.ResourceOptions(depends_on=[example_drt_access_role_arn_association]))
         example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
             role=example_role.name,
@@ -169,7 +169,7 @@ class ProactiveEngagement(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProactiveEngagementEmergencyContactArgs', 'ProactiveEngagementEmergencyContactArgsDict']]]] emergency_contacts: One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProactiveEngagementEmergencyContactArgs', 'ProactiveEngagementEmergencyContactArgsDict', 'outputs.ProactiveEngagementEmergencyContact']]]] emergency_contacts: One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
         :param pulumi.Input[_builtins.bool] enabled: Boolean value indicating if Proactive Engagement should be enabled or not.
         """
         ...
@@ -206,6 +206,7 @@ class ProactiveEngagement(pulumi.CustomResource):
             }))
         example_drt_access_role_arn_association = aws.shield.DrtAccessRoleArnAssociation("example", role_arn=example_role.arn)
         example = aws.shield.ProactiveEngagement("example",
+            enabled=True,
             emergency_contacts=[
                 {
                     "contact_notes": "Notes",
@@ -218,7 +219,6 @@ class ProactiveEngagement(pulumi.CustomResource):
                     "phone_number": "+12358132134",
                 },
             ],
-            enabled=True,
             opts = pulumi.ResourceOptions(depends_on=[example_drt_access_role_arn_association]))
         example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
             role=example_role.name,
@@ -253,7 +253,7 @@ class ProactiveEngagement(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 emergency_contacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProactiveEngagementEmergencyContactArgs', 'ProactiveEngagementEmergencyContactArgsDict']]]]] = None,
+                 emergency_contacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProactiveEngagementEmergencyContactArgs', 'ProactiveEngagementEmergencyContactArgsDict', 'outputs.ProactiveEngagementEmergencyContact']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -280,7 +280,7 @@ class ProactiveEngagement(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            emergency_contacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProactiveEngagementEmergencyContactArgs', 'ProactiveEngagementEmergencyContactArgsDict']]]]] = None,
+            emergency_contacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProactiveEngagementEmergencyContactArgs', 'ProactiveEngagementEmergencyContactArgsDict', 'outputs.ProactiveEngagementEmergencyContact']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ProactiveEngagement':
         """
         Get an existing ProactiveEngagement resource's state with the given name, id, and optional extra
@@ -289,7 +289,7 @@ class ProactiveEngagement(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProactiveEngagementEmergencyContactArgs', 'ProactiveEngagementEmergencyContactArgsDict']]]] emergency_contacts: One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProactiveEngagementEmergencyContactArgs', 'ProactiveEngagementEmergencyContactArgsDict', 'outputs.ProactiveEngagementEmergencyContact']]]] emergency_contacts: One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
         :param pulumi.Input[_builtins.bool] enabled: Boolean value indicating if Proactive Engagement should be enabled or not.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

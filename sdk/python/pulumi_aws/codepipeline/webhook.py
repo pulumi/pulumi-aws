@@ -343,8 +343,8 @@ class Webhook(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authentication: pulumi.Input[Optional[_builtins.str]] = None,
-                 authentication_configuration: pulumi.Input[Optional[Union['WebhookAuthenticationConfigurationArgs', 'WebhookAuthenticationConfigurationArgsDict']]] = None,
-                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookFilterArgs', 'WebhookFilterArgsDict']]]]] = None,
+                 authentication_configuration: pulumi.Input[Optional[Union['WebhookAuthenticationConfigurationArgs', 'WebhookAuthenticationConfigurationArgsDict', 'outputs.WebhookAuthenticationConfiguration']]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookFilterArgs', 'WebhookFilterArgsDict', 'outputs.WebhookFilter']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -362,16 +362,19 @@ class Webhook(pulumi.CustomResource):
         import pulumi_github as github
 
         bar = aws.codepipeline.Pipeline("bar",
+            name="tf-test-pipeline",
+            role_arn=bar_aws_iam_role["arn"],
             artifact_stores=[{
+                "location": bar_aws_s3_bucket["bucket"],
+                "type": "S3",
                 "encryption_key": {
                     "id": s3kmskey["arn"],
                     "type": "KMS",
                 },
-                "location": bar_aws_s3_bucket["bucket"],
-                "type": "S3",
             }],
             stages=[
                 {
+                    "name": "Source",
                     "actions": [{
                         "name": "Source",
                         "category": "Source",
@@ -385,9 +388,9 @@ class Webhook(pulumi.CustomResource):
                             "Branch": "master",
                         },
                     }],
-                    "name": "Source",
                 },
                 {
+                    "name": "Build",
                     "actions": [{
                         "name": "Build",
                         "category": "Build",
@@ -399,34 +402,31 @@ class Webhook(pulumi.CustomResource):
                             "ProjectName": "test",
                         },
                     }],
-                    "name": "Build",
                 },
-            ],
-            name="tf-test-pipeline",
-            role_arn=bar_aws_iam_role["arn"])
+            ])
         webhook_secret = "super-secret"
         bar_webhook = aws.codepipeline.Webhook("bar",
+            name="test-webhook-github-bar",
+            authentication="GITHUB_HMAC",
+            target_action="Source",
+            target_pipeline=bar.name,
             authentication_configuration={
                 "secret_token": webhook_secret,
             },
             filters=[{
                 "json_path": "$.ref",
                 "match_equals": "refs/heads/{Branch}",
-            }],
-            name="test-webhook-github-bar",
-            authentication="GITHUB_HMAC",
-            target_action="Source",
-            target_pipeline=bar.name)
+            }])
         # Wire the CodePipeline webhook into a GitHub repository.
         bar_repository_webhook = github.RepositoryWebhook("bar",
+            repository=repo["name"],
+            name="web",
             configuration=[{
                 "url": bar_webhook.url,
                 "contentType": "json",
                 "insecureSsl": True,
                 "secret": webhook_secret,
             }],
-            repository=repo["name"],
-            name="web",
             events=["push"])
         ```
 
@@ -448,8 +448,8 @@ class Webhook(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authentication: The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
-        :param pulumi.Input[Union['WebhookAuthenticationConfigurationArgs', 'WebhookAuthenticationConfigurationArgsDict']] authentication_configuration: An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterArgs', 'WebhookFilterArgsDict']]]] filters: One or more `filter` blocks. Filter blocks are documented below.
+        :param pulumi.Input[Union['WebhookAuthenticationConfigurationArgs', 'WebhookAuthenticationConfigurationArgsDict', 'outputs.WebhookAuthenticationConfiguration']] authentication_configuration: An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterArgs', 'WebhookFilterArgsDict', 'outputs.WebhookFilter']]]] filters: One or more `filter` blocks. Filter blocks are documented below.
         :param pulumi.Input[_builtins.str] name: The name of the webhook.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -473,16 +473,19 @@ class Webhook(pulumi.CustomResource):
         import pulumi_github as github
 
         bar = aws.codepipeline.Pipeline("bar",
+            name="tf-test-pipeline",
+            role_arn=bar_aws_iam_role["arn"],
             artifact_stores=[{
+                "location": bar_aws_s3_bucket["bucket"],
+                "type": "S3",
                 "encryption_key": {
                     "id": s3kmskey["arn"],
                     "type": "KMS",
                 },
-                "location": bar_aws_s3_bucket["bucket"],
-                "type": "S3",
             }],
             stages=[
                 {
+                    "name": "Source",
                     "actions": [{
                         "name": "Source",
                         "category": "Source",
@@ -496,9 +499,9 @@ class Webhook(pulumi.CustomResource):
                             "Branch": "master",
                         },
                     }],
-                    "name": "Source",
                 },
                 {
+                    "name": "Build",
                     "actions": [{
                         "name": "Build",
                         "category": "Build",
@@ -510,34 +513,31 @@ class Webhook(pulumi.CustomResource):
                             "ProjectName": "test",
                         },
                     }],
-                    "name": "Build",
                 },
-            ],
-            name="tf-test-pipeline",
-            role_arn=bar_aws_iam_role["arn"])
+            ])
         webhook_secret = "super-secret"
         bar_webhook = aws.codepipeline.Webhook("bar",
+            name="test-webhook-github-bar",
+            authentication="GITHUB_HMAC",
+            target_action="Source",
+            target_pipeline=bar.name,
             authentication_configuration={
                 "secret_token": webhook_secret,
             },
             filters=[{
                 "json_path": "$.ref",
                 "match_equals": "refs/heads/{Branch}",
-            }],
-            name="test-webhook-github-bar",
-            authentication="GITHUB_HMAC",
-            target_action="Source",
-            target_pipeline=bar.name)
+            }])
         # Wire the CodePipeline webhook into a GitHub repository.
         bar_repository_webhook = github.RepositoryWebhook("bar",
+            repository=repo["name"],
+            name="web",
             configuration=[{
                 "url": bar_webhook.url,
                 "contentType": "json",
                 "insecureSsl": True,
                 "secret": webhook_secret,
             }],
-            repository=repo["name"],
-            name="web",
             events=["push"])
         ```
 
@@ -572,8 +572,8 @@ class Webhook(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authentication: pulumi.Input[Optional[_builtins.str]] = None,
-                 authentication_configuration: pulumi.Input[Optional[Union['WebhookAuthenticationConfigurationArgs', 'WebhookAuthenticationConfigurationArgsDict']]] = None,
-                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookFilterArgs', 'WebhookFilterArgsDict']]]]] = None,
+                 authentication_configuration: pulumi.Input[Optional[Union['WebhookAuthenticationConfigurationArgs', 'WebhookAuthenticationConfigurationArgsDict', 'outputs.WebhookAuthenticationConfiguration']]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookFilterArgs', 'WebhookFilterArgsDict', 'outputs.WebhookFilter']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -619,8 +619,8 @@ class Webhook(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             authentication: pulumi.Input[Optional[_builtins.str]] = None,
-            authentication_configuration: pulumi.Input[Optional[Union['WebhookAuthenticationConfigurationArgs', 'WebhookAuthenticationConfigurationArgsDict']]] = None,
-            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookFilterArgs', 'WebhookFilterArgsDict']]]]] = None,
+            authentication_configuration: pulumi.Input[Optional[Union['WebhookAuthenticationConfigurationArgs', 'WebhookAuthenticationConfigurationArgsDict', 'outputs.WebhookAuthenticationConfiguration']]] = None,
+            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookFilterArgs', 'WebhookFilterArgsDict', 'outputs.WebhookFilter']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -637,8 +637,8 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The CodePipeline webhook's ARN.
         :param pulumi.Input[_builtins.str] authentication: The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
-        :param pulumi.Input[Union['WebhookAuthenticationConfigurationArgs', 'WebhookAuthenticationConfigurationArgsDict']] authentication_configuration: An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterArgs', 'WebhookFilterArgsDict']]]] filters: One or more `filter` blocks. Filter blocks are documented below.
+        :param pulumi.Input[Union['WebhookAuthenticationConfigurationArgs', 'WebhookAuthenticationConfigurationArgsDict', 'outputs.WebhookAuthenticationConfiguration']] authentication_configuration: An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterArgs', 'WebhookFilterArgsDict', 'outputs.WebhookFilter']]]] filters: One or more `filter` blocks. Filter blocks are documented below.
         :param pulumi.Input[_builtins.str] name: The name of the webhook.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

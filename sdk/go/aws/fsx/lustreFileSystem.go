@@ -70,9 +70,7 @@ import (
 //				SecurityGroupIds: pulumi.StringArray{
 //					exampleAwsSecurityGroup.Id,
 //				},
-//			}, pulumi.IgnoreChanges([]string{
-//				"securityGroupIds",
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

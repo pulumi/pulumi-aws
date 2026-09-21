@@ -19,11 +19,29 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.medialive.Channel("example", {
+ *     name: "example-channel",
+ *     channelClass: "STANDARD",
+ *     roleArn: exampleAwsIamRole.arn,
  *     inputSpecification: {
  *         codec: "AVC",
  *         inputResolution: "HD",
  *         maximumBitrate: "MAX_20_MBPS",
  *     },
+ *     inputAttachments: [{
+ *         inputAttachmentName: "example-input",
+ *         inputId: exampleAwsMedialiveInput.id,
+ *     }],
+ *     destinations: [{
+ *         id: "destination",
+ *         settings: [
+ *             {
+ *                 url: `s3://${main.id}/test1`,
+ *             },
+ *             {
+ *                 url: `s3://${main2.id}/test2`,
+ *             },
+ *         ],
+ *     }],
  *     encoderSettings: {
  *         timecodeConfig: {
  *             source: "EMBEDDED",
@@ -31,6 +49,9 @@ import * as utilities from "../utilities";
  *         audioDescriptions: [{
  *             audioSelectorName: "example audio selector",
  *             name: "audio-selector",
+ *         }],
+ *         videoDescriptions: [{
+ *             name: "example-video",
  *         }],
  *         outputGroups: [{
  *             outputGroupSettings: {
@@ -41,8 +62,13 @@ import * as utilities from "../utilities";
  *                 }],
  *             },
  *             outputs: [{
+ *                 outputName: "example-name",
+ *                 videoDescriptionName: "example-video",
+ *                 audioDescriptionNames: ["audio-selector"],
  *                 outputSettings: {
  *                     archiveOutputSettings: {
+ *                         nameModifier: "_1",
+ *                         extension: "m2ts",
  *                         containerSettings: {
  *                             m2tsSettings: {
  *                                 audioBufferModel: "ATSC",
@@ -50,37 +76,11 @@ import * as utilities from "../utilities";
  *                                 rateMode: "CBR",
  *                             },
  *                         },
- *                         nameModifier: "_1",
- *                         extension: "m2ts",
  *                     },
  *                 },
- *                 outputName: "example-name",
- *                 videoDescriptionName: "example-video",
- *                 audioDescriptionNames: ["audio-selector"],
  *             }],
  *         }],
- *         videoDescriptions: [{
- *             name: "example-video",
- *         }],
  *     },
- *     destinations: [{
- *         settings: [
- *             {
- *                 url: `s3://${main.id}/test1`,
- *             },
- *             {
- *                 url: `s3://${main2.id}/test2`,
- *             },
- *         ],
- *         id: "destination",
- *     }],
- *     inputAttachments: [{
- *         inputAttachmentName: "example-input",
- *         inputId: exampleAwsMedialiveInput.id,
- *     }],
- *     name: "example-channel",
- *     channelClass: "STANDARD",
- *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *

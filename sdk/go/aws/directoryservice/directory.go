@@ -54,6 +54,9 @@ import (
 //				return err
 //			}
 //			_, err = directoryservice.NewDirectory(ctx, "bar", &directoryservice.DirectoryArgs{
+//				Name:     pulumi.String("corp.notexample.com"),
+//				Password: pulumi.String("SuperSecretPassw0rd"),
+//				Size:     pulumi.String("Small"),
 //				VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
 //					VpcId: main.ID().ToIDOutput().ToStringOutput(),
 //					SubnetIds: pulumi.StringArray{
@@ -61,9 +64,6 @@ import (
 //						barSubnet.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
-//				Name:     pulumi.String("corp.notexample.com"),
-//				Password: pulumi.String("SuperSecretPassw0rd"),
-//				Size:     pulumi.String("Small"),
 //				Tags: pulumi.StringMap{
 //					"Project": pulumi.String("foo"),
 //				},
@@ -115,6 +115,10 @@ import (
 //				return err
 //			}
 //			_, err = directoryservice.NewDirectory(ctx, "bar", &directoryservice.DirectoryArgs{
+//				Name:     pulumi.String("corp.notexample.com"),
+//				Password: pulumi.String("SuperSecretPassw0rd"),
+//				Edition:  pulumi.String("Standard"),
+//				Type:     pulumi.String("MicrosoftAD"),
 //				VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
 //					VpcId: main.ID().ToIDOutput().ToStringOutput(),
 //					SubnetIds: pulumi.StringArray{
@@ -122,10 +126,6 @@ import (
 //						barSubnet.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
-//				Name:     pulumi.String("corp.notexample.com"),
-//				Password: pulumi.String("SuperSecretPassw0rd"),
-//				Edition:  pulumi.String("Standard"),
-//				Type:     pulumi.String("MicrosoftAD"),
 //				Tags: pulumi.StringMap{
 //					"Project": pulumi.String("foo"),
 //				},
@@ -177,6 +177,10 @@ import (
 //				return err
 //			}
 //			_, err = directoryservice.NewDirectory(ctx, "connector", &directoryservice.DirectoryArgs{
+//				Name:     pulumi.String("corp.notexample.com"),
+//				Password: pulumi.String("SuperSecretPassw0rd"),
+//				Size:     pulumi.String("Small"),
+//				Type:     pulumi.String("ADConnector"),
 //				ConnectSettings: &directoryservice.DirectoryConnectSettingsArgs{
 //					CustomerDnsIps: pulumi.StringArray{
 //						pulumi.String("A.B.C.D"),
@@ -188,10 +192,6 @@ import (
 //					},
 //					VpcId: main.ID().ToIDOutput().ToStringOutput(),
 //				},
-//				Name:     pulumi.String("corp.notexample.com"),
-//				Password: pulumi.String("SuperSecretPassw0rd"),
-//				Size:     pulumi.String("Small"),
-//				Type:     pulumi.String("ADConnector"),
 //			})
 //			if err != nil {
 //				return err

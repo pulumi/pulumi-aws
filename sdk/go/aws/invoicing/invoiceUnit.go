@@ -29,6 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := invoicing.NewInvoiceUnit(ctx, "example", &invoicing.InvoiceUnitArgs{
+//				Name:            pulumi.String("example-unit"),
+//				Description:     pulumi.String("Example invoice unit"),
+//				InvoiceReceiver: pulumi.String("123456789012"),
 //				Rules: invoicing.InvoiceUnitRuleArray{
 //					&invoicing.InvoiceUnitRuleArgs{
 //						LinkedAccounts: pulumi.StringArray{
@@ -36,9 +39,6 @@ import (
 //						},
 //					},
 //				},
-//				Name:            pulumi.String("example-unit"),
-//				Description:     pulumi.String("Example invoice unit"),
-//				InvoiceReceiver: pulumi.String("123456789012"),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("production"),
 //				},

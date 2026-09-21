@@ -38,8 +38,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lex.V2modelsSlot("example", {
+ *     botId: test.id,
+ *     botVersion: testAwsLexv2modelsBotLocale.botVersion,
+ *     intentId: testAwsLexv2modelsIntent.intentId,
+ *     localeId: testAwsLexv2modelsBotLocale.localeId,
+ *     name: "example",
  *     valueElicitationSetting: {
+ *         slotConstraint: "Required",
  *         promptSpecification: {
+ *             allowInterrupt: true,
+ *             maxRetries: 1,
+ *             messageSelectionStrategy: "Random",
  *             messageGroups: [{
  *                 message: {
  *                     plainTextMessage: {
@@ -49,35 +58,14 @@ import * as utilities from "../utilities";
  *             }],
  *             promptAttemptsSpecifications: [
  *                 {
- *                     allowedInputTypes: {
- *                         allowAudioInput: true,
- *                         allowDtmfInput: true,
- *                     },
- *                     audioAndDtmfInputSpecification: {
- *                         audioSpecification: {
- *                             endTimeoutMs: 640,
- *                             maxLengthMs: 15000,
- *                         },
- *                         dtmfSpecification: {
- *                             deletionCharacter: "*",
- *                             endCharacter: "#",
- *                             endTimeoutMs: 5000,
- *                             maxLength: 513,
- *                         },
- *                         startTimeoutMs: 4000,
- *                     },
- *                     textInputSpecification: {
- *                         startTimeoutMs: 30000,
- *                     },
  *                     allowInterrupt: true,
  *                     mapBlockKey: "Initial",
- *                 },
- *                 {
  *                     allowedInputTypes: {
  *                         allowAudioInput: true,
  *                         allowDtmfInput: true,
  *                     },
  *                     audioAndDtmfInputSpecification: {
+ *                         startTimeoutMs: 4000,
  *                         audioSpecification: {
  *                             endTimeoutMs: 640,
  *                             maxLengthMs: 15000,
@@ -88,26 +76,38 @@ import * as utilities from "../utilities";
  *                             endTimeoutMs: 5000,
  *                             maxLength: 513,
  *                         },
- *                         startTimeoutMs: 4000,
  *                     },
  *                     textInputSpecification: {
  *                         startTimeoutMs: 30000,
  *                     },
+ *                 },
+ *                 {
  *                     allowInterrupt: true,
  *                     mapBlockKey: "Retry1",
+ *                     allowedInputTypes: {
+ *                         allowAudioInput: true,
+ *                         allowDtmfInput: true,
+ *                     },
+ *                     audioAndDtmfInputSpecification: {
+ *                         startTimeoutMs: 4000,
+ *                         audioSpecification: {
+ *                             endTimeoutMs: 640,
+ *                             maxLengthMs: 15000,
+ *                         },
+ *                         dtmfSpecification: {
+ *                             deletionCharacter: "*",
+ *                             endCharacter: "#",
+ *                             endTimeoutMs: 5000,
+ *                             maxLength: 513,
+ *                         },
+ *                     },
+ *                     textInputSpecification: {
+ *                         startTimeoutMs: 30000,
+ *                     },
  *                 },
  *             ],
- *             allowInterrupt: true,
- *             maxRetries: 1,
- *             messageSelectionStrategy: "Random",
  *         },
- *         slotConstraint: "Required",
  *     },
- *     botId: test.id,
- *     botVersion: testAwsLexv2modelsBotLocale.botVersion,
- *     intentId: testAwsLexv2modelsIntent.intentId,
- *     localeId: testAwsLexv2modelsBotLocale.localeId,
- *     name: "example",
  * });
  * ```
  *

@@ -26,12 +26,12 @@ namespace Pulumi.Aws.ComputeOptimizer
     /// {
     ///     var example = new Aws.ComputeOptimizer.RecommendationPreferences("example", new()
     ///     {
+    ///         ResourceType = "Ec2Instance",
     ///         Scope = new Aws.ComputeOptimizer.Inputs.RecommendationPreferencesScopeArgs
     ///         {
     ///             Name = "AccountId",
     ///             Value = "123456789012",
     ///         },
-    ///         ResourceType = "Ec2Instance",
     ///         LookBackPeriod = "DAYS_32",
     ///     });
     /// 
@@ -50,11 +50,13 @@ namespace Pulumi.Aws.ComputeOptimizer
     /// {
     ///     var example = new Aws.ComputeOptimizer.RecommendationPreferences("example", new()
     ///     {
+    ///         ResourceType = "Ec2Instance",
     ///         Scope = new Aws.ComputeOptimizer.Inputs.RecommendationPreferencesScopeArgs
     ///         {
     ///             Name = "AccountId",
     ///             Value = "123456789012",
     ///         },
+    ///         EnhancedInfrastructureMetrics = "Active",
     ///         ExternalMetricsPreference = new Aws.ComputeOptimizer.Inputs.RecommendationPreferencesExternalMetricsPreferenceArgs
     ///         {
     ///             Source = "Datadog",
@@ -71,8 +73,6 @@ namespace Pulumi.Aws.ComputeOptimizer
     ///                 Name = "Ec2InstanceTypes",
     ///             },
     ///         },
-    ///         ResourceType = "Ec2Instance",
-    ///         EnhancedInfrastructureMetrics = "Active",
     ///     });
     /// 
     /// });

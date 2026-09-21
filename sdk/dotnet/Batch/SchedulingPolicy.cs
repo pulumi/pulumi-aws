@@ -24,8 +24,11 @@ namespace Pulumi.Aws.Batch
     /// {
     ///     var example = new Aws.Batch.SchedulingPolicy("example", new()
     ///     {
+    ///         Name = "example",
     ///         FairSharePolicy = new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyArgs
     ///         {
+    ///             ComputeReservation = 1,
+    ///             ShareDecaySeconds = 3600,
     ///             ShareDistributions = new[]
     ///             {
     ///                 new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyShareDistributionArgs
@@ -39,10 +42,7 @@ namespace Pulumi.Aws.Batch
     ///                     WeightFactor = 0.2,
     ///                 },
     ///             },
-    ///             ComputeReservation = 1,
-    ///             ShareDecaySeconds = 3600,
     ///         },
-    ///         Name = "example",
     ///         Tags = 
     ///         {
     ///             { "Name", "Example Batch Scheduling Policy" },

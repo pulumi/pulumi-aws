@@ -32,6 +32,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     ///     var example = new Aws.CloudFront.ContinuousDeploymentPolicy("example", new()
     ///     {
+    ///         Enabled = true,
     ///         StagingDistributionDnsNames = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs
     ///         {
     ///             Items = new[]
@@ -42,13 +43,12 @@ namespace Pulumi.Aws.CloudFront
     ///         },
     ///         TrafficConfig = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyTrafficConfigArgs
     ///         {
+    ///             Type = "SingleWeight",
     ///             SingleWeightConfig = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs
     ///             {
     ///                 Weight = 0.01,
     ///             },
-    ///             Type = "SingleWeight",
     ///         },
-    ///         Enabled = true,
     ///     });
     /// 
     ///     var production = new Aws.CloudFront.Distribution("production", new()
@@ -72,6 +72,7 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var example = new Aws.CloudFront.ContinuousDeploymentPolicy("example", new()
     ///     {
+    ///         Enabled = true,
     ///         StagingDistributionDnsNames = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs
     ///         {
     ///             Items = new[]
@@ -82,18 +83,17 @@ namespace Pulumi.Aws.CloudFront
     ///         },
     ///         TrafficConfig = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyTrafficConfigArgs
     ///         {
+    ///             Type = "SingleWeight",
     ///             SingleWeightConfig = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs
     ///             {
+    ///                 Weight = 0.01,
     ///                 SessionStickinessConfig = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs
     ///                 {
     ///                     IdleTtl = 300,
     ///                     MaximumTtl = 600,
     ///                 },
-    ///                 Weight = 0.01,
     ///             },
-    ///             Type = "SingleWeight",
     ///         },
-    ///         Enabled = true,
     ///     });
     /// 
     /// });
@@ -111,6 +111,7 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var example = new Aws.CloudFront.ContinuousDeploymentPolicy("example", new()
     ///     {
+    ///         Enabled = true,
     ///         StagingDistributionDnsNames = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs
     ///         {
     ///             Items = new[]
@@ -121,14 +122,13 @@ namespace Pulumi.Aws.CloudFront
     ///         },
     ///         TrafficConfig = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyTrafficConfigArgs
     ///         {
+    ///             Type = "SingleHeader",
     ///             SingleHeaderConfig = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs
     ///             {
     ///                 Header = "aws-cf-cd-example",
     ///                 Value = "example",
     ///             },
-    ///             Type = "SingleHeader",
     ///         },
-    ///         Enabled = true,
     ///     });
     /// 
     /// });

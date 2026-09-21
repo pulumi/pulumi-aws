@@ -388,10 +388,10 @@ class AlarmMuteRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  expire_date: pulumi.Input[Optional[_builtins.str]] = None,
-                 mute_targets: pulumi.Input[Optional[Union['AlarmMuteRuleMuteTargetsArgs', 'AlarmMuteRuleMuteTargetsArgsDict']]] = None,
+                 mute_targets: pulumi.Input[Optional[Union['AlarmMuteRuleMuteTargetsArgs', 'AlarmMuteRuleMuteTargetsArgsDict', 'outputs.AlarmMuteRuleMuteTargets']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['AlarmMuteRuleRuleArgs', 'AlarmMuteRuleRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['AlarmMuteRuleRuleArgs', 'AlarmMuteRuleRuleArgsDict', 'outputs.AlarmMuteRuleRule']]] = None,
                  start_date: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -407,13 +407,13 @@ class AlarmMuteRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudwatch.AlarmMuteRule("example",
+            name="example",
             rule={
                 "schedule": {
                     "duration": "PT4H",
                     "expression": "cron(0 2 * * *)",
                 },
-            },
-            name="example")
+            })
         ```
 
         ### With Start/Expire Dates Option
@@ -432,6 +432,10 @@ class AlarmMuteRule(pulumi.CustomResource):
             statistic="Average",
             threshold=float(80))
         example_alarm_mute_rule = aws.cloudwatch.AlarmMuteRule("example",
+            name="example",
+            description="Mute alarms during maintenance window",
+            start_date="2026-01-01T00:00:00Z",
+            expire_date="2026-12-31T23:59:00Z",
             rule={
                 "schedule": {
                     "duration": "PT4H",
@@ -442,10 +446,6 @@ class AlarmMuteRule(pulumi.CustomResource):
             mute_targets={
                 "alarm_names": [example.name],
             },
-            name="example",
-            description="Mute alarms during maintenance window",
-            start_date="2026-01-01T00:00:00Z",
-            expire_date="2026-12-31T23:59:00Z",
             tags={
                 "Environment": "production",
             })
@@ -460,13 +460,13 @@ class AlarmMuteRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudwatch.AlarmMuteRule("example",
+            name="example",
             rule={
                 "schedule": {
                     "duration": "PT4H",
                     "expression": "at(2026-12-31T23:59:59)",
                 },
-            },
-            name="example")
+            })
         ```
 
         ## Import
@@ -493,10 +493,10 @@ class AlarmMuteRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the alarm mute rule.
         :param pulumi.Input[_builtins.str] expire_date: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the mute rule expires. Seconds must be set to `00` (e.g., `2026-12-31T23:59:00Z`). Must not be set when using `at()` expressions.
-        :param pulumi.Input[Union['AlarmMuteRuleMuteTargetsArgs', 'AlarmMuteRuleMuteTargetsArgsDict']] mute_targets: Alarms to mute. See `mute_targets` block below for details.
+        :param pulumi.Input[Union['AlarmMuteRuleMuteTargetsArgs', 'AlarmMuteRuleMuteTargetsArgsDict', 'outputs.AlarmMuteRuleMuteTargets']] mute_targets: Alarms to mute. See `mute_targets` block below for details.
         :param pulumi.Input[_builtins.str] name: Name of the alarm mute rule. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AlarmMuteRuleRuleArgs', 'AlarmMuteRuleRuleArgsDict']] rule: Rule definition for the mute rule. See `rule` block below for details.
+        :param pulumi.Input[Union['AlarmMuteRuleRuleArgs', 'AlarmMuteRuleRuleArgsDict', 'outputs.AlarmMuteRuleRule']] rule: Rule definition for the mute rule. See `rule` block below for details.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] start_date: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the mute rule becomes active. Seconds must be set to `00` (e.g., `2026-01-01T00:00:00Z`). Must not be set when using `at()` expressions.
@@ -520,13 +520,13 @@ class AlarmMuteRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudwatch.AlarmMuteRule("example",
+            name="example",
             rule={
                 "schedule": {
                     "duration": "PT4H",
                     "expression": "cron(0 2 * * *)",
                 },
-            },
-            name="example")
+            })
         ```
 
         ### With Start/Expire Dates Option
@@ -545,6 +545,10 @@ class AlarmMuteRule(pulumi.CustomResource):
             statistic="Average",
             threshold=float(80))
         example_alarm_mute_rule = aws.cloudwatch.AlarmMuteRule("example",
+            name="example",
+            description="Mute alarms during maintenance window",
+            start_date="2026-01-01T00:00:00Z",
+            expire_date="2026-12-31T23:59:00Z",
             rule={
                 "schedule": {
                     "duration": "PT4H",
@@ -555,10 +559,6 @@ class AlarmMuteRule(pulumi.CustomResource):
             mute_targets={
                 "alarm_names": [example.name],
             },
-            name="example",
-            description="Mute alarms during maintenance window",
-            start_date="2026-01-01T00:00:00Z",
-            expire_date="2026-12-31T23:59:00Z",
             tags={
                 "Environment": "production",
             })
@@ -573,13 +573,13 @@ class AlarmMuteRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudwatch.AlarmMuteRule("example",
+            name="example",
             rule={
                 "schedule": {
                     "duration": "PT4H",
                     "expression": "at(2026-12-31T23:59:59)",
                 },
-            },
-            name="example")
+            })
         ```
 
         ## Import
@@ -619,10 +619,10 @@ class AlarmMuteRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  expire_date: pulumi.Input[Optional[_builtins.str]] = None,
-                 mute_targets: pulumi.Input[Optional[Union['AlarmMuteRuleMuteTargetsArgs', 'AlarmMuteRuleMuteTargetsArgsDict']]] = None,
+                 mute_targets: pulumi.Input[Optional[Union['AlarmMuteRuleMuteTargetsArgs', 'AlarmMuteRuleMuteTargetsArgsDict', 'outputs.AlarmMuteRuleMuteTargets']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['AlarmMuteRuleRuleArgs', 'AlarmMuteRuleRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['AlarmMuteRuleRuleArgs', 'AlarmMuteRuleRuleArgsDict', 'outputs.AlarmMuteRuleRule']]] = None,
                  start_date: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -661,11 +661,11 @@ class AlarmMuteRule(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             expire_date: pulumi.Input[Optional[_builtins.str]] = None,
             last_updated_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
-            mute_targets: pulumi.Input[Optional[Union['AlarmMuteRuleMuteTargetsArgs', 'AlarmMuteRuleMuteTargetsArgsDict']]] = None,
+            mute_targets: pulumi.Input[Optional[Union['AlarmMuteRuleMuteTargetsArgs', 'AlarmMuteRuleMuteTargetsArgsDict', 'outputs.AlarmMuteRuleMuteTargets']]] = None,
             mute_type: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            rule: pulumi.Input[Optional[Union['AlarmMuteRuleRuleArgs', 'AlarmMuteRuleRuleArgsDict']]] = None,
+            rule: pulumi.Input[Optional[Union['AlarmMuteRuleRuleArgs', 'AlarmMuteRuleRuleArgsDict', 'outputs.AlarmMuteRuleRule']]] = None,
             start_date: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -681,11 +681,11 @@ class AlarmMuteRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the alarm mute rule.
         :param pulumi.Input[_builtins.str] expire_date: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the mute rule expires. Seconds must be set to `00` (e.g., `2026-12-31T23:59:00Z`). Must not be set when using `at()` expressions.
         :param pulumi.Input[_builtins.str] last_updated_timestamp: Timestamp of when the mute rule was last updated.
-        :param pulumi.Input[Union['AlarmMuteRuleMuteTargetsArgs', 'AlarmMuteRuleMuteTargetsArgsDict']] mute_targets: Alarms to mute. See `mute_targets` block below for details.
+        :param pulumi.Input[Union['AlarmMuteRuleMuteTargetsArgs', 'AlarmMuteRuleMuteTargetsArgsDict', 'outputs.AlarmMuteRuleMuteTargets']] mute_targets: Alarms to mute. See `mute_targets` block below for details.
         :param pulumi.Input[_builtins.str] mute_type: Indicates whether the mute rule is one-time or recurring. Valid values are `ONE_TIME` or `RECURRING`. See [Alarm mute rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-mute-rules.html) for details.
         :param pulumi.Input[_builtins.str] name: Name of the alarm mute rule. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AlarmMuteRuleRuleArgs', 'AlarmMuteRuleRuleArgsDict']] rule: Rule definition for the mute rule. See `rule` block below for details.
+        :param pulumi.Input[Union['AlarmMuteRuleRuleArgs', 'AlarmMuteRuleRuleArgsDict', 'outputs.AlarmMuteRuleRule']] rule: Rule definition for the mute rule. See `rule` block below for details.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] start_date: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the mute rule becomes active. Seconds must be set to `00` (e.g., `2026-01-01T00:00:00Z`). Must not be set when using `at()` expressions.

@@ -720,8 +720,8 @@ class DomainName(pulumi.CustomResource):
                  certificate_private_key: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint_access_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 endpoint_configuration: pulumi.Input[Optional[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict']]] = None,
-                 mutual_tls_authentication: pulumi.Input[Optional[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
+                 endpoint_configuration: pulumi.Input[Optional[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict', 'outputs.DomainNameEndpointConfiguration']]] = None,
+                 mutual_tls_authentication: pulumi.Input[Optional[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict', 'outputs.DomainNameMutualTlsAuthentication']]] = None,
                  ownership_verification_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  policy: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -773,14 +773,14 @@ class DomainName(pulumi.CustomResource):
         # Example DNS record using Route53.
         # Route53 is not specifically required; any DNS host can be used.
         example_record = aws.route53.Record("example",
+            name=example.domain_name,
+            type=aws.route53.RecordType.A,
+            zone_id=example_aws_route53_zone["id"],
             aliases=[{
                 "evaluate_target_health": True,
                 "name": example.cloudfront_domain_name,
                 "zone_id": example.cloudfront_zone_id,
-            }],
-            name=example.domain_name,
-            type=aws.route53.RecordType.A,
-            zone_id=example_aws_route53_zone["id"])
+            }])
         ```
 
         ### Regional (ACM Certificate)
@@ -790,22 +790,22 @@ class DomainName(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apigateway.DomainName("example",
+            domain_name="api.example.com",
+            regional_certificate_arn=example_aws_acm_certificate_validation["certificateArn"],
             endpoint_configuration={
                 "types": "REGIONAL",
-            },
-            domain_name="api.example.com",
-            regional_certificate_arn=example_aws_acm_certificate_validation["certificateArn"])
+            })
         # Example DNS record using Route53.
         # Route53 is not specifically required; any DNS host can be used.
         example_record = aws.route53.Record("example",
+            name=example.domain_name,
+            type=aws.route53.RecordType.A,
+            zone_id=example_aws_route53_zone["id"],
             aliases=[{
                 "evaluate_target_health": True,
                 "name": example.regional_domain_name,
                 "zone_id": example.regional_zone_id,
-            }],
-            name=example.domain_name,
-            type=aws.route53.RecordType.A,
-            zone_id=example_aws_route53_zone["id"])
+            }])
         ```
 
         ### Enhanced Security Policy
@@ -815,13 +815,13 @@ class DomainName(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apigateway.DomainName("example",
-            endpoint_configuration={
-                "types": "REGIONAL",
-            },
             domain_name="api.example.com",
             regional_certificate_arn=example_aws_acm_certificate_validation["certificateArn"],
             security_policy="SecurityPolicy_TLS13_1_3_2025_09",
-            endpoint_access_mode="STRICT")
+            endpoint_access_mode="STRICT",
+            endpoint_configuration={
+                "types": "REGIONAL",
+            })
         ```
 
         ## Import
@@ -850,8 +850,8 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] certificate_private_key: Private key associated with the domain certificate given in `certificate_body`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
         :param pulumi.Input[_builtins.str] domain_name: Fully-qualified domain name to register.
         :param pulumi.Input[_builtins.str] endpoint_access_mode: Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`. Valid values: `BASIC`, `STRICT`.
-        :param pulumi.Input[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict']] endpoint_configuration: Configuration block defining API endpoint information including type. See below.
-        :param pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name. See below.
+        :param pulumi.Input[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict', 'outputs.DomainNameEndpointConfiguration']] endpoint_configuration: Configuration block defining API endpoint information including type. See below.
+        :param pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict', 'outputs.DomainNameMutualTlsAuthentication']] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name. See below.
         :param pulumi.Input[_builtins.str] ownership_verification_certificate_arn: ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
         :param pulumi.Input[_builtins.str] policy: Stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -909,14 +909,14 @@ class DomainName(pulumi.CustomResource):
         # Example DNS record using Route53.
         # Route53 is not specifically required; any DNS host can be used.
         example_record = aws.route53.Record("example",
+            name=example.domain_name,
+            type=aws.route53.RecordType.A,
+            zone_id=example_aws_route53_zone["id"],
             aliases=[{
                 "evaluate_target_health": True,
                 "name": example.cloudfront_domain_name,
                 "zone_id": example.cloudfront_zone_id,
-            }],
-            name=example.domain_name,
-            type=aws.route53.RecordType.A,
-            zone_id=example_aws_route53_zone["id"])
+            }])
         ```
 
         ### Regional (ACM Certificate)
@@ -926,22 +926,22 @@ class DomainName(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apigateway.DomainName("example",
+            domain_name="api.example.com",
+            regional_certificate_arn=example_aws_acm_certificate_validation["certificateArn"],
             endpoint_configuration={
                 "types": "REGIONAL",
-            },
-            domain_name="api.example.com",
-            regional_certificate_arn=example_aws_acm_certificate_validation["certificateArn"])
+            })
         # Example DNS record using Route53.
         # Route53 is not specifically required; any DNS host can be used.
         example_record = aws.route53.Record("example",
+            name=example.domain_name,
+            type=aws.route53.RecordType.A,
+            zone_id=example_aws_route53_zone["id"],
             aliases=[{
                 "evaluate_target_health": True,
                 "name": example.regional_domain_name,
                 "zone_id": example.regional_zone_id,
-            }],
-            name=example.domain_name,
-            type=aws.route53.RecordType.A,
-            zone_id=example_aws_route53_zone["id"])
+            }])
         ```
 
         ### Enhanced Security Policy
@@ -951,13 +951,13 @@ class DomainName(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apigateway.DomainName("example",
-            endpoint_configuration={
-                "types": "REGIONAL",
-            },
             domain_name="api.example.com",
             regional_certificate_arn=example_aws_acm_certificate_validation["certificateArn"],
             security_policy="SecurityPolicy_TLS13_1_3_2025_09",
-            endpoint_access_mode="STRICT")
+            endpoint_access_mode="STRICT",
+            endpoint_configuration={
+                "types": "REGIONAL",
+            })
         ```
 
         ## Import
@@ -999,8 +999,8 @@ class DomainName(pulumi.CustomResource):
                  certificate_private_key: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint_access_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 endpoint_configuration: pulumi.Input[Optional[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict']]] = None,
-                 mutual_tls_authentication: pulumi.Input[Optional[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
+                 endpoint_configuration: pulumi.Input[Optional[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict', 'outputs.DomainNameEndpointConfiguration']]] = None,
+                 mutual_tls_authentication: pulumi.Input[Optional[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict', 'outputs.DomainNameMutualTlsAuthentication']]] = None,
                  ownership_verification_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  policy: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1069,8 +1069,8 @@ class DomainName(pulumi.CustomResource):
             domain_name: pulumi.Input[Optional[_builtins.str]] = None,
             domain_name_id: pulumi.Input[Optional[_builtins.str]] = None,
             endpoint_access_mode: pulumi.Input[Optional[_builtins.str]] = None,
-            endpoint_configuration: pulumi.Input[Optional[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict']]] = None,
-            mutual_tls_authentication: pulumi.Input[Optional[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
+            endpoint_configuration: pulumi.Input[Optional[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict', 'outputs.DomainNameEndpointConfiguration']]] = None,
+            mutual_tls_authentication: pulumi.Input[Optional[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict', 'outputs.DomainNameMutualTlsAuthentication']]] = None,
             ownership_verification_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
             policy: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1101,8 +1101,8 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] domain_name: Fully-qualified domain name to register.
         :param pulumi.Input[_builtins.str] domain_name_id: Identifier for the domain name resource. Supported only for private custom domain names.
         :param pulumi.Input[_builtins.str] endpoint_access_mode: Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`. Valid values: `BASIC`, `STRICT`.
-        :param pulumi.Input[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict']] endpoint_configuration: Configuration block defining API endpoint information including type. See below.
-        :param pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name. See below.
+        :param pulumi.Input[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict', 'outputs.DomainNameEndpointConfiguration']] endpoint_configuration: Configuration block defining API endpoint information including type. See below.
+        :param pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict', 'outputs.DomainNameMutualTlsAuthentication']] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name. See below.
         :param pulumi.Input[_builtins.str] ownership_verification_certificate_arn: ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
         :param pulumi.Input[_builtins.str] policy: Stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

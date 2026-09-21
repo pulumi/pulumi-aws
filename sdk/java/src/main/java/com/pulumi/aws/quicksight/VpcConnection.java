@@ -51,6 +51,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var vpcConnectionRole = new Role("vpcConnectionRole", RoleArgs.builder()
+ *             .assumeRolePolicy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Action", "sts:AssumeRole"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "quicksight.amazonaws.com")
+ *                         ))
+ *                     )))
+ *                 )))
  *             .inlinePolicies(RoleInlinePolicyArgs.builder()
  *                 .name("QuickSightVPCConnectionRolePolicy")
  *                 .policy(serializeJson(
@@ -69,17 +80,6 @@ import javax.annotation.Nullable;
  *                         )))
  *                     )))
  *                 .build())
- *             .assumeRolePolicy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Version", "2012-10-17"),
- *                     jsonProperty("Statement", jsonArray(jsonObject(
- *                         jsonProperty("Effect", "Allow"),
- *                         jsonProperty("Action", "sts:AssumeRole"),
- *                         jsonProperty("Principal", jsonObject(
- *                             jsonProperty("Service", "quicksight.amazonaws.com")
- *                         ))
- *                     )))
- *                 )))
  *             .build());
  * 
  *         var example = new VpcConnection("example", VpcConnectionArgs.builder()

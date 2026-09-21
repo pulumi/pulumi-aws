@@ -39,22 +39,15 @@ import * as utilities from "../utilities";
  * `,
  * });
  * const testDataSource = new aws.appsync.DataSource("test", {
- *     httpConfig: {
- *         endpoint: "http://example.com",
- *     },
  *     apiId: test.id,
  *     name: "my_example",
  *     type: "HTTP",
+ *     httpConfig: {
+ *         endpoint: "http://example.com",
+ *     },
  * });
  * // UNIT type resolver (default)
  * const testResolver = new aws.appsync.Resolver("test", {
- *     cachingConfig: {
- *         cachingKeys: [
- *             "$context.identity.sub",
- *             "$context.arguments.id",
- *         ],
- *         ttl: 60,
- *     },
  *     apiId: test.id,
  *     field: "singlePost",
  *     type: "Query",
@@ -74,9 +67,22 @@ import * as utilities from "../utilities";
  *     utils.appendError(ctx.result.body, ctx.result.statusCode)
  * #end
  * `,
+ *     cachingConfig: {
+ *         cachingKeys: [
+ *             "$context.identity.sub",
+ *             "$context.arguments.id",
+ *         ],
+ *         ttl: 60,
+ *     },
  * });
  * // PIPELINE type resolver
  * const mutationPipelineTest = new aws.appsync.Resolver("Mutation_pipelineTest", {
+ *     type: "Mutation",
+ *     apiId: test.id,
+ *     field: "pipelineTest",
+ *     requestTemplate: "{}",
+ *     responseTemplate: "$util.toJson($ctx.result)",
+ *     kind: "PIPELINE",
  *     pipelineConfig: {
  *         functions: [
  *             test1.functionId,
@@ -84,12 +90,6 @@ import * as utilities from "../utilities";
  *             test3.functionId,
  *         ],
  *     },
- *     type: "Mutation",
- *     apiId: test.id,
- *     field: "pipelineTest",
- *     requestTemplate: "{}",
- *     responseTemplate: "$util.toJson($ctx.result)",
- *     kind: "PIPELINE",
  * });
  * ```
  *
@@ -101,13 +101,6 @@ import * as utilities from "../utilities";
  * import * as std from "@pulumi/std";
  *
  * const example = new aws.appsync.Resolver("example", {
- *     runtime: {
- *         name: "APPSYNC_JS",
- *         runtimeVersion: "1.0.0",
- *     },
- *     pipelineConfig: {
- *         functions: [test.functionId],
- *     },
  *     type: "Query",
  *     apiId: testAwsAppsyncGraphqlApi.id,
  *     field: "pipelineTest",
@@ -115,6 +108,13 @@ import * as utilities from "../utilities";
  *     code: std.file({
  *         input: "some-code-dir",
  *     }).then(invoke => invoke.result),
+ *     runtime: {
+ *         name: "APPSYNC_JS",
+ *         runtimeVersion: "1.0.0",
+ *     },
+ *     pipelineConfig: {
+ *         functions: [test.functionId],
+ *     },
  * });
  * ```
  *

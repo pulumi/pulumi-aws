@@ -80,6 +80,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := aws.GetRegions(ctx, &aws.GetRegionsArgs{
+//				AllRegions: pulumi.BoolRef(true),
 //				Filters: []aws.GetRegionsFilter{
 //					{
 //						Name: "opt-in-status",
@@ -88,7 +89,6 @@ import (
 //						},
 //					},
 //				},
-//				AllRegions: pulumi.BoolRef(true),
 //			}, nil)
 //			if err != nil {
 //				return err

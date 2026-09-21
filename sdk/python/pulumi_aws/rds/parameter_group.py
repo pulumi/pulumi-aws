@@ -337,7 +337,7 @@ class ParameterGroup(pulumi.CustomResource):
                  family: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict']]]]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict', 'outputs.ParameterGroupParameter']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -364,6 +364,8 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.rds.ParameterGroup("default",
+            name="rds-pg",
+            family="mysql5.6",
             parameters=[
                 {
                     "name": "character_set_server",
@@ -373,9 +375,7 @@ class ParameterGroup(pulumi.CustomResource):
                     "name": "character_set_client",
                     "value": "utf8",
                 },
-            ],
-            name="rds-pg",
-            family="mysql5.6")
+            ])
         ```
 
         ### Example of Problematic Configuration
@@ -392,12 +392,12 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.rds.ParameterGroup("test",
+            name="random-test-parameter",
+            family="mysql5.7",
             parameters=[{
                 "name": "default_password_lifetime",
                 "value": "0",
-            }],
-            name="random-test-parameter",
-            family="mysql5.7")
+            }])
         ```
 
         ### Solution 1: Remove the Default Parameter
@@ -422,12 +422,12 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.rds.ParameterGroup("test",
+            name="random-test-parameter",
+            family="mysql5.7",
             parameters=[{
                 "name": "default_password_lifetime",
                 "value": "1",
-            }],
-            name="random-test-parameter",
-            family="mysql5.7")
+            }])
         ```
 
         ### Solution 3: Align `apply_method` with AWS Defaults
@@ -439,13 +439,13 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.rds.ParameterGroup("test",
+            name="random-test-parameter",
+            family="mysql5.7",
             parameters=[{
                 "apply_method": "pending-reboot",
                 "name": "default_password_lifetime",
                 "value": "0",
-            }],
-            name="random-test-parameter",
-            family="mysql5.7")
+            }])
         ```
 
         ## Import
@@ -474,7 +474,7 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] family: Family of the DB parameter group.
         :param pulumi.Input[_builtins.str] name: Name of the DB parameter group. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict']]]] parameters: DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict', 'outputs.ParameterGroupParameter']]]] parameters: DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] skip_destroy: Set to true if you do not wish the parameter group to be deleted at destroy time, and instead just remove the parameter group from the Terraform state.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -507,6 +507,8 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.rds.ParameterGroup("default",
+            name="rds-pg",
+            family="mysql5.6",
             parameters=[
                 {
                     "name": "character_set_server",
@@ -516,9 +518,7 @@ class ParameterGroup(pulumi.CustomResource):
                     "name": "character_set_client",
                     "value": "utf8",
                 },
-            ],
-            name="rds-pg",
-            family="mysql5.6")
+            ])
         ```
 
         ### Example of Problematic Configuration
@@ -535,12 +535,12 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.rds.ParameterGroup("test",
+            name="random-test-parameter",
+            family="mysql5.7",
             parameters=[{
                 "name": "default_password_lifetime",
                 "value": "0",
-            }],
-            name="random-test-parameter",
-            family="mysql5.7")
+            }])
         ```
 
         ### Solution 1: Remove the Default Parameter
@@ -565,12 +565,12 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.rds.ParameterGroup("test",
+            name="random-test-parameter",
+            family="mysql5.7",
             parameters=[{
                 "name": "default_password_lifetime",
                 "value": "1",
-            }],
-            name="random-test-parameter",
-            family="mysql5.7")
+            }])
         ```
 
         ### Solution 3: Align `apply_method` with AWS Defaults
@@ -582,13 +582,13 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.rds.ParameterGroup("test",
+            name="random-test-parameter",
+            family="mysql5.7",
             parameters=[{
                 "apply_method": "pending-reboot",
                 "name": "default_password_lifetime",
                 "value": "0",
-            }],
-            name="random-test-parameter",
-            family="mysql5.7")
+            }])
         ```
 
         ## Import
@@ -630,7 +630,7 @@ class ParameterGroup(pulumi.CustomResource):
                  family: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict']]]]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict', 'outputs.ParameterGroupParameter']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -672,7 +672,7 @@ class ParameterGroup(pulumi.CustomResource):
             family: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
-            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict']]]]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict', 'outputs.ParameterGroupParameter']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -689,7 +689,7 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] family: Family of the DB parameter group.
         :param pulumi.Input[_builtins.str] name: Name of the DB parameter group. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict']]]] parameters: DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict', 'outputs.ParameterGroupParameter']]]] parameters: DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] skip_destroy: Set to true if you do not wish the parameter group to be deleted at destroy time, and instead just remove the parameter group from the Terraform state.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

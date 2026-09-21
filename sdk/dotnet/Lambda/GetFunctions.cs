@@ -83,10 +83,6 @@ namespace Pulumi.Aws.Lambda
         /// });
         /// ```
         /// 
-        /// ### Filter Functions by Name Pattern
-        /// 
-        /// 
-        /// 
         /// ### Create Function Inventory
         /// 
         /// ```csharp
@@ -202,10 +198,6 @@ namespace Pulumi.Aws.Lambda
         /// });
         /// ```
         /// 
-        /// ### Filter Functions by Name Pattern
-        /// 
-        /// 
-        /// 
         /// ### Create Function Inventory
         /// 
         /// ```csharp
@@ -320,10 +312,6 @@ namespace Pulumi.Aws.Lambda
         ///     });
         /// });
         /// ```
-        /// 
-        /// ### Filter Functions by Name Pattern
-        /// 
-        /// 
         /// 
         /// ### Create Function Inventory
         /// 

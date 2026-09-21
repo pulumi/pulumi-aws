@@ -41,6 +41,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.NewParameterGroup(ctx, "default", &rds.ParameterGroupArgs{
+//				Name:   pulumi.String("rds-pg"),
+//				Family: pulumi.String("mysql5.6"),
 //				Parameters: rds.ParameterGroupParameterArray{
 //					&rds.ParameterGroupParameterArgs{
 //						Name:  pulumi.String("character_set_server"),
@@ -51,8 +53,6 @@ import (
 //						Value: pulumi.String("utf8"),
 //					},
 //				},
-//				Name:   pulumi.String("rds-pg"),
-//				Family: pulumi.String("mysql5.6"),
 //			})
 //			if err != nil {
 //				return err
@@ -85,14 +85,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.NewParameterGroup(ctx, "test", &rds.ParameterGroupArgs{
+//				Name:   pulumi.String("random-test-parameter"),
+//				Family: pulumi.String("mysql5.7"),
 //				Parameters: rds.ParameterGroupParameterArray{
 //					&rds.ParameterGroupParameterArgs{
 //						Name:  pulumi.String("default_password_lifetime"),
 //						Value: pulumi.String("0"),
 //					},
 //				},
-//				Name:   pulumi.String("random-test-parameter"),
-//				Family: pulumi.String("mysql5.7"),
 //			})
 //			if err != nil {
 //				return err
@@ -149,14 +149,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.NewParameterGroup(ctx, "test", &rds.ParameterGroupArgs{
+//				Name:   pulumi.String("random-test-parameter"),
+//				Family: pulumi.String("mysql5.7"),
 //				Parameters: rds.ParameterGroupParameterArray{
 //					&rds.ParameterGroupParameterArgs{
 //						Name:  pulumi.String("default_password_lifetime"),
 //						Value: pulumi.String("1"),
 //					},
 //				},
-//				Name:   pulumi.String("random-test-parameter"),
-//				Family: pulumi.String("mysql5.7"),
 //			})
 //			if err != nil {
 //				return err
@@ -184,6 +184,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.NewParameterGroup(ctx, "test", &rds.ParameterGroupArgs{
+//				Name:   pulumi.String("random-test-parameter"),
+//				Family: pulumi.String("mysql5.7"),
 //				Parameters: rds.ParameterGroupParameterArray{
 //					&rds.ParameterGroupParameterArgs{
 //						ApplyMethod: pulumi.String("pending-reboot"),
@@ -191,8 +193,6 @@ import (
 //						Value:       pulumi.String("0"),
 //					},
 //				},
-//				Name:   pulumi.String("random-test-parameter"),
-//				Family: pulumi.String("mysql5.7"),
 //			})
 //			if err != nil {
 //				return err

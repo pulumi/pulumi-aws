@@ -43,6 +43,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentcoreRegistry("example", {
+ *     name: "example_registry",
+ *     authorizerType: "CUSTOM_JWT",
  *     authorizerConfiguration: {
  *         customJwtAuthorizer: {
  *             discoveryUrl: "https://example.okta.com/.well-known/openid-configuration",
@@ -50,8 +52,6 @@ import * as utilities from "../utilities";
  *             allowedClients: ["client-id"],
  *         },
  *     },
- *     name: "example_registry",
- *     authorizerType: "CUSTOM_JWT",
  * });
  * ```
  *

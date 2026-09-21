@@ -73,8 +73,6 @@ import (
 //				DbSubnetGroupName:       pulumi.String("default"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				primaryClusterInstance,
-//			}), pulumi.IgnoreChanges([]string{
-//				"replicationSourceIdentifier",
 //			}))
 //			if err != nil {
 //				return err
@@ -152,8 +150,6 @@ import (
 //				DbSubnetGroupName:       pulumi.String("default"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				primaryClusterInstance,
-//			}), pulumi.IgnoreChanges([]string{
-//				"replicationSourceIdentifier",
 //			}))
 //			if err != nil {
 //				return err
@@ -189,9 +185,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := rds.NewCluster(ctx, "example", nil, pulumi.IgnoreChanges([]string{
-//				"globalClusterIdentifier",
-//			}))
+//			example, err := rds.NewCluster(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
@@ -244,9 +238,7 @@ import (
 //				MasterPassword:           pulumi.String("satsukimae"),
 //				MasterUsername:           pulumi.String("maesatsuki"),
 //				SkipFinalSnapshot:        pulumi.Bool(true),
-//			}, pulumi.IgnoreChanges([]string{
-//				"engineVersion",
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -291,9 +283,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.NewGlobalCluster(ctx, "example", nil, pulumi.IgnoreChanges([]string{
-//				"sourceDbClusterIdentifier",
-//			}))
+//			_, err := rds.NewGlobalCluster(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}

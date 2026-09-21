@@ -31,14 +31,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := securityhub.NewAutomationRule(ctx, "example", &securityhub.AutomationRuleArgs{
-//				Criteria: &securityhub.AutomationRuleCriteriaArgs{
-//					ResourceIds: securityhub.AutomationRuleCriteriaResourceIdArray{
-//						&securityhub.AutomationRuleCriteriaResourceIdArgs{
-//							Comparison: pulumi.String("EQUALS"),
-//							Value:      pulumi.String("arn:aws:s3:::examplebucket/*"),
-//						},
-//					},
-//				},
+//				Description: pulumi.String("Elevate finding severity to CRITICAL when specific resources such as an S3 bucket is at risk"),
+//				RuleName:    pulumi.String("Elevate severity of findings that relate to important resources"),
+//				RuleOrder:   pulumi.Int(1),
 //				Actions: securityhub.AutomationRuleActionArray{
 //					&securityhub.AutomationRuleActionArgs{
 //						FindingFieldsUpdate: &securityhub.AutomationRuleActionFindingFieldsUpdateArgs{
@@ -60,9 +55,14 @@ import (
 //						Type: pulumi.String("FINDING_FIELDS_UPDATE"),
 //					},
 //				},
-//				Description: pulumi.String("Elevate finding severity to CRITICAL when specific resources such as an S3 bucket is at risk"),
-//				RuleName:    pulumi.String("Elevate severity of findings that relate to important resources"),
-//				RuleOrder:   pulumi.Int(1),
+//				Criteria: &securityhub.AutomationRuleCriteriaArgs{
+//					ResourceIds: securityhub.AutomationRuleCriteriaResourceIdArray{
+//						&securityhub.AutomationRuleCriteriaResourceIdArgs{
+//							Comparison: pulumi.String("EQUALS"),
+//							Value:      pulumi.String("arn:aws:s3:::examplebucket/*"),
+//						},
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err

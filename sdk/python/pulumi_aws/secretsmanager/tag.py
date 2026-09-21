@@ -183,8 +183,7 @@ class Tag(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.secretsmanager.Secret("test", name="example-secret",
-        opts = pulumi.ResourceOptions(ignore_changes=["tags"]))
+        test = aws.secretsmanager.Secret("test", name="example-secret")
         test_tag = aws.secretsmanager.Tag("test",
             secret_id=test.id,
             key="ExampleKey",
@@ -226,8 +225,7 @@ class Tag(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.secretsmanager.Secret("test", name="example-secret",
-        opts = pulumi.ResourceOptions(ignore_changes=["tags"]))
+        test = aws.secretsmanager.Secret("test", name="example-secret")
         test_tag = aws.secretsmanager.Tag("test",
             secret_id=test.id,
             key="ExampleKey",

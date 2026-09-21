@@ -34,6 +34,9 @@ import (
 //			iotAssumeRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -41,9 +44,6 @@ import (
 //									"iot.amazonaws.com",
 //								},
 //							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
 //						},
 //					},
 //				},

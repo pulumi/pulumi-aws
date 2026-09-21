@@ -161,7 +161,7 @@ class Entitlement(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 entitlement: pulumi.Input[Optional[Union['EntitlementEntitlementArgs', 'EntitlementEntitlementArgsDict']]] = None,
+                 entitlement: pulumi.Input[Optional[Union['EntitlementEntitlementArgs', 'EntitlementEntitlementArgsDict', 'outputs.EntitlementEntitlement']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -180,17 +180,17 @@ class Entitlement(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.accountaccess.Entitlement("example",
+            application_arn=example_aws_accountaccess_application["arn"],
             entitlement={
                 "principal_role": {
+                    "role_arn": "arn:aws:iam::123456789012:role/Developer",
                     "principal": {
                         "identity_center": {
                             "user_id": "11111111-2222-3333-4444-555555555555",
                         },
                     },
-                    "role_arn": "arn:aws:iam::123456789012:role/Developer",
                 },
-            },
-            application_arn=example_aws_accountaccess_application["arn"])
+            })
         ```
 
         ### Group Principal
@@ -200,17 +200,17 @@ class Entitlement(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.accountaccess.Entitlement("example",
+            application_arn=example_aws_accountaccess_application["arn"],
             entitlement={
                 "principal_role": {
+                    "role_arn": "arn:aws:iam::123456789012:role/Engineering",
                     "principal": {
                         "identity_center": {
                             "group_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
                         },
                     },
-                    "role_arn": "arn:aws:iam::123456789012:role/Engineering",
                 },
-            },
-            application_arn=example_aws_accountaccess_application["arn"])
+            })
         ```
 
         ### Complete Example
@@ -247,17 +247,17 @@ class Entitlement(pulumi.CustomResource):
                 }],
             }))
         example_entitlement = aws.accountaccess.Entitlement("example",
+            application_arn=example_application.arn,
             entitlement={
                 "principal_role": {
+                    "role_arn": target.arn,
                     "principal": {
                         "identity_center": {
                             "user_id": "11111111-2222-3333-4444-555555555555",
                         },
                     },
-                    "role_arn": target.arn,
                 },
-            },
-            application_arn=example_application.arn)
+            })
         ```
 
         ## Import
@@ -284,7 +284,7 @@ class Entitlement(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_arn: ARN of the parent Account Access Application. Forces replacement when changed.
-        :param pulumi.Input[Union['EntitlementEntitlementArgs', 'EntitlementEntitlementArgsDict']] entitlement: Entitlement configuration. See `entitlement` Block below.
+        :param pulumi.Input[Union['EntitlementEntitlementArgs', 'EntitlementEntitlementArgsDict', 'outputs.EntitlementEntitlement']] entitlement: Entitlement configuration. See `entitlement` Block below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -311,17 +311,17 @@ class Entitlement(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.accountaccess.Entitlement("example",
+            application_arn=example_aws_accountaccess_application["arn"],
             entitlement={
                 "principal_role": {
+                    "role_arn": "arn:aws:iam::123456789012:role/Developer",
                     "principal": {
                         "identity_center": {
                             "user_id": "11111111-2222-3333-4444-555555555555",
                         },
                     },
-                    "role_arn": "arn:aws:iam::123456789012:role/Developer",
                 },
-            },
-            application_arn=example_aws_accountaccess_application["arn"])
+            })
         ```
 
         ### Group Principal
@@ -331,17 +331,17 @@ class Entitlement(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.accountaccess.Entitlement("example",
+            application_arn=example_aws_accountaccess_application["arn"],
             entitlement={
                 "principal_role": {
+                    "role_arn": "arn:aws:iam::123456789012:role/Engineering",
                     "principal": {
                         "identity_center": {
                             "group_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
                         },
                     },
-                    "role_arn": "arn:aws:iam::123456789012:role/Engineering",
                 },
-            },
-            application_arn=example_aws_accountaccess_application["arn"])
+            })
         ```
 
         ### Complete Example
@@ -378,17 +378,17 @@ class Entitlement(pulumi.CustomResource):
                 }],
             }))
         example_entitlement = aws.accountaccess.Entitlement("example",
+            application_arn=example_application.arn,
             entitlement={
                 "principal_role": {
+                    "role_arn": target.arn,
                     "principal": {
                         "identity_center": {
                             "user_id": "11111111-2222-3333-4444-555555555555",
                         },
                     },
-                    "role_arn": target.arn,
                 },
-            },
-            application_arn=example_application.arn)
+            })
         ```
 
         ## Import
@@ -428,7 +428,7 @@ class Entitlement(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 entitlement: pulumi.Input[Optional[Union['EntitlementEntitlementArgs', 'EntitlementEntitlementArgsDict']]] = None,
+                 entitlement: pulumi.Input[Optional[Union['EntitlementEntitlementArgs', 'EntitlementEntitlementArgsDict', 'outputs.EntitlementEntitlement']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -458,7 +458,7 @@ class Entitlement(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             application_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            entitlement: pulumi.Input[Optional[Union['EntitlementEntitlementArgs', 'EntitlementEntitlementArgsDict']]] = None,
+            entitlement: pulumi.Input[Optional[Union['EntitlementEntitlementArgs', 'EntitlementEntitlementArgsDict', 'outputs.EntitlementEntitlement']]] = None,
             entitlement_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'Entitlement':
         """
@@ -469,7 +469,7 @@ class Entitlement(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_arn: ARN of the parent Account Access Application. Forces replacement when changed.
-        :param pulumi.Input[Union['EntitlementEntitlementArgs', 'EntitlementEntitlementArgsDict']] entitlement: Entitlement configuration. See `entitlement` Block below.
+        :param pulumi.Input[Union['EntitlementEntitlementArgs', 'EntitlementEntitlementArgsDict', 'outputs.EntitlementEntitlement']] entitlement: Entitlement configuration. See `entitlement` Block below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] entitlement_id: Service-assigned unique identifier for this Entitlement.

@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Waf
     /// {
     ///     var ipset = new Aws.Waf.IpSet("ipset", new()
     ///     {
+    ///         Name = "tfIPSet",
     ///         IpSetDescriptors = new[]
     ///         {
     ///             new Aws.Waf.Inputs.IpSetIpSetDescriptorArgs
@@ -37,7 +38,6 @@ namespace Pulumi.Aws.Waf
     ///                 Value = "10.16.16.0/16",
     ///             },
     ///         },
-    ///         Name = "tfIPSet",
     ///     });
     /// 
     /// });

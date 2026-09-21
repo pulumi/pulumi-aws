@@ -112,7 +112,7 @@ class AwaitableGetSpotPriceResult(GetSpotPriceResult):
 
 
 def get_spot_price(availability_zone: Optional[_builtins.str] = None,
-                   filters: Optional[Sequence[Union['GetSpotPriceFilterArgs', 'GetSpotPriceFilterArgsDict']]] = None,
+                   filters: Optional[Sequence[Union['GetSpotPriceFilterArgs', 'GetSpotPriceFilterArgsDict', 'outputs.GetSpotPriceFilterResult']]] = None,
                    instance_type: Optional[_builtins.str] = None,
                    region: Optional[_builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSpotPriceResult:
@@ -125,17 +125,17 @@ def get_spot_price(availability_zone: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_spot_price(filters=[{
+    example = aws.ec2.get_spot_price(instance_type="t3.medium",
+        availability_zone="us-west-2a",
+        filters=[{
             "name": "product-description",
             "values": ["Linux/UNIX"],
-        }],
-        instance_type="t3.medium",
-        availability_zone="us-west-2a")
+        }])
     ```
 
 
     :param _builtins.str availability_zone: Availability zone in which to query Spot price information.
-    :param Sequence[Union['GetSpotPriceFilterArgs', 'GetSpotPriceFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
+    :param Sequence[Union['GetSpotPriceFilterArgs', 'GetSpotPriceFilterArgsDict', 'outputs.GetSpotPriceFilterResult']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
     :param _builtins.str instance_type: Type of instance for which to query Spot Price information.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
@@ -156,7 +156,7 @@ def get_spot_price(availability_zone: Optional[_builtins.str] = None,
         spot_price=pulumi.get(__ret__, 'spot_price'),
         spot_price_timestamp=pulumi.get(__ret__, 'spot_price_timestamp'))
 def get_spot_price_output(availability_zone: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                          filters: pulumi.Input[Optional[Optional[Sequence[Union['GetSpotPriceFilterArgs', 'GetSpotPriceFilterArgsDict']]]]] = None,
+                          filters: pulumi.Input[Optional[Optional[Sequence[Union['GetSpotPriceFilterArgs', 'GetSpotPriceFilterArgsDict', 'outputs.GetSpotPriceFilterResult']]]]] = None,
                           instance_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpotPriceResult]:
@@ -169,17 +169,17 @@ def get_spot_price_output(availability_zone: pulumi.Input[Optional[Optional[_bui
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_spot_price(filters=[{
+    example = aws.ec2.get_spot_price(instance_type="t3.medium",
+        availability_zone="us-west-2a",
+        filters=[{
             "name": "product-description",
             "values": ["Linux/UNIX"],
-        }],
-        instance_type="t3.medium",
-        availability_zone="us-west-2a")
+        }])
     ```
 
 
     :param _builtins.str availability_zone: Availability zone in which to query Spot price information.
-    :param Sequence[Union['GetSpotPriceFilterArgs', 'GetSpotPriceFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
+    :param Sequence[Union['GetSpotPriceFilterArgs', 'GetSpotPriceFilterArgsDict', 'outputs.GetSpotPriceFilterResult']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
     :param _builtins.str instance_type: Type of instance for which to query Spot Price information.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """

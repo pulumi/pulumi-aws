@@ -170,7 +170,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 details: pulumi.Input[Optional[Union['MultiRegionAccessPointPolicyDetailsArgs', 'MultiRegionAccessPointPolicyDetailsArgsDict']]] = None,
+                 details: pulumi.Input[Optional[Union['MultiRegionAccessPointPolicyDetailsArgs', 'MultiRegionAccessPointPolicyDetailsArgsDict', 'outputs.MultiRegionAccessPointPolicyDetails']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -190,10 +190,10 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
         current_get_partition = aws.get_partition()
         foo_bucket = aws.s3.Bucket("foo_bucket", bucket="example-bucket-foo")
         example = aws.s3control.MultiRegionAccessPoint("example", details={
+            "name": "example",
             "regions": [{
                 "bucket": foo_bucket.id,
             }],
-            "name": "example",
         })
         example_multi_region_access_point_policy = aws.s3control.MultiRegionAccessPointPolicy("example", details={
             "name": std.split_output(separator=":",
@@ -228,7 +228,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-        :param pulumi.Input[Union['MultiRegionAccessPointPolicyDetailsArgs', 'MultiRegionAccessPointPolicyDetailsArgsDict']] details: Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
+        :param pulumi.Input[Union['MultiRegionAccessPointPolicyDetailsArgs', 'MultiRegionAccessPointPolicyDetailsArgsDict', 'outputs.MultiRegionAccessPointPolicyDetails']] details: Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -254,10 +254,10 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
         current_get_partition = aws.get_partition()
         foo_bucket = aws.s3.Bucket("foo_bucket", bucket="example-bucket-foo")
         example = aws.s3control.MultiRegionAccessPoint("example", details={
+            "name": "example",
             "regions": [{
                 "bucket": foo_bucket.id,
             }],
-            "name": "example",
         })
         example_multi_region_access_point_policy = aws.s3control.MultiRegionAccessPointPolicy("example", details={
             "name": std.split_output(separator=":",
@@ -305,7 +305,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 details: pulumi.Input[Optional[Union['MultiRegionAccessPointPolicyDetailsArgs', 'MultiRegionAccessPointPolicyDetailsArgsDict']]] = None,
+                 details: pulumi.Input[Optional[Union['MultiRegionAccessPointPolicyDetailsArgs', 'MultiRegionAccessPointPolicyDetailsArgsDict', 'outputs.MultiRegionAccessPointPolicyDetails']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -334,7 +334,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
-            details: pulumi.Input[Optional[Union['MultiRegionAccessPointPolicyDetailsArgs', 'MultiRegionAccessPointPolicyDetailsArgsDict']]] = None,
+            details: pulumi.Input[Optional[Union['MultiRegionAccessPointPolicyDetailsArgs', 'MultiRegionAccessPointPolicyDetailsArgsDict', 'outputs.MultiRegionAccessPointPolicyDetails']]] = None,
             established: pulumi.Input[Optional[_builtins.str]] = None,
             proposed: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'MultiRegionAccessPointPolicy':
@@ -346,7 +346,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-        :param pulumi.Input[Union['MultiRegionAccessPointPolicyDetailsArgs', 'MultiRegionAccessPointPolicyDetailsArgsDict']] details: Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
+        :param pulumi.Input[Union['MultiRegionAccessPointPolicyDetailsArgs', 'MultiRegionAccessPointPolicyDetailsArgsDict', 'outputs.MultiRegionAccessPointPolicyDetails']] details: Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
         :param pulumi.Input[_builtins.str] established: Last established policy for the Multi-Region Access Point.
         :param pulumi.Input[_builtins.str] proposed: Proposed policy for the Multi-Region Access Point.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

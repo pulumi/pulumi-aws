@@ -413,8 +413,8 @@ class SigningProfile(pulumi.CustomResource):
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  platform_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 signature_validity_period: pulumi.Input[Optional[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']]] = None,
-                 signing_material: pulumi.Input[Optional[Union['SigningProfileSigningMaterialArgs', 'SigningProfileSigningMaterialArgsDict']]] = None,
+                 signature_validity_period: pulumi.Input[Optional[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict', 'outputs.SigningProfileSignatureValidityPeriod']]] = None,
+                 signing_material: pulumi.Input[Optional[Union['SigningProfileSigningMaterialArgs', 'SigningProfileSigningMaterialArgsDict', 'outputs.SigningProfileSigningMaterial']]] = None,
                  signing_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -429,12 +429,12 @@ class SigningProfile(pulumi.CustomResource):
 
         test_sp = aws.signer.SigningProfile("test_sp", platform_id="AWSLambda-SHA384-ECDSA")
         prod_sp = aws.signer.SigningProfile("prod_sp",
+            platform_id="AWSLambda-SHA384-ECDSA",
+            name_prefix="prod_sp_",
             signature_validity_period={
                 "value": 5,
                 "type": "YEARS",
             },
-            platform_id="AWSLambda-SHA384-ECDSA",
-            name_prefix="prod_sp_",
             tags={
                 "tag1": "value1",
                 "tag2": "value2",
@@ -456,8 +456,8 @@ class SigningProfile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name_prefix: A signing profile name prefix. Terraform will generate a unique suffix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] platform_id: The ID of the platform that is used by the target signing profile.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']] signature_validity_period: The validity period for a signing job. See `signature_validity_period` Block below for details.
-        :param pulumi.Input[Union['SigningProfileSigningMaterialArgs', 'SigningProfileSigningMaterialArgsDict']] signing_material: The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
+        :param pulumi.Input[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict', 'outputs.SigningProfileSignatureValidityPeriod']] signature_validity_period: The validity period for a signing job. See `signature_validity_period` Block below for details.
+        :param pulumi.Input[Union['SigningProfileSigningMaterialArgs', 'SigningProfileSigningMaterialArgsDict', 'outputs.SigningProfileSigningMaterial']] signing_material: The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] signing_parameters: Map of key-value pairs for signing. These can include any information that you want to use during signing.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -478,12 +478,12 @@ class SigningProfile(pulumi.CustomResource):
 
         test_sp = aws.signer.SigningProfile("test_sp", platform_id="AWSLambda-SHA384-ECDSA")
         prod_sp = aws.signer.SigningProfile("prod_sp",
+            platform_id="AWSLambda-SHA384-ECDSA",
+            name_prefix="prod_sp_",
             signature_validity_period={
                 "value": 5,
                 "type": "YEARS",
             },
-            platform_id="AWSLambda-SHA384-ECDSA",
-            name_prefix="prod_sp_",
             tags={
                 "tag1": "value1",
                 "tag2": "value2",
@@ -518,8 +518,8 @@ class SigningProfile(pulumi.CustomResource):
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  platform_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 signature_validity_period: pulumi.Input[Optional[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']]] = None,
-                 signing_material: pulumi.Input[Optional[Union['SigningProfileSigningMaterialArgs', 'SigningProfileSigningMaterialArgsDict']]] = None,
+                 signature_validity_period: pulumi.Input[Optional[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict', 'outputs.SigningProfileSignatureValidityPeriod']]] = None,
+                 signing_material: pulumi.Input[Optional[Union['SigningProfileSigningMaterialArgs', 'SigningProfileSigningMaterialArgsDict', 'outputs.SigningProfileSigningMaterial']]] = None,
                  signing_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -564,9 +564,9 @@ class SigningProfile(pulumi.CustomResource):
             platform_display_name: pulumi.Input[Optional[_builtins.str]] = None,
             platform_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            revocation_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SigningProfileRevocationRecordArgs', 'SigningProfileRevocationRecordArgsDict']]]]] = None,
-            signature_validity_period: pulumi.Input[Optional[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']]] = None,
-            signing_material: pulumi.Input[Optional[Union['SigningProfileSigningMaterialArgs', 'SigningProfileSigningMaterialArgsDict']]] = None,
+            revocation_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SigningProfileRevocationRecordArgs', 'SigningProfileRevocationRecordArgsDict', 'outputs.SigningProfileRevocationRecord']]]]] = None,
+            signature_validity_period: pulumi.Input[Optional[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict', 'outputs.SigningProfileSignatureValidityPeriod']]] = None,
+            signing_material: pulumi.Input[Optional[Union['SigningProfileSigningMaterialArgs', 'SigningProfileSigningMaterialArgsDict', 'outputs.SigningProfileSigningMaterial']]] = None,
             signing_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -586,9 +586,9 @@ class SigningProfile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] platform_display_name: A human-readable name for the signing platform associated with the signing profile.
         :param pulumi.Input[_builtins.str] platform_id: The ID of the platform that is used by the target signing profile.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SigningProfileRevocationRecordArgs', 'SigningProfileRevocationRecordArgsDict']]]] revocation_records: Revocation information for a signing profile. See `revocation_record` Block below for details.
-        :param pulumi.Input[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']] signature_validity_period: The validity period for a signing job. See `signature_validity_period` Block below for details.
-        :param pulumi.Input[Union['SigningProfileSigningMaterialArgs', 'SigningProfileSigningMaterialArgsDict']] signing_material: The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SigningProfileRevocationRecordArgs', 'SigningProfileRevocationRecordArgsDict', 'outputs.SigningProfileRevocationRecord']]]] revocation_records: Revocation information for a signing profile. See `revocation_record` Block below for details.
+        :param pulumi.Input[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict', 'outputs.SigningProfileSignatureValidityPeriod']] signature_validity_period: The validity period for a signing job. See `signature_validity_period` Block below for details.
+        :param pulumi.Input[Union['SigningProfileSigningMaterialArgs', 'SigningProfileSigningMaterialArgsDict', 'outputs.SigningProfileSigningMaterial']] signing_material: The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] signing_parameters: Map of key-value pairs for signing. These can include any information that you want to use during signing.
         :param pulumi.Input[_builtins.str] status: The status of the target signing profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -58,6 +58,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new InvocationJob("example", InvocationJobArgs.builder()
+ *             .jobName("example-job")
+ *             .modelId("us.amazon.nova-2-lite-v1:0")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .inputDataConfig(InvocationJobInputDataConfigArgs.builder()
  *                 .s3InputDataConfig(InvocationJobInputDataConfigS3InputDataConfigArgs.builder()
  *                     .s3Uri(String.format("s3://%s/input/", exampleAwsS3Bucket.id()))
@@ -68,9 +71,6 @@ import javax.annotation.Nullable;
  *                     .s3Uri(String.format("s3://%s/output/", exampleAwsS3Bucket.id()))
  *                     .build())
  *                 .build())
- *             .jobName("example-job")
- *             .modelId("us.amazon.nova-2-lite-v1:0")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }

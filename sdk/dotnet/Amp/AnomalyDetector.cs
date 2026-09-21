@@ -28,6 +28,8 @@ namespace Pulumi.Aws.Amp
     /// 
     ///     var exampleAnomalyDetector = new Aws.Amp.AnomalyDetector("example", new()
     ///     {
+    ///         Alias = "example",
+    ///         WorkspaceId = example.Id,
     ///         Configuration = new Aws.Amp.Inputs.AnomalyDetectorConfigurationArgs
     ///         {
     ///             RandomCutForest = new Aws.Amp.Inputs.AnomalyDetectorConfigurationRandomCutForestArgs
@@ -39,8 +41,6 @@ namespace Pulumi.Aws.Amp
     ///         {
     ///             Skip = true,
     ///         },
-    ///         Alias = "example",
-    ///         WorkspaceId = example.Id,
     ///     });
     /// 
     /// });
@@ -60,10 +60,21 @@ namespace Pulumi.Aws.Amp
     /// 
     ///     var exampleAnomalyDetector = new Aws.Amp.AnomalyDetector("example", new()
     ///     {
+    ///         Alias = "example",
+    ///         WorkspaceId = example.Id,
+    ///         EvaluationIntervalInSeconds = 120,
+    ///         Labels = 
+    ///         {
+    ///             { "env", "production" },
+    ///             { "team", "platform" },
+    ///         },
     ///         Configuration = new Aws.Amp.Inputs.AnomalyDetectorConfigurationArgs
     ///         {
     ///             RandomCutForest = new Aws.Amp.Inputs.AnomalyDetectorConfigurationRandomCutForestArgs
     ///             {
+    ///                 Query = "avg(up)",
+    ///                 SampleSize = 256,
+    ///                 ShingleSize = 4,
     ///                 IgnoreNearExpectedFromAbove = new Aws.Amp.Inputs.AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveArgs
     ///                 {
     ///                     Ratio = 1.5,
@@ -72,22 +83,11 @@ namespace Pulumi.Aws.Amp
     ///                 {
     ///                     Amount = 2,
     ///                 },
-    ///                 Query = "avg(up)",
-    ///                 SampleSize = 256,
-    ///                 ShingleSize = 4,
     ///             },
     ///         },
     ///         MissingDataAction = new Aws.Amp.Inputs.AnomalyDetectorMissingDataActionArgs
     ///         {
     ///             MarkAsAnomaly = true,
-    ///         },
-    ///         Alias = "example",
-    ///         WorkspaceId = example.Id,
-    ///         EvaluationIntervalInSeconds = 120,
-    ///         Labels = 
-    ///         {
-    ///             { "env", "production" },
-    ///             { "team", "platform" },
     ///         },
     ///     });
     /// 

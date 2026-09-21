@@ -88,6 +88,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := transfer.NewServer(ctx, "example", &transfer.ServerArgs{
+//				EndpointType: pulumi.String("VPC"),
 //				EndpointDetails: &transfer.ServerEndpointDetailsArgs{
 //					AddressAllocationIds: pulumi.StringArray{
 //						exampleAwsEip.Id,
@@ -97,7 +98,6 @@ import (
 //					},
 //					VpcId: pulumi.Any(exampleAwsVpc.Id),
 //				},
-//				EndpointType: pulumi.String("VPC"),
 //			})
 //			if err != nil {
 //				return err
@@ -177,13 +177,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := transfer.NewServer(ctx, "example", &transfer.ServerArgs{
+//				EndpointType: pulumi.String("VPC"),
 //				EndpointDetails: &transfer.ServerEndpointDetailsArgs{
 //					SubnetIds: pulumi.StringArray{
 //						exampleAwsSubnet.Id,
 //					},
 //					VpcId: pulumi.Any(exampleAwsVpc.Id),
 //				},
-//				EndpointType: pulumi.String("VPC"),
 //				Protocols: pulumi.StringArray{
 //					pulumi.String("FTP"),
 //					pulumi.String("FTPS"),
@@ -228,6 +228,7 @@ import (
 //			transferAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
+//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -236,7 +237,6 @@ import (
 //								},
 //							},
 //						},
-//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},

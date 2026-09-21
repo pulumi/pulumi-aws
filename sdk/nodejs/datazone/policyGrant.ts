@@ -19,6 +19,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datazone.PolicyGrant("example", {
+ *     domainIdentifier: exampleAwsDatazoneDomain.id,
+ *     entityIdentifier: exampleAwsDatazoneDomain.rootDomainUnitId,
+ *     entityType: "DOMAIN_UNIT",
+ *     policyType: "CREATE_DOMAIN_UNIT",
  *     detail: {
  *         createDomainUnit: {},
  *     },
@@ -27,10 +31,6 @@ import * as utilities from "../utilities";
  *             allUsersGrantFilter: {},
  *         },
  *     },
- *     domainIdentifier: exampleAwsDatazoneDomain.id,
- *     entityIdentifier: exampleAwsDatazoneDomain.rootDomainUnitId,
- *     entityType: "DOMAIN_UNIT",
- *     policyType: "CREATE_DOMAIN_UNIT",
  * });
  * ```
  *
@@ -41,6 +41,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datazone.PolicyGrant("example", {
+ *     domainIdentifier: exampleAwsDatazoneDomain.id,
+ *     entityIdentifier: exampleAwsDatazoneDomain.rootDomainUnitId,
+ *     entityType: "DOMAIN_UNIT",
+ *     policyType: "CREATE_DOMAIN_UNIT",
  *     detail: {
  *         createDomainUnit: {
  *             includeChildDomainUnits: true,
@@ -51,10 +55,6 @@ import * as utilities from "../utilities";
  *             allUsersGrantFilter: {},
  *         },
  *     },
- *     domainIdentifier: exampleAwsDatazoneDomain.id,
- *     entityIdentifier: exampleAwsDatazoneDomain.rootDomainUnitId,
- *     entityType: "DOMAIN_UNIT",
- *     policyType: "CREATE_DOMAIN_UNIT",
  * });
  * ```
  *
@@ -65,6 +65,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datazone.PolicyGrant("example", {
+ *     domainIdentifier: exampleAwsDatazoneDomain.id,
+ *     entityIdentifier: exampleAwsDatazoneDomain.rootDomainUnitId,
+ *     entityType: "DOMAIN_UNIT",
+ *     policyType: "CREATE_GLOSSARY",
  *     detail: {
  *         createGlossary: {},
  *     },
@@ -74,10 +78,6 @@ import * as utilities from "../utilities";
  *             projectIdentifier: exampleAwsDatazoneProject.id,
  *         },
  *     },
- *     domainIdentifier: exampleAwsDatazoneDomain.id,
- *     entityIdentifier: exampleAwsDatazoneDomain.rootDomainUnitId,
- *     entityType: "DOMAIN_UNIT",
- *     policyType: "CREATE_GLOSSARY",
  * });
  * ```
  *

@@ -36,6 +36,10 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var test = Aws.Ec2.GetInstances.Invoke(new()
         ///     {
+        ///         InstanceTags = 
+        ///         {
+        ///             { "Role", "HardWorker" },
+        ///         },
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetInstancesFilterInputArgs
@@ -46,10 +50,6 @@ namespace Pulumi.Aws.Ec2
         ///                     "sg-12345678",
         ///                 },
         ///             },
-        ///         },
-        ///         InstanceTags = 
-        ///         {
-        ///             { "Role", "HardWorker" },
         ///         },
         ///         InstanceStateNames = new[]
         ///         {
@@ -102,6 +102,10 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var test = Aws.Ec2.GetInstances.Invoke(new()
         ///     {
+        ///         InstanceTags = 
+        ///         {
+        ///             { "Role", "HardWorker" },
+        ///         },
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetInstancesFilterInputArgs
@@ -112,10 +116,6 @@ namespace Pulumi.Aws.Ec2
         ///                     "sg-12345678",
         ///                 },
         ///             },
-        ///         },
-        ///         InstanceTags = 
-        ///         {
-        ///             { "Role", "HardWorker" },
         ///         },
         ///         InstanceStateNames = new[]
         ///         {
@@ -168,6 +168,10 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var test = Aws.Ec2.GetInstances.Invoke(new()
         ///     {
+        ///         InstanceTags = 
+        ///         {
+        ///             { "Role", "HardWorker" },
+        ///         },
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetInstancesFilterInputArgs
@@ -178,10 +182,6 @@ namespace Pulumi.Aws.Ec2
         ///                     "sg-12345678",
         ///                 },
         ///             },
-        ///         },
-        ///         InstanceTags = 
-        ///         {
-        ///             { "Role", "HardWorker" },
         ///         },
         ///         InstanceStateNames = new[]
         ///         {

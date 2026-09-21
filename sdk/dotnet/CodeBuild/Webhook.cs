@@ -32,6 +32,8 @@ namespace Pulumi.Aws.CodeBuild
     /// {
     ///     var example = new Aws.CodeBuild.Webhook("example", new()
     ///     {
+    ///         ProjectName = exampleAwsCodebuildProject.Name,
+    ///         BuildType = "BUILD",
     ///         FilterGroups = new[]
     ///         {
     ///             new Aws.CodeBuild.Inputs.WebhookFilterGroupArgs
@@ -51,8 +53,6 @@ namespace Pulumi.Aws.CodeBuild
     ///                 },
     ///             },
     ///         },
-    ///         ProjectName = exampleAwsCodebuildProject.Name,
-    ///         BuildType = "BUILD",
     ///     });
     /// 
     /// });
@@ -80,6 +80,13 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     ///     var exampleRepositoryWebhook = new Github.RepositoryWebhook("example", new()
     ///     {
+    ///         Active = true,
+    ///         Events = new[]
+    ///         {
+    ///             "push",
+    ///         },
+    ///         Name = "example",
+    ///         Repository = exampleGithubRepository.Name,
     ///         Configuration = new[]
     ///         {
     ///             
@@ -90,13 +97,6 @@ namespace Pulumi.Aws.CodeBuild
     ///                 { "insecureSsl", false },
     ///             },
     ///         },
-    ///         Active = true,
-    ///         Events = new[]
-    ///         {
-    ///             "push",
-    ///         },
-    ///         Name = "example",
-    ///         Repository = exampleGithubRepository.Name,
     ///     });
     /// 
     /// });
@@ -117,6 +117,8 @@ namespace Pulumi.Aws.CodeBuild
     /// {
     ///     var example = new Aws.CodeBuild.Webhook("example", new()
     ///     {
+    ///         ProjectName = exampleAwsCodebuildProject.Name,
+    ///         BuildType = "BUILD",
     ///         FilterGroups = new[]
     ///         {
     ///             new Aws.CodeBuild.Inputs.WebhookFilterGroupArgs
@@ -131,8 +133,6 @@ namespace Pulumi.Aws.CodeBuild
     ///                 },
     ///             },
     ///         },
-    ///         ProjectName = exampleAwsCodebuildProject.Name,
-    ///         BuildType = "BUILD",
     ///     });
     /// 
     /// });

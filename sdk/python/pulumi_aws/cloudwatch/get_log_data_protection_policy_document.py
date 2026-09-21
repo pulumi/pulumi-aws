@@ -108,10 +108,10 @@ class AwaitableGetLogDataProtectionPolicyDocumentResult(GetLogDataProtectionPoli
             version=self.version)
 
 
-def get_log_data_protection_policy_document(configuration: Optional[Union['GetLogDataProtectionPolicyDocumentConfigurationArgs', 'GetLogDataProtectionPolicyDocumentConfigurationArgsDict']] = None,
+def get_log_data_protection_policy_document(configuration: Optional[Union['GetLogDataProtectionPolicyDocumentConfigurationArgs', 'GetLogDataProtectionPolicyDocumentConfigurationArgsDict', 'outputs.GetLogDataProtectionPolicyDocumentConfigurationResult']] = None,
                                             description: Optional[_builtins.str] = None,
                                             name: Optional[_builtins.str] = None,
-                                            statements: Optional[Sequence[Union['GetLogDataProtectionPolicyDocumentStatementArgs', 'GetLogDataProtectionPolicyDocumentStatementArgsDict']]] = None,
+                                            statements: Optional[Sequence[Union['GetLogDataProtectionPolicyDocumentStatementArgs', 'GetLogDataProtectionPolicyDocumentStatementArgsDict', 'outputs.GetLogDataProtectionPolicyDocumentStatementResult']]] = None,
                                             version: Optional[_builtins.str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogDataProtectionPolicyDocumentResult:
     """
@@ -125,8 +125,14 @@ def get_log_data_protection_policy_document(configuration: Optional[Union['GetLo
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.cloudwatch.get_log_data_protection_policy_document(statements=[
+    example = aws.cloudwatch.get_log_data_protection_policy_document(name="Example",
+        statements=[
             {
+                "sid": "Audit",
+                "data_identifiers": [
+                    "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+                    "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
+                ],
                 "operation": {
                     "audit": {
                         "findings_destination": {
@@ -142,26 +148,20 @@ def get_log_data_protection_policy_document(configuration: Optional[Union['GetLo
                         },
                     },
                 },
-                "sid": "Audit",
-                "data_identifiers": [
-                    "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-                    "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
-                ],
             },
             {
-                "operation": {
-                    "deidentify": {
-                        "mask_config": {},
-                    },
-                },
                 "sid": "Deidentify",
                 "data_identifiers": [
                     "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
                     "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
                 ],
+                "operation": {
+                    "deidentify": {
+                        "mask_config": {},
+                    },
+                },
             },
-        ],
-        name="Example")
+        ])
     example_log_data_protection_policy = aws.cloudwatch.LogDataProtectionPolicy("example",
         log_group_name=example_aws_cloudwatch_log_group["name"],
         policy_document=example.json)
@@ -169,7 +169,7 @@ def get_log_data_protection_policy_document(configuration: Optional[Union['GetLo
 
 
     :param _builtins.str name: The name of the data protection policy document.
-    :param Sequence[Union['GetLogDataProtectionPolicyDocumentStatementArgs', 'GetLogDataProtectionPolicyDocumentStatementArgsDict']] statements: Configures the data protection policy.
+    :param Sequence[Union['GetLogDataProtectionPolicyDocumentStatementArgs', 'GetLogDataProtectionPolicyDocumentStatementArgsDict', 'outputs.GetLogDataProtectionPolicyDocumentStatementResult']] statements: Configures the data protection policy.
            
            > There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
            
@@ -192,10 +192,10 @@ def get_log_data_protection_policy_document(configuration: Optional[Union['GetLo
         name=pulumi.get(__ret__, 'name'),
         statements=pulumi.get(__ret__, 'statements'),
         version=pulumi.get(__ret__, 'version'))
-def get_log_data_protection_policy_document_output(configuration: pulumi.Input[Optional[Optional[Union['GetLogDataProtectionPolicyDocumentConfigurationArgs', 'GetLogDataProtectionPolicyDocumentConfigurationArgsDict']]]] = None,
+def get_log_data_protection_policy_document_output(configuration: pulumi.Input[Optional[Optional[Union['GetLogDataProtectionPolicyDocumentConfigurationArgs', 'GetLogDataProtectionPolicyDocumentConfigurationArgsDict', 'outputs.GetLogDataProtectionPolicyDocumentConfigurationResult']]]] = None,
                                                    description: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                    name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                   statements: pulumi.Input[Optional[Sequence[Union['GetLogDataProtectionPolicyDocumentStatementArgs', 'GetLogDataProtectionPolicyDocumentStatementArgsDict']]]] = None,
+                                                   statements: pulumi.Input[Optional[Sequence[Union['GetLogDataProtectionPolicyDocumentStatementArgs', 'GetLogDataProtectionPolicyDocumentStatementArgsDict', 'outputs.GetLogDataProtectionPolicyDocumentStatementResult']]]] = None,
                                                    version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogDataProtectionPolicyDocumentResult]:
     """
@@ -209,8 +209,14 @@ def get_log_data_protection_policy_document_output(configuration: pulumi.Input[O
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.cloudwatch.get_log_data_protection_policy_document(statements=[
+    example = aws.cloudwatch.get_log_data_protection_policy_document(name="Example",
+        statements=[
             {
+                "sid": "Audit",
+                "data_identifiers": [
+                    "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+                    "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
+                ],
                 "operation": {
                     "audit": {
                         "findings_destination": {
@@ -226,26 +232,20 @@ def get_log_data_protection_policy_document_output(configuration: pulumi.Input[O
                         },
                     },
                 },
-                "sid": "Audit",
-                "data_identifiers": [
-                    "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-                    "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
-                ],
             },
             {
-                "operation": {
-                    "deidentify": {
-                        "mask_config": {},
-                    },
-                },
                 "sid": "Deidentify",
                 "data_identifiers": [
                     "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
                     "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
                 ],
+                "operation": {
+                    "deidentify": {
+                        "mask_config": {},
+                    },
+                },
             },
-        ],
-        name="Example")
+        ])
     example_log_data_protection_policy = aws.cloudwatch.LogDataProtectionPolicy("example",
         log_group_name=example_aws_cloudwatch_log_group["name"],
         policy_document=example.json)
@@ -253,7 +253,7 @@ def get_log_data_protection_policy_document_output(configuration: pulumi.Input[O
 
 
     :param _builtins.str name: The name of the data protection policy document.
-    :param Sequence[Union['GetLogDataProtectionPolicyDocumentStatementArgs', 'GetLogDataProtectionPolicyDocumentStatementArgsDict']] statements: Configures the data protection policy.
+    :param Sequence[Union['GetLogDataProtectionPolicyDocumentStatementArgs', 'GetLogDataProtectionPolicyDocumentStatementArgsDict', 'outputs.GetLogDataProtectionPolicyDocumentStatementResult']] statements: Configures the data protection policy.
            
            > There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
            

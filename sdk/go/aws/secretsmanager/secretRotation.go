@@ -31,11 +31,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := secretsmanager.NewSecretRotation(ctx, "example", &secretsmanager.SecretRotationArgs{
+//				SecretId:          pulumi.Any(exampleAwsSecretsmanagerSecret.Id),
+//				RotationLambdaArn: pulumi.Any(exampleAwsLambdaFunction.Arn),
 //				RotationRules: &secretsmanager.SecretRotationRotationRulesArgs{
 //					AutomaticallyAfterDays: pulumi.Int(30),
 //				},
-//				SecretId:          pulumi.Any(exampleAwsSecretsmanagerSecret.Id),
-//				RotationLambdaArn: pulumi.Any(exampleAwsLambdaFunction.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -70,9 +70,8 @@ import (
 //				return err
 //			}
 //			_, err = secretsmanager.NewSecretRotation(ctx, "example", &secretsmanager.SecretRotationArgs{
-//				RotationRules: &secretsmanager.SecretRotationRotationRulesArgs{
-//					AutomaticallyAfterDays: pulumi.Any(rotationDays),
-//				},
+//				SecretId:                      example.ID().ToIDOutput().ToStringOutput(),
+//				ExternalSecretRotationRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				ExternalSecretRotationMetadatas: secretsmanager.SecretRotationExternalSecretRotationMetadataArray{
 //					&secretsmanager.SecretRotationExternalSecretRotationMetadataArgs{
 //						Key:   pulumi.String("adminSecretArn"),
@@ -83,8 +82,9 @@ import (
 //						Value: pulumi.String("v65.0"),
 //					},
 //				},
-//				SecretId:                      example.ID().ToIDOutput().ToStringOutput(),
-//				ExternalSecretRotationRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				RotationRules: &secretsmanager.SecretRotationRotationRulesArgs{
+//					AutomaticallyAfterDays: pulumi.Any(rotationDays),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -138,57 +138,6 @@ import (
 // > **NOTE:** For Amazon Aurora and other clustered engines, rotation is finalized once a cluster instance is available, and AWS re-enables rotation if it is cancelled before then. Ensure this resource depends on the cluster instance (for example, with `dependsOn = [aws_rds_cluster_instance.example]`) so the cancellation is applied after the instance is available.
 //
 // When `rotationEnabled` is `false`, `rotationRules` must be omitted. If you toggle rotation on and off through a variable (for example, in a module), gate the block with a `dynamic` block so it is only present when rotation is enabled:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/secretsmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func singleOrNone[T any](elements []T) T {
-//		if len(elements) != 1 {
-//			panic(fmt.Errorf("singleOrNone expected input slice to have a single element"))
-//		}
-//		return elements[0]
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			rotationEnabled := true
-//			if param := cfg.GetBool("rotationEnabled"); param {
-//				rotationEnabled = param
-//			}
-//			var tmp0 []map[string]int
-//			if rotationEnabled {
-//				tmp0 = []map[string]int{
-//					{
-//						"automaticallyAfterDays": 30,
-//					},
-//				}
-//			} else {
-//				tmp0 = []interface{}{}
-//			}
-//			_, err := secretsmanager.NewSecretRotation(ctx, "example", &secretsmanager.SecretRotationArgs{
-//				RotationRules:   singleOrNone(tmp0),
-//				SecretId:        pulumi.Any(exampleAwsDbInstance.MasterUserSecret[0].SecretArn),
-//				RotationEnabled: pulumi.Bool(rotationEnabled),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ### Rotation Configuration
 //

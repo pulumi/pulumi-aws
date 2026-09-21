@@ -29,6 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshift.NewParameterGroup(ctx, "bar", &redshift.ParameterGroupArgs{
+//				Name:   pulumi.String("parameter-group-test"),
+//				Family: pulumi.String("redshift-1.0"),
 //				Parameters: redshift.ParameterGroupParameterArray{
 //					&redshift.ParameterGroupParameterArgs{
 //						Name:  pulumi.String("require_ssl"),
@@ -43,8 +45,6 @@ import (
 //						Value: pulumi.String("true"),
 //					},
 //				},
-//				Name:   pulumi.String("parameter-group-test"),
-//				Family: pulumi.String("redshift-1.0"),
 //			})
 //			if err != nil {
 //				return err

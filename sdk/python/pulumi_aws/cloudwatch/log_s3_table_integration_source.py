@@ -160,10 +160,10 @@ class LogS3TableIntegrationSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_source: pulumi.Input[Optional[Union['LogS3TableIntegrationSourceDataSourceArgs', 'LogS3TableIntegrationSourceDataSourceArgsDict']]] = None,
+                 data_source: pulumi.Input[Optional[Union['LogS3TableIntegrationSourceDataSourceArgs', 'LogS3TableIntegrationSourceDataSourceArgsDict', 'outputs.LogS3TableIntegrationSourceDataSource']]] = None,
                  integration_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['LogS3TableIntegrationSourceTimeoutsArgs', 'LogS3TableIntegrationSourceTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['LogS3TableIntegrationSourceTimeoutsArgs', 'LogS3TableIntegrationSourceTimeoutsArgsDict', 'outputs.LogS3TableIntegrationSourceTimeouts']]] = None,
                  __props__=None):
         """
         Manages a CloudWatch Logs S3 Table Integration data source association.
@@ -180,11 +180,11 @@ class LogS3TableIntegrationSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudwatch.LogS3TableIntegrationSource("example",
+            integration_arn=example_aws_observabilityadmin_s3_table_integration["arn"],
             data_source={
                 "name": "*",
                 "type": "*",
-            },
-            integration_arn=example_aws_observabilityadmin_s3_table_integration["arn"])
+            })
         ```
 
         ### Associate a Custom Data Source
@@ -205,11 +205,11 @@ class LogS3TableIntegrationSource(pulumi.CustomResource):
                 "cw:datasource:type": "events",
             })
         example_log_s3_table_integration_source = aws.cloudwatch.LogS3TableIntegrationSource("example",
+            integration_arn=example_aws_observabilityadmin_s3_table_integration["arn"],
             data_source={
                 "name": "myapp",
                 "type": "events",
-            },
-            integration_arn=example_aws_observabilityadmin_s3_table_integration["arn"])
+            })
         ```
 
         ## Import
@@ -235,7 +235,7 @@ class LogS3TableIntegrationSource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['LogS3TableIntegrationSourceDataSourceArgs', 'LogS3TableIntegrationSourceDataSourceArgsDict']] data_source: Data source to associate with the S3 Table Integration. See `data_source` Block below.
+        :param pulumi.Input[Union['LogS3TableIntegrationSourceDataSourceArgs', 'LogS3TableIntegrationSourceDataSourceArgsDict', 'outputs.LogS3TableIntegrationSourceDataSource']] data_source: Data source to associate with the S3 Table Integration. See `data_source` Block below.
         :param pulumi.Input[_builtins.str] integration_arn: ARN of the `observabilityadmin.S3TableIntegration` to associate the data source with.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -260,11 +260,11 @@ class LogS3TableIntegrationSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudwatch.LogS3TableIntegrationSource("example",
+            integration_arn=example_aws_observabilityadmin_s3_table_integration["arn"],
             data_source={
                 "name": "*",
                 "type": "*",
-            },
-            integration_arn=example_aws_observabilityadmin_s3_table_integration["arn"])
+            })
         ```
 
         ### Associate a Custom Data Source
@@ -285,11 +285,11 @@ class LogS3TableIntegrationSource(pulumi.CustomResource):
                 "cw:datasource:type": "events",
             })
         example_log_s3_table_integration_source = aws.cloudwatch.LogS3TableIntegrationSource("example",
+            integration_arn=example_aws_observabilityadmin_s3_table_integration["arn"],
             data_source={
                 "name": "myapp",
                 "type": "events",
-            },
-            integration_arn=example_aws_observabilityadmin_s3_table_integration["arn"])
+            })
         ```
 
         ## Import
@@ -328,10 +328,10 @@ class LogS3TableIntegrationSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_source: pulumi.Input[Optional[Union['LogS3TableIntegrationSourceDataSourceArgs', 'LogS3TableIntegrationSourceDataSourceArgsDict']]] = None,
+                 data_source: pulumi.Input[Optional[Union['LogS3TableIntegrationSourceDataSourceArgs', 'LogS3TableIntegrationSourceDataSourceArgsDict', 'outputs.LogS3TableIntegrationSourceDataSource']]] = None,
                  integration_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['LogS3TableIntegrationSourceTimeoutsArgs', 'LogS3TableIntegrationSourceTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['LogS3TableIntegrationSourceTimeoutsArgs', 'LogS3TableIntegrationSourceTimeoutsArgsDict', 'outputs.LogS3TableIntegrationSourceTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -359,10 +359,10 @@ class LogS3TableIntegrationSource(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            data_source: pulumi.Input[Optional[Union['LogS3TableIntegrationSourceDataSourceArgs', 'LogS3TableIntegrationSourceDataSourceArgsDict']]] = None,
+            data_source: pulumi.Input[Optional[Union['LogS3TableIntegrationSourceDataSourceArgs', 'LogS3TableIntegrationSourceDataSourceArgsDict', 'outputs.LogS3TableIntegrationSourceDataSource']]] = None,
             integration_arn: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['LogS3TableIntegrationSourceTimeoutsArgs', 'LogS3TableIntegrationSourceTimeoutsArgsDict']]] = None) -> 'LogS3TableIntegrationSource':
+            timeouts: pulumi.Input[Optional[Union['LogS3TableIntegrationSourceTimeoutsArgs', 'LogS3TableIntegrationSourceTimeoutsArgsDict', 'outputs.LogS3TableIntegrationSourceTimeouts']]] = None) -> 'LogS3TableIntegrationSource':
         """
         Get an existing LogS3TableIntegrationSource resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -370,7 +370,7 @@ class LogS3TableIntegrationSource(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['LogS3TableIntegrationSourceDataSourceArgs', 'LogS3TableIntegrationSourceDataSourceArgsDict']] data_source: Data source to associate with the S3 Table Integration. See `data_source` Block below.
+        :param pulumi.Input[Union['LogS3TableIntegrationSourceDataSourceArgs', 'LogS3TableIntegrationSourceDataSourceArgsDict', 'outputs.LogS3TableIntegrationSourceDataSource']] data_source: Data source to associate with the S3 Table Integration. See `data_source` Block below.
         :param pulumi.Input[_builtins.str] integration_arn: ARN of the `observabilityadmin.S3TableIntegration` to associate the data source with.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """

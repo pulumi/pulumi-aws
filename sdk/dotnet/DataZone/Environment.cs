@@ -26,6 +26,11 @@ namespace Pulumi.Aws.DataZone
     /// {
     ///     var example = new Aws.DataZone.Environment("example", new()
     ///     {
+    ///         Name = "example",
+    ///         BlueprintIdentifier = test.EnvironmentBlueprintId,
+    ///         ProfileIdentifier = testAwsDatazoneEnvironmentProfile.Id,
+    ///         ProjectIdentifier = testAwsDatazoneProject.Id,
+    ///         DomainIdentifier = testAwsDatazoneDomain.Id,
     ///         UserParameters = new[]
     ///         {
     ///             new Aws.DataZone.Inputs.EnvironmentUserParameterArgs
@@ -44,11 +49,6 @@ namespace Pulumi.Aws.DataZone
     ///                 Value = "workgroup",
     ///             },
     ///         },
-    ///         Name = "example",
-    ///         BlueprintIdentifier = test.EnvironmentBlueprintId,
-    ///         ProfileIdentifier = testAwsDatazoneEnvironmentProfile.Id,
-    ///         ProjectIdentifier = testAwsDatazoneProject.Id,
-    ///         DomainIdentifier = testAwsDatazoneDomain.Id,
     ///     });
     /// 
     /// });

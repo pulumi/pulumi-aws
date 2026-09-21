@@ -592,7 +592,7 @@ class ReservedInstance(pulumi.CustomResource):
             offering_id: pulumi.Input[Optional[_builtins.str]] = None,
             offering_type: pulumi.Input[Optional[_builtins.str]] = None,
             product_description: pulumi.Input[Optional[_builtins.str]] = None,
-            recurring_charges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReservedInstanceRecurringChargeArgs', 'ReservedInstanceRecurringChargeArgsDict']]]]] = None,
+            recurring_charges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReservedInstanceRecurringChargeArgs', 'ReservedInstanceRecurringChargeArgsDict', 'outputs.ReservedInstanceRecurringCharge']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             reservation_id: pulumi.Input[Optional[_builtins.str]] = None,
             start_time: pulumi.Input[Optional[_builtins.str]] = None,
@@ -620,7 +620,7 @@ class ReservedInstance(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] offering_type: Offering type of this reserved DB instance.
         :param pulumi.Input[_builtins.str] product_description: Description of the reserved DB instance.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReservedInstanceRecurringChargeArgs', 'ReservedInstanceRecurringChargeArgsDict']]]] recurring_charges: Recurring price charged to run this reserved DB instance. See `recurring_charges` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReservedInstanceRecurringChargeArgs', 'ReservedInstanceRecurringChargeArgsDict', 'outputs.ReservedInstanceRecurringCharge']]]] recurring_charges: Recurring price charged to run this reserved DB instance. See `recurring_charges` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] reservation_id: Customer-specified identifier to track this reservation.
         :param pulumi.Input[_builtins.str] start_time: Time the reservation started.

@@ -34,6 +34,10 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.Function("example", new()
     ///     {
+    ///         Name = "example_container_function",
+    ///         Role = exampleAwsIamRole.Arn,
+    ///         PackageType = "Image",
+    ///         ImageUri = $"{exampleAwsEcrRepository.RepositoryUrl}:latest",
     ///         ImageConfig = new Aws.Lambda.Inputs.FunctionImageConfigArgs
     ///         {
     ///             EntryPoints = new[]
@@ -45,10 +49,6 @@ namespace Pulumi.Aws.Lambda
     ///                 "app.handler",
     ///             },
     ///         },
-    ///         Name = "example_container_function",
-    ///         Role = exampleAwsIamRole.Arn,
-    ///         PackageType = "Image",
-    ///         ImageUri = $"{exampleAwsEcrRepository.RepositoryUrl}:latest",
     ///         MemorySize = 512,
     ///         Timeout = 30,
     ///         Architectures = new[]
@@ -93,10 +93,6 @@ namespace Pulumi.Aws.Lambda
     ///     // Function using the layer
     ///     var exampleFunction = new Aws.Lambda.Function("example", new()
     ///     {
-    ///         TracingConfig = new Aws.Lambda.Inputs.FunctionTracingConfigArgs
-    ///         {
-    ///             Mode = "Active",
-    ///         },
     ///         Code = new FileArchive("function.zip"),
     ///         Name = "example_layered_function",
     ///         Role = exampleAwsIamRole.Arn,
@@ -105,6 +101,10 @@ namespace Pulumi.Aws.Lambda
     ///         Layers = new[]
     ///         {
     ///             example.Arn,
+    ///         },
+    ///         TracingConfig = new Aws.Lambda.Inputs.FunctionTracingConfigArgs
+    ///         {
+    ///             Mode = "Active",
     ///         },
     ///     });
     /// 
@@ -123,6 +123,13 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.Function("example", new()
     ///     {
+    ///         Code = new FileArchive("function.zip"),
+    ///         Name = "example_vpc_function",
+    ///         Role = exampleAwsIamRole.Arn,
+    ///         Handler = "app.handler",
+    ///         Runtime = Aws.Lambda.Runtime.Python3d12,
+    ///         MemorySize = 1024,
+    ///         Timeout = 30,
     ///         VpcConfig = new Aws.Lambda.Inputs.FunctionVpcConfigArgs
     ///         {
     ///             SubnetIds = new[]
@@ -144,13 +151,6 @@ namespace Pulumi.Aws.Lambda
     ///         {
     ///             ApplyOn = "PublishedVersions",
     ///         },
-    ///         Code = new FileArchive("function.zip"),
-    ///         Name = "example_vpc_function",
-    ///         Role = exampleAwsIamRole.Arn,
-    ///         Handler = "app.handler",
-    ///         Runtime = Aws.Lambda.Runtime.Python3d12,
-    ///         MemorySize = 1024,
-    ///         Timeout = 30,
     ///     });
     /// 
     /// });
@@ -201,27 +201,32 @@ namespace Pulumi.Aws.Lambda
     ///     // Access point for Lambda
     ///     var exampleAccessPoint = new Aws.Efs.AccessPoint("example", new()
     ///     {
+    ///         FileSystemId = example.Id,
     ///         RootDirectory = new Aws.Efs.Inputs.AccessPointRootDirectoryArgs
     ///         {
+    ///             Path = "/lambda",
     ///             CreationInfo = new Aws.Efs.Inputs.AccessPointRootDirectoryCreationInfoArgs
     ///             {
     ///                 OwnerGid = 1000,
     ///                 OwnerUid = 1000,
     ///                 Permissions = "755",
     ///             },
-    ///             Path = "/lambda",
     ///         },
     ///         PosixUser = new Aws.Efs.Inputs.AccessPointPosixUserArgs
     ///         {
     ///             Gid = 1000,
     ///             Uid = 1000,
     ///         },
-    ///         FileSystemId = example.Id,
     ///     });
     /// 
     ///     // Lambda function with EFS
     ///     var exampleFunction = new Aws.Lambda.Function("example", new()
     ///     {
+    ///         Code = new FileArchive("function.zip"),
+    ///         Name = "example_efs_function",
+    ///         Role = exampleAwsIamRole.Arn,
+    ///         Handler = "index.handler",
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
     ///         VpcConfig = new Aws.Lambda.Inputs.FunctionVpcConfigArgs
     ///         {
     ///             SubnetIds = subnetIds,
@@ -235,11 +240,6 @@ namespace Pulumi.Aws.Lambda
     ///             Arn = exampleAccessPoint.Arn,
     ///             LocalMountPath = "/mnt/data",
     ///         },
-    ///         Code = new FileArchive("function.zip"),
-    ///         Name = "example_efs_function",
-    ///         Role = exampleAwsIamRole.Arn,
-    ///         Handler = "index.handler",
-    ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -278,11 +278,11 @@ namespace Pulumi.Aws.Lambda
     /// 
     ///     var lambdaFileSystemBucketVersioning = new Aws.S3.BucketVersioning("lambda_file_system", new()
     ///     {
+    ///         Bucket = lambdaFileSystem.BucketName,
     ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
-    ///         Bucket = lambdaFileSystem.BucketName,
     ///     });
     /// 
     ///     var forLambda = new Aws.S3.FilesFileSystem("for_lambda", new()
@@ -299,18 +299,12 @@ namespace Pulumi.Aws.Lambda
     /// 
     ///     var forLambdaFilesAccessPoint = new Aws.S3.FilesAccessPoint("for_lambda", new()
     ///     {
-    ///         PosixUsers = new[]
-    ///         {
-    ///             new Aws.S3.Inputs.FilesAccessPointPosixUserArgs
-    ///             {
-    ///                 Gid = 1000,
-    ///                 Uid = 1000,
-    ///             },
-    ///         },
+    ///         FileSystemId = forLambda.Id,
     ///         RootDirectories = new[]
     ///         {
     ///             new Aws.S3.Inputs.FilesAccessPointRootDirectoryArgs
     ///             {
+    ///                 Path = "/lambda",
     ///                 CreationPermissions = new[]
     ///                 {
     ///                     new Aws.S3.Inputs.FilesAccessPointRootDirectoryCreationPermissionArgs
@@ -320,10 +314,16 @@ namespace Pulumi.Aws.Lambda
     ///                         Permissions = "755",
     ///                     },
     ///                 },
-    ///                 Path = "/lambda",
     ///             },
     ///         },
-    ///         FileSystemId = forLambda.Id,
+    ///         PosixUsers = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.FilesAccessPointPosixUserArgs
+    ///             {
+    ///                 Gid = 1000,
+    ///                 Uid = 1000,
+    ///             },
+    ///         },
     ///     });
     /// 
     ///     var s3filesMountTargets = new Aws.Ec2.SecurityGroup("s3files_mount_targets", new()
@@ -358,6 +358,11 @@ namespace Pulumi.Aws.Lambda
     /// 
     ///     var example = new Aws.Lambda.Function("example", new()
     ///     {
+    ///         Code = new FileArchive("function.zip"),
+    ///         Name = "example_s3files_function",
+    ///         Role = iamForLambda.Arn,
+    ///         Handler = "exports.example",
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
     ///         VpcConfig = new Aws.Lambda.Inputs.FunctionVpcConfigArgs
     ///         {
     ///             SubnetIds = new[]
@@ -374,11 +379,6 @@ namespace Pulumi.Aws.Lambda
     ///             Arn = forLambdaFilesAccessPoint.Arn,
     ///             LocalMountPath = "/mnt/s3files",
     ///         },
-    ///         Code = new FileArchive("function.zip"),
-    ///         Name = "example_s3files_function",
-    ///         Role = iamForLambda.Arn,
-    ///         Handler = "exports.example",
-    ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -413,17 +413,17 @@ namespace Pulumi.Aws.Lambda
     /// 
     ///     var exampleFunction = new Aws.Lambda.Function("example", new()
     ///     {
+    ///         Code = new FileArchive("function.zip"),
+    ///         Name = "example_function",
+    ///         Role = exampleAwsIamRole.Arn,
+    ///         Handler = "index.handler",
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
     ///         LoggingConfig = new Aws.Lambda.Inputs.FunctionLoggingConfigArgs
     ///         {
     ///             LogFormat = "JSON",
     ///             ApplicationLogLevel = "INFO",
     ///             SystemLogLevel = "WARN",
     ///         },
-    ///         Code = new FileArchive("function.zip"),
-    ///         Name = "example_function",
-    ///         Role = exampleAwsIamRole.Arn,
-    ///         Handler = "index.handler",
-    ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -486,6 +486,11 @@ namespace Pulumi.Aws.Lambda
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -497,11 +502,6 @@ namespace Pulumi.Aws.Lambda
     ///                         },
     ///                     },
     ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///                 Effect = "Allow",
     ///             },
     ///         },
     ///     });
@@ -548,16 +548,16 @@ namespace Pulumi.Aws.Lambda
     /// 
     ///     var logExport = new Aws.Lambda.Function("log_export", new()
     ///     {
-    ///         LoggingConfig = new Aws.Lambda.Inputs.FunctionLoggingConfigArgs
-    ///         {
-    ///             LogFormat = "Text",
-    ///             LogGroup = export.Name,
-    ///         },
     ///         Name = lambdaFunctionName,
     ///         Handler = "index.lambda_handler",
     ///         Runtime = Aws.Lambda.Runtime.Python3d13,
     ///         Role = example.Arn,
     ///         Code = new FileArchive("function.zip"),
+    ///         LoggingConfig = new Aws.Lambda.Inputs.FunctionLoggingConfigArgs
+    ///         {
+    ///             LogFormat = "Text",
+    ///             LogGroup = export.Name,
+    ///         },
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -582,20 +582,23 @@ namespace Pulumi.Aws.Lambda
     ///     // Main Lambda function
     ///     var example = new Aws.Lambda.Function("example", new()
     ///     {
-    ///         DeadLetterConfig = new Aws.Lambda.Inputs.FunctionDeadLetterConfigArgs
-    ///         {
-    ///             TargetArn = dlq.Arn,
-    ///         },
     ///         Code = new FileArchive("function.zip"),
     ///         Name = "example_function",
     ///         Role = exampleAwsIamRole.Arn,
     ///         Handler = "index.handler",
     ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
+    ///         DeadLetterConfig = new Aws.Lambda.Inputs.FunctionDeadLetterConfigArgs
+    ///         {
+    ///             TargetArn = dlq.Arn,
+    ///         },
     ///     });
     /// 
     ///     // Event invoke configuration for retries
     ///     var exampleFunctionEventInvokeConfig = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
     ///     {
+    ///         FunctionName = example.Name,
+    ///         MaximumEventAgeInSeconds = 60,
+    ///         MaximumRetryAttempts = 2,
     ///         DestinationConfig = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigArgs
     ///         {
     ///             OnFailure = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs
@@ -607,9 +610,6 @@ namespace Pulumi.Aws.Lambda
     ///                 Destination = success.Arn,
     ///             },
     ///         },
-    ///         FunctionName = example.Name,
-    ///         MaximumEventAgeInSeconds = 60,
-    ///         MaximumRetryAttempts = 2,
     ///     });
     /// 
     /// });
@@ -702,17 +702,17 @@ namespace Pulumi.Aws.Lambda
     ///     // Lambda function with logging
     ///     var exampleFunction = new Aws.Lambda.Function("example", new()
     ///     {
+    ///         Code = new FileArchive("function.zip"),
+    ///         Name = functionName,
+    ///         Role = exampleRole.Arn,
+    ///         Handler = "index.handler",
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
     ///         LoggingConfig = new Aws.Lambda.Inputs.FunctionLoggingConfigArgs
     ///         {
     ///             LogFormat = "JSON",
     ///             ApplicationLogLevel = "INFO",
     ///             SystemLogLevel = "WARN",
     ///         },
-    ///         Code = new FileArchive("function.zip"),
-    ///         Name = functionName,
-    ///         Role = exampleRole.Arn,
-    ///         Handler = "index.handler",
-    ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -739,6 +739,13 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.Function("example", new()
     ///     {
+    ///         Code = new FileArchive("function.zip"),
+    ///         Name = "example_durable_function",
+    ///         Role = exampleAwsIamRole.Arn,
+    ///         Handler = "index.handler",
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
+    ///         MemorySize = 512,
+    ///         Timeout = 30,
     ///         DurableConfig = new Aws.Lambda.Inputs.FunctionDurableConfigArgs
     ///         {
     ///             ExecutionTimeout = 3600,
@@ -751,13 +758,6 @@ namespace Pulumi.Aws.Lambda
     ///                 { "DURABLE_MODE", "enabled" },
     ///             },
     ///         },
-    ///         Code = new FileArchive("function.zip"),
-    ///         Name = "example_durable_function",
-    ///         Role = exampleAwsIamRole.Arn,
-    ///         Handler = "index.handler",
-    ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
-    ///         MemorySize = 512,
-    ///         Timeout = 30,
     ///         Tags = 
     ///         {
     ///             { "Environment", "production" },
@@ -780,6 +780,7 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var exampleCapacityProvider = new Aws.Lambda.CapacityProvider("example", new()
     ///     {
+    ///         Name = "example",
     ///         VpcConfig = new Aws.Lambda.Inputs.CapacityProviderVpcConfigArgs
     ///         {
     ///             SubnetIds = new[]
@@ -795,18 +796,10 @@ namespace Pulumi.Aws.Lambda
     ///         {
     ///             CapacityProviderOperatorRoleArn = exampleAwsIamRole.Arn,
     ///         },
-    ///         Name = "example",
     ///     });
     /// 
     ///     var example = new Aws.Lambda.Function("example", new()
     ///     {
-    ///         CapacityProviderConfig = new Aws.Lambda.Inputs.FunctionCapacityProviderConfigArgs
-    ///         {
-    ///             LambdaManagedInstancesCapacityProviderConfig = new Aws.Lambda.Inputs.FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs
-    ///             {
-    ///                 CapacityProviderArn = exampleCapacityProvider.Arn,
-    ///             },
-    ///         },
     ///         Code = new FileArchive("function.zip"),
     ///         Name = "example",
     ///         Role = exampleAwsIamRole.Arn,
@@ -814,6 +807,13 @@ namespace Pulumi.Aws.Lambda
     ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
     ///         MemorySize = 2048,
     ///         Publish = true,
+    ///         CapacityProviderConfig = new Aws.Lambda.Inputs.FunctionCapacityProviderConfigArgs
+    ///         {
+    ///             LambdaManagedInstancesCapacityProviderConfig = new Aws.Lambda.Inputs.FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs
+    ///             {
+    ///                 CapacityProviderArn = exampleCapacityProvider.Arn,
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });

@@ -20,17 +20,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.dynamodb.Table("example", {
- *     attributes: [{
- *         name: "BrodoBaggins",
- *         type: "S",
- *     }],
  *     name: "TestTable",
  *     hashKey: "BrodoBaggins",
  *     billingMode: "PAY_PER_REQUEST",
  *     streamEnabled: true,
  *     streamViewType: "NEW_AND_OLD_IMAGES",
- * }, {
- *     ignoreChanges: ["replicas"],
+ *     attributes: [{
+ *         name: "BrodoBaggins",
+ *         type: "S",
+ *     }],
  * });
  * const exampleTableReplica = new aws.dynamodb.TableReplica("example", {
  *     globalTableArn: example.arn,

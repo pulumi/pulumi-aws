@@ -28,6 +28,7 @@ namespace Pulumi.Aws.AccountAccess
         /// {
         ///     var example = Aws.AccountAccess.GetEntitlements.Invoke(new()
         ///     {
+        ///         ApplicationArn = exampleAwsAccountaccessApplication.Arn,
         ///         Filter = new Aws.AccountAccess.Inputs.GetEntitlementsFilterInputArgs
         ///         {
         ///             PrincipalRole = new Aws.AccountAccess.Inputs.GetEntitlementsFilterPrincipalRoleInputArgs
@@ -41,7 +42,6 @@ namespace Pulumi.Aws.AccountAccess
         ///                 },
         ///             },
         ///         },
-        ///         ApplicationArn = exampleAwsAccountaccessApplication.Arn,
         ///     });
         /// 
         /// });
@@ -59,6 +59,7 @@ namespace Pulumi.Aws.AccountAccess
         /// {
         ///     var example = Aws.AccountAccess.GetEntitlements.Invoke(new()
         ///     {
+        ///         ApplicationArn = exampleAwsAccountaccessApplication.Arn,
         ///         Filter = new Aws.AccountAccess.Inputs.GetEntitlementsFilterInputArgs
         ///         {
         ///             PrincipalRole = new Aws.AccountAccess.Inputs.GetEntitlementsFilterPrincipalRoleInputArgs
@@ -66,7 +67,6 @@ namespace Pulumi.Aws.AccountAccess
         ///                 AccountId = "123456789012",
         ///             },
         ///         },
-        ///         ApplicationArn = exampleAwsAccountaccessApplication.Arn,
         ///     });
         /// 
         /// });
@@ -92,6 +92,7 @@ namespace Pulumi.Aws.AccountAccess
         /// {
         ///     var example = Aws.AccountAccess.GetEntitlements.Invoke(new()
         ///     {
+        ///         ApplicationArn = exampleAwsAccountaccessApplication.Arn,
         ///         Filter = new Aws.AccountAccess.Inputs.GetEntitlementsFilterInputArgs
         ///         {
         ///             PrincipalRole = new Aws.AccountAccess.Inputs.GetEntitlementsFilterPrincipalRoleInputArgs
@@ -105,7 +106,6 @@ namespace Pulumi.Aws.AccountAccess
         ///                 },
         ///             },
         ///         },
-        ///         ApplicationArn = exampleAwsAccountaccessApplication.Arn,
         ///     });
         /// 
         /// });
@@ -123,6 +123,7 @@ namespace Pulumi.Aws.AccountAccess
         /// {
         ///     var example = Aws.AccountAccess.GetEntitlements.Invoke(new()
         ///     {
+        ///         ApplicationArn = exampleAwsAccountaccessApplication.Arn,
         ///         Filter = new Aws.AccountAccess.Inputs.GetEntitlementsFilterInputArgs
         ///         {
         ///             PrincipalRole = new Aws.AccountAccess.Inputs.GetEntitlementsFilterPrincipalRoleInputArgs
@@ -130,7 +131,6 @@ namespace Pulumi.Aws.AccountAccess
         ///                 AccountId = "123456789012",
         ///             },
         ///         },
-        ///         ApplicationArn = exampleAwsAccountaccessApplication.Arn,
         ///     });
         /// 
         /// });
@@ -156,6 +156,7 @@ namespace Pulumi.Aws.AccountAccess
         /// {
         ///     var example = Aws.AccountAccess.GetEntitlements.Invoke(new()
         ///     {
+        ///         ApplicationArn = exampleAwsAccountaccessApplication.Arn,
         ///         Filter = new Aws.AccountAccess.Inputs.GetEntitlementsFilterInputArgs
         ///         {
         ///             PrincipalRole = new Aws.AccountAccess.Inputs.GetEntitlementsFilterPrincipalRoleInputArgs
@@ -169,7 +170,6 @@ namespace Pulumi.Aws.AccountAccess
         ///                 },
         ///             },
         ///         },
-        ///         ApplicationArn = exampleAwsAccountaccessApplication.Arn,
         ///     });
         /// 
         /// });
@@ -187,6 +187,7 @@ namespace Pulumi.Aws.AccountAccess
         /// {
         ///     var example = Aws.AccountAccess.GetEntitlements.Invoke(new()
         ///     {
+        ///         ApplicationArn = exampleAwsAccountaccessApplication.Arn,
         ///         Filter = new Aws.AccountAccess.Inputs.GetEntitlementsFilterInputArgs
         ///         {
         ///             PrincipalRole = new Aws.AccountAccess.Inputs.GetEntitlementsFilterPrincipalRoleInputArgs
@@ -194,7 +195,6 @@ namespace Pulumi.Aws.AccountAccess
         ///                 AccountId = "123456789012",
         ///             },
         ///         },
-        ///         ApplicationArn = exampleAwsAccountaccessApplication.Arn,
         ///     });
         /// 
         /// });

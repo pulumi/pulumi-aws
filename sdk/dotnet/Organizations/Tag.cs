@@ -32,12 +32,6 @@ namespace Pulumi.Aws.Organizations
     ///     {
     ///         Name = "ExampleOU",
     ///         ParentId = example.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         IgnoreChanges =
-    ///         {
-    ///             "tags",
-    ///         },
     ///     });
     /// 
     ///     var exampleTag = new Aws.Organizations.Tag("example", new()

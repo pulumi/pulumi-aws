@@ -623,7 +623,7 @@ class NotebookInstance(pulumi.CustomResource):
                  additional_code_repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  default_code_repository: pulumi.Input[Optional[_builtins.str]] = None,
                  direct_internet_access: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_metadata_service_configuration: pulumi.Input[Optional[Union['NotebookInstanceInstanceMetadataServiceConfigurationArgs', 'NotebookInstanceInstanceMetadataServiceConfigurationArgsDict']]] = None,
+                 instance_metadata_service_configuration: pulumi.Input[Optional[Union['NotebookInstanceInstanceMetadataServiceConfigurationArgs', 'NotebookInstanceInstanceMetadataServiceConfigurationArgsDict', 'outputs.NotebookInstanceInstanceMetadataServiceConfiguration']]] = None,
                  instance_type: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  lifecycle_config_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -664,10 +664,10 @@ class NotebookInstance(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.CodeRepository("example",
+            code_repository_name="my-notebook-instance-code-repo",
             git_config={
                 "repository_url": "https://github.com/github/docs.git",
-            },
-            code_repository_name="my-notebook-instance-code-repo")
+            })
         ni = aws.sagemaker.NotebookInstance("ni",
             name="my-notebook-instance",
             role_arn=role["arn"],
@@ -693,7 +693,7 @@ class NotebookInstance(pulumi.CustomResource):
                These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
         :param pulumi.Input[_builtins.str] default_code_repository: The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
         :param pulumi.Input[_builtins.str] direct_internet_access: Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
-        :param pulumi.Input[Union['NotebookInstanceInstanceMetadataServiceConfigurationArgs', 'NotebookInstanceInstanceMetadataServiceConfigurationArgsDict']] instance_metadata_service_configuration: Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
+        :param pulumi.Input[Union['NotebookInstanceInstanceMetadataServiceConfigurationArgs', 'NotebookInstanceInstanceMetadataServiceConfigurationArgsDict', 'outputs.NotebookInstanceInstanceMetadataServiceConfiguration']] instance_metadata_service_configuration: Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
         :param pulumi.Input[_builtins.str] instance_type: The name of ML compute instance type.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         :param pulumi.Input[_builtins.str] lifecycle_config_name: The name of a lifecycle configuration to associate with the notebook instance.
@@ -740,10 +740,10 @@ class NotebookInstance(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.CodeRepository("example",
+            code_repository_name="my-notebook-instance-code-repo",
             git_config={
                 "repository_url": "https://github.com/github/docs.git",
-            },
-            code_repository_name="my-notebook-instance-code-repo")
+            })
         ni = aws.sagemaker.NotebookInstance("ni",
             name="my-notebook-instance",
             role_arn=role["arn"],
@@ -781,7 +781,7 @@ class NotebookInstance(pulumi.CustomResource):
                  additional_code_repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  default_code_repository: pulumi.Input[Optional[_builtins.str]] = None,
                  direct_internet_access: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_metadata_service_configuration: pulumi.Input[Optional[Union['NotebookInstanceInstanceMetadataServiceConfigurationArgs', 'NotebookInstanceInstanceMetadataServiceConfigurationArgsDict']]] = None,
+                 instance_metadata_service_configuration: pulumi.Input[Optional[Union['NotebookInstanceInstanceMetadataServiceConfigurationArgs', 'NotebookInstanceInstanceMetadataServiceConfigurationArgsDict', 'outputs.NotebookInstanceInstanceMetadataServiceConfiguration']]] = None,
                  instance_type: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  lifecycle_config_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -841,7 +841,7 @@ class NotebookInstance(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             default_code_repository: pulumi.Input[Optional[_builtins.str]] = None,
             direct_internet_access: pulumi.Input[Optional[_builtins.str]] = None,
-            instance_metadata_service_configuration: pulumi.Input[Optional[Union['NotebookInstanceInstanceMetadataServiceConfigurationArgs', 'NotebookInstanceInstanceMetadataServiceConfigurationArgsDict']]] = None,
+            instance_metadata_service_configuration: pulumi.Input[Optional[Union['NotebookInstanceInstanceMetadataServiceConfigurationArgs', 'NotebookInstanceInstanceMetadataServiceConfigurationArgsDict', 'outputs.NotebookInstanceInstanceMetadataServiceConfiguration']]] = None,
             instance_type: pulumi.Input[Optional[_builtins.str]] = None,
             kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
             lifecycle_config_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -869,7 +869,7 @@ class NotebookInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this notebook instance.
         :param pulumi.Input[_builtins.str] default_code_repository: The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
         :param pulumi.Input[_builtins.str] direct_internet_access: Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
-        :param pulumi.Input[Union['NotebookInstanceInstanceMetadataServiceConfigurationArgs', 'NotebookInstanceInstanceMetadataServiceConfigurationArgsDict']] instance_metadata_service_configuration: Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
+        :param pulumi.Input[Union['NotebookInstanceInstanceMetadataServiceConfigurationArgs', 'NotebookInstanceInstanceMetadataServiceConfigurationArgsDict', 'outputs.NotebookInstanceInstanceMetadataServiceConfiguration']] instance_metadata_service_configuration: Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
         :param pulumi.Input[_builtins.str] instance_type: The name of ML compute instance type.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         :param pulumi.Input[_builtins.str] lifecycle_config_name: The name of a lifecycle configuration to associate with the notebook instance.

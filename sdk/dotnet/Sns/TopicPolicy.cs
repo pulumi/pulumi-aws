@@ -31,33 +31,11 @@ namespace Pulumi.Aws.Sns
     /// 
     ///     var snsTopicPolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
+    ///         PolicyId = "__default_policy_ID",
     ///         Statements = new[]
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "StringEquals",
-    ///                         Variable = "AWS:SourceOwner",
-    ///                         Values = new[]
-    ///                         {
-    ///                             account_id,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "*",
-    ///                         },
-    ///                     },
-    ///                 },
     ///                 Actions = new[]
     ///                 {
     ///                     "SNS:Subscribe",
@@ -70,7 +48,30 @@ namespace Pulumi.Aws.Sns
     ///                     "SNS:DeleteTopic",
     ///                     "SNS:AddPermission",
     ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = "AWS:SourceOwner",
+    ///                         Values = new[]
+    ///                         {
+    ///                             account_id,
+    ///                         },
+    ///                     },
+    ///                 },
     ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "AWS",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                     },
+    ///                 },
     ///                 Resources = new[]
     ///                 {
     ///                     test.Arn,
@@ -78,7 +79,6 @@ namespace Pulumi.Aws.Sns
     ///                 Sid = "__default_statement_ID",
     ///             },
     ///         },
-    ///         PolicyId = "__default_policy_ID",
     ///     });
     /// 
     ///     var @default = new Aws.Sns.TopicPolicy("default", new()

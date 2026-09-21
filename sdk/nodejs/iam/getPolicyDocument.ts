@@ -31,6 +31,8 @@ import * as utilities from "../utilities";
  *             resources: ["arn:aws:s3:::*"],
  *         },
  *         {
+ *             actions: ["s3:ListBucket"],
+ *             resources: [`arn:aws:s3:::${s3BucketName}`],
  *             conditions: [{
  *                 test: "StringLike",
  *                 variable: "s3:prefix",
@@ -40,8 +42,6 @@ import * as utilities from "../utilities";
  *                     "home/&{aws:username}/",
  *                 ],
  *             }],
- *             actions: ["s3:ListBucket"],
- *             resources: [`arn:aws:s3:::${s3BucketName}`],
  *         },
  *         {
  *             actions: ["s3:*"],
@@ -69,6 +69,11 @@ import * as utilities from "../utilities";
  *
  * const exampleMultipleConditionKeysAndValues = aws.iam.getPolicyDocument({
  *     statements: [{
+ *         actions: [
+ *             "kms:Decrypt",
+ *             "kms:GenerateDataKey",
+ *         ],
+ *         resources: ["*"],
  *         conditions: [
  *             {
  *                 test: "ForAnyValue:StringEquals",
@@ -89,11 +94,6 @@ import * as utilities from "../utilities";
  *                 ],
  *             },
  *         ],
- *         actions: [
- *             "kms:Decrypt",
- *             "kms:GenerateDataKey",
- *         ],
- *         resources: ["*"],
  *     }],
  * });
  * ```
@@ -110,6 +110,7 @@ import * as utilities from "../utilities";
  *
  * const eventStreamBucketRoleAssumeRolePolicy = aws.iam.getPolicyDocument({
  *     statements: [{
+ *         actions: ["sts:AssumeRole"],
  *         principals: [
  *             {
  *                 type: "Service",
@@ -127,7 +128,6 @@ import * as utilities from "../utilities";
  *                 ],
  *             },
  *         ],
- *         actions: ["sts:AssumeRole"],
  *     }],
  * });
  * ```
@@ -152,6 +152,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const sourceDocumentExample = source.then(source => aws.iam.getPolicyDocument({
+ *     sourcePolicyDocuments: [source.json],
  *     statements: [{
  *         sid: "SidToOverride",
  *         actions: ["s3:*"],
@@ -160,7 +161,6 @@ import * as utilities from "../utilities";
  *             "arn:aws:s3:::somebucket/*",
  *         ],
  *     }],
- *     sourcePolicyDocuments: [source.json],
  * }));
  * ```
  *
@@ -180,6 +180,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const overridePolicyDocumentExample = override.then(override => aws.iam.getPolicyDocument({
+ *     overridePolicyDocuments: [override.json],
  *     statements: [
  *         {
  *             actions: ["ec2:*"],
@@ -194,7 +195,6 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     ],
- *     overridePolicyDocuments: [override.json],
  * }));
  * ```
  *
@@ -312,17 +312,17 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const combined = Promise.all([policyOne, policyTwo, policyThree]).then(([policyOne, policyTwo, policyThree]) => aws.iam.getPolicyDocument({
+ *     overridePolicyDocuments: [
+ *         policyOne.json,
+ *         policyTwo.json,
+ *         policyThree.json,
+ *     ],
  *     statements: [{
  *         sid: "OverridePlaceHolderTwo",
  *         effect: "Deny",
  *         actions: ["*"],
  *         resources: ["*"],
  *     }],
- *     overridePolicyDocuments: [
- *         policyOne.json,
- *         policyTwo.json,
- *         policyThree.json,
- *     ],
  * }));
  * ```
  *
@@ -430,6 +430,8 @@ export interface GetPolicyDocumentResult {
  *             resources: ["arn:aws:s3:::*"],
  *         },
  *         {
+ *             actions: ["s3:ListBucket"],
+ *             resources: [`arn:aws:s3:::${s3BucketName}`],
  *             conditions: [{
  *                 test: "StringLike",
  *                 variable: "s3:prefix",
@@ -439,8 +441,6 @@ export interface GetPolicyDocumentResult {
  *                     "home/&{aws:username}/",
  *                 ],
  *             }],
- *             actions: ["s3:ListBucket"],
- *             resources: [`arn:aws:s3:::${s3BucketName}`],
  *         },
  *         {
  *             actions: ["s3:*"],
@@ -468,6 +468,11 @@ export interface GetPolicyDocumentResult {
  *
  * const exampleMultipleConditionKeysAndValues = aws.iam.getPolicyDocument({
  *     statements: [{
+ *         actions: [
+ *             "kms:Decrypt",
+ *             "kms:GenerateDataKey",
+ *         ],
+ *         resources: ["*"],
  *         conditions: [
  *             {
  *                 test: "ForAnyValue:StringEquals",
@@ -488,11 +493,6 @@ export interface GetPolicyDocumentResult {
  *                 ],
  *             },
  *         ],
- *         actions: [
- *             "kms:Decrypt",
- *             "kms:GenerateDataKey",
- *         ],
- *         resources: ["*"],
  *     }],
  * });
  * ```
@@ -509,6 +509,7 @@ export interface GetPolicyDocumentResult {
  *
  * const eventStreamBucketRoleAssumeRolePolicy = aws.iam.getPolicyDocument({
  *     statements: [{
+ *         actions: ["sts:AssumeRole"],
  *         principals: [
  *             {
  *                 type: "Service",
@@ -526,7 +527,6 @@ export interface GetPolicyDocumentResult {
  *                 ],
  *             },
  *         ],
- *         actions: ["sts:AssumeRole"],
  *     }],
  * });
  * ```
@@ -551,6 +551,7 @@ export interface GetPolicyDocumentResult {
  *     ],
  * });
  * const sourceDocumentExample = source.then(source => aws.iam.getPolicyDocument({
+ *     sourcePolicyDocuments: [source.json],
  *     statements: [{
  *         sid: "SidToOverride",
  *         actions: ["s3:*"],
@@ -559,7 +560,6 @@ export interface GetPolicyDocumentResult {
  *             "arn:aws:s3:::somebucket/*",
  *         ],
  *     }],
- *     sourcePolicyDocuments: [source.json],
  * }));
  * ```
  *
@@ -579,6 +579,7 @@ export interface GetPolicyDocumentResult {
  *     }],
  * });
  * const overridePolicyDocumentExample = override.then(override => aws.iam.getPolicyDocument({
+ *     overridePolicyDocuments: [override.json],
  *     statements: [
  *         {
  *             actions: ["ec2:*"],
@@ -593,7 +594,6 @@ export interface GetPolicyDocumentResult {
  *             ],
  *         },
  *     ],
- *     overridePolicyDocuments: [override.json],
  * }));
  * ```
  *
@@ -711,17 +711,17 @@ export interface GetPolicyDocumentResult {
  *     }],
  * });
  * const combined = Promise.all([policyOne, policyTwo, policyThree]).then(([policyOne, policyTwo, policyThree]) => aws.iam.getPolicyDocument({
+ *     overridePolicyDocuments: [
+ *         policyOne.json,
+ *         policyTwo.json,
+ *         policyThree.json,
+ *     ],
  *     statements: [{
  *         sid: "OverridePlaceHolderTwo",
  *         effect: "Deny",
  *         actions: ["*"],
  *         resources: ["*"],
  *     }],
- *     overridePolicyDocuments: [
- *         policyOne.json,
- *         policyTwo.json,
- *         policyThree.json,
- *     ],
  * }));
  * ```
  *

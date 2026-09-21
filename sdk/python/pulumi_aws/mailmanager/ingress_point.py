@@ -487,14 +487,14 @@ class IngressPoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ingress_point_configuration: pulumi.Input[Optional[Union['IngressPointIngressPointConfigurationArgs', 'IngressPointIngressPointConfigurationArgsDict']]] = None,
+                 ingress_point_configuration: pulumi.Input[Optional[Union['IngressPointIngressPointConfigurationArgs', 'IngressPointIngressPointConfigurationArgsDict', 'outputs.IngressPointIngressPointConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_configuration: pulumi.Input[Optional[Union['IngressPointNetworkConfigurationArgs', 'IngressPointNetworkConfigurationArgsDict']]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['IngressPointNetworkConfigurationArgs', 'IngressPointNetworkConfigurationArgsDict', 'outputs.IngressPointNetworkConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_set_id: pulumi.Input[Optional[_builtins.str]] = None,
                  status_to_update: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['IngressPointTimeoutsArgs', 'IngressPointTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['IngressPointTimeoutsArgs', 'IngressPointTimeoutsArgsDict', 'outputs.IngressPointTimeouts']]] = None,
                  tls_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  traffic_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -524,14 +524,14 @@ class IngressPoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mailmanager.IngressPoint("example",
-            ingress_point_configuration={
-                "smtp_password_wo": smtp_password,
-                "smtp_password_wo_version": 1,
-            },
             name="example",
             type="AUTH",
             rule_set_id=example_aws_mailmanager_rule_set["id"],
-            traffic_policy_id=example_aws_mailmanager_traffic_policy["id"])
+            traffic_policy_id=example_aws_mailmanager_traffic_policy["id"],
+            ingress_point_configuration={
+                "smtp_password_wo": smtp_password,
+                "smtp_password_wo_version": 1,
+            })
         ```
 
         ### Private Network Configuration
@@ -541,15 +541,15 @@ class IngressPoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mailmanager.IngressPoint("example",
+            name="example",
+            type="OPEN",
+            rule_set_id=example_aws_mailmanager_rule_set["id"],
+            traffic_policy_id=example_aws_mailmanager_traffic_policy["id"],
             network_configuration={
                 "private_network_configuration": {
                     "vpc_endpoint_id": example_aws_vpc_endpoint["id"],
                 },
-            },
-            name="example",
-            type="OPEN",
-            rule_set_id=example_aws_mailmanager_rule_set["id"],
-            traffic_policy_id=example_aws_mailmanager_traffic_policy["id"])
+            })
         ```
 
         ## Import
@@ -574,9 +574,9 @@ class IngressPoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['IngressPointIngressPointConfigurationArgs', 'IngressPointIngressPointConfigurationArgsDict']] ingress_point_configuration: Configuration used to authenticate with the ingress point. See `ingress_point_configuration` Block for details.
+        :param pulumi.Input[Union['IngressPointIngressPointConfigurationArgs', 'IngressPointIngressPointConfigurationArgsDict', 'outputs.IngressPointIngressPointConfiguration']] ingress_point_configuration: Configuration used to authenticate with the ingress point. See `ingress_point_configuration` Block for details.
         :param pulumi.Input[_builtins.str] name: Name of the ingress point.
-        :param pulumi.Input[Union['IngressPointNetworkConfigurationArgs', 'IngressPointNetworkConfigurationArgsDict']] network_configuration: Network configuration for the ingress point. See `network_configuration` Block for details. Changing this value forces a new resource.
+        :param pulumi.Input[Union['IngressPointNetworkConfigurationArgs', 'IngressPointNetworkConfigurationArgsDict', 'outputs.IngressPointNetworkConfiguration']] network_configuration: Network configuration for the ingress point. See `network_configuration` Block for details. Changing this value forces a new resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource is managed.
         :param pulumi.Input[_builtins.str] rule_set_id: Identifier of the rule set applied to the ingress point.
         :param pulumi.Input[_builtins.str] status_to_update: Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
@@ -618,14 +618,14 @@ class IngressPoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mailmanager.IngressPoint("example",
-            ingress_point_configuration={
-                "smtp_password_wo": smtp_password,
-                "smtp_password_wo_version": 1,
-            },
             name="example",
             type="AUTH",
             rule_set_id=example_aws_mailmanager_rule_set["id"],
-            traffic_policy_id=example_aws_mailmanager_traffic_policy["id"])
+            traffic_policy_id=example_aws_mailmanager_traffic_policy["id"],
+            ingress_point_configuration={
+                "smtp_password_wo": smtp_password,
+                "smtp_password_wo_version": 1,
+            })
         ```
 
         ### Private Network Configuration
@@ -635,15 +635,15 @@ class IngressPoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mailmanager.IngressPoint("example",
+            name="example",
+            type="OPEN",
+            rule_set_id=example_aws_mailmanager_rule_set["id"],
+            traffic_policy_id=example_aws_mailmanager_traffic_policy["id"],
             network_configuration={
                 "private_network_configuration": {
                     "vpc_endpoint_id": example_aws_vpc_endpoint["id"],
                 },
-            },
-            name="example",
-            type="OPEN",
-            rule_set_id=example_aws_mailmanager_rule_set["id"],
-            traffic_policy_id=example_aws_mailmanager_traffic_policy["id"])
+            })
         ```
 
         ## Import
@@ -681,14 +681,14 @@ class IngressPoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ingress_point_configuration: pulumi.Input[Optional[Union['IngressPointIngressPointConfigurationArgs', 'IngressPointIngressPointConfigurationArgsDict']]] = None,
+                 ingress_point_configuration: pulumi.Input[Optional[Union['IngressPointIngressPointConfigurationArgs', 'IngressPointIngressPointConfigurationArgsDict', 'outputs.IngressPointIngressPointConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_configuration: pulumi.Input[Optional[Union['IngressPointNetworkConfigurationArgs', 'IngressPointNetworkConfigurationArgsDict']]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['IngressPointNetworkConfigurationArgs', 'IngressPointNetworkConfigurationArgsDict', 'outputs.IngressPointNetworkConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_set_id: pulumi.Input[Optional[_builtins.str]] = None,
                  status_to_update: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['IngressPointTimeoutsArgs', 'IngressPointTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['IngressPointTimeoutsArgs', 'IngressPointTimeoutsArgsDict', 'outputs.IngressPointTimeouts']]] = None,
                  tls_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  traffic_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -737,17 +737,17 @@ class IngressPoint(pulumi.CustomResource):
             a_record: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             created_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
-            ingress_point_configuration: pulumi.Input[Optional[Union['IngressPointIngressPointConfigurationArgs', 'IngressPointIngressPointConfigurationArgsDict']]] = None,
+            ingress_point_configuration: pulumi.Input[Optional[Union['IngressPointIngressPointConfigurationArgs', 'IngressPointIngressPointConfigurationArgsDict', 'outputs.IngressPointIngressPointConfiguration']]] = None,
             last_updated_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            network_configuration: pulumi.Input[Optional[Union['IngressPointNetworkConfigurationArgs', 'IngressPointNetworkConfigurationArgsDict']]] = None,
+            network_configuration: pulumi.Input[Optional[Union['IngressPointNetworkConfigurationArgs', 'IngressPointNetworkConfigurationArgsDict', 'outputs.IngressPointNetworkConfiguration']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             rule_set_id: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             status_to_update: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['IngressPointTimeoutsArgs', 'IngressPointTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['IngressPointTimeoutsArgs', 'IngressPointTimeoutsArgsDict', 'outputs.IngressPointTimeouts']]] = None,
             tls_policy: pulumi.Input[Optional[_builtins.str]] = None,
             traffic_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None) -> 'IngressPoint':
@@ -761,10 +761,10 @@ class IngressPoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] a_record: DNS A record that identifies your ingress endpoint for email clients.
         :param pulumi.Input[_builtins.str] arn: ARN of the Ingress Point.
         :param pulumi.Input[_builtins.str] created_timestamp: Timestamp of when the ingress point was created.
-        :param pulumi.Input[Union['IngressPointIngressPointConfigurationArgs', 'IngressPointIngressPointConfigurationArgsDict']] ingress_point_configuration: Configuration used to authenticate with the ingress point. See `ingress_point_configuration` Block for details.
+        :param pulumi.Input[Union['IngressPointIngressPointConfigurationArgs', 'IngressPointIngressPointConfigurationArgsDict', 'outputs.IngressPointIngressPointConfiguration']] ingress_point_configuration: Configuration used to authenticate with the ingress point. See `ingress_point_configuration` Block for details.
         :param pulumi.Input[_builtins.str] last_updated_timestamp: Timestamp of when the ingress point was last updated.
         :param pulumi.Input[_builtins.str] name: Name of the ingress point.
-        :param pulumi.Input[Union['IngressPointNetworkConfigurationArgs', 'IngressPointNetworkConfigurationArgsDict']] network_configuration: Network configuration for the ingress point. See `network_configuration` Block for details. Changing this value forces a new resource.
+        :param pulumi.Input[Union['IngressPointNetworkConfigurationArgs', 'IngressPointNetworkConfigurationArgsDict', 'outputs.IngressPointNetworkConfiguration']] network_configuration: Network configuration for the ingress point. See `network_configuration` Block for details. Changing this value forces a new resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource is managed.
         :param pulumi.Input[_builtins.str] rule_set_id: Identifier of the rule set applied to the ingress point.
         :param pulumi.Input[_builtins.str] status: Status of the ingress point.

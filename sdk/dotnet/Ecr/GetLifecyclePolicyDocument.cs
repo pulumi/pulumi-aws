@@ -32,6 +32,8 @@ namespace Pulumi.Aws.Ecr
         ///         {
         ///             new Aws.Ecr.Inputs.GetLifecyclePolicyDocumentRuleInputArgs
         ///             {
+        ///                 Priority = 1,
+        ///                 Description = "This is a test.",
         ///                 Selection = new Aws.Ecr.Inputs.GetLifecyclePolicyDocumentRuleSelectionInputArgs
         ///                 {
         ///                     TagStatus = "tagged",
@@ -42,8 +44,6 @@ namespace Pulumi.Aws.Ecr
         ///                     CountType = "imageCountMoreThan",
         ///                     CountNumber = 100,
         ///                 },
-        ///                 Priority = 1,
-        ///                 Description = "This is a test.",
         ///             },
         ///         },
         ///     });
@@ -81,6 +81,8 @@ namespace Pulumi.Aws.Ecr
         ///         {
         ///             new Aws.Ecr.Inputs.GetLifecyclePolicyDocumentRuleInputArgs
         ///             {
+        ///                 Priority = 1,
+        ///                 Description = "This is a test.",
         ///                 Selection = new Aws.Ecr.Inputs.GetLifecyclePolicyDocumentRuleSelectionInputArgs
         ///                 {
         ///                     TagStatus = "tagged",
@@ -91,8 +93,6 @@ namespace Pulumi.Aws.Ecr
         ///                     CountType = "imageCountMoreThan",
         ///                     CountNumber = 100,
         ///                 },
-        ///                 Priority = 1,
-        ///                 Description = "This is a test.",
         ///             },
         ///         },
         ///     });
@@ -130,6 +130,8 @@ namespace Pulumi.Aws.Ecr
         ///         {
         ///             new Aws.Ecr.Inputs.GetLifecyclePolicyDocumentRuleInputArgs
         ///             {
+        ///                 Priority = 1,
+        ///                 Description = "This is a test.",
         ///                 Selection = new Aws.Ecr.Inputs.GetLifecyclePolicyDocumentRuleSelectionInputArgs
         ///                 {
         ///                     TagStatus = "tagged",
@@ -140,8 +142,6 @@ namespace Pulumi.Aws.Ecr
         ///                     CountType = "imageCountMoreThan",
         ///                     CountNumber = 100,
         ///                 },
-        ///                 Priority = 1,
-        ///                 Description = "This is a test.",
         ///             },
         ///         },
         ///     });

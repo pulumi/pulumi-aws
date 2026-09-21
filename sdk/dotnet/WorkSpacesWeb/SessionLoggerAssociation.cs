@@ -41,6 +41,7 @@ namespace Pulumi.Aws.WorkSpacesWeb
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -52,7 +53,6 @@ namespace Pulumi.Aws.WorkSpacesWeb
     ///                         },
     ///                     },
     ///                 },
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "s3:PutObject",
@@ -73,6 +73,7 @@ namespace Pulumi.Aws.WorkSpacesWeb
     /// 
     ///     var exampleSessionLogger = new Aws.WorkSpacesWeb.SessionLogger("example", new()
     ///     {
+    ///         DisplayName = "example",
     ///         EventFilter = new Aws.WorkSpacesWeb.Inputs.SessionLoggerEventFilterArgs
     ///         {
     ///             All = null[0],
@@ -86,7 +87,6 @@ namespace Pulumi.Aws.WorkSpacesWeb
     ///                 LogFileFormat = "Json",
     ///             },
     ///         },
-    ///         DisplayName = "example",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

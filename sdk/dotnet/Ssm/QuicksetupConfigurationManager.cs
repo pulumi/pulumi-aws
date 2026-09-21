@@ -54,6 +54,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     ///     var exampleQuicksetupConfigurationManager = new Aws.Ssm.QuicksetupConfigurationManager("example", new()
     ///     {
+    ///         Name = "example",
     ///         ConfigurationDefinition = new Aws.Ssm.Inputs.QuicksetupConfigurationManagerConfigurationDefinitionArgs
     ///         {
     ///             LocalDeploymentAdministrationRoleArn = Output.Tuple(currentGetPartition, current).Apply(values =&gt;
@@ -82,7 +83,6 @@ namespace Pulumi.Aws.Ssm
     ///                 { "TargetType", "*" },
     ///             },
     ///         },
-    ///         Name = "example",
     ///     });
     /// 
     /// });

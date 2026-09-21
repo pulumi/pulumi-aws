@@ -87,6 +87,19 @@ import {LaunchConfiguration, PlacementGroup} from "../ec2";
  *     strategy: aws.ec2.PlacementStrategy.Cluster,
  * });
  * const bar = new aws.autoscaling.Group("bar", {
+ *     name: "foobar3-test",
+ *     maxSize: 5,
+ *     minSize: 2,
+ *     healthCheckGracePeriod: 300,
+ *     healthCheckType: "ELB",
+ *     desiredCapacity: 4,
+ *     forceDelete: true,
+ *     placementGroup: test.id,
+ *     launchConfiguration: foobar.name,
+ *     vpcZoneIdentifiers: [
+ *         example1.id,
+ *         example2.id,
+ *     ],
  *     instanceMaintenancePolicy: {
  *         minHealthyPercentage: 90,
  *         maxHealthyPercentage: 120,
@@ -114,23 +127,6 @@ import {LaunchConfiguration, PlacementGroup} from "../ec2";
  *             propagateAtLaunch: false,
  *         },
  *     ],
- *     name: "foobar3-test",
- *     maxSize: 5,
- *     minSize: 2,
- *     healthCheckGracePeriod: 300,
- *     healthCheckType: "ELB",
- *     desiredCapacity: 4,
- *     forceDelete: true,
- *     placementGroup: test.id,
- *     launchConfiguration: foobar.name,
- *     vpcZoneIdentifiers: [
- *         example1.id,
- *         example2.id,
- *     ],
- * }, {
- *     customTimeouts: {
- *         "delete": "15m",
- *     },
  * });
  * ```
  *
@@ -146,14 +142,14 @@ import {LaunchConfiguration, PlacementGroup} from "../ec2";
  *     instanceType: "t2.micro",
  * });
  * const bar = new aws.autoscaling.Group("bar", {
- *     launchTemplate: {
- *         id: foobar.id,
- *         version: "$Latest",
- *     },
  *     availabilityZones: ["us-east-1a"],
  *     desiredCapacity: 1,
  *     maxSize: 1,
  *     minSize: 1,
+ *     launchTemplate: {
+ *         id: foobar.id,
+ *         version: "$Latest",
+ *     },
  * });
  * ```
  *
@@ -169,6 +165,10 @@ import {LaunchConfiguration, PlacementGroup} from "../ec2";
  *     instanceType: "c5.large",
  * });
  * const exampleGroup = new aws.autoscaling.Group("example", {
+ *     availabilityZones: ["us-east-1a"],
+ *     desiredCapacity: 1,
+ *     maxSize: 1,
+ *     minSize: 1,
  *     mixedInstancesPolicy: {
  *         launchTemplate: {
  *             launchTemplateSpecification: {
@@ -186,10 +186,6 @@ import {LaunchConfiguration, PlacementGroup} from "../ec2";
  *             ],
  *         },
  *     },
- *     availabilityZones: ["us-east-1a"],
- *     desiredCapacity: 1,
- *     maxSize: 1,
- *     minSize: 1,
  * });
  * ```
  *
@@ -205,6 +201,14 @@ import {LaunchConfiguration, PlacementGroup} from "../ec2";
  *     instanceType: "c5.large",
  * });
  * const exampleGroup = new aws.autoscaling.Group("example", {
+ *     capacityRebalance: true,
+ *     desiredCapacity: 12,
+ *     maxSize: 15,
+ *     minSize: 12,
+ *     vpcZoneIdentifiers: [
+ *         example1.id,
+ *         example2.id,
+ *     ],
  *     mixedInstancesPolicy: {
  *         instancesDistribution: {
  *             onDemandBaseCapacity: 0,
@@ -227,14 +231,6 @@ import {LaunchConfiguration, PlacementGroup} from "../ec2";
  *             ],
  *         },
  *     },
- *     capacityRebalance: true,
- *     desiredCapacity: 12,
- *     maxSize: 15,
- *     minSize: 12,
- *     vpcZoneIdentifiers: [
- *         example1.id,
- *         example2.id,
- *     ],
  * });
  * ```
  *
@@ -256,6 +252,10 @@ import {LaunchConfiguration, PlacementGroup} from "../ec2";
  *     imageId: example2AwsAmi.id,
  * });
  * const exampleGroup = new aws.autoscaling.Group("example", {
+ *     availabilityZones: ["us-east-1a"],
+ *     desiredCapacity: 1,
+ *     maxSize: 1,
+ *     minSize: 1,
  *     mixedInstancesPolicy: {
  *         launchTemplate: {
  *             launchTemplateSpecification: {
@@ -267,19 +267,15 @@ import {LaunchConfiguration, PlacementGroup} from "../ec2";
  *                     weightedCapacity: "3",
  *                 },
  *                 {
+ *                     instanceType: "c6g.large",
  *                     launchTemplateSpecification: {
  *                         launchTemplateId: example2.id,
  *                     },
- *                     instanceType: "c6g.large",
  *                     weightedCapacity: "2",
  *                 },
  *             ],
  *         },
  *     },
- *     availabilityZones: ["us-east-1a"],
- *     desiredCapacity: 1,
- *     maxSize: 1,
- *     minSize: 1,
  * });
  * ```
  *
@@ -297,6 +293,10 @@ import {LaunchConfiguration, PlacementGroup} from "../ec2";
  *     instanceType: "c5.large",
  * });
  * const exampleGroup = new aws.autoscaling.Group("example", {
+ *     availabilityZones: ["us-east-1a"],
+ *     desiredCapacity: 1,
+ *     maxSize: 1,
+ *     minSize: 1,
  *     mixedInstancesPolicy: {
  *         launchTemplate: {
  *             launchTemplateSpecification: {
@@ -314,10 +314,6 @@ import {LaunchConfiguration, PlacementGroup} from "../ec2";
  *             }],
  *         },
  *     },
- *     availabilityZones: ["us-east-1a"],
- *     desiredCapacity: 1,
- *     maxSize: 1,
- *     minSize: 1,
  * });
  * ```
  *
@@ -371,38 +367,38 @@ import {LaunchConfiguration, PlacementGroup} from "../ec2";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getAmi({
+ *     mostRecent: true,
+ *     owners: ["amazon"],
  *     filters: [{
  *         name: "name",
  *         values: ["amzn-ami-hvm-*-x86_64-gp2"],
  *     }],
- *     mostRecent: true,
- *     owners: ["amazon"],
  * });
  * const exampleLaunchTemplate = new aws.ec2.LaunchTemplate("example", {
  *     imageId: example.then(example => example.id),
  *     instanceType: "t3.nano",
  * });
  * const exampleGroup = new aws.autoscaling.Group("example", {
+ *     availabilityZones: ["us-east-1a"],
+ *     desiredCapacity: 1,
+ *     maxSize: 2,
+ *     minSize: 1,
  *     launchTemplate: {
  *         id: exampleLaunchTemplate.id,
  *         version: exampleLaunchTemplate.latestVersion.apply(x =>String(x)),
- *     },
- *     instanceRefresh: {
- *         preferences: {
- *             minHealthyPercentage: 50,
- *         },
- *         strategy: "Rolling",
- *         triggers: ["tag"],
  *     },
  *     tags: [{
  *         key: "Key",
  *         value: "Value",
  *         propagateAtLaunch: true,
  *     }],
- *     availabilityZones: ["us-east-1a"],
- *     desiredCapacity: 1,
- *     maxSize: 2,
- *     minSize: 1,
+ *     instanceRefresh: {
+ *         strategy: "Rolling",
+ *         preferences: {
+ *             minHealthyPercentage: 50,
+ *         },
+ *         triggers: ["tag"],
+ *     },
  * });
  * ```
  *
@@ -418,18 +414,18 @@ import {LaunchConfiguration, PlacementGroup} from "../ec2";
  *     instanceType: "c5.large",
  * });
  * const exampleGroup = new aws.autoscaling.Group("example", {
- *     warmPool: {
- *         instanceReusePolicy: {
- *             reuseOnScaleIn: true,
- *         },
- *         poolState: "Hibernated",
- *         minSize: 1,
- *         maxGroupPreparedCapacity: 10,
- *     },
  *     availabilityZones: ["us-east-1a"],
  *     desiredCapacity: 1,
  *     maxSize: 5,
  *     minSize: 1,
+ *     warmPool: {
+ *         poolState: "Hibernated",
+ *         minSize: 1,
+ *         maxGroupPreparedCapacity: 10,
+ *         instanceReusePolicy: {
+ *             reuseOnScaleIn: true,
+ *         },
+ *     },
  * });
  * ```
  *
@@ -440,8 +436,8 @@ import {LaunchConfiguration, PlacementGroup} from "../ec2";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.autoscaling.Group("test", {
- *     trafficSources: testAwsVpclatticeTargetGroup.map(__item => __item).map(entry => ({
- *         identifier: entry.arn,
+ *     trafficSources: testAwsVpclatticeTargetGroup.map(__item => __item).map((v, k) => ({key: k, value: v})).map(entry => ({
+ *         identifier: entry.value.arn,
  *         type: "vpc-lattice",
  *     })),
  *     vpcZoneIdentifiers: testAwsSubnet.id,

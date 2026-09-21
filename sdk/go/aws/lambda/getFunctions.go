@@ -97,8 +97,6 @@ import (
 //
 // ```
 //
-// ### Filter Functions by Name Pattern
-//
 // ### Create Function Inventory
 func GetFunctions(ctx *pulumi.Context, args *GetFunctionsArgs, opts ...pulumi.InvokeOption) (*GetFunctionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

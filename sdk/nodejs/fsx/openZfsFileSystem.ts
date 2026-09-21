@@ -39,9 +39,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.fsx.OpenZfsFileSystem("example", {securityGroupIds: [exampleAwsSecurityGroup.id]}, {
- *     ignoreChanges: ["securityGroupIds"],
- * });
+ * const example = new aws.fsx.OpenZfsFileSystem("example", {securityGroupIds: [exampleAwsSecurityGroup.id]});
  * ```
  */
 export class OpenZfsFileSystem extends pulumi.CustomResource {

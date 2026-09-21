@@ -37,9 +37,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.m2.Environment("test", {
- *     highAvailabilityConfig: {
- *         desiredCapacity: 2,
- *     },
  *     name: "test-env",
  *     engineType: "bluage",
  *     instanceType: "M2.m5.large",
@@ -48,6 +45,9 @@ import * as utilities from "../utilities";
  *         "subnet-01234567890abcdef",
  *         "subnet-01234567890abcdea",
  *     ],
+ *     highAvailabilityConfig: {
+ *         desiredCapacity: 2,
+ *     },
  * });
  * ```
  *
@@ -58,12 +58,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.m2.Environment("test", {
- *     storageConfiguration: {
- *         efs: {
- *             fileSystemId: "fs-01234567890abcdef",
- *             mountPoint: "/m2/mount/example",
- *         },
- *     },
  *     name: "test-env",
  *     engineType: "bluage",
  *     instanceType: "M2.m5.large",
@@ -72,6 +66,12 @@ import * as utilities from "../utilities";
  *         "subnet-01234567890abcdef",
  *         "subnet-01234567890abcdea",
  *     ],
+ *     storageConfiguration: {
+ *         efs: {
+ *             fileSystemId: "fs-01234567890abcdef",
+ *             mountPoint: "/m2/mount/example",
+ *         },
+ *     },
  * });
  * ```
  *
@@ -82,12 +82,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.m2.Environment("test", {
- *     storageConfiguration: {
- *         fsx: {
- *             fileSystemId: "fs-01234567890abcdef",
- *             mountPoint: "/m2/mount/example",
- *         },
- *     },
  *     name: "test-env",
  *     engineType: "bluage",
  *     instanceType: "M2.m5.large",
@@ -96,6 +90,12 @@ import * as utilities from "../utilities";
  *         "subnet-01234567890abcdef",
  *         "subnet-01234567890abcdea",
  *     ],
+ *     storageConfiguration: {
+ *         fsx: {
+ *             fileSystemId: "fs-01234567890abcdef",
+ *             mountPoint: "/m2/mount/example",
+ *         },
+ *     },
  * });
  * ```
  *

@@ -378,13 +378,13 @@ class CapacityTask(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  asset_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityTaskInstancePoolArgs', 'CapacityTaskInstancePoolArgsDict']]]]] = None,
-                 instances_to_exclude: pulumi.Input[Optional[Union['CapacityTaskInstancesToExcludeArgs', 'CapacityTaskInstancesToExcludeArgsDict']]] = None,
+                 instance_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityTaskInstancePoolArgs', 'CapacityTaskInstancePoolArgsDict', 'outputs.CapacityTaskInstancePool']]]]] = None,
+                 instances_to_exclude: pulumi.Input[Optional[Union['CapacityTaskInstancesToExcludeArgs', 'CapacityTaskInstancesToExcludeArgsDict', 'outputs.CapacityTaskInstancesToExclude']]] = None,
                  order_id: pulumi.Input[Optional[_builtins.str]] = None,
                  outpost_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  task_action_on_blocking_instances: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['CapacityTaskTimeoutsArgs', 'CapacityTaskTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CapacityTaskTimeoutsArgs', 'CapacityTaskTimeoutsArgsDict', 'outputs.CapacityTaskTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Outposts Capacity Task.
@@ -403,11 +403,11 @@ class CapacityTask(pulumi.CustomResource):
 
         example = aws.outposts.get_outposts()
         example_capacity_task = aws.outposts.CapacityTask("example",
+            outpost_identifier=example.arns[0],
             instance_pools=[{
                 "instance_type": "m5.large",
                 "count": 2,
-            }],
-            outpost_identifier=example.arns[0])
+            }])
         ```
 
         ### Multiple instance pools, excluded instances, and a specified blocking-instance action
@@ -418,12 +418,9 @@ class CapacityTask(pulumi.CustomResource):
 
         example = aws.outposts.get_assets(arn="arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef")
         example_capacity_task = aws.outposts.CapacityTask("example",
-            instances_to_exclude={
-                "instances": [
-                    "i-0123456789abcdef0",
-                    "i-0fedcba9876543210",
-                ],
-            },
+            outpost_identifier="op-1234567890abcdef",
+            task_action_on_blocking_instances="WAIT_FOR_EVACUATION",
+            asset_id=example.asset_ids[0],
             instance_pools=[
                 {
                     "instance_type": "m5.large",
@@ -434,10 +431,12 @@ class CapacityTask(pulumi.CustomResource):
                     "count": 2,
                 },
             ],
-            outpost_identifier="op-1234567890abcdef",
-            task_action_on_blocking_instances="WAIT_FOR_EVACUATION",
-            asset_id=example.asset_ids[0],
-            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(create="90m", delete="15m")))
+            instances_to_exclude={
+                "instances": [
+                    "i-0123456789abcdef0",
+                    "i-0fedcba9876543210",
+                ],
+            })
         ```
 
         ## Import
@@ -464,13 +463,13 @@ class CapacityTask(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] asset_id: ID of a specific Outposts asset (hardware server) to target for the capacity task. If omitted, AWS selects an appropriate asset automatically. Discover valid asset IDs with the `outposts_get_assets` data source. Changing this value forces a new resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityTaskInstancePoolArgs', 'CapacityTaskInstancePoolArgsDict']]]] instance_pools: One or more `instance_pool` blocks defining the desired instance-type layout for the Outpost. See below. At least one block is required. Changing any value forces a new resource.
-        :param pulumi.Input[Union['CapacityTaskInstancesToExcludeArgs', 'CapacityTaskInstancesToExcludeArgsDict']] instances_to_exclude: Single `instances_to_exclude` block specifying user-owned running instances that must not be stopped to free up capacity. See below. Note: AWS does not return this value via the Get/Describe API; after import, you must add the block back to your configuration manually — see Import.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityTaskInstancePoolArgs', 'CapacityTaskInstancePoolArgsDict', 'outputs.CapacityTaskInstancePool']]]] instance_pools: One or more `instance_pool` blocks defining the desired instance-type layout for the Outpost. See below. At least one block is required. Changing any value forces a new resource.
+        :param pulumi.Input[Union['CapacityTaskInstancesToExcludeArgs', 'CapacityTaskInstancesToExcludeArgsDict', 'outputs.CapacityTaskInstancesToExclude']] instances_to_exclude: Single `instances_to_exclude` block specifying user-owned running instances that must not be stopped to free up capacity. See below. Note: AWS does not return this value via the Get/Describe API; after import, you must add the block back to your configuration manually — see Import.
         :param pulumi.Input[_builtins.str] order_id: ID of the Amazon Web Services Outposts order associated with the capacity task. Changing this value forces a new resource.
         :param pulumi.Input[_builtins.str] outpost_identifier: ID or ARN of the Outpost on which to run the capacity task. Both forms are accepted; the provider normalizes the value internally. Changing this value forces a new resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] task_action_on_blocking_instances: Action to take if running instances block the capacity task. Valid values are `WAIT_FOR_EVACUATION` and `FAIL_TASK`. Changing this value forces a new resource.
-        :param pulumi.Input[Union['CapacityTaskTimeoutsArgs', 'CapacityTaskTimeoutsArgsDict']] timeouts: Configuration block with timeouts. See below.
+        :param pulumi.Input[Union['CapacityTaskTimeoutsArgs', 'CapacityTaskTimeoutsArgsDict', 'outputs.CapacityTaskTimeouts']] timeouts: Configuration block with timeouts. See below.
         """
         ...
     @overload
@@ -495,11 +494,11 @@ class CapacityTask(pulumi.CustomResource):
 
         example = aws.outposts.get_outposts()
         example_capacity_task = aws.outposts.CapacityTask("example",
+            outpost_identifier=example.arns[0],
             instance_pools=[{
                 "instance_type": "m5.large",
                 "count": 2,
-            }],
-            outpost_identifier=example.arns[0])
+            }])
         ```
 
         ### Multiple instance pools, excluded instances, and a specified blocking-instance action
@@ -510,12 +509,9 @@ class CapacityTask(pulumi.CustomResource):
 
         example = aws.outposts.get_assets(arn="arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef")
         example_capacity_task = aws.outposts.CapacityTask("example",
-            instances_to_exclude={
-                "instances": [
-                    "i-0123456789abcdef0",
-                    "i-0fedcba9876543210",
-                ],
-            },
+            outpost_identifier="op-1234567890abcdef",
+            task_action_on_blocking_instances="WAIT_FOR_EVACUATION",
+            asset_id=example.asset_ids[0],
             instance_pools=[
                 {
                     "instance_type": "m5.large",
@@ -526,10 +522,12 @@ class CapacityTask(pulumi.CustomResource):
                     "count": 2,
                 },
             ],
-            outpost_identifier="op-1234567890abcdef",
-            task_action_on_blocking_instances="WAIT_FOR_EVACUATION",
-            asset_id=example.asset_ids[0],
-            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(create="90m", delete="15m")))
+            instances_to_exclude={
+                "instances": [
+                    "i-0123456789abcdef0",
+                    "i-0fedcba9876543210",
+                ],
+            })
         ```
 
         ## Import
@@ -569,13 +567,13 @@ class CapacityTask(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  asset_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityTaskInstancePoolArgs', 'CapacityTaskInstancePoolArgsDict']]]]] = None,
-                 instances_to_exclude: pulumi.Input[Optional[Union['CapacityTaskInstancesToExcludeArgs', 'CapacityTaskInstancesToExcludeArgsDict']]] = None,
+                 instance_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityTaskInstancePoolArgs', 'CapacityTaskInstancePoolArgsDict', 'outputs.CapacityTaskInstancePool']]]]] = None,
+                 instances_to_exclude: pulumi.Input[Optional[Union['CapacityTaskInstancesToExcludeArgs', 'CapacityTaskInstancesToExcludeArgsDict', 'outputs.CapacityTaskInstancesToExclude']]] = None,
                  order_id: pulumi.Input[Optional[_builtins.str]] = None,
                  outpost_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  task_action_on_blocking_instances: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['CapacityTaskTimeoutsArgs', 'CapacityTaskTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CapacityTaskTimeoutsArgs', 'CapacityTaskTimeoutsArgsDict', 'outputs.CapacityTaskTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -615,14 +613,14 @@ class CapacityTask(pulumi.CustomResource):
             completion_date: pulumi.Input[Optional[_builtins.str]] = None,
             creation_date: pulumi.Input[Optional[_builtins.str]] = None,
             failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
-            instance_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityTaskInstancePoolArgs', 'CapacityTaskInstancePoolArgsDict']]]]] = None,
-            instances_to_exclude: pulumi.Input[Optional[Union['CapacityTaskInstancesToExcludeArgs', 'CapacityTaskInstancesToExcludeArgsDict']]] = None,
+            instance_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityTaskInstancePoolArgs', 'CapacityTaskInstancePoolArgsDict', 'outputs.CapacityTaskInstancePool']]]]] = None,
+            instances_to_exclude: pulumi.Input[Optional[Union['CapacityTaskInstancesToExcludeArgs', 'CapacityTaskInstancesToExcludeArgsDict', 'outputs.CapacityTaskInstancesToExclude']]] = None,
             order_id: pulumi.Input[Optional[_builtins.str]] = None,
             outpost_identifier: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             task_action_on_blocking_instances: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['CapacityTaskTimeoutsArgs', 'CapacityTaskTimeoutsArgsDict']]] = None) -> 'CapacityTask':
+            timeouts: pulumi.Input[Optional[Union['CapacityTaskTimeoutsArgs', 'CapacityTaskTimeoutsArgsDict', 'outputs.CapacityTaskTimeouts']]] = None) -> 'CapacityTask':
         """
         Get an existing CapacityTask resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -635,14 +633,14 @@ class CapacityTask(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] completion_date: RFC 3339 timestamp at which the capacity task reached a terminal state (if any).
         :param pulumi.Input[_builtins.str] creation_date: RFC 3339 timestamp at which the capacity task was created.
         :param pulumi.Input[_builtins.str] failure_reason: Human-readable reason reported by AWS when the capacity task failed. `null` unless the terminal state is `FAILED`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityTaskInstancePoolArgs', 'CapacityTaskInstancePoolArgsDict']]]] instance_pools: One or more `instance_pool` blocks defining the desired instance-type layout for the Outpost. See below. At least one block is required. Changing any value forces a new resource.
-        :param pulumi.Input[Union['CapacityTaskInstancesToExcludeArgs', 'CapacityTaskInstancesToExcludeArgsDict']] instances_to_exclude: Single `instances_to_exclude` block specifying user-owned running instances that must not be stopped to free up capacity. See below. Note: AWS does not return this value via the Get/Describe API; after import, you must add the block back to your configuration manually — see Import.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityTaskInstancePoolArgs', 'CapacityTaskInstancePoolArgsDict', 'outputs.CapacityTaskInstancePool']]]] instance_pools: One or more `instance_pool` blocks defining the desired instance-type layout for the Outpost. See below. At least one block is required. Changing any value forces a new resource.
+        :param pulumi.Input[Union['CapacityTaskInstancesToExcludeArgs', 'CapacityTaskInstancesToExcludeArgsDict', 'outputs.CapacityTaskInstancesToExclude']] instances_to_exclude: Single `instances_to_exclude` block specifying user-owned running instances that must not be stopped to free up capacity. See below. Note: AWS does not return this value via the Get/Describe API; after import, you must add the block back to your configuration manually — see Import.
         :param pulumi.Input[_builtins.str] order_id: ID of the Amazon Web Services Outposts order associated with the capacity task. Changing this value forces a new resource.
         :param pulumi.Input[_builtins.str] outpost_identifier: ID or ARN of the Outpost on which to run the capacity task. Both forms are accepted; the provider normalizes the value internally. Changing this value forces a new resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] status: Current status of the capacity task. One of `REQUESTED`, `IN_PROGRESS`, `WAITING_FOR_EVACUATION`, `CANCELLATION_IN_PROGRESS`, `COMPLETED`, `CANCELLED`, or `FAILED`. See the [AWS documentation](https://docs.aws.amazon.com/outposts/latest/APIReference/API_GetCapacityTask.html) for semantics.
         :param pulumi.Input[_builtins.str] task_action_on_blocking_instances: Action to take if running instances block the capacity task. Valid values are `WAIT_FOR_EVACUATION` and `FAIL_TASK`. Changing this value forces a new resource.
-        :param pulumi.Input[Union['CapacityTaskTimeoutsArgs', 'CapacityTaskTimeoutsArgsDict']] timeouts: Configuration block with timeouts. See below.
+        :param pulumi.Input[Union['CapacityTaskTimeoutsArgs', 'CapacityTaskTimeoutsArgsDict', 'outputs.CapacityTaskTimeouts']] timeouts: Configuration block with timeouts. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

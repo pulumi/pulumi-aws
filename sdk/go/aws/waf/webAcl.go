@@ -31,18 +31,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			ipset, err := waf.NewIpSet(ctx, "ipset", &waf.IpSetArgs{
+//				Name: pulumi.String("tfIPSet"),
 //				IpSetDescriptors: waf.IpSetIpSetDescriptorArray{
 //					&waf.IpSetIpSetDescriptorArgs{
 //						Type:  pulumi.String("IPV4"),
 //						Value: pulumi.String("192.0.7.0/24"),
 //					},
 //				},
-//				Name: pulumi.String("tfIPSet"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			wafrule, err := waf.NewRule(ctx, "wafrule", &waf.RuleArgs{
+//				Name:       pulumi.String("tfWAFRule"),
+//				MetricName: pulumi.String("tfWAFRule"),
 //				Predicates: waf.RulePredicateArray{
 //					&waf.RulePredicateArgs{
 //						DataId:  ipset.ID().ToIDOutput().ToStringOutput(),
@@ -50,8 +52,6 @@ import (
 //						Type:    pulumi.String("IPMatch"),
 //					},
 //				},
-//				Name:       pulumi.String("tfWAFRule"),
-//				MetricName: pulumi.String("tfWAFRule"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				ipset,
 //			}))
@@ -59,6 +59,8 @@ import (
 //				return err
 //			}
 //			_, err = waf.NewWebAcl(ctx, "waf_acl", &waf.WebAclArgs{
+//				Name:       pulumi.String("tfWebACL"),
+//				MetricName: pulumi.String("tfWebACL"),
 //				DefaultAction: &waf.WebAclDefaultActionArgs{
 //					Type: pulumi.String("ALLOW"),
 //				},
@@ -72,8 +74,6 @@ import (
 //						Type:     pulumi.String("REGULAR"),
 //					},
 //				},
-//				Name:       pulumi.String("tfWebACL"),
-//				MetricName: pulumi.String("tfWebACL"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				ipset,
 //				wafrule,
@@ -105,6 +105,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := waf.NewWebAcl(ctx, "example", &waf.WebAclArgs{
 //				LoggingConfiguration: &waf.WebAclLoggingConfigurationArgs{
+//					LogDestination: pulumi.Any(exampleAwsKinesisFirehoseDeliveryStream.Arn),
 //					RedactedFields: &waf.WebAclLoggingConfigurationRedactedFieldsArgs{
 //						FieldToMatches: waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArray{
 //							&waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs{
@@ -116,7 +117,6 @@ import (
 //							},
 //						},
 //					},
-//					LogDestination: pulumi.Any(exampleAwsKinesisFirehoseDeliveryStream.Arn),
 //				},
 //			})
 //			if err != nil {

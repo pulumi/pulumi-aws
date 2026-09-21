@@ -31,8 +31,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			test, err := paymentcryptography.NewKey(ctx, "test", &paymentcryptography.KeyArgs{
+//				Exportable: pulumi.Bool(true),
 //				KeyAttributes: paymentcryptography.KeyKeyAttributeArray{
 //					&paymentcryptography.KeyKeyAttributeArgs{
+//						KeyAlgorithm: pulumi.String("TDES_3KEY"),
+//						KeyClass:     pulumi.String("SYMMETRIC_KEY"),
+//						KeyUsage:     pulumi.String("TR31_P0_PIN_ENCRYPTION_KEY"),
 //						KeyModesOfUses: paymentcryptography.KeyKeyAttributeKeyModesOfUseArray{
 //							&paymentcryptography.KeyKeyAttributeKeyModesOfUseArgs{
 //								Decrypt: pulumi.Bool(true),
@@ -41,12 +45,8 @@ import (
 //								Unwrap:  pulumi.Bool(true),
 //							},
 //						},
-//						KeyAlgorithm: pulumi.String("TDES_3KEY"),
-//						KeyClass:     pulumi.String("SYMMETRIC_KEY"),
-//						KeyUsage:     pulumi.String("TR31_P0_PIN_ENCRYPTION_KEY"),
 //					},
 //				},
-//				Exportable: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

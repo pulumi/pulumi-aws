@@ -41,18 +41,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var @default = new Aws.Ec2.DefaultNetworkAcl("default", new()
     ///     {
-    ///         Egress = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.DefaultNetworkAclEgressArgs
-    ///             {
-    ///                 Protocol = "-1",
-    ///                 RuleNo = 100,
-    ///                 Action = "allow",
-    ///                 CidrBlock = "0.0.0.0/0",
-    ///                 FromPort = 0,
-    ///                 ToPort = 0,
-    ///             },
-    ///         },
+    ///         DefaultNetworkAclId = mainvpc.DefaultNetworkAclId,
     ///         Ingress = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.DefaultNetworkAclIngressArgs
@@ -65,7 +54,18 @@ namespace Pulumi.Aws.Ec2
     ///                 ToPort = 0,
     ///             },
     ///         },
-    ///         DefaultNetworkAclId = mainvpc.DefaultNetworkAclId,
+    ///         Egress = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.DefaultNetworkAclEgressArgs
+    ///             {
+    ///                 Protocol = "-1",
+    ///                 RuleNo = 100,
+    ///                 Action = "allow",
+    ///                 CidrBlock = "0.0.0.0/0",
+    ///                 FromPort = 0,
+    ///                 ToPort = 0,
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });
@@ -90,6 +90,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var @default = new Aws.Ec2.DefaultNetworkAcl("default", new()
     ///     {
+    ///         DefaultNetworkAclId = mainvpc.DefaultNetworkAclId,
     ///         Ingress = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.DefaultNetworkAclIngressArgs
@@ -102,7 +103,6 @@ namespace Pulumi.Aws.Ec2
     ///                 ToPort = 0,
     ///             },
     ///         },
-    ///         DefaultNetworkAclId = mainvpc.DefaultNetworkAclId,
     ///     });
     /// 
     /// });
@@ -151,15 +151,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.Ec2.DefaultNetworkAcl("default", new()
-    ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         IgnoreChanges =
-    ///         {
-    ///             "subnetIds",
-    ///         },
-    ///     });
+    ///     var @default = new Aws.Ec2.DefaultNetworkAcl("default");
     /// 
     /// });
     /// ```

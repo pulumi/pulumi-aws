@@ -32,6 +32,9 @@ namespace Pulumi.Aws.ServiceCatalog
     /// {
     ///     var example = new Aws.ServiceCatalog.ProvisionedProduct("example", new()
     ///     {
+    ///         Name = "example",
+    ///         ProductName = "Example product",
+    ///         ProvisioningArtifactName = "Example version",
     ///         ProvisioningParameters = new[]
     ///         {
     ///             new Aws.ServiceCatalog.Inputs.ProvisionedProductProvisioningParameterArgs
@@ -40,9 +43,6 @@ namespace Pulumi.Aws.ServiceCatalog
     ///                 Value = "bar",
     ///             },
     ///         },
-    ///         Name = "example",
-    ///         ProductName = "Example product",
-    ///         ProvisioningArtifactName = "Example version",
     ///         Tags = 
     ///         {
     ///             { "foo", "bar" },

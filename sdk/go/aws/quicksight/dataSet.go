@@ -31,26 +31,26 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewDataSet(ctx, "example", &quicksight.DataSetArgs{
+//				DataSetId:  pulumi.String("example-id"),
+//				Name:       pulumi.String("example-name"),
+//				ImportMode: pulumi.String("SPICE"),
 //				PhysicalTableMaps: quicksight.DataSetPhysicalTableMapArray{
 //					&quicksight.DataSetPhysicalTableMapArgs{
+//						PhysicalTableMapId: pulumi.String("example-id"),
 //						S3Source: &quicksight.DataSetPhysicalTableMapS3SourceArgs{
-//							UploadSettings: &quicksight.DataSetPhysicalTableMapS3SourceUploadSettingsArgs{
-//								Format: pulumi.String("JSON"),
-//							},
+//							DataSourceArn: pulumi.Any(exampleAwsQuicksightDataSource.Arn),
 //							InputColumns: quicksight.DataSetPhysicalTableMapS3SourceInputColumnArray{
 //								&quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs{
 //									Name: pulumi.String("Column1"),
 //									Type: pulumi.String("STRING"),
 //								},
 //							},
-//							DataSourceArn: pulumi.Any(exampleAwsQuicksightDataSource.Arn),
+//							UploadSettings: &quicksight.DataSetPhysicalTableMapS3SourceUploadSettingsArgs{
+//								Format: pulumi.String("JSON"),
+//							},
 //						},
-//						PhysicalTableMapId: pulumi.String("example-id"),
 //					},
 //				},
-//				DataSetId:  pulumi.String("example-id"),
-//				Name:       pulumi.String("example-name"),
-//				ImportMode: pulumi.String("SPICE"),
 //			})
 //			if err != nil {
 //				return err
@@ -76,27 +76,27 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewDataSet(ctx, "example", &quicksight.DataSetArgs{
+//				DataSetId:  pulumi.String("example-id"),
+//				Name:       pulumi.String("example-name"),
+//				ImportMode: pulumi.String("SPICE"),
+//				UseAs:      pulumi.String("RLS_RULES"),
 //				PhysicalTableMaps: quicksight.DataSetPhysicalTableMapArray{
 //					&quicksight.DataSetPhysicalTableMapArgs{
+//						PhysicalTableMapId: pulumi.String("example-id"),
 //						S3Source: &quicksight.DataSetPhysicalTableMapS3SourceArgs{
-//							UploadSettings: &quicksight.DataSetPhysicalTableMapS3SourceUploadSettingsArgs{
-//								Format: pulumi.String("JSON"),
-//							},
+//							DataSourceArn: pulumi.Any(exampleAwsQuicksightDataSource.Arn),
 //							InputColumns: quicksight.DataSetPhysicalTableMapS3SourceInputColumnArray{
 //								&quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs{
 //									Name: pulumi.String("UserName"),
 //									Type: pulumi.String("STRING"),
 //								},
 //							},
-//							DataSourceArn: pulumi.Any(exampleAwsQuicksightDataSource.Arn),
+//							UploadSettings: &quicksight.DataSetPhysicalTableMapS3SourceUploadSettingsArgs{
+//								Format: pulumi.String("JSON"),
+//							},
 //						},
-//						PhysicalTableMapId: pulumi.String("example-id"),
 //					},
 //				},
-//				DataSetId:  pulumi.String("example-id"),
-//				Name:       pulumi.String("example-name"),
-//				ImportMode: pulumi.String("SPICE"),
-//				UseAs:      pulumi.String("RLS_RULES"),
 //			})
 //			if err != nil {
 //				return err
@@ -122,6 +122,26 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewDataSet(ctx, "example", &quicksight.DataSetArgs{
+//				DataSetId:  pulumi.String("example-id"),
+//				Name:       pulumi.String("example-name"),
+//				ImportMode: pulumi.String("SPICE"),
+//				PhysicalTableMaps: quicksight.DataSetPhysicalTableMapArray{
+//					&quicksight.DataSetPhysicalTableMapArgs{
+//						PhysicalTableMapId: pulumi.String("example-id"),
+//						S3Source: &quicksight.DataSetPhysicalTableMapS3SourceArgs{
+//							DataSourceArn: pulumi.Any(exampleAwsQuicksightDataSource.Arn),
+//							InputColumns: quicksight.DataSetPhysicalTableMapS3SourceInputColumnArray{
+//								&quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs{
+//									Name: pulumi.String("Column1"),
+//									Type: pulumi.String("STRING"),
+//								},
+//							},
+//							UploadSettings: &quicksight.DataSetPhysicalTableMapS3SourceUploadSettingsArgs{
+//								Format: pulumi.String("JSON"),
+//							},
+//						},
+//					},
+//				},
 //				ColumnLevelPermissionRules: quicksight.DataSetColumnLevelPermissionRuleArray{
 //					&quicksight.DataSetColumnLevelPermissionRuleArgs{
 //						ColumnNames: pulumi.StringArray{
@@ -132,26 +152,6 @@ import (
 //						},
 //					},
 //				},
-//				PhysicalTableMaps: quicksight.DataSetPhysicalTableMapArray{
-//					&quicksight.DataSetPhysicalTableMapArgs{
-//						S3Source: &quicksight.DataSetPhysicalTableMapS3SourceArgs{
-//							UploadSettings: &quicksight.DataSetPhysicalTableMapS3SourceUploadSettingsArgs{
-//								Format: pulumi.String("JSON"),
-//							},
-//							InputColumns: quicksight.DataSetPhysicalTableMapS3SourceInputColumnArray{
-//								&quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs{
-//									Name: pulumi.String("Column1"),
-//									Type: pulumi.String("STRING"),
-//								},
-//							},
-//							DataSourceArn: pulumi.Any(exampleAwsQuicksightDataSource.Arn),
-//						},
-//						PhysicalTableMapId: pulumi.String("example-id"),
-//					},
-//				},
-//				DataSetId:  pulumi.String("example-id"),
-//				Name:       pulumi.String("example-name"),
-//				ImportMode: pulumi.String("SPICE"),
 //			})
 //			if err != nil {
 //				return err
@@ -177,6 +177,26 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewDataSet(ctx, "example", &quicksight.DataSetArgs{
+//				DataSetId:  pulumi.String("example-id"),
+//				Name:       pulumi.String("example-name"),
+//				ImportMode: pulumi.String("SPICE"),
+//				PhysicalTableMaps: quicksight.DataSetPhysicalTableMapArray{
+//					&quicksight.DataSetPhysicalTableMapArgs{
+//						PhysicalTableMapId: pulumi.String("example-id"),
+//						S3Source: &quicksight.DataSetPhysicalTableMapS3SourceArgs{
+//							DataSourceArn: pulumi.Any(exampleAwsQuicksightDataSource.Arn),
+//							InputColumns: quicksight.DataSetPhysicalTableMapS3SourceInputColumnArray{
+//								&quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs{
+//									Name: pulumi.String("Column1"),
+//									Type: pulumi.String("STRING"),
+//								},
+//							},
+//							UploadSettings: &quicksight.DataSetPhysicalTableMapS3SourceUploadSettingsArgs{
+//								Format: pulumi.String("JSON"),
+//							},
+//						},
+//					},
+//				},
 //				FieldFolders: quicksight.DataSetFieldFolderArray{
 //					&quicksight.DataSetFieldFolderArgs{
 //						FieldFoldersId: pulumi.String("example-id"),
@@ -186,26 +206,6 @@ import (
 //						Description: pulumi.String("example description"),
 //					},
 //				},
-//				PhysicalTableMaps: quicksight.DataSetPhysicalTableMapArray{
-//					&quicksight.DataSetPhysicalTableMapArgs{
-//						S3Source: &quicksight.DataSetPhysicalTableMapS3SourceArgs{
-//							UploadSettings: &quicksight.DataSetPhysicalTableMapS3SourceUploadSettingsArgs{
-//								Format: pulumi.String("JSON"),
-//							},
-//							InputColumns: quicksight.DataSetPhysicalTableMapS3SourceInputColumnArray{
-//								&quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs{
-//									Name: pulumi.String("Column1"),
-//									Type: pulumi.String("STRING"),
-//								},
-//							},
-//							DataSourceArn: pulumi.Any(exampleAwsQuicksightDataSource.Arn),
-//						},
-//						PhysicalTableMapId: pulumi.String("example-id"),
-//					},
-//				},
-//				DataSetId:  pulumi.String("example-id"),
-//				Name:       pulumi.String("example-name"),
-//				ImportMode: pulumi.String("SPICE"),
 //			})
 //			if err != nil {
 //				return err
@@ -231,6 +231,26 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewDataSet(ctx, "example", &quicksight.DataSetArgs{
+//				DataSetId:  pulumi.String("example-id"),
+//				Name:       pulumi.String("example-name"),
+//				ImportMode: pulumi.String("SPICE"),
+//				PhysicalTableMaps: quicksight.DataSetPhysicalTableMapArray{
+//					&quicksight.DataSetPhysicalTableMapArgs{
+//						PhysicalTableMapId: pulumi.String("example-id"),
+//						S3Source: &quicksight.DataSetPhysicalTableMapS3SourceArgs{
+//							DataSourceArn: pulumi.Any(exampleAwsQuicksightDataSource.Arn),
+//							InputColumns: quicksight.DataSetPhysicalTableMapS3SourceInputColumnArray{
+//								&quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs{
+//									Name: pulumi.String("Column1"),
+//									Type: pulumi.String("STRING"),
+//								},
+//							},
+//							UploadSettings: &quicksight.DataSetPhysicalTableMapS3SourceUploadSettingsArgs{
+//								Format: pulumi.String("JSON"),
+//							},
+//						},
+//					},
+//				},
 //				Permissions: quicksight.DataSetPermissionArray{
 //					&quicksight.DataSetPermissionArgs{
 //						Actions: pulumi.StringArray{
@@ -243,26 +263,6 @@ import (
 //						Principal: pulumi.Any(exampleAwsQuicksightUser.Arn),
 //					},
 //				},
-//				PhysicalTableMaps: quicksight.DataSetPhysicalTableMapArray{
-//					&quicksight.DataSetPhysicalTableMapArgs{
-//						S3Source: &quicksight.DataSetPhysicalTableMapS3SourceArgs{
-//							UploadSettings: &quicksight.DataSetPhysicalTableMapS3SourceUploadSettingsArgs{
-//								Format: pulumi.String("JSON"),
-//							},
-//							InputColumns: quicksight.DataSetPhysicalTableMapS3SourceInputColumnArray{
-//								&quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs{
-//									Name: pulumi.String("Column1"),
-//									Type: pulumi.String("STRING"),
-//								},
-//							},
-//							DataSourceArn: pulumi.Any(exampleAwsQuicksightDataSource.Arn),
-//						},
-//						PhysicalTableMapId: pulumi.String("example-id"),
-//					},
-//				},
-//				DataSetId:  pulumi.String("example-id"),
-//				Name:       pulumi.String("example-name"),
-//				ImportMode: pulumi.String("SPICE"),
 //			})
 //			if err != nil {
 //				return err
@@ -288,7 +288,28 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewDataSet(ctx, "example", &quicksight.DataSetArgs{
+//				DataSetId:  pulumi.String("example-id"),
+//				Name:       pulumi.String("example-name"),
+//				ImportMode: pulumi.String("SPICE"),
+//				PhysicalTableMaps: quicksight.DataSetPhysicalTableMapArray{
+//					&quicksight.DataSetPhysicalTableMapArgs{
+//						PhysicalTableMapId: pulumi.String("example-id"),
+//						S3Source: &quicksight.DataSetPhysicalTableMapS3SourceArgs{
+//							DataSourceArn: pulumi.Any(exampleAwsQuicksightDataSource.Arn),
+//							InputColumns: quicksight.DataSetPhysicalTableMapS3SourceInputColumnArray{
+//								&quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs{
+//									Name: pulumi.String("Column1"),
+//									Type: pulumi.String("STRING"),
+//								},
+//							},
+//							UploadSettings: &quicksight.DataSetPhysicalTableMapS3SourceUploadSettingsArgs{
+//								Format: pulumi.String("JSON"),
+//							},
+//						},
+//					},
+//				},
 //				RowLevelPermissionTagConfiguration: &quicksight.DataSetRowLevelPermissionTagConfigurationArgs{
+//					Status: pulumi.String("ENABLED"),
 //					TagRules: quicksight.DataSetRowLevelPermissionTagConfigurationTagRuleArray{
 //						&quicksight.DataSetRowLevelPermissionTagConfigurationTagRuleArgs{
 //							ColumnName:             pulumi.String("Column1"),
@@ -297,28 +318,7 @@ import (
 //							TagMultiValueDelimiter: pulumi.String(","),
 //						},
 //					},
-//					Status: pulumi.String("ENABLED"),
 //				},
-//				PhysicalTableMaps: quicksight.DataSetPhysicalTableMapArray{
-//					&quicksight.DataSetPhysicalTableMapArgs{
-//						S3Source: &quicksight.DataSetPhysicalTableMapS3SourceArgs{
-//							UploadSettings: &quicksight.DataSetPhysicalTableMapS3SourceUploadSettingsArgs{
-//								Format: pulumi.String("JSON"),
-//							},
-//							InputColumns: quicksight.DataSetPhysicalTableMapS3SourceInputColumnArray{
-//								&quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs{
-//									Name: pulumi.String("Column1"),
-//									Type: pulumi.String("STRING"),
-//								},
-//							},
-//							DataSourceArn: pulumi.Any(exampleAwsQuicksightDataSource.Arn),
-//						},
-//						PhysicalTableMapId: pulumi.String("example-id"),
-//					},
-//				},
-//				DataSetId:  pulumi.String("example-id"),
-//				Name:       pulumi.String("example-name"),
-//				ImportMode: pulumi.String("SPICE"),
 //			})
 //			if err != nil {
 //				return err

@@ -24,12 +24,6 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// {
     ///     var example = new Aws.Route53RecoveryControl.SafetyRule("example", new()
     ///     {
-    ///         RuleConfig = new Aws.Route53RecoveryControl.Inputs.SafetyRuleRuleConfigArgs
-    ///         {
-    ///             Inverted = false,
-    ///             Threshold = 1,
-    ///             Type = "ATLEAST",
-    ///         },
     ///         AssertedControls = new[]
     ///         {
     ///             exampleAwsRoute53recoverycontrolconfigRoutingControl.Arn,
@@ -37,6 +31,12 @@ namespace Pulumi.Aws.Route53RecoveryControl
     ///         ControlPanelArn = "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
     ///         Name = "daisyguttridge",
     ///         WaitPeriodMs = 5000,
+    ///         RuleConfig = new Aws.Route53RecoveryControl.Inputs.SafetyRuleRuleConfigArgs
+    ///         {
+    ///             Inverted = false,
+    ///             Threshold = 1,
+    ///             Type = "ATLEAST",
+    ///         },
     ///     });
     /// 
     /// });
@@ -52,12 +52,6 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// {
     ///     var example = new Aws.Route53RecoveryControl.SafetyRule("example", new()
     ///     {
-    ///         RuleConfig = new Aws.Route53RecoveryControl.Inputs.SafetyRuleRuleConfigArgs
-    ///         {
-    ///             Inverted = false,
-    ///             Threshold = 1,
-    ///             Type = "ATLEAST",
-    ///         },
     ///         Name = "i_o",
     ///         ControlPanelArn = "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
     ///         WaitPeriodMs = 5000,
@@ -68,6 +62,12 @@ namespace Pulumi.Aws.Route53RecoveryControl
     ///         TargetControls = new[]
     ///         {
     ///             exampleAwsRoute53recoverycontrolconfigRoutingControl.Arn,
+    ///         },
+    ///         RuleConfig = new Aws.Route53RecoveryControl.Inputs.SafetyRuleRuleConfigArgs
+    ///         {
+    ///             Inverted = false,
+    ///             Threshold = 1,
+    ///             Type = "ATLEAST",
     ///         },
     ///     });
     /// 

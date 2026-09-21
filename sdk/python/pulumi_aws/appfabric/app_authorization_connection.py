@@ -234,9 +234,9 @@ class AppAuthorizationConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_authorization_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  app_bundle_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 auth_request: pulumi.Input[Optional[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict']]] = None,
+                 auth_request: pulumi.Input[Optional[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict', 'outputs.AppAuthorizationConnectionAuthRequest']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AppAuthorizationConnectionTimeoutsArgs', 'AppAuthorizationConnectionTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AppAuthorizationConnectionTimeoutsArgs', 'AppAuthorizationConnectionTimeoutsArgsDict', 'outputs.AppAuthorizationConnectionTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS AppFabric App Authorization Connection.
@@ -261,7 +261,7 @@ class AppAuthorizationConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] app_bundle_arn: ARN of the app bundle to use for the request.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict']] auth_request: OAuth2 authorization information. Required if the app authorization for the request is configured with an OAuth2 (`oauth2`) authorization type. See `auth_request` Block for details.
+        :param pulumi.Input[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict', 'outputs.AppAuthorizationConnectionAuthRequest']] auth_request: OAuth2 authorization information. Required if the app authorization for the request is configured with an OAuth2 (`oauth2`) authorization type. See `auth_request` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -304,9 +304,9 @@ class AppAuthorizationConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_authorization_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  app_bundle_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 auth_request: pulumi.Input[Optional[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict']]] = None,
+                 auth_request: pulumi.Input[Optional[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict', 'outputs.AppAuthorizationConnectionAuthRequest']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AppAuthorizationConnectionTimeoutsArgs', 'AppAuthorizationConnectionTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AppAuthorizationConnectionTimeoutsArgs', 'AppAuthorizationConnectionTimeoutsArgsDict', 'outputs.AppAuthorizationConnectionTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -340,10 +340,10 @@ class AppAuthorizationConnection(pulumi.CustomResource):
             app: pulumi.Input[Optional[_builtins.str]] = None,
             app_authorization_arn: pulumi.Input[Optional[_builtins.str]] = None,
             app_bundle_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            auth_request: pulumi.Input[Optional[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict']]] = None,
+            auth_request: pulumi.Input[Optional[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict', 'outputs.AppAuthorizationConnectionAuthRequest']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            tenants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppAuthorizationConnectionTenantArgs', 'AppAuthorizationConnectionTenantArgsDict']]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['AppAuthorizationConnectionTimeoutsArgs', 'AppAuthorizationConnectionTimeoutsArgsDict']]] = None) -> 'AppAuthorizationConnection':
+            tenants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppAuthorizationConnectionTenantArgs', 'AppAuthorizationConnectionTenantArgsDict', 'outputs.AppAuthorizationConnectionTenant']]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['AppAuthorizationConnectionTimeoutsArgs', 'AppAuthorizationConnectionTimeoutsArgsDict', 'outputs.AppAuthorizationConnectionTimeouts']]] = None) -> 'AppAuthorizationConnection':
         """
         Get an existing AppAuthorizationConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -356,9 +356,9 @@ class AppAuthorizationConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] app_bundle_arn: ARN of the app bundle to use for the request.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict']] auth_request: OAuth2 authorization information. Required if the app authorization for the request is configured with an OAuth2 (`oauth2`) authorization type. See `auth_request` Block for details.
+        :param pulumi.Input[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict', 'outputs.AppAuthorizationConnectionAuthRequest']] auth_request: OAuth2 authorization information. Required if the app authorization for the request is configured with an OAuth2 (`oauth2`) authorization type. See `auth_request` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppAuthorizationConnectionTenantArgs', 'AppAuthorizationConnectionTenantArgsDict']]]] tenants: Information about an application tenant. See `tenant` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppAuthorizationConnectionTenantArgs', 'AppAuthorizationConnectionTenantArgsDict', 'outputs.AppAuthorizationConnectionTenant']]]] tenants: Information about an application tenant. See `tenant` Block below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -520,7 +520,7 @@ class KxDataview(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  read_write: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 segment_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KxDataviewSegmentConfigurationArgs', 'KxDataviewSegmentConfigurationArgsDict']]]]] = None,
+                 segment_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KxDataviewSegmentConfigurationArgs', 'KxDataviewSegmentConfigurationArgsDict', 'outputs.KxDataviewSegmentConfiguration']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -535,10 +535,6 @@ class KxDataview(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.finspace.KxDataview("example",
-            segment_configurations=[{
-                "volume_name": example_aws_finspace_kx_volume["name"],
-                "db_paths": ["/*"],
-            }],
             name="my-tf-kx-dataview",
             environment_id=example_aws_finspace_kx_environment["id"],
             database_name=example_aws_finspace_kx_database["name"],
@@ -546,7 +542,10 @@ class KxDataview(pulumi.CustomResource):
             description="Terraform managed Kx Dataview",
             az_mode="SINGLE",
             auto_update=True,
-            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(create="24h", update="24h", delete="12h")))
+            segment_configurations=[{
+                "volume_name": example_aws_finspace_kx_volume["name"],
+                "db_paths": ["/*"],
+            }])
         ```
 
         ## Import
@@ -572,7 +571,7 @@ class KxDataview(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.bool] read_write: Whether to make the dataview writable to perform database maintenance. You cannot create partial writable dataviews; you must provide the entire database path and cannot perform updates, so `auto_update` must be `false` when `read_write` is `true`. You must also use a unique volume, and once a dataview is writable you cannot change it to read-only.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['KxDataviewSegmentConfigurationArgs', 'KxDataviewSegmentConfigurationArgsDict']]]] segment_configurations: Configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See `segment_configurations` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KxDataviewSegmentConfigurationArgs', 'KxDataviewSegmentConfigurationArgsDict', 'outputs.KxDataviewSegmentConfiguration']]]] segment_configurations: Configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See `segment_configurations` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -593,10 +592,6 @@ class KxDataview(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.finspace.KxDataview("example",
-            segment_configurations=[{
-                "volume_name": example_aws_finspace_kx_volume["name"],
-                "db_paths": ["/*"],
-            }],
             name="my-tf-kx-dataview",
             environment_id=example_aws_finspace_kx_environment["id"],
             database_name=example_aws_finspace_kx_database["name"],
@@ -604,7 +599,10 @@ class KxDataview(pulumi.CustomResource):
             description="Terraform managed Kx Dataview",
             az_mode="SINGLE",
             auto_update=True,
-            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(create="24h", update="24h", delete="12h")))
+            segment_configurations=[{
+                "volume_name": example_aws_finspace_kx_volume["name"],
+                "db_paths": ["/*"],
+            }])
         ```
 
         ## Import
@@ -641,7 +639,7 @@ class KxDataview(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  read_write: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 segment_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KxDataviewSegmentConfigurationArgs', 'KxDataviewSegmentConfigurationArgsDict']]]]] = None,
+                 segment_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KxDataviewSegmentConfigurationArgs', 'KxDataviewSegmentConfigurationArgsDict', 'outputs.KxDataviewSegmentConfiguration']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -700,7 +698,7 @@ class KxDataview(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             read_write: pulumi.Input[Optional[_builtins.bool]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            segment_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KxDataviewSegmentConfigurationArgs', 'KxDataviewSegmentConfigurationArgsDict']]]]] = None,
+            segment_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KxDataviewSegmentConfigurationArgs', 'KxDataviewSegmentConfigurationArgsDict', 'outputs.KxDataviewSegmentConfiguration']]]]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'KxDataview':
@@ -726,7 +724,7 @@ class KxDataview(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.bool] read_write: Whether to make the dataview writable to perform database maintenance. You cannot create partial writable dataviews; you must provide the entire database path and cannot perform updates, so `auto_update` must be `false` when `read_write` is `true`. You must also use a unique volume, and once a dataview is writable you cannot change it to read-only.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['KxDataviewSegmentConfigurationArgs', 'KxDataviewSegmentConfigurationArgsDict']]]] segment_configurations: Configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See `segment_configurations` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KxDataviewSegmentConfigurationArgs', 'KxDataviewSegmentConfigurationArgsDict', 'outputs.KxDataviewSegmentConfiguration']]]] segment_configurations: Configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See `segment_configurations` below.
         :param pulumi.Input[_builtins.str] status: Status of the dataview.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

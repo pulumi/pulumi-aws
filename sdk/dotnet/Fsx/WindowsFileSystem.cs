@@ -57,6 +57,13 @@ namespace Pulumi.Aws.Fsx
     /// {
     ///     var example = new Aws.Fsx.WindowsFileSystem("example", new()
     ///     {
+    ///         KmsKeyId = exampleAwsKmsKey.Arn,
+    ///         StorageCapacity = 32,
+    ///         SubnetIds = new[]
+    ///         {
+    ///             exampleAwsSubnet.Id,
+    ///         },
+    ///         ThroughputCapacity = 32,
     ///         SelfManagedActiveDirectory = new Aws.Fsx.Inputs.WindowsFileSystemSelfManagedActiveDirectoryArgs
     ///         {
     ///             DnsIps = new[]
@@ -68,13 +75,6 @@ namespace Pulumi.Aws.Fsx
     ///             Password = "avoid-plaintext-passwords",
     ///             Username = "Admin",
     ///         },
-    ///         KmsKeyId = exampleAwsKmsKey.Arn,
-    ///         StorageCapacity = 32,
-    ///         SubnetIds = new[]
-    ///         {
-    ///             exampleAwsSubnet.Id,
-    ///         },
-    ///         ThroughputCapacity = 32,
     ///     });
     /// 
     /// });
@@ -92,6 +92,13 @@ namespace Pulumi.Aws.Fsx
     /// {
     ///     var example = new Aws.Fsx.WindowsFileSystem("example", new()
     ///     {
+    ///         KmsKeyId = exampleAwsKmsKey.Arn,
+    ///         StorageCapacity = 32,
+    ///         SubnetIds = new[]
+    ///         {
+    ///             exampleAwsSubnet.Id,
+    ///         },
+    ///         ThroughputCapacity = 32,
     ///         SelfManagedActiveDirectory = new Aws.Fsx.Inputs.WindowsFileSystemSelfManagedActiveDirectoryArgs
     ///         {
     ///             DnsIps = new[]
@@ -102,13 +109,6 @@ namespace Pulumi.Aws.Fsx
     ///             DomainName = "corp.example.com",
     ///             DomainJoinServiceAccountSecret = exampleAwsSecretsmanagerSecret.Arn,
     ///         },
-    ///         KmsKeyId = exampleAwsKmsKey.Arn,
-    ///         StorageCapacity = 32,
-    ///         SubnetIds = new[]
-    ///         {
-    ///             exampleAwsSubnet.Id,
-    ///         },
-    ///         ThroughputCapacity = 32,
     ///     });
     /// 
     /// });
@@ -137,12 +137,6 @@ namespace Pulumi.Aws.Fsx
     ///         SecurityGroupIds = new[]
     ///         {
     ///             exampleAwsSecurityGroup.Id,
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         IgnoreChanges =
-    ///         {
-    ///             "securityGroupIds",
     ///         },
     ///     });
     /// 

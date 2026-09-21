@@ -289,7 +289,7 @@ class RestoreTestingPlan(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 recovery_point_selection: pulumi.Input[Optional[Union['RestoreTestingPlanRecoveryPointSelectionArgs', 'RestoreTestingPlanRecoveryPointSelectionArgsDict']]] = None,
+                 recovery_point_selection: pulumi.Input[Optional[Union['RestoreTestingPlanRecoveryPointSelectionArgs', 'RestoreTestingPlanRecoveryPointSelectionArgsDict', 'outputs.RestoreTestingPlanRecoveryPointSelection']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  schedule_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  schedule_expression_timezone: pulumi.Input[Optional[_builtins.str]] = None,
@@ -308,12 +308,12 @@ class RestoreTestingPlan(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.backup.RestoreTestingPlan("example",
+            name="example_restore_testing_plan",
             recovery_point_selection={
                 "algorithm": "LATEST_WITHIN_WINDOW",
                 "include_vaults": ["*"],
                 "recovery_point_types": ["CONTINUOUS"],
             },
-            name="example_restore_testing_plan",
             schedule_expression="cron(0 12 ? * * *)")
         ```
 
@@ -329,7 +329,7 @@ class RestoreTestingPlan(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-        :param pulumi.Input[Union['RestoreTestingPlanRecoveryPointSelectionArgs', 'RestoreTestingPlanRecoveryPointSelectionArgsDict']] recovery_point_selection: Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
+        :param pulumi.Input[Union['RestoreTestingPlanRecoveryPointSelectionArgs', 'RestoreTestingPlanRecoveryPointSelectionArgsDict', 'outputs.RestoreTestingPlanRecoveryPointSelection']] recovery_point_selection: Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] schedule_expression: The schedule expression for the restore testing plan.
         :param pulumi.Input[_builtins.str] schedule_expression_timezone: The timezone for the schedule expression. If not provided, the state value will be used.
@@ -353,12 +353,12 @@ class RestoreTestingPlan(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.backup.RestoreTestingPlan("example",
+            name="example_restore_testing_plan",
             recovery_point_selection={
                 "algorithm": "LATEST_WITHIN_WINDOW",
                 "include_vaults": ["*"],
                 "recovery_point_types": ["CONTINUOUS"],
             },
-            name="example_restore_testing_plan",
             schedule_expression="cron(0 12 ? * * *)")
         ```
 
@@ -387,7 +387,7 @@ class RestoreTestingPlan(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 recovery_point_selection: pulumi.Input[Optional[Union['RestoreTestingPlanRecoveryPointSelectionArgs', 'RestoreTestingPlanRecoveryPointSelectionArgsDict']]] = None,
+                 recovery_point_selection: pulumi.Input[Optional[Union['RestoreTestingPlanRecoveryPointSelectionArgs', 'RestoreTestingPlanRecoveryPointSelectionArgsDict', 'outputs.RestoreTestingPlanRecoveryPointSelection']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  schedule_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  schedule_expression_timezone: pulumi.Input[Optional[_builtins.str]] = None,
@@ -427,7 +427,7 @@ class RestoreTestingPlan(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            recovery_point_selection: pulumi.Input[Optional[Union['RestoreTestingPlanRecoveryPointSelectionArgs', 'RestoreTestingPlanRecoveryPointSelectionArgsDict']]] = None,
+            recovery_point_selection: pulumi.Input[Optional[Union['RestoreTestingPlanRecoveryPointSelectionArgs', 'RestoreTestingPlanRecoveryPointSelectionArgsDict', 'outputs.RestoreTestingPlanRecoveryPointSelection']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             schedule_expression: pulumi.Input[Optional[_builtins.str]] = None,
             schedule_expression_timezone: pulumi.Input[Optional[_builtins.str]] = None,
@@ -443,7 +443,7 @@ class RestoreTestingPlan(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Restore Testing Plan.
         :param pulumi.Input[_builtins.str] name: The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-        :param pulumi.Input[Union['RestoreTestingPlanRecoveryPointSelectionArgs', 'RestoreTestingPlanRecoveryPointSelectionArgsDict']] recovery_point_selection: Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
+        :param pulumi.Input[Union['RestoreTestingPlanRecoveryPointSelectionArgs', 'RestoreTestingPlanRecoveryPointSelectionArgsDict', 'outputs.RestoreTestingPlanRecoveryPointSelection']] recovery_point_selection: Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] schedule_expression: The schedule expression for the restore testing plan.
         :param pulumi.Input[_builtins.str] schedule_expression_timezone: The timezone for the schedule expression. If not provided, the state value will be used.

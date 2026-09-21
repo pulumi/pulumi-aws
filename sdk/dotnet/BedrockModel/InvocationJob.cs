@@ -30,6 +30,9 @@ namespace Pulumi.Aws.BedrockModel
     /// {
     ///     var example = new Aws.BedrockModel.InvocationJob("example", new()
     ///     {
+    ///         JobName = "example-job",
+    ///         ModelId = "us.amazon.nova-2-lite-v1:0",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         InputDataConfig = new Aws.BedrockModel.Inputs.InvocationJobInputDataConfigArgs
     ///         {
     ///             S3InputDataConfig = new Aws.BedrockModel.Inputs.InvocationJobInputDataConfigS3InputDataConfigArgs
@@ -44,9 +47,6 @@ namespace Pulumi.Aws.BedrockModel
     ///                 S3Uri = $"s3://{exampleAwsS3Bucket.Id}/output/",
     ///             },
     ///         },
-    ///         JobName = "example-job",
-    ///         ModelId = "us.amazon.nova-2-lite-v1:0",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });

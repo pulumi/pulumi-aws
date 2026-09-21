@@ -29,12 +29,12 @@ namespace Pulumi.Aws.Ssm
     /// 
     ///     var exampleResourceDataSync = new Aws.Ssm.ResourceDataSync("example", new()
     ///     {
+    ///         Name = "example",
     ///         S3Destination = new Aws.Ssm.Inputs.ResourceDataSyncS3DestinationArgs
     ///         {
     ///             BucketName = exampleBucket.BucketName,
     ///             Region = exampleBucket.Region,
     ///         },
-    ///         Name = "example",
     ///     });
     /// 
     ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -43,6 +43,8 @@ namespace Pulumi.Aws.Ssm
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Sid = "SSMBucketPermissionsCheck",
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -54,8 +56,6 @@ namespace Pulumi.Aws.Ssm
     ///                         },
     ///                     },
     ///                 },
-    ///                 Sid = "SSMBucketPermissionsCheck",
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "s3:GetBucketAcl",
@@ -67,18 +67,8 @@ namespace Pulumi.Aws.Ssm
     ///             },
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "StringEquals",
-    ///                         Variable = "s3:x-amz-acl",
-    ///                         Values = new[]
-    ///                         {
-    ///                             "bucket-owner-full-control",
-    ///                         },
-    ///                     },
-    ///                 },
+    ///                 Sid = "SSMBucketDelivery",
+    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -90,8 +80,6 @@ namespace Pulumi.Aws.Ssm
     ///                         },
     ///                     },
     ///                 },
-    ///                 Sid = "SSMBucketDelivery",
-    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "s3:PutObject",
@@ -99,6 +87,18 @@ namespace Pulumi.Aws.Ssm
     ///                 Resources = new[]
     ///                 {
     ///                     $"{exampleBucket.Arn}/*",
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = "s3:x-amz-acl",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "bucket-owner-full-control",
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
     ///         },

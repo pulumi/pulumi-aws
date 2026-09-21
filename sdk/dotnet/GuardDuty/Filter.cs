@@ -24,6 +24,10 @@ namespace Pulumi.Aws.GuardDuty
     /// {
     ///     var myFilter = new Aws.GuardDuty.Filter("MyFilter", new()
     ///     {
+    ///         Name = "MyFilter",
+    ///         Action = "ARCHIVE",
+    ///         DetectorId = example.Id,
+    ///         Rank = 1,
     ///         FindingCriteria = new Aws.GuardDuty.Inputs.FilterFindingCriteriaArgs
     ///         {
     ///             Criterions = new[]
@@ -58,10 +62,6 @@ namespace Pulumi.Aws.GuardDuty
     ///                 },
     ///             },
     ///         },
-    ///         Name = "MyFilter",
-    ///         Action = "ARCHIVE",
-    ///         DetectorId = example.Id,
-    ///         Rank = 1,
     ///     });
     /// 
     /// });

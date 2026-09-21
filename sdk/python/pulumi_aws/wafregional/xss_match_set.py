@@ -140,7 +140,7 @@ class XssMatchSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 xss_match_tuples: pulumi.Input[Optional[Sequence[pulumi.Input[Union['XssMatchSetXssMatchTupleArgs', 'XssMatchSetXssMatchTupleArgsDict']]]]] = None,
+                 xss_match_tuples: pulumi.Input[Optional[Sequence[pulumi.Input[Union['XssMatchSetXssMatchTupleArgs', 'XssMatchSetXssMatchTupleArgsDict', 'outputs.XssMatchSetXssMatchTuple']]]]] = None,
                  __props__=None):
         """
         Provides a WAF Regional XSS Match Set Resource for use with Application Load Balancer.
@@ -152,21 +152,21 @@ class XssMatchSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         xss_match_set = aws.wafregional.XssMatchSet("xss_match_set",
+            name="xss_match_set",
             xss_match_tuples=[
                 {
+                    "text_transformation": "NONE",
                     "field_to_match": {
                         "type": "URI",
                     },
-                    "text_transformation": "NONE",
                 },
                 {
+                    "text_transformation": "NONE",
                     "field_to_match": {
                         "type": "QUERY_STRING",
                     },
-                    "text_transformation": "NONE",
                 },
-            ],
-            name="xss_match_set")
+            ])
         ```
 
         ## Import
@@ -182,7 +182,7 @@ class XssMatchSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the set
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['XssMatchSetXssMatchTupleArgs', 'XssMatchSetXssMatchTupleArgsDict']]]] xss_match_tuples: The parts of web requests that you want to inspect for cross-site scripting attacks.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['XssMatchSetXssMatchTupleArgs', 'XssMatchSetXssMatchTupleArgsDict', 'outputs.XssMatchSetXssMatchTuple']]]] xss_match_tuples: The parts of web requests that you want to inspect for cross-site scripting attacks.
         """
         ...
     @overload
@@ -200,21 +200,21 @@ class XssMatchSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         xss_match_set = aws.wafregional.XssMatchSet("xss_match_set",
+            name="xss_match_set",
             xss_match_tuples=[
                 {
+                    "text_transformation": "NONE",
                     "field_to_match": {
                         "type": "URI",
                     },
-                    "text_transformation": "NONE",
                 },
                 {
+                    "text_transformation": "NONE",
                     "field_to_match": {
                         "type": "QUERY_STRING",
                     },
-                    "text_transformation": "NONE",
                 },
-            ],
-            name="xss_match_set")
+            ])
         ```
 
         ## Import
@@ -243,7 +243,7 @@ class XssMatchSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 xss_match_tuples: pulumi.Input[Optional[Sequence[pulumi.Input[Union['XssMatchSetXssMatchTupleArgs', 'XssMatchSetXssMatchTupleArgsDict']]]]] = None,
+                 xss_match_tuples: pulumi.Input[Optional[Sequence[pulumi.Input[Union['XssMatchSetXssMatchTupleArgs', 'XssMatchSetXssMatchTupleArgsDict', 'outputs.XssMatchSetXssMatchTuple']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -268,7 +268,7 @@ class XssMatchSet(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            xss_match_tuples: pulumi.Input[Optional[Sequence[pulumi.Input[Union['XssMatchSetXssMatchTupleArgs', 'XssMatchSetXssMatchTupleArgsDict']]]]] = None) -> 'XssMatchSet':
+            xss_match_tuples: pulumi.Input[Optional[Sequence[pulumi.Input[Union['XssMatchSetXssMatchTupleArgs', 'XssMatchSetXssMatchTupleArgsDict', 'outputs.XssMatchSetXssMatchTuple']]]]] = None) -> 'XssMatchSet':
         """
         Get an existing XssMatchSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -278,7 +278,7 @@ class XssMatchSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the set
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['XssMatchSetXssMatchTupleArgs', 'XssMatchSetXssMatchTupleArgsDict']]]] xss_match_tuples: The parts of web requests that you want to inspect for cross-site scripting attacks.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['XssMatchSetXssMatchTupleArgs', 'XssMatchSetXssMatchTupleArgsDict', 'outputs.XssMatchSetXssMatchTuple']]]] xss_match_tuples: The parts of web requests that you want to inspect for cross-site scripting attacks.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

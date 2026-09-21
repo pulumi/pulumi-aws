@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketMetadataConfiguration("example", {
+ *     bucket: exampleAwsS3Bucket.bucket,
  *     metadataConfiguration: {
  *         inventoryTableConfiguration: {
  *             configurationState: "ENABLED",
@@ -30,7 +31,6 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
- *     bucket: exampleAwsS3Bucket.bucket,
  * });
  * ```
  *

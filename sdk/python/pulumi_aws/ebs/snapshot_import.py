@@ -513,9 +513,9 @@ class SnapshotImport(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_data: pulumi.Input[Optional[Union['SnapshotImportClientDataArgs', 'SnapshotImportClientDataArgsDict']]] = None,
+                 client_data: pulumi.Input[Optional[Union['SnapshotImportClientDataArgs', 'SnapshotImportClientDataArgsDict', 'outputs.SnapshotImportClientData']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 disk_container: pulumi.Input[Optional[Union['SnapshotImportDiskContainerArgs', 'SnapshotImportDiskContainerArgsDict']]] = None,
+                 disk_container: pulumi.Input[Optional[Union['SnapshotImportDiskContainerArgs', 'SnapshotImportDiskContainerArgsDict', 'outputs.SnapshotImportDiskContainer']]] = None,
                  encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  permanent_restore: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -536,11 +536,11 @@ class SnapshotImport(pulumi.CustomResource):
 
         example = aws.ebs.SnapshotImport("example",
             disk_container={
+                "format": "VHD",
                 "user_bucket": {
                     "s3_bucket": "disk-images",
                     "s3_key": "source.vhd",
                 },
-                "format": "VHD",
             },
             role_name="disk-image-import",
             tags={
@@ -551,9 +551,9 @@ class SnapshotImport(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SnapshotImportClientDataArgs', 'SnapshotImportClientDataArgsDict']] client_data: The client-specific data. Detailed below.
+        :param pulumi.Input[Union['SnapshotImportClientDataArgs', 'SnapshotImportClientDataArgsDict', 'outputs.SnapshotImportClientData']] client_data: The client-specific data. Detailed below.
         :param pulumi.Input[_builtins.str] description: The description string for the import snapshot task.
-        :param pulumi.Input[Union['SnapshotImportDiskContainerArgs', 'SnapshotImportDiskContainerArgsDict']] disk_container: Information about the disk container. Detailed below.
+        :param pulumi.Input[Union['SnapshotImportDiskContainerArgs', 'SnapshotImportDiskContainerArgsDict', 'outputs.SnapshotImportDiskContainer']] disk_container: Information about the disk container. Detailed below.
         :param pulumi.Input[_builtins.bool] encrypted: Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
         :param pulumi.Input[_builtins.str] kms_key_id: An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
         :param pulumi.Input[_builtins.bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
@@ -580,11 +580,11 @@ class SnapshotImport(pulumi.CustomResource):
 
         example = aws.ebs.SnapshotImport("example",
             disk_container={
+                "format": "VHD",
                 "user_bucket": {
                     "s3_bucket": "disk-images",
                     "s3_key": "source.vhd",
                 },
-                "format": "VHD",
             },
             role_name="disk-image-import",
             tags={
@@ -608,9 +608,9 @@ class SnapshotImport(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_data: pulumi.Input[Optional[Union['SnapshotImportClientDataArgs', 'SnapshotImportClientDataArgsDict']]] = None,
+                 client_data: pulumi.Input[Optional[Union['SnapshotImportClientDataArgs', 'SnapshotImportClientDataArgsDict', 'outputs.SnapshotImportClientData']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 disk_container: pulumi.Input[Optional[Union['SnapshotImportDiskContainerArgs', 'SnapshotImportDiskContainerArgsDict']]] = None,
+                 disk_container: pulumi.Input[Optional[Union['SnapshotImportDiskContainerArgs', 'SnapshotImportDiskContainerArgsDict', 'outputs.SnapshotImportDiskContainer']]] = None,
                  encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  permanent_restore: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -660,10 +660,10 @@ class SnapshotImport(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            client_data: pulumi.Input[Optional[Union['SnapshotImportClientDataArgs', 'SnapshotImportClientDataArgsDict']]] = None,
+            client_data: pulumi.Input[Optional[Union['SnapshotImportClientDataArgs', 'SnapshotImportClientDataArgsDict', 'outputs.SnapshotImportClientData']]] = None,
             data_encryption_key_id: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            disk_container: pulumi.Input[Optional[Union['SnapshotImportDiskContainerArgs', 'SnapshotImportDiskContainerArgsDict']]] = None,
+            disk_container: pulumi.Input[Optional[Union['SnapshotImportDiskContainerArgs', 'SnapshotImportDiskContainerArgsDict', 'outputs.SnapshotImportDiskContainer']]] = None,
             encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
             kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
             outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -686,10 +686,10 @@ class SnapshotImport(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the EBS Snapshot.
-        :param pulumi.Input[Union['SnapshotImportClientDataArgs', 'SnapshotImportClientDataArgsDict']] client_data: The client-specific data. Detailed below.
+        :param pulumi.Input[Union['SnapshotImportClientDataArgs', 'SnapshotImportClientDataArgsDict', 'outputs.SnapshotImportClientData']] client_data: The client-specific data. Detailed below.
         :param pulumi.Input[_builtins.str] data_encryption_key_id: The data encryption key identifier for the snapshot.
         :param pulumi.Input[_builtins.str] description: The description string for the import snapshot task.
-        :param pulumi.Input[Union['SnapshotImportDiskContainerArgs', 'SnapshotImportDiskContainerArgsDict']] disk_container: Information about the disk container. Detailed below.
+        :param pulumi.Input[Union['SnapshotImportDiskContainerArgs', 'SnapshotImportDiskContainerArgsDict', 'outputs.SnapshotImportDiskContainer']] disk_container: Information about the disk container. Detailed below.
         :param pulumi.Input[_builtins.bool] encrypted: Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
         :param pulumi.Input[_builtins.str] kms_key_id: An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
         :param pulumi.Input[_builtins.str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.

@@ -31,18 +31,19 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sfn.NewAlias(ctx, "sfn_alias", &sfn.AliasArgs{
+//				Name: pulumi.String("my_sfn_alias"),
 //				RoutingConfigurations: sfn.AliasRoutingConfigurationArray{
 //					&sfn.AliasRoutingConfigurationArgs{
 //						StateMachineVersionArn: pulumi.Any(sfnTest.StateMachineVersionArn),
 //						Weight:                 pulumi.Int(100),
 //					},
 //				},
-//				Name: pulumi.String("my_sfn_alias"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = sfn.NewAlias(ctx, "my_sfn_alias", &sfn.AliasArgs{
+//				Name: pulumi.String("my_sfn_alias"),
 //				RoutingConfigurations: sfn.AliasRoutingConfigurationArray{
 //					&sfn.AliasRoutingConfigurationArgs{
 //						StateMachineVersionArn: pulumi.String("arn:aws:states:us-east-1:12345:stateMachine:demo:3"),
@@ -53,7 +54,6 @@ import (
 //						Weight:                 pulumi.Int(50),
 //					},
 //				},
-//				Name: pulumi.String("my_sfn_alias"),
 //			})
 //			if err != nil {
 //				return err

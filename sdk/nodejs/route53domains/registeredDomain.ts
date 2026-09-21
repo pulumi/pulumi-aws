@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.route53domains.RegisteredDomain("example", {
+ *     domainName: "example.com",
  *     nameServers: [
  *         {
  *             name: "ns-195.awsdns-24.com",
@@ -29,7 +30,6 @@ import * as utilities from "../utilities";
  *             name: "ns-874.awsdns-45.net",
  *         },
  *     ],
- *     domainName: "example.com",
  *     tags: {
  *         Environment: "test",
  *     },

@@ -21,6 +21,8 @@ import * as utilities from "../utilities";
  *     metricName: "example",
  * });
  * const exampleRuleGroup = new aws.wafregional.RuleGroup("example", {
+ *     name: "example",
+ *     metricName: "example",
  *     activatedRules: [{
  *         action: {
  *             type: "COUNT",
@@ -28,8 +30,6 @@ import * as utilities from "../utilities";
  *         priority: 50,
  *         ruleId: example.id,
  *     }],
- *     name: "example",
- *     metricName: "example",
  * });
  * ```
  *

@@ -38,6 +38,7 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
+//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -46,7 +47,6 @@ import (
 //								},
 //							},
 //						},
-//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -97,6 +97,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := backup.NewSelection(ctx, "example", &backup.SelectionArgs{
+//				IamRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				Name:       pulumi.String("my_example_backup_selection"),
+//				PlanId:     pulumi.Any(exampleAwsBackupPlan.Id),
 //				SelectionTags: backup.SelectionSelectionTagArray{
 //					&backup.SelectionSelectionTagArgs{
 //						Type:  pulumi.String("STRINGEQUALS"),
@@ -104,9 +107,6 @@ import (
 //						Value: pulumi.String("bar"),
 //					},
 //				},
-//				IamRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				Name:       pulumi.String("my_example_backup_selection"),
-//				PlanId:     pulumi.Any(exampleAwsBackupPlan.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -132,6 +132,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := backup.NewSelection(ctx, "example", &backup.SelectionArgs{
+//				IamRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				Name:       pulumi.String("my_example_backup_selection"),
+//				PlanId:     pulumi.Any(exampleAwsBackupPlan.Id),
+//				Resources: pulumi.StringArray{
+//					pulumi.String("*"),
+//				},
 //				Conditions: backup.SelectionConditionArray{
 //					&backup.SelectionConditionArgs{
 //						StringEquals: backup.SelectionConditionStringEqualArray{
@@ -159,12 +165,6 @@ import (
 //							},
 //						},
 //					},
-//				},
-//				IamRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				Name:       pulumi.String("my_example_backup_selection"),
-//				PlanId:     pulumi.Any(exampleAwsBackupPlan.Id),
-//				Resources: pulumi.StringArray{
-//					pulumi.String("*"),
 //				},
 //			})
 //			if err != nil {

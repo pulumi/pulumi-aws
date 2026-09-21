@@ -961,13 +961,13 @@ class MetricAlarm(pulumi.CustomResource):
                  datapoints_to_alarm: pulumi.Input[Optional[_builtins.int]] = None,
                  dimensions: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  evaluate_low_sample_count_percentiles: pulumi.Input[Optional[_builtins.str]] = None,
-                 evaluation_criteria: pulumi.Input[Optional[Union['MetricAlarmEvaluationCriteriaArgs', 'MetricAlarmEvaluationCriteriaArgsDict']]] = None,
+                 evaluation_criteria: pulumi.Input[Optional[Union['MetricAlarmEvaluationCriteriaArgs', 'MetricAlarmEvaluationCriteriaArgsDict', 'outputs.MetricAlarmEvaluationCriteria']]] = None,
                  evaluation_interval: pulumi.Input[Optional[_builtins.int]] = None,
                  evaluation_periods: pulumi.Input[Optional[_builtins.int]] = None,
                  extended_statistic: pulumi.Input[Optional[_builtins.str]] = None,
                  insufficient_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  metric_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 metric_queries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricAlarmMetricQueryArgs', 'MetricAlarmMetricQueryArgsDict']]]]] = None,
+                 metric_queries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricAlarmMetricQueryArgs', 'MetricAlarmMetricQueryArgsDict', 'outputs.MetricAlarmMetricQuery']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  ok_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -979,7 +979,7 @@ class MetricAlarm(pulumi.CustomResource):
                  threshold_metric_id: pulumi.Input[Optional[_builtins.str]] = None,
                  treat_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
                  unit: pulumi.Input[Optional[_builtins.str]] = None,
-                 warm_up_configuration: pulumi.Input[Optional[Union['MetricAlarmWarmUpConfigurationArgs', 'MetricAlarmWarmUpConfigurationArgsDict']]] = None,
+                 warm_up_configuration: pulumi.Input[Optional[Union['MetricAlarmWarmUpConfigurationArgs', 'MetricAlarmWarmUpConfigurationArgsDict', 'outputs.MetricAlarmWarmUpConfiguration']]] = None,
                  __props__=None):
         """
         Provides a CloudWatch Metric Alarm resource.
@@ -1040,6 +1040,12 @@ class MetricAlarm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foobar = aws.cloudwatch.MetricAlarm("foobar",
+            name="test-foobar",
+            comparison_operator="GreaterThanOrEqualToThreshold",
+            evaluation_periods=2,
+            threshold=float(10),
+            alarm_description="Request error rate has exceeded 10%",
+            insufficient_data_actions=[],
             metric_queries=[
                 {
                     "id": "e1",
@@ -1048,6 +1054,7 @@ class MetricAlarm(pulumi.CustomResource):
                     "return_data": True,
                 },
                 {
+                    "id": "m1",
                     "metric": {
                         "metric_name": "RequestCount",
                         "namespace": "AWS/ApplicationELB",
@@ -1058,9 +1065,9 @@ class MetricAlarm(pulumi.CustomResource):
                             "LoadBalancer": "app/web",
                         },
                     },
-                    "id": "m1",
                 },
                 {
+                    "id": "m2",
                     "metric": {
                         "metric_name": "HTTPCode_ELB_5XX_Count",
                         "namespace": "AWS/ApplicationELB",
@@ -1071,15 +1078,8 @@ class MetricAlarm(pulumi.CustomResource):
                             "LoadBalancer": "app/web",
                         },
                     },
-                    "id": "m2",
                 },
-            ],
-            name="test-foobar",
-            comparison_operator="GreaterThanOrEqualToThreshold",
-            evaluation_periods=2,
-            threshold=float(10),
-            alarm_description="Request error rate has exceeded 10%",
-            insufficient_data_actions=[])
+            ])
         ```
 
         ### With PromQL
@@ -1089,6 +1089,8 @@ class MetricAlarm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         promql_alarm = aws.cloudwatch.MetricAlarm("promql_alarm",
+            name="high-cpu-promql",
+            alarm_description="Alarm when average CPU exceeds 80% using PromQL",
             evaluation_criteria={
                 "promql_criteria": {
                     "query": "avg(cpu_utilization_percent) > 80",
@@ -1096,8 +1098,6 @@ class MetricAlarm(pulumi.CustomResource):
                     "recovery_period": 120,
                 },
             },
-            name="high-cpu-promql",
-            alarm_description="Alarm when average CPU exceeds 80% using PromQL",
             evaluation_interval=30,
             alarm_actions=[alerts["arn"]])
         ```
@@ -1107,6 +1107,12 @@ class MetricAlarm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         xx_anomaly_detection = aws.cloudwatch.MetricAlarm("xx_anomaly_detection",
+            name="test-foobar",
+            comparison_operator="GreaterThanUpperThreshold",
+            evaluation_periods=2,
+            threshold_metric_id="e1",
+            alarm_description="This metric monitors ec2 cpu utilization",
+            insufficient_data_actions=[],
             metric_queries=[
                 {
                     "id": "e1",
@@ -1115,6 +1121,8 @@ class MetricAlarm(pulumi.CustomResource):
                     "label": "CPUUtilization (Expected)",
                 },
                 {
+                    "id": "m1",
+                    "return_data": True,
                     "metric": {
                         "metric_name": "CPUUtilization",
                         "namespace": "AWS/EC2",
@@ -1125,16 +1133,8 @@ class MetricAlarm(pulumi.CustomResource):
                             "InstanceId": "i-abc123",
                         },
                     },
-                    "id": "m1",
-                    "return_data": True,
                 },
-            ],
-            name="test-foobar",
-            comparison_operator="GreaterThanUpperThreshold",
-            evaluation_periods=2,
-            threshold_metric_id="e1",
-            alarm_description="This metric monitors ec2 cpu utilization",
-            insufficient_data_actions=[])
+            ])
         ```
 
         ### With a Metrics Insights Query
@@ -1144,6 +1144,12 @@ class MetricAlarm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudwatch.MetricAlarm("example",
+            name="example-alarm",
+            alarm_description="Triggers if the smallest per-instance maximum load during the evaluation period exceeds the threshold",
+            comparison_operator="GreaterThanThreshold",
+            evaluation_periods=1,
+            threshold=0.6,
+            treat_missing_data="notBreaching",
             metric_queries=[{
                 "id": "q1",
                 "expression": \"\"\"SELECT
@@ -1157,13 +1163,7 @@ class MetricAlarm(pulumi.CustomResource):
                 "period": 60,
                 "return_data": True,
                 "label": "Max DB Load of the Least-Loaded RDS Instance",
-            }],
-            name="example-alarm",
-            alarm_description="Triggers if the smallest per-instance maximum load during the evaluation period exceeds the threshold",
-            comparison_operator="GreaterThanThreshold",
-            evaluation_periods=1,
-            threshold=0.6,
-            treat_missing_data="notBreaching")
+            }])
         ```
 
         ### Monitoring Healthy NLB Hosts with Target Group and NLB
@@ -1198,9 +1198,6 @@ class MetricAlarm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudwatch.MetricAlarm("example",
-            warm_up_configuration={
-                "warm_up_period_duration_in_minutes": 30,
-            },
             name="example-service-errors",
             comparison_operator="GreaterThanThreshold",
             evaluation_periods=3,
@@ -1210,7 +1207,10 @@ class MetricAlarm(pulumi.CustomResource):
             statistic="Sum",
             threshold=float(0),
             treat_missing_data="breaching",
-            alarm_actions=[example_aws_sns_topic["arn"]])
+            alarm_actions=[example_aws_sns_topic["arn"]],
+            warm_up_configuration={
+                "warm_up_period_duration_in_minutes": 30,
+            })
         ```
 
         > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
@@ -1248,14 +1248,14 @@ class MetricAlarm(pulumi.CustomResource):
                If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
                If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
                The following values are supported: `ignore`, and `evaluate`.
-        :param pulumi.Input[Union['MetricAlarmEvaluationCriteriaArgs', 'MetricAlarmEvaluationCriteriaArgsDict']] evaluation_criteria: The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
+        :param pulumi.Input[Union['MetricAlarmEvaluationCriteriaArgs', 'MetricAlarmEvaluationCriteriaArgsDict', 'outputs.MetricAlarmEvaluationCriteria']] evaluation_criteria: The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
         :param pulumi.Input[_builtins.int] evaluation_interval: The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluation_criteria`.
         :param pulumi.Input[_builtins.int] evaluation_periods: The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
         :param pulumi.Input[_builtins.str] extended_statistic: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] insufficient_data_actions: List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
         :param pulumi.Input[_builtins.str] metric_name: The name for the alarm's associated metric.
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricAlarmMetricQueryArgs', 'MetricAlarmMetricQueryArgsDict']]]] metric_queries: Enables you to create an alarm based on a metric math expression. You may specify at most 20.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricAlarmMetricQueryArgs', 'MetricAlarmMetricQueryArgsDict', 'outputs.MetricAlarmMetricQuery']]]] metric_queries: Enables you to create an alarm based on a metric math expression. You may specify at most 20.
         :param pulumi.Input[_builtins.str] name: The descriptive name for the alarm. This name must be unique within the user's AWS account
         :param pulumi.Input[_builtins.str] namespace: The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -1275,7 +1275,7 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] threshold_metric_id: If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
         :param pulumi.Input[_builtins.str] treat_missing_data: Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
         :param pulumi.Input[_builtins.str] unit: The unit for the alarm's associated metric.
-        :param pulumi.Input[Union['MetricAlarmWarmUpConfigurationArgs', 'MetricAlarmWarmUpConfigurationArgsDict']] warm_up_configuration: Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warm_up_configuration` below.
+        :param pulumi.Input[Union['MetricAlarmWarmUpConfigurationArgs', 'MetricAlarmWarmUpConfigurationArgsDict', 'outputs.MetricAlarmWarmUpConfiguration']] warm_up_configuration: Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warm_up_configuration` below.
         """
         ...
     @overload
@@ -1342,6 +1342,12 @@ class MetricAlarm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foobar = aws.cloudwatch.MetricAlarm("foobar",
+            name="test-foobar",
+            comparison_operator="GreaterThanOrEqualToThreshold",
+            evaluation_periods=2,
+            threshold=float(10),
+            alarm_description="Request error rate has exceeded 10%",
+            insufficient_data_actions=[],
             metric_queries=[
                 {
                     "id": "e1",
@@ -1350,6 +1356,7 @@ class MetricAlarm(pulumi.CustomResource):
                     "return_data": True,
                 },
                 {
+                    "id": "m1",
                     "metric": {
                         "metric_name": "RequestCount",
                         "namespace": "AWS/ApplicationELB",
@@ -1360,9 +1367,9 @@ class MetricAlarm(pulumi.CustomResource):
                             "LoadBalancer": "app/web",
                         },
                     },
-                    "id": "m1",
                 },
                 {
+                    "id": "m2",
                     "metric": {
                         "metric_name": "HTTPCode_ELB_5XX_Count",
                         "namespace": "AWS/ApplicationELB",
@@ -1373,15 +1380,8 @@ class MetricAlarm(pulumi.CustomResource):
                             "LoadBalancer": "app/web",
                         },
                     },
-                    "id": "m2",
                 },
-            ],
-            name="test-foobar",
-            comparison_operator="GreaterThanOrEqualToThreshold",
-            evaluation_periods=2,
-            threshold=float(10),
-            alarm_description="Request error rate has exceeded 10%",
-            insufficient_data_actions=[])
+            ])
         ```
 
         ### With PromQL
@@ -1391,6 +1391,8 @@ class MetricAlarm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         promql_alarm = aws.cloudwatch.MetricAlarm("promql_alarm",
+            name="high-cpu-promql",
+            alarm_description="Alarm when average CPU exceeds 80% using PromQL",
             evaluation_criteria={
                 "promql_criteria": {
                     "query": "avg(cpu_utilization_percent) > 80",
@@ -1398,8 +1400,6 @@ class MetricAlarm(pulumi.CustomResource):
                     "recovery_period": 120,
                 },
             },
-            name="high-cpu-promql",
-            alarm_description="Alarm when average CPU exceeds 80% using PromQL",
             evaluation_interval=30,
             alarm_actions=[alerts["arn"]])
         ```
@@ -1409,6 +1409,12 @@ class MetricAlarm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         xx_anomaly_detection = aws.cloudwatch.MetricAlarm("xx_anomaly_detection",
+            name="test-foobar",
+            comparison_operator="GreaterThanUpperThreshold",
+            evaluation_periods=2,
+            threshold_metric_id="e1",
+            alarm_description="This metric monitors ec2 cpu utilization",
+            insufficient_data_actions=[],
             metric_queries=[
                 {
                     "id": "e1",
@@ -1417,6 +1423,8 @@ class MetricAlarm(pulumi.CustomResource):
                     "label": "CPUUtilization (Expected)",
                 },
                 {
+                    "id": "m1",
+                    "return_data": True,
                     "metric": {
                         "metric_name": "CPUUtilization",
                         "namespace": "AWS/EC2",
@@ -1427,16 +1435,8 @@ class MetricAlarm(pulumi.CustomResource):
                             "InstanceId": "i-abc123",
                         },
                     },
-                    "id": "m1",
-                    "return_data": True,
                 },
-            ],
-            name="test-foobar",
-            comparison_operator="GreaterThanUpperThreshold",
-            evaluation_periods=2,
-            threshold_metric_id="e1",
-            alarm_description="This metric monitors ec2 cpu utilization",
-            insufficient_data_actions=[])
+            ])
         ```
 
         ### With a Metrics Insights Query
@@ -1446,6 +1446,12 @@ class MetricAlarm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudwatch.MetricAlarm("example",
+            name="example-alarm",
+            alarm_description="Triggers if the smallest per-instance maximum load during the evaluation period exceeds the threshold",
+            comparison_operator="GreaterThanThreshold",
+            evaluation_periods=1,
+            threshold=0.6,
+            treat_missing_data="notBreaching",
             metric_queries=[{
                 "id": "q1",
                 "expression": \"\"\"SELECT
@@ -1459,13 +1465,7 @@ class MetricAlarm(pulumi.CustomResource):
                 "period": 60,
                 "return_data": True,
                 "label": "Max DB Load of the Least-Loaded RDS Instance",
-            }],
-            name="example-alarm",
-            alarm_description="Triggers if the smallest per-instance maximum load during the evaluation period exceeds the threshold",
-            comparison_operator="GreaterThanThreshold",
-            evaluation_periods=1,
-            threshold=0.6,
-            treat_missing_data="notBreaching")
+            }])
         ```
 
         ### Monitoring Healthy NLB Hosts with Target Group and NLB
@@ -1500,9 +1500,6 @@ class MetricAlarm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudwatch.MetricAlarm("example",
-            warm_up_configuration={
-                "warm_up_period_duration_in_minutes": 30,
-            },
             name="example-service-errors",
             comparison_operator="GreaterThanThreshold",
             evaluation_periods=3,
@@ -1512,7 +1509,10 @@ class MetricAlarm(pulumi.CustomResource):
             statistic="Sum",
             threshold=float(0),
             treat_missing_data="breaching",
-            alarm_actions=[example_aws_sns_topic["arn"]])
+            alarm_actions=[example_aws_sns_topic["arn"]],
+            warm_up_configuration={
+                "warm_up_period_duration_in_minutes": 30,
+            })
         ```
 
         > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
@@ -1560,13 +1560,13 @@ class MetricAlarm(pulumi.CustomResource):
                  datapoints_to_alarm: pulumi.Input[Optional[_builtins.int]] = None,
                  dimensions: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  evaluate_low_sample_count_percentiles: pulumi.Input[Optional[_builtins.str]] = None,
-                 evaluation_criteria: pulumi.Input[Optional[Union['MetricAlarmEvaluationCriteriaArgs', 'MetricAlarmEvaluationCriteriaArgsDict']]] = None,
+                 evaluation_criteria: pulumi.Input[Optional[Union['MetricAlarmEvaluationCriteriaArgs', 'MetricAlarmEvaluationCriteriaArgsDict', 'outputs.MetricAlarmEvaluationCriteria']]] = None,
                  evaluation_interval: pulumi.Input[Optional[_builtins.int]] = None,
                  evaluation_periods: pulumi.Input[Optional[_builtins.int]] = None,
                  extended_statistic: pulumi.Input[Optional[_builtins.str]] = None,
                  insufficient_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  metric_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 metric_queries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricAlarmMetricQueryArgs', 'MetricAlarmMetricQueryArgsDict']]]]] = None,
+                 metric_queries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricAlarmMetricQueryArgs', 'MetricAlarmMetricQueryArgsDict', 'outputs.MetricAlarmMetricQuery']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  ok_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1578,7 +1578,7 @@ class MetricAlarm(pulumi.CustomResource):
                  threshold_metric_id: pulumi.Input[Optional[_builtins.str]] = None,
                  treat_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
                  unit: pulumi.Input[Optional[_builtins.str]] = None,
-                 warm_up_configuration: pulumi.Input[Optional[Union['MetricAlarmWarmUpConfigurationArgs', 'MetricAlarmWarmUpConfigurationArgsDict']]] = None,
+                 warm_up_configuration: pulumi.Input[Optional[Union['MetricAlarmWarmUpConfigurationArgs', 'MetricAlarmWarmUpConfigurationArgsDict', 'outputs.MetricAlarmWarmUpConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1634,13 +1634,13 @@ class MetricAlarm(pulumi.CustomResource):
             datapoints_to_alarm: pulumi.Input[Optional[_builtins.int]] = None,
             dimensions: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             evaluate_low_sample_count_percentiles: pulumi.Input[Optional[_builtins.str]] = None,
-            evaluation_criteria: pulumi.Input[Optional[Union['MetricAlarmEvaluationCriteriaArgs', 'MetricAlarmEvaluationCriteriaArgsDict']]] = None,
+            evaluation_criteria: pulumi.Input[Optional[Union['MetricAlarmEvaluationCriteriaArgs', 'MetricAlarmEvaluationCriteriaArgsDict', 'outputs.MetricAlarmEvaluationCriteria']]] = None,
             evaluation_interval: pulumi.Input[Optional[_builtins.int]] = None,
             evaluation_periods: pulumi.Input[Optional[_builtins.int]] = None,
             extended_statistic: pulumi.Input[Optional[_builtins.str]] = None,
             insufficient_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             metric_name: pulumi.Input[Optional[_builtins.str]] = None,
-            metric_queries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricAlarmMetricQueryArgs', 'MetricAlarmMetricQueryArgsDict']]]]] = None,
+            metric_queries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricAlarmMetricQueryArgs', 'MetricAlarmMetricQueryArgsDict', 'outputs.MetricAlarmMetricQuery']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             namespace: pulumi.Input[Optional[_builtins.str]] = None,
             ok_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1653,7 +1653,7 @@ class MetricAlarm(pulumi.CustomResource):
             threshold_metric_id: pulumi.Input[Optional[_builtins.str]] = None,
             treat_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
             unit: pulumi.Input[Optional[_builtins.str]] = None,
-            warm_up_configuration: pulumi.Input[Optional[Union['MetricAlarmWarmUpConfigurationArgs', 'MetricAlarmWarmUpConfigurationArgsDict']]] = None) -> 'MetricAlarm':
+            warm_up_configuration: pulumi.Input[Optional[Union['MetricAlarmWarmUpConfigurationArgs', 'MetricAlarmWarmUpConfigurationArgsDict', 'outputs.MetricAlarmWarmUpConfiguration']]] = None) -> 'MetricAlarm':
         """
         Get an existing MetricAlarm resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1672,14 +1672,14 @@ class MetricAlarm(pulumi.CustomResource):
                If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
                If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
                The following values are supported: `ignore`, and `evaluate`.
-        :param pulumi.Input[Union['MetricAlarmEvaluationCriteriaArgs', 'MetricAlarmEvaluationCriteriaArgsDict']] evaluation_criteria: The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
+        :param pulumi.Input[Union['MetricAlarmEvaluationCriteriaArgs', 'MetricAlarmEvaluationCriteriaArgsDict', 'outputs.MetricAlarmEvaluationCriteria']] evaluation_criteria: The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
         :param pulumi.Input[_builtins.int] evaluation_interval: The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluation_criteria`.
         :param pulumi.Input[_builtins.int] evaluation_periods: The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
         :param pulumi.Input[_builtins.str] extended_statistic: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] insufficient_data_actions: List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
         :param pulumi.Input[_builtins.str] metric_name: The name for the alarm's associated metric.
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricAlarmMetricQueryArgs', 'MetricAlarmMetricQueryArgsDict']]]] metric_queries: Enables you to create an alarm based on a metric math expression. You may specify at most 20.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricAlarmMetricQueryArgs', 'MetricAlarmMetricQueryArgsDict', 'outputs.MetricAlarmMetricQuery']]]] metric_queries: Enables you to create an alarm based on a metric math expression. You may specify at most 20.
         :param pulumi.Input[_builtins.str] name: The descriptive name for the alarm. This name must be unique within the user's AWS account
         :param pulumi.Input[_builtins.str] namespace: The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -1700,7 +1700,7 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] threshold_metric_id: If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
         :param pulumi.Input[_builtins.str] treat_missing_data: Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
         :param pulumi.Input[_builtins.str] unit: The unit for the alarm's associated metric.
-        :param pulumi.Input[Union['MetricAlarmWarmUpConfigurationArgs', 'MetricAlarmWarmUpConfigurationArgsDict']] warm_up_configuration: Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warm_up_configuration` below.
+        :param pulumi.Input[Union['MetricAlarmWarmUpConfigurationArgs', 'MetricAlarmWarmUpConfigurationArgsDict', 'outputs.MetricAlarmWarmUpConfiguration']] warm_up_configuration: Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warm_up_configuration` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

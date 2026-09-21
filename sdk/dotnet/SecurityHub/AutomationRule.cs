@@ -26,17 +26,9 @@ namespace Pulumi.Aws.SecurityHub
     /// {
     ///     var example = new Aws.SecurityHub.AutomationRule("example", new()
     ///     {
-    ///         Criteria = new Aws.SecurityHub.Inputs.AutomationRuleCriteriaArgs
-    ///         {
-    ///             ResourceIds = new[]
-    ///             {
-    ///                 new Aws.SecurityHub.Inputs.AutomationRuleCriteriaResourceIdArgs
-    ///                 {
-    ///                     Comparison = "EQUALS",
-    ///                     Value = "arn:aws:s3:::examplebucket/*",
-    ///                 },
-    ///             },
-    ///         },
+    ///         Description = "Elevate finding severity to CRITICAL when specific resources such as an S3 bucket is at risk",
+    ///         RuleName = "Elevate severity of findings that relate to important resources",
+    ///         RuleOrder = 1,
     ///         Actions = new[]
     ///         {
     ///             new Aws.SecurityHub.Inputs.AutomationRuleActionArgs
@@ -65,9 +57,17 @@ namespace Pulumi.Aws.SecurityHub
     ///                 Type = "FINDING_FIELDS_UPDATE",
     ///             },
     ///         },
-    ///         Description = "Elevate finding severity to CRITICAL when specific resources such as an S3 bucket is at risk",
-    ///         RuleName = "Elevate severity of findings that relate to important resources",
-    ///         RuleOrder = 1,
+    ///         Criteria = new Aws.SecurityHub.Inputs.AutomationRuleCriteriaArgs
+    ///         {
+    ///             ResourceIds = new[]
+    ///             {
+    ///                 new Aws.SecurityHub.Inputs.AutomationRuleCriteriaResourceIdArgs
+    ///                 {
+    ///                     Comparison = "EQUALS",
+    ///                     Value = "arn:aws:s3:::examplebucket/*",
+    ///                 },
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });

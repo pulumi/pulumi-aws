@@ -139,7 +139,7 @@ class TrafficSourceAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  autoscaling_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 traffic_source: pulumi.Input[Optional[Union['TrafficSourceAttachmentTrafficSourceArgs', 'TrafficSourceAttachmentTrafficSourceArgsDict']]] = None,
+                 traffic_source: pulumi.Input[Optional[Union['TrafficSourceAttachmentTrafficSourceArgs', 'TrafficSourceAttachmentTrafficSourceArgsDict', 'outputs.TrafficSourceAttachmentTrafficSource']]] = None,
                  __props__=None):
         """
         Attaches a traffic source to an Auto Scaling group.
@@ -155,11 +155,11 @@ class TrafficSourceAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.autoscaling.TrafficSourceAttachment("example",
+            autoscaling_group_name=example_aws_autoscaling_group["id"],
             traffic_source={
                 "identifier": example_aws_lb_target_group["arn"],
                 "type": "elbv2",
-            },
-            autoscaling_group_name=example_aws_autoscaling_group["id"])
+            })
         ```
 
         ## Import
@@ -175,7 +175,7 @@ class TrafficSourceAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] autoscaling_group_name: The name of the Auto Scaling group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['TrafficSourceAttachmentTrafficSourceArgs', 'TrafficSourceAttachmentTrafficSourceArgsDict']] traffic_source: The unique identifiers of a traffic sources.
+        :param pulumi.Input[Union['TrafficSourceAttachmentTrafficSourceArgs', 'TrafficSourceAttachmentTrafficSourceArgsDict', 'outputs.TrafficSourceAttachmentTrafficSource']] traffic_source: The unique identifiers of a traffic sources.
         """
         ...
     @overload
@@ -197,11 +197,11 @@ class TrafficSourceAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.autoscaling.TrafficSourceAttachment("example",
+            autoscaling_group_name=example_aws_autoscaling_group["id"],
             traffic_source={
                 "identifier": example_aws_lb_target_group["arn"],
                 "type": "elbv2",
-            },
-            autoscaling_group_name=example_aws_autoscaling_group["id"])
+            })
         ```
 
         ## Import
@@ -230,7 +230,7 @@ class TrafficSourceAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  autoscaling_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 traffic_source: pulumi.Input[Optional[Union['TrafficSourceAttachmentTrafficSourceArgs', 'TrafficSourceAttachmentTrafficSourceArgsDict']]] = None,
+                 traffic_source: pulumi.Input[Optional[Union['TrafficSourceAttachmentTrafficSourceArgs', 'TrafficSourceAttachmentTrafficSourceArgsDict', 'outputs.TrafficSourceAttachmentTrafficSource']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -257,7 +257,7 @@ class TrafficSourceAttachment(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             autoscaling_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            traffic_source: pulumi.Input[Optional[Union['TrafficSourceAttachmentTrafficSourceArgs', 'TrafficSourceAttachmentTrafficSourceArgsDict']]] = None) -> 'TrafficSourceAttachment':
+            traffic_source: pulumi.Input[Optional[Union['TrafficSourceAttachmentTrafficSourceArgs', 'TrafficSourceAttachmentTrafficSourceArgsDict', 'outputs.TrafficSourceAttachmentTrafficSource']]] = None) -> 'TrafficSourceAttachment':
         """
         Get an existing TrafficSourceAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -267,7 +267,7 @@ class TrafficSourceAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] autoscaling_group_name: The name of the Auto Scaling group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['TrafficSourceAttachmentTrafficSourceArgs', 'TrafficSourceAttachmentTrafficSourceArgsDict']] traffic_source: The unique identifiers of a traffic sources.
+        :param pulumi.Input[Union['TrafficSourceAttachmentTrafficSourceArgs', 'TrafficSourceAttachmentTrafficSourceArgsDict', 'outputs.TrafficSourceAttachmentTrafficSource']] traffic_source: The unique identifiers of a traffic sources.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -46,6 +46,13 @@ import (
 //			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
+//						Actions: pulumi.StringArray{
+//							pulumi.String("glacier:DeleteArchive"),
+//						},
+//						Effect: pulumi.String("Deny"),
+//						Resources: pulumi.StringArray{
+//							exampleVault.Arn,
+//						},
 //						Conditions: iam.GetPolicyDocumentStatementConditionArray{
 //							&iam.GetPolicyDocumentStatementConditionArgs{
 //								Test:     pulumi.String("NumericLessThanEquals"),
@@ -54,13 +61,6 @@ import (
 //									pulumi.String("365"),
 //								},
 //							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("glacier:DeleteArchive"),
-//						},
-//						Effect: pulumi.String("Deny"),
-//						Resources: pulumi.StringArray{
-//							exampleVault.Arn,
 //						},
 //					},
 //				},

@@ -338,14 +338,14 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict']]]]] = None,
-                 data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict']]]]] = None,
-                 iam_identity_center_options: pulumi.Input[Optional[Union['ApplicationIamIdentityCenterOptionsArgs', 'ApplicationIamIdentityCenterOptionsArgsDict']]] = None,
+                 app_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict', 'outputs.ApplicationAppConfig']]]]] = None,
+                 data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict', 'outputs.ApplicationDataSource']]]]] = None,
+                 iam_identity_center_options: pulumi.Input[Optional[Union['ApplicationIamIdentityCenterOptionsArgs', 'ApplicationIamIdentityCenterOptionsArgsDict', 'outputs.ApplicationIamIdentityCenterOptions']]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict', 'outputs.ApplicationTimeouts']]] = None,
                  __props__=None):
         """
         Provides an AWS OpenSearch Application resource. OpenSearch Applications provide a user interface for interacting with OpenSearch data and managing OpenSearch resources.
@@ -368,6 +368,7 @@ class Application(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.Application("example",
+            name="my-opensearch-app",
             app_configs=[
                 {
                     "key": "opensearchDashboards.dashboardAdmin.users",
@@ -378,7 +379,6 @@ class Application(pulumi.CustomResource):
                     "value": "admin-group",
                 },
             ],
-            name="my-opensearch-app",
             tags={
                 "Environment": "production",
                 "Team": "data-platform",
@@ -392,21 +392,21 @@ class Application(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.Domain("example",
+            domain_name="example-domain",
+            engine_version="OpenSearch_2.3",
             cluster_config={
                 "instance_type": "t3.small.search",
             },
             ebs_options={
                 "ebs_enabled": True,
                 "volume_size": 20,
-            },
-            domain_name="example-domain",
-            engine_version="OpenSearch_2.3")
+            })
         example_application = aws.opensearch.Application("example",
+            name="my-opensearch-app",
             data_sources=[{
                 "data_source_arn": example.arn,
                 "data_source_description": "Primary OpenSearch domain for analytics",
             }],
-            name="my-opensearch-app",
             tags={
                 "Environment": "production",
             })
@@ -491,12 +491,12 @@ class Application(pulumi.CustomResource):
             role=opensearch_application.name,
             policy_arn=opensearch_identity_center.arn)
         example_application = aws.opensearch.Application("example",
+            name="my-opensearch-app",
             iam_identity_center_options={
                 "enabled": True,
                 "iam_identity_center_instance_arn": example.arns[0],
                 "iam_role_for_identity_center_application_arn": opensearch_application.arn,
             },
-            name="my-opensearch-app",
             tags={
                 "Environment": "production",
             })
@@ -513,9 +513,9 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict']]]] app_configs: Configuration block(s) for OpenSearch application settings. See App Config below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict']]]] data_sources: Configuration block(s) for data sources to link to the OpenSearch application. See Data Source below.
-        :param pulumi.Input[Union['ApplicationIamIdentityCenterOptionsArgs', 'ApplicationIamIdentityCenterOptionsArgsDict']] iam_identity_center_options: Configuration block for integrating AWS IAM Identity Center with the OpenSearch application. See IAM Identity Center Options below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict', 'outputs.ApplicationAppConfig']]]] app_configs: Configuration block(s) for OpenSearch application settings. See App Config below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict', 'outputs.ApplicationDataSource']]]] data_sources: Configuration block(s) for data sources to link to the OpenSearch application. See Data Source below.
+        :param pulumi.Input[Union['ApplicationIamIdentityCenterOptionsArgs', 'ApplicationIamIdentityCenterOptionsArgsDict', 'outputs.ApplicationIamIdentityCenterOptions']] iam_identity_center_options: Configuration block for integrating AWS IAM Identity Center with the OpenSearch application. See IAM Identity Center Options below.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the application's data at rest.
         :param pulumi.Input[_builtins.str] name: The unique name of the OpenSearch application. Names must be unique within an AWS Region for each account. Must be between 3 and 30 characters, start with a lowercase letter, and contain only lowercase letters, numbers, and hyphens.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -548,6 +548,7 @@ class Application(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.Application("example",
+            name="my-opensearch-app",
             app_configs=[
                 {
                     "key": "opensearchDashboards.dashboardAdmin.users",
@@ -558,7 +559,6 @@ class Application(pulumi.CustomResource):
                     "value": "admin-group",
                 },
             ],
-            name="my-opensearch-app",
             tags={
                 "Environment": "production",
                 "Team": "data-platform",
@@ -572,21 +572,21 @@ class Application(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.Domain("example",
+            domain_name="example-domain",
+            engine_version="OpenSearch_2.3",
             cluster_config={
                 "instance_type": "t3.small.search",
             },
             ebs_options={
                 "ebs_enabled": True,
                 "volume_size": 20,
-            },
-            domain_name="example-domain",
-            engine_version="OpenSearch_2.3")
+            })
         example_application = aws.opensearch.Application("example",
+            name="my-opensearch-app",
             data_sources=[{
                 "data_source_arn": example.arn,
                 "data_source_description": "Primary OpenSearch domain for analytics",
             }],
-            name="my-opensearch-app",
             tags={
                 "Environment": "production",
             })
@@ -671,12 +671,12 @@ class Application(pulumi.CustomResource):
             role=opensearch_application.name,
             policy_arn=opensearch_identity_center.arn)
         example_application = aws.opensearch.Application("example",
+            name="my-opensearch-app",
             iam_identity_center_options={
                 "enabled": True,
                 "iam_identity_center_instance_arn": example.arns[0],
                 "iam_role_for_identity_center_application_arn": opensearch_application.arn,
             },
-            name="my-opensearch-app",
             tags={
                 "Environment": "production",
             })
@@ -706,14 +706,14 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict']]]]] = None,
-                 data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict']]]]] = None,
-                 iam_identity_center_options: pulumi.Input[Optional[Union['ApplicationIamIdentityCenterOptionsArgs', 'ApplicationIamIdentityCenterOptionsArgsDict']]] = None,
+                 app_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict', 'outputs.ApplicationAppConfig']]]]] = None,
+                 data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict', 'outputs.ApplicationDataSource']]]]] = None,
+                 iam_identity_center_options: pulumi.Input[Optional[Union['ApplicationIamIdentityCenterOptionsArgs', 'ApplicationIamIdentityCenterOptionsArgsDict', 'outputs.ApplicationIamIdentityCenterOptions']]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict', 'outputs.ApplicationTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -744,17 +744,17 @@ class Application(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict']]]]] = None,
+            app_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict', 'outputs.ApplicationAppConfig']]]]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict']]]]] = None,
+            data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict', 'outputs.ApplicationDataSource']]]]] = None,
             endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-            iam_identity_center_options: pulumi.Input[Optional[Union['ApplicationIamIdentityCenterOptionsArgs', 'ApplicationIamIdentityCenterOptionsArgsDict']]] = None,
+            iam_identity_center_options: pulumi.Input[Optional[Union['ApplicationIamIdentityCenterOptionsArgs', 'ApplicationIamIdentityCenterOptionsArgsDict', 'outputs.ApplicationIamIdentityCenterOptions']]] = None,
             kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None) -> 'Application':
+            timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict', 'outputs.ApplicationTimeouts']]] = None) -> 'Application':
         """
         Get an existing Application resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -762,11 +762,11 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict']]]] app_configs: Configuration block(s) for OpenSearch application settings. See App Config below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict', 'outputs.ApplicationAppConfig']]]] app_configs: Configuration block(s) for OpenSearch application settings. See App Config below.
         :param pulumi.Input[_builtins.str] arn: ARN of the OpenSearch application.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict']]]] data_sources: Configuration block(s) for data sources to link to the OpenSearch application. See Data Source below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict', 'outputs.ApplicationDataSource']]]] data_sources: Configuration block(s) for data sources to link to the OpenSearch application. See Data Source below.
         :param pulumi.Input[_builtins.str] endpoint: Endpoint URL of the OpenSearch application.
-        :param pulumi.Input[Union['ApplicationIamIdentityCenterOptionsArgs', 'ApplicationIamIdentityCenterOptionsArgsDict']] iam_identity_center_options: Configuration block for integrating AWS IAM Identity Center with the OpenSearch application. See IAM Identity Center Options below.
+        :param pulumi.Input[Union['ApplicationIamIdentityCenterOptionsArgs', 'ApplicationIamIdentityCenterOptionsArgsDict', 'outputs.ApplicationIamIdentityCenterOptions']] iam_identity_center_options: Configuration block for integrating AWS IAM Identity Center with the OpenSearch application. See IAM Identity Center Options below.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the application's data at rest.
         :param pulumi.Input[_builtins.str] name: The unique name of the OpenSearch application. Names must be unique within an AWS Region for each account. Must be between 3 and 30 characters, start with a lowercase letter, and contain only lowercase letters, numbers, and hyphens.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

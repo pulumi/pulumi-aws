@@ -2049,16 +2049,16 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  ami: pulumi.Input[Optional[_builtins.str]] = None,
                  associate_public_ip_address: pulumi.Input[Optional[_builtins.bool]] = None,
                  availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 capacity_reservation_specification: pulumi.Input[Optional[Union['SpotInstanceRequestCapacityReservationSpecificationArgs', 'SpotInstanceRequestCapacityReservationSpecificationArgsDict']]] = None,
-                 cpu_options: pulumi.Input[Optional[Union['SpotInstanceRequestCpuOptionsArgs', 'SpotInstanceRequestCpuOptionsArgsDict']]] = None,
-                 credit_specification: pulumi.Input[Optional[Union['SpotInstanceRequestCreditSpecificationArgs', 'SpotInstanceRequestCreditSpecificationArgsDict']]] = None,
+                 capacity_reservation_specification: pulumi.Input[Optional[Union['SpotInstanceRequestCapacityReservationSpecificationArgs', 'SpotInstanceRequestCapacityReservationSpecificationArgsDict', 'outputs.SpotInstanceRequestCapacityReservationSpecification']]] = None,
+                 cpu_options: pulumi.Input[Optional[Union['SpotInstanceRequestCpuOptionsArgs', 'SpotInstanceRequestCpuOptionsArgsDict', 'outputs.SpotInstanceRequestCpuOptions']]] = None,
+                 credit_specification: pulumi.Input[Optional[Union['SpotInstanceRequestCreditSpecificationArgs', 'SpotInstanceRequestCreditSpecificationArgsDict', 'outputs.SpotInstanceRequestCreditSpecification']]] = None,
                  disable_api_stop: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_api_termination: pulumi.Input[Optional[_builtins.bool]] = None,
-                 ebs_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotInstanceRequestEbsBlockDeviceArgs', 'SpotInstanceRequestEbsBlockDeviceArgsDict']]]]] = None,
+                 ebs_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotInstanceRequestEbsBlockDeviceArgs', 'SpotInstanceRequestEbsBlockDeviceArgsDict', 'outputs.SpotInstanceRequestEbsBlockDevice']]]]] = None,
                  ebs_optimized: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_primary_ipv6: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enclave_options: pulumi.Input[Optional[Union['SpotInstanceRequestEnclaveOptionsArgs', 'SpotInstanceRequestEnclaveOptionsArgsDict']]] = None,
-                 ephemeral_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotInstanceRequestEphemeralBlockDeviceArgs', 'SpotInstanceRequestEphemeralBlockDeviceArgsDict']]]]] = None,
+                 enclave_options: pulumi.Input[Optional[Union['SpotInstanceRequestEnclaveOptionsArgs', 'SpotInstanceRequestEnclaveOptionsArgsDict', 'outputs.SpotInstanceRequestEnclaveOptions']]] = None,
+                 ephemeral_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotInstanceRequestEphemeralBlockDeviceArgs', 'SpotInstanceRequestEphemeralBlockDeviceArgsDict', 'outputs.SpotInstanceRequestEphemeralBlockDevice']]]]] = None,
                  force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  get_password_data: pulumi.Input[Optional[_builtins.bool]] = None,
                  hibernation: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -2072,19 +2072,19 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  ipv6_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  key_name: pulumi.Input[Optional[_builtins.str]] = None,
                  launch_group: pulumi.Input[Optional[_builtins.str]] = None,
-                 launch_template: pulumi.Input[Optional[Union['SpotInstanceRequestLaunchTemplateArgs', 'SpotInstanceRequestLaunchTemplateArgsDict']]] = None,
-                 maintenance_options: pulumi.Input[Optional[Union['SpotInstanceRequestMaintenanceOptionsArgs', 'SpotInstanceRequestMaintenanceOptionsArgsDict']]] = None,
-                 metadata_options: pulumi.Input[Optional[Union['SpotInstanceRequestMetadataOptionsArgs', 'SpotInstanceRequestMetadataOptionsArgsDict']]] = None,
+                 launch_template: pulumi.Input[Optional[Union['SpotInstanceRequestLaunchTemplateArgs', 'SpotInstanceRequestLaunchTemplateArgsDict', 'outputs.SpotInstanceRequestLaunchTemplate']]] = None,
+                 maintenance_options: pulumi.Input[Optional[Union['SpotInstanceRequestMaintenanceOptionsArgs', 'SpotInstanceRequestMaintenanceOptionsArgsDict', 'outputs.SpotInstanceRequestMaintenanceOptions']]] = None,
+                 metadata_options: pulumi.Input[Optional[Union['SpotInstanceRequestMetadataOptionsArgs', 'SpotInstanceRequestMetadataOptionsArgsDict', 'outputs.SpotInstanceRequestMetadataOptions']]] = None,
                  monitoring: pulumi.Input[Optional[_builtins.bool]] = None,
-                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotInstanceRequestNetworkInterfaceArgs', 'SpotInstanceRequestNetworkInterfaceArgsDict']]]]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotInstanceRequestNetworkInterfaceArgs', 'SpotInstanceRequestNetworkInterfaceArgsDict', 'outputs.SpotInstanceRequestNetworkInterface']]]]] = None,
                  placement_group: pulumi.Input[Optional[_builtins.str]] = None,
                  placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  placement_partition_number: pulumi.Input[Optional[_builtins.int]] = None,
-                 private_dns_name_options: pulumi.Input[Optional[Union['SpotInstanceRequestPrivateDnsNameOptionsArgs', 'SpotInstanceRequestPrivateDnsNameOptionsArgsDict']]] = None,
+                 private_dns_name_options: pulumi.Input[Optional[Union['SpotInstanceRequestPrivateDnsNameOptionsArgs', 'SpotInstanceRequestPrivateDnsNameOptionsArgsDict', 'outputs.SpotInstanceRequestPrivateDnsNameOptions']]] = None,
                  private_ip: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 root_block_device: pulumi.Input[Optional[Union['SpotInstanceRequestRootBlockDeviceArgs', 'SpotInstanceRequestRootBlockDeviceArgsDict']]] = None,
-                 secondary_network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotInstanceRequestSecondaryNetworkInterfaceArgs', 'SpotInstanceRequestSecondaryNetworkInterfaceArgsDict']]]]] = None,
+                 root_block_device: pulumi.Input[Optional[Union['SpotInstanceRequestRootBlockDeviceArgs', 'SpotInstanceRequestRootBlockDeviceArgsDict', 'outputs.SpotInstanceRequestRootBlockDevice']]] = None,
+                 secondary_network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotInstanceRequestSecondaryNetworkInterfaceArgs', 'SpotInstanceRequestSecondaryNetworkInterfaceArgsDict', 'outputs.SpotInstanceRequestSecondaryNetworkInterface']]]]] = None,
                  secondary_private_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  source_dest_check: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -2151,16 +2151,16 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         :param pulumi.Input[_builtins.bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[_builtins.str] availability_zone: AZ to start the instance in.
-        :param pulumi.Input[Union['SpotInstanceRequestCapacityReservationSpecificationArgs', 'SpotInstanceRequestCapacityReservationSpecificationArgsDict']] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-        :param pulumi.Input[Union['SpotInstanceRequestCpuOptionsArgs', 'SpotInstanceRequestCpuOptionsArgsDict']] cpu_options: The CPU options for the instance. See CPU Options below for more details.
-        :param pulumi.Input[Union['SpotInstanceRequestCreditSpecificationArgs', 'SpotInstanceRequestCreditSpecificationArgsDict']] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+        :param pulumi.Input[Union['SpotInstanceRequestCapacityReservationSpecificationArgs', 'SpotInstanceRequestCapacityReservationSpecificationArgsDict', 'outputs.SpotInstanceRequestCapacityReservationSpecification']] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+        :param pulumi.Input[Union['SpotInstanceRequestCpuOptionsArgs', 'SpotInstanceRequestCpuOptionsArgsDict', 'outputs.SpotInstanceRequestCpuOptions']] cpu_options: The CPU options for the instance. See CPU Options below for more details.
+        :param pulumi.Input[Union['SpotInstanceRequestCreditSpecificationArgs', 'SpotInstanceRequestCreditSpecificationArgsDict', 'outputs.SpotInstanceRequestCreditSpecification']] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
         :param pulumi.Input[_builtins.bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
         :param pulumi.Input[_builtins.bool] disable_api_termination: If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestEbsBlockDeviceArgs', 'SpotInstanceRequestEbsBlockDeviceArgsDict']]]] ebs_block_devices: One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestEbsBlockDeviceArgs', 'SpotInstanceRequestEbsBlockDeviceArgsDict', 'outputs.SpotInstanceRequestEbsBlockDevice']]]] ebs_block_devices: One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
         :param pulumi.Input[_builtins.bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
         :param pulumi.Input[_builtins.bool] enable_primary_ipv6: Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
-        :param pulumi.Input[Union['SpotInstanceRequestEnclaveOptionsArgs', 'SpotInstanceRequestEnclaveOptionsArgsDict']] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestEphemeralBlockDeviceArgs', 'SpotInstanceRequestEphemeralBlockDeviceArgsDict']]]] ephemeral_block_devices: One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
+        :param pulumi.Input[Union['SpotInstanceRequestEnclaveOptionsArgs', 'SpotInstanceRequestEnclaveOptionsArgsDict', 'outputs.SpotInstanceRequestEnclaveOptions']] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestEphemeralBlockDeviceArgs', 'SpotInstanceRequestEphemeralBlockDeviceArgsDict', 'outputs.SpotInstanceRequestEphemeralBlockDevice']]]] ephemeral_block_devices: One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
         :param pulumi.Input[_builtins.bool] force_destroy: Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         :param pulumi.Input[_builtins.bool] get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         :param pulumi.Input[_builtins.bool] hibernation: If true, the launched EC2 instance will support hibernation.
@@ -2175,19 +2175,19 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] key_name: Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
         :param pulumi.Input[_builtins.str] launch_group: A launch group is a group of spot instances that launch together and terminate together.
                If left empty instances are launched and terminated individually.
-        :param pulumi.Input[Union['SpotInstanceRequestLaunchTemplateArgs', 'SpotInstanceRequestLaunchTemplateArgsDict']] launch_template: Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
-        :param pulumi.Input[Union['SpotInstanceRequestMaintenanceOptionsArgs', 'SpotInstanceRequestMaintenanceOptionsArgsDict']] maintenance_options: Maintenance and recovery options for the instance. See Maintenance Options below for more details.
-        :param pulumi.Input[Union['SpotInstanceRequestMetadataOptionsArgs', 'SpotInstanceRequestMetadataOptionsArgsDict']] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
+        :param pulumi.Input[Union['SpotInstanceRequestLaunchTemplateArgs', 'SpotInstanceRequestLaunchTemplateArgsDict', 'outputs.SpotInstanceRequestLaunchTemplate']] launch_template: Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
+        :param pulumi.Input[Union['SpotInstanceRequestMaintenanceOptionsArgs', 'SpotInstanceRequestMaintenanceOptionsArgsDict', 'outputs.SpotInstanceRequestMaintenanceOptions']] maintenance_options: Maintenance and recovery options for the instance. See Maintenance Options below for more details.
+        :param pulumi.Input[Union['SpotInstanceRequestMetadataOptionsArgs', 'SpotInstanceRequestMetadataOptionsArgsDict', 'outputs.SpotInstanceRequestMetadataOptions']] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[_builtins.bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestNetworkInterfaceArgs', 'SpotInstanceRequestNetworkInterfaceArgsDict']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestNetworkInterfaceArgs', 'SpotInstanceRequestNetworkInterfaceArgsDict', 'outputs.SpotInstanceRequestNetworkInterface']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in. Conflicts with `placement_group_id`.
         :param pulumi.Input[_builtins.str] placement_group_id: Placement Group ID to start the instance in. Conflicts with `placement_group`.
         :param pulumi.Input[_builtins.int] placement_partition_number: Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
-        :param pulumi.Input[Union['SpotInstanceRequestPrivateDnsNameOptionsArgs', 'SpotInstanceRequestPrivateDnsNameOptionsArgsDict']] private_dns_name_options: Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+        :param pulumi.Input[Union['SpotInstanceRequestPrivateDnsNameOptionsArgs', 'SpotInstanceRequestPrivateDnsNameOptionsArgsDict', 'outputs.SpotInstanceRequestPrivateDnsNameOptions']] private_dns_name_options: Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         :param pulumi.Input[_builtins.str] private_ip: Private IP address to associate with the instance in a VPC.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['SpotInstanceRequestRootBlockDeviceArgs', 'SpotInstanceRequestRootBlockDeviceArgsDict']] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestSecondaryNetworkInterfaceArgs', 'SpotInstanceRequestSecondaryNetworkInterfaceArgsDict']]]] secondary_network_interfaces: One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+        :param pulumi.Input[Union['SpotInstanceRequestRootBlockDeviceArgs', 'SpotInstanceRequestRootBlockDeviceArgsDict', 'outputs.SpotInstanceRequestRootBlockDevice']] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestSecondaryNetworkInterfaceArgs', 'SpotInstanceRequestSecondaryNetworkInterfaceArgsDict', 'outputs.SpotInstanceRequestSecondaryNetworkInterface']]]] secondary_network_interfaces: One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_private_ips: List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: List of security group names to associate with.
                
@@ -2280,16 +2280,16 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  ami: pulumi.Input[Optional[_builtins.str]] = None,
                  associate_public_ip_address: pulumi.Input[Optional[_builtins.bool]] = None,
                  availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 capacity_reservation_specification: pulumi.Input[Optional[Union['SpotInstanceRequestCapacityReservationSpecificationArgs', 'SpotInstanceRequestCapacityReservationSpecificationArgsDict']]] = None,
-                 cpu_options: pulumi.Input[Optional[Union['SpotInstanceRequestCpuOptionsArgs', 'SpotInstanceRequestCpuOptionsArgsDict']]] = None,
-                 credit_specification: pulumi.Input[Optional[Union['SpotInstanceRequestCreditSpecificationArgs', 'SpotInstanceRequestCreditSpecificationArgsDict']]] = None,
+                 capacity_reservation_specification: pulumi.Input[Optional[Union['SpotInstanceRequestCapacityReservationSpecificationArgs', 'SpotInstanceRequestCapacityReservationSpecificationArgsDict', 'outputs.SpotInstanceRequestCapacityReservationSpecification']]] = None,
+                 cpu_options: pulumi.Input[Optional[Union['SpotInstanceRequestCpuOptionsArgs', 'SpotInstanceRequestCpuOptionsArgsDict', 'outputs.SpotInstanceRequestCpuOptions']]] = None,
+                 credit_specification: pulumi.Input[Optional[Union['SpotInstanceRequestCreditSpecificationArgs', 'SpotInstanceRequestCreditSpecificationArgsDict', 'outputs.SpotInstanceRequestCreditSpecification']]] = None,
                  disable_api_stop: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_api_termination: pulumi.Input[Optional[_builtins.bool]] = None,
-                 ebs_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotInstanceRequestEbsBlockDeviceArgs', 'SpotInstanceRequestEbsBlockDeviceArgsDict']]]]] = None,
+                 ebs_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotInstanceRequestEbsBlockDeviceArgs', 'SpotInstanceRequestEbsBlockDeviceArgsDict', 'outputs.SpotInstanceRequestEbsBlockDevice']]]]] = None,
                  ebs_optimized: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_primary_ipv6: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enclave_options: pulumi.Input[Optional[Union['SpotInstanceRequestEnclaveOptionsArgs', 'SpotInstanceRequestEnclaveOptionsArgsDict']]] = None,
-                 ephemeral_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotInstanceRequestEphemeralBlockDeviceArgs', 'SpotInstanceRequestEphemeralBlockDeviceArgsDict']]]]] = None,
+                 enclave_options: pulumi.Input[Optional[Union['SpotInstanceRequestEnclaveOptionsArgs', 'SpotInstanceRequestEnclaveOptionsArgsDict', 'outputs.SpotInstanceRequestEnclaveOptions']]] = None,
+                 ephemeral_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotInstanceRequestEphemeralBlockDeviceArgs', 'SpotInstanceRequestEphemeralBlockDeviceArgsDict', 'outputs.SpotInstanceRequestEphemeralBlockDevice']]]]] = None,
                  force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  get_password_data: pulumi.Input[Optional[_builtins.bool]] = None,
                  hibernation: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -2303,19 +2303,19 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  ipv6_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  key_name: pulumi.Input[Optional[_builtins.str]] = None,
                  launch_group: pulumi.Input[Optional[_builtins.str]] = None,
-                 launch_template: pulumi.Input[Optional[Union['SpotInstanceRequestLaunchTemplateArgs', 'SpotInstanceRequestLaunchTemplateArgsDict']]] = None,
-                 maintenance_options: pulumi.Input[Optional[Union['SpotInstanceRequestMaintenanceOptionsArgs', 'SpotInstanceRequestMaintenanceOptionsArgsDict']]] = None,
-                 metadata_options: pulumi.Input[Optional[Union['SpotInstanceRequestMetadataOptionsArgs', 'SpotInstanceRequestMetadataOptionsArgsDict']]] = None,
+                 launch_template: pulumi.Input[Optional[Union['SpotInstanceRequestLaunchTemplateArgs', 'SpotInstanceRequestLaunchTemplateArgsDict', 'outputs.SpotInstanceRequestLaunchTemplate']]] = None,
+                 maintenance_options: pulumi.Input[Optional[Union['SpotInstanceRequestMaintenanceOptionsArgs', 'SpotInstanceRequestMaintenanceOptionsArgsDict', 'outputs.SpotInstanceRequestMaintenanceOptions']]] = None,
+                 metadata_options: pulumi.Input[Optional[Union['SpotInstanceRequestMetadataOptionsArgs', 'SpotInstanceRequestMetadataOptionsArgsDict', 'outputs.SpotInstanceRequestMetadataOptions']]] = None,
                  monitoring: pulumi.Input[Optional[_builtins.bool]] = None,
-                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotInstanceRequestNetworkInterfaceArgs', 'SpotInstanceRequestNetworkInterfaceArgsDict']]]]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotInstanceRequestNetworkInterfaceArgs', 'SpotInstanceRequestNetworkInterfaceArgsDict', 'outputs.SpotInstanceRequestNetworkInterface']]]]] = None,
                  placement_group: pulumi.Input[Optional[_builtins.str]] = None,
                  placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  placement_partition_number: pulumi.Input[Optional[_builtins.int]] = None,
-                 private_dns_name_options: pulumi.Input[Optional[Union['SpotInstanceRequestPrivateDnsNameOptionsArgs', 'SpotInstanceRequestPrivateDnsNameOptionsArgsDict']]] = None,
+                 private_dns_name_options: pulumi.Input[Optional[Union['SpotInstanceRequestPrivateDnsNameOptionsArgs', 'SpotInstanceRequestPrivateDnsNameOptionsArgsDict', 'outputs.SpotInstanceRequestPrivateDnsNameOptions']]] = None,
                  private_ip: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 root_block_device: pulumi.Input[Optional[Union['SpotInstanceRequestRootBlockDeviceArgs', 'SpotInstanceRequestRootBlockDeviceArgsDict']]] = None,
-                 secondary_network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotInstanceRequestSecondaryNetworkInterfaceArgs', 'SpotInstanceRequestSecondaryNetworkInterfaceArgsDict']]]]] = None,
+                 root_block_device: pulumi.Input[Optional[Union['SpotInstanceRequestRootBlockDeviceArgs', 'SpotInstanceRequestRootBlockDeviceArgsDict', 'outputs.SpotInstanceRequestRootBlockDevice']]] = None,
+                 secondary_network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotInstanceRequestSecondaryNetworkInterfaceArgs', 'SpotInstanceRequestSecondaryNetworkInterfaceArgsDict', 'outputs.SpotInstanceRequestSecondaryNetworkInterface']]]]] = None,
                  secondary_private_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  source_dest_check: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -2423,16 +2423,16 @@ class SpotInstanceRequest(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             associate_public_ip_address: pulumi.Input[Optional[_builtins.bool]] = None,
             availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
-            capacity_reservation_specification: pulumi.Input[Optional[Union['SpotInstanceRequestCapacityReservationSpecificationArgs', 'SpotInstanceRequestCapacityReservationSpecificationArgsDict']]] = None,
-            cpu_options: pulumi.Input[Optional[Union['SpotInstanceRequestCpuOptionsArgs', 'SpotInstanceRequestCpuOptionsArgsDict']]] = None,
-            credit_specification: pulumi.Input[Optional[Union['SpotInstanceRequestCreditSpecificationArgs', 'SpotInstanceRequestCreditSpecificationArgsDict']]] = None,
+            capacity_reservation_specification: pulumi.Input[Optional[Union['SpotInstanceRequestCapacityReservationSpecificationArgs', 'SpotInstanceRequestCapacityReservationSpecificationArgsDict', 'outputs.SpotInstanceRequestCapacityReservationSpecification']]] = None,
+            cpu_options: pulumi.Input[Optional[Union['SpotInstanceRequestCpuOptionsArgs', 'SpotInstanceRequestCpuOptionsArgsDict', 'outputs.SpotInstanceRequestCpuOptions']]] = None,
+            credit_specification: pulumi.Input[Optional[Union['SpotInstanceRequestCreditSpecificationArgs', 'SpotInstanceRequestCreditSpecificationArgsDict', 'outputs.SpotInstanceRequestCreditSpecification']]] = None,
             disable_api_stop: pulumi.Input[Optional[_builtins.bool]] = None,
             disable_api_termination: pulumi.Input[Optional[_builtins.bool]] = None,
-            ebs_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotInstanceRequestEbsBlockDeviceArgs', 'SpotInstanceRequestEbsBlockDeviceArgsDict']]]]] = None,
+            ebs_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotInstanceRequestEbsBlockDeviceArgs', 'SpotInstanceRequestEbsBlockDeviceArgsDict', 'outputs.SpotInstanceRequestEbsBlockDevice']]]]] = None,
             ebs_optimized: pulumi.Input[Optional[_builtins.bool]] = None,
             enable_primary_ipv6: pulumi.Input[Optional[_builtins.bool]] = None,
-            enclave_options: pulumi.Input[Optional[Union['SpotInstanceRequestEnclaveOptionsArgs', 'SpotInstanceRequestEnclaveOptionsArgsDict']]] = None,
-            ephemeral_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotInstanceRequestEphemeralBlockDeviceArgs', 'SpotInstanceRequestEphemeralBlockDeviceArgsDict']]]]] = None,
+            enclave_options: pulumi.Input[Optional[Union['SpotInstanceRequestEnclaveOptionsArgs', 'SpotInstanceRequestEnclaveOptionsArgsDict', 'outputs.SpotInstanceRequestEnclaveOptions']]] = None,
+            ephemeral_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotInstanceRequestEphemeralBlockDeviceArgs', 'SpotInstanceRequestEphemeralBlockDeviceArgsDict', 'outputs.SpotInstanceRequestEphemeralBlockDevice']]]]] = None,
             force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
             get_password_data: pulumi.Input[Optional[_builtins.bool]] = None,
             hibernation: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -2447,26 +2447,26 @@ class SpotInstanceRequest(pulumi.CustomResource):
             ipv6_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             key_name: pulumi.Input[Optional[_builtins.str]] = None,
             launch_group: pulumi.Input[Optional[_builtins.str]] = None,
-            launch_template: pulumi.Input[Optional[Union['SpotInstanceRequestLaunchTemplateArgs', 'SpotInstanceRequestLaunchTemplateArgsDict']]] = None,
-            maintenance_options: pulumi.Input[Optional[Union['SpotInstanceRequestMaintenanceOptionsArgs', 'SpotInstanceRequestMaintenanceOptionsArgsDict']]] = None,
-            metadata_options: pulumi.Input[Optional[Union['SpotInstanceRequestMetadataOptionsArgs', 'SpotInstanceRequestMetadataOptionsArgsDict']]] = None,
+            launch_template: pulumi.Input[Optional[Union['SpotInstanceRequestLaunchTemplateArgs', 'SpotInstanceRequestLaunchTemplateArgsDict', 'outputs.SpotInstanceRequestLaunchTemplate']]] = None,
+            maintenance_options: pulumi.Input[Optional[Union['SpotInstanceRequestMaintenanceOptionsArgs', 'SpotInstanceRequestMaintenanceOptionsArgsDict', 'outputs.SpotInstanceRequestMaintenanceOptions']]] = None,
+            metadata_options: pulumi.Input[Optional[Union['SpotInstanceRequestMetadataOptionsArgs', 'SpotInstanceRequestMetadataOptionsArgsDict', 'outputs.SpotInstanceRequestMetadataOptions']]] = None,
             monitoring: pulumi.Input[Optional[_builtins.bool]] = None,
-            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotInstanceRequestNetworkInterfaceArgs', 'SpotInstanceRequestNetworkInterfaceArgsDict']]]]] = None,
+            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotInstanceRequestNetworkInterfaceArgs', 'SpotInstanceRequestNetworkInterfaceArgsDict', 'outputs.SpotInstanceRequestNetworkInterface']]]]] = None,
             outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
             password_data: pulumi.Input[Optional[_builtins.str]] = None,
             placement_group: pulumi.Input[Optional[_builtins.str]] = None,
             placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
             placement_partition_number: pulumi.Input[Optional[_builtins.int]] = None,
             primary_network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
-            primary_network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotInstanceRequestPrimaryNetworkInterfaceArgs', 'SpotInstanceRequestPrimaryNetworkInterfaceArgsDict']]]]] = None,
+            primary_network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotInstanceRequestPrimaryNetworkInterfaceArgs', 'SpotInstanceRequestPrimaryNetworkInterfaceArgsDict', 'outputs.SpotInstanceRequestPrimaryNetworkInterface']]]]] = None,
             private_dns: pulumi.Input[Optional[_builtins.str]] = None,
-            private_dns_name_options: pulumi.Input[Optional[Union['SpotInstanceRequestPrivateDnsNameOptionsArgs', 'SpotInstanceRequestPrivateDnsNameOptionsArgsDict']]] = None,
+            private_dns_name_options: pulumi.Input[Optional[Union['SpotInstanceRequestPrivateDnsNameOptionsArgs', 'SpotInstanceRequestPrivateDnsNameOptionsArgsDict', 'outputs.SpotInstanceRequestPrivateDnsNameOptions']]] = None,
             private_ip: pulumi.Input[Optional[_builtins.str]] = None,
             public_dns: pulumi.Input[Optional[_builtins.str]] = None,
             public_ip: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            root_block_device: pulumi.Input[Optional[Union['SpotInstanceRequestRootBlockDeviceArgs', 'SpotInstanceRequestRootBlockDeviceArgsDict']]] = None,
-            secondary_network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotInstanceRequestSecondaryNetworkInterfaceArgs', 'SpotInstanceRequestSecondaryNetworkInterfaceArgsDict']]]]] = None,
+            root_block_device: pulumi.Input[Optional[Union['SpotInstanceRequestRootBlockDeviceArgs', 'SpotInstanceRequestRootBlockDeviceArgsDict', 'outputs.SpotInstanceRequestRootBlockDevice']]] = None,
+            secondary_network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpotInstanceRequestSecondaryNetworkInterfaceArgs', 'SpotInstanceRequestSecondaryNetworkInterfaceArgsDict', 'outputs.SpotInstanceRequestSecondaryNetworkInterface']]]]] = None,
             secondary_private_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             source_dest_check: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -2497,16 +2497,16 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         :param pulumi.Input[_builtins.bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[_builtins.str] availability_zone: AZ to start the instance in.
-        :param pulumi.Input[Union['SpotInstanceRequestCapacityReservationSpecificationArgs', 'SpotInstanceRequestCapacityReservationSpecificationArgsDict']] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-        :param pulumi.Input[Union['SpotInstanceRequestCpuOptionsArgs', 'SpotInstanceRequestCpuOptionsArgsDict']] cpu_options: The CPU options for the instance. See CPU Options below for more details.
-        :param pulumi.Input[Union['SpotInstanceRequestCreditSpecificationArgs', 'SpotInstanceRequestCreditSpecificationArgsDict']] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+        :param pulumi.Input[Union['SpotInstanceRequestCapacityReservationSpecificationArgs', 'SpotInstanceRequestCapacityReservationSpecificationArgsDict', 'outputs.SpotInstanceRequestCapacityReservationSpecification']] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+        :param pulumi.Input[Union['SpotInstanceRequestCpuOptionsArgs', 'SpotInstanceRequestCpuOptionsArgsDict', 'outputs.SpotInstanceRequestCpuOptions']] cpu_options: The CPU options for the instance. See CPU Options below for more details.
+        :param pulumi.Input[Union['SpotInstanceRequestCreditSpecificationArgs', 'SpotInstanceRequestCreditSpecificationArgsDict', 'outputs.SpotInstanceRequestCreditSpecification']] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
         :param pulumi.Input[_builtins.bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
         :param pulumi.Input[_builtins.bool] disable_api_termination: If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestEbsBlockDeviceArgs', 'SpotInstanceRequestEbsBlockDeviceArgsDict']]]] ebs_block_devices: One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestEbsBlockDeviceArgs', 'SpotInstanceRequestEbsBlockDeviceArgsDict', 'outputs.SpotInstanceRequestEbsBlockDevice']]]] ebs_block_devices: One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
         :param pulumi.Input[_builtins.bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
         :param pulumi.Input[_builtins.bool] enable_primary_ipv6: Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
-        :param pulumi.Input[Union['SpotInstanceRequestEnclaveOptionsArgs', 'SpotInstanceRequestEnclaveOptionsArgsDict']] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestEphemeralBlockDeviceArgs', 'SpotInstanceRequestEphemeralBlockDeviceArgsDict']]]] ephemeral_block_devices: One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
+        :param pulumi.Input[Union['SpotInstanceRequestEnclaveOptionsArgs', 'SpotInstanceRequestEnclaveOptionsArgsDict', 'outputs.SpotInstanceRequestEnclaveOptions']] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestEphemeralBlockDeviceArgs', 'SpotInstanceRequestEphemeralBlockDeviceArgsDict', 'outputs.SpotInstanceRequestEphemeralBlockDevice']]]] ephemeral_block_devices: One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
         :param pulumi.Input[_builtins.bool] force_destroy: Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         :param pulumi.Input[_builtins.bool] get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         :param pulumi.Input[_builtins.bool] hibernation: If true, the launched EC2 instance will support hibernation.
@@ -2521,26 +2521,26 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] key_name: Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
         :param pulumi.Input[_builtins.str] launch_group: A launch group is a group of spot instances that launch together and terminate together.
                If left empty instances are launched and terminated individually.
-        :param pulumi.Input[Union['SpotInstanceRequestLaunchTemplateArgs', 'SpotInstanceRequestLaunchTemplateArgsDict']] launch_template: Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
-        :param pulumi.Input[Union['SpotInstanceRequestMaintenanceOptionsArgs', 'SpotInstanceRequestMaintenanceOptionsArgsDict']] maintenance_options: Maintenance and recovery options for the instance. See Maintenance Options below for more details.
-        :param pulumi.Input[Union['SpotInstanceRequestMetadataOptionsArgs', 'SpotInstanceRequestMetadataOptionsArgsDict']] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
+        :param pulumi.Input[Union['SpotInstanceRequestLaunchTemplateArgs', 'SpotInstanceRequestLaunchTemplateArgsDict', 'outputs.SpotInstanceRequestLaunchTemplate']] launch_template: Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
+        :param pulumi.Input[Union['SpotInstanceRequestMaintenanceOptionsArgs', 'SpotInstanceRequestMaintenanceOptionsArgsDict', 'outputs.SpotInstanceRequestMaintenanceOptions']] maintenance_options: Maintenance and recovery options for the instance. See Maintenance Options below for more details.
+        :param pulumi.Input[Union['SpotInstanceRequestMetadataOptionsArgs', 'SpotInstanceRequestMetadataOptionsArgsDict', 'outputs.SpotInstanceRequestMetadataOptions']] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[_builtins.bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestNetworkInterfaceArgs', 'SpotInstanceRequestNetworkInterfaceArgsDict']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestNetworkInterfaceArgs', 'SpotInstanceRequestNetworkInterfaceArgsDict', 'outputs.SpotInstanceRequestNetworkInterface']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in. Conflicts with `placement_group_id`.
         :param pulumi.Input[_builtins.str] placement_group_id: Placement Group ID to start the instance in. Conflicts with `placement_group`.
         :param pulumi.Input[_builtins.int] placement_partition_number: Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestPrimaryNetworkInterfaceArgs', 'SpotInstanceRequestPrimaryNetworkInterfaceArgsDict']]]] primary_network_interfaces: The primary network interface. See Primary Network Interface below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestPrimaryNetworkInterfaceArgs', 'SpotInstanceRequestPrimaryNetworkInterfaceArgsDict', 'outputs.SpotInstanceRequestPrimaryNetworkInterface']]]] primary_network_interfaces: The primary network interface. See Primary Network Interface below.
         :param pulumi.Input[_builtins.str] private_dns: The private DNS name assigned to the instance. Can only be
                used inside the Amazon EC2, and only available if you've enabled DNS hostnames
                for your VPC
-        :param pulumi.Input[Union['SpotInstanceRequestPrivateDnsNameOptionsArgs', 'SpotInstanceRequestPrivateDnsNameOptionsArgsDict']] private_dns_name_options: Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+        :param pulumi.Input[Union['SpotInstanceRequestPrivateDnsNameOptionsArgs', 'SpotInstanceRequestPrivateDnsNameOptionsArgsDict', 'outputs.SpotInstanceRequestPrivateDnsNameOptions']] private_dns_name_options: Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         :param pulumi.Input[_builtins.str] private_ip: Private IP address to associate with the instance in a VPC.
         :param pulumi.Input[_builtins.str] public_dns: The public DNS name assigned to the instance. For EC2-VPC, this
                is only available if you've enabled DNS hostnames for your VPC
         :param pulumi.Input[_builtins.str] public_ip: The public IP address assigned to the instance, if applicable.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['SpotInstanceRequestRootBlockDeviceArgs', 'SpotInstanceRequestRootBlockDeviceArgsDict']] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestSecondaryNetworkInterfaceArgs', 'SpotInstanceRequestSecondaryNetworkInterfaceArgsDict']]]] secondary_network_interfaces: One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+        :param pulumi.Input[Union['SpotInstanceRequestRootBlockDeviceArgs', 'SpotInstanceRequestRootBlockDeviceArgsDict', 'outputs.SpotInstanceRequestRootBlockDevice']] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestSecondaryNetworkInterfaceArgs', 'SpotInstanceRequestSecondaryNetworkInterfaceArgsDict', 'outputs.SpotInstanceRequestSecondaryNetworkInterface']]]] secondary_network_interfaces: One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_private_ips: List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: List of security group names to associate with.
                

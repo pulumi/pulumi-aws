@@ -329,7 +329,7 @@ class Filter(pulumi.CustomResource):
                  action: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  detector_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 finding_criteria: pulumi.Input[Optional[Union['FilterFindingCriteriaArgs', 'FilterFindingCriteriaArgsDict']]] = None,
+                 finding_criteria: pulumi.Input[Optional[Union['FilterFindingCriteriaArgs', 'FilterFindingCriteriaArgsDict', 'outputs.FilterFindingCriteria']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  rank: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -345,6 +345,10 @@ class Filter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         my_filter = aws.guardduty.Filter("MyFilter",
+            name="MyFilter",
+            action="ARCHIVE",
+            detector_id=example["id"],
+            rank=1,
             finding_criteria={
                 "criterions": [
                     {
@@ -368,11 +372,7 @@ class Filter(pulumi.CustomResource):
                         "greater_than_or_equal": "4",
                     },
                 ],
-            },
-            name="MyFilter",
-            action="ARCHIVE",
-            detector_id=example["id"],
-            rank=1)
+            })
         ```
 
         ## Import
@@ -389,7 +389,7 @@ class Filter(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] action: Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
         :param pulumi.Input[_builtins.str] description: Description of the filter.
         :param pulumi.Input[_builtins.str] detector_id: ID of a GuardDuty detector, attached to your account.
-        :param pulumi.Input[Union['FilterFindingCriteriaArgs', 'FilterFindingCriteriaArgsDict']] finding_criteria: Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
+        :param pulumi.Input[Union['FilterFindingCriteriaArgs', 'FilterFindingCriteriaArgsDict', 'outputs.FilterFindingCriteria']] finding_criteria: Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
         :param pulumi.Input[_builtins.str] name: The name of your filter.
         :param pulumi.Input[_builtins.int] rank: Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -411,6 +411,10 @@ class Filter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         my_filter = aws.guardduty.Filter("MyFilter",
+            name="MyFilter",
+            action="ARCHIVE",
+            detector_id=example["id"],
+            rank=1,
             finding_criteria={
                 "criterions": [
                     {
@@ -434,11 +438,7 @@ class Filter(pulumi.CustomResource):
                         "greater_than_or_equal": "4",
                     },
                 ],
-            },
-            name="MyFilter",
-            action="ARCHIVE",
-            detector_id=example["id"],
-            rank=1)
+            })
         ```
 
         ## Import
@@ -468,7 +468,7 @@ class Filter(pulumi.CustomResource):
                  action: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  detector_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 finding_criteria: pulumi.Input[Optional[Union['FilterFindingCriteriaArgs', 'FilterFindingCriteriaArgsDict']]] = None,
+                 finding_criteria: pulumi.Input[Optional[Union['FilterFindingCriteriaArgs', 'FilterFindingCriteriaArgsDict', 'outputs.FilterFindingCriteria']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  rank: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -514,7 +514,7 @@ class Filter(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             detector_id: pulumi.Input[Optional[_builtins.str]] = None,
-            finding_criteria: pulumi.Input[Optional[Union['FilterFindingCriteriaArgs', 'FilterFindingCriteriaArgsDict']]] = None,
+            finding_criteria: pulumi.Input[Optional[Union['FilterFindingCriteriaArgs', 'FilterFindingCriteriaArgsDict', 'outputs.FilterFindingCriteria']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             rank: pulumi.Input[Optional[_builtins.int]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -531,7 +531,7 @@ class Filter(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: The ARN of the GuardDuty filter.
         :param pulumi.Input[_builtins.str] description: Description of the filter.
         :param pulumi.Input[_builtins.str] detector_id: ID of a GuardDuty detector, attached to your account.
-        :param pulumi.Input[Union['FilterFindingCriteriaArgs', 'FilterFindingCriteriaArgsDict']] finding_criteria: Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
+        :param pulumi.Input[Union['FilterFindingCriteriaArgs', 'FilterFindingCriteriaArgsDict', 'outputs.FilterFindingCriteria']] finding_criteria: Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
         :param pulumi.Input[_builtins.str] name: The name of your filter.
         :param pulumi.Input[_builtins.int] rank: Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

@@ -450,8 +450,8 @@ class Graph(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  replica_count: pulumi.Input[Optional[_builtins.int]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['GraphTimeoutsArgs', 'GraphTimeoutsArgsDict']]] = None,
-                 vector_search_configuration: pulumi.Input[Optional[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['GraphTimeoutsArgs', 'GraphTimeoutsArgsDict', 'outputs.GraphTimeouts']]] = None,
+                 vector_search_configuration: pulumi.Input[Optional[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict', 'outputs.GraphVectorSearchConfiguration']]] = None,
                  __props__=None):
         """
         The `neptunegraph.Graph` resource creates an Amazon Analytics Graph.
@@ -468,15 +468,15 @@ class Graph(pulumi.CustomResource):
 
         # Create Neptune Graph
         example = aws.neptunegraph.Graph("example",
-            vector_search_configuration={
-                "vector_search_dimension": 128,
-            },
             graph_name="example-graph-test-20250203",
             provisioned_memory=16,
             deletion_protection=False,
             public_connectivity=False,
             replica_count=1,
             kms_key_identifier="arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
+            vector_search_configuration={
+                "vector_search_dimension": 128,
+            },
             tags={
                 "Environment": "Development",
                 "ModifiedBy": "AWS",
@@ -505,7 +505,7 @@ class Graph(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] replica_count: Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the graph. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict']] vector_search_configuration: Vector Search Configuration (see below for nested schema of vector_search_configuration)
+        :param pulumi.Input[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict', 'outputs.GraphVectorSearchConfiguration']] vector_search_configuration: Vector Search Configuration (see below for nested schema of vector_search_configuration)
         """
         ...
     @overload
@@ -528,15 +528,15 @@ class Graph(pulumi.CustomResource):
 
         # Create Neptune Graph
         example = aws.neptunegraph.Graph("example",
-            vector_search_configuration={
-                "vector_search_dimension": 128,
-            },
             graph_name="example-graph-test-20250203",
             provisioned_memory=16,
             deletion_protection=False,
             public_connectivity=False,
             replica_count=1,
             kms_key_identifier="arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
+            vector_search_configuration={
+                "vector_search_dimension": 128,
+            },
             tags={
                 "Environment": "Development",
                 "ModifiedBy": "AWS",
@@ -576,8 +576,8 @@ class Graph(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  replica_count: pulumi.Input[Optional[_builtins.int]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['GraphTimeoutsArgs', 'GraphTimeoutsArgsDict']]] = None,
-                 vector_search_configuration: pulumi.Input[Optional[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['GraphTimeoutsArgs', 'GraphTimeoutsArgsDict', 'outputs.GraphTimeouts']]] = None,
+                 vector_search_configuration: pulumi.Input[Optional[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict', 'outputs.GraphVectorSearchConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -625,8 +625,8 @@ class Graph(pulumi.CustomResource):
             replica_count: pulumi.Input[Optional[_builtins.int]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['GraphTimeoutsArgs', 'GraphTimeoutsArgsDict']]] = None,
-            vector_search_configuration: pulumi.Input[Optional[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict']]] = None) -> 'Graph':
+            timeouts: pulumi.Input[Optional[Union['GraphTimeoutsArgs', 'GraphTimeoutsArgsDict', 'outputs.GraphTimeouts']]] = None,
+            vector_search_configuration: pulumi.Input[Optional[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict', 'outputs.GraphVectorSearchConfiguration']]] = None) -> 'Graph':
         """
         Get an existing Graph resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -648,7 +648,7 @@ class Graph(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] replica_count: Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the graph. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict']] vector_search_configuration: Vector Search Configuration (see below for nested schema of vector_search_configuration)
+        :param pulumi.Input[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict', 'outputs.GraphVectorSearchConfiguration']] vector_search_configuration: Vector Search Configuration (see below for nested schema of vector_search_configuration)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

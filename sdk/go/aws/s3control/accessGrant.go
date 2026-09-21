@@ -44,6 +44,8 @@ import (
 //				return err
 //			}
 //			_, err = s3control.NewAccessGrant(ctx, "example", &s3control.AccessGrantArgs{
+//				AccessGrantsLocationId: exampleAccessGrantsLocation.AccessGrantsLocationId,
+//				Permission:             pulumi.String("READ"),
 //				AccessGrantsLocationConfiguration: &s3control.AccessGrantAccessGrantsLocationConfigurationArgs{
 //					S3SubPrefix: pulumi.String("prefixB*"),
 //				},
@@ -51,8 +53,6 @@ import (
 //					GranteeType:       pulumi.String("IAM"),
 //					GranteeIdentifier: pulumi.Any(exampleAwsIamUser.Arn),
 //				},
-//				AccessGrantsLocationId: exampleAccessGrantsLocation.AccessGrantsLocationId,
-//				Permission:             pulumi.String("READ"),
 //			})
 //			if err != nil {
 //				return err
