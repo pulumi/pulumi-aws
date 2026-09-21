@@ -14,11 +14,7 @@ require (
 	github.com/stretchr/testify v1.11.1
 )
 
-replace (
-	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20260318212141-5525259d096b
-
-	github.com/pulumi/pulumi-aws/sdk/v7 => ../sdk
-)
+replace github.com/pulumi/pulumi-aws/sdk/v7 => ../sdk
 
 require (
 	github.com/BurntSushi/toml v1.6.0 // indirect
