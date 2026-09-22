@@ -124,6 +124,10 @@ func providerFromMeta(
 		MetadataInfo: metaInfo,
 		SchemaPostProcessor: func(spec *schema.PackageSpec) {
 			postProcessOverlays(spec)
+
+			// Opt into the `pulumi new` credentials preflight.
+			spec.ValidateCredentialsOnNew = true
+			spec.ConfigurationDocsURL = "https://www.pulumi.com/registry/packages/aws/installation-configuration/"
 		},
 
 		Config: map[string]*tfbridge.SchemaInfo{
