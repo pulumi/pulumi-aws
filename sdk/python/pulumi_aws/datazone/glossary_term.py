@@ -368,8 +368,8 @@ class GlossaryTerm(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  short_description: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 term_relations: pulumi.Input[Optional[Union['GlossaryTermTermRelationsArgs', 'GlossaryTermTermRelationsArgsDict']]] = None,
-                 timeouts: pulumi.Input[Optional[Union['GlossaryTermTimeoutsArgs', 'GlossaryTermTimeoutsArgsDict']]] = None,
+                 term_relations: pulumi.Input[Optional[Union['GlossaryTermTermRelationsArgs', 'GlossaryTermTermRelationsArgsDict', 'outputs.GlossaryTermTermRelations']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['GlossaryTermTimeoutsArgs', 'GlossaryTermTimeoutsArgsDict', 'outputs.GlossaryTermTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS DataZone Glossary Term.
@@ -478,7 +478,7 @@ class GlossaryTerm(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] short_description: Short description of entry.
         :param pulumi.Input[_builtins.str] status: If glossary term is ENABLED or DISABLED.
-        :param pulumi.Input[Union['GlossaryTermTermRelationsArgs', 'GlossaryTermTermRelationsArgsDict']] term_relations: Object classifying the term relations through the following attributes:
+        :param pulumi.Input[Union['GlossaryTermTermRelationsArgs', 'GlossaryTermTermRelationsArgsDict', 'outputs.GlossaryTermTermRelations']] term_relations: Object classifying the term relations through the following attributes:
         """
         ...
     @overload
@@ -604,8 +604,8 @@ class GlossaryTerm(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  short_description: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 term_relations: pulumi.Input[Optional[Union['GlossaryTermTermRelationsArgs', 'GlossaryTermTermRelationsArgsDict']]] = None,
-                 timeouts: pulumi.Input[Optional[Union['GlossaryTermTimeoutsArgs', 'GlossaryTermTimeoutsArgsDict']]] = None,
+                 term_relations: pulumi.Input[Optional[Union['GlossaryTermTermRelationsArgs', 'GlossaryTermTermRelationsArgsDict', 'outputs.GlossaryTermTermRelations']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['GlossaryTermTimeoutsArgs', 'GlossaryTermTimeoutsArgsDict', 'outputs.GlossaryTermTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -647,8 +647,8 @@ class GlossaryTerm(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             short_description: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
-            term_relations: pulumi.Input[Optional[Union['GlossaryTermTermRelationsArgs', 'GlossaryTermTermRelationsArgsDict']]] = None,
-            timeouts: pulumi.Input[Optional[Union['GlossaryTermTimeoutsArgs', 'GlossaryTermTimeoutsArgsDict']]] = None) -> 'GlossaryTerm':
+            term_relations: pulumi.Input[Optional[Union['GlossaryTermTermRelationsArgs', 'GlossaryTermTermRelationsArgsDict', 'outputs.GlossaryTermTermRelations']]] = None,
+            timeouts: pulumi.Input[Optional[Union['GlossaryTermTimeoutsArgs', 'GlossaryTermTimeoutsArgsDict', 'outputs.GlossaryTermTimeouts']]] = None) -> 'GlossaryTerm':
         """
         Get an existing GlossaryTerm resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -667,7 +667,7 @@ class GlossaryTerm(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] short_description: Short description of entry.
         :param pulumi.Input[_builtins.str] status: If glossary term is ENABLED or DISABLED.
-        :param pulumi.Input[Union['GlossaryTermTermRelationsArgs', 'GlossaryTermTermRelationsArgsDict']] term_relations: Object classifying the term relations through the following attributes:
+        :param pulumi.Input[Union['GlossaryTermTermRelationsArgs', 'GlossaryTermTermRelationsArgsDict', 'outputs.GlossaryTermTermRelations']] term_relations: Object classifying the term relations through the following attributes:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

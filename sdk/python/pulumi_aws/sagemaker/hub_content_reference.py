@@ -341,7 +341,7 @@ class HubContentReference(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  sagemaker_public_hub_content_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['HubContentReferenceTimeoutsArgs', 'HubContentReferenceTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['HubContentReferenceTimeoutsArgs', 'HubContentReferenceTimeoutsArgsDict', 'outputs.HubContentReferenceTimeouts']]] = None,
                  __props__=None):
         """
         Manages a SageMaker AI Hub Content Reference resource. A hub content reference copies a model from the SageMaker JumpStart public hub into a private hub so that it is accessible to users in that hub.
@@ -487,7 +487,7 @@ class HubContentReference(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  sagemaker_public_hub_content_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['HubContentReferenceTimeoutsArgs', 'HubContentReferenceTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['HubContentReferenceTimeoutsArgs', 'HubContentReferenceTimeoutsArgsDict', 'outputs.HubContentReferenceTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -536,7 +536,7 @@ class HubContentReference(pulumi.CustomResource):
             sagemaker_public_hub_content_arn: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['HubContentReferenceTimeoutsArgs', 'HubContentReferenceTimeoutsArgsDict']]] = None) -> 'HubContentReference':
+            timeouts: pulumi.Input[Optional[Union['HubContentReferenceTimeoutsArgs', 'HubContentReferenceTimeoutsArgsDict', 'outputs.HubContentReferenceTimeouts']]] = None) -> 'HubContentReference':
         """
         Get an existing HubContentReference resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

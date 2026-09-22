@@ -1579,7 +1579,7 @@ class ObjectCopy(pulumi.CustomResource):
                  expected_source_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  expires: pulumi.Input[Optional[_builtins.str]] = None,
                  force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
-                 grants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectCopyGrantArgs', 'ObjectCopyGrantArgsDict']]]]] = None,
+                 grants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectCopyGrantArgs', 'ObjectCopyGrantArgsDict', 'outputs.ObjectCopyGrant']]]]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_encryption_context: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1588,7 +1588,7 @@ class ObjectCopy(pulumi.CustomResource):
                  object_lock_legal_hold_status: pulumi.Input[Optional[_builtins.str]] = None,
                  object_lock_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  object_lock_retain_until_date: pulumi.Input[Optional[_builtins.str]] = None,
-                 override_provider: pulumi.Input[Optional[Union['ObjectCopyOverrideProviderArgs', 'ObjectCopyOverrideProviderArgsDict']]] = None,
+                 override_provider: pulumi.Input[Optional[Union['ObjectCopyOverrideProviderArgs', 'ObjectCopyOverrideProviderArgsDict', 'outputs.ObjectCopyOverrideProvider']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  request_payer: pulumi.Input[Optional[_builtins.str]] = None,
                  server_side_encryption: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1664,7 +1664,7 @@ class ObjectCopy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] expected_source_bucket_owner: Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         :param pulumi.Input[_builtins.str] expires: Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.bool] force_destroy: Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectCopyGrantArgs', 'ObjectCopyGrantArgsDict']]]] grants: Configuration block for header grants. Documented below. Conflicts with `acl`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectCopyGrantArgs', 'ObjectCopyGrantArgsDict', 'outputs.ObjectCopyGrant']]]] grants: Configuration block for header grants. Documented below. Conflicts with `acl`.
         :param pulumi.Input[_builtins.str] key: Name of the object once it is in the bucket.
         :param pulumi.Input[_builtins.str] kms_encryption_context: AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
         :param pulumi.Input[_builtins.str] kms_key_id: AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
@@ -1769,7 +1769,7 @@ class ObjectCopy(pulumi.CustomResource):
                  expected_source_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  expires: pulumi.Input[Optional[_builtins.str]] = None,
                  force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
-                 grants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectCopyGrantArgs', 'ObjectCopyGrantArgsDict']]]]] = None,
+                 grants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectCopyGrantArgs', 'ObjectCopyGrantArgsDict', 'outputs.ObjectCopyGrant']]]]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_encryption_context: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1778,7 +1778,7 @@ class ObjectCopy(pulumi.CustomResource):
                  object_lock_legal_hold_status: pulumi.Input[Optional[_builtins.str]] = None,
                  object_lock_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  object_lock_retain_until_date: pulumi.Input[Optional[_builtins.str]] = None,
-                 override_provider: pulumi.Input[Optional[Union['ObjectCopyOverrideProviderArgs', 'ObjectCopyOverrideProviderArgsDict']]] = None,
+                 override_provider: pulumi.Input[Optional[Union['ObjectCopyOverrideProviderArgs', 'ObjectCopyOverrideProviderArgsDict', 'outputs.ObjectCopyOverrideProvider']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  request_payer: pulumi.Input[Optional[_builtins.str]] = None,
                  server_side_encryption: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1899,7 +1899,7 @@ class ObjectCopy(pulumi.CustomResource):
             expiration: pulumi.Input[Optional[_builtins.str]] = None,
             expires: pulumi.Input[Optional[_builtins.str]] = None,
             force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
-            grants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectCopyGrantArgs', 'ObjectCopyGrantArgsDict']]]]] = None,
+            grants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectCopyGrantArgs', 'ObjectCopyGrantArgsDict', 'outputs.ObjectCopyGrant']]]]] = None,
             key: pulumi.Input[Optional[_builtins.str]] = None,
             kms_encryption_context: pulumi.Input[Optional[_builtins.str]] = None,
             kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1909,7 +1909,7 @@ class ObjectCopy(pulumi.CustomResource):
             object_lock_legal_hold_status: pulumi.Input[Optional[_builtins.str]] = None,
             object_lock_mode: pulumi.Input[Optional[_builtins.str]] = None,
             object_lock_retain_until_date: pulumi.Input[Optional[_builtins.str]] = None,
-            override_provider: pulumi.Input[Optional[Union['ObjectCopyOverrideProviderArgs', 'ObjectCopyOverrideProviderArgsDict']]] = None,
+            override_provider: pulumi.Input[Optional[Union['ObjectCopyOverrideProviderArgs', 'ObjectCopyOverrideProviderArgsDict', 'outputs.ObjectCopyOverrideProvider']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             request_charged: pulumi.Input[Optional[_builtins.bool]] = None,
             request_payer: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1960,7 +1960,7 @@ class ObjectCopy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] expiration: If the object expiration is configured, this attribute will be set.
         :param pulumi.Input[_builtins.str] expires: Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.bool] force_destroy: Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectCopyGrantArgs', 'ObjectCopyGrantArgsDict']]]] grants: Configuration block for header grants. Documented below. Conflicts with `acl`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectCopyGrantArgs', 'ObjectCopyGrantArgsDict', 'outputs.ObjectCopyGrant']]]] grants: Configuration block for header grants. Documented below. Conflicts with `acl`.
         :param pulumi.Input[_builtins.str] key: Name of the object once it is in the bucket.
         :param pulumi.Input[_builtins.str] kms_encryption_context: AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
         :param pulumi.Input[_builtins.str] kms_key_id: AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`

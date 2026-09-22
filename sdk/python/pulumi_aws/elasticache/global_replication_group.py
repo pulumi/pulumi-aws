@@ -823,7 +823,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             engine: pulumi.Input[Optional[_builtins.str]] = None,
             engine_version: pulumi.Input[Optional[_builtins.str]] = None,
             engine_version_actual: pulumi.Input[Optional[_builtins.str]] = None,
-            global_node_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalReplicationGroupGlobalNodeGroupArgs', 'GlobalReplicationGroupGlobalNodeGroupArgsDict']]]]] = None,
+            global_node_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalReplicationGroupGlobalNodeGroupArgs', 'GlobalReplicationGroupGlobalNodeGroupArgsDict', 'outputs.GlobalReplicationGroupGlobalNodeGroup']]]]] = None,
             global_replication_group_description: pulumi.Input[Optional[_builtins.str]] = None,
             global_replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
             global_replication_group_id_suffix: pulumi.Input[Optional[_builtins.str]] = None,
@@ -863,7 +863,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
                The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         :param pulumi.Input[_builtins.str] engine_version_actual: The full version number of the cache engine running on the members of this global replication group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalReplicationGroupGlobalNodeGroupArgs', 'GlobalReplicationGroupGlobalNodeGroupArgsDict']]]] global_node_groups: Set of node groups (shards) on the global replication group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalReplicationGroupGlobalNodeGroupArgs', 'GlobalReplicationGroupGlobalNodeGroupArgsDict', 'outputs.GlobalReplicationGroupGlobalNodeGroup']]]] global_node_groups: Set of node groups (shards) on the global replication group.
                Has the values:
         :param pulumi.Input[_builtins.str] global_replication_group_description: A user-created description for the global replication group.
         :param pulumi.Input[_builtins.str] global_replication_group_id: The full ID of the global replication group.

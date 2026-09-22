@@ -269,7 +269,7 @@ class CapacityReservation(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_dpus: pulumi.Input[Optional[_builtins.int]] = None,
-                 timeouts: pulumi.Input[Optional[Union['CapacityReservationTimeoutsArgs', 'CapacityReservationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CapacityReservationTimeoutsArgs', 'CapacityReservationTimeoutsArgsDict', 'outputs.CapacityReservationTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Athena Capacity Reservation.
@@ -359,7 +359,7 @@ class CapacityReservation(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_dpus: pulumi.Input[Optional[_builtins.int]] = None,
-                 timeouts: pulumi.Input[Optional[Union['CapacityReservationTimeoutsArgs', 'CapacityReservationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CapacityReservationTimeoutsArgs', 'CapacityReservationTimeoutsArgsDict', 'outputs.CapacityReservationTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -398,7 +398,7 @@ class CapacityReservation(pulumi.CustomResource):
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             target_dpus: pulumi.Input[Optional[_builtins.int]] = None,
-            timeouts: pulumi.Input[Optional[Union['CapacityReservationTimeoutsArgs', 'CapacityReservationTimeoutsArgsDict']]] = None) -> 'CapacityReservation':
+            timeouts: pulumi.Input[Optional[Union['CapacityReservationTimeoutsArgs', 'CapacityReservationTimeoutsArgsDict', 'outputs.CapacityReservationTimeouts']]] = None) -> 'CapacityReservation':
         """
         Get an existing CapacityReservation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

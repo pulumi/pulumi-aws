@@ -464,11 +464,11 @@ class Analysis(pulumi.CustomResource):
                  analysis_id: pulumi.Input[Optional[_builtins.str]] = None,
                  aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameters: pulumi.Input[Optional[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict']]] = None,
-                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnalysisPermissionArgs', 'AnalysisPermissionArgsDict']]]]] = None,
+                 parameters: pulumi.Input[Optional[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict', 'outputs.AnalysisParameters']]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnalysisPermissionArgs', 'AnalysisPermissionArgsDict', 'outputs.AnalysisPermission']]]]] = None,
                  recovery_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_entity: pulumi.Input[Optional[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict']]] = None,
+                 source_entity: pulumi.Input[Optional[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict', 'outputs.AnalysisSourceEntity']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  theme_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -569,11 +569,11 @@ class Analysis(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Display name for the analysis.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict']] parameters: The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AnalysisPermissionArgs', 'AnalysisPermissionArgsDict']]]] permissions: A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict', 'outputs.AnalysisParameters']] parameters: The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AnalysisPermissionArgs', 'AnalysisPermissionArgsDict', 'outputs.AnalysisPermission']]]] permissions: A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
         :param pulumi.Input[_builtins.int] recovery_window_in_days: A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict']] source_entity: The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        :param pulumi.Input[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict', 'outputs.AnalysisSourceEntity']] source_entity: The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] theme_arn: ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
         """
@@ -691,11 +691,11 @@ class Analysis(pulumi.CustomResource):
                  analysis_id: pulumi.Input[Optional[_builtins.str]] = None,
                  aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameters: pulumi.Input[Optional[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict']]] = None,
-                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnalysisPermissionArgs', 'AnalysisPermissionArgsDict']]]]] = None,
+                 parameters: pulumi.Input[Optional[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict', 'outputs.AnalysisParameters']]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnalysisPermissionArgs', 'AnalysisPermissionArgsDict', 'outputs.AnalysisPermission']]]]] = None,
                  recovery_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_entity: pulumi.Input[Optional[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict']]] = None,
+                 source_entity: pulumi.Input[Optional[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict', 'outputs.AnalysisSourceEntity']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  theme_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -742,11 +742,11 @@ class Analysis(pulumi.CustomResource):
             last_published_time: pulumi.Input[Optional[_builtins.str]] = None,
             last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            parameters: pulumi.Input[Optional[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict']]] = None,
-            permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnalysisPermissionArgs', 'AnalysisPermissionArgsDict']]]]] = None,
+            parameters: pulumi.Input[Optional[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict', 'outputs.AnalysisParameters']]] = None,
+            permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnalysisPermissionArgs', 'AnalysisPermissionArgsDict', 'outputs.AnalysisPermission']]]]] = None,
             recovery_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            source_entity: pulumi.Input[Optional[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict']]] = None,
+            source_entity: pulumi.Input[Optional[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict', 'outputs.AnalysisSourceEntity']]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -766,11 +766,11 @@ class Analysis(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Display name for the analysis.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict']] parameters: The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AnalysisPermissionArgs', 'AnalysisPermissionArgsDict']]]] permissions: A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict', 'outputs.AnalysisParameters']] parameters: The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AnalysisPermissionArgs', 'AnalysisPermissionArgsDict', 'outputs.AnalysisPermission']]]] permissions: A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
         :param pulumi.Input[_builtins.int] recovery_window_in_days: A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict']] source_entity: The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        :param pulumi.Input[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict', 'outputs.AnalysisSourceEntity']] source_entity: The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         :param pulumi.Input[_builtins.str] status: The analysis creation status.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

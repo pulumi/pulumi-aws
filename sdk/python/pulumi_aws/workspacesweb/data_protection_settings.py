@@ -325,7 +325,7 @@ class DataProtectionSettings(pulumi.CustomResource):
                  customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 inline_redaction_configuration: pulumi.Input[Optional[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict']]] = None,
+                 inline_redaction_configuration: pulumi.Input[Optional[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict', 'outputs.DataProtectionSettingsInlineRedactionConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -436,7 +436,7 @@ class DataProtectionSettings(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: The display name of the data protection settings.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict']] inline_redaction_configuration: The inline redaction configuration of the data protection settings. Detailed below.
+        :param pulumi.Input[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict', 'outputs.DataProtectionSettingsInlineRedactionConfiguration']] inline_redaction_configuration: The inline redaction configuration of the data protection settings. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -564,7 +564,7 @@ class DataProtectionSettings(pulumi.CustomResource):
                  customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 inline_redaction_configuration: pulumi.Input[Optional[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict']]] = None,
+                 inline_redaction_configuration: pulumi.Input[Optional[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict', 'outputs.DataProtectionSettingsInlineRedactionConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -604,7 +604,7 @@ class DataProtectionSettings(pulumi.CustomResource):
             data_protection_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            inline_redaction_configuration: pulumi.Input[Optional[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict']]] = None,
+            inline_redaction_configuration: pulumi.Input[Optional[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict', 'outputs.DataProtectionSettingsInlineRedactionConfiguration']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'DataProtectionSettings':
@@ -623,7 +623,7 @@ class DataProtectionSettings(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: The display name of the data protection settings.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict']] inline_redaction_configuration: The inline redaction configuration of the data protection settings. Detailed below.
+        :param pulumi.Input[Union['DataProtectionSettingsInlineRedactionConfigurationArgs', 'DataProtectionSettingsInlineRedactionConfigurationArgsDict', 'outputs.DataProtectionSettingsInlineRedactionConfiguration']] inline_redaction_configuration: The inline redaction configuration of the data protection settings. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -291,9 +291,9 @@ class ModelCard(pulumi.CustomResource):
                  model_card_name: pulumi.Input[Optional[_builtins.str]] = None,
                  model_card_status: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 security_config: pulumi.Input[Optional[Union['ModelCardSecurityConfigArgs', 'ModelCardSecurityConfigArgsDict']]] = None,
+                 security_config: pulumi.Input[Optional[Union['ModelCardSecurityConfigArgs', 'ModelCardSecurityConfigArgsDict', 'outputs.ModelCardSecurityConfig']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ModelCardTimeoutsArgs', 'ModelCardTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ModelCardTimeoutsArgs', 'ModelCardTimeoutsArgsDict', 'outputs.ModelCardTimeouts']]] = None,
                  __props__=None):
         """
         Manage an Amazon SageMaker Model Card.
@@ -338,7 +338,7 @@ class ModelCard(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] model_card_name: Name of the model card.
         :param pulumi.Input[_builtins.str] model_card_status: Approval status of the model card. Valid values: `Draft`, `PendingReview`, `Approved`, `Archived`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ModelCardSecurityConfigArgs', 'ModelCardSecurityConfigArgsDict']] security_config: KMS key to encrypt, decrypt, and re-encrypt model card content. Fields are documented below.
+        :param pulumi.Input[Union['ModelCardSecurityConfigArgs', 'ModelCardSecurityConfigArgsDict', 'outputs.ModelCardSecurityConfig']] security_config: KMS key to encrypt, decrypt, and re-encrypt model card content. Fields are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -403,9 +403,9 @@ class ModelCard(pulumi.CustomResource):
                  model_card_name: pulumi.Input[Optional[_builtins.str]] = None,
                  model_card_status: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 security_config: pulumi.Input[Optional[Union['ModelCardSecurityConfigArgs', 'ModelCardSecurityConfigArgsDict']]] = None,
+                 security_config: pulumi.Input[Optional[Union['ModelCardSecurityConfigArgs', 'ModelCardSecurityConfigArgsDict', 'outputs.ModelCardSecurityConfig']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ModelCardTimeoutsArgs', 'ModelCardTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ModelCardTimeoutsArgs', 'ModelCardTimeoutsArgsDict', 'outputs.ModelCardTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -445,10 +445,10 @@ class ModelCard(pulumi.CustomResource):
             model_card_name: pulumi.Input[Optional[_builtins.str]] = None,
             model_card_status: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            security_config: pulumi.Input[Optional[Union['ModelCardSecurityConfigArgs', 'ModelCardSecurityConfigArgsDict']]] = None,
+            security_config: pulumi.Input[Optional[Union['ModelCardSecurityConfigArgs', 'ModelCardSecurityConfigArgsDict', 'outputs.ModelCardSecurityConfig']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['ModelCardTimeoutsArgs', 'ModelCardTimeoutsArgsDict']]] = None) -> 'ModelCard':
+            timeouts: pulumi.Input[Optional[Union['ModelCardTimeoutsArgs', 'ModelCardTimeoutsArgsDict', 'outputs.ModelCardTimeouts']]] = None) -> 'ModelCard':
         """
         Get an existing ModelCard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -461,7 +461,7 @@ class ModelCard(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] model_card_name: Name of the model card.
         :param pulumi.Input[_builtins.str] model_card_status: Approval status of the model card. Valid values: `Draft`, `PendingReview`, `Approved`, `Archived`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ModelCardSecurityConfigArgs', 'ModelCardSecurityConfigArgsDict']] security_config: KMS key to encrypt, decrypt, and re-encrypt model card content. Fields are documented below.
+        :param pulumi.Input[Union['ModelCardSecurityConfigArgs', 'ModelCardSecurityConfigArgsDict', 'outputs.ModelCardSecurityConfig']] security_config: KMS key to encrypt, decrypt, and re-encrypt model card content. Fields are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

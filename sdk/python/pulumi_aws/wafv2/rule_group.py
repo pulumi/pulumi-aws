@@ -436,16 +436,16 @@ class RuleGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity: pulumi.Input[Optional[_builtins.int]] = None,
-                 custom_response_bodies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict']]]]] = None,
+                 custom_response_bodies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict', 'outputs.RuleGroupCustomResponseBody']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict', 'outputs.RuleGroupRule']]]]] = None,
                  rules_json: pulumi.Input[Optional[_builtins.str]] = None,
                  scope: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 visibility_config: pulumi.Input[Optional[Union['RuleGroupVisibilityConfigArgs', 'RuleGroupVisibilityConfigArgsDict']]] = None,
+                 visibility_config: pulumi.Input[Optional[Union['RuleGroupVisibilityConfigArgs', 'RuleGroupVisibilityConfigArgsDict', 'outputs.RuleGroupVisibilityConfig']]] = None,
                  __props__=None):
         """
         Creates a WAFv2 Rule Group resource.
@@ -766,16 +766,16 @@ class RuleGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] capacity: The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict']]]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict', 'outputs.RuleGroupCustomResponseBody']]]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
         :param pulumi.Input[_builtins.str] description: A friendly description of the rule group.
         :param pulumi.Input[_builtins.str] name: A friendly name of the rule group.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict']]]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict', 'outputs.RuleGroupRule']]]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         :param pulumi.Input[_builtins.str] rules_json: Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rules_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
         :param pulumi.Input[_builtins.str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['RuleGroupVisibilityConfigArgs', 'RuleGroupVisibilityConfigArgsDict']] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+        :param pulumi.Input[Union['RuleGroupVisibilityConfigArgs', 'RuleGroupVisibilityConfigArgsDict', 'outputs.RuleGroupVisibilityConfig']] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
         """
         ...
     @overload
@@ -1115,16 +1115,16 @@ class RuleGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity: pulumi.Input[Optional[_builtins.int]] = None,
-                 custom_response_bodies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict']]]]] = None,
+                 custom_response_bodies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict', 'outputs.RuleGroupCustomResponseBody']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict', 'outputs.RuleGroupRule']]]]] = None,
                  rules_json: pulumi.Input[Optional[_builtins.str]] = None,
                  scope: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 visibility_config: pulumi.Input[Optional[Union['RuleGroupVisibilityConfigArgs', 'RuleGroupVisibilityConfigArgsDict']]] = None,
+                 visibility_config: pulumi.Input[Optional[Union['RuleGroupVisibilityConfigArgs', 'RuleGroupVisibilityConfigArgsDict', 'outputs.RuleGroupVisibilityConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1166,18 +1166,18 @@ class RuleGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             capacity: pulumi.Input[Optional[_builtins.int]] = None,
-            custom_response_bodies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict']]]]] = None,
+            custom_response_bodies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict', 'outputs.RuleGroupCustomResponseBody']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             lock_token: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict']]]]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict', 'outputs.RuleGroupRule']]]]] = None,
             rules_json: pulumi.Input[Optional[_builtins.str]] = None,
             scope: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            visibility_config: pulumi.Input[Optional[Union['RuleGroupVisibilityConfigArgs', 'RuleGroupVisibilityConfigArgsDict']]] = None) -> 'RuleGroup':
+            visibility_config: pulumi.Input[Optional[Union['RuleGroupVisibilityConfigArgs', 'RuleGroupVisibilityConfigArgsDict', 'outputs.RuleGroupVisibilityConfig']]] = None) -> 'RuleGroup':
         """
         Get an existing RuleGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1187,17 +1187,17 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The ARN of the WAF rule group.
         :param pulumi.Input[_builtins.int] capacity: The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict']]]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict', 'outputs.RuleGroupCustomResponseBody']]]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
         :param pulumi.Input[_builtins.str] description: A friendly description of the rule group.
         :param pulumi.Input[_builtins.str] name: A friendly name of the rule group.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict']]]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict', 'outputs.RuleGroupRule']]]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         :param pulumi.Input[_builtins.str] rules_json: Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rules_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
         :param pulumi.Input[_builtins.str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['RuleGroupVisibilityConfigArgs', 'RuleGroupVisibilityConfigArgsDict']] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+        :param pulumi.Input[Union['RuleGroupVisibilityConfigArgs', 'RuleGroupVisibilityConfigArgsDict', 'outputs.RuleGroupVisibilityConfig']] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

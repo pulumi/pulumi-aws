@@ -288,7 +288,7 @@ class SecondaryNetwork(pulumi.CustomResource):
                  network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['SecondaryNetworkTimeoutsArgs', 'SecondaryNetworkTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['SecondaryNetworkTimeoutsArgs', 'SecondaryNetworkTimeoutsArgsDict', 'outputs.SecondaryNetworkTimeouts']]] = None,
                  __props__=None):
         """
         Provides an EC2 Secondary Network resource for RDMA networking.
@@ -402,7 +402,7 @@ class SecondaryNetwork(pulumi.CustomResource):
                  network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['SecondaryNetworkTimeoutsArgs', 'SecondaryNetworkTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['SecondaryNetworkTimeoutsArgs', 'SecondaryNetworkTimeoutsArgsDict', 'outputs.SecondaryNetworkTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -439,7 +439,7 @@ class SecondaryNetwork(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             ipv4_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
-            ipv4_cidr_block_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecondaryNetworkIpv4CidrBlockAssociationArgs', 'SecondaryNetworkIpv4CidrBlockAssociationArgsDict']]]]] = None,
+            ipv4_cidr_block_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecondaryNetworkIpv4CidrBlockAssociationArgs', 'SecondaryNetworkIpv4CidrBlockAssociationArgsDict', 'outputs.SecondaryNetworkIpv4CidrBlockAssociation']]]]] = None,
             network_type: pulumi.Input[Optional[_builtins.str]] = None,
             owner_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -447,7 +447,7 @@ class SecondaryNetwork(pulumi.CustomResource):
             state: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['SecondaryNetworkTimeoutsArgs', 'SecondaryNetworkTimeoutsArgsDict']]] = None) -> 'SecondaryNetwork':
+            timeouts: pulumi.Input[Optional[Union['SecondaryNetworkTimeoutsArgs', 'SecondaryNetworkTimeoutsArgsDict', 'outputs.SecondaryNetworkTimeouts']]] = None) -> 'SecondaryNetwork':
         """
         Get an existing SecondaryNetwork resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -457,7 +457,7 @@ class SecondaryNetwork(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the secondary network.
         :param pulumi.Input[_builtins.str] ipv4_cidr_block: IPv4 CIDR block for the secondary network. The CIDR block size must be between `/12` and `/28`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SecondaryNetworkIpv4CidrBlockAssociationArgs', 'SecondaryNetworkIpv4CidrBlockAssociationArgsDict']]]] ipv4_cidr_block_associations: A list of IPv4 CIDR block associations for the secondary network.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecondaryNetworkIpv4CidrBlockAssociationArgs', 'SecondaryNetworkIpv4CidrBlockAssociationArgsDict', 'outputs.SecondaryNetworkIpv4CidrBlockAssociation']]]] ipv4_cidr_block_associations: A list of IPv4 CIDR block associations for the secondary network.
         :param pulumi.Input[_builtins.str] network_type: Type of secondary network. Currently only `rdma` is supported.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] secondary_network_id: ID of the secondary network.

@@ -349,10 +349,10 @@ class Cluster(pulumi.CustomResource):
                  deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  kms_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 multi_region_properties: pulumi.Input[Optional[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict']]] = None,
+                 multi_region_properties: pulumi.Input[Optional[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict', 'outputs.ClusterMultiRegionProperties']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ClusterTimeoutsArgs', 'ClusterTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ClusterTimeoutsArgs', 'ClusterTimeoutsArgsDict', 'outputs.ClusterTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an Amazon Aurora DSQL Cluster.
@@ -399,7 +399,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] force_destroy: Destroys cluster even if `deletion_protection_enabled` is set to `true`.
                Default value is `false`.
         :param pulumi.Input[_builtins.str] kms_encryption_key: The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
-        :param pulumi.Input[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict']] multi_region_properties: Multi-region properties of the DSQL Cluster.
+        :param pulumi.Input[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict', 'outputs.ClusterMultiRegionProperties']] multi_region_properties: Multi-region properties of the DSQL Cluster.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Set of tags to be associated with the AWS DSQL Cluster resource.
         """
@@ -465,10 +465,10 @@ class Cluster(pulumi.CustomResource):
                  deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  kms_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 multi_region_properties: pulumi.Input[Optional[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict']]] = None,
+                 multi_region_properties: pulumi.Input[Optional[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict', 'outputs.ClusterMultiRegionProperties']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ClusterTimeoutsArgs', 'ClusterTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ClusterTimeoutsArgs', 'ClusterTimeoutsArgsDict', 'outputs.ClusterTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -502,15 +502,15 @@ class Cluster(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            encryption_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterEncryptionDetailArgs', 'ClusterEncryptionDetailArgsDict']]]]] = None,
+            encryption_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterEncryptionDetailArgs', 'ClusterEncryptionDetailArgsDict', 'outputs.ClusterEncryptionDetail']]]]] = None,
             force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
             identifier: pulumi.Input[Optional[_builtins.str]] = None,
             kms_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
-            multi_region_properties: pulumi.Input[Optional[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict']]] = None,
+            multi_region_properties: pulumi.Input[Optional[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict', 'outputs.ClusterMultiRegionProperties']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['ClusterTimeoutsArgs', 'ClusterTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['ClusterTimeoutsArgs', 'ClusterTimeoutsArgsDict', 'outputs.ClusterTimeouts']]] = None,
             vpc_endpoint_service_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Cluster':
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
@@ -522,12 +522,12 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the Cluster.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Whether deletion protection is enabled in this cluster.
                Default value is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterEncryptionDetailArgs', 'ClusterEncryptionDetailArgsDict']]]] encryption_details: Encryption configuration details for the DSQL Cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterEncryptionDetailArgs', 'ClusterEncryptionDetailArgsDict', 'outputs.ClusterEncryptionDetail']]]] encryption_details: Encryption configuration details for the DSQL Cluster.
         :param pulumi.Input[_builtins.bool] force_destroy: Destroys cluster even if `deletion_protection_enabled` is set to `true`.
                Default value is `false`.
         :param pulumi.Input[_builtins.str] identifier: Cluster Identifier.
         :param pulumi.Input[_builtins.str] kms_encryption_key: The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
-        :param pulumi.Input[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict']] multi_region_properties: Multi-region properties of the DSQL Cluster.
+        :param pulumi.Input[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict', 'outputs.ClusterMultiRegionProperties']] multi_region_properties: Multi-region properties of the DSQL Cluster.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Set of tags to be associated with the AWS DSQL Cluster resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

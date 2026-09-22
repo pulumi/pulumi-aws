@@ -224,7 +224,7 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_side_encryption_configuration: pulumi.Input[Optional[Union['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs', 'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict']]] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional[Union['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs', 'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict', 'outputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -266,7 +266,7 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of Voice Profile Domain.
         :param pulumi.Input[_builtins.str] name: Name of Voice Profile Domain.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs', 'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: Configuration for server side encryption.
+        :param pulumi.Input[Union['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs', 'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict', 'outputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration']] server_side_encryption_configuration: Configuration for server side encryption.
         """
         ...
     @overload
@@ -326,7 +326,7 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_side_encryption_configuration: pulumi.Input[Optional[Union['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs', 'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict']]] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional[Union['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs', 'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict', 'outputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -360,7 +360,7 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            server_side_encryption_configuration: pulumi.Input[Optional[Union['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs', 'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict']]] = None,
+            server_side_encryption_configuration: pulumi.Input[Optional[Union['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs', 'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict', 'outputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'SdkvoiceVoiceProfileDomain':
         """
@@ -374,7 +374,7 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of Voice Profile Domain.
         :param pulumi.Input[_builtins.str] name: Name of Voice Profile Domain.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs', 'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: Configuration for server side encryption.
+        :param pulumi.Input[Union['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs', 'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict', 'outputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration']] server_side_encryption_configuration: Configuration for server side encryption.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

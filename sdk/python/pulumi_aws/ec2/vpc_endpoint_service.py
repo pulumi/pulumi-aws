@@ -659,7 +659,7 @@ class VpcEndpointService(pulumi.CustomResource):
             manages_vpc_endpoints: pulumi.Input[Optional[_builtins.bool]] = None,
             network_load_balancer_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             private_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
-            private_dns_name_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpcEndpointServicePrivateDnsNameConfigurationArgs', 'VpcEndpointServicePrivateDnsNameConfigurationArgsDict']]]]] = None,
+            private_dns_name_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpcEndpointServicePrivateDnsNameConfigurationArgs', 'VpcEndpointServicePrivateDnsNameConfigurationArgsDict', 'outputs.VpcEndpointServicePrivateDnsNameConfiguration']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             service_name: pulumi.Input[Optional[_builtins.str]] = None,
             service_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -684,7 +684,7 @@ class VpcEndpointService(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] manages_vpc_endpoints: Whether or not the service manages its VPC endpoints - `true` or `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_load_balancer_arns: ARNs of one or more Network Load Balancers for the endpoint service.
         :param pulumi.Input[_builtins.str] private_dns_name: The private DNS name for the service.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointServicePrivateDnsNameConfigurationArgs', 'VpcEndpointServicePrivateDnsNameConfigurationArgsDict']]]] private_dns_name_configurations: List of objects containing information about the endpoint service private DNS name configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointServicePrivateDnsNameConfigurationArgs', 'VpcEndpointServicePrivateDnsNameConfigurationArgsDict', 'outputs.VpcEndpointServicePrivateDnsNameConfiguration']]]] private_dns_name_configurations: List of objects containing information about the endpoint service private DNS name configuration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] service_name: The service name.
         :param pulumi.Input[_builtins.str] service_type: The service type, `Gateway` or `Interface`.

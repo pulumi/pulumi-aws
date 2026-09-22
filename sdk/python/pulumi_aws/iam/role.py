@@ -477,7 +477,7 @@ class Role(pulumi.CustomResource):
                  assume_role_policy: pulumi.Input[Optional[Union[_builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  force_detach_policies: pulumi.Input[Optional[_builtins.bool]] = None,
-                 inline_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoleInlinePolicyArgs', 'RoleInlinePolicyArgsDict']]]]] = None,
+                 inline_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoleInlinePolicyArgs', 'RoleInlinePolicyArgsDict', 'outputs.RoleInlinePolicy']]]]] = None,
                  managed_policy_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  max_session_duration: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -682,7 +682,7 @@ class Role(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] description: Description of the role.
         :param pulumi.Input[_builtins.bool] force_detach_policies: Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RoleInlinePolicyArgs', 'RoleInlinePolicyArgsDict']]]] inline_policies: Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RoleInlinePolicyArgs', 'RoleInlinePolicyArgsDict', 'outputs.RoleInlinePolicy']]]] inline_policies: Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] managed_policy_arns: Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managed_policy_arns = []`) will cause Pulumi to remove _all_ managed policy attachments.
         :param pulumi.Input[_builtins.int] max_session_duration: Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
         :param pulumi.Input[_builtins.str] name: Friendly name of the role. If omitted, the provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
@@ -902,7 +902,7 @@ class Role(pulumi.CustomResource):
                  assume_role_policy: pulumi.Input[Optional[Union[_builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  force_detach_policies: pulumi.Input[Optional[_builtins.bool]] = None,
-                 inline_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoleInlinePolicyArgs', 'RoleInlinePolicyArgsDict']]]]] = None,
+                 inline_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoleInlinePolicyArgs', 'RoleInlinePolicyArgsDict', 'outputs.RoleInlinePolicy']]]]] = None,
                  managed_policy_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  max_session_duration: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -951,7 +951,7 @@ class Role(pulumi.CustomResource):
             create_date: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             force_detach_policies: pulumi.Input[Optional[_builtins.bool]] = None,
-            inline_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoleInlinePolicyArgs', 'RoleInlinePolicyArgsDict']]]]] = None,
+            inline_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoleInlinePolicyArgs', 'RoleInlinePolicyArgsDict', 'outputs.RoleInlinePolicy']]]]] = None,
             managed_policy_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             max_session_duration: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -977,7 +977,7 @@ class Role(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] create_date: Creation date of the IAM role.
         :param pulumi.Input[_builtins.str] description: Description of the role.
         :param pulumi.Input[_builtins.bool] force_detach_policies: Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RoleInlinePolicyArgs', 'RoleInlinePolicyArgsDict']]]] inline_policies: Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RoleInlinePolicyArgs', 'RoleInlinePolicyArgsDict', 'outputs.RoleInlinePolicy']]]] inline_policies: Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] managed_policy_arns: Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managed_policy_arns = []`) will cause Pulumi to remove _all_ managed policy attachments.
         :param pulumi.Input[_builtins.int] max_session_duration: Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
         :param pulumi.Input[_builtins.str] name: Friendly name of the role. If omitted, the provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.

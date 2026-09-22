@@ -409,7 +409,7 @@ class Application(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 portal_options: pulumi.Input[Optional[Union['ApplicationPortalOptionsArgs', 'ApplicationPortalOptionsArgsDict']]] = None,
+                 portal_options: pulumi.Input[Optional[Union['ApplicationPortalOptionsArgs', 'ApplicationPortalOptionsArgsDict', 'outputs.ApplicationPortalOptions']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -484,7 +484,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the application.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['ApplicationPortalOptionsArgs', 'ApplicationPortalOptionsArgsDict']] portal_options: Options for the portal associated with an application. See `portal_options` below.
+        :param pulumi.Input[Union['ApplicationPortalOptionsArgs', 'ApplicationPortalOptionsArgsDict', 'outputs.ApplicationPortalOptions']] portal_options: Options for the portal associated with an application. See `portal_options` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] status: Status of the application. Valid values are `ENABLED` and `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -576,7 +576,7 @@ class Application(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 portal_options: pulumi.Input[Optional[Union['ApplicationPortalOptionsArgs', 'ApplicationPortalOptionsArgsDict']]] = None,
+                 portal_options: pulumi.Input[Optional[Union['ApplicationPortalOptionsArgs', 'ApplicationPortalOptionsArgsDict', 'outputs.ApplicationPortalOptions']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -624,7 +624,7 @@ class Application(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            portal_options: pulumi.Input[Optional[Union['ApplicationPortalOptionsArgs', 'ApplicationPortalOptionsArgsDict']]] = None,
+            portal_options: pulumi.Input[Optional[Union['ApplicationPortalOptionsArgs', 'ApplicationPortalOptionsArgsDict', 'outputs.ApplicationPortalOptions']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -646,7 +646,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the application.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['ApplicationPortalOptionsArgs', 'ApplicationPortalOptionsArgsDict']] portal_options: Options for the portal associated with an application. See `portal_options` below.
+        :param pulumi.Input[Union['ApplicationPortalOptionsArgs', 'ApplicationPortalOptionsArgsDict', 'outputs.ApplicationPortalOptions']] portal_options: Options for the portal associated with an application. See `portal_options` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] status: Status of the application. Valid values are `ENABLED` and `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

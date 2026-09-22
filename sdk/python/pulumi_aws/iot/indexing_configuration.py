@@ -139,8 +139,8 @@ class IndexingConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 thing_group_indexing_configuration: pulumi.Input[Optional[Union['IndexingConfigurationThingGroupIndexingConfigurationArgs', 'IndexingConfigurationThingGroupIndexingConfigurationArgsDict']]] = None,
-                 thing_indexing_configuration: pulumi.Input[Optional[Union['IndexingConfigurationThingIndexingConfigurationArgs', 'IndexingConfigurationThingIndexingConfigurationArgsDict']]] = None,
+                 thing_group_indexing_configuration: pulumi.Input[Optional[Union['IndexingConfigurationThingGroupIndexingConfigurationArgs', 'IndexingConfigurationThingGroupIndexingConfigurationArgsDict', 'outputs.IndexingConfigurationThingGroupIndexingConfiguration']]] = None,
+                 thing_indexing_configuration: pulumi.Input[Optional[Union['IndexingConfigurationThingIndexingConfigurationArgs', 'IndexingConfigurationThingIndexingConfigurationArgsDict', 'outputs.IndexingConfigurationThingIndexingConfiguration']]] = None,
                  __props__=None):
         """
         Managing [IoT Thing indexing](https://docs.aws.amazon.com/iot/latest/developerguide/managing-index.html).
@@ -184,8 +184,8 @@ class IndexingConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['IndexingConfigurationThingGroupIndexingConfigurationArgs', 'IndexingConfigurationThingGroupIndexingConfigurationArgsDict']] thing_group_indexing_configuration: Thing group indexing configuration. See below.
-        :param pulumi.Input[Union['IndexingConfigurationThingIndexingConfigurationArgs', 'IndexingConfigurationThingIndexingConfigurationArgsDict']] thing_indexing_configuration: Thing indexing configuration. See below.
+        :param pulumi.Input[Union['IndexingConfigurationThingGroupIndexingConfigurationArgs', 'IndexingConfigurationThingGroupIndexingConfigurationArgsDict', 'outputs.IndexingConfigurationThingGroupIndexingConfiguration']] thing_group_indexing_configuration: Thing group indexing configuration. See below.
+        :param pulumi.Input[Union['IndexingConfigurationThingIndexingConfigurationArgs', 'IndexingConfigurationThingIndexingConfigurationArgsDict', 'outputs.IndexingConfigurationThingIndexingConfiguration']] thing_indexing_configuration: Thing indexing configuration. See below.
         """
         ...
     @overload
@@ -248,8 +248,8 @@ class IndexingConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 thing_group_indexing_configuration: pulumi.Input[Optional[Union['IndexingConfigurationThingGroupIndexingConfigurationArgs', 'IndexingConfigurationThingGroupIndexingConfigurationArgsDict']]] = None,
-                 thing_indexing_configuration: pulumi.Input[Optional[Union['IndexingConfigurationThingIndexingConfigurationArgs', 'IndexingConfigurationThingIndexingConfigurationArgsDict']]] = None,
+                 thing_group_indexing_configuration: pulumi.Input[Optional[Union['IndexingConfigurationThingGroupIndexingConfigurationArgs', 'IndexingConfigurationThingGroupIndexingConfigurationArgsDict', 'outputs.IndexingConfigurationThingGroupIndexingConfiguration']]] = None,
+                 thing_indexing_configuration: pulumi.Input[Optional[Union['IndexingConfigurationThingIndexingConfigurationArgs', 'IndexingConfigurationThingIndexingConfigurationArgsDict', 'outputs.IndexingConfigurationThingIndexingConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -273,8 +273,8 @@ class IndexingConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            thing_group_indexing_configuration: pulumi.Input[Optional[Union['IndexingConfigurationThingGroupIndexingConfigurationArgs', 'IndexingConfigurationThingGroupIndexingConfigurationArgsDict']]] = None,
-            thing_indexing_configuration: pulumi.Input[Optional[Union['IndexingConfigurationThingIndexingConfigurationArgs', 'IndexingConfigurationThingIndexingConfigurationArgsDict']]] = None) -> 'IndexingConfiguration':
+            thing_group_indexing_configuration: pulumi.Input[Optional[Union['IndexingConfigurationThingGroupIndexingConfigurationArgs', 'IndexingConfigurationThingGroupIndexingConfigurationArgsDict', 'outputs.IndexingConfigurationThingGroupIndexingConfiguration']]] = None,
+            thing_indexing_configuration: pulumi.Input[Optional[Union['IndexingConfigurationThingIndexingConfigurationArgs', 'IndexingConfigurationThingIndexingConfigurationArgsDict', 'outputs.IndexingConfigurationThingIndexingConfiguration']]] = None) -> 'IndexingConfiguration':
         """
         Get an existing IndexingConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -283,8 +283,8 @@ class IndexingConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['IndexingConfigurationThingGroupIndexingConfigurationArgs', 'IndexingConfigurationThingGroupIndexingConfigurationArgsDict']] thing_group_indexing_configuration: Thing group indexing configuration. See below.
-        :param pulumi.Input[Union['IndexingConfigurationThingIndexingConfigurationArgs', 'IndexingConfigurationThingIndexingConfigurationArgsDict']] thing_indexing_configuration: Thing indexing configuration. See below.
+        :param pulumi.Input[Union['IndexingConfigurationThingGroupIndexingConfigurationArgs', 'IndexingConfigurationThingGroupIndexingConfigurationArgsDict', 'outputs.IndexingConfigurationThingGroupIndexingConfiguration']] thing_group_indexing_configuration: Thing group indexing configuration. See below.
+        :param pulumi.Input[Union['IndexingConfigurationThingIndexingConfigurationArgs', 'IndexingConfigurationThingIndexingConfigurationArgsDict', 'outputs.IndexingConfigurationThingIndexingConfiguration']] thing_indexing_configuration: Thing indexing configuration. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

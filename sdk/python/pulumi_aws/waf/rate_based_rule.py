@@ -265,7 +265,7 @@ class RateBasedRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  metric_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 predicates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RateBasedRulePredicateArgs', 'RateBasedRulePredicateArgsDict']]]]] = None,
+                 predicates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RateBasedRulePredicateArgs', 'RateBasedRulePredicateArgsDict', 'outputs.RateBasedRulePredicate']]]]] = None,
                  rate_key: pulumi.Input[Optional[_builtins.str]] = None,
                  rate_limit: pulumi.Input[Optional[_builtins.int]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -311,7 +311,7 @@ class RateBasedRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
         :param pulumi.Input[_builtins.str] name: The name or description of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RateBasedRulePredicateArgs', 'RateBasedRulePredicateArgsDict']]]] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RateBasedRulePredicateArgs', 'RateBasedRulePredicateArgsDict', 'outputs.RateBasedRulePredicate']]]] predicates: The objects to include in a rule (documented below).
         :param pulumi.Input[_builtins.str] rate_key: Valid value is IP.
         :param pulumi.Input[_builtins.int] rate_limit: The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -376,7 +376,7 @@ class RateBasedRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  metric_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 predicates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RateBasedRulePredicateArgs', 'RateBasedRulePredicateArgsDict']]]]] = None,
+                 predicates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RateBasedRulePredicateArgs', 'RateBasedRulePredicateArgsDict', 'outputs.RateBasedRulePredicate']]]]] = None,
                  rate_key: pulumi.Input[Optional[_builtins.str]] = None,
                  rate_limit: pulumi.Input[Optional[_builtins.int]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -416,7 +416,7 @@ class RateBasedRule(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             metric_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            predicates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RateBasedRulePredicateArgs', 'RateBasedRulePredicateArgsDict']]]]] = None,
+            predicates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RateBasedRulePredicateArgs', 'RateBasedRulePredicateArgsDict', 'outputs.RateBasedRulePredicate']]]]] = None,
             rate_key: pulumi.Input[Optional[_builtins.str]] = None,
             rate_limit: pulumi.Input[Optional[_builtins.int]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -431,7 +431,7 @@ class RateBasedRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN
         :param pulumi.Input[_builtins.str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
         :param pulumi.Input[_builtins.str] name: The name or description of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RateBasedRulePredicateArgs', 'RateBasedRulePredicateArgsDict']]]] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RateBasedRulePredicateArgs', 'RateBasedRulePredicateArgsDict', 'outputs.RateBasedRulePredicate']]]] predicates: The objects to include in a rule (documented below).
         :param pulumi.Input[_builtins.str] rate_key: Valid value is IP.
         :param pulumi.Input[_builtins.int] rate_limit: The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -235,7 +235,7 @@ class Rule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  metric_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 predicates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RulePredicateArgs', 'RulePredicateArgsDict']]]]] = None,
+                 predicates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RulePredicateArgs', 'RulePredicateArgsDict', 'outputs.RulePredicate']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -277,7 +277,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
         :param pulumi.Input[_builtins.str] name: The name or description of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RulePredicateArgs', 'RulePredicateArgsDict']]]] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RulePredicateArgs', 'RulePredicateArgsDict', 'outputs.RulePredicate']]]] predicates: The objects to include in a rule (documented below).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -338,7 +338,7 @@ class Rule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  metric_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 predicates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RulePredicateArgs', 'RulePredicateArgsDict']]]]] = None,
+                 predicates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RulePredicateArgs', 'RulePredicateArgsDict', 'outputs.RulePredicate']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -372,7 +372,7 @@ class Rule(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             metric_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            predicates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RulePredicateArgs', 'RulePredicateArgsDict']]]]] = None,
+            predicates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RulePredicateArgs', 'RulePredicateArgsDict', 'outputs.RulePredicate']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Rule':
@@ -386,7 +386,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: The ARN of the WAF Regional Rule.
         :param pulumi.Input[_builtins.str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
         :param pulumi.Input[_builtins.str] name: The name or description of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RulePredicateArgs', 'RulePredicateArgsDict']]]] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RulePredicateArgs', 'RulePredicateArgsDict', 'outputs.RulePredicate']]]] predicates: The objects to include in a rule (documented below).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

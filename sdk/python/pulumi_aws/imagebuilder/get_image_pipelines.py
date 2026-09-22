@@ -93,7 +93,7 @@ class AwaitableGetImagePipelinesResult(GetImagePipelinesResult):
             region=self.region)
 
 
-def get_image_pipelines(filters: Optional[Sequence[Union['GetImagePipelinesFilterArgs', 'GetImagePipelinesFilterArgsDict']]] = None,
+def get_image_pipelines(filters: Optional[Sequence[Union['GetImagePipelinesFilterArgs', 'GetImagePipelinesFilterArgsDict', 'outputs.GetImagePipelinesFilterResult']]] = None,
                         region: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImagePipelinesResult:
     """
@@ -112,7 +112,7 @@ def get_image_pipelines(filters: Optional[Sequence[Union['GetImagePipelinesFilte
     ```
 
 
-    :param Sequence[Union['GetImagePipelinesFilterArgs', 'GetImagePipelinesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetImagePipelinesFilterArgs', 'GetImagePipelinesFilterArgsDict', 'outputs.GetImagePipelinesFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -127,7 +127,7 @@ def get_image_pipelines(filters: Optional[Sequence[Union['GetImagePipelinesFilte
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'),
         region=pulumi.get(__ret__, 'region'))
-def get_image_pipelines_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetImagePipelinesFilterArgs', 'GetImagePipelinesFilterArgsDict']]]]] = None,
+def get_image_pipelines_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetImagePipelinesFilterArgs', 'GetImagePipelinesFilterArgsDict', 'outputs.GetImagePipelinesFilterResult']]]]] = None,
                                region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImagePipelinesResult]:
     """
@@ -146,7 +146,7 @@ def get_image_pipelines_output(filters: pulumi.Input[Optional[Optional[Sequence[
     ```
 
 
-    :param Sequence[Union['GetImagePipelinesFilterArgs', 'GetImagePipelinesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetImagePipelinesFilterArgs', 'GetImagePipelinesFilterArgsDict', 'outputs.GetImagePipelinesFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

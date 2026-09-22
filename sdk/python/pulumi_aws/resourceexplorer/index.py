@@ -195,7 +195,7 @@ class Index(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['IndexTimeoutsArgs', 'IndexTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['IndexTimeoutsArgs', 'IndexTimeoutsArgsDict', 'outputs.IndexTimeouts']]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -281,7 +281,7 @@ class Index(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['IndexTimeoutsArgs', 'IndexTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['IndexTimeoutsArgs', 'IndexTimeoutsArgsDict', 'outputs.IndexTimeouts']]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -314,7 +314,7 @@ class Index(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['IndexTimeoutsArgs', 'IndexTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['IndexTimeoutsArgs', 'IndexTimeoutsArgsDict', 'outputs.IndexTimeouts']]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None) -> 'Index':
         """
         Get an existing Index resource's state with the given name, id, and optional extra

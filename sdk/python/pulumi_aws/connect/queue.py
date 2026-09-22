@@ -413,7 +413,7 @@ class Queue(pulumi.CustomResource):
                  instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  max_contacts: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 outbound_caller_config: pulumi.Input[Optional[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict']]] = None,
+                 outbound_caller_config: pulumi.Input[Optional[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict', 'outputs.QueueOutboundCallerConfig']]] = None,
                  quick_connect_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
@@ -495,7 +495,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[_builtins.int] max_contacts: Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Queue.
-        :param pulumi.Input[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict']] outbound_caller_config: A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
+        :param pulumi.Input[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict', 'outputs.QueueOutboundCallerConfig']] outbound_caller_config: A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] quick_connect_ids: Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] status: Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
@@ -596,7 +596,7 @@ class Queue(pulumi.CustomResource):
                  instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  max_contacts: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 outbound_caller_config: pulumi.Input[Optional[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict']]] = None,
+                 outbound_caller_config: pulumi.Input[Optional[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict', 'outputs.QueueOutboundCallerConfig']]] = None,
                  quick_connect_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
@@ -643,7 +643,7 @@ class Queue(pulumi.CustomResource):
             instance_id: pulumi.Input[Optional[_builtins.str]] = None,
             max_contacts: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            outbound_caller_config: pulumi.Input[Optional[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict']]] = None,
+            outbound_caller_config: pulumi.Input[Optional[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict', 'outputs.QueueOutboundCallerConfig']]] = None,
             queue_id: pulumi.Input[Optional[_builtins.str]] = None,
             quick_connect_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -663,7 +663,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[_builtins.int] max_contacts: Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Queue.
-        :param pulumi.Input[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict']] outbound_caller_config: A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
+        :param pulumi.Input[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict', 'outputs.QueueOutboundCallerConfig']] outbound_caller_config: A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
         :param pulumi.Input[_builtins.str] queue_id: The identifier for the Queue.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] quick_connect_ids: Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

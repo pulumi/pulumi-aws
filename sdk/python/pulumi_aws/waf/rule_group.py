@@ -201,7 +201,7 @@ class RuleGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activated_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupActivatedRuleArgs', 'RuleGroupActivatedRuleArgsDict']]]]] = None,
+                 activated_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupActivatedRuleArgs', 'RuleGroupActivatedRuleArgsDict', 'outputs.RuleGroupActivatedRule']]]]] = None,
                  metric_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -241,7 +241,7 @@ class RuleGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupActivatedRuleArgs', 'RuleGroupActivatedRuleArgsDict']]]] activated_rules: A list of activated rules, see below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupActivatedRuleArgs', 'RuleGroupActivatedRuleArgsDict', 'outputs.RuleGroupActivatedRule']]]] activated_rules: A list of activated rules, see below
         :param pulumi.Input[_builtins.str] metric_name: A friendly name for the metrics from the rule group
         :param pulumi.Input[_builtins.str] name: Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -300,7 +300,7 @@ class RuleGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activated_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupActivatedRuleArgs', 'RuleGroupActivatedRuleArgsDict']]]]] = None,
+                 activated_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupActivatedRuleArgs', 'RuleGroupActivatedRuleArgsDict', 'outputs.RuleGroupActivatedRule']]]]] = None,
                  metric_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -331,7 +331,7 @@ class RuleGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            activated_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupActivatedRuleArgs', 'RuleGroupActivatedRuleArgsDict']]]]] = None,
+            activated_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupActivatedRuleArgs', 'RuleGroupActivatedRuleArgsDict', 'outputs.RuleGroupActivatedRule']]]]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             metric_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -344,7 +344,7 @@ class RuleGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupActivatedRuleArgs', 'RuleGroupActivatedRuleArgsDict']]]] activated_rules: A list of activated rules, see below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupActivatedRuleArgs', 'RuleGroupActivatedRuleArgsDict', 'outputs.RuleGroupActivatedRule']]]] activated_rules: A list of activated rules, see below
         :param pulumi.Input[_builtins.str] arn: The ARN of the WAF rule group.
         :param pulumi.Input[_builtins.str] metric_name: A friendly name for the metrics from the rule group
         :param pulumi.Input[_builtins.str] name: Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.

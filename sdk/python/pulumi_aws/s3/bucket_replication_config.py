@@ -202,7 +202,7 @@ class BucketReplicationConfig(pulumi.CustomResource):
                  bucket: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketReplicationConfigRuleArgs', 'BucketReplicationConfigRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketReplicationConfigRuleArgs', 'BucketReplicationConfigRuleArgsDict', 'outputs.BucketReplicationConfigRule']]]]] = None,
                  token: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -452,7 +452,7 @@ class BucketReplicationConfig(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] bucket: Name of the source S3 bucket you want Amazon S3 to monitor.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role: ARN of the IAM role for Amazon S3 to assume when replicating the objects.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketReplicationConfigRuleArgs', 'BucketReplicationConfigRuleArgsDict']]]] rules: List of configuration blocks describing the rules managing the replication. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketReplicationConfigRuleArgs', 'BucketReplicationConfigRuleArgsDict', 'outputs.BucketReplicationConfigRule']]]] rules: List of configuration blocks describing the rules managing the replication. See below.
         :param pulumi.Input[_builtins.str] token: Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token". For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
         """
         ...
@@ -721,7 +721,7 @@ class BucketReplicationConfig(pulumi.CustomResource):
                  bucket: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketReplicationConfigRuleArgs', 'BucketReplicationConfigRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketReplicationConfigRuleArgs', 'BucketReplicationConfigRuleArgsDict', 'outputs.BucketReplicationConfigRule']]]]] = None,
                  token: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -758,7 +758,7 @@ class BucketReplicationConfig(pulumi.CustomResource):
             bucket: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             role: pulumi.Input[Optional[_builtins.str]] = None,
-            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketReplicationConfigRuleArgs', 'BucketReplicationConfigRuleArgsDict']]]]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketReplicationConfigRuleArgs', 'BucketReplicationConfigRuleArgsDict', 'outputs.BucketReplicationConfigRule']]]]] = None,
             token: pulumi.Input[Optional[_builtins.str]] = None) -> 'BucketReplicationConfig':
         """
         Get an existing BucketReplicationConfig resource's state with the given name, id, and optional extra
@@ -770,7 +770,7 @@ class BucketReplicationConfig(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] bucket: Name of the source S3 bucket you want Amazon S3 to monitor.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role: ARN of the IAM role for Amazon S3 to assume when replicating the objects.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketReplicationConfigRuleArgs', 'BucketReplicationConfigRuleArgsDict']]]] rules: List of configuration blocks describing the rules managing the replication. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketReplicationConfigRuleArgs', 'BucketReplicationConfigRuleArgsDict', 'outputs.BucketReplicationConfigRule']]]] rules: List of configuration blocks describing the rules managing the replication. See below.
         :param pulumi.Input[_builtins.str] token: Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token". For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

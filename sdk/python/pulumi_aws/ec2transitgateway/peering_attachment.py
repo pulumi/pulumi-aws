@@ -307,7 +307,7 @@ class PeeringAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 options: pulumi.Input[Optional[Union['PeeringAttachmentOptionsArgs', 'PeeringAttachmentOptionsArgsDict']]] = None,
+                 options: pulumi.Input[Optional[Union['PeeringAttachmentOptionsArgs', 'PeeringAttachmentOptionsArgsDict', 'outputs.PeeringAttachmentOptions']]] = None,
                  peer_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_region: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -353,7 +353,7 @@ class PeeringAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['PeeringAttachmentOptionsArgs', 'PeeringAttachmentOptionsArgsDict']] options: Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+        :param pulumi.Input[Union['PeeringAttachmentOptionsArgs', 'PeeringAttachmentOptionsArgsDict', 'outputs.PeeringAttachmentOptions']] options: Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
         :param pulumi.Input[_builtins.str] peer_account_id: Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[_builtins.str] peer_region: Region of EC2 Transit Gateway to peer with.
         :param pulumi.Input[_builtins.str] peer_transit_gateway_id: Identifier of EC2 Transit Gateway to peer with.
@@ -418,7 +418,7 @@ class PeeringAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 options: pulumi.Input[Optional[Union['PeeringAttachmentOptionsArgs', 'PeeringAttachmentOptionsArgsDict']]] = None,
+                 options: pulumi.Input[Optional[Union['PeeringAttachmentOptionsArgs', 'PeeringAttachmentOptionsArgsDict', 'outputs.PeeringAttachmentOptions']]] = None,
                  peer_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_region: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -461,7 +461,7 @@ class PeeringAttachment(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            options: pulumi.Input[Optional[Union['PeeringAttachmentOptionsArgs', 'PeeringAttachmentOptionsArgsDict']]] = None,
+            options: pulumi.Input[Optional[Union['PeeringAttachmentOptionsArgs', 'PeeringAttachmentOptionsArgsDict', 'outputs.PeeringAttachmentOptions']]] = None,
             peer_account_id: pulumi.Input[Optional[_builtins.str]] = None,
             peer_region: pulumi.Input[Optional[_builtins.str]] = None,
             peer_transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -478,7 +478,7 @@ class PeeringAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the attachment.
-        :param pulumi.Input[Union['PeeringAttachmentOptionsArgs', 'PeeringAttachmentOptionsArgsDict']] options: Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+        :param pulumi.Input[Union['PeeringAttachmentOptionsArgs', 'PeeringAttachmentOptionsArgsDict', 'outputs.PeeringAttachmentOptions']] options: Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
         :param pulumi.Input[_builtins.str] peer_account_id: Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[_builtins.str] peer_region: Region of EC2 Transit Gateway to peer with.
         :param pulumi.Input[_builtins.str] peer_transit_gateway_id: Identifier of EC2 Transit Gateway to peer with.

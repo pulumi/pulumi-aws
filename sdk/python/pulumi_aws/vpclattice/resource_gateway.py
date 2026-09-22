@@ -416,7 +416,7 @@ class ResourceGateway(pulumi.CustomResource):
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ResourceGatewayTimeoutsArgs', 'ResourceGatewayTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ResourceGatewayTimeoutsArgs', 'ResourceGatewayTimeoutsArgsDict', 'outputs.ResourceGatewayTimeouts']]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -578,7 +578,7 @@ class ResourceGateway(pulumi.CustomResource):
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ResourceGatewayTimeoutsArgs', 'ResourceGatewayTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ResourceGatewayTimeoutsArgs', 'ResourceGatewayTimeoutsArgsDict', 'outputs.ResourceGatewayTimeouts']]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -627,7 +627,7 @@ class ResourceGateway(pulumi.CustomResource):
             subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['ResourceGatewayTimeoutsArgs', 'ResourceGatewayTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['ResourceGatewayTimeoutsArgs', 'ResourceGatewayTimeoutsArgsDict', 'outputs.ResourceGatewayTimeouts']]] = None,
             vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ResourceGateway':
         """
         Get an existing ResourceGateway resource's state with the given name, id, and optional extra

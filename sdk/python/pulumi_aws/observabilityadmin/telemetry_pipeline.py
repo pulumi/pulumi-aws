@@ -233,11 +233,11 @@ class TelemetryPipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['TelemetryPipelineConfigurationArgs', 'TelemetryPipelineConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['TelemetryPipelineConfigurationArgs', 'TelemetryPipelineConfigurationArgsDict', 'outputs.TelemetryPipelineConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['TelemetryPipelineTimeoutsArgs', 'TelemetryPipelineTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TelemetryPipelineTimeoutsArgs', 'TelemetryPipelineTimeoutsArgsDict', 'outputs.TelemetryPipelineTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS CloudWatch Observability Admin Telemetry Pipeline.
@@ -263,7 +263,7 @@ class TelemetryPipeline(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TelemetryPipelineConfigurationArgs', 'TelemetryPipelineConfigurationArgsDict']] configuration: Configuration block for the telemetry pipeline. See `configuration` below.
+        :param pulumi.Input[Union['TelemetryPipelineConfigurationArgs', 'TelemetryPipelineConfigurationArgsDict', 'outputs.TelemetryPipelineConfiguration']] configuration: Configuration block for the telemetry pipeline. See `configuration` below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] name: Name of the telemetry pipeline. Must be between 3 and 28 characters, start with a lowercase letter, and contain only lowercase letters, digits, and hyphens.
@@ -313,11 +313,11 @@ class TelemetryPipeline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['TelemetryPipelineConfigurationArgs', 'TelemetryPipelineConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['TelemetryPipelineConfigurationArgs', 'TelemetryPipelineConfigurationArgsDict', 'outputs.TelemetryPipelineConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['TelemetryPipelineTimeoutsArgs', 'TelemetryPipelineTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TelemetryPipelineTimeoutsArgs', 'TelemetryPipelineTimeoutsArgsDict', 'outputs.TelemetryPipelineTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -347,12 +347,12 @@ class TelemetryPipeline(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            configuration: pulumi.Input[Optional[Union['TelemetryPipelineConfigurationArgs', 'TelemetryPipelineConfigurationArgsDict']]] = None,
+            configuration: pulumi.Input[Optional[Union['TelemetryPipelineConfigurationArgs', 'TelemetryPipelineConfigurationArgsDict', 'outputs.TelemetryPipelineConfiguration']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['TelemetryPipelineTimeoutsArgs', 'TelemetryPipelineTimeoutsArgsDict']]] = None) -> 'TelemetryPipeline':
+            timeouts: pulumi.Input[Optional[Union['TelemetryPipelineTimeoutsArgs', 'TelemetryPipelineTimeoutsArgsDict', 'outputs.TelemetryPipelineTimeouts']]] = None) -> 'TelemetryPipeline':
         """
         Get an existing TelemetryPipeline resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -361,7 +361,7 @@ class TelemetryPipeline(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the telemetry pipeline.
-        :param pulumi.Input[Union['TelemetryPipelineConfigurationArgs', 'TelemetryPipelineConfigurationArgsDict']] configuration: Configuration block for the telemetry pipeline. See `configuration` below.
+        :param pulumi.Input[Union['TelemetryPipelineConfigurationArgs', 'TelemetryPipelineConfigurationArgsDict', 'outputs.TelemetryPipelineConfiguration']] configuration: Configuration block for the telemetry pipeline. See `configuration` below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] name: Name of the telemetry pipeline. Must be between 3 and 28 characters, start with a lowercase letter, and contain only lowercase letters, digits, and hyphens.

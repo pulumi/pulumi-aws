@@ -138,7 +138,7 @@ class LogTransformer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 transformer_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogTransformerTransformerConfigArgs', 'LogTransformerTransformerConfigArgsDict']]]]] = None,
+                 transformer_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogTransformerTransformerConfigArgs', 'LogTransformerTransformerConfigArgsDict', 'outputs.LogTransformerTransformerConfig']]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS CloudWatch Logs Transformer.
@@ -178,7 +178,7 @@ class LogTransformer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] log_group_arn: Log group ARN to set the transformer for.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LogTransformerTransformerConfigArgs', 'LogTransformerTransformerConfigArgsDict']]]] transformer_configs: Specifies the configuration of the transformer. You must include at least one configuration, and 20 at most. See `transformer_config` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LogTransformerTransformerConfigArgs', 'LogTransformerTransformerConfigArgsDict', 'outputs.LogTransformerTransformerConfig']]]] transformer_configs: Specifies the configuration of the transformer. You must include at least one configuration, and 20 at most. See `transformer_config` below for details.
         """
         ...
     @overload
@@ -237,7 +237,7 @@ class LogTransformer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 transformer_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogTransformerTransformerConfigArgs', 'LogTransformerTransformerConfigArgsDict']]]]] = None,
+                 transformer_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogTransformerTransformerConfigArgs', 'LogTransformerTransformerConfigArgsDict', 'outputs.LogTransformerTransformerConfig']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -266,7 +266,7 @@ class LogTransformer(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            transformer_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogTransformerTransformerConfigArgs', 'LogTransformerTransformerConfigArgsDict']]]]] = None) -> 'LogTransformer':
+            transformer_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogTransformerTransformerConfigArgs', 'LogTransformerTransformerConfigArgsDict', 'outputs.LogTransformerTransformerConfig']]]]] = None) -> 'LogTransformer':
         """
         Get an existing LogTransformer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -276,7 +276,7 @@ class LogTransformer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] log_group_arn: Log group ARN to set the transformer for.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LogTransformerTransformerConfigArgs', 'LogTransformerTransformerConfigArgsDict']]]] transformer_configs: Specifies the configuration of the transformer. You must include at least one configuration, and 20 at most. See `transformer_config` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LogTransformerTransformerConfigArgs', 'LogTransformerTransformerConfigArgsDict', 'outputs.LogTransformerTransformerConfig']]]] transformer_configs: Specifies the configuration of the transformer. You must include at least one configuration, and 20 at most. See `transformer_config` below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

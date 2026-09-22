@@ -221,7 +221,7 @@ class GuardrailVersion(pulumi.CustomResource):
                  guardrail_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
-                 timeouts: pulumi.Input[Optional[Union['GuardrailVersionTimeoutsArgs', 'GuardrailVersionTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['GuardrailVersionTimeoutsArgs', 'GuardrailVersionTimeoutsArgsDict', 'outputs.GuardrailVersionTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Bedrock Guardrail Version.
@@ -309,7 +309,7 @@ class GuardrailVersion(pulumi.CustomResource):
                  guardrail_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
-                 timeouts: pulumi.Input[Optional[Union['GuardrailVersionTimeoutsArgs', 'GuardrailVersionTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['GuardrailVersionTimeoutsArgs', 'GuardrailVersionTimeoutsArgsDict', 'outputs.GuardrailVersionTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -341,7 +341,7 @@ class GuardrailVersion(pulumi.CustomResource):
             guardrail_arn: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
-            timeouts: pulumi.Input[Optional[Union['GuardrailVersionTimeoutsArgs', 'GuardrailVersionTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['GuardrailVersionTimeoutsArgs', 'GuardrailVersionTimeoutsArgsDict', 'outputs.GuardrailVersionTimeouts']]] = None,
             version: pulumi.Input[Optional[_builtins.str]] = None) -> 'GuardrailVersion':
         """
         Get an existing GuardrailVersion resource's state with the given name, id, and optional extra

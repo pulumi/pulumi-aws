@@ -117,9 +117,9 @@ class AwaitableGetTrafficPolicyDocumentResult(GetTrafficPolicyDocumentResult):
             version=self.version)
 
 
-def get_traffic_policy_document(endpoints: Optional[Sequence[Union['GetTrafficPolicyDocumentEndpointArgs', 'GetTrafficPolicyDocumentEndpointArgsDict']]] = None,
+def get_traffic_policy_document(endpoints: Optional[Sequence[Union['GetTrafficPolicyDocumentEndpointArgs', 'GetTrafficPolicyDocumentEndpointArgsDict', 'outputs.GetTrafficPolicyDocumentEndpointResult']]] = None,
                                 record_type: Optional[_builtins.str] = None,
-                                rules: Optional[Sequence[Union['GetTrafficPolicyDocumentRuleArgs', 'GetTrafficPolicyDocumentRuleArgsDict']]] = None,
+                                rules: Optional[Sequence[Union['GetTrafficPolicyDocumentRuleArgs', 'GetTrafficPolicyDocumentRuleArgsDict', 'outputs.GetTrafficPolicyDocumentRuleResult']]] = None,
                                 start_endpoint: Optional[_builtins.str] = None,
                                 start_rule: Optional[_builtins.str] = None,
                                 version: Optional[_builtins.str] = None,
@@ -242,9 +242,9 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[Union['GetTrafficPo
     ```
 
 
-    :param Sequence[Union['GetTrafficPolicyDocumentEndpointArgs', 'GetTrafficPolicyDocumentEndpointArgsDict']] endpoints: Configuration block for the definitions of the endpoints that you want to use in this traffic policy. See below
+    :param Sequence[Union['GetTrafficPolicyDocumentEndpointArgs', 'GetTrafficPolicyDocumentEndpointArgsDict', 'outputs.GetTrafficPolicyDocumentEndpointResult']] endpoints: Configuration block for the definitions of the endpoints that you want to use in this traffic policy. See below
     :param _builtins.str record_type: DNS type of all of the resource record sets that Amazon Route 53 will create based on this traffic policy.
-    :param Sequence[Union['GetTrafficPolicyDocumentRuleArgs', 'GetTrafficPolicyDocumentRuleArgsDict']] rules: Configuration block for definitions of the rules that you want to use in this traffic policy. See below
+    :param Sequence[Union['GetTrafficPolicyDocumentRuleArgs', 'GetTrafficPolicyDocumentRuleArgsDict', 'outputs.GetTrafficPolicyDocumentRuleResult']] rules: Configuration block for definitions of the rules that you want to use in this traffic policy. See below
     :param _builtins.str start_endpoint: An endpoint to be as the starting point for the traffic policy.
     :param _builtins.str start_rule: A rule to be as the starting point for the traffic policy.
     :param _builtins.str version: Version of the traffic policy format.
@@ -268,9 +268,9 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[Union['GetTrafficPo
         start_endpoint=pulumi.get(__ret__, 'start_endpoint'),
         start_rule=pulumi.get(__ret__, 'start_rule'),
         version=pulumi.get(__ret__, 'version'))
-def get_traffic_policy_document_output(endpoints: pulumi.Input[Optional[Optional[Sequence[Union['GetTrafficPolicyDocumentEndpointArgs', 'GetTrafficPolicyDocumentEndpointArgsDict']]]]] = None,
+def get_traffic_policy_document_output(endpoints: pulumi.Input[Optional[Optional[Sequence[Union['GetTrafficPolicyDocumentEndpointArgs', 'GetTrafficPolicyDocumentEndpointArgsDict', 'outputs.GetTrafficPolicyDocumentEndpointResult']]]]] = None,
                                        record_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                       rules: pulumi.Input[Optional[Optional[Sequence[Union['GetTrafficPolicyDocumentRuleArgs', 'GetTrafficPolicyDocumentRuleArgsDict']]]]] = None,
+                                       rules: pulumi.Input[Optional[Optional[Sequence[Union['GetTrafficPolicyDocumentRuleArgs', 'GetTrafficPolicyDocumentRuleArgsDict', 'outputs.GetTrafficPolicyDocumentRuleResult']]]]] = None,
                                        start_endpoint: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        start_rule: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -393,9 +393,9 @@ def get_traffic_policy_document_output(endpoints: pulumi.Input[Optional[Optional
     ```
 
 
-    :param Sequence[Union['GetTrafficPolicyDocumentEndpointArgs', 'GetTrafficPolicyDocumentEndpointArgsDict']] endpoints: Configuration block for the definitions of the endpoints that you want to use in this traffic policy. See below
+    :param Sequence[Union['GetTrafficPolicyDocumentEndpointArgs', 'GetTrafficPolicyDocumentEndpointArgsDict', 'outputs.GetTrafficPolicyDocumentEndpointResult']] endpoints: Configuration block for the definitions of the endpoints that you want to use in this traffic policy. See below
     :param _builtins.str record_type: DNS type of all of the resource record sets that Amazon Route 53 will create based on this traffic policy.
-    :param Sequence[Union['GetTrafficPolicyDocumentRuleArgs', 'GetTrafficPolicyDocumentRuleArgsDict']] rules: Configuration block for definitions of the rules that you want to use in this traffic policy. See below
+    :param Sequence[Union['GetTrafficPolicyDocumentRuleArgs', 'GetTrafficPolicyDocumentRuleArgsDict', 'outputs.GetTrafficPolicyDocumentRuleResult']] rules: Configuration block for definitions of the rules that you want to use in this traffic policy. See below
     :param _builtins.str start_endpoint: An endpoint to be as the starting point for the traffic policy.
     :param _builtins.str start_rule: A rule to be as the starting point for the traffic policy.
     :param _builtins.str version: Version of the traffic policy format.

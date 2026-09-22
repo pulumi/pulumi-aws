@@ -138,7 +138,7 @@ class VoiceConnectorGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VoiceConnectorGroupConnectorArgs', 'VoiceConnectorGroupConnectorArgsDict']]]]] = None,
+                 connectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VoiceConnectorGroupConnectorArgs', 'VoiceConnectorGroupConnectorArgsDict', 'outputs.VoiceConnectorGroupConnector']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -186,7 +186,7 @@ class VoiceConnectorGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VoiceConnectorGroupConnectorArgs', 'VoiceConnectorGroupConnectorArgsDict']]]] connectors: The Amazon Chime Voice Connectors to route inbound calls to.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VoiceConnectorGroupConnectorArgs', 'VoiceConnectorGroupConnectorArgsDict', 'outputs.VoiceConnectorGroupConnector']]]] connectors: The Amazon Chime Voice Connectors to route inbound calls to.
         :param pulumi.Input[_builtins.str] name: The name of the Amazon Chime Voice Connector group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -253,7 +253,7 @@ class VoiceConnectorGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VoiceConnectorGroupConnectorArgs', 'VoiceConnectorGroupConnectorArgsDict']]]]] = None,
+                 connectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VoiceConnectorGroupConnectorArgs', 'VoiceConnectorGroupConnectorArgsDict', 'outputs.VoiceConnectorGroupConnector']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -278,7 +278,7 @@ class VoiceConnectorGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            connectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VoiceConnectorGroupConnectorArgs', 'VoiceConnectorGroupConnectorArgsDict']]]]] = None,
+            connectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VoiceConnectorGroupConnectorArgs', 'VoiceConnectorGroupConnectorArgsDict', 'outputs.VoiceConnectorGroupConnector']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'VoiceConnectorGroup':
         """
@@ -288,7 +288,7 @@ class VoiceConnectorGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VoiceConnectorGroupConnectorArgs', 'VoiceConnectorGroupConnectorArgsDict']]]] connectors: The Amazon Chime Voice Connectors to route inbound calls to.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VoiceConnectorGroupConnectorArgs', 'VoiceConnectorGroupConnectorArgsDict', 'outputs.VoiceConnectorGroupConnector']]]] connectors: The Amazon Chime Voice Connectors to route inbound calls to.
         :param pulumi.Input[_builtins.str] name: The name of the Amazon Chime Voice Connector group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """

@@ -400,7 +400,7 @@ class Authorizer(pulumi.CustomResource):
                  authorizer_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_simple_responses: pulumi.Input[Optional[_builtins.bool]] = None,
                  identity_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 jwt_configuration: pulumi.Input[Optional[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict']]] = None,
+                 jwt_configuration: pulumi.Input[Optional[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict', 'outputs.AuthorizerJwtConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -458,7 +458,7 @@ class Authorizer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] authorizer_uri: Authorizer's URI. For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `lambda.Function` resource. Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
         :param pulumi.Input[_builtins.bool] enable_simple_responses: Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy. Supported only for HTTP APIs.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_sources: Identity sources for which authorization is requested. For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters. For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
-        :param pulumi.Input[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict']] jwt_configuration: Configuration of a JWT authorizer. Required for the `JWT` authorizer type. Supported only for HTTP APIs. See `jwt_configuration` Block below.
+        :param pulumi.Input[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict', 'outputs.AuthorizerJwtConfiguration']] jwt_configuration: Configuration of a JWT authorizer. Required for the `JWT` authorizer type. Supported only for HTTP APIs. See `jwt_configuration` Block below.
         :param pulumi.Input[_builtins.str] name: Name of the authorizer. Must be between 1 and 128 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -535,7 +535,7 @@ class Authorizer(pulumi.CustomResource):
                  authorizer_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_simple_responses: pulumi.Input[Optional[_builtins.bool]] = None,
                  identity_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 jwt_configuration: pulumi.Input[Optional[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict']]] = None,
+                 jwt_configuration: pulumi.Input[Optional[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict', 'outputs.AuthorizerJwtConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -580,7 +580,7 @@ class Authorizer(pulumi.CustomResource):
             authorizer_uri: pulumi.Input[Optional[_builtins.str]] = None,
             enable_simple_responses: pulumi.Input[Optional[_builtins.bool]] = None,
             identity_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            jwt_configuration: pulumi.Input[Optional[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict']]] = None,
+            jwt_configuration: pulumi.Input[Optional[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict', 'outputs.AuthorizerJwtConfiguration']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'Authorizer':
         """
@@ -598,7 +598,7 @@ class Authorizer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] authorizer_uri: Authorizer's URI. For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `lambda.Function` resource. Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
         :param pulumi.Input[_builtins.bool] enable_simple_responses: Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy. Supported only for HTTP APIs.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_sources: Identity sources for which authorization is requested. For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters. For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
-        :param pulumi.Input[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict']] jwt_configuration: Configuration of a JWT authorizer. Required for the `JWT` authorizer type. Supported only for HTTP APIs. See `jwt_configuration` Block below.
+        :param pulumi.Input[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict', 'outputs.AuthorizerJwtConfiguration']] jwt_configuration: Configuration of a JWT authorizer. Required for the `JWT` authorizer type. Supported only for HTTP APIs. See `jwt_configuration` Block below.
         :param pulumi.Input[_builtins.str] name: Name of the authorizer. Must be between 1 and 128 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """

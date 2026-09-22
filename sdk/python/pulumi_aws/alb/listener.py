@@ -1050,9 +1050,9 @@ class Listener(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alpn_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 default_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict']]]]] = None,
+                 default_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict', 'outputs.ListenerDefaultAction']]]]] = None,
                  load_balancer_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 mutual_authentication: pulumi.Input[Optional[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']]] = None,
+                 mutual_authentication: pulumi.Input[Optional[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict', 'outputs.ListenerMutualAuthentication']]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  protocol: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1371,11 +1371,11 @@ class Listener(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alpn_policy: Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
         :param pulumi.Input[_builtins.str] certificate_arn: ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict']]]] default_actions: Configuration block for default actions. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict', 'outputs.ListenerDefaultAction']]]] default_actions: Configuration block for default actions. See below.
         :param pulumi.Input[_builtins.str] load_balancer_arn: ARN of the load balancer.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']] mutual_authentication: The mutual authentication configuration information. See below.
+        :param pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict', 'outputs.ListenerMutualAuthentication']] mutual_authentication: The mutual authentication configuration information. See below.
         :param pulumi.Input[_builtins.int] port: Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
         :param pulumi.Input[_builtins.str] protocol: Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, `TCP_UDP`, `QUIC`, and `TCP_QUIC`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid to use `QUIC` or `TCP_QUIC` if security groups are configured or dual-stack mode is enabled. Not valid for Gateway Load Balancers.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -1715,9 +1715,9 @@ class Listener(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alpn_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 default_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict']]]]] = None,
+                 default_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict', 'outputs.ListenerDefaultAction']]]]] = None,
                  load_balancer_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 mutual_authentication: pulumi.Input[Optional[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']]] = None,
+                 mutual_authentication: pulumi.Input[Optional[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict', 'outputs.ListenerMutualAuthentication']]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  protocol: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1803,9 +1803,9 @@ class Listener(pulumi.CustomResource):
             alpn_policy: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            default_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict']]]]] = None,
+            default_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict', 'outputs.ListenerDefaultAction']]]]] = None,
             load_balancer_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            mutual_authentication: pulumi.Input[Optional[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']]] = None,
+            mutual_authentication: pulumi.Input[Optional[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict', 'outputs.ListenerMutualAuthentication']]] = None,
             port: pulumi.Input[Optional[_builtins.int]] = None,
             protocol: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1842,11 +1842,11 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] alpn_policy: Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
         :param pulumi.Input[_builtins.str] arn: ARN of the listener.
         :param pulumi.Input[_builtins.str] certificate_arn: ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict']]]] default_actions: Configuration block for default actions. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict', 'outputs.ListenerDefaultAction']]]] default_actions: Configuration block for default actions. See below.
         :param pulumi.Input[_builtins.str] load_balancer_arn: ARN of the load balancer.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']] mutual_authentication: The mutual authentication configuration information. See below.
+        :param pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict', 'outputs.ListenerMutualAuthentication']] mutual_authentication: The mutual authentication configuration information. See below.
         :param pulumi.Input[_builtins.int] port: Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
         :param pulumi.Input[_builtins.str] protocol: Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, `TCP_UDP`, `QUIC`, and `TCP_QUIC`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid to use `QUIC` or `TCP_QUIC` if security groups are configured or dual-stack mode is enabled. Not valid for Gateway Load Balancers.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

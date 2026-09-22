@@ -517,8 +517,8 @@ class Environment(pulumi.CustomResource):
                  profile_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['EnvironmentTimeoutsArgs', 'EnvironmentTimeoutsArgsDict']]] = None,
-                 user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentUserParameterArgs', 'EnvironmentUserParameterArgsDict']]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['EnvironmentTimeoutsArgs', 'EnvironmentTimeoutsArgsDict', 'outputs.EnvironmentTimeouts']]] = None,
+                 user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentUserParameterArgs', 'EnvironmentUserParameterArgsDict', 'outputs.EnvironmentUserParameter']]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS DataZone Environment.
@@ -588,7 +588,7 @@ class Environment(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentUserParameterArgs', 'EnvironmentUserParameterArgsDict']]]] user_parameters: The user parameters that are used in the environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentUserParameterArgs', 'EnvironmentUserParameterArgsDict', 'outputs.EnvironmentUserParameter']]]] user_parameters: The user parameters that are used in the environment.
                See User Parameters for more information.
                Changing these values recreates the resource.
         """
@@ -677,8 +677,8 @@ class Environment(pulumi.CustomResource):
                  profile_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['EnvironmentTimeoutsArgs', 'EnvironmentTimeoutsArgsDict']]] = None,
-                 user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentUserParameterArgs', 'EnvironmentUserParameterArgsDict']]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['EnvironmentTimeoutsArgs', 'EnvironmentTimeoutsArgsDict', 'outputs.EnvironmentTimeouts']]] = None,
+                 user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentUserParameterArgs', 'EnvironmentUserParameterArgsDict', 'outputs.EnvironmentUserParameter']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -729,15 +729,15 @@ class Environment(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
             glossary_terms: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            last_deployments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentLastDeploymentArgs', 'EnvironmentLastDeploymentArgsDict']]]]] = None,
+            last_deployments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentLastDeploymentArgs', 'EnvironmentLastDeploymentArgsDict', 'outputs.EnvironmentLastDeployment']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             profile_identifier: pulumi.Input[Optional[_builtins.str]] = None,
             project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
             provider_environment: pulumi.Input[Optional[_builtins.str]] = None,
-            provisioned_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentProvisionedResourceArgs', 'EnvironmentProvisionedResourceArgsDict']]]]] = None,
+            provisioned_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentProvisionedResourceArgs', 'EnvironmentProvisionedResourceArgsDict', 'outputs.EnvironmentProvisionedResource']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['EnvironmentTimeoutsArgs', 'EnvironmentTimeoutsArgsDict']]] = None,
-            user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentUserParameterArgs', 'EnvironmentUserParameterArgsDict']]]]] = None) -> 'Environment':
+            timeouts: pulumi.Input[Optional[Union['EnvironmentTimeoutsArgs', 'EnvironmentTimeoutsArgsDict', 'outputs.EnvironmentTimeouts']]] = None,
+            user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentUserParameterArgs', 'EnvironmentUserParameterArgsDict', 'outputs.EnvironmentUserParameter']]]]] = None) -> 'Environment':
         """
         Get an existing Environment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -753,7 +753,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the environment.
         :param pulumi.Input[_builtins.str] domain_identifier: The ID of the domain where the environment exists.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] glossary_terms: The business glossary terms that can be used in this environment.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentLastDeploymentArgs', 'EnvironmentLastDeploymentArgsDict']]]] last_deployments: The details of the last deployment of the environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentLastDeploymentArgs', 'EnvironmentLastDeploymentArgsDict', 'outputs.EnvironmentLastDeployment']]]] last_deployments: The details of the last deployment of the environment.
         :param pulumi.Input[_builtins.str] name: The name of the environment.
         :param pulumi.Input[_builtins.str] profile_identifier: The ID of the profile with which the environment is created.
         :param pulumi.Input[_builtins.str] project_identifier: The ID of the project where the environment exists.
@@ -761,7 +761,7 @@ class Environment(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] provider_environment: The provider of the environment.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentUserParameterArgs', 'EnvironmentUserParameterArgsDict']]]] user_parameters: The user parameters that are used in the environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentUserParameterArgs', 'EnvironmentUserParameterArgsDict', 'outputs.EnvironmentUserParameter']]]] user_parameters: The user parameters that are used in the environment.
                See User Parameters for more information.
                Changing these values recreates the resource.
         """

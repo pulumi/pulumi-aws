@@ -282,7 +282,7 @@ class AwaitableGetNatGatewayResult(GetNatGatewayResult):
             vpc_id=self.vpc_id)
 
 
-def get_nat_gateway(filters: Optional[Sequence[Union['GetNatGatewayFilterArgs', 'GetNatGatewayFilterArgsDict']]] = None,
+def get_nat_gateway(filters: Optional[Sequence[Union['GetNatGatewayFilterArgs', 'GetNatGatewayFilterArgsDict', 'outputs.GetNatGatewayFilterResult']]] = None,
                     id: Optional[_builtins.str] = None,
                     region: Optional[_builtins.str] = None,
                     state: Optional[_builtins.str] = None,
@@ -315,7 +315,7 @@ def get_nat_gateway(filters: Optional[Sequence[Union['GetNatGatewayFilterArgs', 
     ```
 
 
-    :param Sequence[Union['GetNatGatewayFilterArgs', 'GetNatGatewayFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetNatGatewayFilterArgs', 'GetNatGatewayFilterArgsDict', 'outputs.GetNatGatewayFilterResult']] filters: Custom filter block as described below.
            
            The arguments of this data source act as filters for querying the available
            NAT Gateways in the current Region. The given filters must match exactly one
@@ -362,7 +362,7 @@ def get_nat_gateway(filters: Optional[Sequence[Union['GetNatGatewayFilterArgs', 
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_nat_gateway_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetNatGatewayFilterArgs', 'GetNatGatewayFilterArgsDict']]]]] = None,
+def get_nat_gateway_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetNatGatewayFilterArgs', 'GetNatGatewayFilterArgsDict', 'outputs.GetNatGatewayFilterResult']]]]] = None,
                            id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            state: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -395,7 +395,7 @@ def get_nat_gateway_output(filters: pulumi.Input[Optional[Optional[Sequence[Unio
     ```
 
 
-    :param Sequence[Union['GetNatGatewayFilterArgs', 'GetNatGatewayFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetNatGatewayFilterArgs', 'GetNatGatewayFilterArgsDict', 'outputs.GetNatGatewayFilterResult']] filters: Custom filter block as described below.
            
            The arguments of this data source act as filters for querying the available
            NAT Gateways in the current Region. The given filters must match exactly one

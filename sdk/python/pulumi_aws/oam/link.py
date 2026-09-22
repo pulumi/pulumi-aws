@@ -316,7 +316,7 @@ class Link(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  label_template: pulumi.Input[Optional[_builtins.str]] = None,
-                 link_configuration: pulumi.Input[Optional[Union['LinkLinkConfigurationArgs', 'LinkLinkConfigurationArgsDict']]] = None,
+                 link_configuration: pulumi.Input[Optional[Union['LinkLinkConfigurationArgs', 'LinkLinkConfigurationArgsDict', 'outputs.LinkLinkConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  sink_identifier: pulumi.Input[Optional[_builtins.str]] = None,
@@ -395,7 +395,7 @@ class Link(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] label_template: Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
-        :param pulumi.Input[Union['LinkLinkConfigurationArgs', 'LinkLinkConfigurationArgsDict']] link_configuration: Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+        :param pulumi.Input[Union['LinkLinkConfigurationArgs', 'LinkLinkConfigurationArgsDict', 'outputs.LinkLinkConfiguration']] link_configuration: Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_types: Types of data that the source account shares with the monitoring account.
         :param pulumi.Input[_builtins.str] sink_identifier: Identifier of the sink to use to create this link.
@@ -495,7 +495,7 @@ class Link(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  label_template: pulumi.Input[Optional[_builtins.str]] = None,
-                 link_configuration: pulumi.Input[Optional[Union['LinkLinkConfigurationArgs', 'LinkLinkConfigurationArgsDict']]] = None,
+                 link_configuration: pulumi.Input[Optional[Union['LinkLinkConfigurationArgs', 'LinkLinkConfigurationArgsDict', 'outputs.LinkLinkConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  sink_identifier: pulumi.Input[Optional[_builtins.str]] = None,
@@ -539,7 +539,7 @@ class Link(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             label: pulumi.Input[Optional[_builtins.str]] = None,
             label_template: pulumi.Input[Optional[_builtins.str]] = None,
-            link_configuration: pulumi.Input[Optional[Union['LinkLinkConfigurationArgs', 'LinkLinkConfigurationArgsDict']]] = None,
+            link_configuration: pulumi.Input[Optional[Union['LinkLinkConfigurationArgs', 'LinkLinkConfigurationArgsDict', 'outputs.LinkLinkConfiguration']]] = None,
             link_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -557,7 +557,7 @@ class Link(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the link.
         :param pulumi.Input[_builtins.str] label: Label that is assigned to this link.
         :param pulumi.Input[_builtins.str] label_template: Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
-        :param pulumi.Input[Union['LinkLinkConfigurationArgs', 'LinkLinkConfigurationArgsDict']] link_configuration: Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+        :param pulumi.Input[Union['LinkLinkConfigurationArgs', 'LinkLinkConfigurationArgsDict', 'outputs.LinkLinkConfiguration']] link_configuration: Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
         :param pulumi.Input[_builtins.str] link_id: ID string that AWS generated as part of the link ARN.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_types: Types of data that the source account shares with the monitoring account.

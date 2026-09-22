@@ -426,7 +426,7 @@ class ReservedCacheNode(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  reserved_cache_nodes_offering_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ReservedCacheNodeTimeoutsArgs', 'ReservedCacheNodeTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ReservedCacheNodeTimeoutsArgs', 'ReservedCacheNodeTimeoutsArgsDict', 'outputs.ReservedCacheNodeTimeouts']]] = None,
                  __props__=None):
         """
         Manages an ElastiCache Reserved Cache Node.
@@ -531,7 +531,7 @@ class ReservedCacheNode(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  reserved_cache_nodes_offering_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ReservedCacheNodeTimeoutsArgs', 'ReservedCacheNodeTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ReservedCacheNodeTimeoutsArgs', 'ReservedCacheNodeTimeoutsArgsDict', 'outputs.ReservedCacheNodeTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -578,14 +578,14 @@ class ReservedCacheNode(pulumi.CustomResource):
             fixed_price: pulumi.Input[Optional[_builtins.float]] = None,
             offering_type: pulumi.Input[Optional[_builtins.str]] = None,
             product_description: pulumi.Input[Optional[_builtins.str]] = None,
-            recurring_charges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReservedCacheNodeRecurringChargeArgs', 'ReservedCacheNodeRecurringChargeArgsDict']]]]] = None,
+            recurring_charges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReservedCacheNodeRecurringChargeArgs', 'ReservedCacheNodeRecurringChargeArgsDict', 'outputs.ReservedCacheNodeRecurringCharge']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             reserved_cache_nodes_offering_id: pulumi.Input[Optional[_builtins.str]] = None,
             start_time: pulumi.Input[Optional[_builtins.str]] = None,
             state: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['ReservedCacheNodeTimeoutsArgs', 'ReservedCacheNodeTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['ReservedCacheNodeTimeoutsArgs', 'ReservedCacheNodeTimeoutsArgsDict', 'outputs.ReservedCacheNodeTimeouts']]] = None,
             usage_price: pulumi.Input[Optional[_builtins.float]] = None) -> 'ReservedCacheNode':
         """
         Get an existing ReservedCacheNode resource's state with the given name, id, and optional extra
@@ -604,7 +604,7 @@ class ReservedCacheNode(pulumi.CustomResource):
         :param pulumi.Input[_builtins.float] fixed_price: Fixed price charged for this reserved cache node.
         :param pulumi.Input[_builtins.str] offering_type: Offering type of this reserved cache node.
         :param pulumi.Input[_builtins.str] product_description: Engine type for the reserved cache node.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReservedCacheNodeRecurringChargeArgs', 'ReservedCacheNodeRecurringChargeArgsDict']]]] recurring_charges: Recurring price charged to run this reserved cache node.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReservedCacheNodeRecurringChargeArgs', 'ReservedCacheNodeRecurringChargeArgsDict', 'outputs.ReservedCacheNodeRecurringCharge']]]] recurring_charges: Recurring price charged to run this reserved cache node.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] reserved_cache_nodes_offering_id: ID of the reserved cache node offering to purchase.
                To determine an `reserved_cache_nodes_offering_id`, see the `elasticache_get_reserved_cache_node_offering` data source.

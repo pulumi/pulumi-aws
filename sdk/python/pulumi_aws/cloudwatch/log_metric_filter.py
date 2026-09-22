@@ -237,7 +237,7 @@ class LogMetricFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  apply_on_transformed_logs: pulumi.Input[Optional[_builtins.bool]] = None,
                  log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 metric_transformation: pulumi.Input[Optional[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict']]] = None,
+                 metric_transformation: pulumi.Input[Optional[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict', 'outputs.LogMetricFilterMetricTransformation']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -288,7 +288,7 @@ class LogMetricFilter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] apply_on_transformed_logs: Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
         :param pulumi.Input[_builtins.str] log_group_name: The name of the log group to associate the metric filter with.
-        :param pulumi.Input[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict']] metric_transformation: A block defining collection of information needed to define how metric data gets emitted. See below.
+        :param pulumi.Input[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict', 'outputs.LogMetricFilterMetricTransformation']] metric_transformation: A block defining collection of information needed to define how metric data gets emitted. See below.
         :param pulumi.Input[_builtins.str] name: A name for the metric filter.
         :param pulumi.Input[_builtins.str] pattern: A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
                for extracting metric data out of ingested log events.
@@ -359,7 +359,7 @@ class LogMetricFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  apply_on_transformed_logs: pulumi.Input[Optional[_builtins.bool]] = None,
                  log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 metric_transformation: pulumi.Input[Optional[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict']]] = None,
+                 metric_transformation: pulumi.Input[Optional[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict', 'outputs.LogMetricFilterMetricTransformation']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -396,7 +396,7 @@ class LogMetricFilter(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             apply_on_transformed_logs: pulumi.Input[Optional[_builtins.bool]] = None,
             log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            metric_transformation: pulumi.Input[Optional[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict']]] = None,
+            metric_transformation: pulumi.Input[Optional[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict', 'outputs.LogMetricFilterMetricTransformation']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             pattern: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'LogMetricFilter':
@@ -409,7 +409,7 @@ class LogMetricFilter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] apply_on_transformed_logs: Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
         :param pulumi.Input[_builtins.str] log_group_name: The name of the log group to associate the metric filter with.
-        :param pulumi.Input[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict']] metric_transformation: A block defining collection of information needed to define how metric data gets emitted. See below.
+        :param pulumi.Input[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict', 'outputs.LogMetricFilterMetricTransformation']] metric_transformation: A block defining collection of information needed to define how metric data gets emitted. See below.
         :param pulumi.Input[_builtins.str] name: A name for the metric filter.
         :param pulumi.Input[_builtins.str] pattern: A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
                for extracting metric data out of ingested log events.

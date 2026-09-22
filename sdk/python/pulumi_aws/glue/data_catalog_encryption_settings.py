@@ -138,7 +138,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 data_catalog_encryption_settings: pulumi.Input[Optional[Union['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs', 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgsDict']]] = None,
+                 data_catalog_encryption_settings: pulumi.Input[Optional[Union['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs', 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgsDict', 'outputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -175,7 +175,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
-        :param pulumi.Input[Union['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs', 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgsDict']] data_catalog_encryption_settings: The security configuration to set. see Data Catalog Encryption Settings.
+        :param pulumi.Input[Union['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs', 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgsDict', 'outputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings']] data_catalog_encryption_settings: The security configuration to set. see Data Catalog Encryption Settings.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -231,7 +231,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 data_catalog_encryption_settings: pulumi.Input[Optional[Union['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs', 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgsDict']]] = None,
+                 data_catalog_encryption_settings: pulumi.Input[Optional[Union['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs', 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgsDict', 'outputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -258,7 +258,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
-            data_catalog_encryption_settings: pulumi.Input[Optional[Union['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs', 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgsDict']]] = None,
+            data_catalog_encryption_settings: pulumi.Input[Optional[Union['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs', 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgsDict', 'outputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'DataCatalogEncryptionSettings':
         """
         Get an existing DataCatalogEncryptionSettings resource's state with the given name, id, and optional extra
@@ -268,7 +268,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
-        :param pulumi.Input[Union['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs', 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgsDict']] data_catalog_encryption_settings: The security configuration to set. see Data Catalog Encryption Settings.
+        :param pulumi.Input[Union['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs', 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgsDict', 'outputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings']] data_catalog_encryption_settings: The security configuration to set. see Data Catalog Encryption Settings.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

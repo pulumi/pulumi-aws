@@ -98,7 +98,7 @@ class NotificationHub(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  notification_hub_region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['NotificationHubTimeoutsArgs', 'NotificationHubTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['NotificationHubTimeoutsArgs', 'NotificationHubTimeoutsArgsDict', 'outputs.NotificationHubTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS User Notifications Notification Hub.
@@ -172,7 +172,7 @@ class NotificationHub(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  notification_hub_region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['NotificationHubTimeoutsArgs', 'NotificationHubTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['NotificationHubTimeoutsArgs', 'NotificationHubTimeoutsArgsDict', 'outputs.NotificationHubTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -197,7 +197,7 @@ class NotificationHub(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             notification_hub_region: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['NotificationHubTimeoutsArgs', 'NotificationHubTimeoutsArgsDict']]] = None) -> 'NotificationHub':
+            timeouts: pulumi.Input[Optional[Union['NotificationHubTimeoutsArgs', 'NotificationHubTimeoutsArgsDict', 'outputs.NotificationHubTimeouts']]] = None) -> 'NotificationHub':
         """
         Get an existing NotificationHub resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

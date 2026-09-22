@@ -212,7 +212,7 @@ class ClusterPolicy(pulumi.CustomResource):
                  identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  policy: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ClusterPolicyTimeoutsArgs', 'ClusterPolicyTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ClusterPolicyTimeoutsArgs', 'ClusterPolicyTimeoutsArgsDict', 'outputs.ClusterPolicyTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an Amazon Aurora DSQL Cluster resource-based policy.
@@ -508,7 +508,7 @@ class ClusterPolicy(pulumi.CustomResource):
                  identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  policy: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ClusterPolicyTimeoutsArgs', 'ClusterPolicyTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ClusterPolicyTimeoutsArgs', 'ClusterPolicyTimeoutsArgsDict', 'outputs.ClusterPolicyTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -543,7 +543,7 @@ class ClusterPolicy(pulumi.CustomResource):
             policy: pulumi.Input[Optional[_builtins.str]] = None,
             policy_version: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['ClusterPolicyTimeoutsArgs', 'ClusterPolicyTimeoutsArgsDict']]] = None) -> 'ClusterPolicy':
+            timeouts: pulumi.Input[Optional[Union['ClusterPolicyTimeoutsArgs', 'ClusterPolicyTimeoutsArgsDict', 'outputs.ClusterPolicyTimeouts']]] = None) -> 'ClusterPolicy':
         """
         Get an existing ClusterPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -362,8 +362,8 @@ class AppMonitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_monitor_configuration: pulumi.Input[Optional[Union['AppMonitorAppMonitorConfigurationArgs', 'AppMonitorAppMonitorConfigurationArgsDict']]] = None,
-                 custom_events: pulumi.Input[Optional[Union['AppMonitorCustomEventsArgs', 'AppMonitorCustomEventsArgsDict']]] = None,
+                 app_monitor_configuration: pulumi.Input[Optional[Union['AppMonitorAppMonitorConfigurationArgs', 'AppMonitorAppMonitorConfigurationArgsDict', 'outputs.AppMonitorAppMonitorConfiguration']]] = None,
+                 custom_events: pulumi.Input[Optional[Union['AppMonitorCustomEventsArgs', 'AppMonitorCustomEventsArgsDict', 'outputs.AppMonitorCustomEvents']]] = None,
                  cw_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  domain: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -396,8 +396,8 @@ class AppMonitor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AppMonitorAppMonitorConfigurationArgs', 'AppMonitorAppMonitorConfigurationArgsDict']] app_monitor_configuration: configuration data for the app monitor. See app_monitor_configuration below.
-        :param pulumi.Input[Union['AppMonitorCustomEventsArgs', 'AppMonitorCustomEventsArgsDict']] custom_events: Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
+        :param pulumi.Input[Union['AppMonitorAppMonitorConfigurationArgs', 'AppMonitorAppMonitorConfigurationArgsDict', 'outputs.AppMonitorAppMonitorConfiguration']] app_monitor_configuration: configuration data for the app monitor. See app_monitor_configuration below.
+        :param pulumi.Input[Union['AppMonitorCustomEventsArgs', 'AppMonitorCustomEventsArgsDict', 'outputs.AppMonitorCustomEvents']] custom_events: Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
         :param pulumi.Input[_builtins.bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
         :param pulumi.Input[_builtins.str] domain: The top-level internet domain name for which your application has administrative authority. Exactly one of `domain` or `domain_list` must be specified.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domain_lists: A list of internet domain names for which your application has administrative authority. Exactly one of `domain` or `domain_list` must be specified.
@@ -449,8 +449,8 @@ class AppMonitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_monitor_configuration: pulumi.Input[Optional[Union['AppMonitorAppMonitorConfigurationArgs', 'AppMonitorAppMonitorConfigurationArgsDict']]] = None,
-                 custom_events: pulumi.Input[Optional[Union['AppMonitorCustomEventsArgs', 'AppMonitorCustomEventsArgsDict']]] = None,
+                 app_monitor_configuration: pulumi.Input[Optional[Union['AppMonitorAppMonitorConfigurationArgs', 'AppMonitorAppMonitorConfigurationArgsDict', 'outputs.AppMonitorAppMonitorConfiguration']]] = None,
+                 custom_events: pulumi.Input[Optional[Union['AppMonitorCustomEventsArgs', 'AppMonitorCustomEventsArgsDict', 'outputs.AppMonitorCustomEvents']]] = None,
                  cw_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  domain: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -488,10 +488,10 @@ class AppMonitor(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_monitor_configuration: pulumi.Input[Optional[Union['AppMonitorAppMonitorConfigurationArgs', 'AppMonitorAppMonitorConfigurationArgsDict']]] = None,
+            app_monitor_configuration: pulumi.Input[Optional[Union['AppMonitorAppMonitorConfigurationArgs', 'AppMonitorAppMonitorConfigurationArgsDict', 'outputs.AppMonitorAppMonitorConfiguration']]] = None,
             app_monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            custom_events: pulumi.Input[Optional[Union['AppMonitorCustomEventsArgs', 'AppMonitorCustomEventsArgsDict']]] = None,
+            custom_events: pulumi.Input[Optional[Union['AppMonitorCustomEventsArgs', 'AppMonitorCustomEventsArgsDict', 'outputs.AppMonitorCustomEvents']]] = None,
             cw_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             cw_log_group: pulumi.Input[Optional[_builtins.str]] = None,
             domain: pulumi.Input[Optional[_builtins.str]] = None,
@@ -507,10 +507,10 @@ class AppMonitor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AppMonitorAppMonitorConfigurationArgs', 'AppMonitorAppMonitorConfigurationArgsDict']] app_monitor_configuration: configuration data for the app monitor. See app_monitor_configuration below.
+        :param pulumi.Input[Union['AppMonitorAppMonitorConfigurationArgs', 'AppMonitorAppMonitorConfigurationArgsDict', 'outputs.AppMonitorAppMonitorConfiguration']] app_monitor_configuration: configuration data for the app monitor. See app_monitor_configuration below.
         :param pulumi.Input[_builtins.str] app_monitor_id: The unique ID of the app monitor. Useful for JS templates.
         :param pulumi.Input[_builtins.str] arn: ARN specifying the app monitor.
-        :param pulumi.Input[Union['AppMonitorCustomEventsArgs', 'AppMonitorCustomEventsArgsDict']] custom_events: Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
+        :param pulumi.Input[Union['AppMonitorCustomEventsArgs', 'AppMonitorCustomEventsArgsDict', 'outputs.AppMonitorCustomEvents']] custom_events: Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
         :param pulumi.Input[_builtins.bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
         :param pulumi.Input[_builtins.str] cw_log_group: The name of the log group where the copies are stored.
         :param pulumi.Input[_builtins.str] domain: The top-level internet domain name for which your application has administrative authority. Exactly one of `domain` or `domain_list` must be specified.

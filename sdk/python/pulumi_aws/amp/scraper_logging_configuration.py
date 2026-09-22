@@ -200,11 +200,11 @@ class ScraperLoggingConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 logging_destination: pulumi.Input[Optional[Union['ScraperLoggingConfigurationLoggingDestinationArgs', 'ScraperLoggingConfigurationLoggingDestinationArgsDict']]] = None,
+                 logging_destination: pulumi.Input[Optional[Union['ScraperLoggingConfigurationLoggingDestinationArgs', 'ScraperLoggingConfigurationLoggingDestinationArgsDict', 'outputs.ScraperLoggingConfigurationLoggingDestination']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  scraper_components: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  scraper_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ScraperLoggingConfigurationTimeoutsArgs', 'ScraperLoggingConfigurationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ScraperLoggingConfigurationTimeoutsArgs', 'ScraperLoggingConfigurationTimeoutsArgsDict', 'outputs.ScraperLoggingConfigurationTimeouts']]] = None,
                  __props__=None):
         """
         Manages an Amazon Managed Service for Prometheus (AMP) Scraper Logging Configuration.
@@ -287,7 +287,7 @@ class ScraperLoggingConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ScraperLoggingConfigurationLoggingDestinationArgs', 'ScraperLoggingConfigurationLoggingDestinationArgsDict']] logging_destination: Configuration block for the logging destination. See `logging_destination` Block below.
+        :param pulumi.Input[Union['ScraperLoggingConfigurationLoggingDestinationArgs', 'ScraperLoggingConfigurationLoggingDestinationArgsDict', 'outputs.ScraperLoggingConfigurationLoggingDestination']] logging_destination: Configuration block for the logging destination. See `logging_destination` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scraper_components: Scraper components to log. Valid values: `COLLECTOR`, `EXPORTER`, `SERVICE_DISCOVERY`.
         :param pulumi.Input[_builtins.str] scraper_id: ID of the scraper to configure logging for.
@@ -394,11 +394,11 @@ class ScraperLoggingConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 logging_destination: pulumi.Input[Optional[Union['ScraperLoggingConfigurationLoggingDestinationArgs', 'ScraperLoggingConfigurationLoggingDestinationArgsDict']]] = None,
+                 logging_destination: pulumi.Input[Optional[Union['ScraperLoggingConfigurationLoggingDestinationArgs', 'ScraperLoggingConfigurationLoggingDestinationArgsDict', 'outputs.ScraperLoggingConfigurationLoggingDestination']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  scraper_components: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  scraper_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ScraperLoggingConfigurationTimeoutsArgs', 'ScraperLoggingConfigurationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ScraperLoggingConfigurationTimeoutsArgs', 'ScraperLoggingConfigurationTimeoutsArgsDict', 'outputs.ScraperLoggingConfigurationTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -427,11 +427,11 @@ class ScraperLoggingConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            logging_destination: pulumi.Input[Optional[Union['ScraperLoggingConfigurationLoggingDestinationArgs', 'ScraperLoggingConfigurationLoggingDestinationArgsDict']]] = None,
+            logging_destination: pulumi.Input[Optional[Union['ScraperLoggingConfigurationLoggingDestinationArgs', 'ScraperLoggingConfigurationLoggingDestinationArgsDict', 'outputs.ScraperLoggingConfigurationLoggingDestination']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             scraper_components: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             scraper_id: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['ScraperLoggingConfigurationTimeoutsArgs', 'ScraperLoggingConfigurationTimeoutsArgsDict']]] = None) -> 'ScraperLoggingConfiguration':
+            timeouts: pulumi.Input[Optional[Union['ScraperLoggingConfigurationTimeoutsArgs', 'ScraperLoggingConfigurationTimeoutsArgsDict', 'outputs.ScraperLoggingConfigurationTimeouts']]] = None) -> 'ScraperLoggingConfiguration':
         """
         Get an existing ScraperLoggingConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -439,7 +439,7 @@ class ScraperLoggingConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ScraperLoggingConfigurationLoggingDestinationArgs', 'ScraperLoggingConfigurationLoggingDestinationArgsDict']] logging_destination: Configuration block for the logging destination. See `logging_destination` Block below.
+        :param pulumi.Input[Union['ScraperLoggingConfigurationLoggingDestinationArgs', 'ScraperLoggingConfigurationLoggingDestinationArgsDict', 'outputs.ScraperLoggingConfigurationLoggingDestination']] logging_destination: Configuration block for the logging destination. See `logging_destination` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scraper_components: Scraper components to log. Valid values: `COLLECTOR`, `EXPORTER`, `SERVICE_DISCOVERY`.
         :param pulumi.Input[_builtins.str] scraper_id: ID of the scraper to configure logging for.

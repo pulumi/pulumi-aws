@@ -155,8 +155,8 @@ class SafetyLeverState(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 state: pulumi.Input[Optional[Union['SafetyLeverStateStateArgs', 'SafetyLeverStateStateArgsDict']]] = None,
-                 timeouts: pulumi.Input[Optional[Union['SafetyLeverStateTimeoutsArgs', 'SafetyLeverStateTimeoutsArgsDict']]] = None,
+                 state: pulumi.Input[Optional[Union['SafetyLeverStateStateArgs', 'SafetyLeverStateStateArgsDict', 'outputs.SafetyLeverStateState']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['SafetyLeverStateTimeoutsArgs', 'SafetyLeverStateTimeoutsArgsDict', 'outputs.SafetyLeverStateTimeouts']]] = None,
                  __props__=None):
         """
         Manages the state of the AWS FIS (Fault Injection Simulator) safety lever for the account and Region. The safety lever is a single, account/Region-wide emergency stop: engaging it immediately stops all running experiments and blocks new ones from starting.
@@ -196,7 +196,7 @@ class SafetyLeverState(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['SafetyLeverStateStateArgs', 'SafetyLeverStateStateArgsDict']] state: State of the safety lever. See below.
+        :param pulumi.Input[Union['SafetyLeverStateStateArgs', 'SafetyLeverStateStateArgsDict', 'outputs.SafetyLeverStateState']] state: State of the safety lever. See below.
                
                The following arguments are optional:
         """
@@ -257,8 +257,8 @@ class SafetyLeverState(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 state: pulumi.Input[Optional[Union['SafetyLeverStateStateArgs', 'SafetyLeverStateStateArgsDict']]] = None,
-                 timeouts: pulumi.Input[Optional[Union['SafetyLeverStateTimeoutsArgs', 'SafetyLeverStateTimeoutsArgsDict']]] = None,
+                 state: pulumi.Input[Optional[Union['SafetyLeverStateStateArgs', 'SafetyLeverStateStateArgsDict', 'outputs.SafetyLeverStateState']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['SafetyLeverStateTimeoutsArgs', 'SafetyLeverStateTimeoutsArgsDict', 'outputs.SafetyLeverStateTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -284,8 +284,8 @@ class SafetyLeverState(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            state: pulumi.Input[Optional[Union['SafetyLeverStateStateArgs', 'SafetyLeverStateStateArgsDict']]] = None,
-            timeouts: pulumi.Input[Optional[Union['SafetyLeverStateTimeoutsArgs', 'SafetyLeverStateTimeoutsArgsDict']]] = None) -> 'SafetyLeverState':
+            state: pulumi.Input[Optional[Union['SafetyLeverStateStateArgs', 'SafetyLeverStateStateArgsDict', 'outputs.SafetyLeverStateState']]] = None,
+            timeouts: pulumi.Input[Optional[Union['SafetyLeverStateTimeoutsArgs', 'SafetyLeverStateTimeoutsArgsDict', 'outputs.SafetyLeverStateTimeouts']]] = None) -> 'SafetyLeverState':
         """
         Get an existing SafetyLeverState resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -295,7 +295,7 @@ class SafetyLeverState(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the safety lever.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['SafetyLeverStateStateArgs', 'SafetyLeverStateStateArgsDict']] state: State of the safety lever. See below.
+        :param pulumi.Input[Union['SafetyLeverStateStateArgs', 'SafetyLeverStateStateArgsDict', 'outputs.SafetyLeverStateState']] state: State of the safety lever. See below.
                
                The following arguments are optional:
         """

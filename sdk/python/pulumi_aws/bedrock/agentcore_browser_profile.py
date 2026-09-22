@@ -254,7 +254,7 @@ class AgentcoreBrowserProfile(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentcoreBrowserProfileTimeoutsArgs', 'AgentcoreBrowserProfileTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcoreBrowserProfileTimeoutsArgs', 'AgentcoreBrowserProfileTimeoutsArgsDict', 'outputs.AgentcoreBrowserProfileTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS Bedrock AgentCore Browser Profile. Browser profiles define browser state that can be re-used across different browser sessions within AgentCore Browser. Browser state includes cookies and local storage.
@@ -410,7 +410,7 @@ class AgentcoreBrowserProfile(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentcoreBrowserProfileTimeoutsArgs', 'AgentcoreBrowserProfileTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcoreBrowserProfileTimeoutsArgs', 'AgentcoreBrowserProfileTimeoutsArgsDict', 'outputs.AgentcoreBrowserProfileTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -445,7 +445,7 @@ class AgentcoreBrowserProfile(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['AgentcoreBrowserProfileTimeoutsArgs', 'AgentcoreBrowserProfileTimeoutsArgsDict']]] = None) -> 'AgentcoreBrowserProfile':
+            timeouts: pulumi.Input[Optional[Union['AgentcoreBrowserProfileTimeoutsArgs', 'AgentcoreBrowserProfileTimeoutsArgsDict', 'outputs.AgentcoreBrowserProfileTimeouts']]] = None) -> 'AgentcoreBrowserProfile':
         """
         Get an existing AgentcoreBrowserProfile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

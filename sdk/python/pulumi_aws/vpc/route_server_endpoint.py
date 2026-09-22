@@ -300,7 +300,7 @@ class RouteServerEndpoint(pulumi.CustomResource):
                  route_server_id: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['RouteServerEndpointTimeoutsArgs', 'RouteServerEndpointTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['RouteServerEndpointTimeoutsArgs', 'RouteServerEndpointTimeoutsArgsDict', 'outputs.RouteServerEndpointTimeouts']]] = None,
                  __props__=None):
         """
         Provides a resource for managing a VPC Route Server Endpoint.
@@ -392,7 +392,7 @@ class RouteServerEndpoint(pulumi.CustomResource):
                  route_server_id: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['RouteServerEndpointTimeoutsArgs', 'RouteServerEndpointTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['RouteServerEndpointTimeoutsArgs', 'RouteServerEndpointTimeoutsArgsDict', 'outputs.RouteServerEndpointTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -436,7 +436,7 @@ class RouteServerEndpoint(pulumi.CustomResource):
             subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['RouteServerEndpointTimeoutsArgs', 'RouteServerEndpointTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['RouteServerEndpointTimeoutsArgs', 'RouteServerEndpointTimeoutsArgsDict', 'outputs.RouteServerEndpointTimeouts']]] = None,
             vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'RouteServerEndpoint':
         """
         Get an existing RouteServerEndpoint resource's state with the given name, id, and optional extra

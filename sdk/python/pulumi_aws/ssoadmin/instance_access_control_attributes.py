@@ -160,7 +160,7 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceAccessControlAttributesAttributeArgs', 'InstanceAccessControlAttributesAttributeArgsDict']]]]] = None,
+                 attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceAccessControlAttributesAttributeArgs', 'InstanceAccessControlAttributesAttributeArgsDict', 'outputs.InstanceAccessControlAttributesAttribute']]]]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -203,7 +203,7 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceAccessControlAttributesAttributeArgs', 'InstanceAccessControlAttributesAttributeArgsDict']]]] attributes: See AccessControlAttribute for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceAccessControlAttributesAttributeArgs', 'InstanceAccessControlAttributesAttributeArgsDict', 'outputs.InstanceAccessControlAttributesAttribute']]]] attributes: See AccessControlAttribute for more details.
         :param pulumi.Input[_builtins.str] instance_arn: ARN of the SSO Instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -265,7 +265,7 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceAccessControlAttributesAttributeArgs', 'InstanceAccessControlAttributesAttributeArgsDict']]]]] = None,
+                 attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceAccessControlAttributesAttributeArgs', 'InstanceAccessControlAttributesAttributeArgsDict', 'outputs.InstanceAccessControlAttributesAttribute']]]]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -296,7 +296,7 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceAccessControlAttributesAttributeArgs', 'InstanceAccessControlAttributesAttributeArgsDict']]]]] = None,
+            attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceAccessControlAttributesAttributeArgs', 'InstanceAccessControlAttributesAttributeArgsDict', 'outputs.InstanceAccessControlAttributesAttribute']]]]] = None,
             instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
@@ -308,7 +308,7 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceAccessControlAttributesAttributeArgs', 'InstanceAccessControlAttributesAttributeArgsDict']]]] attributes: See AccessControlAttribute for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceAccessControlAttributesAttributeArgs', 'InstanceAccessControlAttributesAttributeArgsDict', 'outputs.InstanceAccessControlAttributesAttribute']]]] attributes: See AccessControlAttribute for more details.
         :param pulumi.Input[_builtins.str] instance_arn: ARN of the SSO Instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """

@@ -90,7 +90,7 @@ class AwaitableGetAttachmentsResult(GetAttachmentsResult):
             tags=self.tags)
 
 
-def get_attachments(filters: Optional[Sequence[Union['GetAttachmentsFilterArgs', 'GetAttachmentsFilterArgsDict']]] = None,
+def get_attachments(filters: Optional[Sequence[Union['GetAttachmentsFilterArgs', 'GetAttachmentsFilterArgsDict', 'outputs.GetAttachmentsFilterResult']]] = None,
                     region: Optional[_builtins.str] = None,
                     tags: Optional[Mapping[str, _builtins.str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttachmentsResult:
@@ -119,7 +119,7 @@ def get_attachments(filters: Optional[Sequence[Union['GetAttachmentsFilterArgs',
     ```
 
 
-    :param Sequence[Union['GetAttachmentsFilterArgs', 'GetAttachmentsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetAttachmentsFilterArgs', 'GetAttachmentsFilterArgsDict', 'outputs.GetAttachmentsFilterResult']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -135,7 +135,7 @@ def get_attachments(filters: Optional[Sequence[Union['GetAttachmentsFilterArgs',
         ids=pulumi.get(__ret__, 'ids'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_attachments_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetAttachmentsFilterArgs', 'GetAttachmentsFilterArgsDict']]]]] = None,
+def get_attachments_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetAttachmentsFilterArgs', 'GetAttachmentsFilterArgsDict', 'outputs.GetAttachmentsFilterResult']]]]] = None,
                            region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttachmentsResult]:
@@ -164,7 +164,7 @@ def get_attachments_output(filters: pulumi.Input[Optional[Optional[Sequence[Unio
     ```
 
 
-    :param Sequence[Union['GetAttachmentsFilterArgs', 'GetAttachmentsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetAttachmentsFilterArgs', 'GetAttachmentsFilterArgsDict', 'outputs.GetAttachmentsFilterResult']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

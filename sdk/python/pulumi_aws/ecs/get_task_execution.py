@@ -234,7 +234,7 @@ class AwaitableGetTaskExecutionResult(GetTaskExecutionResult):
             task_definition=self.task_definition)
 
 
-def get_task_execution(capacity_provider_strategies: Optional[Sequence[Union['GetTaskExecutionCapacityProviderStrategyArgs', 'GetTaskExecutionCapacityProviderStrategyArgsDict']]] = None,
+def get_task_execution(capacity_provider_strategies: Optional[Sequence[Union['GetTaskExecutionCapacityProviderStrategyArgs', 'GetTaskExecutionCapacityProviderStrategyArgsDict', 'outputs.GetTaskExecutionCapacityProviderStrategyResult']]] = None,
                        client_token: Optional[_builtins.str] = None,
                        cluster: Optional[_builtins.str] = None,
                        desired_count: Optional[_builtins.int] = None,
@@ -242,10 +242,10 @@ def get_task_execution(capacity_provider_strategies: Optional[Sequence[Union['Ge
                        enable_execute_command: Optional[_builtins.bool] = None,
                        group: Optional[_builtins.str] = None,
                        launch_type: Optional[_builtins.str] = None,
-                       network_configuration: Optional[Union['GetTaskExecutionNetworkConfigurationArgs', 'GetTaskExecutionNetworkConfigurationArgsDict']] = None,
-                       overrides: Optional[Union['GetTaskExecutionOverridesArgs', 'GetTaskExecutionOverridesArgsDict']] = None,
-                       placement_constraints: Optional[Sequence[Union['GetTaskExecutionPlacementConstraintArgs', 'GetTaskExecutionPlacementConstraintArgsDict']]] = None,
-                       placement_strategies: Optional[Sequence[Union['GetTaskExecutionPlacementStrategyArgs', 'GetTaskExecutionPlacementStrategyArgsDict']]] = None,
+                       network_configuration: Optional[Union['GetTaskExecutionNetworkConfigurationArgs', 'GetTaskExecutionNetworkConfigurationArgsDict', 'outputs.GetTaskExecutionNetworkConfigurationResult']] = None,
+                       overrides: Optional[Union['GetTaskExecutionOverridesArgs', 'GetTaskExecutionOverridesArgsDict', 'outputs.GetTaskExecutionOverridesResult']] = None,
+                       placement_constraints: Optional[Sequence[Union['GetTaskExecutionPlacementConstraintArgs', 'GetTaskExecutionPlacementConstraintArgsDict', 'outputs.GetTaskExecutionPlacementConstraintResult']]] = None,
+                       placement_strategies: Optional[Sequence[Union['GetTaskExecutionPlacementStrategyArgs', 'GetTaskExecutionPlacementStrategyArgsDict', 'outputs.GetTaskExecutionPlacementStrategyResult']]] = None,
                        platform_version: Optional[_builtins.str] = None,
                        propagate_tags: Optional[_builtins.str] = None,
                        reference_id: Optional[_builtins.str] = None,
@@ -279,7 +279,7 @@ def get_task_execution(capacity_provider_strategies: Optional[Sequence[Union['Ge
     ```
 
 
-    :param Sequence[Union['GetTaskExecutionCapacityProviderStrategyArgs', 'GetTaskExecutionCapacityProviderStrategyArgsDict']] capacity_provider_strategies: Set of capacity provider strategies to use for the cluster. See below.
+    :param Sequence[Union['GetTaskExecutionCapacityProviderStrategyArgs', 'GetTaskExecutionCapacityProviderStrategyArgsDict', 'outputs.GetTaskExecutionCapacityProviderStrategyResult']] capacity_provider_strategies: Set of capacity provider strategies to use for the cluster. See below.
     :param _builtins.str client_token: Identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
     :param _builtins.str cluster: Short name or full ARN of the cluster to run the task on.
     :param _builtins.int desired_count: Number of instantiations of the specified task to place on your cluster. You can specify up to 10 tasks for each call.
@@ -287,10 +287,10 @@ def get_task_execution(capacity_provider_strategies: Optional[Sequence[Union['Ge
     :param _builtins.bool enable_execute_command: Whether to enable Amazon ECS Exec for the tasks within the service.
     :param _builtins.str group: Name of the task group to associate with the task. The default value is the family name of the task definition.
     :param _builtins.str launch_type: Launch type on which to run your service. Valid values are `EC2`, `FARGATE`, and `EXTERNAL`.
-    :param Union['GetTaskExecutionNetworkConfigurationArgs', 'GetTaskExecutionNetworkConfigurationArgsDict'] network_configuration: Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
-    :param Union['GetTaskExecutionOverridesArgs', 'GetTaskExecutionOverridesArgsDict'] overrides: List of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.
-    :param Sequence[Union['GetTaskExecutionPlacementConstraintArgs', 'GetTaskExecutionPlacementConstraintArgsDict']] placement_constraints: Array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
-    :param Sequence[Union['GetTaskExecutionPlacementStrategyArgs', 'GetTaskExecutionPlacementStrategyArgsDict']] placement_strategies: Placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
+    :param Union['GetTaskExecutionNetworkConfigurationArgs', 'GetTaskExecutionNetworkConfigurationArgsDict', 'outputs.GetTaskExecutionNetworkConfigurationResult'] network_configuration: Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
+    :param Union['GetTaskExecutionOverridesArgs', 'GetTaskExecutionOverridesArgsDict', 'outputs.GetTaskExecutionOverridesResult'] overrides: List of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.
+    :param Sequence[Union['GetTaskExecutionPlacementConstraintArgs', 'GetTaskExecutionPlacementConstraintArgsDict', 'outputs.GetTaskExecutionPlacementConstraintResult']] placement_constraints: Array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
+    :param Sequence[Union['GetTaskExecutionPlacementStrategyArgs', 'GetTaskExecutionPlacementStrategyArgsDict', 'outputs.GetTaskExecutionPlacementStrategyResult']] placement_strategies: Placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
     :param _builtins.str platform_version: Platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn't specified, the `LATEST` platform version is used.
     :param _builtins.str propagate_tags: Whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.
     :param _builtins.str reference_id: Reference ID to use for the task.
@@ -346,7 +346,7 @@ def get_task_execution(capacity_provider_strategies: Optional[Sequence[Union['Ge
         tags=pulumi.get(__ret__, 'tags'),
         task_arns=pulumi.get(__ret__, 'task_arns'),
         task_definition=pulumi.get(__ret__, 'task_definition'))
-def get_task_execution_output(capacity_provider_strategies: pulumi.Input[Optional[Optional[Sequence[Union['GetTaskExecutionCapacityProviderStrategyArgs', 'GetTaskExecutionCapacityProviderStrategyArgsDict']]]]] = None,
+def get_task_execution_output(capacity_provider_strategies: pulumi.Input[Optional[Optional[Sequence[Union['GetTaskExecutionCapacityProviderStrategyArgs', 'GetTaskExecutionCapacityProviderStrategyArgsDict', 'outputs.GetTaskExecutionCapacityProviderStrategyResult']]]]] = None,
                               client_token: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               cluster: pulumi.Input[Optional[_builtins.str]] = None,
                               desired_count: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
@@ -354,10 +354,10 @@ def get_task_execution_output(capacity_provider_strategies: pulumi.Input[Optiona
                               enable_execute_command: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                               group: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               launch_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                              network_configuration: pulumi.Input[Optional[Optional[Union['GetTaskExecutionNetworkConfigurationArgs', 'GetTaskExecutionNetworkConfigurationArgsDict']]]] = None,
-                              overrides: pulumi.Input[Optional[Optional[Union['GetTaskExecutionOverridesArgs', 'GetTaskExecutionOverridesArgsDict']]]] = None,
-                              placement_constraints: pulumi.Input[Optional[Optional[Sequence[Union['GetTaskExecutionPlacementConstraintArgs', 'GetTaskExecutionPlacementConstraintArgsDict']]]]] = None,
-                              placement_strategies: pulumi.Input[Optional[Optional[Sequence[Union['GetTaskExecutionPlacementStrategyArgs', 'GetTaskExecutionPlacementStrategyArgsDict']]]]] = None,
+                              network_configuration: pulumi.Input[Optional[Optional[Union['GetTaskExecutionNetworkConfigurationArgs', 'GetTaskExecutionNetworkConfigurationArgsDict', 'outputs.GetTaskExecutionNetworkConfigurationResult']]]] = None,
+                              overrides: pulumi.Input[Optional[Optional[Union['GetTaskExecutionOverridesArgs', 'GetTaskExecutionOverridesArgsDict', 'outputs.GetTaskExecutionOverridesResult']]]] = None,
+                              placement_constraints: pulumi.Input[Optional[Optional[Sequence[Union['GetTaskExecutionPlacementConstraintArgs', 'GetTaskExecutionPlacementConstraintArgsDict', 'outputs.GetTaskExecutionPlacementConstraintResult']]]]] = None,
+                              placement_strategies: pulumi.Input[Optional[Optional[Sequence[Union['GetTaskExecutionPlacementStrategyArgs', 'GetTaskExecutionPlacementStrategyArgsDict', 'outputs.GetTaskExecutionPlacementStrategyResult']]]]] = None,
                               platform_version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               propagate_tags: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               reference_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -391,7 +391,7 @@ def get_task_execution_output(capacity_provider_strategies: pulumi.Input[Optiona
     ```
 
 
-    :param Sequence[Union['GetTaskExecutionCapacityProviderStrategyArgs', 'GetTaskExecutionCapacityProviderStrategyArgsDict']] capacity_provider_strategies: Set of capacity provider strategies to use for the cluster. See below.
+    :param Sequence[Union['GetTaskExecutionCapacityProviderStrategyArgs', 'GetTaskExecutionCapacityProviderStrategyArgsDict', 'outputs.GetTaskExecutionCapacityProviderStrategyResult']] capacity_provider_strategies: Set of capacity provider strategies to use for the cluster. See below.
     :param _builtins.str client_token: Identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
     :param _builtins.str cluster: Short name or full ARN of the cluster to run the task on.
     :param _builtins.int desired_count: Number of instantiations of the specified task to place on your cluster. You can specify up to 10 tasks for each call.
@@ -399,10 +399,10 @@ def get_task_execution_output(capacity_provider_strategies: pulumi.Input[Optiona
     :param _builtins.bool enable_execute_command: Whether to enable Amazon ECS Exec for the tasks within the service.
     :param _builtins.str group: Name of the task group to associate with the task. The default value is the family name of the task definition.
     :param _builtins.str launch_type: Launch type on which to run your service. Valid values are `EC2`, `FARGATE`, and `EXTERNAL`.
-    :param Union['GetTaskExecutionNetworkConfigurationArgs', 'GetTaskExecutionNetworkConfigurationArgsDict'] network_configuration: Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
-    :param Union['GetTaskExecutionOverridesArgs', 'GetTaskExecutionOverridesArgsDict'] overrides: List of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.
-    :param Sequence[Union['GetTaskExecutionPlacementConstraintArgs', 'GetTaskExecutionPlacementConstraintArgsDict']] placement_constraints: Array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
-    :param Sequence[Union['GetTaskExecutionPlacementStrategyArgs', 'GetTaskExecutionPlacementStrategyArgsDict']] placement_strategies: Placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
+    :param Union['GetTaskExecutionNetworkConfigurationArgs', 'GetTaskExecutionNetworkConfigurationArgsDict', 'outputs.GetTaskExecutionNetworkConfigurationResult'] network_configuration: Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
+    :param Union['GetTaskExecutionOverridesArgs', 'GetTaskExecutionOverridesArgsDict', 'outputs.GetTaskExecutionOverridesResult'] overrides: List of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.
+    :param Sequence[Union['GetTaskExecutionPlacementConstraintArgs', 'GetTaskExecutionPlacementConstraintArgsDict', 'outputs.GetTaskExecutionPlacementConstraintResult']] placement_constraints: Array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
+    :param Sequence[Union['GetTaskExecutionPlacementStrategyArgs', 'GetTaskExecutionPlacementStrategyArgsDict', 'outputs.GetTaskExecutionPlacementStrategyResult']] placement_strategies: Placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
     :param _builtins.str platform_version: Platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn't specified, the `LATEST` platform version is used.
     :param _builtins.str propagate_tags: Whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.
     :param _builtins.str reference_id: Reference ID to use for the task.

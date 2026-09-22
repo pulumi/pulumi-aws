@@ -252,7 +252,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging_configuration: pulumi.Input[Optional[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict']]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict', 'outputs.WorkspaceLoggingConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -311,7 +311,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
-        :param pulumi.Input[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict']] logging_configuration: Logging configuration for the workspace. See Logging Configuration below for details.
+        :param pulumi.Input[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict', 'outputs.WorkspaceLoggingConfiguration']] logging_configuration: Logging configuration for the workspace. See Logging Configuration below for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -389,7 +389,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging_configuration: pulumi.Input[Optional[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict']]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict', 'outputs.WorkspaceLoggingConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -422,7 +422,7 @@ class Workspace(pulumi.CustomResource):
             alias: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            logging_configuration: pulumi.Input[Optional[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict']]] = None,
+            logging_configuration: pulumi.Input[Optional[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict', 'outputs.WorkspaceLoggingConfiguration']]] = None,
             prometheus_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -437,7 +437,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] alias: The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
         :param pulumi.Input[_builtins.str] arn: ARN of the workspace.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
-        :param pulumi.Input[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict']] logging_configuration: Logging configuration for the workspace. See Logging Configuration below for details.
+        :param pulumi.Input[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict', 'outputs.WorkspaceLoggingConfiguration']] logging_configuration: Logging configuration for the workspace. See Logging Configuration below for details.
         :param pulumi.Input[_builtins.str] prometheus_endpoint: Prometheus endpoint available for this workspace.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

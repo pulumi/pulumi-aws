@@ -209,9 +209,9 @@ class FilesSynchronizationConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 expiration_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationExpirationDataRuleArgs', 'FilesSynchronizationConfigurationExpirationDataRuleArgsDict']]]]] = None,
+                 expiration_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationExpirationDataRuleArgs', 'FilesSynchronizationConfigurationExpirationDataRuleArgsDict', 'outputs.FilesSynchronizationConfigurationExpirationDataRule']]]]] = None,
                  file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 import_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationImportDataRuleArgs', 'FilesSynchronizationConfigurationImportDataRuleArgsDict']]]]] = None,
+                 import_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationImportDataRuleArgs', 'FilesSynchronizationConfigurationImportDataRuleArgsDict', 'outputs.FilesSynchronizationConfigurationImportDataRule']]]]] = None,
                  latest_version_number: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -258,9 +258,9 @@ class FilesSynchronizationConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationExpirationDataRuleArgs', 'FilesSynchronizationConfigurationExpirationDataRuleArgsDict']]]] expiration_data_rules: Expiration data rule configuration. See `expiration_data_rule` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationExpirationDataRuleArgs', 'FilesSynchronizationConfigurationExpirationDataRuleArgsDict', 'outputs.FilesSynchronizationConfigurationExpirationDataRule']]]] expiration_data_rules: Expiration data rule configuration. See `expiration_data_rule` below.
         :param pulumi.Input[_builtins.str] file_system_id: File system ID. Changing this value forces replacement.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationImportDataRuleArgs', 'FilesSynchronizationConfigurationImportDataRuleArgsDict']]]] import_data_rules: One or more import data rules. See `import_data_rule` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationImportDataRuleArgs', 'FilesSynchronizationConfigurationImportDataRuleArgsDict', 'outputs.FilesSynchronizationConfigurationImportDataRule']]]] import_data_rules: One or more import data rules. See `import_data_rule` below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.int] latest_version_number: Latest synchronization configuration version number.
@@ -328,9 +328,9 @@ class FilesSynchronizationConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 expiration_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationExpirationDataRuleArgs', 'FilesSynchronizationConfigurationExpirationDataRuleArgsDict']]]]] = None,
+                 expiration_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationExpirationDataRuleArgs', 'FilesSynchronizationConfigurationExpirationDataRuleArgsDict', 'outputs.FilesSynchronizationConfigurationExpirationDataRule']]]]] = None,
                  file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 import_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationImportDataRuleArgs', 'FilesSynchronizationConfigurationImportDataRuleArgsDict']]]]] = None,
+                 import_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationImportDataRuleArgs', 'FilesSynchronizationConfigurationImportDataRuleArgsDict', 'outputs.FilesSynchronizationConfigurationImportDataRule']]]]] = None,
                  latest_version_number: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -359,9 +359,9 @@ class FilesSynchronizationConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            expiration_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationExpirationDataRuleArgs', 'FilesSynchronizationConfigurationExpirationDataRuleArgsDict']]]]] = None,
+            expiration_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationExpirationDataRuleArgs', 'FilesSynchronizationConfigurationExpirationDataRuleArgsDict', 'outputs.FilesSynchronizationConfigurationExpirationDataRule']]]]] = None,
             file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
-            import_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationImportDataRuleArgs', 'FilesSynchronizationConfigurationImportDataRuleArgsDict']]]]] = None,
+            import_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationImportDataRuleArgs', 'FilesSynchronizationConfigurationImportDataRuleArgsDict', 'outputs.FilesSynchronizationConfigurationImportDataRule']]]]] = None,
             latest_version_number: pulumi.Input[Optional[_builtins.int]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'FilesSynchronizationConfiguration':
         """
@@ -371,9 +371,9 @@ class FilesSynchronizationConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationExpirationDataRuleArgs', 'FilesSynchronizationConfigurationExpirationDataRuleArgsDict']]]] expiration_data_rules: Expiration data rule configuration. See `expiration_data_rule` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationExpirationDataRuleArgs', 'FilesSynchronizationConfigurationExpirationDataRuleArgsDict', 'outputs.FilesSynchronizationConfigurationExpirationDataRule']]]] expiration_data_rules: Expiration data rule configuration. See `expiration_data_rule` below.
         :param pulumi.Input[_builtins.str] file_system_id: File system ID. Changing this value forces replacement.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationImportDataRuleArgs', 'FilesSynchronizationConfigurationImportDataRuleArgsDict']]]] import_data_rules: One or more import data rules. See `import_data_rule` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationImportDataRuleArgs', 'FilesSynchronizationConfigurationImportDataRuleArgsDict', 'outputs.FilesSynchronizationConfigurationImportDataRule']]]] import_data_rules: One or more import data rules. See `import_data_rule` below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.int] latest_version_number: Latest synchronization configuration version number.

@@ -233,11 +233,11 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: pulumi.Input[Optional[_builtins.str]] = None,
-                 filter: pulumi.Input[Optional[Union['BucketIntelligentTieringConfigurationFilterArgs', 'BucketIntelligentTieringConfigurationFilterArgsDict']]] = None,
+                 filter: pulumi.Input[Optional[Union['BucketIntelligentTieringConfigurationFilterArgs', 'BucketIntelligentTieringConfigurationFilterArgsDict', 'outputs.BucketIntelligentTieringConfigurationFilter']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 tierings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketIntelligentTieringConfigurationTieringArgs', 'BucketIntelligentTieringConfigurationTieringArgsDict']]]]] = None,
+                 tierings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketIntelligentTieringConfigurationTieringArgs', 'BucketIntelligentTieringConfigurationTieringArgsDict', 'outputs.BucketIntelligentTieringConfigurationTiering']]]]] = None,
                  __props__=None):
         """
         Provides an [S3 Intelligent-Tiering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html) configuration resource.
@@ -304,11 +304,11 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket this intelligent tiering configuration is associated with.
-        :param pulumi.Input[Union['BucketIntelligentTieringConfigurationFilterArgs', 'BucketIntelligentTieringConfigurationFilterArgsDict']] filter: Bucket filter. The configuration only includes objects that meet the filter's criteria. See `filter` Block below.
+        :param pulumi.Input[Union['BucketIntelligentTieringConfigurationFilterArgs', 'BucketIntelligentTieringConfigurationFilterArgsDict', 'outputs.BucketIntelligentTieringConfigurationFilter']] filter: Bucket filter. The configuration only includes objects that meet the filter's criteria. See `filter` Block below.
         :param pulumi.Input[_builtins.str] name: Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] status: Status of the configuration. Valid values: `Enabled`, `Disabled`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketIntelligentTieringConfigurationTieringArgs', 'BucketIntelligentTieringConfigurationTieringArgsDict']]]] tierings: S3 Intelligent-Tiering storage class tiers of the configuration. See `tiering` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketIntelligentTieringConfigurationTieringArgs', 'BucketIntelligentTieringConfigurationTieringArgsDict', 'outputs.BucketIntelligentTieringConfigurationTiering']]]] tierings: S3 Intelligent-Tiering storage class tiers of the configuration. See `tiering` Block below.
         """
         ...
     @overload
@@ -394,11 +394,11 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: pulumi.Input[Optional[_builtins.str]] = None,
-                 filter: pulumi.Input[Optional[Union['BucketIntelligentTieringConfigurationFilterArgs', 'BucketIntelligentTieringConfigurationFilterArgsDict']]] = None,
+                 filter: pulumi.Input[Optional[Union['BucketIntelligentTieringConfigurationFilterArgs', 'BucketIntelligentTieringConfigurationFilterArgsDict', 'outputs.BucketIntelligentTieringConfigurationFilter']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 tierings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketIntelligentTieringConfigurationTieringArgs', 'BucketIntelligentTieringConfigurationTieringArgsDict']]]]] = None,
+                 tierings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketIntelligentTieringConfigurationTieringArgs', 'BucketIntelligentTieringConfigurationTieringArgsDict', 'outputs.BucketIntelligentTieringConfigurationTiering']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -429,11 +429,11 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             bucket: pulumi.Input[Optional[_builtins.str]] = None,
-            filter: pulumi.Input[Optional[Union['BucketIntelligentTieringConfigurationFilterArgs', 'BucketIntelligentTieringConfigurationFilterArgsDict']]] = None,
+            filter: pulumi.Input[Optional[Union['BucketIntelligentTieringConfigurationFilterArgs', 'BucketIntelligentTieringConfigurationFilterArgsDict', 'outputs.BucketIntelligentTieringConfigurationFilter']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
-            tierings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketIntelligentTieringConfigurationTieringArgs', 'BucketIntelligentTieringConfigurationTieringArgsDict']]]]] = None) -> 'BucketIntelligentTieringConfiguration':
+            tierings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketIntelligentTieringConfigurationTieringArgs', 'BucketIntelligentTieringConfigurationTieringArgsDict', 'outputs.BucketIntelligentTieringConfigurationTiering']]]]] = None) -> 'BucketIntelligentTieringConfiguration':
         """
         Get an existing BucketIntelligentTieringConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -442,11 +442,11 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket this intelligent tiering configuration is associated with.
-        :param pulumi.Input[Union['BucketIntelligentTieringConfigurationFilterArgs', 'BucketIntelligentTieringConfigurationFilterArgsDict']] filter: Bucket filter. The configuration only includes objects that meet the filter's criteria. See `filter` Block below.
+        :param pulumi.Input[Union['BucketIntelligentTieringConfigurationFilterArgs', 'BucketIntelligentTieringConfigurationFilterArgsDict', 'outputs.BucketIntelligentTieringConfigurationFilter']] filter: Bucket filter. The configuration only includes objects that meet the filter's criteria. See `filter` Block below.
         :param pulumi.Input[_builtins.str] name: Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] status: Status of the configuration. Valid values: `Enabled`, `Disabled`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketIntelligentTieringConfigurationTieringArgs', 'BucketIntelligentTieringConfigurationTieringArgsDict']]]] tierings: S3 Intelligent-Tiering storage class tiers of the configuration. See `tiering` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketIntelligentTieringConfigurationTieringArgs', 'BucketIntelligentTieringConfigurationTieringArgsDict', 'outputs.BucketIntelligentTieringConfigurationTiering']]]] tierings: S3 Intelligent-Tiering storage class tiers of the configuration. See `tiering` Block below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

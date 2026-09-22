@@ -257,7 +257,7 @@ class Repository(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_data: pulumi.Input[Optional[Union['RepositoryCatalogDataArgs', 'RepositoryCatalogDataArgsDict']]] = None,
+                 catalog_data: pulumi.Input[Optional[Union['RepositoryCatalogDataArgs', 'RepositoryCatalogDataArgsDict', 'outputs.RepositoryCatalogData']]] = None,
                  force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  repository_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -301,7 +301,7 @@ class Repository(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['RepositoryCatalogDataArgs', 'RepositoryCatalogDataArgsDict']] catalog_data: Catalog data configuration for the repository. See below for schema.
+        :param pulumi.Input[Union['RepositoryCatalogDataArgs', 'RepositoryCatalogDataArgsDict', 'outputs.RepositoryCatalogData']] catalog_data: Catalog data configuration for the repository. See below for schema.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] repository_name: Name of the repository.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -363,7 +363,7 @@ class Repository(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_data: pulumi.Input[Optional[Union['RepositoryCatalogDataArgs', 'RepositoryCatalogDataArgsDict']]] = None,
+                 catalog_data: pulumi.Input[Optional[Union['RepositoryCatalogDataArgs', 'RepositoryCatalogDataArgsDict', 'outputs.RepositoryCatalogData']]] = None,
                  force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  repository_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -399,7 +399,7 @@ class Repository(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            catalog_data: pulumi.Input[Optional[Union['RepositoryCatalogDataArgs', 'RepositoryCatalogDataArgsDict']]] = None,
+            catalog_data: pulumi.Input[Optional[Union['RepositoryCatalogDataArgs', 'RepositoryCatalogDataArgsDict', 'outputs.RepositoryCatalogData']]] = None,
             force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             registry_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -415,7 +415,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: Full ARN of the repository.
-        :param pulumi.Input[Union['RepositoryCatalogDataArgs', 'RepositoryCatalogDataArgsDict']] catalog_data: Catalog data configuration for the repository. See below for schema.
+        :param pulumi.Input[Union['RepositoryCatalogDataArgs', 'RepositoryCatalogDataArgsDict', 'outputs.RepositoryCatalogData']] catalog_data: Catalog data configuration for the repository. See below for schema.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[_builtins.str] repository_name: Name of the repository.

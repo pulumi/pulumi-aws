@@ -314,11 +314,11 @@ class AssetType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 forms_inputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssetTypeFormsInputArgs', 'AssetTypeFormsInputArgsDict']]]]] = None,
+                 forms_inputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssetTypeFormsInputArgs', 'AssetTypeFormsInputArgsDict', 'outputs.AssetTypeFormsInput']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owning_project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AssetTypeTimeoutsArgs', 'AssetTypeTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AssetTypeTimeoutsArgs', 'AssetTypeTimeoutsArgsDict', 'outputs.AssetTypeTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS DataZone Asset Type.
@@ -363,7 +363,7 @@ class AssetType(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the custom asset type.
         :param pulumi.Input[_builtins.str] domain_identifier: The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AssetTypeFormsInputArgs', 'AssetTypeFormsInputArgsDict']]]] forms_inputs: The metadata forms that are to be attached to the custom asset type.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AssetTypeFormsInputArgs', 'AssetTypeFormsInputArgsDict', 'outputs.AssetTypeFormsInput']]]] forms_inputs: The metadata forms that are to be attached to the custom asset type.
         :param pulumi.Input[_builtins.str] name: The name of the custom asset type.
         :param pulumi.Input[_builtins.str] owning_project_identifier: The unique identifier of the Amazon DataZone project that owns the custom asset type.
                
@@ -432,11 +432,11 @@ class AssetType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 forms_inputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssetTypeFormsInputArgs', 'AssetTypeFormsInputArgsDict']]]]] = None,
+                 forms_inputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssetTypeFormsInputArgs', 'AssetTypeFormsInputArgsDict', 'outputs.AssetTypeFormsInput']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owning_project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AssetTypeTimeoutsArgs', 'AssetTypeTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AssetTypeTimeoutsArgs', 'AssetTypeTimeoutsArgsDict', 'outputs.AssetTypeTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -474,12 +474,12 @@ class AssetType(pulumi.CustomResource):
             created_by: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-            forms_inputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssetTypeFormsInputArgs', 'AssetTypeFormsInputArgsDict']]]]] = None,
+            forms_inputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssetTypeFormsInputArgs', 'AssetTypeFormsInputArgsDict', 'outputs.AssetTypeFormsInput']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             owning_project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             revision: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['AssetTypeTimeoutsArgs', 'AssetTypeTimeoutsArgsDict']]] = None) -> 'AssetType':
+            timeouts: pulumi.Input[Optional[Union['AssetTypeTimeoutsArgs', 'AssetTypeTimeoutsArgsDict', 'outputs.AssetTypeTimeouts']]] = None) -> 'AssetType':
         """
         Get an existing AssetType resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -491,7 +491,7 @@ class AssetType(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] created_by: The user who created the custom asset type.
         :param pulumi.Input[_builtins.str] description: The description of the custom asset type.
         :param pulumi.Input[_builtins.str] domain_identifier: The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AssetTypeFormsInputArgs', 'AssetTypeFormsInputArgsDict']]]] forms_inputs: The metadata forms that are to be attached to the custom asset type.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AssetTypeFormsInputArgs', 'AssetTypeFormsInputArgsDict', 'outputs.AssetTypeFormsInput']]]] forms_inputs: The metadata forms that are to be attached to the custom asset type.
         :param pulumi.Input[_builtins.str] name: The name of the custom asset type.
         :param pulumi.Input[_builtins.str] owning_project_identifier: The unique identifier of the Amazon DataZone project that owns the custom asset type.
                

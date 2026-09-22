@@ -202,8 +202,8 @@ class Recorder(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 recording_group: pulumi.Input[Optional[Union['RecorderRecordingGroupArgs', 'RecorderRecordingGroupArgsDict']]] = None,
-                 recording_mode: pulumi.Input[Optional[Union['RecorderRecordingModeArgs', 'RecorderRecordingModeArgsDict']]] = None,
+                 recording_group: pulumi.Input[Optional[Union['RecorderRecordingGroupArgs', 'RecorderRecordingGroupArgsDict', 'outputs.RecorderRecordingGroup']]] = None,
+                 recording_mode: pulumi.Input[Optional[Union['RecorderRecordingModeArgs', 'RecorderRecordingModeArgsDict', 'outputs.RecorderRecordingMode']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -306,8 +306,8 @@ class Recorder(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
-        :param pulumi.Input[Union['RecorderRecordingGroupArgs', 'RecorderRecordingGroupArgsDict']] recording_group: Recording group - see below.
-        :param pulumi.Input[Union['RecorderRecordingModeArgs', 'RecorderRecordingModeArgsDict']] recording_mode: Recording mode - see below.
+        :param pulumi.Input[Union['RecorderRecordingGroupArgs', 'RecorderRecordingGroupArgsDict', 'outputs.RecorderRecordingGroup']] recording_group: Recording group - see below.
+        :param pulumi.Input[Union['RecorderRecordingModeArgs', 'RecorderRecordingModeArgsDict', 'outputs.RecorderRecordingMode']] recording_mode: Recording mode - see below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
         """
@@ -429,8 +429,8 @@ class Recorder(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 recording_group: pulumi.Input[Optional[Union['RecorderRecordingGroupArgs', 'RecorderRecordingGroupArgsDict']]] = None,
-                 recording_mode: pulumi.Input[Optional[Union['RecorderRecordingModeArgs', 'RecorderRecordingModeArgsDict']]] = None,
+                 recording_group: pulumi.Input[Optional[Union['RecorderRecordingGroupArgs', 'RecorderRecordingGroupArgsDict', 'outputs.RecorderRecordingGroup']]] = None,
+                 recording_mode: pulumi.Input[Optional[Union['RecorderRecordingModeArgs', 'RecorderRecordingModeArgsDict', 'outputs.RecorderRecordingMode']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -460,8 +460,8 @@ class Recorder(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            recording_group: pulumi.Input[Optional[Union['RecorderRecordingGroupArgs', 'RecorderRecordingGroupArgsDict']]] = None,
-            recording_mode: pulumi.Input[Optional[Union['RecorderRecordingModeArgs', 'RecorderRecordingModeArgsDict']]] = None,
+            recording_group: pulumi.Input[Optional[Union['RecorderRecordingGroupArgs', 'RecorderRecordingGroupArgsDict', 'outputs.RecorderRecordingGroup']]] = None,
+            recording_mode: pulumi.Input[Optional[Union['RecorderRecordingModeArgs', 'RecorderRecordingModeArgsDict', 'outputs.RecorderRecordingMode']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             role_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'Recorder':
         """
@@ -472,8 +472,8 @@ class Recorder(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
-        :param pulumi.Input[Union['RecorderRecordingGroupArgs', 'RecorderRecordingGroupArgsDict']] recording_group: Recording group - see below.
-        :param pulumi.Input[Union['RecorderRecordingModeArgs', 'RecorderRecordingModeArgsDict']] recording_mode: Recording mode - see below.
+        :param pulumi.Input[Union['RecorderRecordingGroupArgs', 'RecorderRecordingGroupArgsDict', 'outputs.RecorderRecordingGroup']] recording_group: Recording group - see below.
+        :param pulumi.Input[Union['RecorderRecordingModeArgs', 'RecorderRecordingModeArgsDict', 'outputs.RecorderRecordingMode']] recording_mode: Recording mode - see below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
         """

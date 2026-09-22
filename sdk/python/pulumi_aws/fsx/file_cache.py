@@ -515,11 +515,11 @@ class FileCache(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  copy_tags_to_data_repository_associations: pulumi.Input[Optional[_builtins.bool]] = None,
-                 data_repository_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileCacheDataRepositoryAssociationArgs', 'FileCacheDataRepositoryAssociationArgsDict']]]]] = None,
+                 data_repository_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileCacheDataRepositoryAssociationArgs', 'FileCacheDataRepositoryAssociationArgsDict', 'outputs.FileCacheDataRepositoryAssociation']]]]] = None,
                  file_cache_type: pulumi.Input[Optional[_builtins.str]] = None,
                  file_cache_type_version: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 lustre_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict']]]]] = None,
+                 lustre_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict', 'outputs.FileCacheLustreConfiguration']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
@@ -578,11 +578,11 @@ class FileCache(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] copy_tags_to_data_repository_associations: Whether to copy tags for the cache to data repository associations. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FileCacheDataRepositoryAssociationArgs', 'FileCacheDataRepositoryAssociationArgsDict']]]] data_repository_associations: Configurations for up to 8 data repository associations (DRAs) to create during cache creation. All configurations must be of the same data repository type, either all S3 or all NFS. Maximum of 8. See `data_repository_association` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FileCacheDataRepositoryAssociationArgs', 'FileCacheDataRepositoryAssociationArgsDict', 'outputs.FileCacheDataRepositoryAssociation']]]] data_repository_associations: Configurations for up to 8 data repository associations (DRAs) to create during cache creation. All configurations must be of the same data repository type, either all S3 or all NFS. Maximum of 8. See `data_repository_association` Block below.
         :param pulumi.Input[_builtins.str] file_cache_type: Type of cache to create. The only supported value is `LUSTRE`.
         :param pulumi.Input[_builtins.str] file_cache_type_version: Version for the type of cache to create. The only supported value is `2.12`.
         :param pulumi.Input[_builtins.str] kms_key_id: ID of the KMS key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict']]]] lustre_configurations: Configuration for the Lustre cache. Required when `file_cache_type` is `LUSTRE`. See `lustre_configuration` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict', 'outputs.FileCacheLustreConfiguration']]]] lustre_configurations: Configuration for the Lustre cache. Required when `file_cache_type` is `LUSTRE`. See `lustre_configuration` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: IDs of the security groups to apply to all network interfaces created for cache access.
         :param pulumi.Input[_builtins.int] storage_capacity: Storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
@@ -660,11 +660,11 @@ class FileCache(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  copy_tags_to_data_repository_associations: pulumi.Input[Optional[_builtins.bool]] = None,
-                 data_repository_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileCacheDataRepositoryAssociationArgs', 'FileCacheDataRepositoryAssociationArgsDict']]]]] = None,
+                 data_repository_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileCacheDataRepositoryAssociationArgs', 'FileCacheDataRepositoryAssociationArgsDict', 'outputs.FileCacheDataRepositoryAssociation']]]]] = None,
                  file_cache_type: pulumi.Input[Optional[_builtins.str]] = None,
                  file_cache_type_version: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 lustre_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict']]]]] = None,
+                 lustre_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict', 'outputs.FileCacheLustreConfiguration']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
@@ -719,13 +719,13 @@ class FileCache(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             copy_tags_to_data_repository_associations: pulumi.Input[Optional[_builtins.bool]] = None,
             data_repository_association_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            data_repository_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileCacheDataRepositoryAssociationArgs', 'FileCacheDataRepositoryAssociationArgsDict']]]]] = None,
+            data_repository_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileCacheDataRepositoryAssociationArgs', 'FileCacheDataRepositoryAssociationArgsDict', 'outputs.FileCacheDataRepositoryAssociation']]]]] = None,
             dns_name: pulumi.Input[Optional[_builtins.str]] = None,
             file_cache_id: pulumi.Input[Optional[_builtins.str]] = None,
             file_cache_type: pulumi.Input[Optional[_builtins.str]] = None,
             file_cache_type_version: pulumi.Input[Optional[_builtins.str]] = None,
             kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-            lustre_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict']]]]] = None,
+            lustre_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict', 'outputs.FileCacheLustreConfiguration']]]]] = None,
             network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             owner_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -745,13 +745,13 @@ class FileCache(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the cache.
         :param pulumi.Input[_builtins.bool] copy_tags_to_data_repository_associations: Whether to copy tags for the cache to data repository associations. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_repository_association_ids: IDs of data repository associations that are associated with the cache.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FileCacheDataRepositoryAssociationArgs', 'FileCacheDataRepositoryAssociationArgsDict']]]] data_repository_associations: Configurations for up to 8 data repository associations (DRAs) to create during cache creation. All configurations must be of the same data repository type, either all S3 or all NFS. Maximum of 8. See `data_repository_association` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FileCacheDataRepositoryAssociationArgs', 'FileCacheDataRepositoryAssociationArgsDict', 'outputs.FileCacheDataRepositoryAssociation']]]] data_repository_associations: Configurations for up to 8 data repository associations (DRAs) to create during cache creation. All configurations must be of the same data repository type, either all S3 or all NFS. Maximum of 8. See `data_repository_association` Block below.
         :param pulumi.Input[_builtins.str] dns_name: DNS name for the cache.
         :param pulumi.Input[_builtins.str] file_cache_id: System-generated, unique ID of the cache.
         :param pulumi.Input[_builtins.str] file_cache_type: Type of cache to create. The only supported value is `LUSTRE`.
         :param pulumi.Input[_builtins.str] file_cache_type_version: Version for the type of cache to create. The only supported value is `2.12`.
         :param pulumi.Input[_builtins.str] kms_key_id: ID of the KMS key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict']]]] lustre_configurations: Configuration for the Lustre cache. Required when `file_cache_type` is `LUSTRE`. See `lustre_configuration` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict', 'outputs.FileCacheLustreConfiguration']]]] lustre_configurations: Configuration for the Lustre cache. Required when `file_cache_type` is `LUSTRE`. See `lustre_configuration` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: IDs of the network interfaces.
         :param pulumi.Input[_builtins.str] owner_id: AWS account that created the cache.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

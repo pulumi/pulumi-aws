@@ -508,7 +508,7 @@ class Fleet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  base_capacity: pulumi.Input[Optional[_builtins.int]] = None,
-                 compute_configuration: pulumi.Input[Optional[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']]] = None,
+                 compute_configuration: pulumi.Input[Optional[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict', 'outputs.FleetComputeConfiguration']]] = None,
                  compute_type: pulumi.Input[Optional[_builtins.str]] = None,
                  environment_type: pulumi.Input[Optional[_builtins.str]] = None,
                  fleet_service_role: pulumi.Input[Optional[_builtins.str]] = None,
@@ -516,9 +516,9 @@ class Fleet(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  overflow_behavior: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 scaling_configuration: pulumi.Input[Optional[Union['FleetScalingConfigurationArgs', 'FleetScalingConfigurationArgsDict']]] = None,
+                 scaling_configuration: pulumi.Input[Optional[Union['FleetScalingConfigurationArgs', 'FleetScalingConfigurationArgsDict', 'outputs.FleetScalingConfiguration']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]]]] = None,
+                 vpc_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict', 'outputs.FleetVpcConfig']]]]] = None,
                  __props__=None):
         """
         Provides a CodeBuild Fleet Resource.
@@ -572,7 +572,7 @@ class Fleet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] base_capacity: Number of machines allocated to the ﬂeet.
-        :param pulumi.Input[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']] compute_configuration: The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
+        :param pulumi.Input[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict', 'outputs.FleetComputeConfiguration']] compute_configuration: The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
         :param pulumi.Input[_builtins.str] compute_type: Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
         :param pulumi.Input[_builtins.str] environment_type: Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
                
@@ -582,9 +582,9 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Fleet name.
         :param pulumi.Input[_builtins.str] overflow_behavior: Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['FleetScalingConfigurationArgs', 'FleetScalingConfigurationArgsDict']] scaling_configuration: Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
+        :param pulumi.Input[Union['FleetScalingConfigurationArgs', 'FleetScalingConfigurationArgsDict', 'outputs.FleetScalingConfiguration']] scaling_configuration: Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]]] vpc_configs: Configuration block. See `vpc_config` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict', 'outputs.FleetVpcConfig']]]] vpc_configs: Configuration block. See `vpc_config` below.
         """
         ...
     @overload
@@ -657,7 +657,7 @@ class Fleet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  base_capacity: pulumi.Input[Optional[_builtins.int]] = None,
-                 compute_configuration: pulumi.Input[Optional[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']]] = None,
+                 compute_configuration: pulumi.Input[Optional[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict', 'outputs.FleetComputeConfiguration']]] = None,
                  compute_type: pulumi.Input[Optional[_builtins.str]] = None,
                  environment_type: pulumi.Input[Optional[_builtins.str]] = None,
                  fleet_service_role: pulumi.Input[Optional[_builtins.str]] = None,
@@ -665,9 +665,9 @@ class Fleet(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  overflow_behavior: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 scaling_configuration: pulumi.Input[Optional[Union['FleetScalingConfigurationArgs', 'FleetScalingConfigurationArgsDict']]] = None,
+                 scaling_configuration: pulumi.Input[Optional[Union['FleetScalingConfigurationArgs', 'FleetScalingConfigurationArgsDict', 'outputs.FleetScalingConfiguration']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]]]] = None,
+                 vpc_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict', 'outputs.FleetVpcConfig']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -712,7 +712,7 @@ class Fleet(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             base_capacity: pulumi.Input[Optional[_builtins.int]] = None,
-            compute_configuration: pulumi.Input[Optional[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']]] = None,
+            compute_configuration: pulumi.Input[Optional[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict', 'outputs.FleetComputeConfiguration']]] = None,
             compute_type: pulumi.Input[Optional[_builtins.str]] = None,
             created: pulumi.Input[Optional[_builtins.str]] = None,
             environment_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -722,11 +722,11 @@ class Fleet(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             overflow_behavior: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            scaling_configuration: pulumi.Input[Optional[Union['FleetScalingConfigurationArgs', 'FleetScalingConfigurationArgsDict']]] = None,
-            statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetStatusArgs', 'FleetStatusArgsDict']]]]] = None,
+            scaling_configuration: pulumi.Input[Optional[Union['FleetScalingConfigurationArgs', 'FleetScalingConfigurationArgsDict', 'outputs.FleetScalingConfiguration']]] = None,
+            statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetStatusArgs', 'FleetStatusArgsDict', 'outputs.FleetStatus']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            vpc_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]]]] = None) -> 'Fleet':
+            vpc_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict', 'outputs.FleetVpcConfig']]]]] = None) -> 'Fleet':
         """
         Get an existing Fleet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -736,7 +736,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Fleet.
         :param pulumi.Input[_builtins.int] base_capacity: Number of machines allocated to the ﬂeet.
-        :param pulumi.Input[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']] compute_configuration: The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
+        :param pulumi.Input[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict', 'outputs.FleetComputeConfiguration']] compute_configuration: The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
         :param pulumi.Input[_builtins.str] compute_type: Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
         :param pulumi.Input[_builtins.str] created: Creation time of the fleet.
         :param pulumi.Input[_builtins.str] environment_type: Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
@@ -748,10 +748,10 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Fleet name.
         :param pulumi.Input[_builtins.str] overflow_behavior: Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['FleetScalingConfigurationArgs', 'FleetScalingConfigurationArgsDict']] scaling_configuration: Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetStatusArgs', 'FleetStatusArgsDict']]]] statuses: Nested attribute containing information about the current status of the fleet.
+        :param pulumi.Input[Union['FleetScalingConfigurationArgs', 'FleetScalingConfigurationArgsDict', 'outputs.FleetScalingConfiguration']] scaling_configuration: Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetStatusArgs', 'FleetStatusArgsDict', 'outputs.FleetStatus']]]] statuses: Nested attribute containing information about the current status of the fleet.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]]] vpc_configs: Configuration block. See `vpc_config` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict', 'outputs.FleetVpcConfig']]]] vpc_configs: Configuration block. See `vpc_config` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

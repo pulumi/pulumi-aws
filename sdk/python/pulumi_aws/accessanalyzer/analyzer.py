@@ -242,7 +242,7 @@ class Analyzer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analyzer_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union['AnalyzerConfigurationArgs', 'AnalyzerConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['AnalyzerConfigurationArgs', 'AnalyzerConfigurationArgsDict', 'outputs.AnalyzerConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -369,7 +369,7 @@ class Analyzer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] analyzer_name: Name of the Analyzer.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['AnalyzerConfigurationArgs', 'AnalyzerConfigurationArgsDict']] configuration: A block that specifies the configuration of the analyzer. See `configuration` Block for details.
+        :param pulumi.Input[Union['AnalyzerConfigurationArgs', 'AnalyzerConfigurationArgsDict', 'outputs.AnalyzerConfiguration']] configuration: A block that specifies the configuration of the analyzer. See `configuration` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] type: Type that represents the zone of trust or scope for the analyzer. Valid values are `ACCOUNT`, `ACCOUNT_INTERNAL_ACCESS`, `ACCOUNT_UNUSED_ACCESS`, `ORGANIZATION`, `ORGANIZATION_INTERNAL_ACCESS`, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
@@ -513,7 +513,7 @@ class Analyzer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analyzer_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union['AnalyzerConfigurationArgs', 'AnalyzerConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['AnalyzerConfigurationArgs', 'AnalyzerConfigurationArgsDict', 'outputs.AnalyzerConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -547,7 +547,7 @@ class Analyzer(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             analyzer_name: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            configuration: pulumi.Input[Optional[Union['AnalyzerConfigurationArgs', 'AnalyzerConfigurationArgsDict']]] = None,
+            configuration: pulumi.Input[Optional[Union['AnalyzerConfigurationArgs', 'AnalyzerConfigurationArgsDict', 'outputs.AnalyzerConfiguration']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -563,7 +563,7 @@ class Analyzer(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] arn: ARN of the Analyzer.
-        :param pulumi.Input[Union['AnalyzerConfigurationArgs', 'AnalyzerConfigurationArgsDict']] configuration: A block that specifies the configuration of the analyzer. See `configuration` Block for details.
+        :param pulumi.Input[Union['AnalyzerConfigurationArgs', 'AnalyzerConfigurationArgsDict', 'outputs.AnalyzerConfiguration']] configuration: A block that specifies the configuration of the analyzer. See `configuration` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

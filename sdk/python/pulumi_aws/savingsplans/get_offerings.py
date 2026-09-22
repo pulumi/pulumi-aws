@@ -153,7 +153,7 @@ class AwaitableGetOfferingsResult(GetOfferingsResult):
 def get_offerings(currencies: Optional[Sequence[_builtins.str]] = None,
                   descriptions: Optional[Sequence[_builtins.str]] = None,
                   durations: Optional[Sequence[_builtins.int]] = None,
-                  filters: Optional[Sequence[Union['GetOfferingsFilterArgs', 'GetOfferingsFilterArgsDict']]] = None,
+                  filters: Optional[Sequence[Union['GetOfferingsFilterArgs', 'GetOfferingsFilterArgsDict', 'outputs.GetOfferingsFilterResult']]] = None,
                   offering_ids: Optional[Sequence[_builtins.str]] = None,
                   operations: Optional[Sequence[_builtins.str]] = None,
                   payment_options: Optional[Sequence[_builtins.str]] = None,
@@ -184,7 +184,7 @@ def get_offerings(currencies: Optional[Sequence[_builtins.str]] = None,
     :param Sequence[_builtins.str] currencies: List of currencies.
     :param Sequence[_builtins.str] descriptions: List of descriptions.
     :param Sequence[_builtins.int] durations: List of durations, in seconds.
-    :param Sequence[Union['GetOfferingsFilterArgs', 'GetOfferingsFilterArgsDict']] filters: List of filters. See Filter.
+    :param Sequence[Union['GetOfferingsFilterArgs', 'GetOfferingsFilterArgsDict', 'outputs.GetOfferingsFilterResult']] filters: List of filters. See Filter.
     :param Sequence[_builtins.str] offering_ids: List of offering IDs.
     :param Sequence[_builtins.str] operations: List of operations.
     :param Sequence[_builtins.str] payment_options: List of payment options.
@@ -224,7 +224,7 @@ def get_offerings(currencies: Optional[Sequence[_builtins.str]] = None,
 def get_offerings_output(currencies: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                          descriptions: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                          durations: pulumi.Input[Optional[Optional[Sequence[_builtins.int]]]] = None,
-                         filters: pulumi.Input[Optional[Optional[Sequence[Union['GetOfferingsFilterArgs', 'GetOfferingsFilterArgsDict']]]]] = None,
+                         filters: pulumi.Input[Optional[Optional[Sequence[Union['GetOfferingsFilterArgs', 'GetOfferingsFilterArgsDict', 'outputs.GetOfferingsFilterResult']]]]] = None,
                          offering_ids: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                          operations: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                          payment_options: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
@@ -255,7 +255,7 @@ def get_offerings_output(currencies: pulumi.Input[Optional[Optional[Sequence[_bu
     :param Sequence[_builtins.str] currencies: List of currencies.
     :param Sequence[_builtins.str] descriptions: List of descriptions.
     :param Sequence[_builtins.int] durations: List of durations, in seconds.
-    :param Sequence[Union['GetOfferingsFilterArgs', 'GetOfferingsFilterArgsDict']] filters: List of filters. See Filter.
+    :param Sequence[Union['GetOfferingsFilterArgs', 'GetOfferingsFilterArgsDict', 'outputs.GetOfferingsFilterResult']] filters: List of filters. See Filter.
     :param Sequence[_builtins.str] offering_ids: List of offering IDs.
     :param Sequence[_builtins.str] operations: List of operations.
     :param Sequence[_builtins.str] payment_options: List of payment options.

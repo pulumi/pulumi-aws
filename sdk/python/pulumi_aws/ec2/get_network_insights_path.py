@@ -222,7 +222,7 @@ class AwaitableGetNetworkInsightsPathResult(GetNetworkInsightsPathResult):
             tags=self.tags)
 
 
-def get_network_insights_path(filters: Optional[Sequence[Union['GetNetworkInsightsPathFilterArgs', 'GetNetworkInsightsPathFilterArgsDict']]] = None,
+def get_network_insights_path(filters: Optional[Sequence[Union['GetNetworkInsightsPathFilterArgs', 'GetNetworkInsightsPathFilterArgsDict', 'outputs.GetNetworkInsightsPathFilterResult']]] = None,
                               network_insights_path_id: Optional[_builtins.str] = None,
                               region: Optional[_builtins.str] = None,
                               tags: Optional[Mapping[str, _builtins.str]] = None,
@@ -240,7 +240,7 @@ def get_network_insights_path(filters: Optional[Sequence[Union['GetNetworkInsigh
     ```
 
 
-    :param Sequence[Union['GetNetworkInsightsPathFilterArgs', 'GetNetworkInsightsPathFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetNetworkInsightsPathFilterArgs', 'GetNetworkInsightsPathFilterArgsDict', 'outputs.GetNetworkInsightsPathFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
            
            The arguments of this data source act as filters for querying the available
            Network Insights Paths. The given filters must match exactly one Network Insights Path
@@ -274,7 +274,7 @@ def get_network_insights_path(filters: Optional[Sequence[Union['GetNetworkInsigh
         source_arn=pulumi.get(__ret__, 'source_arn'),
         source_ip=pulumi.get(__ret__, 'source_ip'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_network_insights_path_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetNetworkInsightsPathFilterArgs', 'GetNetworkInsightsPathFilterArgsDict']]]]] = None,
+def get_network_insights_path_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetNetworkInsightsPathFilterArgs', 'GetNetworkInsightsPathFilterArgsDict', 'outputs.GetNetworkInsightsPathFilterResult']]]]] = None,
                                      network_insights_path_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                      tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
@@ -292,7 +292,7 @@ def get_network_insights_path_output(filters: pulumi.Input[Optional[Optional[Seq
     ```
 
 
-    :param Sequence[Union['GetNetworkInsightsPathFilterArgs', 'GetNetworkInsightsPathFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetNetworkInsightsPathFilterArgs', 'GetNetworkInsightsPathFilterArgsDict', 'outputs.GetNetworkInsightsPathFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
            
            The arguments of this data source act as filters for querying the available
            Network Insights Paths. The given filters must match exactly one Network Insights Path

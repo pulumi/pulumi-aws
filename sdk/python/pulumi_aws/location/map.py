@@ -272,7 +272,7 @@ class Map(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['MapConfigurationArgs', 'MapConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['MapConfigurationArgs', 'MapConfigurationArgsDict', 'outputs.MapConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  map_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -305,7 +305,7 @@ class Map(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['MapConfigurationArgs', 'MapConfigurationArgsDict']] configuration: Configuration block with the map style selected from an available data provider. Detailed below.
+        :param pulumi.Input[Union['MapConfigurationArgs', 'MapConfigurationArgsDict', 'outputs.MapConfiguration']] configuration: Configuration block with the map style selected from an available data provider. Detailed below.
         :param pulumi.Input[_builtins.str] description: An optional description for the map resource.
         :param pulumi.Input[_builtins.str] map_name: The name for the map resource.
                
@@ -359,7 +359,7 @@ class Map(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['MapConfigurationArgs', 'MapConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['MapConfigurationArgs', 'MapConfigurationArgsDict', 'outputs.MapConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  map_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -396,7 +396,7 @@ class Map(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            configuration: pulumi.Input[Optional[Union['MapConfigurationArgs', 'MapConfigurationArgsDict']]] = None,
+            configuration: pulumi.Input[Optional[Union['MapConfigurationArgs', 'MapConfigurationArgsDict', 'outputs.MapConfiguration']]] = None,
             create_time: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             map_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -412,7 +412,7 @@ class Map(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['MapConfigurationArgs', 'MapConfigurationArgsDict']] configuration: Configuration block with the map style selected from an available data provider. Detailed below.
+        :param pulumi.Input[Union['MapConfigurationArgs', 'MapConfigurationArgsDict', 'outputs.MapConfiguration']] configuration: Configuration block with the map style selected from an available data provider. Detailed below.
         :param pulumi.Input[_builtins.str] create_time: The timestamp for when the map resource was created in ISO 8601 format.
         :param pulumi.Input[_builtins.str] description: An optional description for the map resource.
         :param pulumi.Input[_builtins.str] map_arn: ARN for the map resource. Used to specify a resource across all AWS.

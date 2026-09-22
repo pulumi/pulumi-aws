@@ -431,7 +431,7 @@ class NetworkPeeringConnection(pulumi.CustomResource):
                  peer_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['NetworkPeeringConnectionTimeoutsArgs', 'NetworkPeeringConnectionTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['NetworkPeeringConnectionTimeoutsArgs', 'NetworkPeeringConnectionTimeoutsArgsDict', 'outputs.NetworkPeeringConnectionTimeouts']]] = None,
                  __props__=None):
         """
         Terraform  resource for managing oracle database network peering resource in AWS. If underlying odb network is shared, ARN must be used while creating network peering.
@@ -535,7 +535,7 @@ class NetworkPeeringConnection(pulumi.CustomResource):
                  peer_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['NetworkPeeringConnectionTimeoutsArgs', 'NetworkPeeringConnectionTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['NetworkPeeringConnectionTimeoutsArgs', 'NetworkPeeringConnectionTimeoutsArgsDict', 'outputs.NetworkPeeringConnectionTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -590,7 +590,7 @@ class NetworkPeeringConnection(pulumi.CustomResource):
             status_reason: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['NetworkPeeringConnectionTimeoutsArgs', 'NetworkPeeringConnectionTimeoutsArgsDict']]] = None) -> 'NetworkPeeringConnection':
+            timeouts: pulumi.Input[Optional[Union['NetworkPeeringConnectionTimeoutsArgs', 'NetworkPeeringConnectionTimeoutsArgsDict', 'outputs.NetworkPeeringConnectionTimeouts']]] = None) -> 'NetworkPeeringConnection':
         """
         Get an existing NetworkPeeringConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

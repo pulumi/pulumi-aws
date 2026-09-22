@@ -168,7 +168,7 @@ class AwaitableGetKeyPairResult(GetKeyPairResult):
             tags=self.tags)
 
 
-def get_key_pair(filters: Optional[Sequence[Union['GetKeyPairFilterArgs', 'GetKeyPairFilterArgsDict']]] = None,
+def get_key_pair(filters: Optional[Sequence[Union['GetKeyPairFilterArgs', 'GetKeyPairFilterArgsDict', 'outputs.GetKeyPairFilterResult']]] = None,
                  include_public_key: Optional[_builtins.bool] = None,
                  key_name: Optional[_builtins.str] = None,
                  key_pair_id: Optional[_builtins.str] = None,
@@ -198,7 +198,7 @@ def get_key_pair(filters: Optional[Sequence[Union['GetKeyPairFilterArgs', 'GetKe
     ```
 
 
-    :param Sequence[Union['GetKeyPairFilterArgs', 'GetKeyPairFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetKeyPairFilterArgs', 'GetKeyPairFilterArgsDict', 'outputs.GetKeyPairFilterResult']] filters: Custom filter block as described below.
            
            The arguments of this data source act as filters for querying the available
            Key Pairs. The given filters must match exactly one Key Pair
@@ -232,7 +232,7 @@ def get_key_pair(filters: Optional[Sequence[Union['GetKeyPairFilterArgs', 'GetKe
         public_key=pulumi.get(__ret__, 'public_key'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_key_pair_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetKeyPairFilterArgs', 'GetKeyPairFilterArgsDict']]]]] = None,
+def get_key_pair_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetKeyPairFilterArgs', 'GetKeyPairFilterArgsDict', 'outputs.GetKeyPairFilterResult']]]]] = None,
                         include_public_key: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                         key_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         key_pair_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -262,7 +262,7 @@ def get_key_pair_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['
     ```
 
 
-    :param Sequence[Union['GetKeyPairFilterArgs', 'GetKeyPairFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetKeyPairFilterArgs', 'GetKeyPairFilterArgsDict', 'outputs.GetKeyPairFilterResult']] filters: Custom filter block as described below.
            
            The arguments of this data source act as filters for querying the available
            Key Pairs. The given filters must match exactly one Key Pair

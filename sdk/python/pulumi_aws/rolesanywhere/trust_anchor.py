@@ -227,8 +227,8 @@ class TrustAnchor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notification_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrustAnchorNotificationSettingArgs', 'TrustAnchorNotificationSettingArgsDict']]]]] = None,
-                 source: pulumi.Input[Optional[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict']]] = None,
+                 notification_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrustAnchorNotificationSettingArgs', 'TrustAnchorNotificationSettingArgsDict', 'outputs.TrustAnchorNotificationSetting']]]]] = None,
+                 source: pulumi.Input[Optional[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict', 'outputs.TrustAnchorSource']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -288,7 +288,7 @@ class TrustAnchor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Whether or not the Trust Anchor should be enabled.
         :param pulumi.Input[_builtins.str] name: The name of the Trust Anchor.
-        :param pulumi.Input[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict']] source: The source of trust, documented below
+        :param pulumi.Input[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict', 'outputs.TrustAnchorSource']] source: The source of trust, documented below
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -367,8 +367,8 @@ class TrustAnchor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notification_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrustAnchorNotificationSettingArgs', 'TrustAnchorNotificationSettingArgsDict']]]]] = None,
-                 source: pulumi.Input[Optional[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict']]] = None,
+                 notification_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrustAnchorNotificationSettingArgs', 'TrustAnchorNotificationSettingArgsDict', 'outputs.TrustAnchorNotificationSetting']]]]] = None,
+                 source: pulumi.Input[Optional[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict', 'outputs.TrustAnchorSource']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -401,8 +401,8 @@ class TrustAnchor(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            notification_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrustAnchorNotificationSettingArgs', 'TrustAnchorNotificationSettingArgsDict']]]]] = None,
-            source: pulumi.Input[Optional[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict']]] = None,
+            notification_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrustAnchorNotificationSettingArgs', 'TrustAnchorNotificationSettingArgsDict', 'outputs.TrustAnchorNotificationSetting']]]]] = None,
+            source: pulumi.Input[Optional[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict', 'outputs.TrustAnchorSource']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'TrustAnchor':
         """
@@ -415,7 +415,7 @@ class TrustAnchor(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the Trust Anchor
         :param pulumi.Input[_builtins.bool] enabled: Whether or not the Trust Anchor should be enabled.
         :param pulumi.Input[_builtins.str] name: The name of the Trust Anchor.
-        :param pulumi.Input[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict']] source: The source of trust, documented below
+        :param pulumi.Input[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict', 'outputs.TrustAnchorSource']] source: The source of trust, documented below
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

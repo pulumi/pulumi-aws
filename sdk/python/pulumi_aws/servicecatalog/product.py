@@ -516,7 +516,7 @@ class Product(pulumi.CustomResource):
                  distributor: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner: pulumi.Input[Optional[_builtins.str]] = None,
-                 provisioning_artifact_parameters: pulumi.Input[Optional[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict']]] = None,
+                 provisioning_artifact_parameters: pulumi.Input[Optional[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict', 'outputs.ProductProvisioningArtifactParameters']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  support_description: pulumi.Input[Optional[_builtins.str]] = None,
                  support_email: pulumi.Input[Optional[_builtins.str]] = None,
@@ -567,7 +567,7 @@ class Product(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] distributor: Distributor (i.e., vendor) of the product.
         :param pulumi.Input[_builtins.str] name: Name of the product.
         :param pulumi.Input[_builtins.str] owner: Owner of the product.
-        :param pulumi.Input[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict']] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
+        :param pulumi.Input[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict', 'outputs.ProductProvisioningArtifactParameters']] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] support_description: Support information about the product.
         :param pulumi.Input[_builtins.str] support_email: Contact email for product support.
@@ -639,7 +639,7 @@ class Product(pulumi.CustomResource):
                  distributor: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner: pulumi.Input[Optional[_builtins.str]] = None,
-                 provisioning_artifact_parameters: pulumi.Input[Optional[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict']]] = None,
+                 provisioning_artifact_parameters: pulumi.Input[Optional[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict', 'outputs.ProductProvisioningArtifactParameters']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  support_description: pulumi.Input[Optional[_builtins.str]] = None,
                  support_email: pulumi.Input[Optional[_builtins.str]] = None,
@@ -696,7 +696,7 @@ class Product(pulumi.CustomResource):
             has_default_path: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             owner: pulumi.Input[Optional[_builtins.str]] = None,
-            provisioning_artifact_parameters: pulumi.Input[Optional[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict']]] = None,
+            provisioning_artifact_parameters: pulumi.Input[Optional[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict', 'outputs.ProductProvisioningArtifactParameters']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             support_description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -720,7 +720,7 @@ class Product(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] has_default_path: Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
         :param pulumi.Input[_builtins.str] name: Name of the product.
         :param pulumi.Input[_builtins.str] owner: Owner of the product.
-        :param pulumi.Input[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict']] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
+        :param pulumi.Input[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict', 'outputs.ProductProvisioningArtifactParameters']] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] status: Status of the product.
         :param pulumi.Input[_builtins.str] support_description: Support information about the product.

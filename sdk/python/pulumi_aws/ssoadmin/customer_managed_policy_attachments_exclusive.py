@@ -200,11 +200,11 @@ class CustomerManagedPolicyAttachmentsExclusive(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_managed_policy_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs', 'CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgsDict']]]]] = None,
+                 customer_managed_policy_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs', 'CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgsDict', 'outputs.CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReference']]]]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  permission_set_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs', 'CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs', 'CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgsDict', 'outputs.CustomerManagedPolicyAttachmentsExclusiveTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing exclusive AWS SSO Admin Customer Managed Policy Attachments.
@@ -286,7 +286,7 @@ class CustomerManagedPolicyAttachmentsExclusive(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs', 'CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgsDict']]]] customer_managed_policy_references: Specifies the names and paths of the customer managed policies to attach. See Customer Managed Policy Reference below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs', 'CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgsDict', 'outputs.CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReference']]]] customer_managed_policy_references: Specifies the names and paths of the customer managed policies to attach. See Customer Managed Policy Reference below.
         :param pulumi.Input[_builtins.str] instance_arn: ARN of the SSO Instance.
         :param pulumi.Input[_builtins.str] permission_set_arn: ARN of the Permission Set.
                
@@ -392,11 +392,11 @@ class CustomerManagedPolicyAttachmentsExclusive(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_managed_policy_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs', 'CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgsDict']]]]] = None,
+                 customer_managed_policy_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs', 'CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgsDict', 'outputs.CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReference']]]]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  permission_set_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs', 'CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs', 'CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgsDict', 'outputs.CustomerManagedPolicyAttachmentsExclusiveTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -425,11 +425,11 @@ class CustomerManagedPolicyAttachmentsExclusive(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            customer_managed_policy_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs', 'CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgsDict']]]]] = None,
+            customer_managed_policy_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs', 'CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgsDict', 'outputs.CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReference']]]]] = None,
             instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
             permission_set_arn: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs', 'CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgsDict']]] = None) -> 'CustomerManagedPolicyAttachmentsExclusive':
+            timeouts: pulumi.Input[Optional[Union['CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs', 'CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgsDict', 'outputs.CustomerManagedPolicyAttachmentsExclusiveTimeouts']]] = None) -> 'CustomerManagedPolicyAttachmentsExclusive':
         """
         Get an existing CustomerManagedPolicyAttachmentsExclusive resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -437,7 +437,7 @@ class CustomerManagedPolicyAttachmentsExclusive(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs', 'CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgsDict']]]] customer_managed_policy_references: Specifies the names and paths of the customer managed policies to attach. See Customer Managed Policy Reference below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs', 'CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgsDict', 'outputs.CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReference']]]] customer_managed_policy_references: Specifies the names and paths of the customer managed policies to attach. See Customer Managed Policy Reference below.
         :param pulumi.Input[_builtins.str] instance_arn: ARN of the SSO Instance.
         :param pulumi.Input[_builtins.str] permission_set_arn: ARN of the Permission Set.
                

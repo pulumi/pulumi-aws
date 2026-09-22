@@ -139,7 +139,7 @@ class IndexingRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['IndexingRuleRuleArgs', 'IndexingRuleRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['IndexingRuleRuleArgs', 'IndexingRuleRuleArgsDict', 'outputs.IndexingRuleRule']]] = None,
                  __props__=None):
         """
         Manages an AWS X-Ray indexing rule.
@@ -185,7 +185,7 @@ class IndexingRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Indexing rule name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['IndexingRuleRuleArgs', 'IndexingRuleRuleArgsDict']] rule: Rule configuration. See `rule` Block below.
+        :param pulumi.Input[Union['IndexingRuleRuleArgs', 'IndexingRuleRuleArgsDict', 'outputs.IndexingRuleRule']] rule: Rule configuration. See `rule` Block below.
         """
         ...
     @overload
@@ -250,7 +250,7 @@ class IndexingRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['IndexingRuleRuleArgs', 'IndexingRuleRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['IndexingRuleRuleArgs', 'IndexingRuleRuleArgsDict', 'outputs.IndexingRuleRule']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -277,7 +277,7 @@ class IndexingRule(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            rule: pulumi.Input[Optional[Union['IndexingRuleRuleArgs', 'IndexingRuleRuleArgsDict']]] = None) -> 'IndexingRule':
+            rule: pulumi.Input[Optional[Union['IndexingRuleRuleArgs', 'IndexingRuleRuleArgsDict', 'outputs.IndexingRuleRule']]] = None) -> 'IndexingRule':
         """
         Get an existing IndexingRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -287,7 +287,7 @@ class IndexingRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Indexing rule name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['IndexingRuleRuleArgs', 'IndexingRuleRuleArgsDict']] rule: Rule configuration. See `rule` Block below.
+        :param pulumi.Input[Union['IndexingRuleRuleArgs', 'IndexingRuleRuleArgsDict', 'outputs.IndexingRuleRule']] rule: Rule configuration. See `rule` Block below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -390,7 +390,7 @@ class Folder(pulumi.CustomResource):
                  folder_type: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parent_folder_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FolderPermissionArgs', 'FolderPermissionArgsDict']]]]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FolderPermissionArgs', 'FolderPermissionArgsDict', 'outputs.FolderPermission']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -467,7 +467,7 @@ class Folder(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] parent_folder_arn: ARN for the parent folder. If not set, creates a root-level folder.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FolderPermissionArgs', 'FolderPermissionArgsDict']]]] permissions: A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FolderPermissionArgs', 'FolderPermissionArgsDict', 'outputs.FolderPermission']]]] permissions: A set of resource permissions on the folder. Maximum of 64 items. See permissions.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -561,7 +561,7 @@ class Folder(pulumi.CustomResource):
                  folder_type: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parent_folder_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FolderPermissionArgs', 'FolderPermissionArgsDict']]]]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FolderPermissionArgs', 'FolderPermissionArgsDict', 'outputs.FolderPermission']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -607,7 +607,7 @@ class Folder(pulumi.CustomResource):
             last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             parent_folder_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FolderPermissionArgs', 'FolderPermissionArgsDict']]]]] = None,
+            permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FolderPermissionArgs', 'FolderPermissionArgsDict', 'outputs.FolderPermission']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Folder':
@@ -629,7 +629,7 @@ class Folder(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] parent_folder_arn: ARN for the parent folder. If not set, creates a root-level folder.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FolderPermissionArgs', 'FolderPermissionArgsDict']]]] permissions: A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FolderPermissionArgs', 'FolderPermissionArgsDict', 'outputs.FolderPermission']]]] permissions: A set of resource permissions on the folder. Maximum of 64 items. See permissions.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

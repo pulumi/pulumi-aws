@@ -424,17 +424,17 @@ class WebAclRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: pulumi.Input[Optional[Union['WebAclRuleActionArgs', 'WebAclRuleActionArgsDict']]] = None,
-                 captcha_config: pulumi.Input[Optional[Union['WebAclRuleCaptchaConfigArgs', 'WebAclRuleCaptchaConfigArgsDict']]] = None,
-                 challenge_config: pulumi.Input[Optional[Union['WebAclRuleChallengeConfigArgs', 'WebAclRuleChallengeConfigArgsDict']]] = None,
+                 action: pulumi.Input[Optional[Union['WebAclRuleActionArgs', 'WebAclRuleActionArgsDict', 'outputs.WebAclRuleAction']]] = None,
+                 captcha_config: pulumi.Input[Optional[Union['WebAclRuleCaptchaConfigArgs', 'WebAclRuleCaptchaConfigArgsDict', 'outputs.WebAclRuleCaptchaConfig']]] = None,
+                 challenge_config: pulumi.Input[Optional[Union['WebAclRuleChallengeConfigArgs', 'WebAclRuleChallengeConfigArgsDict', 'outputs.WebAclRuleChallengeConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 override_action: pulumi.Input[Optional[Union['WebAclRuleOverrideActionArgs', 'WebAclRuleOverrideActionArgsDict']]] = None,
+                 override_action: pulumi.Input[Optional[Union['WebAclRuleOverrideActionArgs', 'WebAclRuleOverrideActionArgsDict', 'outputs.WebAclRuleOverrideAction']]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebAclRuleRuleLabelArgs', 'WebAclRuleRuleLabelArgsDict']]]]] = None,
-                 statement: pulumi.Input[Optional[Union['WebAclRuleStatementArgs', 'WebAclRuleStatementArgsDict']]] = None,
-                 timeouts: pulumi.Input[Optional[Union['WebAclRuleTimeoutsArgs', 'WebAclRuleTimeoutsArgsDict']]] = None,
-                 visibility_config: pulumi.Input[Optional[Union['WebAclRuleVisibilityConfigArgs', 'WebAclRuleVisibilityConfigArgsDict']]] = None,
+                 rule_labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebAclRuleRuleLabelArgs', 'WebAclRuleRuleLabelArgsDict', 'outputs.WebAclRuleRuleLabel']]]]] = None,
+                 statement: pulumi.Input[Optional[Union['WebAclRuleStatementArgs', 'WebAclRuleStatementArgsDict', 'outputs.WebAclRuleStatement']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['WebAclRuleTimeoutsArgs', 'WebAclRuleTimeoutsArgsDict', 'outputs.WebAclRuleTimeouts']]] = None,
+                 visibility_config: pulumi.Input[Optional[Union['WebAclRuleVisibilityConfigArgs', 'WebAclRuleVisibilityConfigArgsDict', 'outputs.WebAclRuleVisibilityConfig']]] = None,
                  web_acl_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -843,16 +843,16 @@ class WebAclRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['WebAclRuleActionArgs', 'WebAclRuleActionArgsDict']] action: Action to take when the rule matches. See Action below. Conflicts with `override_action`.
-        :param pulumi.Input[Union['WebAclRuleCaptchaConfigArgs', 'WebAclRuleCaptchaConfigArgsDict']] captcha_config: CAPTCHA configuration that overrides the web ACL level setting. See Captcha Config below.
-        :param pulumi.Input[Union['WebAclRuleChallengeConfigArgs', 'WebAclRuleChallengeConfigArgsDict']] challenge_config: Challenge configuration that overrides the web ACL level setting. See Challenge Config below.
+        :param pulumi.Input[Union['WebAclRuleActionArgs', 'WebAclRuleActionArgsDict', 'outputs.WebAclRuleAction']] action: Action to take when the rule matches. See Action below. Conflicts with `override_action`.
+        :param pulumi.Input[Union['WebAclRuleCaptchaConfigArgs', 'WebAclRuleCaptchaConfigArgsDict', 'outputs.WebAclRuleCaptchaConfig']] captcha_config: CAPTCHA configuration that overrides the web ACL level setting. See Captcha Config below.
+        :param pulumi.Input[Union['WebAclRuleChallengeConfigArgs', 'WebAclRuleChallengeConfigArgsDict', 'outputs.WebAclRuleChallengeConfig']] challenge_config: Challenge configuration that overrides the web ACL level setting. See Challenge Config below.
         :param pulumi.Input[_builtins.str] name: Name of the rule. Must be unique within the Web ACL.
-        :param pulumi.Input[Union['WebAclRuleOverrideActionArgs', 'WebAclRuleOverrideActionArgsDict']] override_action: Override action for managed rule groups. See Override Action below. Conflicts with `action`.
+        :param pulumi.Input[Union['WebAclRuleOverrideActionArgs', 'WebAclRuleOverrideActionArgsDict', 'outputs.WebAclRuleOverrideAction']] override_action: Override action for managed rule groups. See Override Action below. Conflicts with `action`.
         :param pulumi.Input[_builtins.int] priority: Rule priority. Rules with lower priority are evaluated first.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleRuleLabelArgs', 'WebAclRuleRuleLabelArgsDict']]]] rule_labels: Labels to apply to matching web requests. See Rule Label below.
-        :param pulumi.Input[Union['WebAclRuleStatementArgs', 'WebAclRuleStatementArgsDict']] statement: Rule statement. See Statement below.
-        :param pulumi.Input[Union['WebAclRuleVisibilityConfigArgs', 'WebAclRuleVisibilityConfigArgsDict']] visibility_config: CloudWatch metrics configuration. See Visibility Config below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleRuleLabelArgs', 'WebAclRuleRuleLabelArgsDict', 'outputs.WebAclRuleRuleLabel']]]] rule_labels: Labels to apply to matching web requests. See Rule Label below.
+        :param pulumi.Input[Union['WebAclRuleStatementArgs', 'WebAclRuleStatementArgsDict', 'outputs.WebAclRuleStatement']] statement: Rule statement. See Statement below.
+        :param pulumi.Input[Union['WebAclRuleVisibilityConfigArgs', 'WebAclRuleVisibilityConfigArgsDict', 'outputs.WebAclRuleVisibilityConfig']] visibility_config: CloudWatch metrics configuration. See Visibility Config below.
         :param pulumi.Input[_builtins.str] web_acl_arn: ARN of the Web ACL to add the rule to.
                
                The following arguments are optional:
@@ -1282,17 +1282,17 @@ class WebAclRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: pulumi.Input[Optional[Union['WebAclRuleActionArgs', 'WebAclRuleActionArgsDict']]] = None,
-                 captcha_config: pulumi.Input[Optional[Union['WebAclRuleCaptchaConfigArgs', 'WebAclRuleCaptchaConfigArgsDict']]] = None,
-                 challenge_config: pulumi.Input[Optional[Union['WebAclRuleChallengeConfigArgs', 'WebAclRuleChallengeConfigArgsDict']]] = None,
+                 action: pulumi.Input[Optional[Union['WebAclRuleActionArgs', 'WebAclRuleActionArgsDict', 'outputs.WebAclRuleAction']]] = None,
+                 captcha_config: pulumi.Input[Optional[Union['WebAclRuleCaptchaConfigArgs', 'WebAclRuleCaptchaConfigArgsDict', 'outputs.WebAclRuleCaptchaConfig']]] = None,
+                 challenge_config: pulumi.Input[Optional[Union['WebAclRuleChallengeConfigArgs', 'WebAclRuleChallengeConfigArgsDict', 'outputs.WebAclRuleChallengeConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 override_action: pulumi.Input[Optional[Union['WebAclRuleOverrideActionArgs', 'WebAclRuleOverrideActionArgsDict']]] = None,
+                 override_action: pulumi.Input[Optional[Union['WebAclRuleOverrideActionArgs', 'WebAclRuleOverrideActionArgsDict', 'outputs.WebAclRuleOverrideAction']]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebAclRuleRuleLabelArgs', 'WebAclRuleRuleLabelArgsDict']]]]] = None,
-                 statement: pulumi.Input[Optional[Union['WebAclRuleStatementArgs', 'WebAclRuleStatementArgsDict']]] = None,
-                 timeouts: pulumi.Input[Optional[Union['WebAclRuleTimeoutsArgs', 'WebAclRuleTimeoutsArgsDict']]] = None,
-                 visibility_config: pulumi.Input[Optional[Union['WebAclRuleVisibilityConfigArgs', 'WebAclRuleVisibilityConfigArgsDict']]] = None,
+                 rule_labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebAclRuleRuleLabelArgs', 'WebAclRuleRuleLabelArgsDict', 'outputs.WebAclRuleRuleLabel']]]]] = None,
+                 statement: pulumi.Input[Optional[Union['WebAclRuleStatementArgs', 'WebAclRuleStatementArgsDict', 'outputs.WebAclRuleStatement']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['WebAclRuleTimeoutsArgs', 'WebAclRuleTimeoutsArgsDict', 'outputs.WebAclRuleTimeouts']]] = None,
+                 visibility_config: pulumi.Input[Optional[Union['WebAclRuleVisibilityConfigArgs', 'WebAclRuleVisibilityConfigArgsDict', 'outputs.WebAclRuleVisibilityConfig']]] = None,
                  web_acl_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1329,17 +1329,17 @@ class WebAclRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action: pulumi.Input[Optional[Union['WebAclRuleActionArgs', 'WebAclRuleActionArgsDict']]] = None,
-            captcha_config: pulumi.Input[Optional[Union['WebAclRuleCaptchaConfigArgs', 'WebAclRuleCaptchaConfigArgsDict']]] = None,
-            challenge_config: pulumi.Input[Optional[Union['WebAclRuleChallengeConfigArgs', 'WebAclRuleChallengeConfigArgsDict']]] = None,
+            action: pulumi.Input[Optional[Union['WebAclRuleActionArgs', 'WebAclRuleActionArgsDict', 'outputs.WebAclRuleAction']]] = None,
+            captcha_config: pulumi.Input[Optional[Union['WebAclRuleCaptchaConfigArgs', 'WebAclRuleCaptchaConfigArgsDict', 'outputs.WebAclRuleCaptchaConfig']]] = None,
+            challenge_config: pulumi.Input[Optional[Union['WebAclRuleChallengeConfigArgs', 'WebAclRuleChallengeConfigArgsDict', 'outputs.WebAclRuleChallengeConfig']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            override_action: pulumi.Input[Optional[Union['WebAclRuleOverrideActionArgs', 'WebAclRuleOverrideActionArgsDict']]] = None,
+            override_action: pulumi.Input[Optional[Union['WebAclRuleOverrideActionArgs', 'WebAclRuleOverrideActionArgsDict', 'outputs.WebAclRuleOverrideAction']]] = None,
             priority: pulumi.Input[Optional[_builtins.int]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            rule_labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebAclRuleRuleLabelArgs', 'WebAclRuleRuleLabelArgsDict']]]]] = None,
-            statement: pulumi.Input[Optional[Union['WebAclRuleStatementArgs', 'WebAclRuleStatementArgsDict']]] = None,
-            timeouts: pulumi.Input[Optional[Union['WebAclRuleTimeoutsArgs', 'WebAclRuleTimeoutsArgsDict']]] = None,
-            visibility_config: pulumi.Input[Optional[Union['WebAclRuleVisibilityConfigArgs', 'WebAclRuleVisibilityConfigArgsDict']]] = None,
+            rule_labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebAclRuleRuleLabelArgs', 'WebAclRuleRuleLabelArgsDict', 'outputs.WebAclRuleRuleLabel']]]]] = None,
+            statement: pulumi.Input[Optional[Union['WebAclRuleStatementArgs', 'WebAclRuleStatementArgsDict', 'outputs.WebAclRuleStatement']]] = None,
+            timeouts: pulumi.Input[Optional[Union['WebAclRuleTimeoutsArgs', 'WebAclRuleTimeoutsArgsDict', 'outputs.WebAclRuleTimeouts']]] = None,
+            visibility_config: pulumi.Input[Optional[Union['WebAclRuleVisibilityConfigArgs', 'WebAclRuleVisibilityConfigArgsDict', 'outputs.WebAclRuleVisibilityConfig']]] = None,
             web_acl_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'WebAclRule':
         """
         Get an existing WebAclRule resource's state with the given name, id, and optional extra
@@ -1348,16 +1348,16 @@ class WebAclRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['WebAclRuleActionArgs', 'WebAclRuleActionArgsDict']] action: Action to take when the rule matches. See Action below. Conflicts with `override_action`.
-        :param pulumi.Input[Union['WebAclRuleCaptchaConfigArgs', 'WebAclRuleCaptchaConfigArgsDict']] captcha_config: CAPTCHA configuration that overrides the web ACL level setting. See Captcha Config below.
-        :param pulumi.Input[Union['WebAclRuleChallengeConfigArgs', 'WebAclRuleChallengeConfigArgsDict']] challenge_config: Challenge configuration that overrides the web ACL level setting. See Challenge Config below.
+        :param pulumi.Input[Union['WebAclRuleActionArgs', 'WebAclRuleActionArgsDict', 'outputs.WebAclRuleAction']] action: Action to take when the rule matches. See Action below. Conflicts with `override_action`.
+        :param pulumi.Input[Union['WebAclRuleCaptchaConfigArgs', 'WebAclRuleCaptchaConfigArgsDict', 'outputs.WebAclRuleCaptchaConfig']] captcha_config: CAPTCHA configuration that overrides the web ACL level setting. See Captcha Config below.
+        :param pulumi.Input[Union['WebAclRuleChallengeConfigArgs', 'WebAclRuleChallengeConfigArgsDict', 'outputs.WebAclRuleChallengeConfig']] challenge_config: Challenge configuration that overrides the web ACL level setting. See Challenge Config below.
         :param pulumi.Input[_builtins.str] name: Name of the rule. Must be unique within the Web ACL.
-        :param pulumi.Input[Union['WebAclRuleOverrideActionArgs', 'WebAclRuleOverrideActionArgsDict']] override_action: Override action for managed rule groups. See Override Action below. Conflicts with `action`.
+        :param pulumi.Input[Union['WebAclRuleOverrideActionArgs', 'WebAclRuleOverrideActionArgsDict', 'outputs.WebAclRuleOverrideAction']] override_action: Override action for managed rule groups. See Override Action below. Conflicts with `action`.
         :param pulumi.Input[_builtins.int] priority: Rule priority. Rules with lower priority are evaluated first.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleRuleLabelArgs', 'WebAclRuleRuleLabelArgsDict']]]] rule_labels: Labels to apply to matching web requests. See Rule Label below.
-        :param pulumi.Input[Union['WebAclRuleStatementArgs', 'WebAclRuleStatementArgsDict']] statement: Rule statement. See Statement below.
-        :param pulumi.Input[Union['WebAclRuleVisibilityConfigArgs', 'WebAclRuleVisibilityConfigArgsDict']] visibility_config: CloudWatch metrics configuration. See Visibility Config below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleRuleLabelArgs', 'WebAclRuleRuleLabelArgsDict', 'outputs.WebAclRuleRuleLabel']]]] rule_labels: Labels to apply to matching web requests. See Rule Label below.
+        :param pulumi.Input[Union['WebAclRuleStatementArgs', 'WebAclRuleStatementArgsDict', 'outputs.WebAclRuleStatement']] statement: Rule statement. See Statement below.
+        :param pulumi.Input[Union['WebAclRuleVisibilityConfigArgs', 'WebAclRuleVisibilityConfigArgsDict', 'outputs.WebAclRuleVisibilityConfig']] visibility_config: CloudWatch metrics configuration. See Visibility Config below.
         :param pulumi.Input[_builtins.str] web_acl_arn: ARN of the Web ACL to add the rule to.
                
                The following arguments are optional:

@@ -305,7 +305,7 @@ class ContactsRotation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 recurrence: pulumi.Input[Optional[Union['ContactsRotationRecurrenceArgs', 'ContactsRotationRecurrenceArgsDict']]] = None,
+                 recurrence: pulumi.Input[Optional[Union['ContactsRotationRecurrenceArgs', 'ContactsRotationRecurrenceArgsDict', 'outputs.ContactsRotationRecurrence']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  start_time: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -442,7 +442,7 @@ class ContactsRotation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] contact_ids: ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
         :param pulumi.Input[_builtins.str] name: The name for the rotation.
-        :param pulumi.Input[Union['ContactsRotationRecurrenceArgs', 'ContactsRotationRecurrenceArgsDict']] recurrence: Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `daily_settings`, `monthly_settings`, or `weekly_settings` must be populated. See Recurrence for more details.
+        :param pulumi.Input[Union['ContactsRotationRecurrenceArgs', 'ContactsRotationRecurrenceArgsDict', 'outputs.ContactsRotationRecurrence']] recurrence: Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `daily_settings`, `monthly_settings`, or `weekly_settings` must be populated. See Recurrence for more details.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -600,7 +600,7 @@ class ContactsRotation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 recurrence: pulumi.Input[Optional[Union['ContactsRotationRecurrenceArgs', 'ContactsRotationRecurrenceArgsDict']]] = None,
+                 recurrence: pulumi.Input[Optional[Union['ContactsRotationRecurrenceArgs', 'ContactsRotationRecurrenceArgsDict', 'outputs.ContactsRotationRecurrence']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  start_time: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -642,7 +642,7 @@ class ContactsRotation(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             contact_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            recurrence: pulumi.Input[Optional[Union['ContactsRotationRecurrenceArgs', 'ContactsRotationRecurrenceArgsDict']]] = None,
+            recurrence: pulumi.Input[Optional[Union['ContactsRotationRecurrenceArgs', 'ContactsRotationRecurrenceArgsDict', 'outputs.ContactsRotationRecurrence']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             start_time: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -658,7 +658,7 @@ class ContactsRotation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the rotation.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] contact_ids: ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
         :param pulumi.Input[_builtins.str] name: The name for the rotation.
-        :param pulumi.Input[Union['ContactsRotationRecurrenceArgs', 'ContactsRotationRecurrenceArgsDict']] recurrence: Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `daily_settings`, `monthly_settings`, or `weekly_settings` must be populated. See Recurrence for more details.
+        :param pulumi.Input[Union['ContactsRotationRecurrenceArgs', 'ContactsRotationRecurrenceArgsDict', 'outputs.ContactsRotationRecurrence']] recurrence: Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `daily_settings`, `monthly_settings`, or `weekly_settings` must be populated. See Recurrence for more details.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

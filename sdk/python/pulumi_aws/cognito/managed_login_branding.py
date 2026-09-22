@@ -272,7 +272,7 @@ class ManagedLoginBranding(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetArgs', 'ManagedLoginBrandingAssetArgsDict']]]]] = None,
+                 assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetArgs', 'ManagedLoginBrandingAssetArgsDict', 'outputs.ManagedLoginBrandingAsset']]]]] = None,
                  client_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  settings: pulumi.Input[Optional[_builtins.str]] = None,
@@ -327,7 +327,7 @@ class ManagedLoginBranding(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetArgs', 'ManagedLoginBrandingAssetArgsDict']]]] assets: Image files to apply to roles like backgrounds, logos, and icons. See details below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetArgs', 'ManagedLoginBrandingAssetArgsDict', 'outputs.ManagedLoginBrandingAsset']]]] assets: Image files to apply to roles like backgrounds, logos, and icons. See details below.
         :param pulumi.Input[_builtins.str] client_id: App client that the branding style is for.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] settings: JSON document with the the settings to apply to the style.
@@ -403,7 +403,7 @@ class ManagedLoginBranding(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetArgs', 'ManagedLoginBrandingAssetArgsDict']]]]] = None,
+                 assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetArgs', 'ManagedLoginBrandingAssetArgsDict', 'outputs.ManagedLoginBrandingAsset']]]]] = None,
                  client_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  settings: pulumi.Input[Optional[_builtins.str]] = None,
@@ -440,7 +440,7 @@ class ManagedLoginBranding(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetArgs', 'ManagedLoginBrandingAssetArgsDict']]]]] = None,
+            assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetArgs', 'ManagedLoginBrandingAssetArgsDict', 'outputs.ManagedLoginBrandingAsset']]]]] = None,
             client_id: pulumi.Input[Optional[_builtins.str]] = None,
             managed_login_branding_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -455,7 +455,7 @@ class ManagedLoginBranding(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetArgs', 'ManagedLoginBrandingAssetArgsDict']]]] assets: Image files to apply to roles like backgrounds, logos, and icons. See details below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetArgs', 'ManagedLoginBrandingAssetArgsDict', 'outputs.ManagedLoginBrandingAsset']]]] assets: Image files to apply to roles like backgrounds, logos, and icons. See details below.
         :param pulumi.Input[_builtins.str] client_id: App client that the branding style is for.
         :param pulumi.Input[_builtins.str] managed_login_branding_id: ID of the managed login branding style.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

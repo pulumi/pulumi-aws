@@ -330,7 +330,7 @@ class FindingsFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 finding_criteria: pulumi.Input[Optional[Union['FindingsFilterFindingCriteriaArgs', 'FindingsFilterFindingCriteriaArgsDict']]] = None,
+                 finding_criteria: pulumi.Input[Optional[Union['FindingsFilterFindingCriteriaArgs', 'FindingsFilterFindingCriteriaArgsDict', 'outputs.FindingsFilterFindingCriteria']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  position: pulumi.Input[Optional[_builtins.int]] = None,
@@ -374,7 +374,7 @@ class FindingsFilter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: The action to perform on findings that meet the filter criteria (`finding_criteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
         :param pulumi.Input[_builtins.str] description: A custom description of the filter. The description can contain as many as 512 characters.
-        :param pulumi.Input[Union['FindingsFilterFindingCriteriaArgs', 'FindingsFilterFindingCriteriaArgsDict']] finding_criteria: The criteria to use to filter findings.
+        :param pulumi.Input[Union['FindingsFilterFindingCriteriaArgs', 'FindingsFilterFindingCriteriaArgsDict', 'outputs.FindingsFilterFindingCriteria']] finding_criteria: The criteria to use to filter findings.
         :param pulumi.Input[_builtins.str] name: A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.int] position: The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
@@ -437,7 +437,7 @@ class FindingsFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 finding_criteria: pulumi.Input[Optional[Union['FindingsFilterFindingCriteriaArgs', 'FindingsFilterFindingCriteriaArgsDict']]] = None,
+                 finding_criteria: pulumi.Input[Optional[Union['FindingsFilterFindingCriteriaArgs', 'FindingsFilterFindingCriteriaArgsDict', 'outputs.FindingsFilterFindingCriteria']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  position: pulumi.Input[Optional[_builtins.int]] = None,
@@ -479,7 +479,7 @@ class FindingsFilter(pulumi.CustomResource):
             action: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            finding_criteria: pulumi.Input[Optional[Union['FindingsFilterFindingCriteriaArgs', 'FindingsFilterFindingCriteriaArgsDict']]] = None,
+            finding_criteria: pulumi.Input[Optional[Union['FindingsFilterFindingCriteriaArgs', 'FindingsFilterFindingCriteriaArgsDict', 'outputs.FindingsFilterFindingCriteria']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
             position: pulumi.Input[Optional[_builtins.int]] = None,
@@ -496,7 +496,7 @@ class FindingsFilter(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] action: The action to perform on findings that meet the filter criteria (`finding_criteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
         :param pulumi.Input[_builtins.str] arn: ARN of the Findings Filter.
         :param pulumi.Input[_builtins.str] description: A custom description of the filter. The description can contain as many as 512 characters.
-        :param pulumi.Input[Union['FindingsFilterFindingCriteriaArgs', 'FindingsFilterFindingCriteriaArgsDict']] finding_criteria: The criteria to use to filter findings.
+        :param pulumi.Input[Union['FindingsFilterFindingCriteriaArgs', 'FindingsFilterFindingCriteriaArgsDict', 'outputs.FindingsFilterFindingCriteria']] finding_criteria: The criteria to use to filter findings.
         :param pulumi.Input[_builtins.str] name: A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.int] position: The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.

@@ -323,8 +323,8 @@ class SessionLogger(pulumi.CustomResource):
                  additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 event_filter: pulumi.Input[Optional[Union['SessionLoggerEventFilterArgs', 'SessionLoggerEventFilterArgsDict']]] = None,
-                 log_configuration: pulumi.Input[Optional[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict']]] = None,
+                 event_filter: pulumi.Input[Optional[Union['SessionLoggerEventFilterArgs', 'SessionLoggerEventFilterArgsDict', 'outputs.SessionLoggerEventFilter']]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict', 'outputs.SessionLoggerLogConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -465,8 +465,8 @@ class SessionLogger(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Map of additional encryption context key-value pairs.
         :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key used to encrypt sensitive information.
         :param pulumi.Input[_builtins.str] display_name: Human-readable display name for the session logger resource. Forces replacement if changed.
-        :param pulumi.Input[Union['SessionLoggerEventFilterArgs', 'SessionLoggerEventFilterArgsDict']] event_filter: Event filter that determines which events are logged. See Event Filter below.
-        :param pulumi.Input[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict']] log_configuration: Configuration block for specifying where logs are delivered. See Log Configuration below.
+        :param pulumi.Input[Union['SessionLoggerEventFilterArgs', 'SessionLoggerEventFilterArgsDict', 'outputs.SessionLoggerEventFilter']] event_filter: Event filter that determines which events are logged. See Event Filter below.
+        :param pulumi.Input[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict', 'outputs.SessionLoggerLogConfiguration']] log_configuration: Configuration block for specifying where logs are delivered. See Log Configuration below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -628,8 +628,8 @@ class SessionLogger(pulumi.CustomResource):
                  additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 event_filter: pulumi.Input[Optional[Union['SessionLoggerEventFilterArgs', 'SessionLoggerEventFilterArgsDict']]] = None,
-                 log_configuration: pulumi.Input[Optional[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict']]] = None,
+                 event_filter: pulumi.Input[Optional[Union['SessionLoggerEventFilterArgs', 'SessionLoggerEventFilterArgsDict', 'outputs.SessionLoggerEventFilter']]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict', 'outputs.SessionLoggerLogConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -669,8 +669,8 @@ class SessionLogger(pulumi.CustomResource):
             associated_portal_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            event_filter: pulumi.Input[Optional[Union['SessionLoggerEventFilterArgs', 'SessionLoggerEventFilterArgsDict']]] = None,
-            log_configuration: pulumi.Input[Optional[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict']]] = None,
+            event_filter: pulumi.Input[Optional[Union['SessionLoggerEventFilterArgs', 'SessionLoggerEventFilterArgsDict', 'outputs.SessionLoggerEventFilter']]] = None,
+            log_configuration: pulumi.Input[Optional[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict', 'outputs.SessionLoggerLogConfiguration']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             session_logger_arn: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -686,8 +686,8 @@ class SessionLogger(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_portal_arns: List of ARNs of the web portals associated with the session logger.
         :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key used to encrypt sensitive information.
         :param pulumi.Input[_builtins.str] display_name: Human-readable display name for the session logger resource. Forces replacement if changed.
-        :param pulumi.Input[Union['SessionLoggerEventFilterArgs', 'SessionLoggerEventFilterArgsDict']] event_filter: Event filter that determines which events are logged. See Event Filter below.
-        :param pulumi.Input[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict']] log_configuration: Configuration block for specifying where logs are delivered. See Log Configuration below.
+        :param pulumi.Input[Union['SessionLoggerEventFilterArgs', 'SessionLoggerEventFilterArgsDict', 'outputs.SessionLoggerEventFilter']] event_filter: Event filter that determines which events are logged. See Event Filter below.
+        :param pulumi.Input[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict', 'outputs.SessionLoggerLogConfiguration']] log_configuration: Configuration block for specifying where logs are delivered. See Log Configuration below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

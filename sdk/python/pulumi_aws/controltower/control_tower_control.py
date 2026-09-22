@@ -193,7 +193,7 @@ class ControlTowerControl(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  control_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict']]]]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict', 'outputs.ControlTowerControlParameter']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  target_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -232,7 +232,7 @@ class ControlTowerControl(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] control_identifier: The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict']]]] parameters: Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict', 'outputs.ControlTowerControlParameter']]]] parameters: Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] target_identifier: The ARN of the organizational unit.
                
@@ -292,7 +292,7 @@ class ControlTowerControl(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  control_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict']]]]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict', 'outputs.ControlTowerControlParameter']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  target_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -325,7 +325,7 @@ class ControlTowerControl(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             control_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict']]]]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict', 'outputs.ControlTowerControlParameter']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             target_identifier: pulumi.Input[Optional[_builtins.str]] = None) -> 'ControlTowerControl':
         """
@@ -337,7 +337,7 @@ class ControlTowerControl(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The ARN of the EnabledControl resource.
         :param pulumi.Input[_builtins.str] control_identifier: The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict']]]] parameters: Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict', 'outputs.ControlTowerControlParameter']]]] parameters: Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] target_identifier: The ARN of the organizational unit.
                

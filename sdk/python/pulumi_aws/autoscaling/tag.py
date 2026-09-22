@@ -138,7 +138,7 @@ class Tag(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  autoscaling_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 tag: pulumi.Input[Optional[Union['TagTagArgs', 'TagTagArgsDict']]] = None,
+                 tag: pulumi.Input[Optional[Union['TagTagArgs', 'TagTagArgsDict', 'outputs.TagTag']]] = None,
                  __props__=None):
         """
         Manages an individual Autoscaling Group (ASG) tag. This resource should only be used in cases where ASGs are created outside the provider (e.g., ASGs implicitly created by EKS Node Groups).
@@ -185,7 +185,7 @@ class Tag(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] autoscaling_group_name: Name of the Autoscaling Group to apply the tag to.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['TagTagArgs', 'TagTagArgsDict']] tag: Tag to create. The `tag` block is documented below.
+        :param pulumi.Input[Union['TagTagArgs', 'TagTagArgsDict', 'outputs.TagTag']] tag: Tag to create. The `tag` block is documented below.
         """
         ...
     @overload
@@ -251,7 +251,7 @@ class Tag(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  autoscaling_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 tag: pulumi.Input[Optional[Union['TagTagArgs', 'TagTagArgsDict']]] = None,
+                 tag: pulumi.Input[Optional[Union['TagTagArgs', 'TagTagArgsDict', 'outputs.TagTag']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -280,7 +280,7 @@ class Tag(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             autoscaling_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            tag: pulumi.Input[Optional[Union['TagTagArgs', 'TagTagArgsDict']]] = None) -> 'Tag':
+            tag: pulumi.Input[Optional[Union['TagTagArgs', 'TagTagArgsDict', 'outputs.TagTag']]] = None) -> 'Tag':
         """
         Get an existing Tag resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -290,7 +290,7 @@ class Tag(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] autoscaling_group_name: Name of the Autoscaling Group to apply the tag to.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['TagTagArgs', 'TagTagArgsDict']] tag: Tag to create. The `tag` block is documented below.
+        :param pulumi.Input[Union['TagTagArgs', 'TagTagArgsDict', 'outputs.TagTag']] tag: Tag to create. The `tag` block is documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

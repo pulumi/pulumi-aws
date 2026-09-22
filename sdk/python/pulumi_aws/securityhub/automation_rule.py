@@ -345,8 +345,8 @@ class AutomationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleActionArgs', 'AutomationRuleActionArgsDict']]]]] = None,
-                 criteria: pulumi.Input[Optional[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict']]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleActionArgs', 'AutomationRuleActionArgsDict', 'outputs.AutomationRuleAction']]]]] = None,
+                 criteria: pulumi.Input[Optional[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict', 'outputs.AutomationRuleCriteria']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  is_terminal: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -412,8 +412,8 @@ class AutomationRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionArgs', 'AutomationRuleActionArgsDict']]]] actions: A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-        :param pulumi.Input[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict']] criteria: A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionArgs', 'AutomationRuleActionArgsDict', 'outputs.AutomationRuleAction']]]] actions: A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
+        :param pulumi.Input[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict', 'outputs.AutomationRuleCriteria']] criteria: A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
         :param pulumi.Input[_builtins.str] description: The description of the rule.
         :param pulumi.Input[_builtins.bool] is_terminal: Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -497,8 +497,8 @@ class AutomationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleActionArgs', 'AutomationRuleActionArgsDict']]]]] = None,
-                 criteria: pulumi.Input[Optional[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict']]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleActionArgs', 'AutomationRuleActionArgsDict', 'outputs.AutomationRuleAction']]]]] = None,
+                 criteria: pulumi.Input[Optional[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict', 'outputs.AutomationRuleCriteria']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  is_terminal: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -546,9 +546,9 @@ class AutomationRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleActionArgs', 'AutomationRuleActionArgsDict']]]]] = None,
+            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleActionArgs', 'AutomationRuleActionArgsDict', 'outputs.AutomationRuleAction']]]]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            criteria: pulumi.Input[Optional[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict']]] = None,
+            criteria: pulumi.Input[Optional[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict', 'outputs.AutomationRuleCriteria']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             is_terminal: pulumi.Input[Optional[_builtins.bool]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -564,9 +564,9 @@ class AutomationRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionArgs', 'AutomationRuleActionArgsDict']]]] actions: A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionArgs', 'AutomationRuleActionArgsDict', 'outputs.AutomationRuleAction']]]] actions: A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
         :param pulumi.Input[_builtins.str] arn: The ARN of the Security Hub automation rule.
-        :param pulumi.Input[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict']] criteria: A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
+        :param pulumi.Input[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict', 'outputs.AutomationRuleCriteria']] criteria: A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
         :param pulumi.Input[_builtins.str] description: The description of the rule.
         :param pulumi.Input[_builtins.bool] is_terminal: Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

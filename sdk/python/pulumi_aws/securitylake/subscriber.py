@@ -418,12 +418,12 @@ class Subscriber(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_type: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict', 'outputs.SubscriberSource']]]]] = None,
                  subscriber_description: pulumi.Input[Optional[_builtins.str]] = None,
-                 subscriber_identity: pulumi.Input[Optional[Union['SubscriberSubscriberIdentityArgs', 'SubscriberSubscriberIdentityArgsDict']]] = None,
+                 subscriber_identity: pulumi.Input[Optional[Union['SubscriberSubscriberIdentityArgs', 'SubscriberSubscriberIdentityArgsDict', 'outputs.SubscriberSubscriberIdentity']]] = None,
                  subscriber_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['SubscriberTimeoutsArgs', 'SubscriberTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['SubscriberTimeoutsArgs', 'SubscriberTimeoutsArgsDict', 'outputs.SubscriberTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Security Lake Subscriber.
@@ -497,9 +497,9 @@ class Subscriber(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_type: The Amazon S3 or Lake Formation access type.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]] sources: The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict', 'outputs.SubscriberSource']]]] sources: The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         :param pulumi.Input[_builtins.str] subscriber_description: The description for your subscriber account in Security Lake.
-        :param pulumi.Input[Union['SubscriberSubscriberIdentityArgs', 'SubscriberSubscriberIdentityArgsDict']] subscriber_identity: The AWS identity used to access your data. See `subscriber_identity` Block below.
+        :param pulumi.Input[Union['SubscriberSubscriberIdentityArgs', 'SubscriberSubscriberIdentityArgsDict', 'outputs.SubscriberSubscriberIdentity']] subscriber_identity: The AWS identity used to access your data. See `subscriber_identity` Block below.
         :param pulumi.Input[_builtins.str] subscriber_name: The name of your Security Lake subscriber account.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -594,12 +594,12 @@ class Subscriber(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_type: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict', 'outputs.SubscriberSource']]]]] = None,
                  subscriber_description: pulumi.Input[Optional[_builtins.str]] = None,
-                 subscriber_identity: pulumi.Input[Optional[Union['SubscriberSubscriberIdentityArgs', 'SubscriberSubscriberIdentityArgsDict']]] = None,
+                 subscriber_identity: pulumi.Input[Optional[Union['SubscriberSubscriberIdentityArgs', 'SubscriberSubscriberIdentityArgsDict', 'outputs.SubscriberSubscriberIdentity']]] = None,
                  subscriber_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['SubscriberTimeoutsArgs', 'SubscriberTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['SubscriberTimeoutsArgs', 'SubscriberTimeoutsArgsDict', 'outputs.SubscriberTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -646,15 +646,15 @@ class Subscriber(pulumi.CustomResource):
             resource_share_name: pulumi.Input[Optional[_builtins.str]] = None,
             role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             s3_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]]] = None,
+            sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict', 'outputs.SubscriberSource']]]]] = None,
             subscriber_description: pulumi.Input[Optional[_builtins.str]] = None,
             subscriber_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-            subscriber_identity: pulumi.Input[Optional[Union['SubscriberSubscriberIdentityArgs', 'SubscriberSubscriberIdentityArgsDict']]] = None,
+            subscriber_identity: pulumi.Input[Optional[Union['SubscriberSubscriberIdentityArgs', 'SubscriberSubscriberIdentityArgsDict', 'outputs.SubscriberSubscriberIdentity']]] = None,
             subscriber_name: pulumi.Input[Optional[_builtins.str]] = None,
             subscriber_status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['SubscriberTimeoutsArgs', 'SubscriberTimeoutsArgsDict']]] = None) -> 'Subscriber':
+            timeouts: pulumi.Input[Optional[Union['SubscriberTimeoutsArgs', 'SubscriberTimeoutsArgsDict', 'outputs.SubscriberTimeouts']]] = None) -> 'Subscriber':
         """
         Get an existing Subscriber resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -669,10 +669,10 @@ class Subscriber(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] resource_share_name: The name of the resource share.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
         :param pulumi.Input[_builtins.str] s3_bucket_arn: The ARN for the Amazon Security Lake Amazon S3 bucket.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]] sources: The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict', 'outputs.SubscriberSource']]]] sources: The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         :param pulumi.Input[_builtins.str] subscriber_description: The description for your subscriber account in Security Lake.
         :param pulumi.Input[_builtins.str] subscriber_endpoint: The subscriber endpoint to which exception messages are posted.
-        :param pulumi.Input[Union['SubscriberSubscriberIdentityArgs', 'SubscriberSubscriberIdentityArgsDict']] subscriber_identity: The AWS identity used to access your data. See `subscriber_identity` Block below.
+        :param pulumi.Input[Union['SubscriberSubscriberIdentityArgs', 'SubscriberSubscriberIdentityArgsDict', 'outputs.SubscriberSubscriberIdentity']] subscriber_identity: The AWS identity used to access your data. See `subscriber_identity` Block below.
         :param pulumi.Input[_builtins.str] subscriber_name: The name of your Security Lake subscriber account.
         :param pulumi.Input[_builtins.str] subscriber_status: The subscriber status of the Amazon Security Lake subscriber account.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

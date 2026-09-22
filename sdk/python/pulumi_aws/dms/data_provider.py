@@ -324,7 +324,7 @@ class DataProvider(pulumi.CustomResource):
                  engine: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 settings: pulumi.Input[Optional[Union['DataProviderSettingsArgs', 'DataProviderSettingsArgsDict']]] = None,
+                 settings: pulumi.Input[Optional[Union['DataProviderSettingsArgs', 'DataProviderSettingsArgsDict', 'outputs.DataProviderSettings']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
@@ -394,7 +394,7 @@ class DataProvider(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] engine: Database engine for the data provider. Valid values: `aurora`, `aurora-postgresql`, `db2`, `db2-zos`, `docdb`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, `sqlserver`, and `sybase`. Use `aurora` for Amazon Aurora MySQL-Compatible Edition.
         :param pulumi.Input[_builtins.str] name: Name of the data provider. AWS generates a name when omitted.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DataProviderSettingsArgs', 'DataProviderSettingsArgsDict']] settings: Database connection settings. Configure exactly one block matching `engine`. See `settings` Block below.
+        :param pulumi.Input[Union['DataProviderSettingsArgs', 'DataProviderSettingsArgsDict', 'outputs.DataProviderSettings']] settings: Database connection settings. Configure exactly one block matching `engine`. See `settings` Block below.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -485,7 +485,7 @@ class DataProvider(pulumi.CustomResource):
                  engine: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 settings: pulumi.Input[Optional[Union['DataProviderSettingsArgs', 'DataProviderSettingsArgsDict']]] = None,
+                 settings: pulumi.Input[Optional[Union['DataProviderSettingsArgs', 'DataProviderSettingsArgsDict', 'outputs.DataProviderSettings']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
@@ -527,7 +527,7 @@ class DataProvider(pulumi.CustomResource):
             engine: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            settings: pulumi.Input[Optional[Union['DataProviderSettingsArgs', 'DataProviderSettingsArgsDict']]] = None,
+            settings: pulumi.Input[Optional[Union['DataProviderSettingsArgs', 'DataProviderSettingsArgsDict', 'outputs.DataProviderSettings']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             virtual: pulumi.Input[Optional[_builtins.bool]] = None) -> 'DataProvider':
@@ -544,7 +544,7 @@ class DataProvider(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] engine: Database engine for the data provider. Valid values: `aurora`, `aurora-postgresql`, `db2`, `db2-zos`, `docdb`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, `sqlserver`, and `sybase`. Use `aurora` for Amazon Aurora MySQL-Compatible Edition.
         :param pulumi.Input[_builtins.str] name: Name of the data provider. AWS generates a name when omitted.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DataProviderSettingsArgs', 'DataProviderSettingsArgsDict']] settings: Database connection settings. Configure exactly one block matching `engine`. See `settings` Block below.
+        :param pulumi.Input[Union['DataProviderSettingsArgs', 'DataProviderSettingsArgsDict', 'outputs.DataProviderSettings']] settings: Database connection settings. Configure exactly one block matching `engine`. See `settings` Block below.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

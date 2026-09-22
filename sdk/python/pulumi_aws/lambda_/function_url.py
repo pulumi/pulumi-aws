@@ -289,7 +289,7 @@ class FunctionUrl(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 cors: pulumi.Input[Optional[Union['FunctionUrlCorsArgs', 'FunctionUrlCorsArgsDict']]] = None,
+                 cors: pulumi.Input[Optional[Union['FunctionUrlCorsArgs', 'FunctionUrlCorsArgsDict', 'outputs.FunctionUrlCors']]] = None,
                  function_name: pulumi.Input[Optional[_builtins.str]] = None,
                  invoke_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  qualifier: pulumi.Input[Optional[_builtins.str]] = None,
@@ -355,7 +355,7 @@ class FunctionUrl(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authorization_type: Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
-        :param pulumi.Input[Union['FunctionUrlCorsArgs', 'FunctionUrlCorsArgsDict']] cors: Cross-origin resource sharing (CORS) settings for the function URL. See below.
+        :param pulumi.Input[Union['FunctionUrlCorsArgs', 'FunctionUrlCorsArgsDict', 'outputs.FunctionUrlCors']] cors: Cross-origin resource sharing (CORS) settings for the function URL. See below.
         :param pulumi.Input[_builtins.str] function_name: Name or ARN of the Lambda function.
                
                The following arguments are optional:
@@ -442,7 +442,7 @@ class FunctionUrl(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 cors: pulumi.Input[Optional[Union['FunctionUrlCorsArgs', 'FunctionUrlCorsArgsDict']]] = None,
+                 cors: pulumi.Input[Optional[Union['FunctionUrlCorsArgs', 'FunctionUrlCorsArgsDict', 'outputs.FunctionUrlCors']]] = None,
                  function_name: pulumi.Input[Optional[_builtins.str]] = None,
                  invoke_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  qualifier: pulumi.Input[Optional[_builtins.str]] = None,
@@ -480,7 +480,7 @@ class FunctionUrl(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
-            cors: pulumi.Input[Optional[Union['FunctionUrlCorsArgs', 'FunctionUrlCorsArgsDict']]] = None,
+            cors: pulumi.Input[Optional[Union['FunctionUrlCorsArgs', 'FunctionUrlCorsArgsDict', 'outputs.FunctionUrlCors']]] = None,
             function_arn: pulumi.Input[Optional[_builtins.str]] = None,
             function_name: pulumi.Input[Optional[_builtins.str]] = None,
             function_url: pulumi.Input[Optional[_builtins.str]] = None,
@@ -496,7 +496,7 @@ class FunctionUrl(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authorization_type: Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
-        :param pulumi.Input[Union['FunctionUrlCorsArgs', 'FunctionUrlCorsArgsDict']] cors: Cross-origin resource sharing (CORS) settings for the function URL. See below.
+        :param pulumi.Input[Union['FunctionUrlCorsArgs', 'FunctionUrlCorsArgsDict', 'outputs.FunctionUrlCors']] cors: Cross-origin resource sharing (CORS) settings for the function URL. See below.
         :param pulumi.Input[_builtins.str] function_arn: ARN of the Lambda function.
         :param pulumi.Input[_builtins.str] function_name: Name or ARN of the Lambda function.
                

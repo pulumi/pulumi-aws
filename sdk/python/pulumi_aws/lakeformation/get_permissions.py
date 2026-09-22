@@ -176,15 +176,15 @@ class AwaitableGetPermissionsResult(GetPermissionsResult):
 
 def get_permissions(catalog_id: Optional[_builtins.str] = None,
                     catalog_resource: Optional[_builtins.bool] = None,
-                    data_cells_filter: Optional[Union['GetPermissionsDataCellsFilterArgs', 'GetPermissionsDataCellsFilterArgsDict']] = None,
-                    data_location: Optional[Union['GetPermissionsDataLocationArgs', 'GetPermissionsDataLocationArgsDict']] = None,
-                    database: Optional[Union['GetPermissionsDatabaseArgs', 'GetPermissionsDatabaseArgsDict']] = None,
-                    lf_tag: Optional[Union['GetPermissionsLfTagArgs', 'GetPermissionsLfTagArgsDict']] = None,
-                    lf_tag_policy: Optional[Union['GetPermissionsLfTagPolicyArgs', 'GetPermissionsLfTagPolicyArgsDict']] = None,
+                    data_cells_filter: Optional[Union['GetPermissionsDataCellsFilterArgs', 'GetPermissionsDataCellsFilterArgsDict', 'outputs.GetPermissionsDataCellsFilterResult']] = None,
+                    data_location: Optional[Union['GetPermissionsDataLocationArgs', 'GetPermissionsDataLocationArgsDict', 'outputs.GetPermissionsDataLocationResult']] = None,
+                    database: Optional[Union['GetPermissionsDatabaseArgs', 'GetPermissionsDatabaseArgsDict', 'outputs.GetPermissionsDatabaseResult']] = None,
+                    lf_tag: Optional[Union['GetPermissionsLfTagArgs', 'GetPermissionsLfTagArgsDict', 'outputs.GetPermissionsLfTagResult']] = None,
+                    lf_tag_policy: Optional[Union['GetPermissionsLfTagPolicyArgs', 'GetPermissionsLfTagPolicyArgsDict', 'outputs.GetPermissionsLfTagPolicyResult']] = None,
                     principal: Optional[_builtins.str] = None,
                     region: Optional[_builtins.str] = None,
-                    table: Optional[Union['GetPermissionsTableArgs', 'GetPermissionsTableArgsDict']] = None,
-                    table_with_columns: Optional[Union['GetPermissionsTableWithColumnsArgs', 'GetPermissionsTableWithColumnsArgsDict']] = None,
+                    table: Optional[Union['GetPermissionsTableArgs', 'GetPermissionsTableArgsDict', 'outputs.GetPermissionsTableResult']] = None,
+                    table_with_columns: Optional[Union['GetPermissionsTableWithColumnsArgs', 'GetPermissionsTableWithColumnsArgsDict', 'outputs.GetPermissionsTableWithColumnsResult']] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPermissionsResult:
     """
     Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, tables, LF-tags, and LF-tag policies. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
@@ -246,17 +246,17 @@ def get_permissions(catalog_id: Optional[_builtins.str] = None,
 
     :param _builtins.str catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
     :param _builtins.bool catalog_resource: Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
-    :param Union['GetPermissionsDataCellsFilterArgs', 'GetPermissionsDataCellsFilterArgsDict'] data_cells_filter: Configuration block for a data cells filter resource. Detailed below.
-    :param Union['GetPermissionsDataLocationArgs', 'GetPermissionsDataLocationArgsDict'] data_location: Configuration block for a data location resource. Detailed below.
-    :param Union['GetPermissionsDatabaseArgs', 'GetPermissionsDatabaseArgsDict'] database: Configuration block for a database resource. Detailed below.
-    :param Union['GetPermissionsLfTagArgs', 'GetPermissionsLfTagArgsDict'] lf_tag: Configuration block for an LF-tag resource. Detailed below.
-    :param Union['GetPermissionsLfTagPolicyArgs', 'GetPermissionsLfTagPolicyArgsDict'] lf_tag_policy: Configuration block for an LF-tag policy resource. Detailed below.
+    :param Union['GetPermissionsDataCellsFilterArgs', 'GetPermissionsDataCellsFilterArgsDict', 'outputs.GetPermissionsDataCellsFilterResult'] data_cells_filter: Configuration block for a data cells filter resource. Detailed below.
+    :param Union['GetPermissionsDataLocationArgs', 'GetPermissionsDataLocationArgsDict', 'outputs.GetPermissionsDataLocationResult'] data_location: Configuration block for a data location resource. Detailed below.
+    :param Union['GetPermissionsDatabaseArgs', 'GetPermissionsDatabaseArgsDict', 'outputs.GetPermissionsDatabaseResult'] database: Configuration block for a database resource. Detailed below.
+    :param Union['GetPermissionsLfTagArgs', 'GetPermissionsLfTagArgsDict', 'outputs.GetPermissionsLfTagResult'] lf_tag: Configuration block for an LF-tag resource. Detailed below.
+    :param Union['GetPermissionsLfTagPolicyArgs', 'GetPermissionsLfTagPolicyArgsDict', 'outputs.GetPermissionsLfTagPolicyResult'] lf_tag_policy: Configuration block for an LF-tag policy resource. Detailed below.
     :param _builtins.str principal: Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
            
            One of the following is required:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Union['GetPermissionsTableArgs', 'GetPermissionsTableArgsDict'] table: Configuration block for a table resource. Detailed below.
-    :param Union['GetPermissionsTableWithColumnsArgs', 'GetPermissionsTableWithColumnsArgsDict'] table_with_columns: Configuration block for a table with columns resource. Detailed below.
+    :param Union['GetPermissionsTableArgs', 'GetPermissionsTableArgsDict', 'outputs.GetPermissionsTableResult'] table: Configuration block for a table resource. Detailed below.
+    :param Union['GetPermissionsTableWithColumnsArgs', 'GetPermissionsTableWithColumnsArgsDict', 'outputs.GetPermissionsTableWithColumnsResult'] table_with_columns: Configuration block for a table with columns resource. Detailed below.
            
            The following arguments are optional:
     """
@@ -292,15 +292,15 @@ def get_permissions(catalog_id: Optional[_builtins.str] = None,
         table_with_columns=pulumi.get(__ret__, 'table_with_columns'))
 def get_permissions_output(catalog_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            catalog_resource: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
-                           data_cells_filter: pulumi.Input[Optional[Optional[Union['GetPermissionsDataCellsFilterArgs', 'GetPermissionsDataCellsFilterArgsDict']]]] = None,
-                           data_location: pulumi.Input[Optional[Optional[Union['GetPermissionsDataLocationArgs', 'GetPermissionsDataLocationArgsDict']]]] = None,
-                           database: pulumi.Input[Optional[Optional[Union['GetPermissionsDatabaseArgs', 'GetPermissionsDatabaseArgsDict']]]] = None,
-                           lf_tag: pulumi.Input[Optional[Optional[Union['GetPermissionsLfTagArgs', 'GetPermissionsLfTagArgsDict']]]] = None,
-                           lf_tag_policy: pulumi.Input[Optional[Optional[Union['GetPermissionsLfTagPolicyArgs', 'GetPermissionsLfTagPolicyArgsDict']]]] = None,
+                           data_cells_filter: pulumi.Input[Optional[Optional[Union['GetPermissionsDataCellsFilterArgs', 'GetPermissionsDataCellsFilterArgsDict', 'outputs.GetPermissionsDataCellsFilterResult']]]] = None,
+                           data_location: pulumi.Input[Optional[Optional[Union['GetPermissionsDataLocationArgs', 'GetPermissionsDataLocationArgsDict', 'outputs.GetPermissionsDataLocationResult']]]] = None,
+                           database: pulumi.Input[Optional[Optional[Union['GetPermissionsDatabaseArgs', 'GetPermissionsDatabaseArgsDict', 'outputs.GetPermissionsDatabaseResult']]]] = None,
+                           lf_tag: pulumi.Input[Optional[Optional[Union['GetPermissionsLfTagArgs', 'GetPermissionsLfTagArgsDict', 'outputs.GetPermissionsLfTagResult']]]] = None,
+                           lf_tag_policy: pulumi.Input[Optional[Optional[Union['GetPermissionsLfTagPolicyArgs', 'GetPermissionsLfTagPolicyArgsDict', 'outputs.GetPermissionsLfTagPolicyResult']]]] = None,
                            principal: pulumi.Input[Optional[_builtins.str]] = None,
                            region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                           table: pulumi.Input[Optional[Optional[Union['GetPermissionsTableArgs', 'GetPermissionsTableArgsDict']]]] = None,
-                           table_with_columns: pulumi.Input[Optional[Optional[Union['GetPermissionsTableWithColumnsArgs', 'GetPermissionsTableWithColumnsArgsDict']]]] = None,
+                           table: pulumi.Input[Optional[Optional[Union['GetPermissionsTableArgs', 'GetPermissionsTableArgsDict', 'outputs.GetPermissionsTableResult']]]] = None,
+                           table_with_columns: pulumi.Input[Optional[Optional[Union['GetPermissionsTableWithColumnsArgs', 'GetPermissionsTableWithColumnsArgsDict', 'outputs.GetPermissionsTableWithColumnsResult']]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPermissionsResult]:
     """
     Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, tables, LF-tags, and LF-tag policies. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
@@ -362,17 +362,17 @@ def get_permissions_output(catalog_id: pulumi.Input[Optional[Optional[_builtins.
 
     :param _builtins.str catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
     :param _builtins.bool catalog_resource: Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
-    :param Union['GetPermissionsDataCellsFilterArgs', 'GetPermissionsDataCellsFilterArgsDict'] data_cells_filter: Configuration block for a data cells filter resource. Detailed below.
-    :param Union['GetPermissionsDataLocationArgs', 'GetPermissionsDataLocationArgsDict'] data_location: Configuration block for a data location resource. Detailed below.
-    :param Union['GetPermissionsDatabaseArgs', 'GetPermissionsDatabaseArgsDict'] database: Configuration block for a database resource. Detailed below.
-    :param Union['GetPermissionsLfTagArgs', 'GetPermissionsLfTagArgsDict'] lf_tag: Configuration block for an LF-tag resource. Detailed below.
-    :param Union['GetPermissionsLfTagPolicyArgs', 'GetPermissionsLfTagPolicyArgsDict'] lf_tag_policy: Configuration block for an LF-tag policy resource. Detailed below.
+    :param Union['GetPermissionsDataCellsFilterArgs', 'GetPermissionsDataCellsFilterArgsDict', 'outputs.GetPermissionsDataCellsFilterResult'] data_cells_filter: Configuration block for a data cells filter resource. Detailed below.
+    :param Union['GetPermissionsDataLocationArgs', 'GetPermissionsDataLocationArgsDict', 'outputs.GetPermissionsDataLocationResult'] data_location: Configuration block for a data location resource. Detailed below.
+    :param Union['GetPermissionsDatabaseArgs', 'GetPermissionsDatabaseArgsDict', 'outputs.GetPermissionsDatabaseResult'] database: Configuration block for a database resource. Detailed below.
+    :param Union['GetPermissionsLfTagArgs', 'GetPermissionsLfTagArgsDict', 'outputs.GetPermissionsLfTagResult'] lf_tag: Configuration block for an LF-tag resource. Detailed below.
+    :param Union['GetPermissionsLfTagPolicyArgs', 'GetPermissionsLfTagPolicyArgsDict', 'outputs.GetPermissionsLfTagPolicyResult'] lf_tag_policy: Configuration block for an LF-tag policy resource. Detailed below.
     :param _builtins.str principal: Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
            
            One of the following is required:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Union['GetPermissionsTableArgs', 'GetPermissionsTableArgsDict'] table: Configuration block for a table resource. Detailed below.
-    :param Union['GetPermissionsTableWithColumnsArgs', 'GetPermissionsTableWithColumnsArgsDict'] table_with_columns: Configuration block for a table with columns resource. Detailed below.
+    :param Union['GetPermissionsTableArgs', 'GetPermissionsTableArgsDict', 'outputs.GetPermissionsTableResult'] table: Configuration block for a table resource. Detailed below.
+    :param Union['GetPermissionsTableWithColumnsArgs', 'GetPermissionsTableWithColumnsArgsDict', 'outputs.GetPermissionsTableWithColumnsResult'] table_with_columns: Configuration block for a table with columns resource. Detailed below.
            
            The following arguments are optional:
     """

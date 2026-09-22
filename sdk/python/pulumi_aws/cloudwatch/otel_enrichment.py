@@ -99,7 +99,7 @@ class OtelEnrichment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['OtelEnrichmentTimeoutsArgs', 'OtelEnrichmentTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['OtelEnrichmentTimeoutsArgs', 'OtelEnrichmentTimeoutsArgsDict', 'outputs.OtelEnrichmentTimeouts']]] = None,
                  __props__=None):
         """
         Manages AWS CloudWatch OTel enrichment. This is a singleton resource that enables OTel enrichment at the account level.
@@ -201,7 +201,7 @@ class OtelEnrichment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['OtelEnrichmentTimeoutsArgs', 'OtelEnrichmentTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['OtelEnrichmentTimeoutsArgs', 'OtelEnrichmentTimeoutsArgsDict', 'outputs.OtelEnrichmentTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -224,7 +224,7 @@ class OtelEnrichment(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['OtelEnrichmentTimeoutsArgs', 'OtelEnrichmentTimeoutsArgsDict']]] = None) -> 'OtelEnrichment':
+            timeouts: pulumi.Input[Optional[Union['OtelEnrichmentTimeoutsArgs', 'OtelEnrichmentTimeoutsArgsDict', 'outputs.OtelEnrichmentTimeouts']]] = None) -> 'OtelEnrichment':
         """
         Get an existing OtelEnrichment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

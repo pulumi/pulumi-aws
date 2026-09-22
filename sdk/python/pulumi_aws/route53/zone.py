@@ -358,7 +358,7 @@ class Zone(pulumi.CustomResource):
                  force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpcs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZoneVpcArgs', 'ZoneVpcArgsDict']]]]] = None,
+                 vpcs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZoneVpcArgs', 'ZoneVpcArgsDict', 'outputs.ZoneVpc']]]]] = None,
                  __props__=None):
         """
         Manages a Route53 Hosted Zone. For managing DNS Security Extensions (DNSSEC), see the `route53.KeySigningKey` and `route53.HostedZoneDnsSec` resources.
@@ -455,7 +455,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] force_destroy: Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
         :param pulumi.Input[_builtins.str] name: This is the name of the hosted zone.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ZoneVpcArgs', 'ZoneVpcArgsDict']]]] vpcs: Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ZoneVpcArgs', 'ZoneVpcArgsDict', 'outputs.ZoneVpc']]]] vpcs: Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
         """
         ...
     @overload
@@ -571,7 +571,7 @@ class Zone(pulumi.CustomResource):
                  force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpcs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZoneVpcArgs', 'ZoneVpcArgsDict']]]]] = None,
+                 vpcs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZoneVpcArgs', 'ZoneVpcArgsDict', 'outputs.ZoneVpc']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -615,7 +615,7 @@ class Zone(pulumi.CustomResource):
             primary_name_server: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            vpcs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZoneVpcArgs', 'ZoneVpcArgsDict']]]]] = None,
+            vpcs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZoneVpcArgs', 'ZoneVpcArgsDict', 'outputs.ZoneVpc']]]]] = None,
             zone_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Zone':
         """
         Get an existing Zone resource's state with the given name, id, and optional extra
@@ -635,7 +635,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] primary_name_server: The Route 53 name server that created the SOA record.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ZoneVpcArgs', 'ZoneVpcArgsDict']]]] vpcs: Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ZoneVpcArgs', 'ZoneVpcArgsDict', 'outputs.ZoneVpc']]]] vpcs: Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
         :param pulumi.Input[_builtins.str] zone_id: The Hosted Zone ID. This can be referenced by zone records.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

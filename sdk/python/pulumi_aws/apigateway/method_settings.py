@@ -201,7 +201,7 @@ class MethodSettings(pulumi.CustomResource):
                  method_path: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_api: pulumi.Input[Optional[_builtins.str]] = None,
-                 settings: pulumi.Input[Optional[Union['MethodSettingsSettingsArgs', 'MethodSettingsSettingsArgsDict']]] = None,
+                 settings: pulumi.Input[Optional[Union['MethodSettingsSettingsArgs', 'MethodSettingsSettingsArgsDict', 'outputs.MethodSettingsSettings']]] = None,
                  stage_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -293,7 +293,7 @@ class MethodSettings(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] rest_api: ID of the REST API
-        :param pulumi.Input[Union['MethodSettingsSettingsArgs', 'MethodSettingsSettingsArgsDict']] settings: Settings block, see below.
+        :param pulumi.Input[Union['MethodSettingsSettingsArgs', 'MethodSettingsSettingsArgsDict', 'outputs.MethodSettingsSettings']] settings: Settings block, see below.
         :param pulumi.Input[_builtins.str] stage_name: Name of the stage
         """
         ...
@@ -404,7 +404,7 @@ class MethodSettings(pulumi.CustomResource):
                  method_path: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_api: pulumi.Input[Optional[_builtins.str]] = None,
-                 settings: pulumi.Input[Optional[Union['MethodSettingsSettingsArgs', 'MethodSettingsSettingsArgsDict']]] = None,
+                 settings: pulumi.Input[Optional[Union['MethodSettingsSettingsArgs', 'MethodSettingsSettingsArgsDict', 'outputs.MethodSettingsSettings']]] = None,
                  stage_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -441,7 +441,7 @@ class MethodSettings(pulumi.CustomResource):
             method_path: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             rest_api: pulumi.Input[Optional[_builtins.str]] = None,
-            settings: pulumi.Input[Optional[Union['MethodSettingsSettingsArgs', 'MethodSettingsSettingsArgsDict']]] = None,
+            settings: pulumi.Input[Optional[Union['MethodSettingsSettingsArgs', 'MethodSettingsSettingsArgsDict', 'outputs.MethodSettingsSettings']]] = None,
             stage_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'MethodSettings':
         """
         Get an existing MethodSettings resource's state with the given name, id, and optional extra
@@ -453,7 +453,7 @@ class MethodSettings(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] rest_api: ID of the REST API
-        :param pulumi.Input[Union['MethodSettingsSettingsArgs', 'MethodSettingsSettingsArgsDict']] settings: Settings block, see below.
+        :param pulumi.Input[Union['MethodSettingsSettingsArgs', 'MethodSettingsSettingsArgsDict', 'outputs.MethodSettingsSettings']] settings: Settings block, see below.
         :param pulumi.Input[_builtins.str] stage_name: Name of the stage
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

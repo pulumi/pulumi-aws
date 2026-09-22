@@ -366,12 +366,12 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TlsInspectionConfigurationEncryptionConfigurationArgs', 'TlsInspectionConfigurationEncryptionConfigurationArgsDict']]]]] = None,
+                 encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TlsInspectionConfigurationEncryptionConfigurationArgs', 'TlsInspectionConfigurationEncryptionConfigurationArgsDict', 'outputs.TlsInspectionConfigurationEncryptionConfiguration']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['TlsInspectionConfigurationTimeoutsArgs', 'TlsInspectionConfigurationTimeoutsArgsDict']]] = None,
-                 tls_inspection_configuration: pulumi.Input[Optional[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TlsInspectionConfigurationTimeoutsArgs', 'TlsInspectionConfigurationTimeoutsArgsDict', 'outputs.TlsInspectionConfigurationTimeouts']]] = None,
+                 tls_inspection_configuration: pulumi.Input[Optional[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict', 'outputs.TlsInspectionConfigurationTlsInspectionConfiguration']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Network Firewall TLS Inspection Configuration.
@@ -608,10 +608,10 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the TLS inspection configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TlsInspectionConfigurationEncryptionConfigurationArgs', 'TlsInspectionConfigurationEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TlsInspectionConfigurationEncryptionConfigurationArgs', 'TlsInspectionConfigurationEncryptionConfigurationArgsDict', 'outputs.TlsInspectionConfigurationEncryptionConfiguration']]]] encryption_configurations: Encryption configuration block. Detailed below.
         :param pulumi.Input[_builtins.str] name: Descriptive name of the TLS inspection configuration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict']] tls_inspection_configuration: TLS inspection configuration block. Detailed below.
+        :param pulumi.Input[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict', 'outputs.TlsInspectionConfigurationTlsInspectionConfiguration']] tls_inspection_configuration: TLS inspection configuration block. Detailed below.
                
                The following arguments are optional:
         """
@@ -869,12 +869,12 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TlsInspectionConfigurationEncryptionConfigurationArgs', 'TlsInspectionConfigurationEncryptionConfigurationArgsDict']]]]] = None,
+                 encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TlsInspectionConfigurationEncryptionConfigurationArgs', 'TlsInspectionConfigurationEncryptionConfigurationArgsDict', 'outputs.TlsInspectionConfigurationEncryptionConfiguration']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['TlsInspectionConfigurationTimeoutsArgs', 'TlsInspectionConfigurationTimeoutsArgsDict']]] = None,
-                 tls_inspection_configuration: pulumi.Input[Optional[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TlsInspectionConfigurationTimeoutsArgs', 'TlsInspectionConfigurationTimeoutsArgsDict', 'outputs.TlsInspectionConfigurationTimeouts']]] = None,
+                 tls_inspection_configuration: pulumi.Input[Optional[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict', 'outputs.TlsInspectionConfigurationTlsInspectionConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -911,17 +911,17 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            certificate_authorities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TlsInspectionConfigurationCertificateAuthorityArgs', 'TlsInspectionConfigurationCertificateAuthorityArgsDict']]]]] = None,
-            certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TlsInspectionConfigurationCertificateArgs', 'TlsInspectionConfigurationCertificateArgsDict']]]]] = None,
+            certificate_authorities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TlsInspectionConfigurationCertificateAuthorityArgs', 'TlsInspectionConfigurationCertificateAuthorityArgsDict', 'outputs.TlsInspectionConfigurationCertificateAuthority']]]]] = None,
+            certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TlsInspectionConfigurationCertificateArgs', 'TlsInspectionConfigurationCertificateArgsDict', 'outputs.TlsInspectionConfigurationCertificate']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TlsInspectionConfigurationEncryptionConfigurationArgs', 'TlsInspectionConfigurationEncryptionConfigurationArgsDict']]]]] = None,
+            encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TlsInspectionConfigurationEncryptionConfigurationArgs', 'TlsInspectionConfigurationEncryptionConfigurationArgsDict', 'outputs.TlsInspectionConfigurationEncryptionConfiguration']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             number_of_associations: pulumi.Input[Optional[_builtins.int]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['TlsInspectionConfigurationTimeoutsArgs', 'TlsInspectionConfigurationTimeoutsArgsDict']]] = None,
-            tls_inspection_configuration: pulumi.Input[Optional[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['TlsInspectionConfigurationTimeoutsArgs', 'TlsInspectionConfigurationTimeoutsArgsDict', 'outputs.TlsInspectionConfigurationTimeouts']]] = None,
+            tls_inspection_configuration: pulumi.Input[Optional[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict', 'outputs.TlsInspectionConfigurationTlsInspectionConfiguration']]] = None,
             tls_inspection_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
             update_token: pulumi.Input[Optional[_builtins.str]] = None) -> 'TlsInspectionConfiguration':
         """
@@ -932,14 +932,14 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the TLS Inspection Configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TlsInspectionConfigurationCertificateAuthorityArgs', 'TlsInspectionConfigurationCertificateAuthorityArgsDict']]]] certificate_authorities: Certificate Manager certificate block. See Certificate Authority below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TlsInspectionConfigurationCertificateArgs', 'TlsInspectionConfigurationCertificateArgsDict']]]] certificates: List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TlsInspectionConfigurationCertificateAuthorityArgs', 'TlsInspectionConfigurationCertificateAuthorityArgsDict', 'outputs.TlsInspectionConfigurationCertificateAuthority']]]] certificate_authorities: Certificate Manager certificate block. See Certificate Authority below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TlsInspectionConfigurationCertificateArgs', 'TlsInspectionConfigurationCertificateArgsDict', 'outputs.TlsInspectionConfigurationCertificate']]]] certificates: List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
         :param pulumi.Input[_builtins.str] description: Description of the TLS inspection configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TlsInspectionConfigurationEncryptionConfigurationArgs', 'TlsInspectionConfigurationEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TlsInspectionConfigurationEncryptionConfigurationArgs', 'TlsInspectionConfigurationEncryptionConfigurationArgsDict', 'outputs.TlsInspectionConfigurationEncryptionConfiguration']]]] encryption_configurations: Encryption configuration block. Detailed below.
         :param pulumi.Input[_builtins.str] name: Descriptive name of the TLS inspection configuration.
         :param pulumi.Input[_builtins.int] number_of_associations: Number of firewall policies that use this TLS inspection configuration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict']] tls_inspection_configuration: TLS inspection configuration block. Detailed below.
+        :param pulumi.Input[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict', 'outputs.TlsInspectionConfigurationTlsInspectionConfiguration']] tls_inspection_configuration: TLS inspection configuration block. Detailed below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] tls_inspection_configuration_id: A unique identifier for the TLS inspection configuration.

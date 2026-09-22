@@ -381,12 +381,12 @@ class FormType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 model: pulumi.Input[Optional[Union['FormTypeModelArgs', 'FormTypeModelArgsDict']]] = None,
+                 model: pulumi.Input[Optional[Union['FormTypeModelArgs', 'FormTypeModelArgsDict', 'outputs.FormTypeModel']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owning_project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['FormTypeTimeoutsArgs', 'FormTypeTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['FormTypeTimeoutsArgs', 'FormTypeTimeoutsArgsDict', 'outputs.FormTypeTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS DataZone Form Type.
@@ -501,7 +501,7 @@ class FormType(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of form type. Must have a length of between 1 and 2048 characters.
         :param pulumi.Input[_builtins.str] domain_identifier: Identifier of the domain.
-        :param pulumi.Input[Union['FormTypeModelArgs', 'FormTypeModelArgsDict']] model: Object of the model of the form type that contains the following attributes.
+        :param pulumi.Input[Union['FormTypeModelArgs', 'FormTypeModelArgsDict', 'outputs.FormTypeModel']] model: Object of the model of the form type that contains the following attributes.
         :param pulumi.Input[_builtins.str] name: Name of the form type. Must be the name of the structure in smithy document.
         :param pulumi.Input[_builtins.str] owning_project_identifier: Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -639,12 +639,12 @@ class FormType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 model: pulumi.Input[Optional[Union['FormTypeModelArgs', 'FormTypeModelArgsDict']]] = None,
+                 model: pulumi.Input[Optional[Union['FormTypeModelArgs', 'FormTypeModelArgsDict', 'outputs.FormTypeModel']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owning_project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['FormTypeTimeoutsArgs', 'FormTypeTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['FormTypeTimeoutsArgs', 'FormTypeTimeoutsArgsDict', 'outputs.FormTypeTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -688,8 +688,8 @@ class FormType(pulumi.CustomResource):
             created_by: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-            imports: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FormTypeImportArgs', 'FormTypeImportArgsDict']]]]] = None,
-            model: pulumi.Input[Optional[Union['FormTypeModelArgs', 'FormTypeModelArgsDict']]] = None,
+            imports: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FormTypeImportArgs', 'FormTypeImportArgsDict', 'outputs.FormTypeImport']]]]] = None,
+            model: pulumi.Input[Optional[Union['FormTypeModelArgs', 'FormTypeModelArgsDict', 'outputs.FormTypeModel']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             origin_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
             origin_project_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -697,7 +697,7 @@ class FormType(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             revision: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['FormTypeTimeoutsArgs', 'FormTypeTimeoutsArgsDict']]] = None) -> 'FormType':
+            timeouts: pulumi.Input[Optional[Union['FormTypeTimeoutsArgs', 'FormTypeTimeoutsArgsDict', 'outputs.FormTypeTimeouts']]] = None) -> 'FormType':
         """
         Get an existing FormType resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -709,7 +709,7 @@ class FormType(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] created_by: Creator of the Form Type.
         :param pulumi.Input[_builtins.str] description: Description of form type. Must have a length of between 1 and 2048 characters.
         :param pulumi.Input[_builtins.str] domain_identifier: Identifier of the domain.
-        :param pulumi.Input[Union['FormTypeModelArgs', 'FormTypeModelArgsDict']] model: Object of the model of the form type that contains the following attributes.
+        :param pulumi.Input[Union['FormTypeModelArgs', 'FormTypeModelArgsDict', 'outputs.FormTypeModel']] model: Object of the model of the form type that contains the following attributes.
         :param pulumi.Input[_builtins.str] name: Name of the form type. Must be the name of the structure in smithy document.
         :param pulumi.Input[_builtins.str] origin_domain_id: Origin domain id of the Form Type.
         :param pulumi.Input[_builtins.str] origin_project_id: Origin project id of the Form Type.

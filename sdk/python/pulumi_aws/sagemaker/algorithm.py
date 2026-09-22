@@ -403,12 +403,12 @@ class Algorithm(pulumi.CustomResource):
                  algorithm_description: pulumi.Input[Optional[_builtins.str]] = None,
                  algorithm_name: pulumi.Input[Optional[_builtins.str]] = None,
                  certify_for_marketplace: pulumi.Input[Optional[_builtins.bool]] = None,
-                 inference_specification: pulumi.Input[Optional[Union['AlgorithmInferenceSpecificationArgs', 'AlgorithmInferenceSpecificationArgsDict']]] = None,
+                 inference_specification: pulumi.Input[Optional[Union['AlgorithmInferenceSpecificationArgs', 'AlgorithmInferenceSpecificationArgsDict', 'outputs.AlgorithmInferenceSpecification']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AlgorithmTimeoutsArgs', 'AlgorithmTimeoutsArgsDict']]] = None,
-                 training_specification: pulumi.Input[Optional[Union['AlgorithmTrainingSpecificationArgs', 'AlgorithmTrainingSpecificationArgsDict']]] = None,
-                 validation_specification: pulumi.Input[Optional[Union['AlgorithmValidationSpecificationArgs', 'AlgorithmValidationSpecificationArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AlgorithmTimeoutsArgs', 'AlgorithmTimeoutsArgsDict', 'outputs.AlgorithmTimeouts']]] = None,
+                 training_specification: pulumi.Input[Optional[Union['AlgorithmTrainingSpecificationArgs', 'AlgorithmTrainingSpecificationArgsDict', 'outputs.AlgorithmTrainingSpecification']]] = None,
+                 validation_specification: pulumi.Input[Optional[Union['AlgorithmValidationSpecificationArgs', 'AlgorithmValidationSpecificationArgsDict', 'outputs.AlgorithmValidationSpecification']]] = None,
                  __props__=None):
         """
         Manages an AWS SageMaker AI Algorithm.
@@ -800,11 +800,11 @@ class Algorithm(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] algorithm_description: Description of the algorithm.
         :param pulumi.Input[_builtins.str] algorithm_name: Name of the algorithm.
         :param pulumi.Input[_builtins.bool] certify_for_marketplace: Whether to certify the algorithm for AWS Marketplace.
-        :param pulumi.Input[Union['AlgorithmInferenceSpecificationArgs', 'AlgorithmInferenceSpecificationArgsDict']] inference_specification: Configuration for inference jobs that use this algorithm. See Inference Specification.
+        :param pulumi.Input[Union['AlgorithmInferenceSpecificationArgs', 'AlgorithmInferenceSpecificationArgsDict', 'outputs.AlgorithmInferenceSpecification']] inference_specification: Configuration for inference jobs that use this algorithm. See Inference Specification.
         :param pulumi.Input[_builtins.str] region: Region where this resource is managed. Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource.
-        :param pulumi.Input[Union['AlgorithmTrainingSpecificationArgs', 'AlgorithmTrainingSpecificationArgsDict']] training_specification: Configuration for training jobs that use this algorithm. See Training Specification.
-        :param pulumi.Input[Union['AlgorithmValidationSpecificationArgs', 'AlgorithmValidationSpecificationArgsDict']] validation_specification: Configuration used to validate the algorithm. See Validation Specification.
+        :param pulumi.Input[Union['AlgorithmTrainingSpecificationArgs', 'AlgorithmTrainingSpecificationArgsDict', 'outputs.AlgorithmTrainingSpecification']] training_specification: Configuration for training jobs that use this algorithm. See Training Specification.
+        :param pulumi.Input[Union['AlgorithmValidationSpecificationArgs', 'AlgorithmValidationSpecificationArgsDict', 'outputs.AlgorithmValidationSpecification']] validation_specification: Configuration used to validate the algorithm. See Validation Specification.
         """
         ...
     @overload
@@ -1215,12 +1215,12 @@ class Algorithm(pulumi.CustomResource):
                  algorithm_description: pulumi.Input[Optional[_builtins.str]] = None,
                  algorithm_name: pulumi.Input[Optional[_builtins.str]] = None,
                  certify_for_marketplace: pulumi.Input[Optional[_builtins.bool]] = None,
-                 inference_specification: pulumi.Input[Optional[Union['AlgorithmInferenceSpecificationArgs', 'AlgorithmInferenceSpecificationArgsDict']]] = None,
+                 inference_specification: pulumi.Input[Optional[Union['AlgorithmInferenceSpecificationArgs', 'AlgorithmInferenceSpecificationArgsDict', 'outputs.AlgorithmInferenceSpecification']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AlgorithmTimeoutsArgs', 'AlgorithmTimeoutsArgsDict']]] = None,
-                 training_specification: pulumi.Input[Optional[Union['AlgorithmTrainingSpecificationArgs', 'AlgorithmTrainingSpecificationArgsDict']]] = None,
-                 validation_specification: pulumi.Input[Optional[Union['AlgorithmValidationSpecificationArgs', 'AlgorithmValidationSpecificationArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AlgorithmTimeoutsArgs', 'AlgorithmTimeoutsArgsDict', 'outputs.AlgorithmTimeouts']]] = None,
+                 training_specification: pulumi.Input[Optional[Union['AlgorithmTrainingSpecificationArgs', 'AlgorithmTrainingSpecificationArgsDict', 'outputs.AlgorithmTrainingSpecification']]] = None,
+                 validation_specification: pulumi.Input[Optional[Union['AlgorithmValidationSpecificationArgs', 'AlgorithmValidationSpecificationArgsDict', 'outputs.AlgorithmValidationSpecification']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1264,14 +1264,14 @@ class Algorithm(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             certify_for_marketplace: pulumi.Input[Optional[_builtins.bool]] = None,
             creation_time: pulumi.Input[Optional[_builtins.str]] = None,
-            inference_specification: pulumi.Input[Optional[Union['AlgorithmInferenceSpecificationArgs', 'AlgorithmInferenceSpecificationArgsDict']]] = None,
+            inference_specification: pulumi.Input[Optional[Union['AlgorithmInferenceSpecificationArgs', 'AlgorithmInferenceSpecificationArgsDict', 'outputs.AlgorithmInferenceSpecification']]] = None,
             product_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['AlgorithmTimeoutsArgs', 'AlgorithmTimeoutsArgsDict']]] = None,
-            training_specification: pulumi.Input[Optional[Union['AlgorithmTrainingSpecificationArgs', 'AlgorithmTrainingSpecificationArgsDict']]] = None,
-            validation_specification: pulumi.Input[Optional[Union['AlgorithmValidationSpecificationArgs', 'AlgorithmValidationSpecificationArgsDict']]] = None) -> 'Algorithm':
+            timeouts: pulumi.Input[Optional[Union['AlgorithmTimeoutsArgs', 'AlgorithmTimeoutsArgsDict', 'outputs.AlgorithmTimeouts']]] = None,
+            training_specification: pulumi.Input[Optional[Union['AlgorithmTrainingSpecificationArgs', 'AlgorithmTrainingSpecificationArgsDict', 'outputs.AlgorithmTrainingSpecification']]] = None,
+            validation_specification: pulumi.Input[Optional[Union['AlgorithmValidationSpecificationArgs', 'AlgorithmValidationSpecificationArgsDict', 'outputs.AlgorithmValidationSpecification']]] = None) -> 'Algorithm':
         """
         Get an existing Algorithm resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1285,13 +1285,13 @@ class Algorithm(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the algorithm.
         :param pulumi.Input[_builtins.bool] certify_for_marketplace: Whether to certify the algorithm for AWS Marketplace.
         :param pulumi.Input[_builtins.str] creation_time: Time when the algorithm was created, in RFC3339 format.
-        :param pulumi.Input[Union['AlgorithmInferenceSpecificationArgs', 'AlgorithmInferenceSpecificationArgsDict']] inference_specification: Configuration for inference jobs that use this algorithm. See Inference Specification.
+        :param pulumi.Input[Union['AlgorithmInferenceSpecificationArgs', 'AlgorithmInferenceSpecificationArgsDict', 'outputs.AlgorithmInferenceSpecification']] inference_specification: Configuration for inference jobs that use this algorithm. See Inference Specification.
         :param pulumi.Input[_builtins.str] product_id: AWS Marketplace product ID associated with the algorithm.
         :param pulumi.Input[_builtins.str] region: Region where this resource is managed. Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including tags inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['AlgorithmTrainingSpecificationArgs', 'AlgorithmTrainingSpecificationArgsDict']] training_specification: Configuration for training jobs that use this algorithm. See Training Specification.
-        :param pulumi.Input[Union['AlgorithmValidationSpecificationArgs', 'AlgorithmValidationSpecificationArgsDict']] validation_specification: Configuration used to validate the algorithm. See Validation Specification.
+        :param pulumi.Input[Union['AlgorithmTrainingSpecificationArgs', 'AlgorithmTrainingSpecificationArgsDict', 'outputs.AlgorithmTrainingSpecification']] training_specification: Configuration for training jobs that use this algorithm. See Training Specification.
+        :param pulumi.Input[Union['AlgorithmValidationSpecificationArgs', 'AlgorithmValidationSpecificationArgsDict', 'outputs.AlgorithmValidationSpecification']] validation_specification: Configuration used to validate the algorithm. See Validation Specification.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

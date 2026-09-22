@@ -270,7 +270,7 @@ class Multiplex(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 multiplex_settings: pulumi.Input[Optional[Union['MultiplexMultiplexSettingsArgs', 'MultiplexMultiplexSettingsArgsDict']]] = None,
+                 multiplex_settings: pulumi.Input[Optional[Union['MultiplexMultiplexSettingsArgs', 'MultiplexMultiplexSettingsArgsDict', 'outputs.MultiplexMultiplexSettings']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  start_multiplex: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -329,7 +329,7 @@ class Multiplex(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of availability zones. You must specify exactly two.
-        :param pulumi.Input[Union['MultiplexMultiplexSettingsArgs', 'MultiplexMultiplexSettingsArgsDict']] multiplex_settings: Multiplex settings. See Multiplex Settings for more details.
+        :param pulumi.Input[Union['MultiplexMultiplexSettingsArgs', 'MultiplexMultiplexSettingsArgsDict', 'outputs.MultiplexMultiplexSettings']] multiplex_settings: Multiplex settings. See Multiplex Settings for more details.
         :param pulumi.Input[_builtins.str] name: name of Multiplex.
                
                The following arguments are optional:
@@ -409,7 +409,7 @@ class Multiplex(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 multiplex_settings: pulumi.Input[Optional[Union['MultiplexMultiplexSettingsArgs', 'MultiplexMultiplexSettingsArgsDict']]] = None,
+                 multiplex_settings: pulumi.Input[Optional[Union['MultiplexMultiplexSettingsArgs', 'MultiplexMultiplexSettingsArgsDict', 'outputs.MultiplexMultiplexSettings']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  start_multiplex: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -445,7 +445,7 @@ class Multiplex(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            multiplex_settings: pulumi.Input[Optional[Union['MultiplexMultiplexSettingsArgs', 'MultiplexMultiplexSettingsArgsDict']]] = None,
+            multiplex_settings: pulumi.Input[Optional[Union['MultiplexMultiplexSettingsArgs', 'MultiplexMultiplexSettingsArgsDict', 'outputs.MultiplexMultiplexSettings']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             start_multiplex: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -460,7 +460,7 @@ class Multiplex(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Multiplex.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of availability zones. You must specify exactly two.
-        :param pulumi.Input[Union['MultiplexMultiplexSettingsArgs', 'MultiplexMultiplexSettingsArgsDict']] multiplex_settings: Multiplex settings. See Multiplex Settings for more details.
+        :param pulumi.Input[Union['MultiplexMultiplexSettingsArgs', 'MultiplexMultiplexSettingsArgsDict', 'outputs.MultiplexMultiplexSettings']] multiplex_settings: Multiplex settings. See Multiplex Settings for more details.
         :param pulumi.Input[_builtins.str] name: name of Multiplex.
                
                The following arguments are optional:

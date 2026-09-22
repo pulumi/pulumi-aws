@@ -512,7 +512,7 @@ class SavingsPlan(pulumi.CustomResource):
                  purchase_time: pulumi.Input[Optional[_builtins.str]] = None,
                  savings_plan_offering_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['SavingsPlanTimeoutsArgs', 'SavingsPlanTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['SavingsPlanTimeoutsArgs', 'SavingsPlanTimeoutsArgsDict', 'outputs.SavingsPlanTimeouts']]] = None,
                  upfront_payment_amount: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -648,7 +648,7 @@ class SavingsPlan(pulumi.CustomResource):
                  purchase_time: pulumi.Input[Optional[_builtins.str]] = None,
                  savings_plan_offering_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['SavingsPlanTimeoutsArgs', 'SavingsPlanTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['SavingsPlanTimeoutsArgs', 'SavingsPlanTimeoutsArgsDict', 'outputs.SavingsPlanTimeouts']]] = None,
                  upfront_payment_amount: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -717,7 +717,7 @@ class SavingsPlan(pulumi.CustomResource):
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             term_duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-            timeouts: pulumi.Input[Optional[Union['SavingsPlanTimeoutsArgs', 'SavingsPlanTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['SavingsPlanTimeoutsArgs', 'SavingsPlanTimeoutsArgsDict', 'outputs.SavingsPlanTimeouts']]] = None,
             upfront_payment_amount: pulumi.Input[Optional[_builtins.str]] = None) -> 'SavingsPlan':
         """
         Get an existing SavingsPlan resource's state with the given name, id, and optional extra

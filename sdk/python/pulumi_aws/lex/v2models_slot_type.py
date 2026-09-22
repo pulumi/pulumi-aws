@@ -473,16 +473,16 @@ class V2modelsSlotType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bot_id: pulumi.Input[Optional[_builtins.str]] = None,
                  bot_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 composite_slot_type_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsSlotTypeCompositeSlotTypeSettingArgs', 'V2modelsSlotTypeCompositeSlotTypeSettingArgsDict']]]]] = None,
+                 composite_slot_type_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsSlotTypeCompositeSlotTypeSettingArgs', 'V2modelsSlotTypeCompositeSlotTypeSettingArgsDict', 'outputs.V2modelsSlotTypeCompositeSlotTypeSetting']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 external_source_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsSlotTypeExternalSourceSettingArgs', 'V2modelsSlotTypeExternalSourceSettingArgsDict']]]]] = None,
+                 external_source_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsSlotTypeExternalSourceSettingArgs', 'V2modelsSlotTypeExternalSourceSettingArgsDict', 'outputs.V2modelsSlotTypeExternalSourceSetting']]]]] = None,
                  locale_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parent_slot_type_signature: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 slot_type_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsSlotTypeSlotTypeValueArgs', 'V2modelsSlotTypeSlotTypeValueArgsDict']]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['V2modelsSlotTypeTimeoutsArgs', 'V2modelsSlotTypeTimeoutsArgsDict']]] = None,
-                 value_selection_setting: pulumi.Input[Optional[Union['V2modelsSlotTypeValueSelectionSettingArgs', 'V2modelsSlotTypeValueSelectionSettingArgsDict']]] = None,
+                 slot_type_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsSlotTypeSlotTypeValueArgs', 'V2modelsSlotTypeSlotTypeValueArgsDict', 'outputs.V2modelsSlotTypeSlotTypeValue']]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['V2modelsSlotTypeTimeoutsArgs', 'V2modelsSlotTypeTimeoutsArgsDict', 'outputs.V2modelsSlotTypeTimeouts']]] = None,
+                 value_selection_setting: pulumi.Input[Optional[Union['V2modelsSlotTypeValueSelectionSettingArgs', 'V2modelsSlotTypeValueSelectionSettingArgsDict', 'outputs.V2modelsSlotTypeValueSelectionSetting']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Lex V2 Models Slot Type.
@@ -558,10 +558,10 @@ class V2modelsSlotType(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot associated with this slot type.
         :param pulumi.Input[_builtins.str] bot_version: Version of the bot associated with this slot type.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotTypeCompositeSlotTypeSettingArgs', 'V2modelsSlotTypeCompositeSlotTypeSettingArgsDict']]]] composite_slot_type_settings: Specifications for a composite slot type.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotTypeCompositeSlotTypeSettingArgs', 'V2modelsSlotTypeCompositeSlotTypeSettingArgsDict', 'outputs.V2modelsSlotTypeCompositeSlotTypeSetting']]]] composite_slot_type_settings: Specifications for a composite slot type.
                See `composite_slot_type_setting` argument reference below.
         :param pulumi.Input[_builtins.str] description: Description of the slot type.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotTypeExternalSourceSettingArgs', 'V2modelsSlotTypeExternalSourceSettingArgsDict']]]] external_source_settings: Type of external information used to create the slot type.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotTypeExternalSourceSettingArgs', 'V2modelsSlotTypeExternalSourceSettingArgsDict', 'outputs.V2modelsSlotTypeExternalSourceSetting']]]] external_source_settings: Type of external information used to create the slot type.
                See `external_source_setting` argument reference below.
         :param pulumi.Input[_builtins.str] locale_id: Identifier of the language and locale where this slot type is used.
                All of the bots, slot types, and slots used by the intent must have the same locale.
@@ -572,10 +572,10 @@ class V2modelsSlotType(pulumi.CustomResource):
                When you define a parent slot type, the new slot type has the configuration of the parent slot type.
                Only `AMAZON.AlphaNumeric` is supported.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotTypeSlotTypeValueArgs', 'V2modelsSlotTypeSlotTypeValueArgsDict']]]] slot_type_values: List of SlotTypeValue objects that defines the values that the slot type can take.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotTypeSlotTypeValueArgs', 'V2modelsSlotTypeSlotTypeValueArgsDict', 'outputs.V2modelsSlotTypeSlotTypeValue']]]] slot_type_values: List of SlotTypeValue objects that defines the values that the slot type can take.
                Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
                See `slot_type_values` argument reference below.
-        :param pulumi.Input[Union['V2modelsSlotTypeValueSelectionSettingArgs', 'V2modelsSlotTypeValueSelectionSettingArgsDict']] value_selection_setting: Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
+        :param pulumi.Input[Union['V2modelsSlotTypeValueSelectionSettingArgs', 'V2modelsSlotTypeValueSelectionSettingArgsDict', 'outputs.V2modelsSlotTypeValueSelectionSetting']] value_selection_setting: Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
                See `value_selection_setting` argument reference below.
         """
         ...
@@ -671,16 +671,16 @@ class V2modelsSlotType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bot_id: pulumi.Input[Optional[_builtins.str]] = None,
                  bot_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 composite_slot_type_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsSlotTypeCompositeSlotTypeSettingArgs', 'V2modelsSlotTypeCompositeSlotTypeSettingArgsDict']]]]] = None,
+                 composite_slot_type_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsSlotTypeCompositeSlotTypeSettingArgs', 'V2modelsSlotTypeCompositeSlotTypeSettingArgsDict', 'outputs.V2modelsSlotTypeCompositeSlotTypeSetting']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 external_source_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsSlotTypeExternalSourceSettingArgs', 'V2modelsSlotTypeExternalSourceSettingArgsDict']]]]] = None,
+                 external_source_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsSlotTypeExternalSourceSettingArgs', 'V2modelsSlotTypeExternalSourceSettingArgsDict', 'outputs.V2modelsSlotTypeExternalSourceSetting']]]]] = None,
                  locale_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parent_slot_type_signature: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 slot_type_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsSlotTypeSlotTypeValueArgs', 'V2modelsSlotTypeSlotTypeValueArgsDict']]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['V2modelsSlotTypeTimeoutsArgs', 'V2modelsSlotTypeTimeoutsArgsDict']]] = None,
-                 value_selection_setting: pulumi.Input[Optional[Union['V2modelsSlotTypeValueSelectionSettingArgs', 'V2modelsSlotTypeValueSelectionSettingArgsDict']]] = None,
+                 slot_type_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsSlotTypeSlotTypeValueArgs', 'V2modelsSlotTypeSlotTypeValueArgsDict', 'outputs.V2modelsSlotTypeSlotTypeValue']]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['V2modelsSlotTypeTimeoutsArgs', 'V2modelsSlotTypeTimeoutsArgsDict', 'outputs.V2modelsSlotTypeTimeouts']]] = None,
+                 value_selection_setting: pulumi.Input[Optional[Union['V2modelsSlotTypeValueSelectionSettingArgs', 'V2modelsSlotTypeValueSelectionSettingArgsDict', 'outputs.V2modelsSlotTypeValueSelectionSetting']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -721,17 +721,17 @@ class V2modelsSlotType(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             bot_id: pulumi.Input[Optional[_builtins.str]] = None,
             bot_version: pulumi.Input[Optional[_builtins.str]] = None,
-            composite_slot_type_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsSlotTypeCompositeSlotTypeSettingArgs', 'V2modelsSlotTypeCompositeSlotTypeSettingArgsDict']]]]] = None,
+            composite_slot_type_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsSlotTypeCompositeSlotTypeSettingArgs', 'V2modelsSlotTypeCompositeSlotTypeSettingArgsDict', 'outputs.V2modelsSlotTypeCompositeSlotTypeSetting']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            external_source_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsSlotTypeExternalSourceSettingArgs', 'V2modelsSlotTypeExternalSourceSettingArgsDict']]]]] = None,
+            external_source_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsSlotTypeExternalSourceSettingArgs', 'V2modelsSlotTypeExternalSourceSettingArgsDict', 'outputs.V2modelsSlotTypeExternalSourceSetting']]]]] = None,
             locale_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             parent_slot_type_signature: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             slot_type_id: pulumi.Input[Optional[_builtins.str]] = None,
-            slot_type_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsSlotTypeSlotTypeValueArgs', 'V2modelsSlotTypeSlotTypeValueArgsDict']]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['V2modelsSlotTypeTimeoutsArgs', 'V2modelsSlotTypeTimeoutsArgsDict']]] = None,
-            value_selection_setting: pulumi.Input[Optional[Union['V2modelsSlotTypeValueSelectionSettingArgs', 'V2modelsSlotTypeValueSelectionSettingArgsDict']]] = None) -> 'V2modelsSlotType':
+            slot_type_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsSlotTypeSlotTypeValueArgs', 'V2modelsSlotTypeSlotTypeValueArgsDict', 'outputs.V2modelsSlotTypeSlotTypeValue']]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['V2modelsSlotTypeTimeoutsArgs', 'V2modelsSlotTypeTimeoutsArgsDict', 'outputs.V2modelsSlotTypeTimeouts']]] = None,
+            value_selection_setting: pulumi.Input[Optional[Union['V2modelsSlotTypeValueSelectionSettingArgs', 'V2modelsSlotTypeValueSelectionSettingArgsDict', 'outputs.V2modelsSlotTypeValueSelectionSetting']]] = None) -> 'V2modelsSlotType':
         """
         Get an existing V2modelsSlotType resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -741,10 +741,10 @@ class V2modelsSlotType(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot associated with this slot type.
         :param pulumi.Input[_builtins.str] bot_version: Version of the bot associated with this slot type.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotTypeCompositeSlotTypeSettingArgs', 'V2modelsSlotTypeCompositeSlotTypeSettingArgsDict']]]] composite_slot_type_settings: Specifications for a composite slot type.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotTypeCompositeSlotTypeSettingArgs', 'V2modelsSlotTypeCompositeSlotTypeSettingArgsDict', 'outputs.V2modelsSlotTypeCompositeSlotTypeSetting']]]] composite_slot_type_settings: Specifications for a composite slot type.
                See `composite_slot_type_setting` argument reference below.
         :param pulumi.Input[_builtins.str] description: Description of the slot type.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotTypeExternalSourceSettingArgs', 'V2modelsSlotTypeExternalSourceSettingArgsDict']]]] external_source_settings: Type of external information used to create the slot type.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotTypeExternalSourceSettingArgs', 'V2modelsSlotTypeExternalSourceSettingArgsDict', 'outputs.V2modelsSlotTypeExternalSourceSetting']]]] external_source_settings: Type of external information used to create the slot type.
                See `external_source_setting` argument reference below.
         :param pulumi.Input[_builtins.str] locale_id: Identifier of the language and locale where this slot type is used.
                All of the bots, slot types, and slots used by the intent must have the same locale.
@@ -756,10 +756,10 @@ class V2modelsSlotType(pulumi.CustomResource):
                Only `AMAZON.AlphaNumeric` is supported.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] slot_type_id: Unique identifier for the slot type.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotTypeSlotTypeValueArgs', 'V2modelsSlotTypeSlotTypeValueArgsDict']]]] slot_type_values: List of SlotTypeValue objects that defines the values that the slot type can take.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotTypeSlotTypeValueArgs', 'V2modelsSlotTypeSlotTypeValueArgsDict', 'outputs.V2modelsSlotTypeSlotTypeValue']]]] slot_type_values: List of SlotTypeValue objects that defines the values that the slot type can take.
                Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
                See `slot_type_values` argument reference below.
-        :param pulumi.Input[Union['V2modelsSlotTypeValueSelectionSettingArgs', 'V2modelsSlotTypeValueSelectionSettingArgsDict']] value_selection_setting: Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
+        :param pulumi.Input[Union['V2modelsSlotTypeValueSelectionSettingArgs', 'V2modelsSlotTypeValueSelectionSettingArgsDict', 'outputs.V2modelsSlotTypeValueSelectionSetting']] value_selection_setting: Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
                See `value_selection_setting` argument reference below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

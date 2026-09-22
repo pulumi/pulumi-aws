@@ -472,7 +472,7 @@ class Service(pulumi.CustomResource):
             auth_type: pulumi.Input[Optional[_builtins.str]] = None,
             certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
             custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-            dns_entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceDnsEntryArgs', 'ServiceDnsEntryArgsDict']]]]] = None,
+            dns_entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceDnsEntryArgs', 'ServiceDnsEntryArgsDict', 'outputs.ServiceDnsEntry']]]]] = None,
             idle_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -490,7 +490,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] auth_type: Type of IAM policy. Either `NONE` or `AWS_IAM`.
         :param pulumi.Input[_builtins.str] certificate_arn: ARN of the certificate.
         :param pulumi.Input[_builtins.str] custom_domain_name: Custom domain name of the service.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceDnsEntryArgs', 'ServiceDnsEntryArgsDict']]]] dns_entries: DNS name of the service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceDnsEntryArgs', 'ServiceDnsEntryArgsDict', 'outputs.ServiceDnsEntry']]]] dns_entries: DNS name of the service.
         :param pulumi.Input[_builtins.int] idle_timeout_seconds: Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
         :param pulumi.Input[_builtins.str] name: Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
                

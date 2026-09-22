@@ -233,10 +233,10 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['TelemetryRuleForOrganizationRuleArgs', 'TelemetryRuleForOrganizationRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['TelemetryRuleForOrganizationRuleArgs', 'TelemetryRuleForOrganizationRuleArgsDict', 'outputs.TelemetryRuleForOrganizationRule']]] = None,
                  rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['TelemetryRuleForOrganizationTimeoutsArgs', 'TelemetryRuleForOrganizationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TelemetryRuleForOrganizationTimeoutsArgs', 'TelemetryRuleForOrganizationTimeoutsArgsDict', 'outputs.TelemetryRuleForOrganizationTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS CloudWatch Observability Admin Telemetry Rule for an AWS Organization.
@@ -359,7 +359,7 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['TelemetryRuleForOrganizationRuleArgs', 'TelemetryRuleForOrganizationRuleArgsDict']] rule: Configuration block for the organization telemetry rule. See `rule` below.
+        :param pulumi.Input[Union['TelemetryRuleForOrganizationRuleArgs', 'TelemetryRuleForOrganizationRuleArgsDict', 'outputs.TelemetryRuleForOrganizationRule']] rule: Configuration block for the organization telemetry rule. See `rule` below.
         :param pulumi.Input[_builtins.str] rule_name: Name of the organization telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
                
                The following arguments are optional:
@@ -505,10 +505,10 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['TelemetryRuleForOrganizationRuleArgs', 'TelemetryRuleForOrganizationRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['TelemetryRuleForOrganizationRuleArgs', 'TelemetryRuleForOrganizationRuleArgsDict', 'outputs.TelemetryRuleForOrganizationRule']]] = None,
                  rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['TelemetryRuleForOrganizationTimeoutsArgs', 'TelemetryRuleForOrganizationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TelemetryRuleForOrganizationTimeoutsArgs', 'TelemetryRuleForOrganizationTimeoutsArgsDict', 'outputs.TelemetryRuleForOrganizationTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -540,12 +540,12 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            rule: pulumi.Input[Optional[Union['TelemetryRuleForOrganizationRuleArgs', 'TelemetryRuleForOrganizationRuleArgsDict']]] = None,
+            rule: pulumi.Input[Optional[Union['TelemetryRuleForOrganizationRuleArgs', 'TelemetryRuleForOrganizationRuleArgsDict', 'outputs.TelemetryRuleForOrganizationRule']]] = None,
             rule_arn: pulumi.Input[Optional[_builtins.str]] = None,
             rule_name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['TelemetryRuleForOrganizationTimeoutsArgs', 'TelemetryRuleForOrganizationTimeoutsArgsDict']]] = None) -> 'TelemetryRuleForOrganization':
+            timeouts: pulumi.Input[Optional[Union['TelemetryRuleForOrganizationTimeoutsArgs', 'TelemetryRuleForOrganizationTimeoutsArgsDict', 'outputs.TelemetryRuleForOrganizationTimeouts']]] = None) -> 'TelemetryRuleForOrganization':
         """
         Get an existing TelemetryRuleForOrganization resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -554,7 +554,7 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['TelemetryRuleForOrganizationRuleArgs', 'TelemetryRuleForOrganizationRuleArgsDict']] rule: Configuration block for the organization telemetry rule. See `rule` below.
+        :param pulumi.Input[Union['TelemetryRuleForOrganizationRuleArgs', 'TelemetryRuleForOrganizationRuleArgsDict', 'outputs.TelemetryRuleForOrganizationRule']] rule: Configuration block for the organization telemetry rule. See `rule` below.
         :param pulumi.Input[_builtins.str] rule_arn: ARN of the organization telemetry rule.
         :param pulumi.Input[_builtins.str] rule_name: Name of the organization telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
                

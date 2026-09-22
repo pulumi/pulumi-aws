@@ -252,7 +252,7 @@ class ServiceRegion(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  region_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_settings: pulumi.Input[Optional[Union['ServiceRegionVpcSettingsArgs', 'ServiceRegionVpcSettingsArgsDict']]] = None,
+                 vpc_settings: pulumi.Input[Optional[Union['ServiceRegionVpcSettingsArgs', 'ServiceRegionVpcSettingsArgsDict', 'outputs.ServiceRegionVpcSettings']]] = None,
                  __props__=None):
         """
         Manages a replicated Region and directory for Multi-Region replication.
@@ -345,7 +345,7 @@ class ServiceRegion(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] region_name: The name of the Region where you want to add domain controllers for replication.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['ServiceRegionVpcSettingsArgs', 'ServiceRegionVpcSettingsArgsDict']] vpc_settings: VPC information in the replicated Region. Detailed below.
+        :param pulumi.Input[Union['ServiceRegionVpcSettingsArgs', 'ServiceRegionVpcSettingsArgsDict', 'outputs.ServiceRegionVpcSettings']] vpc_settings: VPC information in the replicated Region. Detailed below.
         """
         ...
     @overload
@@ -457,7 +457,7 @@ class ServiceRegion(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  region_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_settings: pulumi.Input[Optional[Union['ServiceRegionVpcSettingsArgs', 'ServiceRegionVpcSettingsArgsDict']]] = None,
+                 vpc_settings: pulumi.Input[Optional[Union['ServiceRegionVpcSettingsArgs', 'ServiceRegionVpcSettingsArgsDict', 'outputs.ServiceRegionVpcSettings']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -496,7 +496,7 @@ class ServiceRegion(pulumi.CustomResource):
             region_name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            vpc_settings: pulumi.Input[Optional[Union['ServiceRegionVpcSettingsArgs', 'ServiceRegionVpcSettingsArgsDict']]] = None) -> 'ServiceRegion':
+            vpc_settings: pulumi.Input[Optional[Union['ServiceRegionVpcSettingsArgs', 'ServiceRegionVpcSettingsArgsDict', 'outputs.ServiceRegionVpcSettings']]] = None) -> 'ServiceRegion':
         """
         Get an existing ServiceRegion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -510,7 +510,7 @@ class ServiceRegion(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region_name: The name of the Region where you want to add domain controllers for replication.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['ServiceRegionVpcSettingsArgs', 'ServiceRegionVpcSettingsArgsDict']] vpc_settings: VPC information in the replicated Region. Detailed below.
+        :param pulumi.Input[Union['ServiceRegionVpcSettingsArgs', 'ServiceRegionVpcSettingsArgsDict', 'outputs.ServiceRegionVpcSettings']] vpc_settings: VPC information in the replicated Region. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

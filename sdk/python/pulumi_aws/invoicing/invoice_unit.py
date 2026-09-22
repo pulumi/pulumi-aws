@@ -357,10 +357,10 @@ class InvoiceUnit(pulumi.CustomResource):
                  invoice_receiver: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict', 'outputs.InvoiceUnitRule']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tax_inheritance_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 timeouts: pulumi.Input[Optional[Union['InvoiceUnitTimeoutsArgs', 'InvoiceUnitTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['InvoiceUnitTimeoutsArgs', 'InvoiceUnitTimeoutsArgsDict', 'outputs.InvoiceUnitTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS Invoice Unit for organizational billing.
@@ -404,7 +404,7 @@ class InvoiceUnit(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] invoice_receiver: AWS account ID that receives invoices for this unit. Cannot be changed after creation.
         :param pulumi.Input[_builtins.str] name: Unique name of the invoice unit. Cannot be changed after creation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict']]]] rules: Configuration block for invoice unit rules. See `rule` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict', 'outputs.InvoiceUnitRule']]]] rules: Configuration block for invoice unit rules. See `rule` below.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -471,10 +471,10 @@ class InvoiceUnit(pulumi.CustomResource):
                  invoice_receiver: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict', 'outputs.InvoiceUnitRule']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tax_inheritance_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 timeouts: pulumi.Input[Optional[Union['InvoiceUnitTimeoutsArgs', 'InvoiceUnitTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['InvoiceUnitTimeoutsArgs', 'InvoiceUnitTimeoutsArgsDict', 'outputs.InvoiceUnitTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -513,11 +513,11 @@ class InvoiceUnit(pulumi.CustomResource):
             last_modified: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict']]]]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict', 'outputs.InvoiceUnitRule']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tax_inheritance_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            timeouts: pulumi.Input[Optional[Union['InvoiceUnitTimeoutsArgs', 'InvoiceUnitTimeoutsArgsDict']]] = None) -> 'InvoiceUnit':
+            timeouts: pulumi.Input[Optional[Union['InvoiceUnitTimeoutsArgs', 'InvoiceUnitTimeoutsArgsDict', 'outputs.InvoiceUnitTimeouts']]] = None) -> 'InvoiceUnit':
         """
         Get an existing InvoiceUnit resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -531,7 +531,7 @@ class InvoiceUnit(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] last_modified: Timestamp when the invoice unit was last modified.
         :param pulumi.Input[_builtins.str] name: Unique name of the invoice unit. Cannot be changed after creation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict']]]] rules: Configuration block for invoice unit rules. See `rule` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict', 'outputs.InvoiceUnitRule']]]] rules: Configuration block for invoice unit rules. See `rule` below.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

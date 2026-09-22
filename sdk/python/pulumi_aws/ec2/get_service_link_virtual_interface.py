@@ -198,7 +198,7 @@ class AwaitableGetServiceLinkVirtualInterfaceResult(GetServiceLinkVirtualInterfa
             vlan=self.vlan)
 
 
-def get_service_link_virtual_interface(filters: Optional[Sequence[Union['GetServiceLinkVirtualInterfaceFilterArgs', 'GetServiceLinkVirtualInterfaceFilterArgsDict']]] = None,
+def get_service_link_virtual_interface(filters: Optional[Sequence[Union['GetServiceLinkVirtualInterfaceFilterArgs', 'GetServiceLinkVirtualInterfaceFilterArgsDict', 'outputs.GetServiceLinkVirtualInterfaceFilterResult']]] = None,
                                        id: Optional[_builtins.str] = None,
                                        region: Optional[_builtins.str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceLinkVirtualInterfaceResult:
@@ -215,7 +215,7 @@ def get_service_link_virtual_interface(filters: Optional[Sequence[Union['GetServ
     ```
 
 
-    :param Sequence[Union['GetServiceLinkVirtualInterfaceFilterArgs', 'GetServiceLinkVirtualInterfaceFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeServiceLinkVirtualInterfaces.html) for supported filters. Detailed below.
+    :param Sequence[Union['GetServiceLinkVirtualInterfaceFilterArgs', 'GetServiceLinkVirtualInterfaceFilterArgsDict', 'outputs.GetServiceLinkVirtualInterfaceFilterResult']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeServiceLinkVirtualInterfaces.html) for supported filters. Detailed below.
     :param _builtins.str id: Identifier of the EC2 Service Link Virtual Interface.
            
            > **NOTE:** At least one of `filter` or `id` must be specified.
@@ -243,7 +243,7 @@ def get_service_link_virtual_interface(filters: Optional[Sequence[Union['GetServ
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         vlan=pulumi.get(__ret__, 'vlan'))
-def get_service_link_virtual_interface_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetServiceLinkVirtualInterfaceFilterArgs', 'GetServiceLinkVirtualInterfaceFilterArgsDict']]]]] = None,
+def get_service_link_virtual_interface_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetServiceLinkVirtualInterfaceFilterArgs', 'GetServiceLinkVirtualInterfaceFilterArgsDict', 'outputs.GetServiceLinkVirtualInterfaceFilterResult']]]]] = None,
                                               id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                               region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceLinkVirtualInterfaceResult]:
@@ -260,7 +260,7 @@ def get_service_link_virtual_interface_output(filters: pulumi.Input[Optional[Opt
     ```
 
 
-    :param Sequence[Union['GetServiceLinkVirtualInterfaceFilterArgs', 'GetServiceLinkVirtualInterfaceFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeServiceLinkVirtualInterfaces.html) for supported filters. Detailed below.
+    :param Sequence[Union['GetServiceLinkVirtualInterfaceFilterArgs', 'GetServiceLinkVirtualInterfaceFilterArgsDict', 'outputs.GetServiceLinkVirtualInterfaceFilterResult']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeServiceLinkVirtualInterfaces.html) for supported filters. Detailed below.
     :param _builtins.str id: Identifier of the EC2 Service Link Virtual Interface.
            
            > **NOTE:** At least one of `filter` or `id` must be specified.

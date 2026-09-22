@@ -201,7 +201,7 @@ class CodeRepository(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  code_repository_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 git_config: pulumi.Input[Optional[Union['CodeRepositoryGitConfigArgs', 'CodeRepositoryGitConfigArgsDict']]] = None,
+                 git_config: pulumi.Input[Optional[Union['CodeRepositoryGitConfigArgs', 'CodeRepositoryGitConfigArgsDict', 'outputs.CodeRepositoryGitConfig']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -258,7 +258,7 @@ class CodeRepository(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] code_repository_name: The name of the Code Repository (must be unique).
-        :param pulumi.Input[Union['CodeRepositoryGitConfigArgs', 'CodeRepositoryGitConfigArgsDict']] git_config: Specifies details about the repository. see Git Config details below.
+        :param pulumi.Input[Union['CodeRepositoryGitConfigArgs', 'CodeRepositoryGitConfigArgsDict', 'outputs.CodeRepositoryGitConfig']] git_config: Specifies details about the repository. see Git Config details below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -334,7 +334,7 @@ class CodeRepository(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  code_repository_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 git_config: pulumi.Input[Optional[Union['CodeRepositoryGitConfigArgs', 'CodeRepositoryGitConfigArgsDict']]] = None,
+                 git_config: pulumi.Input[Optional[Union['CodeRepositoryGitConfigArgs', 'CodeRepositoryGitConfigArgsDict', 'outputs.CodeRepositoryGitConfig']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -368,7 +368,7 @@ class CodeRepository(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             code_repository_name: pulumi.Input[Optional[_builtins.str]] = None,
-            git_config: pulumi.Input[Optional[Union['CodeRepositoryGitConfigArgs', 'CodeRepositoryGitConfigArgsDict']]] = None,
+            git_config: pulumi.Input[Optional[Union['CodeRepositoryGitConfigArgs', 'CodeRepositoryGitConfigArgsDict', 'outputs.CodeRepositoryGitConfig']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'CodeRepository':
@@ -381,7 +381,7 @@ class CodeRepository(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this Code Repository.
         :param pulumi.Input[_builtins.str] code_repository_name: The name of the Code Repository (must be unique).
-        :param pulumi.Input[Union['CodeRepositoryGitConfigArgs', 'CodeRepositoryGitConfigArgsDict']] git_config: Specifies details about the repository. see Git Config details below.
+        :param pulumi.Input[Union['CodeRepositoryGitConfigArgs', 'CodeRepositoryGitConfigArgsDict', 'outputs.CodeRepositoryGitConfig']] git_config: Specifies details about the repository. see Git Config details below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

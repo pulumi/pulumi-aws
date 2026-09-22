@@ -168,9 +168,9 @@ class QueryLoggingConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QueryLoggingConfigurationDestinationArgs', 'QueryLoggingConfigurationDestinationArgsDict']]]]] = None,
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QueryLoggingConfigurationDestinationArgs', 'QueryLoggingConfigurationDestinationArgsDict', 'outputs.QueryLoggingConfigurationDestination']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['QueryLoggingConfigurationTimeoutsArgs', 'QueryLoggingConfigurationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['QueryLoggingConfigurationTimeoutsArgs', 'QueryLoggingConfigurationTimeoutsArgsDict', 'outputs.QueryLoggingConfigurationTimeouts']]] = None,
                  workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -199,7 +199,7 @@ class QueryLoggingConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['QueryLoggingConfigurationDestinationArgs', 'QueryLoggingConfigurationDestinationArgsDict']]]] destinations: Configuration block for the logging destinations. See `destinations`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['QueryLoggingConfigurationDestinationArgs', 'QueryLoggingConfigurationDestinationArgsDict', 'outputs.QueryLoggingConfigurationDestination']]]] destinations: Configuration block for the logging destinations. See `destinations`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] workspace_id: The ID of the AMP workspace for which to configure query logging.
                
@@ -250,9 +250,9 @@ class QueryLoggingConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QueryLoggingConfigurationDestinationArgs', 'QueryLoggingConfigurationDestinationArgsDict']]]]] = None,
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QueryLoggingConfigurationDestinationArgs', 'QueryLoggingConfigurationDestinationArgsDict', 'outputs.QueryLoggingConfigurationDestination']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['QueryLoggingConfigurationTimeoutsArgs', 'QueryLoggingConfigurationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['QueryLoggingConfigurationTimeoutsArgs', 'QueryLoggingConfigurationTimeoutsArgsDict', 'outputs.QueryLoggingConfigurationTimeouts']]] = None,
                  workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -281,9 +281,9 @@ class QueryLoggingConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QueryLoggingConfigurationDestinationArgs', 'QueryLoggingConfigurationDestinationArgsDict']]]]] = None,
+            destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QueryLoggingConfigurationDestinationArgs', 'QueryLoggingConfigurationDestinationArgsDict', 'outputs.QueryLoggingConfigurationDestination']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['QueryLoggingConfigurationTimeoutsArgs', 'QueryLoggingConfigurationTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['QueryLoggingConfigurationTimeoutsArgs', 'QueryLoggingConfigurationTimeoutsArgsDict', 'outputs.QueryLoggingConfigurationTimeouts']]] = None,
             workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'QueryLoggingConfiguration':
         """
         Get an existing QueryLoggingConfiguration resource's state with the given name, id, and optional extra
@@ -292,7 +292,7 @@ class QueryLoggingConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['QueryLoggingConfigurationDestinationArgs', 'QueryLoggingConfigurationDestinationArgsDict']]]] destinations: Configuration block for the logging destinations. See `destinations`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['QueryLoggingConfigurationDestinationArgs', 'QueryLoggingConfigurationDestinationArgsDict', 'outputs.QueryLoggingConfigurationDestination']]]] destinations: Configuration block for the logging destinations. See `destinations`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] workspace_id: The ID of the AMP workspace for which to configure query logging.
                

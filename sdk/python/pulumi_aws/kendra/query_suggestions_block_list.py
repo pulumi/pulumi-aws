@@ -312,7 +312,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_s3_path: pulumi.Input[Optional[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict']]] = None,
+                 source_s3_path: pulumi.Input[Optional[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict', 'outputs.QuerySuggestionsBlockListSourceS3Path']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -354,7 +354,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name for the block list.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
         :param pulumi.Input[_builtins.str] role_arn: IAM (Identity and Access Management) role used to access the block list text file in S3.
-        :param pulumi.Input[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict']] source_s3_path: S3 path where your block list text file is located. See details below.
+        :param pulumi.Input[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict', 'outputs.QuerySuggestionsBlockListSourceS3Path']] source_s3_path: S3 path where your block list text file is located. See details below.
         """
         ...
     @overload
@@ -415,7 +415,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_s3_path: pulumi.Input[Optional[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict']]] = None,
+                 source_s3_path: pulumi.Input[Optional[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict', 'outputs.QuerySuggestionsBlockListSourceS3Path']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -460,7 +460,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
             query_suggestions_block_list_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            source_s3_path: pulumi.Input[Optional[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict']]] = None,
+            source_s3_path: pulumi.Input[Optional[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict', 'outputs.QuerySuggestionsBlockListSourceS3Path']]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'QuerySuggestionsBlockList':
@@ -477,7 +477,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] query_suggestions_block_list_id: Unique identifier of the block list.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
         :param pulumi.Input[_builtins.str] role_arn: IAM (Identity and Access Management) role used to access the block list text file in S3.
-        :param pulumi.Input[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict']] source_s3_path: S3 path where your block list text file is located. See details below.
+        :param pulumi.Input[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict', 'outputs.QuerySuggestionsBlockListSourceS3Path']] source_s3_path: S3 path where your block list text file is located. See details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider's default_tags configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -168,7 +168,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 event_destination: pulumi.Input[Optional[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict']]] = None,
+                 event_destination: pulumi.Input[Optional[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict', 'outputs.ConfigurationSetEventDestinationEventDestination']]] = None,
                  event_destination_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -289,7 +289,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] configuration_set_name: Name of the configuration set.
-        :param pulumi.Input[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict']] event_destination: Object that defines the event destination. See `event_destination` Block for details.
+        :param pulumi.Input[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict', 'outputs.ConfigurationSetEventDestinationEventDestination']] event_destination: Object that defines the event destination. See `event_destination` Block for details.
         :param pulumi.Input[_builtins.str] event_destination_name: Name that identifies the event destination within the configuration set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -429,7 +429,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 event_destination: pulumi.Input[Optional[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict']]] = None,
+                 event_destination: pulumi.Input[Optional[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict', 'outputs.ConfigurationSetEventDestinationEventDestination']]] = None,
                  event_destination_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -462,7 +462,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
-            event_destination: pulumi.Input[Optional[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict']]] = None,
+            event_destination: pulumi.Input[Optional[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict', 'outputs.ConfigurationSetEventDestinationEventDestination']]] = None,
             event_destination_name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'ConfigurationSetEventDestination':
         """
@@ -473,7 +473,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] configuration_set_name: Name of the configuration set.
-        :param pulumi.Input[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict']] event_destination: Object that defines the event destination. See `event_destination` Block for details.
+        :param pulumi.Input[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict', 'outputs.ConfigurationSetEventDestinationEventDestination']] event_destination: Object that defines the event destination. See `event_destination` Block for details.
         :param pulumi.Input[_builtins.str] event_destination_name: Name that identifies the event destination within the configuration set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """

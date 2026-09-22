@@ -217,10 +217,10 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity_source: pulumi.Input[Optional[Union['ApplicationIdentitySourceArgs', 'ApplicationIdentitySourceArgsDict']]] = None,
+                 identity_source: pulumi.Input[Optional[Union['ApplicationIdentitySourceArgs', 'ApplicationIdentitySourceArgsDict', 'outputs.ApplicationIdentitySource']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict', 'outputs.ApplicationTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS Account Access Application. An Application binds Account Access to an IAM Identity Center instance and serves as the parent container for entitlements that grant principals access to roles in target accounts.
@@ -280,7 +280,7 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ApplicationIdentitySourceArgs', 'ApplicationIdentitySourceArgsDict']] identity_source: Identity source for the application. Forces replacement when changed. See `identity_source` Block below.
+        :param pulumi.Input[Union['ApplicationIdentitySourceArgs', 'ApplicationIdentitySourceArgsDict', 'outputs.ApplicationIdentitySource']] identity_source: Identity source for the application. Forces replacement when changed. See `identity_source` Block below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -363,10 +363,10 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity_source: pulumi.Input[Optional[Union['ApplicationIdentitySourceArgs', 'ApplicationIdentitySourceArgsDict']]] = None,
+                 identity_source: pulumi.Input[Optional[Union['ApplicationIdentitySourceArgs', 'ApplicationIdentitySourceArgsDict', 'outputs.ApplicationIdentitySource']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict', 'outputs.ApplicationTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -396,12 +396,12 @@ class Application(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            identity_source: pulumi.Input[Optional[Union['ApplicationIdentitySourceArgs', 'ApplicationIdentitySourceArgsDict']]] = None,
+            identity_source: pulumi.Input[Optional[Union['ApplicationIdentitySourceArgs', 'ApplicationIdentitySourceArgsDict', 'outputs.ApplicationIdentitySource']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None) -> 'Application':
+            timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict', 'outputs.ApplicationTimeouts']]] = None) -> 'Application':
         """
         Get an existing Application resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -410,7 +410,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Application. Used as the resource ID.
-        :param pulumi.Input[Union['ApplicationIdentitySourceArgs', 'ApplicationIdentitySourceArgsDict']] identity_source: Identity source for the application. Forces replacement when changed. See `identity_source` Block below.
+        :param pulumi.Input[Union['ApplicationIdentitySourceArgs', 'ApplicationIdentitySourceArgsDict', 'outputs.ApplicationIdentitySource']] identity_source: Identity source for the application. Forces replacement when changed. See `identity_source` Block below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

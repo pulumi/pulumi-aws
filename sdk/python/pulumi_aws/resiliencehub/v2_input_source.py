@@ -161,7 +161,7 @@ class V2InputSource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_configuration: pulumi.Input[Optional[Union['V2InputSourceResourceConfigurationArgs', 'V2InputSourceResourceConfigurationArgsDict']]] = None,
+                 resource_configuration: pulumi.Input[Optional[Union['V2InputSourceResourceConfigurationArgs', 'V2InputSourceResourceConfigurationArgsDict', 'outputs.V2InputSourceResourceConfiguration']]] = None,
                  service_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -242,7 +242,7 @@ class V2InputSource(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['V2InputSourceResourceConfigurationArgs', 'V2InputSourceResourceConfigurationArgsDict']] resource_configuration: Resource configuration for an input source. See `resource_configuration` Block below.
+        :param pulumi.Input[Union['V2InputSourceResourceConfigurationArgs', 'V2InputSourceResourceConfigurationArgsDict', 'outputs.V2InputSourceResourceConfiguration']] resource_configuration: Resource configuration for an input source. See `resource_configuration` Block below.
         :param pulumi.Input[_builtins.str] service_arn: ARN of the service this input source belongs to.
                
                The following arguments are optional:
@@ -344,7 +344,7 @@ class V2InputSource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_configuration: pulumi.Input[Optional[Union['V2InputSourceResourceConfigurationArgs', 'V2InputSourceResourceConfigurationArgsDict']]] = None,
+                 resource_configuration: pulumi.Input[Optional[Union['V2InputSourceResourceConfigurationArgs', 'V2InputSourceResourceConfigurationArgsDict', 'outputs.V2InputSourceResourceConfiguration']]] = None,
                  service_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -375,7 +375,7 @@ class V2InputSource(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             input_source_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            resource_configuration: pulumi.Input[Optional[Union['V2InputSourceResourceConfigurationArgs', 'V2InputSourceResourceConfigurationArgsDict']]] = None,
+            resource_configuration: pulumi.Input[Optional[Union['V2InputSourceResourceConfigurationArgs', 'V2InputSourceResourceConfigurationArgsDict', 'outputs.V2InputSourceResourceConfiguration']]] = None,
             service_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'V2InputSource':
         """
         Get an existing V2InputSource resource's state with the given name, id, and optional extra
@@ -386,7 +386,7 @@ class V2InputSource(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] input_source_id: Unique identifier of the input source.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['V2InputSourceResourceConfigurationArgs', 'V2InputSourceResourceConfigurationArgsDict']] resource_configuration: Resource configuration for an input source. See `resource_configuration` Block below.
+        :param pulumi.Input[Union['V2InputSourceResourceConfigurationArgs', 'V2InputSourceResourceConfigurationArgsDict', 'outputs.V2InputSourceResourceConfiguration']] resource_configuration: Resource configuration for an input source. See `resource_configuration` Block below.
         :param pulumi.Input[_builtins.str] service_arn: ARN of the service this input source belongs to.
                
                The following arguments are optional:

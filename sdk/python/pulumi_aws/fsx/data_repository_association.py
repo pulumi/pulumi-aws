@@ -382,7 +382,7 @@ class DataRepositoryAssociation(pulumi.CustomResource):
                  file_system_path: pulumi.Input[Optional[_builtins.str]] = None,
                  imported_file_chunk_size: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3: pulumi.Input[Optional[Union['DataRepositoryAssociationS3Args', 'DataRepositoryAssociationS3ArgsDict']]] = None,
+                 s3: pulumi.Input[Optional[Union['DataRepositoryAssociationS3Args', 'DataRepositoryAssociationS3ArgsDict', 'outputs.DataRepositoryAssociationS3']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -445,7 +445,7 @@ class DataRepositoryAssociation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] file_system_path: Path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `data_repository_path`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
         :param pulumi.Input[_builtins.int] imported_file_chunk_size: For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DataRepositoryAssociationS3Args', 'DataRepositoryAssociationS3ArgsDict']] s3: Configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. This configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository. See the `s3` Block below. Max of 1.
+        :param pulumi.Input[Union['DataRepositoryAssociationS3Args', 'DataRepositoryAssociationS3ArgsDict', 'outputs.DataRepositoryAssociationS3']] s3: Configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. This configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository. See the `s3` Block below. Max of 1.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the data repository association. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -527,7 +527,7 @@ class DataRepositoryAssociation(pulumi.CustomResource):
                  file_system_path: pulumi.Input[Optional[_builtins.str]] = None,
                  imported_file_chunk_size: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3: pulumi.Input[Optional[Union['DataRepositoryAssociationS3Args', 'DataRepositoryAssociationS3ArgsDict']]] = None,
+                 s3: pulumi.Input[Optional[Union['DataRepositoryAssociationS3Args', 'DataRepositoryAssociationS3ArgsDict', 'outputs.DataRepositoryAssociationS3']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -575,7 +575,7 @@ class DataRepositoryAssociation(pulumi.CustomResource):
             file_system_path: pulumi.Input[Optional[_builtins.str]] = None,
             imported_file_chunk_size: pulumi.Input[Optional[_builtins.int]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            s3: pulumi.Input[Optional[Union['DataRepositoryAssociationS3Args', 'DataRepositoryAssociationS3ArgsDict']]] = None,
+            s3: pulumi.Input[Optional[Union['DataRepositoryAssociationS3Args', 'DataRepositoryAssociationS3ArgsDict', 'outputs.DataRepositoryAssociationS3']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'DataRepositoryAssociation':
         """
@@ -594,7 +594,7 @@ class DataRepositoryAssociation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] file_system_path: Path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `data_repository_path`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
         :param pulumi.Input[_builtins.int] imported_file_chunk_size: For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DataRepositoryAssociationS3Args', 'DataRepositoryAssociationS3ArgsDict']] s3: Configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. This configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository. See the `s3` Block below. Max of 1.
+        :param pulumi.Input[Union['DataRepositoryAssociationS3Args', 'DataRepositoryAssociationS3ArgsDict', 'outputs.DataRepositoryAssociationS3']] s3: Configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. This configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository. See the `s3` Block below. Max of 1.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the data repository association. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

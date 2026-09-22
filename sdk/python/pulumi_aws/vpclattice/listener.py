@@ -376,7 +376,7 @@ class Listener(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_action: pulumi.Input[Optional[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict']]] = None,
+                 default_action: pulumi.Input[Optional[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict', 'outputs.ListenerDefaultAction']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  protocol: pulumi.Input[Optional[_builtins.str]] = None,
@@ -490,7 +490,7 @@ class Listener(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict']] default_action: Default action block for the default listener rule. Default action blocks are defined below.
+        :param pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict', 'outputs.ListenerDefaultAction']] default_action: Default action block for the default listener rule. Default action blocks are defined below.
         :param pulumi.Input[_builtins.str] name: Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[_builtins.int] port: Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
         :param pulumi.Input[_builtins.str] protocol: Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
@@ -624,7 +624,7 @@ class Listener(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_action: pulumi.Input[Optional[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict']]] = None,
+                 default_action: pulumi.Input[Optional[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict', 'outputs.ListenerDefaultAction']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  protocol: pulumi.Input[Optional[_builtins.str]] = None,
@@ -670,7 +670,7 @@ class Listener(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
-            default_action: pulumi.Input[Optional[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict']]] = None,
+            default_action: pulumi.Input[Optional[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict', 'outputs.ListenerDefaultAction']]] = None,
             last_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
             listener_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -690,7 +690,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the listener.
         :param pulumi.Input[_builtins.str] created_at: Date and time that the listener was created, specified in ISO-8601 format.
-        :param pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict']] default_action: Default action block for the default listener rule. Default action blocks are defined below.
+        :param pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict', 'outputs.ListenerDefaultAction']] default_action: Default action block for the default listener rule. Default action blocks are defined below.
         :param pulumi.Input[_builtins.str] last_updated_at: Date and time that the listener was last updated, specified in ISO-8601 format.
         :param pulumi.Input[_builtins.str] listener_id: Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
         :param pulumi.Input[_builtins.str] name: Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.

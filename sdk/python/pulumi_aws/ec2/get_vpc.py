@@ -254,7 +254,7 @@ class AwaitableGetVpcResult(GetVpcResult):
 def get_vpc(cidr_block: Optional[_builtins.str] = None,
             default: Optional[_builtins.bool] = None,
             dhcp_options_id: Optional[_builtins.str] = None,
-            filters: Optional[Sequence[Union['GetVpcFilterArgs', 'GetVpcFilterArgsDict']]] = None,
+            filters: Optional[Sequence[Union['GetVpcFilterArgs', 'GetVpcFilterArgsDict', 'outputs.GetVpcFilterResult']]] = None,
             id: Optional[_builtins.str] = None,
             region: Optional[_builtins.str] = None,
             state: Optional[_builtins.str] = None,
@@ -293,7 +293,7 @@ def get_vpc(cidr_block: Optional[_builtins.str] = None,
     :param _builtins.str cidr_block: CIDR block of the desired VPC.
     :param _builtins.bool default: Boolean constraint on whether the desired VPC is the default VPC for the region.
     :param _builtins.str dhcp_options_id: DHCP options id of the desired VPC.
-    :param Sequence[Union['GetVpcFilterArgs', 'GetVpcFilterArgsDict']] filters: Custom filter block as described below. See `filter` Block below.
+    :param Sequence[Union['GetVpcFilterArgs', 'GetVpcFilterArgsDict', 'outputs.GetVpcFilterResult']] filters: Custom filter block as described below. See `filter` Block below.
     :param _builtins.str id: ID of the specific VPC to retrieve.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str state: Current state of the desired VPC. Can be either `"pending"` or `"available"`.
@@ -334,7 +334,7 @@ def get_vpc(cidr_block: Optional[_builtins.str] = None,
 def get_vpc_output(cidr_block: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                    default: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                    dhcp_options_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                   filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpcFilterArgs', 'GetVpcFilterArgsDict']]]]] = None,
+                   filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpcFilterArgs', 'GetVpcFilterArgsDict', 'outputs.GetVpcFilterResult']]]]] = None,
                    id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                    region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                    state: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -373,7 +373,7 @@ def get_vpc_output(cidr_block: pulumi.Input[Optional[Optional[_builtins.str]]] =
     :param _builtins.str cidr_block: CIDR block of the desired VPC.
     :param _builtins.bool default: Boolean constraint on whether the desired VPC is the default VPC for the region.
     :param _builtins.str dhcp_options_id: DHCP options id of the desired VPC.
-    :param Sequence[Union['GetVpcFilterArgs', 'GetVpcFilterArgsDict']] filters: Custom filter block as described below. See `filter` Block below.
+    :param Sequence[Union['GetVpcFilterArgs', 'GetVpcFilterArgsDict', 'outputs.GetVpcFilterResult']] filters: Custom filter block as described below. See `filter` Block below.
     :param _builtins.str id: ID of the specific VPC to retrieve.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str state: Current state of the desired VPC. Can be either `"pending"` or `"available"`.

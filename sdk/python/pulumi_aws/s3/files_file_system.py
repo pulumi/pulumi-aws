@@ -415,7 +415,7 @@ class FilesFileSystem(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['FilesFileSystemTimeoutsArgs', 'FilesFileSystemTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['FilesFileSystemTimeoutsArgs', 'FilesFileSystemTimeoutsArgsDict', 'outputs.FilesFileSystemTimeouts']]] = None,
                  __props__=None):
         """
         Manages an S3 Files File System.
@@ -525,7 +525,7 @@ class FilesFileSystem(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['FilesFileSystemTimeoutsArgs', 'FilesFileSystemTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['FilesFileSystemTimeoutsArgs', 'FilesFileSystemTimeoutsArgsDict', 'outputs.FilesFileSystemTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -578,7 +578,7 @@ class FilesFileSystem(pulumi.CustomResource):
             status_message: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['FilesFileSystemTimeoutsArgs', 'FilesFileSystemTimeoutsArgsDict']]] = None) -> 'FilesFileSystem':
+            timeouts: pulumi.Input[Optional[Union['FilesFileSystemTimeoutsArgs', 'FilesFileSystemTimeoutsArgsDict', 'outputs.FilesFileSystemTimeouts']]] = None) -> 'FilesFileSystem':
         """
         Get an existing FilesFileSystem resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

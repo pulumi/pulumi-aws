@@ -171,7 +171,7 @@ class AwaitableGetRouteTableResult(GetRouteTableResult):
             vpc_id=self.vpc_id)
 
 
-def get_route_table(filters: Optional[Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict']]] = None,
+def get_route_table(filters: Optional[Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict', 'outputs.GetRouteTableFilterResult']]] = None,
                     gateway_id: Optional[_builtins.str] = None,
                     region: Optional[_builtins.str] = None,
                     route_table_id: Optional[_builtins.str] = None,
@@ -202,7 +202,7 @@ def get_route_table(filters: Optional[Sequence[Union['GetRouteTableFilterArgs', 
     ```
 
 
-    :param Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict']] filters: Configuration block. Detailed below.
+    :param Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict', 'outputs.GetRouteTableFilterResult']] filters: Configuration block. Detailed below.
     :param _builtins.str gateway_id: ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str route_table_id: ID of the specific Route Table to retrieve.
@@ -234,7 +234,7 @@ def get_route_table(filters: Optional[Sequence[Union['GetRouteTableFilterArgs', 
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_route_table_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict']]]]] = None,
+def get_route_table_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict', 'outputs.GetRouteTableFilterResult']]]]] = None,
                            gateway_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            route_table_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -265,7 +265,7 @@ def get_route_table_output(filters: pulumi.Input[Optional[Optional[Sequence[Unio
     ```
 
 
-    :param Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict']] filters: Configuration block. Detailed below.
+    :param Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict', 'outputs.GetRouteTableFilterResult']] filters: Configuration block. Detailed below.
     :param _builtins.str gateway_id: ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str route_table_id: ID of the specific Route Table to retrieve.

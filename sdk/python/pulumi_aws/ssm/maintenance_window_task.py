@@ -495,9 +495,9 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict']]]]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict', 'outputs.MaintenanceWindowTaskTarget']]]]] = None,
                  task_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 task_invocation_parameters: pulumi.Input[Optional[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict']]] = None,
+                 task_invocation_parameters: pulumi.Input[Optional[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict', 'outputs.MaintenanceWindowTaskTaskInvocationParameters']]] = None,
                  task_type: pulumi.Input[Optional[_builtins.str]] = None,
                  window_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -652,9 +652,9 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] priority: The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] service_role_arn: The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict']]]] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict', 'outputs.MaintenanceWindowTaskTarget']]]] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         :param pulumi.Input[_builtins.str] task_arn: The ARN of the task to execute.
-        :param pulumi.Input[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict']] task_invocation_parameters: Configuration block with parameters for task execution.
+        :param pulumi.Input[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict', 'outputs.MaintenanceWindowTaskTaskInvocationParameters']] task_invocation_parameters: Configuration block with parameters for task execution.
         :param pulumi.Input[_builtins.str] task_type: The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
         :param pulumi.Input[_builtins.str] window_id: The Id of the maintenance window to register the task with.
         """
@@ -828,9 +828,9 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict']]]]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict', 'outputs.MaintenanceWindowTaskTarget']]]]] = None,
                  task_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 task_invocation_parameters: pulumi.Input[Optional[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict']]] = None,
+                 task_invocation_parameters: pulumi.Input[Optional[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict', 'outputs.MaintenanceWindowTaskTaskInvocationParameters']]] = None,
                  task_type: pulumi.Input[Optional[_builtins.str]] = None,
                  window_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -882,9 +882,9 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             priority: pulumi.Input[Optional[_builtins.int]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict']]]]] = None,
+            targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict', 'outputs.MaintenanceWindowTaskTarget']]]]] = None,
             task_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            task_invocation_parameters: pulumi.Input[Optional[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict']]] = None,
+            task_invocation_parameters: pulumi.Input[Optional[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict', 'outputs.MaintenanceWindowTaskTaskInvocationParameters']]] = None,
             task_type: pulumi.Input[Optional[_builtins.str]] = None,
             window_id: pulumi.Input[Optional[_builtins.str]] = None,
             window_task_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'MaintenanceWindowTask':
@@ -904,9 +904,9 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] priority: The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] service_role_arn: The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict']]]] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict', 'outputs.MaintenanceWindowTaskTarget']]]] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         :param pulumi.Input[_builtins.str] task_arn: The ARN of the task to execute.
-        :param pulumi.Input[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict']] task_invocation_parameters: Configuration block with parameters for task execution.
+        :param pulumi.Input[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict', 'outputs.MaintenanceWindowTaskTaskInvocationParameters']] task_invocation_parameters: Configuration block with parameters for task execution.
         :param pulumi.Input[_builtins.str] task_type: The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
         :param pulumi.Input[_builtins.str] window_id: The Id of the maintenance window to register the task with.
         :param pulumi.Input[_builtins.str] window_task_id: The ID of the maintenance window task.

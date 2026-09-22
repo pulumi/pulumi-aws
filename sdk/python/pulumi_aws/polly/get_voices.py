@@ -106,7 +106,7 @@ def get_voices(engine: Optional[_builtins.str] = None,
                include_additional_language_codes: Optional[_builtins.bool] = None,
                language_code: Optional[_builtins.str] = None,
                region: Optional[_builtins.str] = None,
-               voices: Optional[Sequence[Union['GetVoicesVoiceArgs', 'GetVoicesVoiceArgsDict']]] = None,
+               voices: Optional[Sequence[Union['GetVoicesVoiceArgs', 'GetVoicesVoiceArgsDict', 'outputs.GetVoicesVoiceResult']]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVoicesResult:
     """
     Data source for managing an AWS Polly Voices.
@@ -136,7 +136,7 @@ def get_voices(engine: Optional[_builtins.str] = None,
     :param _builtins.bool include_additional_language_codes: Whether to return any bilingual voices that use the specified language as an additional language.
     :param _builtins.str language_code: Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Sequence[Union['GetVoicesVoiceArgs', 'GetVoicesVoiceArgsDict']] voices: List of voices with their properties. See `voices` Attribute Reference below.
+    :param Sequence[Union['GetVoicesVoiceArgs', 'GetVoicesVoiceArgsDict', 'outputs.GetVoicesVoiceResult']] voices: List of voices with their properties. See `voices` Attribute Reference below.
     """
     __args__ = dict()
     __args__['engine'] = engine
@@ -158,7 +158,7 @@ def get_voices_output(engine: pulumi.Input[Optional[Optional[_builtins.str]]] = 
                       include_additional_language_codes: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                       language_code: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                      voices: pulumi.Input[Optional[Optional[Sequence[Union['GetVoicesVoiceArgs', 'GetVoicesVoiceArgsDict']]]]] = None,
+                      voices: pulumi.Input[Optional[Optional[Sequence[Union['GetVoicesVoiceArgs', 'GetVoicesVoiceArgsDict', 'outputs.GetVoicesVoiceResult']]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVoicesResult]:
     """
     Data source for managing an AWS Polly Voices.
@@ -188,7 +188,7 @@ def get_voices_output(engine: pulumi.Input[Optional[Optional[_builtins.str]]] = 
     :param _builtins.bool include_additional_language_codes: Whether to return any bilingual voices that use the specified language as an additional language.
     :param _builtins.str language_code: Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Sequence[Union['GetVoicesVoiceArgs', 'GetVoicesVoiceArgsDict']] voices: List of voices with their properties. See `voices` Attribute Reference below.
+    :param Sequence[Union['GetVoicesVoiceArgs', 'GetVoicesVoiceArgsDict', 'outputs.GetVoicesVoiceResult']] voices: List of voices with their properties. See `voices` Attribute Reference below.
     """
     __args__ = dict()
     __args__['engine'] = engine

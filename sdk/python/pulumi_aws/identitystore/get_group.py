@@ -123,7 +123,7 @@ class AwaitableGetGroupResult(GetGroupResult):
             region=self.region)
 
 
-def get_group(alternate_identifier: Optional[Union['GetGroupAlternateIdentifierArgs', 'GetGroupAlternateIdentifierArgsDict']] = None,
+def get_group(alternate_identifier: Optional[Union['GetGroupAlternateIdentifierArgs', 'GetGroupAlternateIdentifierArgsDict', 'outputs.GetGroupAlternateIdentifierResult']] = None,
               group_id: Optional[_builtins.str] = None,
               identity_store_id: Optional[_builtins.str] = None,
               region: Optional[_builtins.str] = None,
@@ -149,7 +149,7 @@ def get_group(alternate_identifier: Optional[Union['GetGroupAlternateIdentifierA
     ```
 
 
-    :param Union['GetGroupAlternateIdentifierArgs', 'GetGroupAlternateIdentifierArgsDict'] alternate_identifier: A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
+    :param Union['GetGroupAlternateIdentifierArgs', 'GetGroupAlternateIdentifierArgsDict', 'outputs.GetGroupAlternateIdentifierResult'] alternate_identifier: A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
     :param _builtins.str group_id: The identifier for a group in the Identity Store.
            
            > Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
@@ -175,7 +175,7 @@ def get_group(alternate_identifier: Optional[Union['GetGroupAlternateIdentifierA
         id=pulumi.get(__ret__, 'id'),
         identity_store_id=pulumi.get(__ret__, 'identity_store_id'),
         region=pulumi.get(__ret__, 'region'))
-def get_group_output(alternate_identifier: pulumi.Input[Optional[Optional[Union['GetGroupAlternateIdentifierArgs', 'GetGroupAlternateIdentifierArgsDict']]]] = None,
+def get_group_output(alternate_identifier: pulumi.Input[Optional[Optional[Union['GetGroupAlternateIdentifierArgs', 'GetGroupAlternateIdentifierArgsDict', 'outputs.GetGroupAlternateIdentifierResult']]]] = None,
                      group_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      identity_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -201,7 +201,7 @@ def get_group_output(alternate_identifier: pulumi.Input[Optional[Optional[Union[
     ```
 
 
-    :param Union['GetGroupAlternateIdentifierArgs', 'GetGroupAlternateIdentifierArgsDict'] alternate_identifier: A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
+    :param Union['GetGroupAlternateIdentifierArgs', 'GetGroupAlternateIdentifierArgsDict', 'outputs.GetGroupAlternateIdentifierResult'] alternate_identifier: A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
     :param _builtins.str group_id: The identifier for a group in the Identity Store.
            
            > Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.

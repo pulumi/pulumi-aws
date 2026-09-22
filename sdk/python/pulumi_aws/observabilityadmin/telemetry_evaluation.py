@@ -131,7 +131,7 @@ class TelemetryEvaluation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['TelemetryEvaluationTimeoutsArgs', 'TelemetryEvaluationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TelemetryEvaluationTimeoutsArgs', 'TelemetryEvaluationTimeoutsArgsDict', 'outputs.TelemetryEvaluationTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS CloudWatch Observability Admin Telemetry Evaluation.
@@ -235,7 +235,7 @@ class TelemetryEvaluation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['TelemetryEvaluationTimeoutsArgs', 'TelemetryEvaluationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TelemetryEvaluationTimeoutsArgs', 'TelemetryEvaluationTimeoutsArgsDict', 'outputs.TelemetryEvaluationTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -262,7 +262,7 @@ class TelemetryEvaluation(pulumi.CustomResource):
             failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['TelemetryEvaluationTimeoutsArgs', 'TelemetryEvaluationTimeoutsArgsDict']]] = None) -> 'TelemetryEvaluation':
+            timeouts: pulumi.Input[Optional[Union['TelemetryEvaluationTimeoutsArgs', 'TelemetryEvaluationTimeoutsArgsDict', 'outputs.TelemetryEvaluationTimeouts']]] = None) -> 'TelemetryEvaluation':
         """
         Get an existing TelemetryEvaluation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

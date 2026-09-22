@@ -260,7 +260,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SslNegotiationPolicyAttributeArgs', 'SslNegotiationPolicyAttributeArgsDict']]]]] = None,
+                 attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SslNegotiationPolicyAttributeArgs', 'SslNegotiationPolicyAttributeArgsDict', 'outputs.SslNegotiationPolicyAttribute']]]]] = None,
                  lb_port: pulumi.Input[Optional[_builtins.int]] = None,
                  load_balancer: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -325,7 +325,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SslNegotiationPolicyAttributeArgs', 'SslNegotiationPolicyAttributeArgsDict']]]] attributes: An SSL Negotiation policy attribute. Each has two properties:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SslNegotiationPolicyAttributeArgs', 'SslNegotiationPolicyAttributeArgsDict', 'outputs.SslNegotiationPolicyAttribute']]]] attributes: An SSL Negotiation policy attribute. Each has two properties:
         :param pulumi.Input[_builtins.int] lb_port: The load balancer port to which the policy
                should be applied. This must be an active listener on the load
                balancer.
@@ -416,7 +416,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SslNegotiationPolicyAttributeArgs', 'SslNegotiationPolicyAttributeArgsDict']]]]] = None,
+                 attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SslNegotiationPolicyAttributeArgs', 'SslNegotiationPolicyAttributeArgsDict', 'outputs.SslNegotiationPolicyAttribute']]]]] = None,
                  lb_port: pulumi.Input[Optional[_builtins.int]] = None,
                  load_balancer: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -453,7 +453,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SslNegotiationPolicyAttributeArgs', 'SslNegotiationPolicyAttributeArgsDict']]]]] = None,
+            attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SslNegotiationPolicyAttributeArgs', 'SslNegotiationPolicyAttributeArgsDict', 'outputs.SslNegotiationPolicyAttribute']]]]] = None,
             lb_port: pulumi.Input[Optional[_builtins.int]] = None,
             load_balancer: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -466,7 +466,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SslNegotiationPolicyAttributeArgs', 'SslNegotiationPolicyAttributeArgsDict']]]] attributes: An SSL Negotiation policy attribute. Each has two properties:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SslNegotiationPolicyAttributeArgs', 'SslNegotiationPolicyAttributeArgsDict', 'outputs.SslNegotiationPolicyAttribute']]]] attributes: An SSL Negotiation policy attribute. Each has two properties:
         :param pulumi.Input[_builtins.int] lb_port: The load balancer port to which the policy
                should be applied. This must be an active listener on the load
                balancer.

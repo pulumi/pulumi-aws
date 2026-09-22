@@ -267,7 +267,7 @@ class UserProfile(pulumi.CustomResource):
                  domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['UserProfileTimeoutsArgs', 'UserProfileTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['UserProfileTimeoutsArgs', 'UserProfileTimeoutsArgsDict', 'outputs.UserProfileTimeouts']]] = None,
                  user_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  user_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -381,7 +381,7 @@ class UserProfile(pulumi.CustomResource):
                  domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['UserProfileTimeoutsArgs', 'UserProfileTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['UserProfileTimeoutsArgs', 'UserProfileTimeoutsArgsDict', 'outputs.UserProfileTimeouts']]] = None,
                  user_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  user_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -415,11 +415,11 @@ class UserProfile(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserProfileDetailArgs', 'UserProfileDetailArgsDict']]]]] = None,
+            details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserProfileDetailArgs', 'UserProfileDetailArgsDict', 'outputs.UserProfileDetail']]]]] = None,
             domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['UserProfileTimeoutsArgs', 'UserProfileTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['UserProfileTimeoutsArgs', 'UserProfileTimeoutsArgsDict', 'outputs.UserProfileTimeouts']]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
             user_identifier: pulumi.Input[Optional[_builtins.str]] = None,
             user_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'UserProfile':
@@ -430,7 +430,7 @@ class UserProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['UserProfileDetailArgs', 'UserProfileDetailArgsDict']]]] details: Details about the user profile.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserProfileDetailArgs', 'UserProfileDetailArgsDict', 'outputs.UserProfileDetail']]]] details: Details about the user profile.
         :param pulumi.Input[_builtins.str] domain_identifier: The domain identifier.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] status: The user profile status.

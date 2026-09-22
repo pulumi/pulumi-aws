@@ -355,7 +355,7 @@ class SafetyRule(pulumi.CustomResource):
                  control_panel_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  gating_controls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_config: pulumi.Input[Optional[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict']]] = None,
+                 rule_config: pulumi.Input[Optional[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict', 'outputs.SafetyRuleRuleConfig']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_controls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  wait_period_ms: pulumi.Input[Optional[_builtins.int]] = None,
@@ -413,7 +413,7 @@ class SafetyRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] control_panel_arn: ARN of the control panel in which this safety rule will reside.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] gating_controls: Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
         :param pulumi.Input[_builtins.str] name: Name describing the safety rule.
-        :param pulumi.Input[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict']] rule_config: Configuration block for safety rule criteria. See below.
+        :param pulumi.Input[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict', 'outputs.SafetyRuleRuleConfig']] rule_config: Configuration block for safety rule criteria. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] target_controls: Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
         :param pulumi.Input[_builtins.int] wait_period_ms: Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
@@ -492,7 +492,7 @@ class SafetyRule(pulumi.CustomResource):
                  control_panel_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  gating_controls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_config: pulumi.Input[Optional[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict']]] = None,
+                 rule_config: pulumi.Input[Optional[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict', 'outputs.SafetyRuleRuleConfig']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_controls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  wait_period_ms: pulumi.Input[Optional[_builtins.int]] = None,
@@ -537,7 +537,7 @@ class SafetyRule(pulumi.CustomResource):
             control_panel_arn: pulumi.Input[Optional[_builtins.str]] = None,
             gating_controls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            rule_config: pulumi.Input[Optional[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict']]] = None,
+            rule_config: pulumi.Input[Optional[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict', 'outputs.SafetyRuleRuleConfig']]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -555,7 +555,7 @@ class SafetyRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] control_panel_arn: ARN of the control panel in which this safety rule will reside.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] gating_controls: Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
         :param pulumi.Input[_builtins.str] name: Name describing the safety rule.
-        :param pulumi.Input[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict']] rule_config: Configuration block for safety rule criteria. See below.
+        :param pulumi.Input[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict', 'outputs.SafetyRuleRuleConfig']] rule_config: Configuration block for safety rule criteria. See below.
         :param pulumi.Input[_builtins.str] status: Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

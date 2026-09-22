@@ -842,9 +842,9 @@ class Ami(pulumi.CustomResource):
                  boot_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  deprecation_time: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 ebs_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AmiEbsBlockDeviceArgs', 'AmiEbsBlockDeviceArgsDict']]]]] = None,
+                 ebs_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AmiEbsBlockDeviceArgs', 'AmiEbsBlockDeviceArgsDict', 'outputs.AmiEbsBlockDevice']]]]] = None,
                  ena_support: pulumi.Input[Optional[_builtins.bool]] = None,
-                 ephemeral_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AmiEphemeralBlockDeviceArgs', 'AmiEphemeralBlockDeviceArgsDict']]]]] = None,
+                 ephemeral_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AmiEphemeralBlockDeviceArgs', 'AmiEphemeralBlockDeviceArgsDict', 'outputs.AmiEphemeralBlockDevice']]]]] = None,
                  image_location: pulumi.Input[Optional[_builtins.str]] = None,
                  imds_support: pulumi.Input[Optional[_builtins.str]] = None,
                  kernel_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -904,10 +904,10 @@ class Ami(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] boot_mode: Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the EC2 User Guide.
         :param pulumi.Input[_builtins.str] deprecation_time: Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         :param pulumi.Input[_builtins.str] description: Longer, human-readable description for the AMI.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AmiEbsBlockDeviceArgs', 'AmiEbsBlockDeviceArgsDict']]]] ebs_block_devices: Nested block describing an EBS block device that should be
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AmiEbsBlockDeviceArgs', 'AmiEbsBlockDeviceArgsDict', 'outputs.AmiEbsBlockDevice']]]] ebs_block_devices: Nested block describing an EBS block device that should be
                attached to created instances. The structure of this block is described below.
         :param pulumi.Input[_builtins.bool] ena_support: Whether enhanced networking with ENA is enabled. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AmiEphemeralBlockDeviceArgs', 'AmiEphemeralBlockDeviceArgsDict']]]] ephemeral_block_devices: Nested block describing an ephemeral block device that
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AmiEphemeralBlockDeviceArgs', 'AmiEphemeralBlockDeviceArgsDict', 'outputs.AmiEphemeralBlockDevice']]]] ephemeral_block_devices: Nested block describing an ephemeral block device that
                should be attached to created instances. The structure of this block is described below.
         :param pulumi.Input[_builtins.str] imds_support: If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
         :param pulumi.Input[_builtins.str] name: Region-unique name for the AMI.
@@ -985,9 +985,9 @@ class Ami(pulumi.CustomResource):
                  boot_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  deprecation_time: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 ebs_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AmiEbsBlockDeviceArgs', 'AmiEbsBlockDeviceArgsDict']]]]] = None,
+                 ebs_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AmiEbsBlockDeviceArgs', 'AmiEbsBlockDeviceArgsDict', 'outputs.AmiEbsBlockDevice']]]]] = None,
                  ena_support: pulumi.Input[Optional[_builtins.bool]] = None,
-                 ephemeral_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AmiEphemeralBlockDeviceArgs', 'AmiEphemeralBlockDeviceArgsDict']]]]] = None,
+                 ephemeral_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AmiEphemeralBlockDeviceArgs', 'AmiEphemeralBlockDeviceArgsDict', 'outputs.AmiEphemeralBlockDevice']]]]] = None,
                  image_location: pulumi.Input[Optional[_builtins.str]] = None,
                  imds_support: pulumi.Input[Optional[_builtins.str]] = None,
                  kernel_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1056,9 +1056,9 @@ class Ami(pulumi.CustomResource):
             boot_mode: pulumi.Input[Optional[_builtins.str]] = None,
             deprecation_time: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            ebs_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AmiEbsBlockDeviceArgs', 'AmiEbsBlockDeviceArgsDict']]]]] = None,
+            ebs_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AmiEbsBlockDeviceArgs', 'AmiEbsBlockDeviceArgsDict', 'outputs.AmiEbsBlockDevice']]]]] = None,
             ena_support: pulumi.Input[Optional[_builtins.bool]] = None,
-            ephemeral_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AmiEphemeralBlockDeviceArgs', 'AmiEphemeralBlockDeviceArgsDict']]]]] = None,
+            ephemeral_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AmiEphemeralBlockDeviceArgs', 'AmiEphemeralBlockDeviceArgsDict', 'outputs.AmiEphemeralBlockDevice']]]]] = None,
             hypervisor: pulumi.Input[Optional[_builtins.str]] = None,
             image_location: pulumi.Input[Optional[_builtins.str]] = None,
             image_owner_alias: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1095,10 +1095,10 @@ class Ami(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] boot_mode: Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the EC2 User Guide.
         :param pulumi.Input[_builtins.str] deprecation_time: Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         :param pulumi.Input[_builtins.str] description: Longer, human-readable description for the AMI.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AmiEbsBlockDeviceArgs', 'AmiEbsBlockDeviceArgsDict']]]] ebs_block_devices: Nested block describing an EBS block device that should be
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AmiEbsBlockDeviceArgs', 'AmiEbsBlockDeviceArgsDict', 'outputs.AmiEbsBlockDevice']]]] ebs_block_devices: Nested block describing an EBS block device that should be
                attached to created instances. The structure of this block is described below.
         :param pulumi.Input[_builtins.bool] ena_support: Whether enhanced networking with ENA is enabled. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AmiEphemeralBlockDeviceArgs', 'AmiEphemeralBlockDeviceArgsDict']]]] ephemeral_block_devices: Nested block describing an ephemeral block device that
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AmiEphemeralBlockDeviceArgs', 'AmiEphemeralBlockDeviceArgsDict', 'outputs.AmiEphemeralBlockDevice']]]] ephemeral_block_devices: Nested block describing an ephemeral block device that
                should be attached to created instances. The structure of this block is described below.
         :param pulumi.Input[_builtins.str] hypervisor: Hypervisor type of the image.
         :param pulumi.Input[_builtins.str] image_owner_alias: AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.

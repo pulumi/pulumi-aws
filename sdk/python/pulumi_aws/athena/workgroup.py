@@ -298,7 +298,7 @@ class Workgroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['WorkgroupConfigurationArgs', 'WorkgroupConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['WorkgroupConfigurationArgs', 'WorkgroupConfigurationArgsDict', 'outputs.WorkgroupConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -341,7 +341,7 @@ class Workgroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['WorkgroupConfigurationArgs', 'WorkgroupConfigurationArgsDict']] configuration: Configuration block with various settings for the workgroup. Documented below.
+        :param pulumi.Input[Union['WorkgroupConfigurationArgs', 'WorkgroupConfigurationArgsDict', 'outputs.WorkgroupConfiguration']] configuration: Configuration block with various settings for the workgroup. Documented below.
         :param pulumi.Input[_builtins.str] description: Description of the workgroup.
         :param pulumi.Input[_builtins.bool] force_destroy: Option to delete the workgroup and its contents even if the workgroup contains any named queries.
         :param pulumi.Input[_builtins.str] name: Name of the workgroup.
@@ -403,7 +403,7 @@ class Workgroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['WorkgroupConfigurationArgs', 'WorkgroupConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['WorkgroupConfigurationArgs', 'WorkgroupConfigurationArgsDict', 'outputs.WorkgroupConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -439,7 +439,7 @@ class Workgroup(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            configuration: pulumi.Input[Optional[Union['WorkgroupConfigurationArgs', 'WorkgroupConfigurationArgsDict']]] = None,
+            configuration: pulumi.Input[Optional[Union['WorkgroupConfigurationArgs', 'WorkgroupConfigurationArgsDict', 'outputs.WorkgroupConfiguration']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -455,7 +455,7 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the workgroup
-        :param pulumi.Input[Union['WorkgroupConfigurationArgs', 'WorkgroupConfigurationArgsDict']] configuration: Configuration block with various settings for the workgroup. Documented below.
+        :param pulumi.Input[Union['WorkgroupConfigurationArgs', 'WorkgroupConfigurationArgsDict', 'outputs.WorkgroupConfiguration']] configuration: Configuration block with various settings for the workgroup. Documented below.
         :param pulumi.Input[_builtins.str] description: Description of the workgroup.
         :param pulumi.Input[_builtins.bool] force_destroy: Option to delete the workgroup and its contents even if the workgroup contains any named queries.
         :param pulumi.Input[_builtins.str] name: Name of the workgroup.

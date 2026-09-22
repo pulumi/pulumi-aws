@@ -165,7 +165,7 @@ class AwaitableGetPrincipalPolicySimulationResult(GetPrincipalPolicySimulationRe
 def get_principal_policy_simulation(action_names: Optional[Sequence[_builtins.str]] = None,
                                     additional_policies_jsons: Optional[Sequence[_builtins.str]] = None,
                                     caller_arn: Optional[_builtins.str] = None,
-                                    contexts: Optional[Sequence[Union['GetPrincipalPolicySimulationContextArgs', 'GetPrincipalPolicySimulationContextArgsDict']]] = None,
+                                    contexts: Optional[Sequence[Union['GetPrincipalPolicySimulationContextArgs', 'GetPrincipalPolicySimulationContextArgsDict', 'outputs.GetPrincipalPolicySimulationContextResult']]] = None,
                                     permissions_boundary_policies_jsons: Optional[Sequence[_builtins.str]] = None,
                                     policy_source_arn: Optional[_builtins.str] = None,
                                     resource_arns: Optional[Sequence[_builtins.str]] = None,
@@ -264,7 +264,7 @@ def get_principal_policy_simulation(action_names: Optional[Sequence[_builtins.st
            Action names consist of a service prefix and an action verb separated by a colon, such as `s3:GetObject`. Refer to [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) to see the full set of possible IAM action names across all AWS services.
     :param Sequence[_builtins.str] additional_policies_jsons: A set of additional principal policy documents to include in the simulation. The simulator will behave as if each of these policies were associated with the object specified in `policy_source_arn`, allowing you to test the effect of hypothetical policies not yet created.
     :param _builtins.str caller_arn: The ARN of an user that will appear as the "caller" of the simulated requests. If you do not specify `caller_arn` then the simulation will use the `policy_source_arn` instead, if it contains a user ARN.
-    :param Sequence[Union['GetPrincipalPolicySimulationContextArgs', 'GetPrincipalPolicySimulationContextArgsDict']] contexts: Each `context` block defines an entry in the table of additional context keys in the simulated request.
+    :param Sequence[Union['GetPrincipalPolicySimulationContextArgs', 'GetPrincipalPolicySimulationContextArgsDict', 'outputs.GetPrincipalPolicySimulationContextResult']] contexts: Each `context` block defines an entry in the table of additional context keys in the simulated request.
            
            IAM uses context keys for both custom conditions and for interpolating dynamic request-specific values into policy values. If you use policies that include those features then you will need to provide suitable example values for those keys to achieve a realistic simulation.
     :param Sequence[_builtins.str] permissions_boundary_policies_jsons: A set of [permissions boundary policy documents](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) to include in the simulation.
@@ -315,7 +315,7 @@ def get_principal_policy_simulation(action_names: Optional[Sequence[_builtins.st
 def get_principal_policy_simulation_output(action_names: pulumi.Input[Optional[Sequence[_builtins.str]]] = None,
                                            additional_policies_jsons: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                                            caller_arn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                           contexts: pulumi.Input[Optional[Optional[Sequence[Union['GetPrincipalPolicySimulationContextArgs', 'GetPrincipalPolicySimulationContextArgsDict']]]]] = None,
+                                           contexts: pulumi.Input[Optional[Optional[Sequence[Union['GetPrincipalPolicySimulationContextArgs', 'GetPrincipalPolicySimulationContextArgsDict', 'outputs.GetPrincipalPolicySimulationContextResult']]]]] = None,
                                            permissions_boundary_policies_jsons: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                                            policy_source_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                            resource_arns: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
@@ -414,7 +414,7 @@ def get_principal_policy_simulation_output(action_names: pulumi.Input[Optional[S
            Action names consist of a service prefix and an action verb separated by a colon, such as `s3:GetObject`. Refer to [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) to see the full set of possible IAM action names across all AWS services.
     :param Sequence[_builtins.str] additional_policies_jsons: A set of additional principal policy documents to include in the simulation. The simulator will behave as if each of these policies were associated with the object specified in `policy_source_arn`, allowing you to test the effect of hypothetical policies not yet created.
     :param _builtins.str caller_arn: The ARN of an user that will appear as the "caller" of the simulated requests. If you do not specify `caller_arn` then the simulation will use the `policy_source_arn` instead, if it contains a user ARN.
-    :param Sequence[Union['GetPrincipalPolicySimulationContextArgs', 'GetPrincipalPolicySimulationContextArgsDict']] contexts: Each `context` block defines an entry in the table of additional context keys in the simulated request.
+    :param Sequence[Union['GetPrincipalPolicySimulationContextArgs', 'GetPrincipalPolicySimulationContextArgsDict', 'outputs.GetPrincipalPolicySimulationContextResult']] contexts: Each `context` block defines an entry in the table of additional context keys in the simulated request.
            
            IAM uses context keys for both custom conditions and for interpolating dynamic request-specific values into policy values. If you use policies that include those features then you will need to provide suitable example values for those keys to achieve a realistic simulation.
     :param Sequence[_builtins.str] permissions_boundary_policies_jsons: A set of [permissions boundary policy documents](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) to include in the simulation.

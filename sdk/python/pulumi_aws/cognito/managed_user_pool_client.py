@@ -853,7 +853,7 @@ class ManagedUserPoolClient(pulumi.CustomResource):
                  allowed_oauth_flows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  allowed_oauth_flows_user_pool_client: pulumi.Input[Optional[_builtins.bool]] = None,
                  allowed_oauth_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 analytics_configuration: pulumi.Input[Optional[Union['ManagedUserPoolClientAnalyticsConfigurationArgs', 'ManagedUserPoolClientAnalyticsConfigurationArgsDict']]] = None,
+                 analytics_configuration: pulumi.Input[Optional[Union['ManagedUserPoolClientAnalyticsConfigurationArgs', 'ManagedUserPoolClientAnalyticsConfigurationArgsDict', 'outputs.ManagedUserPoolClientAnalyticsConfiguration']]] = None,
                  auth_session_validity: pulumi.Input[Optional[_builtins.int]] = None,
                  callback_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  default_redirect_uri: pulumi.Input[Optional[_builtins.str]] = None,
@@ -866,11 +866,11 @@ class ManagedUserPoolClient(pulumi.CustomResource):
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  prevent_user_existence_errors: pulumi.Input[Optional[_builtins.str]] = None,
                  read_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 refresh_token_rotation: pulumi.Input[Optional[Union['ManagedUserPoolClientRefreshTokenRotationArgs', 'ManagedUserPoolClientRefreshTokenRotationArgsDict']]] = None,
+                 refresh_token_rotation: pulumi.Input[Optional[Union['ManagedUserPoolClientRefreshTokenRotationArgs', 'ManagedUserPoolClientRefreshTokenRotationArgsDict', 'outputs.ManagedUserPoolClientRefreshTokenRotation']]] = None,
                  refresh_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  supported_identity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 token_validity_units: pulumi.Input[Optional[Union['ManagedUserPoolClientTokenValidityUnitsArgs', 'ManagedUserPoolClientTokenValidityUnitsArgsDict']]] = None,
+                 token_validity_units: pulumi.Input[Optional[Union['ManagedUserPoolClientTokenValidityUnitsArgs', 'ManagedUserPoolClientTokenValidityUnitsArgsDict', 'outputs.ManagedUserPoolClientTokenValidityUnits']]] = None,
                  user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  write_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -911,7 +911,7 @@ class ManagedUserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_oauth_flows: List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[_builtins.bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_oauth_scopes: List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
-        :param pulumi.Input[Union['ManagedUserPoolClientAnalyticsConfigurationArgs', 'ManagedUserPoolClientAnalyticsConfigurationArgsDict']] analytics_configuration: Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
+        :param pulumi.Input[Union['ManagedUserPoolClientAnalyticsConfigurationArgs', 'ManagedUserPoolClientAnalyticsConfigurationArgsDict', 'outputs.ManagedUserPoolClientAnalyticsConfiguration']] analytics_configuration: Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
         :param pulumi.Input[_builtins.int] auth_session_validity: Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] callback_urls: List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[_builtins.str] default_redirect_uri: Default redirect URI and must be included in the list of callback URLs.
@@ -926,11 +926,11 @@ class ManagedUserPoolClient(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] prevent_user_existence_errors: Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] read_attributes: List of user pool attributes that the application client can read from.
-        :param pulumi.Input[Union['ManagedUserPoolClientRefreshTokenRotationArgs', 'ManagedUserPoolClientRefreshTokenRotationArgsDict']] refresh_token_rotation: A block that specifies the configuration of refresh token rotation. Detailed below.
+        :param pulumi.Input[Union['ManagedUserPoolClientRefreshTokenRotationArgs', 'ManagedUserPoolClientRefreshTokenRotationArgsDict', 'outputs.ManagedUserPoolClientRefreshTokenRotation']] refresh_token_rotation: A block that specifies the configuration of refresh token rotation. Detailed below.
         :param pulumi.Input[_builtins.int] refresh_token_validity: Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `cognito.IdentityProvider` resource(s), or the equivalent string(s).
-        :param pulumi.Input[Union['ManagedUserPoolClientTokenValidityUnitsArgs', 'ManagedUserPoolClientTokenValidityUnitsArgsDict']] token_validity_units: Configuration block for representing the validity times in units. See details below. Detailed below.
+        :param pulumi.Input[Union['ManagedUserPoolClientTokenValidityUnitsArgs', 'ManagedUserPoolClientTokenValidityUnitsArgsDict', 'outputs.ManagedUserPoolClientTokenValidityUnits']] token_validity_units: Configuration block for representing the validity times in units. See details below. Detailed below.
         :param pulumi.Input[_builtins.str] user_pool_id: User pool that the client belongs to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] write_attributes: List of user pool attributes that the application client can write to.
         """
@@ -990,7 +990,7 @@ class ManagedUserPoolClient(pulumi.CustomResource):
                  allowed_oauth_flows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  allowed_oauth_flows_user_pool_client: pulumi.Input[Optional[_builtins.bool]] = None,
                  allowed_oauth_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 analytics_configuration: pulumi.Input[Optional[Union['ManagedUserPoolClientAnalyticsConfigurationArgs', 'ManagedUserPoolClientAnalyticsConfigurationArgsDict']]] = None,
+                 analytics_configuration: pulumi.Input[Optional[Union['ManagedUserPoolClientAnalyticsConfigurationArgs', 'ManagedUserPoolClientAnalyticsConfigurationArgsDict', 'outputs.ManagedUserPoolClientAnalyticsConfiguration']]] = None,
                  auth_session_validity: pulumi.Input[Optional[_builtins.int]] = None,
                  callback_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  default_redirect_uri: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1003,11 +1003,11 @@ class ManagedUserPoolClient(pulumi.CustomResource):
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  prevent_user_existence_errors: pulumi.Input[Optional[_builtins.str]] = None,
                  read_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 refresh_token_rotation: pulumi.Input[Optional[Union['ManagedUserPoolClientRefreshTokenRotationArgs', 'ManagedUserPoolClientRefreshTokenRotationArgsDict']]] = None,
+                 refresh_token_rotation: pulumi.Input[Optional[Union['ManagedUserPoolClientRefreshTokenRotationArgs', 'ManagedUserPoolClientRefreshTokenRotationArgsDict', 'outputs.ManagedUserPoolClientRefreshTokenRotation']]] = None,
                  refresh_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  supported_identity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 token_validity_units: pulumi.Input[Optional[Union['ManagedUserPoolClientTokenValidityUnitsArgs', 'ManagedUserPoolClientTokenValidityUnitsArgsDict']]] = None,
+                 token_validity_units: pulumi.Input[Optional[Union['ManagedUserPoolClientTokenValidityUnitsArgs', 'ManagedUserPoolClientTokenValidityUnitsArgsDict', 'outputs.ManagedUserPoolClientTokenValidityUnits']]] = None,
                  user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  write_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -1063,7 +1063,7 @@ class ManagedUserPoolClient(pulumi.CustomResource):
             allowed_oauth_flows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             allowed_oauth_flows_user_pool_client: pulumi.Input[Optional[_builtins.bool]] = None,
             allowed_oauth_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            analytics_configuration: pulumi.Input[Optional[Union['ManagedUserPoolClientAnalyticsConfigurationArgs', 'ManagedUserPoolClientAnalyticsConfigurationArgsDict']]] = None,
+            analytics_configuration: pulumi.Input[Optional[Union['ManagedUserPoolClientAnalyticsConfigurationArgs', 'ManagedUserPoolClientAnalyticsConfigurationArgsDict', 'outputs.ManagedUserPoolClientAnalyticsConfiguration']]] = None,
             auth_session_validity: pulumi.Input[Optional[_builtins.int]] = None,
             callback_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             client_secret: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1078,11 +1078,11 @@ class ManagedUserPoolClient(pulumi.CustomResource):
             name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
             prevent_user_existence_errors: pulumi.Input[Optional[_builtins.str]] = None,
             read_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            refresh_token_rotation: pulumi.Input[Optional[Union['ManagedUserPoolClientRefreshTokenRotationArgs', 'ManagedUserPoolClientRefreshTokenRotationArgsDict']]] = None,
+            refresh_token_rotation: pulumi.Input[Optional[Union['ManagedUserPoolClientRefreshTokenRotationArgs', 'ManagedUserPoolClientRefreshTokenRotationArgsDict', 'outputs.ManagedUserPoolClientRefreshTokenRotation']]] = None,
             refresh_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             supported_identity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            token_validity_units: pulumi.Input[Optional[Union['ManagedUserPoolClientTokenValidityUnitsArgs', 'ManagedUserPoolClientTokenValidityUnitsArgsDict']]] = None,
+            token_validity_units: pulumi.Input[Optional[Union['ManagedUserPoolClientTokenValidityUnitsArgs', 'ManagedUserPoolClientTokenValidityUnitsArgsDict', 'outputs.ManagedUserPoolClientTokenValidityUnits']]] = None,
             user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
             write_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'ManagedUserPoolClient':
         """
@@ -1096,7 +1096,7 @@ class ManagedUserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_oauth_flows: List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[_builtins.bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_oauth_scopes: List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
-        :param pulumi.Input[Union['ManagedUserPoolClientAnalyticsConfigurationArgs', 'ManagedUserPoolClientAnalyticsConfigurationArgsDict']] analytics_configuration: Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
+        :param pulumi.Input[Union['ManagedUserPoolClientAnalyticsConfigurationArgs', 'ManagedUserPoolClientAnalyticsConfigurationArgsDict', 'outputs.ManagedUserPoolClientAnalyticsConfiguration']] analytics_configuration: Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
         :param pulumi.Input[_builtins.int] auth_session_validity: Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] callback_urls: List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[_builtins.str] client_secret: Client secret of the user pool client.
@@ -1113,11 +1113,11 @@ class ManagedUserPoolClient(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] prevent_user_existence_errors: Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] read_attributes: List of user pool attributes that the application client can read from.
-        :param pulumi.Input[Union['ManagedUserPoolClientRefreshTokenRotationArgs', 'ManagedUserPoolClientRefreshTokenRotationArgsDict']] refresh_token_rotation: A block that specifies the configuration of refresh token rotation. Detailed below.
+        :param pulumi.Input[Union['ManagedUserPoolClientRefreshTokenRotationArgs', 'ManagedUserPoolClientRefreshTokenRotationArgsDict', 'outputs.ManagedUserPoolClientRefreshTokenRotation']] refresh_token_rotation: A block that specifies the configuration of refresh token rotation. Detailed below.
         :param pulumi.Input[_builtins.int] refresh_token_validity: Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `cognito.IdentityProvider` resource(s), or the equivalent string(s).
-        :param pulumi.Input[Union['ManagedUserPoolClientTokenValidityUnitsArgs', 'ManagedUserPoolClientTokenValidityUnitsArgsDict']] token_validity_units: Configuration block for representing the validity times in units. See details below. Detailed below.
+        :param pulumi.Input[Union['ManagedUserPoolClientTokenValidityUnitsArgs', 'ManagedUserPoolClientTokenValidityUnitsArgsDict', 'outputs.ManagedUserPoolClientTokenValidityUnits']] token_validity_units: Configuration block for representing the validity times in units. See details below. Detailed below.
         :param pulumi.Input[_builtins.str] user_pool_id: User pool that the client belongs to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] write_attributes: List of user pool attributes that the application client can write to.
         """

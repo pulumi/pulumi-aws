@@ -1308,8 +1308,8 @@ class Cluster(pulumi.CustomResource):
                  preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 restore_to_point_in_time: pulumi.Input[Optional[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict']]] = None,
-                 serverless_v2_scaling_configuration: pulumi.Input[Optional[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
+                 restore_to_point_in_time: pulumi.Input[Optional[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict', 'outputs.ClusterRestoreToPointInTime']]] = None,
+                 serverless_v2_scaling_configuration: pulumi.Input[Optional[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict', 'outputs.ClusterServerlessV2ScalingConfiguration']]] = None,
                  skip_final_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
                  snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1389,8 +1389,8 @@ class Cluster(pulumi.CustomResource):
                Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict']] restore_to_point_in_time: A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
-        :param pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']] serverless_v2_scaling_configuration: Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
+        :param pulumi.Input[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict', 'outputs.ClusterRestoreToPointInTime']] restore_to_point_in_time: A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+        :param pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict', 'outputs.ClusterServerlessV2ScalingConfiguration']] serverless_v2_scaling_configuration: Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
         :param pulumi.Input[_builtins.bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[_builtins.str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         :param pulumi.Input[_builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false`.
@@ -1486,8 +1486,8 @@ class Cluster(pulumi.CustomResource):
                  preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 restore_to_point_in_time: pulumi.Input[Optional[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict']]] = None,
-                 serverless_v2_scaling_configuration: pulumi.Input[Optional[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
+                 restore_to_point_in_time: pulumi.Input[Optional[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict', 'outputs.ClusterRestoreToPointInTime']]] = None,
+                 serverless_v2_scaling_configuration: pulumi.Input[Optional[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict', 'outputs.ClusterServerlessV2ScalingConfiguration']]] = None,
                  skip_final_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
                  snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1580,7 +1580,7 @@ class Cluster(pulumi.CustomResource):
             master_password: pulumi.Input[Optional[_builtins.str]] = None,
             master_password_wo: pulumi.Input[Optional[_builtins.str]] = None,
             master_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
-            master_user_secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterMasterUserSecretArgs', 'ClusterMasterUserSecretArgsDict']]]]] = None,
+            master_user_secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterMasterUserSecretArgs', 'ClusterMasterUserSecretArgsDict', 'outputs.ClusterMasterUserSecret']]]]] = None,
             master_username: pulumi.Input[Optional[_builtins.str]] = None,
             network_type: pulumi.Input[Optional[_builtins.str]] = None,
             port: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1588,8 +1588,8 @@ class Cluster(pulumi.CustomResource):
             preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
             reader_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            restore_to_point_in_time: pulumi.Input[Optional[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict']]] = None,
-            serverless_v2_scaling_configuration: pulumi.Input[Optional[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
+            restore_to_point_in_time: pulumi.Input[Optional[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict', 'outputs.ClusterRestoreToPointInTime']]] = None,
+            serverless_v2_scaling_configuration: pulumi.Input[Optional[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict', 'outputs.ClusterServerlessV2ScalingConfiguration']]] = None,
             skip_final_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
             snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
             storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1642,8 +1642,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         :param pulumi.Input[_builtins.str] reader_endpoint: A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict']] restore_to_point_in_time: A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
-        :param pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']] serverless_v2_scaling_configuration: Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
+        :param pulumi.Input[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict', 'outputs.ClusterRestoreToPointInTime']] restore_to_point_in_time: A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+        :param pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict', 'outputs.ClusterServerlessV2ScalingConfiguration']] serverless_v2_scaling_configuration: Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
         :param pulumi.Input[_builtins.bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[_builtins.str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         :param pulumi.Input[_builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false`.

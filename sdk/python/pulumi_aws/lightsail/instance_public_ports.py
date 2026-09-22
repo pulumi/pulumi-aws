@@ -145,7 +145,7 @@ class InstancePublicPorts(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 port_infos: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstancePublicPortsPortInfoArgs', 'InstancePublicPortsPortInfoArgsDict']]]]] = None,
+                 port_infos: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstancePublicPortsPortInfoArgs', 'InstancePublicPortsPortInfoArgsDict', 'outputs.InstancePublicPortsPortInfo']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -192,7 +192,7 @@ class InstancePublicPorts(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] instance_name: Name of the instance for which to open ports.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstancePublicPortsPortInfoArgs', 'InstancePublicPortsPortInfoArgsDict']]]] port_infos: Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstancePublicPortsPortInfoArgs', 'InstancePublicPortsPortInfoArgsDict', 'outputs.InstancePublicPortsPortInfo']]]] port_infos: Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -260,7 +260,7 @@ class InstancePublicPorts(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 port_infos: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstancePublicPortsPortInfoArgs', 'InstancePublicPortsPortInfoArgsDict']]]]] = None,
+                 port_infos: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstancePublicPortsPortInfoArgs', 'InstancePublicPortsPortInfoArgsDict', 'outputs.InstancePublicPortsPortInfo']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -289,7 +289,7 @@ class InstancePublicPorts(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             instance_name: pulumi.Input[Optional[_builtins.str]] = None,
-            port_infos: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstancePublicPortsPortInfoArgs', 'InstancePublicPortsPortInfoArgsDict']]]]] = None,
+            port_infos: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstancePublicPortsPortInfoArgs', 'InstancePublicPortsPortInfoArgsDict', 'outputs.InstancePublicPortsPortInfo']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'InstancePublicPorts':
         """
         Get an existing InstancePublicPorts resource's state with the given name, id, and optional extra
@@ -299,7 +299,7 @@ class InstancePublicPorts(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] instance_name: Name of the instance for which to open ports.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstancePublicPortsPortInfoArgs', 'InstancePublicPortsPortInfoArgsDict']]]] port_infos: Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstancePublicPortsPortInfoArgs', 'InstancePublicPortsPortInfoArgsDict', 'outputs.InstancePublicPortsPortInfo']]]] port_infos: Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

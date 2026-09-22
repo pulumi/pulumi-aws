@@ -352,7 +352,7 @@ class Control(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_plan_instructions: pulumi.Input[Optional[_builtins.str]] = None,
                  action_plan_title: pulumi.Input[Optional[_builtins.str]] = None,
-                 control_mapping_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ControlControlMappingSourceArgs', 'ControlControlMappingSourceArgsDict']]]]] = None,
+                 control_mapping_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ControlControlMappingSourceArgs', 'ControlControlMappingSourceArgsDict', 'outputs.ControlControlMappingSource']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -403,7 +403,7 @@ class Control(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action_plan_instructions: Recommended actions to carry out if the control isn't fulfilled.
         :param pulumi.Input[_builtins.str] action_plan_title: Title of the action plan for remediating the control.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ControlControlMappingSourceArgs', 'ControlControlMappingSourceArgsDict']]]] control_mapping_sources: Data mapping sources. See `control_mapping_sources` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ControlControlMappingSourceArgs', 'ControlControlMappingSourceArgsDict', 'outputs.ControlControlMappingSource']]]] control_mapping_sources: Data mapping sources. See `control_mapping_sources` below.
         :param pulumi.Input[_builtins.str] description: Description of the control.
         :param pulumi.Input[_builtins.str] name: Name of the control.
                
@@ -475,7 +475,7 @@ class Control(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_plan_instructions: pulumi.Input[Optional[_builtins.str]] = None,
                  action_plan_title: pulumi.Input[Optional[_builtins.str]] = None,
-                 control_mapping_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ControlControlMappingSourceArgs', 'ControlControlMappingSourceArgsDict']]]]] = None,
+                 control_mapping_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ControlControlMappingSourceArgs', 'ControlControlMappingSourceArgsDict', 'outputs.ControlControlMappingSource']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -514,7 +514,7 @@ class Control(pulumi.CustomResource):
             action_plan_instructions: pulumi.Input[Optional[_builtins.str]] = None,
             action_plan_title: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            control_mapping_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ControlControlMappingSourceArgs', 'ControlControlMappingSourceArgsDict']]]]] = None,
+            control_mapping_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ControlControlMappingSourceArgs', 'ControlControlMappingSourceArgsDict', 'outputs.ControlControlMappingSource']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -532,7 +532,7 @@ class Control(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] action_plan_instructions: Recommended actions to carry out if the control isn't fulfilled.
         :param pulumi.Input[_builtins.str] action_plan_title: Title of the action plan for remediating the control.
         :param pulumi.Input[_builtins.str] arn: ARN of the control.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ControlControlMappingSourceArgs', 'ControlControlMappingSourceArgsDict']]]] control_mapping_sources: Data mapping sources. See `control_mapping_sources` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ControlControlMappingSourceArgs', 'ControlControlMappingSourceArgsDict', 'outputs.ControlControlMappingSource']]]] control_mapping_sources: Data mapping sources. See `control_mapping_sources` below.
         :param pulumi.Input[_builtins.str] description: Description of the control.
         :param pulumi.Input[_builtins.str] name: Name of the control.
                

@@ -1334,40 +1334,40 @@ class LaunchTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 block_device_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateBlockDeviceMappingArgs', 'LaunchTemplateBlockDeviceMappingArgsDict']]]]] = None,
-                 capacity_reservation_specification: pulumi.Input[Optional[Union['LaunchTemplateCapacityReservationSpecificationArgs', 'LaunchTemplateCapacityReservationSpecificationArgsDict']]] = None,
-                 cpu_options: pulumi.Input[Optional[Union['LaunchTemplateCpuOptionsArgs', 'LaunchTemplateCpuOptionsArgsDict']]] = None,
-                 credit_specification: pulumi.Input[Optional[Union['LaunchTemplateCreditSpecificationArgs', 'LaunchTemplateCreditSpecificationArgsDict']]] = None,
+                 block_device_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateBlockDeviceMappingArgs', 'LaunchTemplateBlockDeviceMappingArgsDict', 'outputs.LaunchTemplateBlockDeviceMapping']]]]] = None,
+                 capacity_reservation_specification: pulumi.Input[Optional[Union['LaunchTemplateCapacityReservationSpecificationArgs', 'LaunchTemplateCapacityReservationSpecificationArgsDict', 'outputs.LaunchTemplateCapacityReservationSpecification']]] = None,
+                 cpu_options: pulumi.Input[Optional[Union['LaunchTemplateCpuOptionsArgs', 'LaunchTemplateCpuOptionsArgsDict', 'outputs.LaunchTemplateCpuOptions']]] = None,
+                 credit_specification: pulumi.Input[Optional[Union['LaunchTemplateCreditSpecificationArgs', 'LaunchTemplateCreditSpecificationArgsDict', 'outputs.LaunchTemplateCreditSpecification']]] = None,
                  default_version: pulumi.Input[Optional[_builtins.int]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_api_stop: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_api_termination: pulumi.Input[Optional[_builtins.bool]] = None,
                  ebs_optimized: pulumi.Input[Optional[_builtins.str]] = None,
-                 enclave_options: pulumi.Input[Optional[Union['LaunchTemplateEnclaveOptionsArgs', 'LaunchTemplateEnclaveOptionsArgsDict']]] = None,
-                 hibernation_options: pulumi.Input[Optional[Union['LaunchTemplateHibernationOptionsArgs', 'LaunchTemplateHibernationOptionsArgsDict']]] = None,
-                 iam_instance_profile: pulumi.Input[Optional[Union['LaunchTemplateIamInstanceProfileArgs', 'LaunchTemplateIamInstanceProfileArgsDict']]] = None,
+                 enclave_options: pulumi.Input[Optional[Union['LaunchTemplateEnclaveOptionsArgs', 'LaunchTemplateEnclaveOptionsArgsDict', 'outputs.LaunchTemplateEnclaveOptions']]] = None,
+                 hibernation_options: pulumi.Input[Optional[Union['LaunchTemplateHibernationOptionsArgs', 'LaunchTemplateHibernationOptionsArgsDict', 'outputs.LaunchTemplateHibernationOptions']]] = None,
+                 iam_instance_profile: pulumi.Input[Optional[Union['LaunchTemplateIamInstanceProfileArgs', 'LaunchTemplateIamInstanceProfileArgsDict', 'outputs.LaunchTemplateIamInstanceProfile']]] = None,
                  image_id: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_initiated_shutdown_behavior: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_market_options: pulumi.Input[Optional[Union['LaunchTemplateInstanceMarketOptionsArgs', 'LaunchTemplateInstanceMarketOptionsArgsDict']]] = None,
-                 instance_requirements: pulumi.Input[Optional[Union['LaunchTemplateInstanceRequirementsArgs', 'LaunchTemplateInstanceRequirementsArgsDict']]] = None,
+                 instance_market_options: pulumi.Input[Optional[Union['LaunchTemplateInstanceMarketOptionsArgs', 'LaunchTemplateInstanceMarketOptionsArgsDict', 'outputs.LaunchTemplateInstanceMarketOptions']]] = None,
+                 instance_requirements: pulumi.Input[Optional[Union['LaunchTemplateInstanceRequirementsArgs', 'LaunchTemplateInstanceRequirementsArgsDict', 'outputs.LaunchTemplateInstanceRequirements']]] = None,
                  instance_type: pulumi.Input[Optional[_builtins.str]] = None,
                  kernel_id: pulumi.Input[Optional[_builtins.str]] = None,
                  key_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 license_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateLicenseSpecificationArgs', 'LaunchTemplateLicenseSpecificationArgsDict']]]]] = None,
-                 maintenance_options: pulumi.Input[Optional[Union['LaunchTemplateMaintenanceOptionsArgs', 'LaunchTemplateMaintenanceOptionsArgsDict']]] = None,
-                 metadata_options: pulumi.Input[Optional[Union['LaunchTemplateMetadataOptionsArgs', 'LaunchTemplateMetadataOptionsArgsDict']]] = None,
-                 monitoring: pulumi.Input[Optional[Union['LaunchTemplateMonitoringArgs', 'LaunchTemplateMonitoringArgsDict']]] = None,
+                 license_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateLicenseSpecificationArgs', 'LaunchTemplateLicenseSpecificationArgsDict', 'outputs.LaunchTemplateLicenseSpecification']]]]] = None,
+                 maintenance_options: pulumi.Input[Optional[Union['LaunchTemplateMaintenanceOptionsArgs', 'LaunchTemplateMaintenanceOptionsArgsDict', 'outputs.LaunchTemplateMaintenanceOptions']]] = None,
+                 metadata_options: pulumi.Input[Optional[Union['LaunchTemplateMetadataOptionsArgs', 'LaunchTemplateMetadataOptionsArgsDict', 'outputs.LaunchTemplateMetadataOptions']]] = None,
+                 monitoring: pulumi.Input[Optional[Union['LaunchTemplateMonitoringArgs', 'LaunchTemplateMonitoringArgsDict', 'outputs.LaunchTemplateMonitoring']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateNetworkInterfaceArgs', 'LaunchTemplateNetworkInterfaceArgsDict']]]]] = None,
-                 network_performance_options: pulumi.Input[Optional[Union['LaunchTemplateNetworkPerformanceOptionsArgs', 'LaunchTemplateNetworkPerformanceOptionsArgsDict']]] = None,
-                 placement: pulumi.Input[Optional[Union['LaunchTemplatePlacementArgs', 'LaunchTemplatePlacementArgsDict']]] = None,
-                 private_dns_name_options: pulumi.Input[Optional[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict']]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateNetworkInterfaceArgs', 'LaunchTemplateNetworkInterfaceArgsDict', 'outputs.LaunchTemplateNetworkInterface']]]]] = None,
+                 network_performance_options: pulumi.Input[Optional[Union['LaunchTemplateNetworkPerformanceOptionsArgs', 'LaunchTemplateNetworkPerformanceOptionsArgsDict', 'outputs.LaunchTemplateNetworkPerformanceOptions']]] = None,
+                 placement: pulumi.Input[Optional[Union['LaunchTemplatePlacementArgs', 'LaunchTemplatePlacementArgsDict', 'outputs.LaunchTemplatePlacement']]] = None,
+                 private_dns_name_options: pulumi.Input[Optional[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict', 'outputs.LaunchTemplatePrivateDnsNameOptions']]] = None,
                  ram_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 secondary_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateSecondaryInterfaceArgs', 'LaunchTemplateSecondaryInterfaceArgsDict']]]]] = None,
+                 secondary_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateSecondaryInterfaceArgs', 'LaunchTemplateSecondaryInterfaceArgsDict', 'outputs.LaunchTemplateSecondaryInterface']]]]] = None,
                  security_group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict']]]]] = None,
+                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict', 'outputs.LaunchTemplateTagSpecification']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  update_default_version: pulumi.Input[Optional[_builtins.bool]] = None,
                  user_data: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1390,11 +1390,11 @@ class LaunchTemplate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateBlockDeviceMappingArgs', 'LaunchTemplateBlockDeviceMappingArgsDict']]]] block_device_mappings: Specify volumes to attach to the instance besides the volumes specified by the AMI.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateBlockDeviceMappingArgs', 'LaunchTemplateBlockDeviceMappingArgsDict', 'outputs.LaunchTemplateBlockDeviceMapping']]]] block_device_mappings: Specify volumes to attach to the instance besides the volumes specified by the AMI.
                See Block Devices below for details.
-        :param pulumi.Input[Union['LaunchTemplateCapacityReservationSpecificationArgs', 'LaunchTemplateCapacityReservationSpecificationArgsDict']] capacity_reservation_specification: Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
-        :param pulumi.Input[Union['LaunchTemplateCpuOptionsArgs', 'LaunchTemplateCpuOptionsArgsDict']] cpu_options: The CPU options for the instance. See CPU Options below for more details.
-        :param pulumi.Input[Union['LaunchTemplateCreditSpecificationArgs', 'LaunchTemplateCreditSpecificationArgsDict']] credit_specification: Customize the credit specification of the instance. See Credit
+        :param pulumi.Input[Union['LaunchTemplateCapacityReservationSpecificationArgs', 'LaunchTemplateCapacityReservationSpecificationArgsDict', 'outputs.LaunchTemplateCapacityReservationSpecification']] capacity_reservation_specification: Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
+        :param pulumi.Input[Union['LaunchTemplateCpuOptionsArgs', 'LaunchTemplateCpuOptionsArgsDict', 'outputs.LaunchTemplateCpuOptions']] cpu_options: The CPU options for the instance. See CPU Options below for more details.
+        :param pulumi.Input[Union['LaunchTemplateCreditSpecificationArgs', 'LaunchTemplateCreditSpecificationArgsDict', 'outputs.LaunchTemplateCreditSpecification']] credit_specification: Customize the credit specification of the instance. See Credit
                Specification below for more details.
         :param pulumi.Input[_builtins.int] default_version: Default Version of the launch template.
         :param pulumi.Input[_builtins.str] description: Description of the launch template version (`VersionDescription` in the [EC2 API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html)). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.
@@ -1402,36 +1402,36 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] disable_api_termination: If `true`, enables [EC2 Instance
                Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
         :param pulumi.Input[_builtins.str] ebs_optimized: If `true`, the launched EC2 instance will be EBS-optimized.
-        :param pulumi.Input[Union['LaunchTemplateEnclaveOptionsArgs', 'LaunchTemplateEnclaveOptionsArgsDict']] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
-        :param pulumi.Input[Union['LaunchTemplateHibernationOptionsArgs', 'LaunchTemplateHibernationOptionsArgsDict']] hibernation_options: The hibernation options for the instance. See Hibernation Options below for more details.
-        :param pulumi.Input[Union['LaunchTemplateIamInstanceProfileArgs', 'LaunchTemplateIamInstanceProfileArgsDict']] iam_instance_profile: The IAM Instance Profile to launch the instance with. See Instance Profile
+        :param pulumi.Input[Union['LaunchTemplateEnclaveOptionsArgs', 'LaunchTemplateEnclaveOptionsArgsDict', 'outputs.LaunchTemplateEnclaveOptions']] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+        :param pulumi.Input[Union['LaunchTemplateHibernationOptionsArgs', 'LaunchTemplateHibernationOptionsArgsDict', 'outputs.LaunchTemplateHibernationOptions']] hibernation_options: The hibernation options for the instance. See Hibernation Options below for more details.
+        :param pulumi.Input[Union['LaunchTemplateIamInstanceProfileArgs', 'LaunchTemplateIamInstanceProfileArgsDict', 'outputs.LaunchTemplateIamInstanceProfile']] iam_instance_profile: The IAM Instance Profile to launch the instance with. See Instance Profile
                below for more details.
         :param pulumi.Input[_builtins.str] image_id: The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
         :param pulumi.Input[_builtins.str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Can be `stop` or `terminate`.
                (Default: `stop`).
-        :param pulumi.Input[Union['LaunchTemplateInstanceMarketOptionsArgs', 'LaunchTemplateInstanceMarketOptionsArgsDict']] instance_market_options: The market (purchasing) option for the instance. See Market Options
+        :param pulumi.Input[Union['LaunchTemplateInstanceMarketOptionsArgs', 'LaunchTemplateInstanceMarketOptionsArgsDict', 'outputs.LaunchTemplateInstanceMarketOptions']] instance_market_options: The market (purchasing) option for the instance. See Market Options
                below for details.
-        :param pulumi.Input[Union['LaunchTemplateInstanceRequirementsArgs', 'LaunchTemplateInstanceRequirementsArgsDict']] instance_requirements: The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
+        :param pulumi.Input[Union['LaunchTemplateInstanceRequirementsArgs', 'LaunchTemplateInstanceRequirementsArgsDict', 'outputs.LaunchTemplateInstanceRequirements']] instance_requirements: The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
         :param pulumi.Input[_builtins.str] instance_type: The type of the instance. If present then `instance_requirements` cannot be present.
         :param pulumi.Input[_builtins.str] kernel_id: The kernel ID.
         :param pulumi.Input[_builtins.str] key_name: The key name to use for the instance.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateLicenseSpecificationArgs', 'LaunchTemplateLicenseSpecificationArgsDict']]]] license_specifications: A list of license specifications to associate with. See License Specification below for more details.
-        :param pulumi.Input[Union['LaunchTemplateMaintenanceOptionsArgs', 'LaunchTemplateMaintenanceOptionsArgsDict']] maintenance_options: The maintenance options for the instance. See Maintenance Options below for more details.
-        :param pulumi.Input[Union['LaunchTemplateMetadataOptionsArgs', 'LaunchTemplateMetadataOptionsArgsDict']] metadata_options: Customize the metadata options for the instance. See Metadata Options below for more details.
-        :param pulumi.Input[Union['LaunchTemplateMonitoringArgs', 'LaunchTemplateMonitoringArgsDict']] monitoring: The monitoring option for the instance. See Monitoring below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateLicenseSpecificationArgs', 'LaunchTemplateLicenseSpecificationArgsDict', 'outputs.LaunchTemplateLicenseSpecification']]]] license_specifications: A list of license specifications to associate with. See License Specification below for more details.
+        :param pulumi.Input[Union['LaunchTemplateMaintenanceOptionsArgs', 'LaunchTemplateMaintenanceOptionsArgsDict', 'outputs.LaunchTemplateMaintenanceOptions']] maintenance_options: The maintenance options for the instance. See Maintenance Options below for more details.
+        :param pulumi.Input[Union['LaunchTemplateMetadataOptionsArgs', 'LaunchTemplateMetadataOptionsArgsDict', 'outputs.LaunchTemplateMetadataOptions']] metadata_options: Customize the metadata options for the instance. See Metadata Options below for more details.
+        :param pulumi.Input[Union['LaunchTemplateMonitoringArgs', 'LaunchTemplateMonitoringArgsDict', 'outputs.LaunchTemplateMonitoring']] monitoring: The monitoring option for the instance. See Monitoring below for more details.
         :param pulumi.Input[_builtins.str] name: The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateNetworkInterfaceArgs', 'LaunchTemplateNetworkInterfaceArgsDict']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateNetworkInterfaceArgs', 'LaunchTemplateNetworkInterfaceArgsDict', 'outputs.LaunchTemplateNetworkInterface']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network
                Interfaces below for more details.
-        :param pulumi.Input[Union['LaunchTemplatePlacementArgs', 'LaunchTemplatePlacementArgsDict']] placement: The placement of the instance. See Placement below for more details.
-        :param pulumi.Input[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict']] private_dns_name_options: The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+        :param pulumi.Input[Union['LaunchTemplatePlacementArgs', 'LaunchTemplatePlacementArgsDict', 'outputs.LaunchTemplatePlacement']] placement: The placement of the instance. See Placement below for more details.
+        :param pulumi.Input[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict', 'outputs.LaunchTemplatePrivateDnsNameOptions']] private_dns_name_options: The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         :param pulumi.Input[_builtins.str] ram_disk_id: The ID of the RAM disk.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateSecondaryInterfaceArgs', 'LaunchTemplateSecondaryInterfaceArgsDict']]]] secondary_interfaces: Secondary interfaces to associate with instances launched from the template. See Secondary
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateSecondaryInterfaceArgs', 'LaunchTemplateSecondaryInterfaceArgsDict', 'outputs.LaunchTemplateSecondaryInterface']]]] secondary_interfaces: Secondary interfaces to associate with instances launched from the template. See Secondary
                Interfaces below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_names: A list of security group names to associate with. If you are creating Instances in a VPC, use
                `vpc_security_group_ids` instead.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict']]]] tag_specifications: The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict', 'outputs.LaunchTemplateTagSpecification']]]] tag_specifications: The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.bool] update_default_version: Whether to update Default Version each update. Conflicts with `default_version`.
         :param pulumi.Input[_builtins.str] user_data: The base64-encoded user data to provide when launching the instance.
@@ -1473,40 +1473,40 @@ class LaunchTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 block_device_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateBlockDeviceMappingArgs', 'LaunchTemplateBlockDeviceMappingArgsDict']]]]] = None,
-                 capacity_reservation_specification: pulumi.Input[Optional[Union['LaunchTemplateCapacityReservationSpecificationArgs', 'LaunchTemplateCapacityReservationSpecificationArgsDict']]] = None,
-                 cpu_options: pulumi.Input[Optional[Union['LaunchTemplateCpuOptionsArgs', 'LaunchTemplateCpuOptionsArgsDict']]] = None,
-                 credit_specification: pulumi.Input[Optional[Union['LaunchTemplateCreditSpecificationArgs', 'LaunchTemplateCreditSpecificationArgsDict']]] = None,
+                 block_device_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateBlockDeviceMappingArgs', 'LaunchTemplateBlockDeviceMappingArgsDict', 'outputs.LaunchTemplateBlockDeviceMapping']]]]] = None,
+                 capacity_reservation_specification: pulumi.Input[Optional[Union['LaunchTemplateCapacityReservationSpecificationArgs', 'LaunchTemplateCapacityReservationSpecificationArgsDict', 'outputs.LaunchTemplateCapacityReservationSpecification']]] = None,
+                 cpu_options: pulumi.Input[Optional[Union['LaunchTemplateCpuOptionsArgs', 'LaunchTemplateCpuOptionsArgsDict', 'outputs.LaunchTemplateCpuOptions']]] = None,
+                 credit_specification: pulumi.Input[Optional[Union['LaunchTemplateCreditSpecificationArgs', 'LaunchTemplateCreditSpecificationArgsDict', 'outputs.LaunchTemplateCreditSpecification']]] = None,
                  default_version: pulumi.Input[Optional[_builtins.int]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_api_stop: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_api_termination: pulumi.Input[Optional[_builtins.bool]] = None,
                  ebs_optimized: pulumi.Input[Optional[_builtins.str]] = None,
-                 enclave_options: pulumi.Input[Optional[Union['LaunchTemplateEnclaveOptionsArgs', 'LaunchTemplateEnclaveOptionsArgsDict']]] = None,
-                 hibernation_options: pulumi.Input[Optional[Union['LaunchTemplateHibernationOptionsArgs', 'LaunchTemplateHibernationOptionsArgsDict']]] = None,
-                 iam_instance_profile: pulumi.Input[Optional[Union['LaunchTemplateIamInstanceProfileArgs', 'LaunchTemplateIamInstanceProfileArgsDict']]] = None,
+                 enclave_options: pulumi.Input[Optional[Union['LaunchTemplateEnclaveOptionsArgs', 'LaunchTemplateEnclaveOptionsArgsDict', 'outputs.LaunchTemplateEnclaveOptions']]] = None,
+                 hibernation_options: pulumi.Input[Optional[Union['LaunchTemplateHibernationOptionsArgs', 'LaunchTemplateHibernationOptionsArgsDict', 'outputs.LaunchTemplateHibernationOptions']]] = None,
+                 iam_instance_profile: pulumi.Input[Optional[Union['LaunchTemplateIamInstanceProfileArgs', 'LaunchTemplateIamInstanceProfileArgsDict', 'outputs.LaunchTemplateIamInstanceProfile']]] = None,
                  image_id: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_initiated_shutdown_behavior: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_market_options: pulumi.Input[Optional[Union['LaunchTemplateInstanceMarketOptionsArgs', 'LaunchTemplateInstanceMarketOptionsArgsDict']]] = None,
-                 instance_requirements: pulumi.Input[Optional[Union['LaunchTemplateInstanceRequirementsArgs', 'LaunchTemplateInstanceRequirementsArgsDict']]] = None,
+                 instance_market_options: pulumi.Input[Optional[Union['LaunchTemplateInstanceMarketOptionsArgs', 'LaunchTemplateInstanceMarketOptionsArgsDict', 'outputs.LaunchTemplateInstanceMarketOptions']]] = None,
+                 instance_requirements: pulumi.Input[Optional[Union['LaunchTemplateInstanceRequirementsArgs', 'LaunchTemplateInstanceRequirementsArgsDict', 'outputs.LaunchTemplateInstanceRequirements']]] = None,
                  instance_type: pulumi.Input[Optional[_builtins.str]] = None,
                  kernel_id: pulumi.Input[Optional[_builtins.str]] = None,
                  key_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 license_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateLicenseSpecificationArgs', 'LaunchTemplateLicenseSpecificationArgsDict']]]]] = None,
-                 maintenance_options: pulumi.Input[Optional[Union['LaunchTemplateMaintenanceOptionsArgs', 'LaunchTemplateMaintenanceOptionsArgsDict']]] = None,
-                 metadata_options: pulumi.Input[Optional[Union['LaunchTemplateMetadataOptionsArgs', 'LaunchTemplateMetadataOptionsArgsDict']]] = None,
-                 monitoring: pulumi.Input[Optional[Union['LaunchTemplateMonitoringArgs', 'LaunchTemplateMonitoringArgsDict']]] = None,
+                 license_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateLicenseSpecificationArgs', 'LaunchTemplateLicenseSpecificationArgsDict', 'outputs.LaunchTemplateLicenseSpecification']]]]] = None,
+                 maintenance_options: pulumi.Input[Optional[Union['LaunchTemplateMaintenanceOptionsArgs', 'LaunchTemplateMaintenanceOptionsArgsDict', 'outputs.LaunchTemplateMaintenanceOptions']]] = None,
+                 metadata_options: pulumi.Input[Optional[Union['LaunchTemplateMetadataOptionsArgs', 'LaunchTemplateMetadataOptionsArgsDict', 'outputs.LaunchTemplateMetadataOptions']]] = None,
+                 monitoring: pulumi.Input[Optional[Union['LaunchTemplateMonitoringArgs', 'LaunchTemplateMonitoringArgsDict', 'outputs.LaunchTemplateMonitoring']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateNetworkInterfaceArgs', 'LaunchTemplateNetworkInterfaceArgsDict']]]]] = None,
-                 network_performance_options: pulumi.Input[Optional[Union['LaunchTemplateNetworkPerformanceOptionsArgs', 'LaunchTemplateNetworkPerformanceOptionsArgsDict']]] = None,
-                 placement: pulumi.Input[Optional[Union['LaunchTemplatePlacementArgs', 'LaunchTemplatePlacementArgsDict']]] = None,
-                 private_dns_name_options: pulumi.Input[Optional[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict']]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateNetworkInterfaceArgs', 'LaunchTemplateNetworkInterfaceArgsDict', 'outputs.LaunchTemplateNetworkInterface']]]]] = None,
+                 network_performance_options: pulumi.Input[Optional[Union['LaunchTemplateNetworkPerformanceOptionsArgs', 'LaunchTemplateNetworkPerformanceOptionsArgsDict', 'outputs.LaunchTemplateNetworkPerformanceOptions']]] = None,
+                 placement: pulumi.Input[Optional[Union['LaunchTemplatePlacementArgs', 'LaunchTemplatePlacementArgsDict', 'outputs.LaunchTemplatePlacement']]] = None,
+                 private_dns_name_options: pulumi.Input[Optional[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict', 'outputs.LaunchTemplatePrivateDnsNameOptions']]] = None,
                  ram_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 secondary_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateSecondaryInterfaceArgs', 'LaunchTemplateSecondaryInterfaceArgsDict']]]]] = None,
+                 secondary_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateSecondaryInterfaceArgs', 'LaunchTemplateSecondaryInterfaceArgsDict', 'outputs.LaunchTemplateSecondaryInterface']]]]] = None,
                  security_group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict']]]]] = None,
+                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict', 'outputs.LaunchTemplateTagSpecification']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  update_default_version: pulumi.Input[Optional[_builtins.bool]] = None,
                  user_data: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1572,41 +1572,41 @@ class LaunchTemplate(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            block_device_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateBlockDeviceMappingArgs', 'LaunchTemplateBlockDeviceMappingArgsDict']]]]] = None,
-            capacity_reservation_specification: pulumi.Input[Optional[Union['LaunchTemplateCapacityReservationSpecificationArgs', 'LaunchTemplateCapacityReservationSpecificationArgsDict']]] = None,
-            cpu_options: pulumi.Input[Optional[Union['LaunchTemplateCpuOptionsArgs', 'LaunchTemplateCpuOptionsArgsDict']]] = None,
-            credit_specification: pulumi.Input[Optional[Union['LaunchTemplateCreditSpecificationArgs', 'LaunchTemplateCreditSpecificationArgsDict']]] = None,
+            block_device_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateBlockDeviceMappingArgs', 'LaunchTemplateBlockDeviceMappingArgsDict', 'outputs.LaunchTemplateBlockDeviceMapping']]]]] = None,
+            capacity_reservation_specification: pulumi.Input[Optional[Union['LaunchTemplateCapacityReservationSpecificationArgs', 'LaunchTemplateCapacityReservationSpecificationArgsDict', 'outputs.LaunchTemplateCapacityReservationSpecification']]] = None,
+            cpu_options: pulumi.Input[Optional[Union['LaunchTemplateCpuOptionsArgs', 'LaunchTemplateCpuOptionsArgsDict', 'outputs.LaunchTemplateCpuOptions']]] = None,
+            credit_specification: pulumi.Input[Optional[Union['LaunchTemplateCreditSpecificationArgs', 'LaunchTemplateCreditSpecificationArgsDict', 'outputs.LaunchTemplateCreditSpecification']]] = None,
             default_version: pulumi.Input[Optional[_builtins.int]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             disable_api_stop: pulumi.Input[Optional[_builtins.bool]] = None,
             disable_api_termination: pulumi.Input[Optional[_builtins.bool]] = None,
             ebs_optimized: pulumi.Input[Optional[_builtins.str]] = None,
-            enclave_options: pulumi.Input[Optional[Union['LaunchTemplateEnclaveOptionsArgs', 'LaunchTemplateEnclaveOptionsArgsDict']]] = None,
-            hibernation_options: pulumi.Input[Optional[Union['LaunchTemplateHibernationOptionsArgs', 'LaunchTemplateHibernationOptionsArgsDict']]] = None,
-            iam_instance_profile: pulumi.Input[Optional[Union['LaunchTemplateIamInstanceProfileArgs', 'LaunchTemplateIamInstanceProfileArgsDict']]] = None,
+            enclave_options: pulumi.Input[Optional[Union['LaunchTemplateEnclaveOptionsArgs', 'LaunchTemplateEnclaveOptionsArgsDict', 'outputs.LaunchTemplateEnclaveOptions']]] = None,
+            hibernation_options: pulumi.Input[Optional[Union['LaunchTemplateHibernationOptionsArgs', 'LaunchTemplateHibernationOptionsArgsDict', 'outputs.LaunchTemplateHibernationOptions']]] = None,
+            iam_instance_profile: pulumi.Input[Optional[Union['LaunchTemplateIamInstanceProfileArgs', 'LaunchTemplateIamInstanceProfileArgsDict', 'outputs.LaunchTemplateIamInstanceProfile']]] = None,
             image_id: pulumi.Input[Optional[_builtins.str]] = None,
             instance_initiated_shutdown_behavior: pulumi.Input[Optional[_builtins.str]] = None,
-            instance_market_options: pulumi.Input[Optional[Union['LaunchTemplateInstanceMarketOptionsArgs', 'LaunchTemplateInstanceMarketOptionsArgsDict']]] = None,
-            instance_requirements: pulumi.Input[Optional[Union['LaunchTemplateInstanceRequirementsArgs', 'LaunchTemplateInstanceRequirementsArgsDict']]] = None,
+            instance_market_options: pulumi.Input[Optional[Union['LaunchTemplateInstanceMarketOptionsArgs', 'LaunchTemplateInstanceMarketOptionsArgsDict', 'outputs.LaunchTemplateInstanceMarketOptions']]] = None,
+            instance_requirements: pulumi.Input[Optional[Union['LaunchTemplateInstanceRequirementsArgs', 'LaunchTemplateInstanceRequirementsArgsDict', 'outputs.LaunchTemplateInstanceRequirements']]] = None,
             instance_type: pulumi.Input[Optional[_builtins.str]] = None,
             kernel_id: pulumi.Input[Optional[_builtins.str]] = None,
             key_name: pulumi.Input[Optional[_builtins.str]] = None,
             latest_version: pulumi.Input[Optional[_builtins.int]] = None,
-            license_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateLicenseSpecificationArgs', 'LaunchTemplateLicenseSpecificationArgsDict']]]]] = None,
-            maintenance_options: pulumi.Input[Optional[Union['LaunchTemplateMaintenanceOptionsArgs', 'LaunchTemplateMaintenanceOptionsArgsDict']]] = None,
-            metadata_options: pulumi.Input[Optional[Union['LaunchTemplateMetadataOptionsArgs', 'LaunchTemplateMetadataOptionsArgsDict']]] = None,
-            monitoring: pulumi.Input[Optional[Union['LaunchTemplateMonitoringArgs', 'LaunchTemplateMonitoringArgsDict']]] = None,
+            license_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateLicenseSpecificationArgs', 'LaunchTemplateLicenseSpecificationArgsDict', 'outputs.LaunchTemplateLicenseSpecification']]]]] = None,
+            maintenance_options: pulumi.Input[Optional[Union['LaunchTemplateMaintenanceOptionsArgs', 'LaunchTemplateMaintenanceOptionsArgsDict', 'outputs.LaunchTemplateMaintenanceOptions']]] = None,
+            metadata_options: pulumi.Input[Optional[Union['LaunchTemplateMetadataOptionsArgs', 'LaunchTemplateMetadataOptionsArgsDict', 'outputs.LaunchTemplateMetadataOptions']]] = None,
+            monitoring: pulumi.Input[Optional[Union['LaunchTemplateMonitoringArgs', 'LaunchTemplateMonitoringArgsDict', 'outputs.LaunchTemplateMonitoring']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
-            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateNetworkInterfaceArgs', 'LaunchTemplateNetworkInterfaceArgsDict']]]]] = None,
-            network_performance_options: pulumi.Input[Optional[Union['LaunchTemplateNetworkPerformanceOptionsArgs', 'LaunchTemplateNetworkPerformanceOptionsArgsDict']]] = None,
-            placement: pulumi.Input[Optional[Union['LaunchTemplatePlacementArgs', 'LaunchTemplatePlacementArgsDict']]] = None,
-            private_dns_name_options: pulumi.Input[Optional[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict']]] = None,
+            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateNetworkInterfaceArgs', 'LaunchTemplateNetworkInterfaceArgsDict', 'outputs.LaunchTemplateNetworkInterface']]]]] = None,
+            network_performance_options: pulumi.Input[Optional[Union['LaunchTemplateNetworkPerformanceOptionsArgs', 'LaunchTemplateNetworkPerformanceOptionsArgsDict', 'outputs.LaunchTemplateNetworkPerformanceOptions']]] = None,
+            placement: pulumi.Input[Optional[Union['LaunchTemplatePlacementArgs', 'LaunchTemplatePlacementArgsDict', 'outputs.LaunchTemplatePlacement']]] = None,
+            private_dns_name_options: pulumi.Input[Optional[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict', 'outputs.LaunchTemplatePrivateDnsNameOptions']]] = None,
             ram_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            secondary_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateSecondaryInterfaceArgs', 'LaunchTemplateSecondaryInterfaceArgsDict']]]]] = None,
+            secondary_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateSecondaryInterfaceArgs', 'LaunchTemplateSecondaryInterfaceArgsDict', 'outputs.LaunchTemplateSecondaryInterface']]]]] = None,
             security_group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict']]]]] = None,
+            tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict', 'outputs.LaunchTemplateTagSpecification']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             update_default_version: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1620,11 +1620,11 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the launch template.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateBlockDeviceMappingArgs', 'LaunchTemplateBlockDeviceMappingArgsDict']]]] block_device_mappings: Specify volumes to attach to the instance besides the volumes specified by the AMI.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateBlockDeviceMappingArgs', 'LaunchTemplateBlockDeviceMappingArgsDict', 'outputs.LaunchTemplateBlockDeviceMapping']]]] block_device_mappings: Specify volumes to attach to the instance besides the volumes specified by the AMI.
                See Block Devices below for details.
-        :param pulumi.Input[Union['LaunchTemplateCapacityReservationSpecificationArgs', 'LaunchTemplateCapacityReservationSpecificationArgsDict']] capacity_reservation_specification: Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
-        :param pulumi.Input[Union['LaunchTemplateCpuOptionsArgs', 'LaunchTemplateCpuOptionsArgsDict']] cpu_options: The CPU options for the instance. See CPU Options below for more details.
-        :param pulumi.Input[Union['LaunchTemplateCreditSpecificationArgs', 'LaunchTemplateCreditSpecificationArgsDict']] credit_specification: Customize the credit specification of the instance. See Credit
+        :param pulumi.Input[Union['LaunchTemplateCapacityReservationSpecificationArgs', 'LaunchTemplateCapacityReservationSpecificationArgsDict', 'outputs.LaunchTemplateCapacityReservationSpecification']] capacity_reservation_specification: Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
+        :param pulumi.Input[Union['LaunchTemplateCpuOptionsArgs', 'LaunchTemplateCpuOptionsArgsDict', 'outputs.LaunchTemplateCpuOptions']] cpu_options: The CPU options for the instance. See CPU Options below for more details.
+        :param pulumi.Input[Union['LaunchTemplateCreditSpecificationArgs', 'LaunchTemplateCreditSpecificationArgsDict', 'outputs.LaunchTemplateCreditSpecification']] credit_specification: Customize the credit specification of the instance. See Credit
                Specification below for more details.
         :param pulumi.Input[_builtins.int] default_version: Default Version of the launch template.
         :param pulumi.Input[_builtins.str] description: Description of the launch template version (`VersionDescription` in the [EC2 API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html)). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.
@@ -1632,37 +1632,37 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] disable_api_termination: If `true`, enables [EC2 Instance
                Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
         :param pulumi.Input[_builtins.str] ebs_optimized: If `true`, the launched EC2 instance will be EBS-optimized.
-        :param pulumi.Input[Union['LaunchTemplateEnclaveOptionsArgs', 'LaunchTemplateEnclaveOptionsArgsDict']] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
-        :param pulumi.Input[Union['LaunchTemplateHibernationOptionsArgs', 'LaunchTemplateHibernationOptionsArgsDict']] hibernation_options: The hibernation options for the instance. See Hibernation Options below for more details.
-        :param pulumi.Input[Union['LaunchTemplateIamInstanceProfileArgs', 'LaunchTemplateIamInstanceProfileArgsDict']] iam_instance_profile: The IAM Instance Profile to launch the instance with. See Instance Profile
+        :param pulumi.Input[Union['LaunchTemplateEnclaveOptionsArgs', 'LaunchTemplateEnclaveOptionsArgsDict', 'outputs.LaunchTemplateEnclaveOptions']] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+        :param pulumi.Input[Union['LaunchTemplateHibernationOptionsArgs', 'LaunchTemplateHibernationOptionsArgsDict', 'outputs.LaunchTemplateHibernationOptions']] hibernation_options: The hibernation options for the instance. See Hibernation Options below for more details.
+        :param pulumi.Input[Union['LaunchTemplateIamInstanceProfileArgs', 'LaunchTemplateIamInstanceProfileArgsDict', 'outputs.LaunchTemplateIamInstanceProfile']] iam_instance_profile: The IAM Instance Profile to launch the instance with. See Instance Profile
                below for more details.
         :param pulumi.Input[_builtins.str] image_id: The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
         :param pulumi.Input[_builtins.str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Can be `stop` or `terminate`.
                (Default: `stop`).
-        :param pulumi.Input[Union['LaunchTemplateInstanceMarketOptionsArgs', 'LaunchTemplateInstanceMarketOptionsArgsDict']] instance_market_options: The market (purchasing) option for the instance. See Market Options
+        :param pulumi.Input[Union['LaunchTemplateInstanceMarketOptionsArgs', 'LaunchTemplateInstanceMarketOptionsArgsDict', 'outputs.LaunchTemplateInstanceMarketOptions']] instance_market_options: The market (purchasing) option for the instance. See Market Options
                below for details.
-        :param pulumi.Input[Union['LaunchTemplateInstanceRequirementsArgs', 'LaunchTemplateInstanceRequirementsArgsDict']] instance_requirements: The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
+        :param pulumi.Input[Union['LaunchTemplateInstanceRequirementsArgs', 'LaunchTemplateInstanceRequirementsArgsDict', 'outputs.LaunchTemplateInstanceRequirements']] instance_requirements: The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
         :param pulumi.Input[_builtins.str] instance_type: The type of the instance. If present then `instance_requirements` cannot be present.
         :param pulumi.Input[_builtins.str] kernel_id: The kernel ID.
         :param pulumi.Input[_builtins.str] key_name: The key name to use for the instance.
         :param pulumi.Input[_builtins.int] latest_version: The latest version of the launch template.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateLicenseSpecificationArgs', 'LaunchTemplateLicenseSpecificationArgsDict']]]] license_specifications: A list of license specifications to associate with. See License Specification below for more details.
-        :param pulumi.Input[Union['LaunchTemplateMaintenanceOptionsArgs', 'LaunchTemplateMaintenanceOptionsArgsDict']] maintenance_options: The maintenance options for the instance. See Maintenance Options below for more details.
-        :param pulumi.Input[Union['LaunchTemplateMetadataOptionsArgs', 'LaunchTemplateMetadataOptionsArgsDict']] metadata_options: Customize the metadata options for the instance. See Metadata Options below for more details.
-        :param pulumi.Input[Union['LaunchTemplateMonitoringArgs', 'LaunchTemplateMonitoringArgsDict']] monitoring: The monitoring option for the instance. See Monitoring below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateLicenseSpecificationArgs', 'LaunchTemplateLicenseSpecificationArgsDict', 'outputs.LaunchTemplateLicenseSpecification']]]] license_specifications: A list of license specifications to associate with. See License Specification below for more details.
+        :param pulumi.Input[Union['LaunchTemplateMaintenanceOptionsArgs', 'LaunchTemplateMaintenanceOptionsArgsDict', 'outputs.LaunchTemplateMaintenanceOptions']] maintenance_options: The maintenance options for the instance. See Maintenance Options below for more details.
+        :param pulumi.Input[Union['LaunchTemplateMetadataOptionsArgs', 'LaunchTemplateMetadataOptionsArgsDict', 'outputs.LaunchTemplateMetadataOptions']] metadata_options: Customize the metadata options for the instance. See Metadata Options below for more details.
+        :param pulumi.Input[Union['LaunchTemplateMonitoringArgs', 'LaunchTemplateMonitoringArgsDict', 'outputs.LaunchTemplateMonitoring']] monitoring: The monitoring option for the instance. See Monitoring below for more details.
         :param pulumi.Input[_builtins.str] name: The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateNetworkInterfaceArgs', 'LaunchTemplateNetworkInterfaceArgsDict']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateNetworkInterfaceArgs', 'LaunchTemplateNetworkInterfaceArgsDict', 'outputs.LaunchTemplateNetworkInterface']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network
                Interfaces below for more details.
-        :param pulumi.Input[Union['LaunchTemplatePlacementArgs', 'LaunchTemplatePlacementArgsDict']] placement: The placement of the instance. See Placement below for more details.
-        :param pulumi.Input[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict']] private_dns_name_options: The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+        :param pulumi.Input[Union['LaunchTemplatePlacementArgs', 'LaunchTemplatePlacementArgsDict', 'outputs.LaunchTemplatePlacement']] placement: The placement of the instance. See Placement below for more details.
+        :param pulumi.Input[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict', 'outputs.LaunchTemplatePrivateDnsNameOptions']] private_dns_name_options: The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         :param pulumi.Input[_builtins.str] ram_disk_id: The ID of the RAM disk.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateSecondaryInterfaceArgs', 'LaunchTemplateSecondaryInterfaceArgsDict']]]] secondary_interfaces: Secondary interfaces to associate with instances launched from the template. See Secondary
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateSecondaryInterfaceArgs', 'LaunchTemplateSecondaryInterfaceArgsDict', 'outputs.LaunchTemplateSecondaryInterface']]]] secondary_interfaces: Secondary interfaces to associate with instances launched from the template. See Secondary
                Interfaces below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_names: A list of security group names to associate with. If you are creating Instances in a VPC, use
                `vpc_security_group_ids` instead.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict']]]] tag_specifications: The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict', 'outputs.LaunchTemplateTagSpecification']]]] tag_specifications: The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.bool] update_default_version: Whether to update Default Version each update. Conflicts with `default_version`.

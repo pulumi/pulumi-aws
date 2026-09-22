@@ -378,10 +378,10 @@ class RuleGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['RuleGroupEncryptionConfigurationArgs', 'RuleGroupEncryptionConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['RuleGroupEncryptionConfigurationArgs', 'RuleGroupEncryptionConfigurationArgsDict', 'outputs.RuleGroupEncryptionConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_group: pulumi.Input[Optional[Union['RuleGroupRuleGroupArgs', 'RuleGroupRuleGroupArgsDict']]] = None,
+                 rule_group: pulumi.Input[Optional[Union['RuleGroupRuleGroupArgs', 'RuleGroupRuleGroupArgsDict', 'outputs.RuleGroupRuleGroup']]] = None,
                  rules: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -714,10 +714,10 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] capacity: The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
         :param pulumi.Input[_builtins.str] description: A friendly description of the rule group.
-        :param pulumi.Input[Union['RuleGroupEncryptionConfigurationArgs', 'RuleGroupEncryptionConfigurationArgsDict']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
+        :param pulumi.Input[Union['RuleGroupEncryptionConfigurationArgs', 'RuleGroupEncryptionConfigurationArgsDict', 'outputs.RuleGroupEncryptionConfiguration']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[_builtins.str] name: A friendly name of the rule group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['RuleGroupRuleGroupArgs', 'RuleGroupRuleGroupArgsDict']] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
+        :param pulumi.Input[Union['RuleGroupRuleGroupArgs', 'RuleGroupRuleGroupArgsDict', 'outputs.RuleGroupRuleGroup']] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         :param pulumi.Input[_builtins.str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] type: Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
@@ -1069,10 +1069,10 @@ class RuleGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['RuleGroupEncryptionConfigurationArgs', 'RuleGroupEncryptionConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['RuleGroupEncryptionConfigurationArgs', 'RuleGroupEncryptionConfigurationArgsDict', 'outputs.RuleGroupEncryptionConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_group: pulumi.Input[Optional[Union['RuleGroupRuleGroupArgs', 'RuleGroupRuleGroupArgsDict']]] = None,
+                 rule_group: pulumi.Input[Optional[Union['RuleGroupRuleGroupArgs', 'RuleGroupRuleGroupArgsDict', 'outputs.RuleGroupRuleGroup']]] = None,
                  rules: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1114,10 +1114,10 @@ class RuleGroup(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             capacity: pulumi.Input[Optional[_builtins.int]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            encryption_configuration: pulumi.Input[Optional[Union['RuleGroupEncryptionConfigurationArgs', 'RuleGroupEncryptionConfigurationArgsDict']]] = None,
+            encryption_configuration: pulumi.Input[Optional[Union['RuleGroupEncryptionConfigurationArgs', 'RuleGroupEncryptionConfigurationArgsDict', 'outputs.RuleGroupEncryptionConfiguration']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            rule_group: pulumi.Input[Optional[Union['RuleGroupRuleGroupArgs', 'RuleGroupRuleGroupArgsDict']]] = None,
+            rule_group: pulumi.Input[Optional[Union['RuleGroupRuleGroupArgs', 'RuleGroupRuleGroupArgsDict', 'outputs.RuleGroupRuleGroup']]] = None,
             rules: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -1133,10 +1133,10 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN that identifies the rule group.
         :param pulumi.Input[_builtins.int] capacity: The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
         :param pulumi.Input[_builtins.str] description: A friendly description of the rule group.
-        :param pulumi.Input[Union['RuleGroupEncryptionConfigurationArgs', 'RuleGroupEncryptionConfigurationArgsDict']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
+        :param pulumi.Input[Union['RuleGroupEncryptionConfigurationArgs', 'RuleGroupEncryptionConfigurationArgsDict', 'outputs.RuleGroupEncryptionConfiguration']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[_builtins.str] name: A friendly name of the rule group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['RuleGroupRuleGroupArgs', 'RuleGroupRuleGroupArgsDict']] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
+        :param pulumi.Input[Union['RuleGroupRuleGroupArgs', 'RuleGroupRuleGroupArgsDict', 'outputs.RuleGroupRuleGroup']] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         :param pulumi.Input[_builtins.str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

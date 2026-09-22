@@ -452,17 +452,17 @@ class AgentcoreOnlineEvaluationConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_source_config: pulumi.Input[Optional[Union['AgentcoreOnlineEvaluationConfigDataSourceConfigArgs', 'AgentcoreOnlineEvaluationConfigDataSourceConfigArgsDict']]] = None,
+                 data_source_config: pulumi.Input[Optional[Union['AgentcoreOnlineEvaluationConfigDataSourceConfigArgs', 'AgentcoreOnlineEvaluationConfigDataSourceConfigArgsDict', 'outputs.AgentcoreOnlineEvaluationConfigDataSourceConfig']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
                  evaluation_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 evaluators: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreOnlineEvaluationConfigEvaluatorArgs', 'AgentcoreOnlineEvaluationConfigEvaluatorArgsDict']]]]] = None,
+                 evaluators: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreOnlineEvaluationConfigEvaluatorArgs', 'AgentcoreOnlineEvaluationConfigEvaluatorArgsDict', 'outputs.AgentcoreOnlineEvaluationConfigEvaluator']]]]] = None,
                  execution_status: pulumi.Input[Optional[_builtins.str]] = None,
                  online_evaluation_config_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['AgentcoreOnlineEvaluationConfigRuleArgs', 'AgentcoreOnlineEvaluationConfigRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['AgentcoreOnlineEvaluationConfigRuleArgs', 'AgentcoreOnlineEvaluationConfigRuleArgsDict', 'outputs.AgentcoreOnlineEvaluationConfigRule']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentcoreOnlineEvaluationConfigTimeoutsArgs', 'AgentcoreOnlineEvaluationConfigTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcoreOnlineEvaluationConfigTimeoutsArgs', 'AgentcoreOnlineEvaluationConfigTimeoutsArgsDict', 'outputs.AgentcoreOnlineEvaluationConfigTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS Bedrock AgentCore Online Evaluation Configuration. Online evaluation configurations continuously monitor agent performance by sampling live traffic from CloudWatch logs and applying evaluators to assess agent quality in production.
@@ -575,15 +575,15 @@ class AgentcoreOnlineEvaluationConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AgentcoreOnlineEvaluationConfigDataSourceConfigArgs', 'AgentcoreOnlineEvaluationConfigDataSourceConfigArgsDict']] data_source_config: Data source configuration specifying where to read agent traces. See `data_source_config` Block below.
+        :param pulumi.Input[Union['AgentcoreOnlineEvaluationConfigDataSourceConfigArgs', 'AgentcoreOnlineEvaluationConfigDataSourceConfigArgsDict', 'outputs.AgentcoreOnlineEvaluationConfigDataSourceConfig']] data_source_config: Data source configuration specifying where to read agent traces. See `data_source_config` Block below.
         :param pulumi.Input[_builtins.str] description: Description of the online evaluation configuration.
         :param pulumi.Input[_builtins.bool] enable_on_create: Whether to enable the online evaluation configuration immediately upon creation.
         :param pulumi.Input[_builtins.str] evaluation_execution_role_arn: ARN of the IAM role that grants permissions to read from CloudWatch logs, write evaluation results, and invoke Amazon Bedrock models for evaluation.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreOnlineEvaluationConfigEvaluatorArgs', 'AgentcoreOnlineEvaluationConfigEvaluatorArgsDict']]]] evaluators: List of evaluators to apply during online evaluation. Minimum 1, maximum 10. See `evaluator` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreOnlineEvaluationConfigEvaluatorArgs', 'AgentcoreOnlineEvaluationConfigEvaluatorArgsDict', 'outputs.AgentcoreOnlineEvaluationConfigEvaluator']]]] evaluators: List of evaluators to apply during online evaluation. Minimum 1, maximum 10. See `evaluator` Block below.
         :param pulumi.Input[_builtins.str] execution_status: Execution status to enable or disable the online evaluation. Valid values: `ENABLED`, `DISABLED`. Computed on create based on `enable_on_create`.
         :param pulumi.Input[_builtins.str] online_evaluation_config_name: Name of the online evaluation configuration. Must start with a letter and contain only alphanumeric characters and underscores, up to 48 characters.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AgentcoreOnlineEvaluationConfigRuleArgs', 'AgentcoreOnlineEvaluationConfigRuleArgsDict']] rule: Evaluation rule defining sampling configuration, filters, and session detection settings. See `rule` Block below.
+        :param pulumi.Input[Union['AgentcoreOnlineEvaluationConfigRuleArgs', 'AgentcoreOnlineEvaluationConfigRuleArgsDict', 'outputs.AgentcoreOnlineEvaluationConfigRule']] rule: Evaluation rule defining sampling configuration, filters, and session detection settings. See `rule` Block below.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -718,17 +718,17 @@ class AgentcoreOnlineEvaluationConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_source_config: pulumi.Input[Optional[Union['AgentcoreOnlineEvaluationConfigDataSourceConfigArgs', 'AgentcoreOnlineEvaluationConfigDataSourceConfigArgsDict']]] = None,
+                 data_source_config: pulumi.Input[Optional[Union['AgentcoreOnlineEvaluationConfigDataSourceConfigArgs', 'AgentcoreOnlineEvaluationConfigDataSourceConfigArgsDict', 'outputs.AgentcoreOnlineEvaluationConfigDataSourceConfig']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
                  evaluation_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 evaluators: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreOnlineEvaluationConfigEvaluatorArgs', 'AgentcoreOnlineEvaluationConfigEvaluatorArgsDict']]]]] = None,
+                 evaluators: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreOnlineEvaluationConfigEvaluatorArgs', 'AgentcoreOnlineEvaluationConfigEvaluatorArgsDict', 'outputs.AgentcoreOnlineEvaluationConfigEvaluator']]]]] = None,
                  execution_status: pulumi.Input[Optional[_builtins.str]] = None,
                  online_evaluation_config_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['AgentcoreOnlineEvaluationConfigRuleArgs', 'AgentcoreOnlineEvaluationConfigRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['AgentcoreOnlineEvaluationConfigRuleArgs', 'AgentcoreOnlineEvaluationConfigRuleArgsDict', 'outputs.AgentcoreOnlineEvaluationConfigRule']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentcoreOnlineEvaluationConfigTimeoutsArgs', 'AgentcoreOnlineEvaluationConfigTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcoreOnlineEvaluationConfigTimeoutsArgs', 'AgentcoreOnlineEvaluationConfigTimeoutsArgsDict', 'outputs.AgentcoreOnlineEvaluationConfigTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -775,21 +775,21 @@ class AgentcoreOnlineEvaluationConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            data_source_config: pulumi.Input[Optional[Union['AgentcoreOnlineEvaluationConfigDataSourceConfigArgs', 'AgentcoreOnlineEvaluationConfigDataSourceConfigArgsDict']]] = None,
+            data_source_config: pulumi.Input[Optional[Union['AgentcoreOnlineEvaluationConfigDataSourceConfigArgs', 'AgentcoreOnlineEvaluationConfigDataSourceConfigArgsDict', 'outputs.AgentcoreOnlineEvaluationConfigDataSourceConfig']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             enable_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
             evaluation_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            evaluators: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreOnlineEvaluationConfigEvaluatorArgs', 'AgentcoreOnlineEvaluationConfigEvaluatorArgsDict']]]]] = None,
+            evaluators: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreOnlineEvaluationConfigEvaluatorArgs', 'AgentcoreOnlineEvaluationConfigEvaluatorArgsDict', 'outputs.AgentcoreOnlineEvaluationConfigEvaluator']]]]] = None,
             execution_status: pulumi.Input[Optional[_builtins.str]] = None,
             online_evaluation_config_arn: pulumi.Input[Optional[_builtins.str]] = None,
             online_evaluation_config_id: pulumi.Input[Optional[_builtins.str]] = None,
             online_evaluation_config_name: pulumi.Input[Optional[_builtins.str]] = None,
-            output_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreOnlineEvaluationConfigOutputConfigArgs', 'AgentcoreOnlineEvaluationConfigOutputConfigArgsDict']]]]] = None,
+            output_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreOnlineEvaluationConfigOutputConfigArgs', 'AgentcoreOnlineEvaluationConfigOutputConfigArgsDict', 'outputs.AgentcoreOnlineEvaluationConfigOutputConfig']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            rule: pulumi.Input[Optional[Union['AgentcoreOnlineEvaluationConfigRuleArgs', 'AgentcoreOnlineEvaluationConfigRuleArgsDict']]] = None,
+            rule: pulumi.Input[Optional[Union['AgentcoreOnlineEvaluationConfigRuleArgs', 'AgentcoreOnlineEvaluationConfigRuleArgsDict', 'outputs.AgentcoreOnlineEvaluationConfigRule']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['AgentcoreOnlineEvaluationConfigTimeoutsArgs', 'AgentcoreOnlineEvaluationConfigTimeoutsArgsDict']]] = None) -> 'AgentcoreOnlineEvaluationConfig':
+            timeouts: pulumi.Input[Optional[Union['AgentcoreOnlineEvaluationConfigTimeoutsArgs', 'AgentcoreOnlineEvaluationConfigTimeoutsArgsDict', 'outputs.AgentcoreOnlineEvaluationConfigTimeouts']]] = None) -> 'AgentcoreOnlineEvaluationConfig':
         """
         Get an existing AgentcoreOnlineEvaluationConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -797,18 +797,18 @@ class AgentcoreOnlineEvaluationConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AgentcoreOnlineEvaluationConfigDataSourceConfigArgs', 'AgentcoreOnlineEvaluationConfigDataSourceConfigArgsDict']] data_source_config: Data source configuration specifying where to read agent traces. See `data_source_config` Block below.
+        :param pulumi.Input[Union['AgentcoreOnlineEvaluationConfigDataSourceConfigArgs', 'AgentcoreOnlineEvaluationConfigDataSourceConfigArgsDict', 'outputs.AgentcoreOnlineEvaluationConfigDataSourceConfig']] data_source_config: Data source configuration specifying where to read agent traces. See `data_source_config` Block below.
         :param pulumi.Input[_builtins.str] description: Description of the online evaluation configuration.
         :param pulumi.Input[_builtins.bool] enable_on_create: Whether to enable the online evaluation configuration immediately upon creation.
         :param pulumi.Input[_builtins.str] evaluation_execution_role_arn: ARN of the IAM role that grants permissions to read from CloudWatch logs, write evaluation results, and invoke Amazon Bedrock models for evaluation.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreOnlineEvaluationConfigEvaluatorArgs', 'AgentcoreOnlineEvaluationConfigEvaluatorArgsDict']]]] evaluators: List of evaluators to apply during online evaluation. Minimum 1, maximum 10. See `evaluator` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreOnlineEvaluationConfigEvaluatorArgs', 'AgentcoreOnlineEvaluationConfigEvaluatorArgsDict', 'outputs.AgentcoreOnlineEvaluationConfigEvaluator']]]] evaluators: List of evaluators to apply during online evaluation. Minimum 1, maximum 10. See `evaluator` Block below.
         :param pulumi.Input[_builtins.str] execution_status: Execution status to enable or disable the online evaluation. Valid values: `ENABLED`, `DISABLED`. Computed on create based on `enable_on_create`.
         :param pulumi.Input[_builtins.str] online_evaluation_config_arn: ARN of the online evaluation configuration.
         :param pulumi.Input[_builtins.str] online_evaluation_config_id: Unique identifier of the online evaluation configuration.
         :param pulumi.Input[_builtins.str] online_evaluation_config_name: Name of the online evaluation configuration. Must start with a letter and contain only alphanumeric characters and underscores, up to 48 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreOnlineEvaluationConfigOutputConfigArgs', 'AgentcoreOnlineEvaluationConfigOutputConfigArgsDict']]]] output_configs: Configuration specifying where evaluation results are written. See `output_config` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreOnlineEvaluationConfigOutputConfigArgs', 'AgentcoreOnlineEvaluationConfigOutputConfigArgsDict', 'outputs.AgentcoreOnlineEvaluationConfigOutputConfig']]]] output_configs: Configuration specifying where evaluation results are written. See `output_config` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AgentcoreOnlineEvaluationConfigRuleArgs', 'AgentcoreOnlineEvaluationConfigRuleArgsDict']] rule: Evaluation rule defining sampling configuration, filters, and session detection settings. See `rule` Block below.
+        :param pulumi.Input[Union['AgentcoreOnlineEvaluationConfigRuleArgs', 'AgentcoreOnlineEvaluationConfigRuleArgsDict', 'outputs.AgentcoreOnlineEvaluationConfigRule']] rule: Evaluation rule defining sampling configuration, filters, and session detection settings. See `rule` Block below.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

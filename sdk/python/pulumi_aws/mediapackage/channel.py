@@ -337,7 +337,7 @@ class Channel(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             channel_id: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            hls_ingests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelHlsIngestArgs', 'ChannelHlsIngestArgsDict']]]]] = None,
+            hls_ingests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelHlsIngestArgs', 'ChannelHlsIngestArgsDict', 'outputs.ChannelHlsIngest']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Channel':
@@ -351,7 +351,7 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: The ARN of the channel
         :param pulumi.Input[_builtins.str] channel_id: A unique identifier describing the channel
         :param pulumi.Input[_builtins.str] description: A description of the channel
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelHlsIngestArgs', 'ChannelHlsIngestArgsDict']]]] hls_ingests: A single item list of HLS ingest information
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelHlsIngestArgs', 'ChannelHlsIngestArgsDict', 'outputs.ChannelHlsIngest']]]] hls_ingests: A single item list of HLS ingest information
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

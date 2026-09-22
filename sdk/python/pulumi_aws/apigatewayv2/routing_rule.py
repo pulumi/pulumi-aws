@@ -238,8 +238,8 @@ class RoutingRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingRuleActionArgs', 'RoutingRuleActionArgsDict']]]]] = None,
-                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingRuleConditionArgs', 'RoutingRuleConditionArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingRuleActionArgs', 'RoutingRuleActionArgsDict', 'outputs.RoutingRuleAction']]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingRuleConditionArgs', 'RoutingRuleConditionArgsDict', 'outputs.RoutingRuleCondition']]]]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -292,8 +292,8 @@ class RoutingRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingRuleActionArgs', 'RoutingRuleActionArgsDict']]]] actions: Configuration of resulting action based on matching routing rules condition. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingRuleConditionArgs', 'RoutingRuleConditionArgsDict']]]] conditions: Conditions configuration. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingRuleActionArgs', 'RoutingRuleActionArgsDict', 'outputs.RoutingRuleAction']]]] actions: Configuration of resulting action based on matching routing rules condition. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingRuleConditionArgs', 'RoutingRuleConditionArgsDict', 'outputs.RoutingRuleCondition']]]] conditions: Conditions configuration. See below.
         :param pulumi.Input[_builtins.str] domain_name: Domain name. Must be between 1 and 512 characters in length.
                
                The following arguments are optional:
@@ -367,8 +367,8 @@ class RoutingRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingRuleActionArgs', 'RoutingRuleActionArgsDict']]]]] = None,
-                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingRuleConditionArgs', 'RoutingRuleConditionArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingRuleActionArgs', 'RoutingRuleActionArgsDict', 'outputs.RoutingRuleAction']]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingRuleConditionArgs', 'RoutingRuleConditionArgsDict', 'outputs.RoutingRuleCondition']]]]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -406,8 +406,8 @@ class RoutingRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingRuleActionArgs', 'RoutingRuleActionArgsDict']]]]] = None,
-            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingRuleConditionArgs', 'RoutingRuleConditionArgsDict']]]]] = None,
+            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingRuleActionArgs', 'RoutingRuleActionArgsDict', 'outputs.RoutingRuleAction']]]]] = None,
+            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingRuleConditionArgs', 'RoutingRuleConditionArgsDict', 'outputs.RoutingRuleCondition']]]]] = None,
             domain_name: pulumi.Input[Optional[_builtins.str]] = None,
             priority: pulumi.Input[Optional[_builtins.int]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -420,8 +420,8 @@ class RoutingRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingRuleActionArgs', 'RoutingRuleActionArgsDict']]]] actions: Configuration of resulting action based on matching routing rules condition. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingRuleConditionArgs', 'RoutingRuleConditionArgsDict']]]] conditions: Conditions configuration. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingRuleActionArgs', 'RoutingRuleActionArgsDict', 'outputs.RoutingRuleAction']]]] actions: Configuration of resulting action based on matching routing rules condition. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingRuleConditionArgs', 'RoutingRuleConditionArgsDict', 'outputs.RoutingRuleCondition']]]] conditions: Conditions configuration. See below.
         :param pulumi.Input[_builtins.str] domain_name: Domain name. Must be between 1 and 512 characters in length.
                
                The following arguments are optional:

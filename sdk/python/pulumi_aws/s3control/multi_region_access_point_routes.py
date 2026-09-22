@@ -171,7 +171,7 @@ class MultiRegionAccessPointRoutes(pulumi.CustomResource):
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  mrap: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultiRegionAccessPointRoutesRouteArgs', 'MultiRegionAccessPointRoutesRouteArgsDict']]]]] = None,
+                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultiRegionAccessPointRoutesRouteArgs', 'MultiRegionAccessPointRoutesRouteArgsDict', 'outputs.MultiRegionAccessPointRoutesRoute']]]]] = None,
                  __props__=None):
         """
         Provides a resource to manage the routing configuration for an S3 Multi-Region Access Point.
@@ -262,7 +262,7 @@ class MultiRegionAccessPointRoutes(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] mrap: ARN of the Multi-Region Access Point.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MultiRegionAccessPointRoutesRouteArgs', 'MultiRegionAccessPointRoutesRouteArgsDict']]]] routes: Route configurations. At least one route must have a `traffic_dial_percentage` of `100`. See `route` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MultiRegionAccessPointRoutesRouteArgs', 'MultiRegionAccessPointRoutesRouteArgsDict', 'outputs.MultiRegionAccessPointRoutesRoute']]]] routes: Route configurations. At least one route must have a `traffic_dial_percentage` of `100`. See `route` below.
         """
         ...
     @overload
@@ -372,7 +372,7 @@ class MultiRegionAccessPointRoutes(pulumi.CustomResource):
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  mrap: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultiRegionAccessPointRoutesRouteArgs', 'MultiRegionAccessPointRoutesRouteArgsDict']]]]] = None,
+                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultiRegionAccessPointRoutesRouteArgs', 'MultiRegionAccessPointRoutesRouteArgsDict', 'outputs.MultiRegionAccessPointRoutesRoute']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -403,7 +403,7 @@ class MultiRegionAccessPointRoutes(pulumi.CustomResource):
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
             mrap: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultiRegionAccessPointRoutesRouteArgs', 'MultiRegionAccessPointRoutesRouteArgsDict']]]]] = None) -> 'MultiRegionAccessPointRoutes':
+            routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultiRegionAccessPointRoutesRouteArgs', 'MultiRegionAccessPointRoutesRouteArgsDict', 'outputs.MultiRegionAccessPointRoutesRoute']]]]] = None) -> 'MultiRegionAccessPointRoutes':
         """
         Get an existing MultiRegionAccessPointRoutes resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -414,7 +414,7 @@ class MultiRegionAccessPointRoutes(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] mrap: ARN of the Multi-Region Access Point.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MultiRegionAccessPointRoutesRouteArgs', 'MultiRegionAccessPointRoutesRouteArgsDict']]]] routes: Route configurations. At least one route must have a `traffic_dial_percentage` of `100`. See `route` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MultiRegionAccessPointRoutesRouteArgs', 'MultiRegionAccessPointRoutesRouteArgsDict', 'outputs.MultiRegionAccessPointRoutesRoute']]]] routes: Route configurations. At least one route must have a `traffic_dial_percentage` of `100`. See `route` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

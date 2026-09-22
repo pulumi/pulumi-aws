@@ -391,7 +391,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['InstanceConnectEndpointTimeoutsArgs', 'InstanceConnectEndpointTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['InstanceConnectEndpointTimeoutsArgs', 'InstanceConnectEndpointTimeoutsArgsDict', 'outputs.InstanceConnectEndpointTimeouts']]] = None,
                  __props__=None):
         """
         Manages an EC2 Instance Connect Endpoint.
@@ -471,7 +471,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['InstanceConnectEndpointTimeoutsArgs', 'InstanceConnectEndpointTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['InstanceConnectEndpointTimeoutsArgs', 'InstanceConnectEndpointTimeoutsArgsDict', 'outputs.InstanceConnectEndpointTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -521,7 +521,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
             subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['InstanceConnectEndpointTimeoutsArgs', 'InstanceConnectEndpointTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['InstanceConnectEndpointTimeoutsArgs', 'InstanceConnectEndpointTimeoutsArgsDict', 'outputs.InstanceConnectEndpointTimeouts']]] = None,
             vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'InstanceConnectEndpoint':
         """
         Get an existing InstanceConnectEndpoint resource's state with the given name, id, and optional extra

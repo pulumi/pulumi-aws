@@ -219,7 +219,7 @@ class AwaitableGetMulticastDomainResult(GetMulticastDomainResult):
             transit_gateway_multicast_domain_id=self.transit_gateway_multicast_domain_id)
 
 
-def get_multicast_domain(filters: Optional[Sequence[Union['GetMulticastDomainFilterArgs', 'GetMulticastDomainFilterArgsDict']]] = None,
+def get_multicast_domain(filters: Optional[Sequence[Union['GetMulticastDomainFilterArgs', 'GetMulticastDomainFilterArgsDict', 'outputs.GetMulticastDomainFilterResult']]] = None,
                          region: Optional[_builtins.str] = None,
                          tags: Optional[Mapping[str, _builtins.str]] = None,
                          transit_gateway_multicast_domain_id: Optional[_builtins.str] = None,
@@ -251,7 +251,7 @@ def get_multicast_domain(filters: Optional[Sequence[Union['GetMulticastDomainFil
     ```
 
 
-    :param Sequence[Union['GetMulticastDomainFilterArgs', 'GetMulticastDomainFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetMulticastDomainFilterArgs', 'GetMulticastDomainFilterArgsDict', 'outputs.GetMulticastDomainFilterResult']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Key-value tags for the EC2 Transit Gateway Multicast Domain.
     :param _builtins.str transit_gateway_multicast_domain_id: Identifier of the EC2 Transit Gateway Multicast Domain.
@@ -281,7 +281,7 @@ def get_multicast_domain(filters: Optional[Sequence[Union['GetMulticastDomainFil
         transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
         transit_gateway_multicast_domain_id=pulumi.get(__ret__, 'transit_gateway_multicast_domain_id'))
-def get_multicast_domain_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetMulticastDomainFilterArgs', 'GetMulticastDomainFilterArgsDict']]]]] = None,
+def get_multicast_domain_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetMulticastDomainFilterArgs', 'GetMulticastDomainFilterArgsDict', 'outputs.GetMulticastDomainFilterResult']]]]] = None,
                                 region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                 transit_gateway_multicast_domain_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -313,7 +313,7 @@ def get_multicast_domain_output(filters: pulumi.Input[Optional[Optional[Sequence
     ```
 
 
-    :param Sequence[Union['GetMulticastDomainFilterArgs', 'GetMulticastDomainFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetMulticastDomainFilterArgs', 'GetMulticastDomainFilterArgsDict', 'outputs.GetMulticastDomainFilterResult']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Key-value tags for the EC2 Transit Gateway Multicast Domain.
     :param _builtins.str transit_gateway_multicast_domain_id: Identifier of the EC2 Transit Gateway Multicast Domain.

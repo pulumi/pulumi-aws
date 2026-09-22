@@ -309,7 +309,7 @@ class Archive(pulumi.CustomResource):
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 retention: pulumi.Input[Optional[Union['ArchiveRetentionArgs', 'ArchiveRetentionArgsDict']]] = None,
+                 retention: pulumi.Input[Optional[Union['ArchiveRetentionArgs', 'ArchiveRetentionArgsDict', 'outputs.ArchiveRetention']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -353,7 +353,7 @@ class Archive(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ArchiveRetentionArgs', 'ArchiveRetentionArgsDict']] retention: Retention policy for the archive. See `retention` Block.
+        :param pulumi.Input[Union['ArchiveRetentionArgs', 'ArchiveRetentionArgsDict', 'outputs.ArchiveRetention']] retention: Retention policy for the archive. See `retention` Block.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -414,7 +414,7 @@ class Archive(pulumi.CustomResource):
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 retention: pulumi.Input[Optional[Union['ArchiveRetentionArgs', 'ArchiveRetentionArgsDict']]] = None,
+                 retention: pulumi.Input[Optional[Union['ArchiveRetentionArgs', 'ArchiveRetentionArgsDict', 'outputs.ArchiveRetention']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -452,8 +452,8 @@ class Archive(pulumi.CustomResource):
             last_updated_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            retention: pulumi.Input[Optional[Union['ArchiveRetentionArgs', 'ArchiveRetentionArgsDict']]] = None,
-            retention_actuals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ArchiveRetentionActualArgs', 'ArchiveRetentionActualArgsDict']]]]] = None,
+            retention: pulumi.Input[Optional[Union['ArchiveRetentionArgs', 'ArchiveRetentionArgsDict', 'outputs.ArchiveRetention']]] = None,
+            retention_actuals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ArchiveRetentionActualArgs', 'ArchiveRetentionActualArgsDict', 'outputs.ArchiveRetentionActual']]]]] = None,
             state: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Archive':
@@ -472,8 +472,8 @@ class Archive(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ArchiveRetentionArgs', 'ArchiveRetentionArgsDict']] retention: Retention policy for the archive. See `retention` Block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ArchiveRetentionActualArgs', 'ArchiveRetentionActualArgsDict']]]] retention_actuals: Effective retention policy for the archive, including the default (`SIX_MONTHS`) when no `retention` block is configured. See `retention_actual` Block below.
+        :param pulumi.Input[Union['ArchiveRetentionArgs', 'ArchiveRetentionArgsDict', 'outputs.ArchiveRetention']] retention: Retention policy for the archive. See `retention` Block.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ArchiveRetentionActualArgs', 'ArchiveRetentionActualArgsDict', 'outputs.ArchiveRetentionActual']]]] retention_actuals: Effective retention policy for the archive, including the default (`SIX_MONTHS`) when no `retention` block is configured. See `retention_actual` Block below.
         :param pulumi.Input[_builtins.str] state: Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

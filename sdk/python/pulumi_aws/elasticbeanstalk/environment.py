@@ -736,7 +736,7 @@ class Environment(pulumi.CustomResource):
                  platform_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  poll_interval: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentSettingArgs', 'EnvironmentSettingArgsDict']]]]] = None,
+                 settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentSettingArgs', 'EnvironmentSettingArgsDict', 'outputs.EnvironmentSetting']]]]] = None,
                  solution_stack_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  template_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -792,7 +792,7 @@ class Environment(pulumi.CustomResource):
                for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
                use the default behavior, which is an exponential backoff
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSettingArgs', 'EnvironmentSettingArgsDict']]]] settings: Option settings to configure the new Environment. These
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSettingArgs', 'EnvironmentSettingArgsDict', 'outputs.EnvironmentSetting']]]] settings: Option settings to configure the new Environment. These
                override specific values that are set as defaults. The format is detailed
                below in Option Settings
         :param pulumi.Input[_builtins.str] solution_stack_name: A solution stack to base your environment
@@ -869,7 +869,7 @@ class Environment(pulumi.CustomResource):
                  platform_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  poll_interval: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentSettingArgs', 'EnvironmentSettingArgsDict']]]]] = None,
+                 settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentSettingArgs', 'EnvironmentSettingArgsDict', 'outputs.EnvironmentSetting']]]]] = None,
                  solution_stack_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  template_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -922,7 +922,7 @@ class Environment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            all_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentAllSettingArgs', 'EnvironmentAllSettingArgsDict']]]]] = None,
+            all_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentAllSettingArgs', 'EnvironmentAllSettingArgsDict', 'outputs.EnvironmentAllSetting']]]]] = None,
             application: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             autoscaling_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -938,7 +938,7 @@ class Environment(pulumi.CustomResource):
             poll_interval: pulumi.Input[Optional[_builtins.str]] = None,
             queues: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentSettingArgs', 'EnvironmentSettingArgsDict']]]]] = None,
+            settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentSettingArgs', 'EnvironmentSettingArgsDict', 'outputs.EnvironmentSetting']]]]] = None,
             solution_stack_name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -954,7 +954,7 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentAllSettingArgs', 'EnvironmentAllSettingArgsDict']]]] all_settings: List of all option settings configured in this Environment. These
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentAllSettingArgs', 'EnvironmentAllSettingArgsDict', 'outputs.EnvironmentAllSetting']]]] all_settings: List of all option settings configured in this Environment. These
                are a combination of default settings and their overrides from `setting` in
                the configuration.
         :param pulumi.Input[_builtins.str] application: Name of the application that contains the version
@@ -978,7 +978,7 @@ class Environment(pulumi.CustomResource):
                use the default behavior, which is an exponential backoff
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] queues: SQS queues in use by this Environment.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSettingArgs', 'EnvironmentSettingArgsDict']]]] settings: Option settings to configure the new Environment. These
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSettingArgs', 'EnvironmentSettingArgsDict', 'outputs.EnvironmentSetting']]]] settings: Option settings to configure the new Environment. These
                override specific values that are set as defaults. The format is detailed
                below in Option Settings
         :param pulumi.Input[_builtins.str] solution_stack_name: A solution stack to base your environment

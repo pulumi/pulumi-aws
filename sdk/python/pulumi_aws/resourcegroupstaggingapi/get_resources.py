@@ -122,7 +122,7 @@ def get_resources(exclude_compliant_resources: Optional[_builtins.bool] = None,
                   region: Optional[_builtins.str] = None,
                   resource_arn_lists: Optional[Sequence[_builtins.str]] = None,
                   resource_type_filters: Optional[Sequence[_builtins.str]] = None,
-                  tag_filters: Optional[Sequence[Union['GetResourcesTagFilterArgs', 'GetResourcesTagFilterArgsDict']]] = None,
+                  tag_filters: Optional[Sequence[Union['GetResourcesTagFilterArgs', 'GetResourcesTagFilterArgsDict', 'outputs.GetResourcesTagFilterResult']]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourcesResult:
     """
     Provides details about resource tagging.
@@ -168,7 +168,7 @@ def get_resources(exclude_compliant_resources: Optional[_builtins.bool] = None,
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[_builtins.str] resource_arn_lists: Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `filter`.
     :param Sequence[_builtins.str] resource_type_filters: Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
-    :param Sequence[Union['GetResourcesTagFilterArgs', 'GetResourcesTagFilterArgsDict']] tag_filters: Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `resource_arn_list`.
+    :param Sequence[Union['GetResourcesTagFilterArgs', 'GetResourcesTagFilterArgsDict', 'outputs.GetResourcesTagFilterResult']] tag_filters: Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `resource_arn_list`.
     """
     __args__ = dict()
     __args__['excludeCompliantResources'] = exclude_compliant_resources
@@ -194,7 +194,7 @@ def get_resources_output(exclude_compliant_resources: pulumi.Input[Optional[Opti
                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                          resource_arn_lists: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                          resource_type_filters: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
-                         tag_filters: pulumi.Input[Optional[Optional[Sequence[Union['GetResourcesTagFilterArgs', 'GetResourcesTagFilterArgsDict']]]]] = None,
+                         tag_filters: pulumi.Input[Optional[Optional[Sequence[Union['GetResourcesTagFilterArgs', 'GetResourcesTagFilterArgsDict', 'outputs.GetResourcesTagFilterResult']]]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcesResult]:
     """
     Provides details about resource tagging.
@@ -240,7 +240,7 @@ def get_resources_output(exclude_compliant_resources: pulumi.Input[Optional[Opti
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[_builtins.str] resource_arn_lists: Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `filter`.
     :param Sequence[_builtins.str] resource_type_filters: Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
-    :param Sequence[Union['GetResourcesTagFilterArgs', 'GetResourcesTagFilterArgsDict']] tag_filters: Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `resource_arn_list`.
+    :param Sequence[Union['GetResourcesTagFilterArgs', 'GetResourcesTagFilterArgsDict', 'outputs.GetResourcesTagFilterResult']] tag_filters: Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `resource_arn_list`.
     """
     __args__ = dict()
     __args__['excludeCompliantResources'] = exclude_compliant_resources

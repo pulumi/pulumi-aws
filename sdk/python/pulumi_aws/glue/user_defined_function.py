@@ -333,7 +333,7 @@ class UserDefinedFunction(pulumi.CustomResource):
                  owner_name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_type: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_uris: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict']]]]] = None,
+                 resource_uris: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict', 'outputs.UserDefinedFunctionResourceUri']]]]] = None,
                  __props__=None):
         """
         Provides a Glue User Defined Function Resource.
@@ -376,7 +376,7 @@ class UserDefinedFunction(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] owner_name: The owner of the function.
         :param pulumi.Input[_builtins.str] owner_type: The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict']]]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict', 'outputs.UserDefinedFunctionResourceUri']]]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
         """
         ...
     @overload
@@ -438,7 +438,7 @@ class UserDefinedFunction(pulumi.CustomResource):
                  owner_name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_type: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_uris: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict']]]]] = None,
+                 resource_uris: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict', 'outputs.UserDefinedFunctionResourceUri']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -485,7 +485,7 @@ class UserDefinedFunction(pulumi.CustomResource):
             owner_name: pulumi.Input[Optional[_builtins.str]] = None,
             owner_type: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            resource_uris: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict']]]]] = None) -> 'UserDefinedFunction':
+            resource_uris: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict', 'outputs.UserDefinedFunctionResourceUri']]]]] = None) -> 'UserDefinedFunction':
         """
         Get an existing UserDefinedFunction resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -502,7 +502,7 @@ class UserDefinedFunction(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] owner_name: The owner of the function.
         :param pulumi.Input[_builtins.str] owner_type: The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict']]]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict', 'outputs.UserDefinedFunctionResourceUri']]]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -137,7 +137,7 @@ class AgentcoreTokenVaultCmk(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kms_configuration: pulumi.Input[Optional[Union['AgentcoreTokenVaultCmkKmsConfigurationArgs', 'AgentcoreTokenVaultCmkKmsConfigurationArgsDict']]] = None,
+                 kms_configuration: pulumi.Input[Optional[Union['AgentcoreTokenVaultCmkKmsConfigurationArgs', 'AgentcoreTokenVaultCmkKmsConfigurationArgsDict', 'outputs.AgentcoreTokenVaultCmkKmsConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  token_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -169,7 +169,7 @@ class AgentcoreTokenVaultCmk(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AgentcoreTokenVaultCmkKmsConfigurationArgs', 'AgentcoreTokenVaultCmkKmsConfigurationArgsDict']] kms_configuration: KMS configuration for the token vault. See `kms_configuration` below.
+        :param pulumi.Input[Union['AgentcoreTokenVaultCmkKmsConfigurationArgs', 'AgentcoreTokenVaultCmkKmsConfigurationArgsDict', 'outputs.AgentcoreTokenVaultCmkKmsConfiguration']] kms_configuration: KMS configuration for the token vault. See `kms_configuration` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] token_vault_id: Token vault ID. Defaults to `default`.
         """
@@ -220,7 +220,7 @@ class AgentcoreTokenVaultCmk(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kms_configuration: pulumi.Input[Optional[Union['AgentcoreTokenVaultCmkKmsConfigurationArgs', 'AgentcoreTokenVaultCmkKmsConfigurationArgsDict']]] = None,
+                 kms_configuration: pulumi.Input[Optional[Union['AgentcoreTokenVaultCmkKmsConfigurationArgs', 'AgentcoreTokenVaultCmkKmsConfigurationArgsDict', 'outputs.AgentcoreTokenVaultCmkKmsConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  token_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -247,7 +247,7 @@ class AgentcoreTokenVaultCmk(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            kms_configuration: pulumi.Input[Optional[Union['AgentcoreTokenVaultCmkKmsConfigurationArgs', 'AgentcoreTokenVaultCmkKmsConfigurationArgsDict']]] = None,
+            kms_configuration: pulumi.Input[Optional[Union['AgentcoreTokenVaultCmkKmsConfigurationArgs', 'AgentcoreTokenVaultCmkKmsConfigurationArgsDict', 'outputs.AgentcoreTokenVaultCmkKmsConfiguration']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             token_vault_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'AgentcoreTokenVaultCmk':
         """
@@ -257,7 +257,7 @@ class AgentcoreTokenVaultCmk(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AgentcoreTokenVaultCmkKmsConfigurationArgs', 'AgentcoreTokenVaultCmkKmsConfigurationArgsDict']] kms_configuration: KMS configuration for the token vault. See `kms_configuration` below.
+        :param pulumi.Input[Union['AgentcoreTokenVaultCmkKmsConfigurationArgs', 'AgentcoreTokenVaultCmkKmsConfigurationArgsDict', 'outputs.AgentcoreTokenVaultCmkKmsConfiguration']] kms_configuration: KMS configuration for the token vault. See `kms_configuration` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] token_vault_id: Token vault ID. Defaults to `default`.
         """

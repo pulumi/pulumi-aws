@@ -435,8 +435,8 @@ class NetworkInsightsPath(pulumi.CustomResource):
                  destination: pulumi.Input[Optional[_builtins.str]] = None,
                  destination_ip: pulumi.Input[Optional[_builtins.str]] = None,
                  destination_port: pulumi.Input[Optional[_builtins.int]] = None,
-                 filter_at_destination: pulumi.Input[Optional[Union['NetworkInsightsPathFilterAtDestinationArgs', 'NetworkInsightsPathFilterAtDestinationArgsDict']]] = None,
-                 filter_at_source: pulumi.Input[Optional[Union['NetworkInsightsPathFilterAtSourceArgs', 'NetworkInsightsPathFilterAtSourceArgsDict']]] = None,
+                 filter_at_destination: pulumi.Input[Optional[Union['NetworkInsightsPathFilterAtDestinationArgs', 'NetworkInsightsPathFilterAtDestinationArgsDict', 'outputs.NetworkInsightsPathFilterAtDestination']]] = None,
+                 filter_at_source: pulumi.Input[Optional[Union['NetworkInsightsPathFilterAtSourceArgs', 'NetworkInsightsPathFilterAtSourceArgsDict', 'outputs.NetworkInsightsPathFilterAtSource']]] = None,
                  protocol: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  source: pulumi.Input[Optional[_builtins.str]] = None,
@@ -472,8 +472,8 @@ class NetworkInsightsPath(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] destination: ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destination_address` argument in the `filter_at_source` block must be specified.
         :param pulumi.Input[_builtins.str] destination_ip: IP address of the destination resource.
         :param pulumi.Input[_builtins.int] destination_port: Destination port to analyze access to.
-        :param pulumi.Input[Union['NetworkInsightsPathFilterAtDestinationArgs', 'NetworkInsightsPathFilterAtDestinationArgsDict']] filter_at_destination: Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify `destination_ip`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
-        :param pulumi.Input[Union['NetworkInsightsPathFilterAtSourceArgs', 'NetworkInsightsPathFilterAtSourceArgsDict']] filter_at_source: Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify `source_ip` or `destination_port`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+        :param pulumi.Input[Union['NetworkInsightsPathFilterAtDestinationArgs', 'NetworkInsightsPathFilterAtDestinationArgsDict', 'outputs.NetworkInsightsPathFilterAtDestination']] filter_at_destination: Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify `destination_ip`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+        :param pulumi.Input[Union['NetworkInsightsPathFilterAtSourceArgs', 'NetworkInsightsPathFilterAtSourceArgsDict', 'outputs.NetworkInsightsPathFilterAtSource']] filter_at_source: Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify `source_ip` or `destination_port`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
         :param pulumi.Input[_builtins.str] protocol: Protocol to use for analysis. Valid options are `tcp` or `udp`.
                
                The following arguments are optional:
@@ -530,8 +530,8 @@ class NetworkInsightsPath(pulumi.CustomResource):
                  destination: pulumi.Input[Optional[_builtins.str]] = None,
                  destination_ip: pulumi.Input[Optional[_builtins.str]] = None,
                  destination_port: pulumi.Input[Optional[_builtins.int]] = None,
-                 filter_at_destination: pulumi.Input[Optional[Union['NetworkInsightsPathFilterAtDestinationArgs', 'NetworkInsightsPathFilterAtDestinationArgsDict']]] = None,
-                 filter_at_source: pulumi.Input[Optional[Union['NetworkInsightsPathFilterAtSourceArgs', 'NetworkInsightsPathFilterAtSourceArgsDict']]] = None,
+                 filter_at_destination: pulumi.Input[Optional[Union['NetworkInsightsPathFilterAtDestinationArgs', 'NetworkInsightsPathFilterAtDestinationArgsDict', 'outputs.NetworkInsightsPathFilterAtDestination']]] = None,
+                 filter_at_source: pulumi.Input[Optional[Union['NetworkInsightsPathFilterAtSourceArgs', 'NetworkInsightsPathFilterAtSourceArgsDict', 'outputs.NetworkInsightsPathFilterAtSource']]] = None,
                  protocol: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  source: pulumi.Input[Optional[_builtins.str]] = None,
@@ -579,8 +579,8 @@ class NetworkInsightsPath(pulumi.CustomResource):
             destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
             destination_ip: pulumi.Input[Optional[_builtins.str]] = None,
             destination_port: pulumi.Input[Optional[_builtins.int]] = None,
-            filter_at_destination: pulumi.Input[Optional[Union['NetworkInsightsPathFilterAtDestinationArgs', 'NetworkInsightsPathFilterAtDestinationArgsDict']]] = None,
-            filter_at_source: pulumi.Input[Optional[Union['NetworkInsightsPathFilterAtSourceArgs', 'NetworkInsightsPathFilterAtSourceArgsDict']]] = None,
+            filter_at_destination: pulumi.Input[Optional[Union['NetworkInsightsPathFilterAtDestinationArgs', 'NetworkInsightsPathFilterAtDestinationArgsDict', 'outputs.NetworkInsightsPathFilterAtDestination']]] = None,
+            filter_at_source: pulumi.Input[Optional[Union['NetworkInsightsPathFilterAtSourceArgs', 'NetworkInsightsPathFilterAtSourceArgsDict', 'outputs.NetworkInsightsPathFilterAtSource']]] = None,
             protocol: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             source: pulumi.Input[Optional[_builtins.str]] = None,
@@ -600,8 +600,8 @@ class NetworkInsightsPath(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] destination_arn: ARN of the destination.
         :param pulumi.Input[_builtins.str] destination_ip: IP address of the destination resource.
         :param pulumi.Input[_builtins.int] destination_port: Destination port to analyze access to.
-        :param pulumi.Input[Union['NetworkInsightsPathFilterAtDestinationArgs', 'NetworkInsightsPathFilterAtDestinationArgsDict']] filter_at_destination: Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify `destination_ip`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
-        :param pulumi.Input[Union['NetworkInsightsPathFilterAtSourceArgs', 'NetworkInsightsPathFilterAtSourceArgsDict']] filter_at_source: Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify `source_ip` or `destination_port`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+        :param pulumi.Input[Union['NetworkInsightsPathFilterAtDestinationArgs', 'NetworkInsightsPathFilterAtDestinationArgsDict', 'outputs.NetworkInsightsPathFilterAtDestination']] filter_at_destination: Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify `destination_ip`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+        :param pulumi.Input[Union['NetworkInsightsPathFilterAtSourceArgs', 'NetworkInsightsPathFilterAtSourceArgsDict', 'outputs.NetworkInsightsPathFilterAtSource']] filter_at_source: Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify `source_ip` or `destination_port`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
         :param pulumi.Input[_builtins.str] protocol: Protocol to use for analysis. Valid options are `tcp` or `udp`.
                
                The following arguments are optional:

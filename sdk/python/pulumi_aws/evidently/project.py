@@ -362,7 +362,7 @@ class Project(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_delivery: pulumi.Input[Optional[Union['ProjectDataDeliveryArgs', 'ProjectDataDeliveryArgsDict']]] = None,
+                 data_delivery: pulumi.Input[Optional[Union['ProjectDataDeliveryArgs', 'ProjectDataDeliveryArgsDict', 'outputs.ProjectDataDelivery']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -439,7 +439,7 @@ class Project(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ProjectDataDeliveryArgs', 'ProjectDataDeliveryArgsDict']] data_delivery: A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
+        :param pulumi.Input[Union['ProjectDataDeliveryArgs', 'ProjectDataDeliveryArgsDict', 'outputs.ProjectDataDelivery']] data_delivery: A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
         :param pulumi.Input[_builtins.str] description: Specifies the description of the project.
         :param pulumi.Input[_builtins.str] name: A name for the project.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -535,7 +535,7 @@ class Project(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_delivery: pulumi.Input[Optional[Union['ProjectDataDeliveryArgs', 'ProjectDataDeliveryArgsDict']]] = None,
+                 data_delivery: pulumi.Input[Optional[Union['ProjectDataDeliveryArgs', 'ProjectDataDeliveryArgsDict', 'outputs.ProjectDataDelivery']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -578,7 +578,7 @@ class Project(pulumi.CustomResource):
             active_launch_count: pulumi.Input[Optional[_builtins.int]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             created_time: pulumi.Input[Optional[_builtins.str]] = None,
-            data_delivery: pulumi.Input[Optional[Union['ProjectDataDeliveryArgs', 'ProjectDataDeliveryArgsDict']]] = None,
+            data_delivery: pulumi.Input[Optional[Union['ProjectDataDeliveryArgs', 'ProjectDataDeliveryArgsDict', 'outputs.ProjectDataDelivery']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             experiment_count: pulumi.Input[Optional[_builtins.int]] = None,
             feature_count: pulumi.Input[Optional[_builtins.int]] = None,
@@ -600,7 +600,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] active_launch_count: The number of ongoing launches currently in the project.
         :param pulumi.Input[_builtins.str] arn: The ARN of the project.
         :param pulumi.Input[_builtins.str] created_time: The date and time that the project is created.
-        :param pulumi.Input[Union['ProjectDataDeliveryArgs', 'ProjectDataDeliveryArgsDict']] data_delivery: A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
+        :param pulumi.Input[Union['ProjectDataDeliveryArgs', 'ProjectDataDeliveryArgsDict', 'outputs.ProjectDataDelivery']] data_delivery: A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
         :param pulumi.Input[_builtins.str] description: Specifies the description of the project.
         :param pulumi.Input[_builtins.int] experiment_count: The number of experiments currently in the project. This includes all experiments that have been created and not deleted, whether they are ongoing or not.
         :param pulumi.Input[_builtins.int] feature_count: The number of features currently in the project.

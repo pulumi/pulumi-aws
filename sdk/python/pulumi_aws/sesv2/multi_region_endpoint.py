@@ -265,11 +265,11 @@ class MultiRegionEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 details: pulumi.Input[Optional[Union['MultiRegionEndpointDetailsArgs', 'MultiRegionEndpointDetailsArgsDict']]] = None,
+                 details: pulumi.Input[Optional[Union['MultiRegionEndpointDetailsArgs', 'MultiRegionEndpointDetailsArgsDict', 'outputs.MultiRegionEndpointDetails']]] = None,
                  endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['MultiRegionEndpointTimeoutsArgs', 'MultiRegionEndpointTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['MultiRegionEndpointTimeoutsArgs', 'MultiRegionEndpointTimeoutsArgsDict', 'outputs.MultiRegionEndpointTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS SESv2 (Simple Email V2) Multi Region Endpoint (global endpoint). Traffic is split equally between the primary region (where the resource is created) and the secondary region specified in the `details` block.
@@ -294,7 +294,7 @@ class MultiRegionEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['MultiRegionEndpointDetailsArgs', 'MultiRegionEndpointDetailsArgsDict']] details: Configuration details for the endpoint. See `details` Block below.
+        :param pulumi.Input[Union['MultiRegionEndpointDetailsArgs', 'MultiRegionEndpointDetailsArgsDict', 'outputs.MultiRegionEndpointDetails']] details: Configuration details for the endpoint. See `details` Block below.
         :param pulumi.Input[_builtins.str] endpoint_name: Name of the multi-region endpoint.
                
                The following arguments are optional:
@@ -343,11 +343,11 @@ class MultiRegionEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 details: pulumi.Input[Optional[Union['MultiRegionEndpointDetailsArgs', 'MultiRegionEndpointDetailsArgsDict']]] = None,
+                 details: pulumi.Input[Optional[Union['MultiRegionEndpointDetailsArgs', 'MultiRegionEndpointDetailsArgsDict', 'outputs.MultiRegionEndpointDetails']]] = None,
                  endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['MultiRegionEndpointTimeoutsArgs', 'MultiRegionEndpointTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['MultiRegionEndpointTimeoutsArgs', 'MultiRegionEndpointTimeoutsArgsDict', 'outputs.MultiRegionEndpointTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -379,14 +379,14 @@ class MultiRegionEndpoint(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            details: pulumi.Input[Optional[Union['MultiRegionEndpointDetailsArgs', 'MultiRegionEndpointDetailsArgsDict']]] = None,
+            details: pulumi.Input[Optional[Union['MultiRegionEndpointDetailsArgs', 'MultiRegionEndpointDetailsArgsDict', 'outputs.MultiRegionEndpointDetails']]] = None,
             endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
             endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultiRegionEndpointRouteArgs', 'MultiRegionEndpointRouteArgsDict']]]]] = None,
+            routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultiRegionEndpointRouteArgs', 'MultiRegionEndpointRouteArgsDict', 'outputs.MultiRegionEndpointRoute']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['MultiRegionEndpointTimeoutsArgs', 'MultiRegionEndpointTimeoutsArgsDict']]] = None) -> 'MultiRegionEndpoint':
+            timeouts: pulumi.Input[Optional[Union['MultiRegionEndpointTimeoutsArgs', 'MultiRegionEndpointTimeoutsArgsDict', 'outputs.MultiRegionEndpointTimeouts']]] = None) -> 'MultiRegionEndpoint':
         """
         Get an existing MultiRegionEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -395,13 +395,13 @@ class MultiRegionEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the multi-region endpoint.
-        :param pulumi.Input[Union['MultiRegionEndpointDetailsArgs', 'MultiRegionEndpointDetailsArgsDict']] details: Configuration details for the endpoint. See `details` Block below.
+        :param pulumi.Input[Union['MultiRegionEndpointDetailsArgs', 'MultiRegionEndpointDetailsArgsDict', 'outputs.MultiRegionEndpointDetails']] details: Configuration details for the endpoint. See `details` Block below.
         :param pulumi.Input[_builtins.str] endpoint_id: ID assigned to the multi-region endpoint.
         :param pulumi.Input[_builtins.str] endpoint_name: Name of the multi-region endpoint.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MultiRegionEndpointRouteArgs', 'MultiRegionEndpointRouteArgsDict']]]] routes: List of active routes. See `routes` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MultiRegionEndpointRouteArgs', 'MultiRegionEndpointRouteArgsDict', 'outputs.MultiRegionEndpointRoute']]]] routes: List of active routes. See `routes` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

@@ -144,7 +144,7 @@ class AwaitableGetPeeringAttachmentResult(GetPeeringAttachmentResult):
             transit_gateway_id=self.transit_gateway_id)
 
 
-def get_peering_attachment(filters: Optional[Sequence[Union['GetPeeringAttachmentFilterArgs', 'GetPeeringAttachmentFilterArgsDict']]] = None,
+def get_peering_attachment(filters: Optional[Sequence[Union['GetPeeringAttachmentFilterArgs', 'GetPeeringAttachmentFilterArgsDict', 'outputs.GetPeeringAttachmentFilterResult']]] = None,
                            id: Optional[_builtins.str] = None,
                            region: Optional[_builtins.str] = None,
                            tags: Optional[Mapping[str, _builtins.str]] = None,
@@ -176,7 +176,7 @@ def get_peering_attachment(filters: Optional[Sequence[Union['GetPeeringAttachmen
     ```
 
 
-    :param Sequence[Union['GetPeeringAttachmentFilterArgs', 'GetPeeringAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetPeeringAttachmentFilterArgs', 'GetPeeringAttachmentFilterArgsDict', 'outputs.GetPeeringAttachmentFilterResult']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param _builtins.str id: Identifier of the EC2 Transit Gateway Peering Attachment.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match
@@ -204,7 +204,7 @@ def get_peering_attachment(filters: Optional[Sequence[Union['GetPeeringAttachmen
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'))
-def get_peering_attachment_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetPeeringAttachmentFilterArgs', 'GetPeeringAttachmentFilterArgsDict']]]]] = None,
+def get_peering_attachment_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetPeeringAttachmentFilterArgs', 'GetPeeringAttachmentFilterArgsDict', 'outputs.GetPeeringAttachmentFilterResult']]]]] = None,
                                   id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                   region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                   tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
@@ -236,7 +236,7 @@ def get_peering_attachment_output(filters: pulumi.Input[Optional[Optional[Sequen
     ```
 
 
-    :param Sequence[Union['GetPeeringAttachmentFilterArgs', 'GetPeeringAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetPeeringAttachmentFilterArgs', 'GetPeeringAttachmentFilterArgsDict', 'outputs.GetPeeringAttachmentFilterResult']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param _builtins.str id: Identifier of the EC2 Transit Gateway Peering Attachment.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match

@@ -301,7 +301,7 @@ class Hub(pulumi.CustomResource):
                  hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  hub_search_keywords: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3_storage_config: pulumi.Input[Optional[Union['HubS3StorageConfigArgs', 'HubS3StorageConfigArgsDict']]] = None,
+                 s3_storage_config: pulumi.Input[Optional[Union['HubS3StorageConfigArgs', 'HubS3StorageConfigArgsDict', 'outputs.HubS3StorageConfig']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -336,7 +336,7 @@ class Hub(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] hub_name: The name of the hub.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] hub_search_keywords: The searchable keywords for the hub.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['HubS3StorageConfigArgs', 'HubS3StorageConfigArgsDict']] s3_storage_config: The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
+        :param pulumi.Input[Union['HubS3StorageConfigArgs', 'HubS3StorageConfigArgsDict', 'outputs.HubS3StorageConfig']] s3_storage_config: The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -390,7 +390,7 @@ class Hub(pulumi.CustomResource):
                  hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  hub_search_keywords: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3_storage_config: pulumi.Input[Optional[Union['HubS3StorageConfigArgs', 'HubS3StorageConfigArgsDict']]] = None,
+                 s3_storage_config: pulumi.Input[Optional[Union['HubS3StorageConfigArgs', 'HubS3StorageConfigArgsDict', 'outputs.HubS3StorageConfig']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -430,7 +430,7 @@ class Hub(pulumi.CustomResource):
             hub_name: pulumi.Input[Optional[_builtins.str]] = None,
             hub_search_keywords: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            s3_storage_config: pulumi.Input[Optional[Union['HubS3StorageConfigArgs', 'HubS3StorageConfigArgsDict']]] = None,
+            s3_storage_config: pulumi.Input[Optional[Union['HubS3StorageConfigArgs', 'HubS3StorageConfigArgsDict', 'outputs.HubS3StorageConfig']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Hub':
         """
@@ -446,7 +446,7 @@ class Hub(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] hub_name: The name of the hub.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] hub_search_keywords: The searchable keywords for the hub.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['HubS3StorageConfigArgs', 'HubS3StorageConfigArgsDict']] s3_storage_config: The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
+        :param pulumi.Input[Union['HubS3StorageConfigArgs', 'HubS3StorageConfigArgsDict', 'outputs.HubS3StorageConfig']] s3_storage_config: The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = aws.resourceexplorer.Search({
+ * const example = aws.resourceexplorer.search({
  *     queryString: "region:us-west-2",
  *     viewArn: test.arn,
  * });
@@ -87,7 +87,7 @@ export interface SearchResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = aws.resourceexplorer.Search({
+ * const example = aws.resourceexplorer.search({
  *     queryString: "region:us-west-2",
  *     viewArn: test.arn,
  * });

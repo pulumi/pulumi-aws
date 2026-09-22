@@ -338,11 +338,11 @@ class EventBus(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dead_letter_config: pulumi.Input[Optional[Union['EventBusDeadLetterConfigArgs', 'EventBusDeadLetterConfigArgsDict']]] = None,
+                 dead_letter_config: pulumi.Input[Optional[Union['EventBusDeadLetterConfigArgs', 'EventBusDeadLetterConfigArgsDict', 'outputs.EventBusDeadLetterConfig']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  event_source_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 log_config: pulumi.Input[Optional[Union['EventBusLogConfigArgs', 'EventBusLogConfigArgsDict']]] = None,
+                 log_config: pulumi.Input[Optional[Union['EventBusLogConfigArgs', 'EventBusLogConfigArgsDict', 'outputs.EventBusLogConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -585,11 +585,11 @@ class EventBus(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['EventBusDeadLetterConfigArgs', 'EventBusDeadLetterConfigArgsDict']] dead_letter_config: Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+        :param pulumi.Input[Union['EventBusDeadLetterConfigArgs', 'EventBusDeadLetterConfigArgsDict', 'outputs.EventBusDeadLetterConfig']] dead_letter_config: Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
         :param pulumi.Input[_builtins.str] description: Event bus description.
         :param pulumi.Input[_builtins.str] event_source_name: Partner event source that the new event bus will be matched with. Must match `name`.
         :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
-        :param pulumi.Input[Union['EventBusLogConfigArgs', 'EventBusLogConfigArgsDict']] log_config: Block for logging configuration settings for the event bus.
+        :param pulumi.Input[Union['EventBusLogConfigArgs', 'EventBusLogConfigArgsDict', 'outputs.EventBusLogConfig']] log_config: Block for logging configuration settings for the event bus.
         :param pulumi.Input[_builtins.str] name: Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `event_source_name`.
                
                The following arguments are optional:
@@ -853,11 +853,11 @@ class EventBus(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dead_letter_config: pulumi.Input[Optional[Union['EventBusDeadLetterConfigArgs', 'EventBusDeadLetterConfigArgsDict']]] = None,
+                 dead_letter_config: pulumi.Input[Optional[Union['EventBusDeadLetterConfigArgs', 'EventBusDeadLetterConfigArgsDict', 'outputs.EventBusDeadLetterConfig']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  event_source_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 log_config: pulumi.Input[Optional[Union['EventBusLogConfigArgs', 'EventBusLogConfigArgsDict']]] = None,
+                 log_config: pulumi.Input[Optional[Union['EventBusLogConfigArgs', 'EventBusLogConfigArgsDict', 'outputs.EventBusLogConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -891,11 +891,11 @@ class EventBus(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            dead_letter_config: pulumi.Input[Optional[Union['EventBusDeadLetterConfigArgs', 'EventBusDeadLetterConfigArgsDict']]] = None,
+            dead_letter_config: pulumi.Input[Optional[Union['EventBusDeadLetterConfigArgs', 'EventBusDeadLetterConfigArgsDict', 'outputs.EventBusDeadLetterConfig']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             event_source_name: pulumi.Input[Optional[_builtins.str]] = None,
             kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-            log_config: pulumi.Input[Optional[Union['EventBusLogConfigArgs', 'EventBusLogConfigArgsDict']]] = None,
+            log_config: pulumi.Input[Optional[Union['EventBusLogConfigArgs', 'EventBusLogConfigArgsDict', 'outputs.EventBusLogConfig']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -908,11 +908,11 @@ class EventBus(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the event bus.
-        :param pulumi.Input[Union['EventBusDeadLetterConfigArgs', 'EventBusDeadLetterConfigArgsDict']] dead_letter_config: Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+        :param pulumi.Input[Union['EventBusDeadLetterConfigArgs', 'EventBusDeadLetterConfigArgsDict', 'outputs.EventBusDeadLetterConfig']] dead_letter_config: Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
         :param pulumi.Input[_builtins.str] description: Event bus description.
         :param pulumi.Input[_builtins.str] event_source_name: Partner event source that the new event bus will be matched with. Must match `name`.
         :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
-        :param pulumi.Input[Union['EventBusLogConfigArgs', 'EventBusLogConfigArgsDict']] log_config: Block for logging configuration settings for the event bus.
+        :param pulumi.Input[Union['EventBusLogConfigArgs', 'EventBusLogConfigArgsDict', 'outputs.EventBusLogConfig']] log_config: Block for logging configuration settings for the event bus.
         :param pulumi.Input[_builtins.str] name: Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `event_source_name`.
                
                The following arguments are optional:

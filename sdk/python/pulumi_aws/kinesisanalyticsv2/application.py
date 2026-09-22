@@ -488,9 +488,9 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_configuration: pulumi.Input[Optional[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict']]] = None,
+                 application_configuration: pulumi.Input[Optional[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict', 'outputs.ApplicationApplicationConfiguration']]] = None,
                  application_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 cloudwatch_logging_options: pulumi.Input[Optional[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict']]] = None,
+                 cloudwatch_logging_options: pulumi.Input[Optional[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict', 'outputs.ApplicationCloudwatchLoggingOptions']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  force_stop: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -720,9 +720,9 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict']] application_configuration: The application's configuration
+        :param pulumi.Input[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict', 'outputs.ApplicationApplicationConfiguration']] application_configuration: The application's configuration
         :param pulumi.Input[_builtins.str] application_mode: The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
-        :param pulumi.Input[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict']] cloudwatch_logging_options: A CloudWatch log stream to monitor application configuration errors.
+        :param pulumi.Input[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict', 'outputs.ApplicationCloudwatchLoggingOptions']] cloudwatch_logging_options: A CloudWatch log stream to monitor application configuration errors.
         :param pulumi.Input[_builtins.str] description: A summary description of the application.
         :param pulumi.Input[_builtins.bool] force_stop: Whether to force stop an unresponsive Flink-based application.
         :param pulumi.Input[_builtins.str] name: The name of the application.
@@ -971,9 +971,9 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_configuration: pulumi.Input[Optional[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict']]] = None,
+                 application_configuration: pulumi.Input[Optional[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict', 'outputs.ApplicationApplicationConfiguration']]] = None,
                  application_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 cloudwatch_logging_options: pulumi.Input[Optional[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict']]] = None,
+                 cloudwatch_logging_options: pulumi.Input[Optional[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict', 'outputs.ApplicationCloudwatchLoggingOptions']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  force_stop: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1022,10 +1022,10 @@ class Application(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_configuration: pulumi.Input[Optional[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict']]] = None,
+            application_configuration: pulumi.Input[Optional[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict', 'outputs.ApplicationApplicationConfiguration']]] = None,
             application_mode: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            cloudwatch_logging_options: pulumi.Input[Optional[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict']]] = None,
+            cloudwatch_logging_options: pulumi.Input[Optional[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict', 'outputs.ApplicationCloudwatchLoggingOptions']]] = None,
             create_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             force_stop: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1046,10 +1046,10 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict']] application_configuration: The application's configuration
+        :param pulumi.Input[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict', 'outputs.ApplicationApplicationConfiguration']] application_configuration: The application's configuration
         :param pulumi.Input[_builtins.str] application_mode: The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
         :param pulumi.Input[_builtins.str] arn: The ARN of the application.
-        :param pulumi.Input[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict']] cloudwatch_logging_options: A CloudWatch log stream to monitor application configuration errors.
+        :param pulumi.Input[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict', 'outputs.ApplicationCloudwatchLoggingOptions']] cloudwatch_logging_options: A CloudWatch log stream to monitor application configuration errors.
         :param pulumi.Input[_builtins.str] create_timestamp: The current timestamp when the application was created.
         :param pulumi.Input[_builtins.str] description: A summary description of the application.
         :param pulumi.Input[_builtins.bool] force_stop: Whether to force stop an unresponsive Flink-based application.

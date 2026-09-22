@@ -529,7 +529,7 @@ class TeamsChannelConfiguration(pulumi.CustomResource):
                  team_id: pulumi.Input[Optional[_builtins.str]] = None,
                  team_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['TeamsChannelConfigurationTimeoutsArgs', 'TeamsChannelConfigurationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TeamsChannelConfigurationTimeoutsArgs', 'TeamsChannelConfigurationTimeoutsArgsDict', 'outputs.TeamsChannelConfigurationTimeouts']]] = None,
                  user_authorization_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -649,7 +649,7 @@ class TeamsChannelConfiguration(pulumi.CustomResource):
                  team_id: pulumi.Input[Optional[_builtins.str]] = None,
                  team_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['TeamsChannelConfigurationTimeoutsArgs', 'TeamsChannelConfigurationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TeamsChannelConfigurationTimeoutsArgs', 'TeamsChannelConfigurationTimeoutsArgsDict', 'outputs.TeamsChannelConfigurationTimeouts']]] = None,
                  user_authorization_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -710,7 +710,7 @@ class TeamsChannelConfiguration(pulumi.CustomResource):
             team_id: pulumi.Input[Optional[_builtins.str]] = None,
             team_name: pulumi.Input[Optional[_builtins.str]] = None,
             tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['TeamsChannelConfigurationTimeoutsArgs', 'TeamsChannelConfigurationTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['TeamsChannelConfigurationTimeoutsArgs', 'TeamsChannelConfigurationTimeoutsArgsDict', 'outputs.TeamsChannelConfigurationTimeouts']]] = None,
             user_authorization_required: pulumi.Input[Optional[_builtins.bool]] = None) -> 'TeamsChannelConfiguration':
         """
         Get an existing TeamsChannelConfiguration resource's state with the given name, id, and optional extra

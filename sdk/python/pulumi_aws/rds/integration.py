@@ -383,7 +383,7 @@ class Integration(pulumi.CustomResource):
                  source_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['IntegrationTimeoutsArgs', 'IntegrationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['IntegrationTimeoutsArgs', 'IntegrationTimeoutsArgsDict', 'outputs.IntegrationTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS RDS (Relational Database) zero-ETL integration. You can refer to the [User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.setting-up.html).
@@ -599,7 +599,7 @@ class Integration(pulumi.CustomResource):
                  source_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['IntegrationTimeoutsArgs', 'IntegrationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['IntegrationTimeoutsArgs', 'IntegrationTimeoutsArgsDict', 'outputs.IntegrationTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -648,7 +648,7 @@ class Integration(pulumi.CustomResource):
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             target_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['IntegrationTimeoutsArgs', 'IntegrationTimeoutsArgsDict']]] = None) -> 'Integration':
+            timeouts: pulumi.Input[Optional[Union['IntegrationTimeoutsArgs', 'IntegrationTimeoutsArgsDict', 'outputs.IntegrationTimeouts']]] = None) -> 'Integration':
         """
         Get an existing Integration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

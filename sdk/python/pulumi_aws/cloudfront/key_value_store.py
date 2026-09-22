@@ -221,7 +221,7 @@ class KeyValueStore(pulumi.CustomResource):
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['KeyValueStoreTimeoutsArgs', 'KeyValueStoreTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['KeyValueStoreTimeoutsArgs', 'KeyValueStoreTimeoutsArgsDict', 'outputs.KeyValueStoreTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS CloudFront Key Value Store.
@@ -324,7 +324,7 @@ class KeyValueStore(pulumi.CustomResource):
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['KeyValueStoreTimeoutsArgs', 'KeyValueStoreTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['KeyValueStoreTimeoutsArgs', 'KeyValueStoreTimeoutsArgsDict', 'outputs.KeyValueStoreTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -359,7 +359,7 @@ class KeyValueStore(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['KeyValueStoreTimeoutsArgs', 'KeyValueStoreTimeoutsArgsDict']]] = None) -> 'KeyValueStore':
+            timeouts: pulumi.Input[Optional[Union['KeyValueStoreTimeoutsArgs', 'KeyValueStoreTimeoutsArgsDict', 'outputs.KeyValueStoreTimeouts']]] = None) -> 'KeyValueStore':
         """
         Get an existing KeyValueStore resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
